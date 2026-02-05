@@ -82,7 +82,7 @@
     (is-type  mart-pink-hat  martian-civilization )
     ; Asteroid Generic Artifacts - asteroid-generic
     (is-type  asteroid-MG04TN-ice-sample  martian-civilization )
-    (is-type  asteroid-AD-----rock-sample martian-civilization )
+    (is-type  asteroid-AD29TV-rock-sample martian-civilization )
     ; Venus Generic Artifacts - venus-generic
     (is-type  venus-sand-sample venus-generic )
     (is-type  venus-rock-sample venus-generic )
@@ -105,7 +105,7 @@
     (at-artifact  mart-sand-sample            hall-b )
     (at-artifact  mart-laser-gun              hall-b )
     (at-artifact  mart-pink-hat               hall-b )  
-    (at-artifact  asteroid-AD-----rock-sample hall-b )  
+    (at-artifact  asteroid-AD29TV-rock-sample hall-b )  
     (at-artifact  venus-sand-sample           hall-b )
     (at-artifact  venus-rock-sample           hall-b )
 
@@ -123,7 +123,7 @@
     (need-anti-vibration-pods  mart-sand-sample  )
     (need-anti-vibration-pods  mart-laser-gun    )
     (need-anti-vibration-pods  mart-pink-hat     )  
-    (need-anti-vibration-pods  asteroid-AD-----rock-sample )  
+    (need-anti-vibration-pods  asteroid-AD29TV-rock-sample )  
     (need-anti-vibration-pods  venus-sand-sample )
     (need-anti-vibration-pods  venus-rock-sample )
   )
@@ -151,7 +151,7 @@
     (at-artifact  mart-sand-sample            hall-a )
     (at-artifact  mart-laser-gun              hall-a )
     (at-artifact  mart-pink-hat               hall-a )  
-    (at-artifact  asteroid-AD-----rock-sample hall-v )  
+    (at-artifact  asteroid-AD29TV-rock-sample hall-v )  
     (at-artifact  venus-sand-sample           hall-a )
     (at-artifact  venus-rock-sample           hall-a )
     
