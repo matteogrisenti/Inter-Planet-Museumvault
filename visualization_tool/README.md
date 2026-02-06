@@ -1,0 +1,47 @@
+# PDDL Planning Visualizer
+A modular Python tool that creates visual simulations of PDDL planning solutions. It parses domain, problem, and plan files to build an animated environment that shows how actions are executed step-by-step.
+
+## 🛠 Setup
+Create the virtual environment: 
+```bash
+python3 -m venv myenv
+```
+Activate the environment: 
+```bash
+source myenv/bin/activate
+```
+Install requirements: pip install matplotlib>=3.5.0 numpy>=1.21.0 Pillow>=9.0.0
+```bash
+pip install -r visualization_tool/requirements.txt
+```
+
+## 🚀 Usage
+Run the script by pointing it to the directory containing your domain.pddl, problem.pddl, and sas_plan files:
+
+```bash
+cd visualization_tool/
+python main.py <directory>
+```
+
+**Interactive Mode**: When you run the script, you will be prompted to choose a visualization type
+- Option 1: Animated GIF (all steps) - A complete animation of the entire plan.
+- Option 2: Animated GIF (first 50 steps) - A fast preview for debugging long plans.
+- Option 3: Static comparison (initial vs final) - A side-by-side PNG snapshot.
+
+
+## 🖼 Output
+By default, visualizations are saved in the /<directory>/outputs/ directory:
+- *pddl_full_simulation.gif*: Complete animated simulation of the plan.
+- *pddl_preview_50.gif*: A preview focusing on the first 50 actions.
+- *pddl_static_comparison.png*: Side-by-side view of the initial and final states.
+
+
+## 📂 Project Structure
+The code is organized into separate modules for maintainability:
+```graphql
+visualization_tool/
+├── main.py: The entry point that handles user input and orchestrates the process.
+├── parser.py: Handles the regex parsing of PDDL and SAS plan files.
+├── world.py: Tracks the logical state (robot position, artifact status, etc.).
+├── renderer.py: Manages Matplotlib logic, drawing frames, and saving animations.
+```
