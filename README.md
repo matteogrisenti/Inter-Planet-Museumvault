@@ -7,7 +7,7 @@ This project is the implementation of the final evaluation assignment for the un
 Follow the steps below to build and run the project environment.
 
 **Prerequisites**: 
-Ensure you have **Docker Desktop** installed on your machine.
+Ensure you have **Docker Desktop** installed and running on your machine.
 
 **1. Build the Image**:
 Open the terminal inside this project folder and run the following build command:

@@ -38,7 +38,7 @@
       
     ; Asteroid Generic Artifacts
     asteroid-MG04TN-ice-sample  - artifact
-    asteroid-AD-----rock-sample - artifact
+    asteroid-AD29TV-rock-sample - artifact
     
     ; Venus Generic Artifacts
     venus-sand-sample           - artifact
@@ -50,21 +50,41 @@
     ; Entrance leads to Tunnel.
     (connected entrance maintenance-tunnel) (connected maintenance-tunnel entrance)
     ; Assuming Tunnel connects to everything.
-    (connected maintenance-tunnel hall-a)               (connected hall-a maintenance-tunnel)
-    (connected maintenance-tunnel hall-b)               (connected hall-b maintenance-tunnel)
-    (connected maintenance-tunnel cryo-chamber)         (connected cryo-chamber maintenance-tunnel)
-    (connected maintenance-tunnel anti-vibration-pods)  (connected anti-vibration-pods-room maintenance-tunnel)
-    (connected maintenance-tunnel stasis-lab)           (connected stasis-lab maintenance-tunnel)
+    (connected maintenance-tunnel hall-a)                    (connected hall-a maintenance-tunnel)
+    (connected maintenance-tunnel hall-b)                    (connected hall-b maintenance-tunnel)
+    (connected maintenance-tunnel cryo-chamber)              (connected cryo-chamber maintenance-tunnel)
+    (connected maintenance-tunnel anti-vibration-pods-room)  (connected anti-vibration-pods-room maintenance-tunnel)
+    (connected maintenance-tunnel stasis-lab)                (connected stasis-lab maintenance-tunnel)
 
-    ;; ROOM PROPERTIES
-    ;; Rooms are pressurized/safe. Tunnel is not. 
+    ;; ROOM PRESSUR PROPERTIES 
+    ;; Rooms are pressurized/safe. 
+    (is-pressurized entrance )                    (is-pressurized hall-a )
+    (is-pressurized hall-b   )                    (is-pressurized cryo-chamber )
+    (is-pressurized anti-vibration-pods-room )    (is-pressurized stasis-lab )
+    ;; Tunnel is not. 
     (is-unpressurized maintenance-tunnel)
-    ; (is-unsafe hall-b) we consider that at the beginning there is not a mart-quake, so the hall B is safe
 
+    ;; ROOM SAFTY PROPERTIES 
+    ;; All the roms are safe at the beginning. 
+    (is-safe entrance )                   (is-safe hall-a   )
+    (is-safe hall-b   )                   (is-safe cryo-chamber )
+    (is-safe anti-vibration-pods-room )   (is-safe maintenance-tunnel )
+    (is-safe stasis-lab )
+    
+    ;; ROOM DROPOUT TYPE PROPERTIES
+    (is-standard-room hall-a )             (is-standard-room hall-b )
+    (is-standard-room entrance )           (is-standard-room anti-vibration-pods-room ) 
+    (is-standard-room maintenance-tunnel ) (is-standard-room stasis-lab)
+    ;; chiller rooms
+    (is-chill-room cryo-chamber )
 
+    ;; ROOM PICKUP TYPE PROPERTY
+    (contain-free-pod anti-vibration-pods-room)
+    
+    
     ;; ROBOT
-    (at entrance)   ; Robot inital position is in the entrance
-    (handempty)     ; Robot start without any object 
+    (robot-at entrance)   ; Robot inital position is in the entrance
+    (hand-empty)          ; Robot start without any object 
 
     
     ;; ARTIFACTS TYPOLOGY
@@ -81,8 +101,8 @@
     (is-type  mart-laser-gun martian-civilization )
     (is-type  mart-pink-hat  martian-civilization )
     ; Asteroid Generic Artifacts - asteroid-generic
-    (is-type  asteroid-MG04TN-ice-sample  martian-civilization )
-    (is-type  asteroid-AD29TV-rock-sample martian-civilization )
+    (is-type  asteroid-MG04TN-ice-sample  asteroid-generic )
+    (is-type  asteroid-AD29TV-rock-sample asteroid-generic )
     ; Venus Generic Artifacts - venus-generic
     (is-type  venus-sand-sample venus-generic )
     (is-type  venus-rock-sample venus-generic )
@@ -92,67 +112,86 @@
     ; Hall A: The artifact that need to be cooled down in the Cryo Chamber 
     ;         The artifact that need to be cooled down are the Core Drill, Ice & Organic Sample
     ; Core Drill Artifact
-    (at-artifact  mart-nord-core-drill        hall-a )
-    (at-artifact  mart-sud-core-drill         hall-a )
-    (at-artifact  mart-east-core-drill        hall-a )
-    (at-artifact  mart-west-core-drill        hall-a )
+    (artifact-at  mart-nord-core-drill        hall-a )
+    (artifact-at  mart-sud-core-drill         hall-a )
+    (artifact-at  mart-east-core-drill        hall-a )
+    (artifact-at  mart-west-core-drill        hall-a )
     ; Ice & Organic Sample
-    (at-artifact  mart-north-pole-ice-sample  hall-a )
-    (at-artifact  mart-mysterious-egg         hall-a )
-    (at-artifact  asteroid-MG04TN-ice-sample  hall-a )
+    (artifact-at  mart-north-pole-ice-sample  hall-a )
+    (artifact-at  mart-mysterious-egg         hall-a )
+    (artifact-at  asteroid-MG04TN-ice-sample  hall-a )
 
     ; Hall B: All the other stuffs
-    (at-artifact  mart-sand-sample            hall-b )
-    (at-artifact  mart-laser-gun              hall-b )
-    (at-artifact  mart-pink-hat               hall-b )  
-    (at-artifact  asteroid-AD29TV-rock-sample hall-b )  
-    (at-artifact  venus-sand-sample           hall-b )
-    (at-artifact  venus-rock-sample           hall-b )
+    (artifact-at  mart-sand-sample            hall-b )
+    (artifact-at  mart-laser-gun              hall-b )
+    (artifact-at  mart-pink-hat               hall-b )  
+    (artifact-at  asteroid-AD29TV-rock-sample hall-b )  
+    (artifact-at  venus-sand-sample           hall-b )
+    (artifact-at  venus-rock-sample           hall-b )
 
-
+ 
     ;; ARTIFACTS INITIAL FEATURES
-    ; Need Chill  -  need-chill
-    (need-chill  mart-nord-core-drill )
-    (need-chill  mart-sud-core-drill  )
-    (need-chill  mart-east-core-drill )
-    (need-chill  mart-west-core-drill )
-    (need-chill  mart-north-pole-ice-sample )
-    (need-chill  mart-mysterious-egg  )
-    (need-chill  asteroid-MG04TN-ice-sample )
-    ; Need Anti Vibration Pods  -  need-anti-vibration-pods
-    (need-anti-vibration-pods  mart-sand-sample  )
-    (need-anti-vibration-pods  mart-laser-gun    )
-    (need-anti-vibration-pods  mart-pink-hat     )  
-    (need-anti-vibration-pods  asteroid-AD29TV-rock-sample )  
-    (need-anti-vibration-pods  venus-sand-sample )
-    (need-anti-vibration-pods  venus-rock-sample )
+    ; Temperature Features
+    (warm  mart-nord-core-drill )          (warm  mart-sud-core-drill  )
+    (warm  mart-east-core-drill )          (warm  mart-west-core-drill )
+    (warm  mart-north-pole-ice-sample )    (warm  mart-mysterious-egg  )
+    (warm  asteroid-MG04TN-ice-sample )    (warm  mart-sand-sample )
+    (warm  mart-laser-gun )                (warm  mart-pink-hat )
+    (warm  asteroid-AD29TV-rock-sample )   (warm  venus-sand-sample )
+    (warm  venus-rock-sample )
+
+    ; Need Anti Vibration Pods  -  fragile
+    (fragile  mart-sand-sample  )
+    (fragile  mart-laser-gun    )
+    (fragile  mart-pink-hat     )  
+    (fragile  asteroid-AD29TV-rock-sample )  
+    (fragile  venus-sand-sample )
+    (fragile  venus-rock-sample )
+
+    ; Artifacl in Hall A - no-fragile
+    (no-fragile mart-nord-core-drill )      (no-fragile mart-sud-core-drill )
+    (no-fragile mart-east-core-drill )      (no-fragile mart-west-core-drill )
+    (no-fragile mart-mysterious-egg  )      (no-fragile asteroid-MG04TN-ice-sample )
+    (no-fragile mart-north-pole-ice-sample )
   )
 
   ;; The goal is reached when all the artifact where bringed in their final destitation:
-  ;     - Mart Core Artifacts need to be inside the Stasis-Lab
+  ;     - Mart Core Artifacts need to be cold and inside the Stasis-Lab
   ;     - The other artifact that need to be cold are in the Cry Chamber 
   ;     - The artifact in Hall B must be retrive and replaced in the Hall A ( evacuated from the danger room )
   
   ; Nota 4: We can add the possibility to the other artifact that need to be cold to be both in the Cry Chamber or 
   ; in the Stasis-Lab. In this way we test if the planner is able to reach the optimal goal or a suboptimal case
 
-  :goal( and (
-      
+  (:goal (and
+    ; LOCATION CONSTRAINTS 
     ; Mart Core Artifacts need to be inside the Stasis-Lab
-    (at-artifact  mart-nord-core-drill        stasis-lab )
-    (at-artifact  mart-sud-core-drill         stasis-lab )
-    (at-artifact  mart-east-core-drill        stasis-lab )
-    (at-artifact  mart-west-core-drill        stasis-lab )
+    (artifact-at  mart-nord-core-drill        stasis-lab )  
+    (artifact-at  mart-sud-core-drill         stasis-lab )   
+    (artifact-at  mart-east-core-drill        stasis-lab ) 
+    (artifact-at  mart-west-core-drill        stasis-lab )
     ; The other artifact that need to be cold are in the Cry Chamber 
-    (at-artifact  mart-north-pole-ice-sample  cryo-chamber )
-    (at-artifact  mart-mysterious-egg         cryo-chamber )    
-    (at-artifact  asteroid-MG04TN-ice-sample  cryo-chamber )
+    (artifact-at  mart-north-pole-ice-sample  cryo-chamber )
+    (artifact-at  mart-mysterious-egg         cryo-chamber )    
+    (artifact-at  asteroid-MG04TN-ice-sample  cryo-chamber )
     ; The artifact in Hall B must be retrive and replaced in the Hall A 
-    (at-artifact  mart-sand-sample            hall-a )
-    (at-artifact  mart-laser-gun              hall-a )
-    (at-artifact  mart-pink-hat               hall-a )  
-    (at-artifact  asteroid-AD29TV-rock-sample hall-v )  
-    (at-artifact  venus-sand-sample           hall-a )
-    (at-artifact  venus-rock-sample           hall-a )
-    
-  ))
+    (artifact-at  mart-sand-sample            hall-a )
+    (artifact-at  mart-laser-gun              hall-a )
+    (artifact-at  mart-pink-hat               hall-a )  
+    (artifact-at  asteroid-AD29TV-rock-sample hall-a )  
+    (artifact-at  venus-sand-sample           hall-a )
+    (artifact-at  venus-rock-sample           hall-a ) 
+
+    ; TEMPERATURE CONSTRAINT
+    (cold  mart-nord-core-drill )  
+    (cold  mart-sud-core-drill  )   
+    (cold  mart-east-core-drill ) 
+    (cold  mart-west-core-drill )
+    ;; the artifact that need to be in the cry chamber are for default cold; becouse the domain
+    ;; is modelled as instant cool down process, so they can be homitted
+    ; (cold  mart-north-pole-ice-sample )
+    ; (cold  mart-mysterious-egg        )    
+    ; (cold  asteroid-MG04TN-ice-sample )
+    )   
+  )
+)
