@@ -3,7 +3,7 @@
 
   (:objects
     ;; Robot
-    curator
+    curator   - robot
 
     ;; Locations (from map) 
     entrance                    - location

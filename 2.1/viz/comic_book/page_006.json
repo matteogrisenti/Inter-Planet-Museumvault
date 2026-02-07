@@ -1,0 +1,22 @@
+{
+    "title": "Episode 6: Delivery Complete",
+    "page_num": 6,
+    "text": [
+        "EPISODE 6",
+        "==============================",
+        "",
+        "INITIAL STATE:",
+        "  \u2022 Robot Location: cryo-chamber",
+        "  \u2022 Hand Status: Empty",
+        "",
+        "ACTIONS:",
+        "  1. PICK UP mart-nord-core-drill at cryo-chamber",
+        "  2. Robot moves carrying mart-nord-core-drill: cryo-chamber -> maintenance-tunnel",
+        "  3. Robot moves carrying mart-nord-core-drill: maintenance-tunnel -> stasis-lab",
+        "  4. DROP mart-nord-core-drill at stasis-lab",
+        "",
+        "TERMINAL STATE:",
+        "  \u2022 Robot Location: stasis-lab",
+        "  \u2022 Action Result: DROP mart-nord-core-drill at stasis-lab"
+    ]
+}

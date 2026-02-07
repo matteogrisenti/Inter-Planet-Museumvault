@@ -1,0 +1,13 @@
+{
+    "title": "Prologue: The Vault Opens",
+    "page_num": 0,
+    "text": [
+        "INITIAL STATE:",
+        "  \u2022 Robot Location: entrance",
+        "  \u2022 Artifacts to move: 13",
+        "",
+        "PLAN OVERVIEW:",
+        "  \u2022 Total Steps: 167",
+        "  \u2022 Mission Start..."
+    ]
+}

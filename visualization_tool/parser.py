@@ -5,10 +5,21 @@ class PDDLParser:
     """Parser for PDDL domain and problem files."""
     
     @staticmethod
+    def remove_comments(content: str) -> str:
+        """Removes all comments (starting with ;) from the PDDL content."""
+        lines = []
+        for line in content.splitlines():
+            # Keep everything before the first semicolon
+            clean_line = line.split(';')[0]
+            lines.append(clean_line)
+        return '\n'.join(lines)
+
+    @staticmethod
     def parse_domain(filepath: str) -> Dict[str, Any]:
-        """Parse PDDL domain file to extract types and predicates."""
         with open(filepath, 'r') as f:
-            content = f.read()
+            raw_content = f.read()
+        
+        content = PDDLParser.remove_comments(raw_content)
         
         domain_data = {
             'name': None,
@@ -17,28 +28,28 @@ class PDDLParser:
             'actions': []
         }
         
-        # Extract domain name
-        name_match = re.search(r'\(define\s+\(domain\s+(\S+)\)', content)
+        name_match = re.search(r'\(define\s+\(domain\s+(\S+)\)', content, re.IGNORECASE)
         if name_match:
             domain_data['name'] = name_match.group(1)
         
-        # Extract types
-        types_match = re.search(r'\(:types\s+(.*?)\)', content, re.DOTALL)
+        types_match = re.search(r'\(:types\s+(.*?)\)', content, re.DOTALL | re.IGNORECASE)
         if types_match:
             types_text = types_match.group(1)
-            domain_data['types'] = [t.strip() for t in types_text.split() if t.strip() and t.strip() != '-']
+            # Normalize types to lowercase just in case
+            domain_data['types'] = [t.strip().lower() for t in types_text.split() if t.strip() and t.strip() != '-']
         
-        # Extract action names
         action_pattern = r'\(:action\s+(\S+)'
-        domain_data['actions'] = re.findall(action_pattern, content)
+        # Normalize action names to lowercase
+        domain_data['actions'] = [a.lower() for a in re.findall(action_pattern, content, re.IGNORECASE)]
         
         return domain_data
     
     @staticmethod
     def parse_problem(filepath: str) -> Dict[str, Any]:
-        """Parse PDDL problem file to extract objects and initial state."""
         with open(filepath, 'r') as f:
-            content = f.read()
+            raw_content = f.read()
+            
+        content = PDDLParser.remove_comments(raw_content)
         
         problem_data = {
             'name': None,
@@ -50,105 +61,109 @@ class PDDLParser:
             'initial_state': {}
         }
         
-        # Extract problem name
-        name_match = re.search(r'\(define\s+\(problem\s+(\S+)\)', content)
+        # 1. Metadata
+        name_match = re.search(r'\(define\s+\(problem\s+(\S+)\)', content, re.IGNORECASE)
         if name_match:
             problem_data['name'] = name_match.group(1)
         
-        # Extract domain reference
-        domain_match = re.search(r'\(:domain\s+(\S+)\)', content)
+        domain_match = re.search(r'\(:domain\s+(\S+)\)', content, re.IGNORECASE)
         if domain_match:
             problem_data['domain'] = domain_match.group(1)
         
-        # Extract objects section - improved parsing
-        objects_match = re.search(r'\(:objects(.*?)\n\s*\)', content, re.DOTALL)
-        if objects_match:
-            objects_text = objects_match.group(1)
+        # 2. Objects (Now with Lowercase Normalization)
+        obj_start = re.search(r'\(:objects', content, re.IGNORECASE)
+        if obj_start:
+            start_idx = obj_start.end()
+            objects_text, _ = PDDLParser._extract_balanced_block(content, start_idx)
             
-            # Remove comments
-            lines = []
-            for line in objects_text.split('\n'):
-                # Remove comment part
-                if ';' in line:
-                    line = line[:line.index(';')]
-                lines.append(line.strip())
-            
-            objects_text = ' '.join(lines)
-            
-            # Parse object declarations: name1 name2 - type
-            parts = re.split(r'\s+-\s+', objects_text)
+            flat_text = objects_text.replace('\n', ' ')
+            parts = re.split(r'\s+-\s+', flat_text)
             
             for i in range(1, len(parts)):
-                # Get type (last word of this part before next -)
-                type_and_names = parts[i].split()
-                if not type_and_names:
-                    continue
-                    
-                obj_type = type_and_names[0]
+                current_chunk = parts[i].split()
+                if not current_chunk: continue
                 
-                # Get names (remaining words from previous part)
-                if i > 0:
-                    prev_part = parts[i-1]
-                    obj_names = prev_part.split()
-                    
-                    if obj_type not in problem_data['objects']:
-                        problem_data['objects'][obj_type] = []
-                    
-                    problem_data['objects'][obj_type].extend(obj_names)
-                    
-                    # Store locations and artifacts separately
-                    if obj_type == 'location':
-                        problem_data['locations'].extend(obj_names)
-                    elif obj_type == 'artifact':
-                        problem_data['artifacts'].extend(obj_names)
-        
-        # Parse initial state
-        init_match = re.search(r'\(:init\s+(.*?)\)\s+\(:goal', content, re.DOTALL)
-        if init_match:
-            init_text = init_match.group(1)
+                obj_type = current_chunk[0].lower() # Lowercase Type
+                
+                if i == 1:
+                    prev_chunk = parts[i-1].split()
+                    obj_names = prev_chunk
+                else:
+                    prev_chunk = parts[i-1].split()
+                    obj_names = prev_chunk[1:]
+                
+                # --- CRITICAL FIX: Lowercase all object names ---
+                obj_names = [name.lower() for name in obj_names]
+                
+                if obj_type not in problem_data['objects']:
+                    problem_data['objects'][obj_type] = []
+                
+                problem_data['objects'][obj_type].extend(obj_names)
+                
+                if obj_type == 'location':
+                    problem_data['locations'].extend(obj_names)
+                elif 'artifact' in obj_type or 'item' in obj_type:
+                    problem_data['artifacts'].extend(obj_names)
+
+        # 3. Init State (Now with Lowercase Normalization)
+        init_start = re.search(r'\(:init', content, re.IGNORECASE)
+        if init_start:
+            start_idx = init_start.end()
+            init_text, _ = PDDLParser._extract_balanced_block(content, start_idx)
             
-            # Extract connections
-            connection_pattern = r'\(connected\s+(\S+)\s+(\S+)\)'
-            connections = re.findall(connection_pattern, init_text)
-            problem_data['connections'] = connections
-            
-            # Extract all predicates
-            predicate_pattern = r'\(([^)]+)\)'
+            predicate_pattern = r'\(\s*([^\s\)]+)(?:\s+([^)]*))?\s*\)'
             predicates = re.findall(predicate_pattern, init_text)
             
-            for pred in predicates:
-                parts = pred.split()
-                if len(parts) > 0:
-                    pred_name = parts[0]
-                    pred_args = parts[1:]
-                    
-                    if pred_name not in problem_data['initial_state']:
-                        problem_data['initial_state'][pred_name] = []
-                    
-                    problem_data['initial_state'][pred_name].append(tuple(pred_args))
-        
+            for pred_name, args_str in predicates:
+                pred_name = pred_name.lower()
+                
+                # --- CRITICAL FIX: Lowercase all arguments ---
+                args = [a.lower() for a in args_str.split()] if args_str else []
+                
+                if 'connected' in pred_name and len(args) >= 2:
+                    problem_data['connections'].append((args[0], args[1]))
+                
+                if pred_name not in problem_data['initial_state']:
+                    problem_data['initial_state'][pred_name] = []
+                
+                problem_data['initial_state'][pred_name].append(tuple(args))
+
         return problem_data
     
     @staticmethod
-    def parse_plan(filepath: str) -> List[Tuple[str, List[str]]]:
-        """Parse SAS plan file to extract actions."""
-        actions = []
+    def _extract_balanced_block(content: str, start_index: int) -> Tuple[str, int]:
+        balance = 1 
+        current_idx = start_index
+        extracted = []
         
+        while current_idx < len(content) and balance > 0:
+            char = content[current_idx]
+            if char == '(':
+                balance += 1
+            elif char == ')':
+                balance -= 1
+            
+            if balance > 0:
+                extracted.append(char)
+            current_idx += 1
+            
+        return "".join(extracted), current_idx
+
+    @staticmethod
+    def parse_plan(filepath: str) -> List[Tuple[str, List[str]]]:
+        actions = []
         with open(filepath, 'r') as f:
             for line in f:
-                line = line.strip()
-                if not line or line.startswith(';'):
-                    continue
+                line = line.split(';')[0].strip()
+                if not line: continue
                 
-                # Remove outer parentheses
                 if line.startswith('(') and line.endswith(')'):
                     line = line[1:-1]
                 
-                # Split action name and parameters
                 parts = line.split()
                 if parts:
-                    action_name = parts[0]
-                    parameters = parts[1:]
+                    # --- CRITICAL FIX: Lowercase action name and parameters ---
+                    action_name = parts[0].lower()
+                    parameters = [p.lower() for p in parts[1:]]
                     actions.append((action_name, parameters))
-        
         return actions

@@ -1,0 +1,22 @@
+{
+    "title": "Episode 31: Delivery Complete",
+    "page_num": 31,
+    "text": [
+        "EPISODE 31",
+        "==============================",
+        "",
+        "INITIAL STATE:",
+        "  \u2022 Robot Location: hall-b",
+        "  \u2022 Hand Status: Occupied",
+        "",
+        "ACTIONS:",
+        "  1. [SECURE] Robot picks up asteroid-ad29tv-rock-sample in pod at hall-b",
+        "  2. Robot moves with asteroid-ad29tv-rock-sample in pod: hall-b -> maintenance-tunnel",
+        "  3. Robot moves with asteroid-ad29tv-rock-sample in pod: maintenance-tunnel -> hall-a",
+        "  4. UNLOAD asteroid-ad29tv-rock-sample from pod at hall-a",
+        "",
+        "TERMINAL STATE:",
+        "  \u2022 Robot Location: hall-a",
+        "  \u2022 Action Result: UNLOAD asteroid-ad29tv-rock-sample from pod at hall-a"
+    ]
+}

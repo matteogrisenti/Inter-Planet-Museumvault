@@ -1,0 +1,23 @@
+{
+    "title": "Episode 7: Delivery Complete",
+    "page_num": 7,
+    "text": [
+        "EPISODE 7",
+        "==============================",
+        "",
+        "INITIAL STATE:",
+        "  \u2022 Robot Location: hall-a",
+        "  \u2022 Hand Status: Empty",
+        "  \u2022 Context: Arrived after 2 transit steps.",
+        "",
+        "ACTIONS:",
+        "  1. PICK UP mart-north-pole-ice-sample at hall-a",
+        "  2. Robot moves carrying mart-north-pole-ice-sample: hall-a -> maintenance-tunnel",
+        "  3. Robot moves carrying mart-north-pole-ice-sample: maintenance-tunnel -> cryo-chamber",
+        "  4. DROP mart-north-pole-ice-sample in cryo-chamber (now cold)",
+        "",
+        "TERMINAL STATE:",
+        "  \u2022 Robot Location: cryo-chamber",
+        "  \u2022 Action Result: DROP mart-north-pole-ice-sample in cryo-chamber (now cold)"
+    ]
+}

@@ -1,0 +1,23 @@
+{
+    "title": "Episode 22: Delivery Complete",
+    "page_num": 22,
+    "text": [
+        "EPISODE 22",
+        "==============================",
+        "",
+        "INITIAL STATE:",
+        "  \u2022 Robot Location: anti-vibration-pods-room",
+        "  \u2022 Hand Status: Empty",
+        "",
+        "ACTIONS:",
+        "  1. PICK UP empty pod at anti-vibration-pods-room",
+        "  2. [SECURE] Robot picks up mart-east-core-drill in pod at anti-vibration-pods-room",
+        "  3. Robot moves with mart-east-core-drill in pod: anti-vibration-pods-room -> maintenance-tunnel",
+        "  4. Robot moves with mart-east-core-drill in pod: maintenance-tunnel -> hall-b",
+        "  5. UNLOAD mart-east-core-drill from pod at hall-b",
+        "",
+        "TERMINAL STATE:",
+        "  \u2022 Robot Location: hall-b",
+        "  \u2022 Action Result: UNLOAD mart-east-core-drill from pod at hall-b"
+    ]
+}

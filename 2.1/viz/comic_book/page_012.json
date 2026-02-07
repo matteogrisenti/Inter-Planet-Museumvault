@@ -1,0 +1,22 @@
+{
+    "title": "Episode 12: Delivery Complete",
+    "page_num": 12,
+    "text": [
+        "EPISODE 12",
+        "==============================",
+        "",
+        "INITIAL STATE:",
+        "  \u2022 Robot Location: stasis-lab",
+        "  \u2022 Hand Status: Empty",
+        "",
+        "ACTIONS:",
+        "  1. PICK UP mart-east-core-drill at stasis-lab",
+        "  2. Robot moves carrying mart-east-core-drill: stasis-lab -> maintenance-tunnel",
+        "  3. Robot moves carrying mart-east-core-drill: maintenance-tunnel -> anti-vibration-pods-room",
+        "  4. DROP mart-east-core-drill at anti-vibration-pods-room",
+        "",
+        "TERMINAL STATE:",
+        "  \u2022 Robot Location: anti-vibration-pods-room",
+        "  \u2022 Action Result: DROP mart-east-core-drill at anti-vibration-pods-room"
+    ]
+}

@@ -2,9 +2,8 @@
   (:requirements :strips :typing)
 
   ;; Types derived from scenario entities 
-  ; The robot is not a type, becouse in this scenario we have only one robot
-  ; so it can be modelled as one object in the problem file.
   (:types  
+    robot
     location          ; Locations: the different rooms in the enviroment
     artifact          ; Artifacts: the different artifact in the enviroment
     artifact-type     ; Artifacts Tipologies: the different tipologies of artifacts in the enviroment

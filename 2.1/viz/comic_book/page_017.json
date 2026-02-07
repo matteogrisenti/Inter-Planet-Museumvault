@@ -1,0 +1,22 @@
+{
+    "title": "Episode 17: Delivery Complete",
+    "page_num": 17,
+    "text": [
+        "EPISODE 17",
+        "==============================",
+        "",
+        "INITIAL STATE:",
+        "  \u2022 Robot Location: hall-b",
+        "  \u2022 Hand Status: Occupied",
+        "",
+        "ACTIONS:",
+        "  1. [SECURE] Robot picks up mart-laser-gun in pod at hall-b",
+        "  2. Robot moves with mart-laser-gun in pod: hall-b -> maintenance-tunnel",
+        "  3. Robot moves with mart-laser-gun in pod: maintenance-tunnel -> hall-a",
+        "  4. UNLOAD mart-laser-gun from pod at hall-a",
+        "",
+        "TERMINAL STATE:",
+        "  \u2022 Robot Location: hall-a",
+        "  \u2022 Action Result: UNLOAD mart-laser-gun from pod at hall-a"
+    ]
+}

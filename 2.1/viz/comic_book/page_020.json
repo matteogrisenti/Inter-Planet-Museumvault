@@ -1,0 +1,22 @@
+{
+    "title": "Episode 20: Delivery Complete",
+    "page_num": 20,
+    "text": [
+        "EPISODE 20",
+        "==============================",
+        "",
+        "INITIAL STATE:",
+        "  \u2022 Robot Location: hall-b",
+        "  \u2022 Hand Status: Occupied",
+        "",
+        "ACTIONS:",
+        "  1. [SECURE] Robot picks up mart-pink-hat in pod at hall-b",
+        "  2. Robot moves with mart-pink-hat in pod: hall-b -> maintenance-tunnel",
+        "  3. Robot moves with mart-pink-hat in pod: maintenance-tunnel -> hall-a",
+        "  4. UNLOAD mart-pink-hat from pod at hall-a",
+        "",
+        "TERMINAL STATE:",
+        "  \u2022 Robot Location: hall-a",
+        "  \u2022 Action Result: UNLOAD mart-pink-hat from pod at hall-a"
+    ]
+}

@@ -8,7 +8,6 @@ class WorldState:
         self.artifacts = problem_data['artifacts']
         self.connections = problem_data['connections']
         
-        # Current state predicates
         self.robot_location = None
         self.artifact_locations = {}
         self.robot_carrying = None
@@ -19,24 +18,33 @@ class WorldState:
         self.artifact_temperatures = {}
         self.artifact_fragility = {}
         
-        # Initialize from problem initial state
         self._initialize_from_problem(problem_data['initial_state'])
     
     def _initialize_from_problem(self, initial_state: Dict[str, List[Tuple]]):
         """Initialize world state from problem initial state."""
-        # Robot location
+        
+        # 1. ROBOT LOCATION
+        if 'at' in initial_state:
+            for obj, loc in initial_state['at']:
+                if 'curator' in obj or 'robot' in obj:
+                    self.robot_location = loc
+        
         if 'robot-at' in initial_state:
             self.robot_location = initial_state['robot-at'][0][0]
-        
-        # Hand empty
-        self.hand_empty = 'hand-empty' in initial_state
-        
-        # Artifact locations
+            
+        # 2. ARTIFACT LOCATIONS
         if 'artifact-at' in initial_state:
             for artifact, location in initial_state['artifact-at']:
                 self.artifact_locations[artifact] = location
         
-        # Artifact temperatures
+        if 'at' in initial_state:
+            for obj, location in initial_state['at']:
+                if obj != 'curator' and 'robot' not in obj:
+                    self.artifact_locations[obj] = location
+
+        # 3. OTHER STATES
+        self.hand_empty = 'hand-empty' in initial_state
+        
         if 'warm' in initial_state:
             for (artifact,) in initial_state['warm']:
                 self.artifact_temperatures[artifact] = 'warm'
@@ -45,7 +53,6 @@ class WorldState:
             for (artifact,) in initial_state['cold']:
                 self.artifact_temperatures[artifact] = 'cold'
         
-        # Artifact fragility
         if 'fragile' in initial_state:
             for (artifact,) in initial_state['fragile']:
                 self.artifact_fragility[artifact] = True
@@ -55,12 +62,10 @@ class WorldState:
                 self.artifact_fragility[artifact] = False
     
     def apply_action(self, action_name: str, parameters: List[str]) -> str:
-        """Apply an action to update the world state. Returns action description."""
         description = f"{action_name}"
         if parameters:
             description += f" ({', '.join(parameters)})"
         
-        # Handle different action types
         if action_name == 'activate-seal':
             self.sealing_mode = True
             return "[LOCK] Robot activates sealing mode"
@@ -136,8 +141,20 @@ class WorldState:
         
         return description
     
+    def to_dict(self) -> Dict[str, Any]:
+        """Export current state to dictionary for debugging."""
+        return {
+            "robot_location": self.robot_location,
+            "artifact_count": len(self.artifact_locations),
+            "hand_empty": self.hand_empty,
+            "robot_carrying": self.robot_carrying,
+            "carrying_in_pod": self.carrying_in_pod,
+            "sealing_mode": self.sealing_mode,
+            # Sort keys for easier reading in JSON
+            "artifact_locations": dict(sorted(self.artifact_locations.items()))
+        }
+    
     def get_state_summary(self) -> str:
-        """Get a text summary of current state."""
         summary = []
         summary.append(f"Robot at: {self.robot_location}")
         
