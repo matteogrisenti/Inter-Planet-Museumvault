@@ -67,9 +67,15 @@
     ;; ROOM SAFTY PROPERTIES 
     ;; All the roms are safe at the beginning. 
     (is-safe entrance )                   (is-safe hall-a   )
-    (is-safe hall-b   )                   (is-safe cryo-chamber )
+    ;; (is-safe hall-b   )                   
+    (is-safe cryo-chamber )
     (is-safe anti-vibration-pods-room )   (is-safe maintenance-tunnel )
     (is-safe stasis-lab )
+
+    ;; CHECKED AND UNCHECKED PROPERTIES
+    (checked entrance )                   (checked hall-a)
+    (checked cryo-chamber)      (checked anti-vibration-pods-room ) (checked maintenance-tunnel ) (checked stasis-lab )
+    (safety-unknown hall-b) ; !Hall B is the only room that need to be checked by the robot, becouse it is the only one that is not safe at the beginning.
     
     ;; ROOM DROPOUT TYPE PROPERTIES
     (is-standard-room hall-a )             (is-standard-room hall-b )

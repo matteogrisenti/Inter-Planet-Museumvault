@@ -1,5 +1,5 @@
 (define (domain single-robot)
-  (:requirements :strips :typing)
+  (:requirements :strips :typing :non-deterministic) ;; ! ADDED NON-DETERMINISTIC REQUIREMENT FOR THE DROP ACTIONS
 
   ;; Types derived from scenario entities 
   ; The robot is not a type, becouse in this scenario we have only one robot
@@ -20,6 +20,9 @@
     (sealing-mode)                              ; Robot mode (sealing or normal)
 
     ;; Locations Features
+    (checked ?l - location)                     ; ! True if the location has been checked by the robot
+    (unchecked ?l - location)                   ; ! True if the location has not been checked by the robot
+    (safety-unknown ?l - location)              ; ! True if the safety status is unknown (allows re-checking)
     (connected ?l1 ?l2 - location)            ; Location are linked or not 
     (is-unpressurized ?l - location)          ; True for tuneel
     (is-pressurized   ?l - location)
@@ -62,6 +65,34 @@
   ;; ========================
 
   ;; MOVEMENT
+
+  ;; Check sismic status of a room: this action is used to check if a room is safe or not.
+  (:action check-seismic-status
+    :parameters (?r - location ?current - location)
+    :precondition (and (robot-at ?current) (connected ?current ?r) (safety-unknown ?r))
+    :effect (and 
+        (checked ?r)
+        (not (safety-unknown ?r))
+        (oneof  ;; NON-DETERMINISTIC EFFECT: the result of the check can be either safe or unsafe
+            (is-safe ?r)          ;; CASE A: Room is safe
+            (not (is-safe ?r))    ;; CASE B: Room is unsafe
+        )
+    )
+  )
+
+  ;; Action to wait for seismic window (resetting knowledge to allow retry)
+  (:action wait-for-seismic-window
+    :parameters (?r - location)
+    :precondition (and 
+        (checked ?r)       ;; We have checked
+        (not (is-safe ?r)) ;; And it is unsafe (earthquake)
+    )
+    :effect (and 
+        (not (checked ?r))      ;; Forget the result
+        (safety-unknown ?r)     ;; Reset to unknown
+    )
+  )
+
   ;; A: Moving Empty (No artifact constraints)
   ;; 1. Move Empty to a Safe Room (No sealing needed)
   (:action move-empty-safe
