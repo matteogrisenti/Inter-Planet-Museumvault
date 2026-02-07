@@ -16,21 +16,46 @@ class ComicBookGenerator:
         self.output_dir.mkdir(parents=True, exist_ok=True)
         self.visualizer = Visualizer(problem_data, plan)
         
+    def _get_agent_status(self, state: WorldState) -> Dict[str, str]:
+        """Helper to extract rich status info from the world state."""
+        # 1. Determine Hand Status
+        if state.hand_empty:
+            hand = "Empty"
+        elif state.carrying_empty_pods:
+            hand = "Holding Empty Pod"
+        elif state.carrying_in_pod:
+            hand = f"Carrying {state.carrying_in_pod} (in Pod)"
+        elif state.robot_carrying:
+            hand = f"Carrying {state.robot_carrying}"
+        else:
+            hand = "Unknown"
+            
+        # 2. Determine Seal Status
+        seal = "Sealed (Pressurized)" if state.sealing_mode else "Unsealed (Normal)"
+        
+        return {
+            "loc": state.robot_location,
+            "hand": hand,
+            "seal": seal
+        }
+
     def generate(self):
-        """Generates the comic book pages (images and structured text logs)."""
+        """Generates the comic book pages with strict segmentation for Transit vs Delivery."""
         print(f"🎨 Generating Comic Book in: {self.output_dir}")
         
         sim = WorldState(self.problem_data)
         
         # --- PROLOGUE ---
+        start_status = self._get_agent_status(sim)
         self._save_page(
             page_num=0,
             title="Prologue: The Vault Opens",
             state=sim,
             text_lines=[
-                "INITIAL STATE:",
-                f"  • Robot Location: {sim.robot_location}",
-                f"  • Artifacts to move: {len(sim.artifact_locations)}",
+                "INITIAL STATUS:",
+                f"  • Location:   {start_status['loc']}",
+                f"  • Inventory:  {start_status['hand']}",
+                f"  • Artifacts:  {len(sim.artifact_locations)} items pending",
                 "",
                 "PLAN OVERVIEW:",
                 f"  • Total Steps: {len(self.plan)}",
@@ -39,111 +64,95 @@ class ComicBookGenerator:
         )
         
         episode_count = 1
-        current_episode_actions = []
-        transit_actions = [] 
+        current_batch_actions = []
+        batch_type = "TRANSIT" 
         
-        in_mission = False
-        
-        # We need to capture the state *before* the pickup starts
-        start_state_desc = []
+        # Capture state BEFORE the batch begins
+        batch_start_info = self._get_agent_status(sim)
         
         for action_name, params in self.plan:
-            # 1. CAPTURE START OF EPISODE (Pick Up)
-            if 'pick-up' in action_name and not in_mission:
-                in_mission = True
+            
+            # --- CHECK FOR MODE SWITCHING (Transit -> Delivery) ---
+            if 'pick-up' in action_name and batch_type == "TRANSIT":
+                # Close the Transit Batch (if any moves happened)
+                if current_batch_actions:
+                    self._save_episode(episode_count, "TRANSIT", batch_start_info, current_batch_actions, sim)
+                    episode_count += 1
                 
-                # Snapshot the "Initial State" of this episode
-                # (The state after transit but before the pickup)
-                start_state_desc = [
-                    f"  • Robot Location: {sim.robot_location}",
-                    f"  • Hand Status: {'Empty' if sim.hand_empty else 'Occupied'}"
-                ]
-                if transit_actions:
-                    start_state_desc.append(f"  • Context: Arrived after {len(transit_actions)} transit steps.")
-                
-                # Apply the pick-up action
-                desc = sim.apply_action(action_name, params)
-                current_episode_actions.append(desc)
-                
-            # 2. CAPTURE END OF EPISODE (Drop)
-            elif 'drop' in action_name and in_mission:
-                # Apply the drop action
-                desc = sim.apply_action(action_name, params)
-                current_episode_actions.append(desc)
-                in_mission = False
-                
-                # Snapshot the "Terminal State"
-                term_state_desc = [
-                    f"  • Robot Location: {sim.robot_location}",
-                    f"  • Action Result: {desc}"
-                ]
-                
-                # Build the structured text
-                lines = [
-                    f"EPISODE {episode_count}",
-                    "=" * 30,
-                    "",
-                    "INITIAL STATE:",
-                    *start_state_desc,
-                    "",
-                    "ACTIONS:",
-                    *[f"  {i+1}. {act}" for i, act in enumerate(current_episode_actions)],
-                    "",
-                    "TERMINAL STATE:",
-                    *term_state_desc
-                ]
-                
-                self._save_page(
-                    page_num=episode_count,
-                    title=f"Episode {episode_count}: Delivery Complete",
-                    state=sim,
-                    text_lines=lines
-                )
-                
+                # Start Delivery Batch
+                batch_type = "DELIVERY"
+                current_batch_actions = []
+                batch_start_info = self._get_agent_status(sim) # State right before pickup
+            
+            # --- EXECUTE ACTION ---
+            desc = sim.apply_action(action_name, params)
+            current_batch_actions.append(desc)
+            
+            # --- CHECK FOR MODE SWITCHING (Delivery -> Transit) ---
+            if 'drop' in action_name and batch_type == "DELIVERY":
+                # Close the Delivery Batch
+                self._save_episode(episode_count, "DELIVERY", batch_start_info, current_batch_actions, sim)
                 episode_count += 1
-                current_episode_actions = []
-                transit_actions = []
                 
-            else:
-                # Apply intermediate actions
-                desc = sim.apply_action(action_name, params)
-                
-                if in_mission:
-                    current_episode_actions.append(desc)
-                else:
-                    transit_actions.append(desc)
-        
-        # --- EPILOGUE ---
-        if transit_actions or current_episode_actions:
-             final_log = transit_actions + current_episode_actions
-             self._save_page(
-                page_num=episode_count,
-                title="Epilogue: Mission Debrief",
-                state=sim,
-                text_lines=["FINAL STATUS", "-"*20, "Remaining Actions:"] + final_log
-            )
+                # Start Transit Batch
+                batch_type = "TRANSIT"
+                current_batch_actions = []
+                batch_start_info = self._get_agent_status(sim) # State right after drop
+
+        # --- EPILOGUE (Leftover actions) ---
+        if current_batch_actions:
+            self._save_episode(episode_count, "EPILOGUE", batch_start_info, current_batch_actions, sim)
             
         print(f"✨ Comic Book Generation Complete! ({episode_count} pages)")
 
+    def _save_episode(self, episode_num, batch_type, start_info, actions, final_state):
+        """Formats the detailed text log and saves the page."""
+        
+        final_info = self._get_agent_status(final_state)
+        
+        if batch_type == "TRANSIT":
+            title = f"Episode {episode_num}: Repositioning"
+            context_header = "TRANSIT LOG:"
+        elif batch_type == "DELIVERY":
+            title = f"Episode {episode_num}: Delivery Mission"
+            context_header = "DELIVERY LOG:"
+        else:
+            title = f"Episode {episode_num}: Final Operations"
+            context_header = "ACTION LOG:"
+
+        lines = [
+            f"{batch_type} EPISODE",
+            "=" * 35,
+            "",
+            "INITIAL STATE:",
+            f"  • Location:   {start_info['loc']}",
+            f"  • Inventory:  {start_info['hand']}",
+            f"  • Seal Mode:  {start_info['seal']}",
+            "",
+            context_header,
+            *[f"  {i+1}. {act}" for i, act in enumerate(actions)],
+            "",
+            "TERMINAL STATE:",
+            f"  • Location:   {final_info['loc']}",
+            f"  • Inventory:  {final_info['hand']}",
+            f"  • Seal Mode:  {final_info['seal']}"
+        ]
+        
+        self._save_page(episode_num, title, final_state, lines)
+
     def _save_page(self, page_num: int, title: str, state: WorldState, text_lines: List[str]):
-        """Saves a page as PNG and JSON."""
-        # 1. Save Image
         filename_base = f"page_{page_num:03d}"
         img_path = self.output_dir / f"{filename_base}.png"
         
-        # We create a larger figure to ensure high quality map
+        # High-res figure for the map image
         fig, ax = plt.subplots(figsize=(12, 10))
         self.visualizer._draw_state(ax, state, title)
         plt.savefig(img_path, bbox_inches='tight', dpi=100)
         plt.close(fig)
         
-        # 2. Save Text Data
+        # Save Text Data
         json_path = self.output_dir / f"{filename_base}.json"
-        page_data = {
-            "title": title,
-            "page_num": page_num,
-            "text": text_lines
-        }
+        page_data = {"title": title, "page_num": page_num, "text": text_lines}
         with open(json_path, 'w') as f:
             json.dump(page_data, f, indent=4)
 
@@ -167,20 +176,21 @@ class ComicBookViewer:
 
     def show(self):
         """Launches the interactive viewer."""
-        # Setup Figure: 16x9 aspect ratio works well for screens
+        # 16x9 aspect ratio
         self.fig = plt.figure(figsize=(18, 9)) 
         self.fig.canvas.manager.set_window_title("PDDL Comic Book Viewer")
-        self.fig.patch.set_facecolor('#2C3E50') # Dark slate frame
+        self.fig.patch.set_facecolor('#2C3E50')
         
-        # GridSpec: 1 Row, 2 Columns. 
-        # width_ratios=[1.2, 0.8] gives slightly more space to the map (left) than text (right)
-        gs = self.fig.add_gridspec(1, 2, width_ratios=[1.2, 0.8])
+        # --- LAYOUT FIX: Use tight margins to maximize space ---
+        plt.subplots_adjust(left=0.02, right=0.98, top=0.92, bottom=0.1)
+        
+        # --- LAYOUT FIX: 50/50 Split (ratio=[1, 1]) ---
+        gs = self.fig.add_gridspec(1, 2, width_ratios=[1, 1])
         
         self.ax_img = self.fig.add_subplot(gs[0, 0]) 
         self.ax_text = self.fig.add_subplot(gs[0, 1]) 
         
-        # Navigation Buttons (Bottom Right Corner)
-        # Position: [left, bottom, width, height]
+        # Navigation Buttons
         ax_prev = plt.axes([0.80, 0.02, 0.08, 0.05])
         ax_next = plt.axes([0.89, 0.02, 0.08, 0.05])
         
@@ -207,15 +217,13 @@ class ComicBookViewer:
             img = plt.imread(str(png_path))
             self.ax_img.clear()
             self.ax_img.imshow(img)
-            self.ax_img.axis('off') # Keep axis off for image, it's fine here
+            self.ax_img.axis('off') 
         
         # --- RIGHT PANEL: TEXT ---
         self.ax_text.clear()
+        self.ax_text.set_facecolor('#ECF0F1')
         
-        # 1. Set the "Paper" Look
-        self.ax_text.set_facecolor('#ECF0F1') # Light grey paper background
-        
-        # 2. Hide Borders/Ticks MANUALLY (Do NOT use axis('off'))
+        # Hide borders
         self.ax_text.set_xticks([])
         self.ax_text.set_yticks([])
         for spine in self.ax_text.spines.values():
@@ -223,23 +231,25 @@ class ComicBookViewer:
         
         full_text = "\n".join(data['text'])
         
-        # Add a title header to the text box
-        self.ax_text.text(0.05, 0.96, data['title'], 
+        # Title Header
+        self.ax_text.text(0.02, 0.96, data['title'], 
                          transform=self.ax_text.transAxes,
                          fontsize=16, weight='bold', color='#2C3E50',
                          verticalalignment='top')
         
-        # Add the body text
-        self.ax_text.text(0.05, 0.88, full_text, 
+        # --- TEXT FIX: Smaller font (10) and tighter spacing (1.25) ---
+        self.ax_text.text(0.02, 0.90, full_text, 
                          transform=self.ax_text.transAxes,
-                         fontsize=12, verticalalignment='top',
-                         fontfamily='monospace', color='#2C3E50', linespacing=1.4)
+                         fontsize=10,             # Smaller font to fit more lines
+                         linespacing=1.25,        # Tighter lines
+                         verticalalignment='top',
+                         fontfamily='monospace', 
+                         color='#2C3E50',
+                         wrap=True)               # Enable basic wrapping logic
         
         # Page indicator
         self.fig.suptitle(f"Page {self.current_idx} / {len(self.pages)-1}", 
                          fontsize=12, color='#BDC3C7', y=0.98)
-        
-        self.fig.canvas.draw_idle()
         
         self.fig.canvas.draw_idle()
 
