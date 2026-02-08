@@ -3,7 +3,11 @@
 
   (:objects
     ;; Robot
-    curator
+    curator                     - robot
+
+    ;; Pods
+    pod1                        - pod
+    pod2                        - pod
 
     ;; Locations (from map) 
     entrance                    - location
@@ -20,7 +24,7 @@
     asteroid-generic        - artifact-type           
     venus-generic           - artifact-type    
       
-    ;; Articats 
+    ;; Artifacts 
     ; Martian Core Artifacts
     mart-nord-core-drill         - artifact
     mart-sud-core-drill          - artifact
@@ -46,6 +50,10 @@
   )
 
   (:init
+    
+    ;; PODS
+    (pod-empty pod1) (pod-empty pod2) ; Both pods are empty at the beginning
+
     ;; TOPOLOGY 
     ; Entrance leads to Tunnel.
     (connected entrance maintenance-tunnel) (connected maintenance-tunnel entrance)
@@ -85,13 +93,13 @@
     (is-chill-room cryo-chamber )
 
     ;; ROOM PICKUP TYPE PROPERTY
-    (contain-free-pod anti-vibration-pods-room)
+    (contains-empty-pod anti-vibration-pods-room pod1)  ; Pod1 is in the anti-vibration-pods-room at the beginning
+    (contains-empty-pod anti-vibration-pods-room pod2)  ; Pod2 is in the anti-vibration-pods-room at the beginning
     
     
     ;; ROBOT
-    (robot-at entrance)   ; Robot inital position is in the entrance
-    (hand-empty)          ; Robot start without any object 
-
+    (robot-at curator entrance)   ; Robot inital position is in the entrance
+    (hands-empty curator)          ; Robot start without any object 
     
     ;; ARTIFACTS TYPOLOGY
     ; Martian Core Artifacts - martian-core

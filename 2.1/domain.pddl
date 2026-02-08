@@ -77,28 +77,28 @@
 
   ;; ! Check sismic status of a room: this action is used to check if a room is safe or not.
   (:action check-seismic-status
-    :parameters (?r - location ?current - location)
-    :precondition (and (robot-at ?current) (connected ?current ?r) (safety-unknown ?r))
+    :parameters (?r - robot ?to ?current - location)
+    :precondition (and (robot-at ?r ?current) (connected ?current ?to) (safety-unknown ?to))
     :effect (and 
-        (checked ?r)
-        (not (safety-unknown ?r))
+        (checked ?to)
+        (not (safety-unknown ?to))
         (oneof  ;; NON-DETERMINISTIC EFFECT: the result of the check can be either safe or unsafe
-            (is-safe ?r)          ;; CASE A: Room is safe
-            (not (is-safe ?r))    ;; CASE B: Room is unsafe
+            (is-safe ?to)          ;; CASE A: Room is safe
+            (not (is-safe ?to))    ;; CASE B: Room is unsafe
         )
     )
   )
 
   ;; ! Action to wait for seismic window (resetting knowledge to allow retry)
   (:action wait-for-seismic-window
-    :parameters (?r - location)
+    :parameters (?l - location)
     :precondition (and 
-        (checked ?r)       ;; We have checked
-        (not (is-safe ?r)) ;; And it is unsafe (earthquake)
+        (checked ?l)       ;; We have checked
+        (not (is-safe ?l)) ;; And it is unsafe (earthquake)
     )
     :effect (and 
-        (not (checked ?r))      ;; Forget the result
-        (safety-unknown ?r)     ;; Reset to unknown
+        (not (checked ?l))      ;; Forget the result
+        (safety-unknown ?l)     ;; Reset to unknown
     )
   )
 
@@ -118,6 +118,7 @@
         (hands-empty ?r)
         (is-pressurized ?to)       ;; Target is pressurized 
         (is-safe ?to)              ;; Target is safe
+        (not (sealing-mode ?r))
     )
     :effect (and (not (robot-at ?r ?from)) (robot-at ?r ?to))
   )
@@ -129,7 +130,7 @@
         (connected ?from ?to)
         (hands-empty ?r)
         (is-unpressurized ?to)     ;; Target is unpressurized
-        (sealing-mode)             ;; Constraint: Must be sealed
+        (sealing-mode ?r)             ;; Constraint: Must be sealed
         (is-safe ?to)              ;; Target is safe
     )
     :effect (and (not (robot-at ?r ?from)) (robot-at ?r ?to))
@@ -145,7 +146,8 @@
         (carrying ?r ?a)
         (no-fragile ?a)            ;; Ensure it's NOT fragile
         (is-pressurized ?to)       ;; Target is pressurized 
-        (is-safe ?to)              ;; Target is safe  
+        (is-safe ?to)              ;; Target is safe
+        (not (sealing-mode ?r))  
     )
     :effect (and 
         (not (robot-at ?r ?from)) (robot-at ?r ?to) (artifact-at ?a ?to) (not (artifact-at ?a ?from)) ;; ! Move robot and artifact together
@@ -160,7 +162,7 @@
         (carrying ?r ?a)
         (no-fragile ?a)            ;; Ensure it's NOT fragile
         (is-unpressurized ?to)     ;; Target is unpressurized
-        (sealing-mode)             ;; Constraint: Must be sealed
+        (sealing-mode ?r)             ;; Constraint: Must be sealed
         (is-safe ?to)              ;; Target is safe
     )
     :effect (and 
@@ -180,7 +182,8 @@
         (carrying-full-pod ?r ?p)              ;; <=
         (pod-contains ?p ?a)
         (is-pressurized ?to)              ;; Target is pressurized 
-        (is-safe ?to)                     ;; Target is safe 
+        (is-safe ?to)                     ;; Target is safe
+        (not (sealing-mode ?r))
     )
     :effect (and 
         (not (robot-at ?r ?from)) (robot-at ?r ?to) (artifact-at ?a ?to) (not (artifact-at ?a ?from)) ;; ! Move robot and artifact together
@@ -190,33 +193,58 @@
   (:action move-fragile-tunnel
     :parameters (?r - robot ?p - pod ?from ?to - location ?a - artifact)
     :precondition (and 
-        (robot-at ?from)
+        (robot-at ?r ?from)
         (connected ?from ?to)
         (carrying-full-pod ?r ?p)              ;; <=
         (pod-contains ?p ?a)
         ;; Constraint: The fragile asrtifact must put inside an 
         ;; anti-vibration-pod to be secured during trasporation
         (is-unpressurized ?to)            ;; Target is unpressurized
-        (sealing-mode)                    ;; Constraint: Must be sealed
+        (sealing-mode ?r)                    ;; Constraint: Must be sealed
         (is-safe ?to)                     ;; Target is safe
     )
     :effect (and 
-        (not (robot-at ?from)) (robot-at ?to) (artifact-at ?a ?to) (not (artifact-at ?a ?from)) ;; ! Move robot and artifact together
+        (not (robot-at ?r ?from)) (robot-at ?r ?to) (artifact-at ?a ?to) (not (artifact-at ?a ?from)) ;; ! Move robot and artifact together
     )
+  )
+
+  ;; Move with Empty Pod to Safe Room (otherwise the robot can't move because previously it required to have just an artifact or empty hands)
+  (:action move-pod-safe
+    :parameters (?r - robot ?p - pod ?from ?to - location)
+    :precondition (and 
+        (robot-at ?r ?from)
+        (connected ?from ?to)
+        (carrying-empty-pod ?r ?p)
+        (is-pressurized ?to) (is-safe ?to)
+        (not (sealing-mode ?r))
+    )
+    :effect (and (not (robot-at ?r ?from)) (robot-at ?r ?to))
+  )
+
+  ;; Move with Empty Pod to Tunnel
+  (:action move-pod-tunnel
+    :parameters (?r - robot ?p - pod ?from ?to - location)
+    :precondition (and 
+        (robot-at ?r ?from)
+        (connected ?from ?to)
+        (carrying-empty-pod ?r ?p)
+        (is-unpressurized ?to) (sealing-mode ?r) (is-safe ?to)
+    )
+    :effect (and (not (robot-at ?r ?from)) (robot-at ?r ?to))
   )
 
 
   ;; SEALING MECHANISM
   ;; Robot activates sealing mode. Can be done anywhere.
   (:action activate-seal
-    :parameters ()
+    :parameters (?r - robot)
     :precondition ()
-    :effect (sealing-mode)
+    :effect (sealing-mode ?r)
   )
   (:action deactivate-seal
-    :parameters ()
+    :parameters (?r - robot)
     :precondition ()
-    :effect (not (sealing-mode))
+    :effect (not (sealing-mode ?r))
   )
 
 
@@ -249,7 +277,7 @@
           (not (hands-empty ?r))
           (carrying-full-pod ?r ?p)
           (carrying ?r ?a)
-          (not(contains-full-pod ?l ?p))
+          (not (contains-full-pod ?l ?p))
       )
   )
   
@@ -302,10 +330,11 @@
         (robot-at ?r ?l)            ; Robot and Artifact in the same 
         (artifact-at ?a ?l)      ; location
         (hands-empty ?r)             ; Robot free
+        (no-fragile  ?a)
     )
     :effect (and 
-        (not (hands-empty)) 
-        (carrying ?a)            
+        (not (hands-empty ?r)) 
+        (carrying ?r ?a)            
         (not (artifact-at ?a ?l))
     )
   )
@@ -316,7 +345,7 @@
   (:action put-in-pod
     :parameters (?a - artifact ?l - location ?r - robot ?p - pod)
     :precondition (and 
-        (robot-at ?l)            ; Robot and Artifact in the same 
+        (robot-at ?r ?l)            ; Robot and Artifact in the same 
         (artifact-at ?a ?l)      ; location
         (carrying-empty-pod ?r ?p)    ; Robot carrying already an empty pod
         (pod-empty ?p)         ; Pod is empty
@@ -354,16 +383,20 @@
   ;; Transition: carrying-in-pod ?a -> carrying-empty-pod
   ;; Logic: We place the artifact down, but keep the empty pod in hand.
   (:action release-artifact-from-pod
-    :parameters (?r - robot ?a - artifact ?l - location)
-    :precondition (and 
+    :parameters (?r - robot ?a - artifact ?l - location ?p - pod) ;; Aggiunto ?p
+    :precondition (and
         (robot-at ?r ?l)
-        (carrying-in-pod ?r ?a)
+        (carrying-full-pod ?r ?p)  ;; Usiamo carrying-full-pod invece di carrying-in-pod
+        (pod-contains ?p ?a)       ;; Specifichiamo cosa c'è dentro
         (is-standard-room ?l)
     )
-    :effect (and 
-        (not (carrying-in-pod ?r ?a))
-        (carrying-empty-pod ?r)      ; Pod remains with robot
+    :effect (and
+        (not (carrying-full-pod ?r ?p))
+        (carrying-empty-pod ?r ?p)      ;; Il robot tiene il pod vuoto (2 argomenti!)
+        (not (carrying ?r ?a))
         (artifact-at ?a ?l)
+        (not (pod-contains ?p ?a))
+        (pod-empty ?p)
     )
   )
 
@@ -375,16 +408,16 @@
   ;; B. Dropping to Cryo-Chamber (Temperature Effect)
   ;; 3. Cryo Drop (From Bare Hands)
   ;; Transition: carrying ?a -> hands-empty
-  (:action drop-in-cryo
-    :parameters (?a - artifact ?l - location)
+  (:action release-artifact-in-cryo
+    :parameters (?r - robot ?a - artifact ?l - location)
     :precondition (and 
-        (robot-at ?l) 
-        (carrying ?a)
+        (robot-at ?r ?l) 
+        (carrying ?r ?a)
         (is-chill-room ?l)
     )
     :effect (and 
-        (not (carrying ?a)) 
-        (hands-empty) 
+        (not (carrying ?r ?a)) 
+        (hands-empty ?r) 
         (artifact-at ?a ?l)
         (not (warm ?a)) (cold ?a) ; Instant Temp Logic
     )
@@ -392,17 +425,20 @@
 
   ;; 4. Cryo Unload (From Pod)
   ;; Transition: carrying-in-pod ?a -> carrying-empty-pod
-  (:action drop-in-cryo-from-pod
-    :parameters (?a - artifact ?l - location)
+  (:action release-artifact-in-cryo-from-pod
+    :parameters (?r - robot ?a - artifact ?l - location ?p - pod)
     :precondition (and 
-        (robot-at ?l)
-        (carrying-in-pod ?a)
+        (robot-at ?r ?l)
+        (carrying-full-pod ?r ?p)
+        (pod-contains ?p ?a)
         (is-chill-room ?l)
     )
     :effect (and 
-        (not (carrying-in-pod ?a))
-        (carrying-empty-pod)     ; Pod remains with robot
+        (not (carrying-full-pod ?r ?p))
+        (carrying-empty-pod ?r ?p)     ; Pod remains with robot
         (artifact-at ?a ?l)
+        (not (pod-contains ?p ?a))
+        (pod-empty ?p)
         (not (warm ?a)) (cold ?a) ; Instant Temp Logic
     )
   )

@@ -4,756 +4,1418 @@ end_version
 begin_metric
 0
 end_metric
-56
+165
 begin_variable
 var0
 -1
-8
+2
 Atom artifact-at(asteroid-ad29tv-rock-sample, anti-vibration-pods-room)
-Atom artifact-at(asteroid-ad29tv-rock-sample, cryo-chamber)
-Atom artifact-at(asteroid-ad29tv-rock-sample, entrance)
-Atom artifact-at(asteroid-ad29tv-rock-sample, hall-a)
-Atom artifact-at(asteroid-ad29tv-rock-sample, hall-b)
-Atom artifact-at(asteroid-ad29tv-rock-sample, maintenance-tunnel)
-Atom artifact-at(asteroid-ad29tv-rock-sample, stasis-lab)
-<none of those>
+NegatedAtom artifact-at(asteroid-ad29tv-rock-sample, anti-vibration-pods-room)
 end_variable
 begin_variable
 var1
 -1
-8
-Atom artifact-at(asteroid-mg04tn-ice-sample, anti-vibration-pods-room)
-Atom artifact-at(asteroid-mg04tn-ice-sample, cryo-chamber)
-Atom artifact-at(asteroid-mg04tn-ice-sample, entrance)
-Atom artifact-at(asteroid-mg04tn-ice-sample, hall-a)
-Atom artifact-at(asteroid-mg04tn-ice-sample, hall-b)
-Atom artifact-at(asteroid-mg04tn-ice-sample, maintenance-tunnel)
-Atom artifact-at(asteroid-mg04tn-ice-sample, stasis-lab)
-<none of those>
+2
+Atom artifact-at(asteroid-ad29tv-rock-sample, cryo-chamber)
+NegatedAtom artifact-at(asteroid-ad29tv-rock-sample, cryo-chamber)
 end_variable
 begin_variable
 var2
 -1
-8
-Atom artifact-at(mart-east-core-drill, anti-vibration-pods-room)
-Atom artifact-at(mart-east-core-drill, cryo-chamber)
-Atom artifact-at(mart-east-core-drill, entrance)
-Atom artifact-at(mart-east-core-drill, hall-a)
-Atom artifact-at(mart-east-core-drill, hall-b)
-Atom artifact-at(mart-east-core-drill, maintenance-tunnel)
-Atom artifact-at(mart-east-core-drill, stasis-lab)
-<none of those>
+2
+Atom artifact-at(asteroid-ad29tv-rock-sample, entrance)
+NegatedAtom artifact-at(asteroid-ad29tv-rock-sample, entrance)
 end_variable
 begin_variable
 var3
 -1
-8
-Atom artifact-at(mart-laser-gun, anti-vibration-pods-room)
-Atom artifact-at(mart-laser-gun, cryo-chamber)
-Atom artifact-at(mart-laser-gun, entrance)
-Atom artifact-at(mart-laser-gun, hall-a)
-Atom artifact-at(mart-laser-gun, hall-b)
-Atom artifact-at(mart-laser-gun, maintenance-tunnel)
-Atom artifact-at(mart-laser-gun, stasis-lab)
-<none of those>
+2
+Atom artifact-at(asteroid-ad29tv-rock-sample, hall-a)
+NegatedAtom artifact-at(asteroid-ad29tv-rock-sample, hall-a)
 end_variable
 begin_variable
 var4
 -1
-8
-Atom artifact-at(mart-mysterious-egg, anti-vibration-pods-room)
-Atom artifact-at(mart-mysterious-egg, cryo-chamber)
-Atom artifact-at(mart-mysterious-egg, entrance)
-Atom artifact-at(mart-mysterious-egg, hall-a)
-Atom artifact-at(mart-mysterious-egg, hall-b)
-Atom artifact-at(mart-mysterious-egg, maintenance-tunnel)
-Atom artifact-at(mart-mysterious-egg, stasis-lab)
-<none of those>
+2
+Atom artifact-at(asteroid-ad29tv-rock-sample, hall-b)
+NegatedAtom artifact-at(asteroid-ad29tv-rock-sample, hall-b)
 end_variable
 begin_variable
 var5
 -1
-8
-Atom artifact-at(mart-nord-core-drill, anti-vibration-pods-room)
-Atom artifact-at(mart-nord-core-drill, cryo-chamber)
-Atom artifact-at(mart-nord-core-drill, entrance)
-Atom artifact-at(mart-nord-core-drill, hall-a)
-Atom artifact-at(mart-nord-core-drill, hall-b)
-Atom artifact-at(mart-nord-core-drill, maintenance-tunnel)
-Atom artifact-at(mart-nord-core-drill, stasis-lab)
-<none of those>
+2
+Atom artifact-at(asteroid-ad29tv-rock-sample, maintenance-tunnel)
+NegatedAtom artifact-at(asteroid-ad29tv-rock-sample, maintenance-tunnel)
 end_variable
 begin_variable
 var6
 -1
-8
-Atom artifact-at(mart-north-pole-ice-sample, anti-vibration-pods-room)
-Atom artifact-at(mart-north-pole-ice-sample, cryo-chamber)
-Atom artifact-at(mart-north-pole-ice-sample, entrance)
-Atom artifact-at(mart-north-pole-ice-sample, hall-a)
-Atom artifact-at(mart-north-pole-ice-sample, hall-b)
-Atom artifact-at(mart-north-pole-ice-sample, maintenance-tunnel)
-Atom artifact-at(mart-north-pole-ice-sample, stasis-lab)
-<none of those>
+2
+Atom artifact-at(asteroid-ad29tv-rock-sample, stasis-lab)
+NegatedAtom artifact-at(asteroid-ad29tv-rock-sample, stasis-lab)
 end_variable
 begin_variable
 var7
 -1
-8
-Atom artifact-at(mart-pink-hat, anti-vibration-pods-room)
-Atom artifact-at(mart-pink-hat, cryo-chamber)
-Atom artifact-at(mart-pink-hat, entrance)
-Atom artifact-at(mart-pink-hat, hall-a)
-Atom artifact-at(mart-pink-hat, hall-b)
-Atom artifact-at(mart-pink-hat, maintenance-tunnel)
-Atom artifact-at(mart-pink-hat, stasis-lab)
-<none of those>
+2
+Atom artifact-at(asteroid-mg04tn-ice-sample, anti-vibration-pods-room)
+NegatedAtom artifact-at(asteroid-mg04tn-ice-sample, anti-vibration-pods-room)
 end_variable
 begin_variable
 var8
 -1
-8
-Atom artifact-at(mart-sand-sample, anti-vibration-pods-room)
-Atom artifact-at(mart-sand-sample, cryo-chamber)
-Atom artifact-at(mart-sand-sample, entrance)
-Atom artifact-at(mart-sand-sample, hall-a)
-Atom artifact-at(mart-sand-sample, hall-b)
-Atom artifact-at(mart-sand-sample, maintenance-tunnel)
-Atom artifact-at(mart-sand-sample, stasis-lab)
-<none of those>
+2
+Atom artifact-at(asteroid-mg04tn-ice-sample, cryo-chamber)
+NegatedAtom artifact-at(asteroid-mg04tn-ice-sample, cryo-chamber)
 end_variable
 begin_variable
 var9
 -1
-8
-Atom artifact-at(mart-sud-core-drill, anti-vibration-pods-room)
-Atom artifact-at(mart-sud-core-drill, cryo-chamber)
-Atom artifact-at(mart-sud-core-drill, entrance)
-Atom artifact-at(mart-sud-core-drill, hall-a)
-Atom artifact-at(mart-sud-core-drill, hall-b)
-Atom artifact-at(mart-sud-core-drill, maintenance-tunnel)
-Atom artifact-at(mart-sud-core-drill, stasis-lab)
-<none of those>
+2
+Atom artifact-at(asteroid-mg04tn-ice-sample, entrance)
+NegatedAtom artifact-at(asteroid-mg04tn-ice-sample, entrance)
 end_variable
 begin_variable
 var10
 -1
-8
-Atom artifact-at(mart-west-core-drill, anti-vibration-pods-room)
-Atom artifact-at(mart-west-core-drill, cryo-chamber)
-Atom artifact-at(mart-west-core-drill, entrance)
-Atom artifact-at(mart-west-core-drill, hall-a)
-Atom artifact-at(mart-west-core-drill, hall-b)
-Atom artifact-at(mart-west-core-drill, maintenance-tunnel)
-Atom artifact-at(mart-west-core-drill, stasis-lab)
-<none of those>
+2
+Atom artifact-at(asteroid-mg04tn-ice-sample, hall-a)
+NegatedAtom artifact-at(asteroid-mg04tn-ice-sample, hall-a)
 end_variable
 begin_variable
 var11
 -1
-8
-Atom artifact-at(venus-rock-sample, anti-vibration-pods-room)
-Atom artifact-at(venus-rock-sample, cryo-chamber)
-Atom artifact-at(venus-rock-sample, entrance)
-Atom artifact-at(venus-rock-sample, hall-a)
-Atom artifact-at(venus-rock-sample, hall-b)
-Atom artifact-at(venus-rock-sample, maintenance-tunnel)
-Atom artifact-at(venus-rock-sample, stasis-lab)
-<none of those>
+2
+Atom artifact-at(asteroid-mg04tn-ice-sample, hall-b)
+NegatedAtom artifact-at(asteroid-mg04tn-ice-sample, hall-b)
 end_variable
 begin_variable
 var12
 -1
-8
-Atom artifact-at(venus-sand-sample, anti-vibration-pods-room)
-Atom artifact-at(venus-sand-sample, cryo-chamber)
-Atom artifact-at(venus-sand-sample, entrance)
-Atom artifact-at(venus-sand-sample, hall-a)
-Atom artifact-at(venus-sand-sample, hall-b)
-Atom artifact-at(venus-sand-sample, maintenance-tunnel)
-Atom artifact-at(venus-sand-sample, stasis-lab)
-<none of those>
+2
+Atom artifact-at(asteroid-mg04tn-ice-sample, maintenance-tunnel)
+NegatedAtom artifact-at(asteroid-mg04tn-ice-sample, maintenance-tunnel)
 end_variable
 begin_variable
 var13
 -1
-28
-Atom carrying(asteroid-ad29tv-rock-sample)
-Atom carrying(asteroid-mg04tn-ice-sample)
-Atom carrying(mart-east-core-drill)
-Atom carrying(mart-laser-gun)
-Atom carrying(mart-mysterious-egg)
-Atom carrying(mart-nord-core-drill)
-Atom carrying(mart-north-pole-ice-sample)
-Atom carrying(mart-pink-hat)
-Atom carrying(mart-sand-sample)
-Atom carrying(mart-sud-core-drill)
-Atom carrying(mart-west-core-drill)
-Atom carrying(venus-rock-sample)
-Atom carrying(venus-sand-sample)
-Atom carrying-empty-pods()
-Atom carrying-in-pod(asteroid-ad29tv-rock-sample)
-Atom carrying-in-pod(asteroid-mg04tn-ice-sample)
-Atom carrying-in-pod(mart-east-core-drill)
-Atom carrying-in-pod(mart-laser-gun)
-Atom carrying-in-pod(mart-mysterious-egg)
-Atom carrying-in-pod(mart-nord-core-drill)
-Atom carrying-in-pod(mart-north-pole-ice-sample)
-Atom carrying-in-pod(mart-pink-hat)
-Atom carrying-in-pod(mart-sand-sample)
-Atom carrying-in-pod(mart-sud-core-drill)
-Atom carrying-in-pod(mart-west-core-drill)
-Atom carrying-in-pod(venus-rock-sample)
-Atom carrying-in-pod(venus-sand-sample)
-Atom hand-empty()
+2
+Atom artifact-at(asteroid-mg04tn-ice-sample, stasis-lab)
+NegatedAtom artifact-at(asteroid-mg04tn-ice-sample, stasis-lab)
 end_variable
 begin_variable
 var14
+-1
+2
+Atom artifact-at(mart-east-core-drill, anti-vibration-pods-room)
+NegatedAtom artifact-at(mart-east-core-drill, anti-vibration-pods-room)
+end_variable
+begin_variable
+var15
+-1
+2
+Atom artifact-at(mart-east-core-drill, cryo-chamber)
+NegatedAtom artifact-at(mart-east-core-drill, cryo-chamber)
+end_variable
+begin_variable
+var16
+-1
+2
+Atom artifact-at(mart-east-core-drill, entrance)
+NegatedAtom artifact-at(mart-east-core-drill, entrance)
+end_variable
+begin_variable
+var17
+-1
+2
+Atom artifact-at(mart-east-core-drill, hall-a)
+NegatedAtom artifact-at(mart-east-core-drill, hall-a)
+end_variable
+begin_variable
+var18
+-1
+2
+Atom artifact-at(mart-east-core-drill, hall-b)
+NegatedAtom artifact-at(mart-east-core-drill, hall-b)
+end_variable
+begin_variable
+var19
+-1
+2
+Atom artifact-at(mart-east-core-drill, maintenance-tunnel)
+NegatedAtom artifact-at(mart-east-core-drill, maintenance-tunnel)
+end_variable
+begin_variable
+var20
+-1
+2
+Atom artifact-at(mart-east-core-drill, stasis-lab)
+NegatedAtom artifact-at(mart-east-core-drill, stasis-lab)
+end_variable
+begin_variable
+var21
+-1
+2
+Atom artifact-at(mart-laser-gun, anti-vibration-pods-room)
+NegatedAtom artifact-at(mart-laser-gun, anti-vibration-pods-room)
+end_variable
+begin_variable
+var22
+-1
+2
+Atom artifact-at(mart-laser-gun, cryo-chamber)
+NegatedAtom artifact-at(mart-laser-gun, cryo-chamber)
+end_variable
+begin_variable
+var23
+-1
+2
+Atom artifact-at(mart-laser-gun, entrance)
+NegatedAtom artifact-at(mart-laser-gun, entrance)
+end_variable
+begin_variable
+var24
+-1
+2
+Atom artifact-at(mart-laser-gun, hall-a)
+NegatedAtom artifact-at(mart-laser-gun, hall-a)
+end_variable
+begin_variable
+var25
+-1
+2
+Atom artifact-at(mart-laser-gun, hall-b)
+NegatedAtom artifact-at(mart-laser-gun, hall-b)
+end_variable
+begin_variable
+var26
+-1
+2
+Atom artifact-at(mart-laser-gun, maintenance-tunnel)
+NegatedAtom artifact-at(mart-laser-gun, maintenance-tunnel)
+end_variable
+begin_variable
+var27
+-1
+2
+Atom artifact-at(mart-laser-gun, stasis-lab)
+NegatedAtom artifact-at(mart-laser-gun, stasis-lab)
+end_variable
+begin_variable
+var28
+-1
+2
+Atom artifact-at(mart-mysterious-egg, anti-vibration-pods-room)
+NegatedAtom artifact-at(mart-mysterious-egg, anti-vibration-pods-room)
+end_variable
+begin_variable
+var29
+-1
+2
+Atom artifact-at(mart-mysterious-egg, cryo-chamber)
+NegatedAtom artifact-at(mart-mysterious-egg, cryo-chamber)
+end_variable
+begin_variable
+var30
+-1
+2
+Atom artifact-at(mart-mysterious-egg, entrance)
+NegatedAtom artifact-at(mart-mysterious-egg, entrance)
+end_variable
+begin_variable
+var31
+-1
+2
+Atom artifact-at(mart-mysterious-egg, hall-a)
+NegatedAtom artifact-at(mart-mysterious-egg, hall-a)
+end_variable
+begin_variable
+var32
+-1
+2
+Atom artifact-at(mart-mysterious-egg, hall-b)
+NegatedAtom artifact-at(mart-mysterious-egg, hall-b)
+end_variable
+begin_variable
+var33
+-1
+2
+Atom artifact-at(mart-mysterious-egg, maintenance-tunnel)
+NegatedAtom artifact-at(mart-mysterious-egg, maintenance-tunnel)
+end_variable
+begin_variable
+var34
+-1
+2
+Atom artifact-at(mart-mysterious-egg, stasis-lab)
+NegatedAtom artifact-at(mart-mysterious-egg, stasis-lab)
+end_variable
+begin_variable
+var35
+-1
+2
+Atom artifact-at(mart-nord-core-drill, anti-vibration-pods-room)
+NegatedAtom artifact-at(mart-nord-core-drill, anti-vibration-pods-room)
+end_variable
+begin_variable
+var36
+-1
+2
+Atom artifact-at(mart-nord-core-drill, cryo-chamber)
+NegatedAtom artifact-at(mart-nord-core-drill, cryo-chamber)
+end_variable
+begin_variable
+var37
+-1
+2
+Atom artifact-at(mart-nord-core-drill, entrance)
+NegatedAtom artifact-at(mart-nord-core-drill, entrance)
+end_variable
+begin_variable
+var38
+-1
+2
+Atom artifact-at(mart-nord-core-drill, hall-a)
+NegatedAtom artifact-at(mart-nord-core-drill, hall-a)
+end_variable
+begin_variable
+var39
+-1
+2
+Atom artifact-at(mart-nord-core-drill, hall-b)
+NegatedAtom artifact-at(mart-nord-core-drill, hall-b)
+end_variable
+begin_variable
+var40
+-1
+2
+Atom artifact-at(mart-nord-core-drill, maintenance-tunnel)
+NegatedAtom artifact-at(mart-nord-core-drill, maintenance-tunnel)
+end_variable
+begin_variable
+var41
+-1
+2
+Atom artifact-at(mart-nord-core-drill, stasis-lab)
+NegatedAtom artifact-at(mart-nord-core-drill, stasis-lab)
+end_variable
+begin_variable
+var42
+-1
+2
+Atom artifact-at(mart-north-pole-ice-sample, anti-vibration-pods-room)
+NegatedAtom artifact-at(mart-north-pole-ice-sample, anti-vibration-pods-room)
+end_variable
+begin_variable
+var43
+-1
+2
+Atom artifact-at(mart-north-pole-ice-sample, cryo-chamber)
+NegatedAtom artifact-at(mart-north-pole-ice-sample, cryo-chamber)
+end_variable
+begin_variable
+var44
+-1
+2
+Atom artifact-at(mart-north-pole-ice-sample, entrance)
+NegatedAtom artifact-at(mart-north-pole-ice-sample, entrance)
+end_variable
+begin_variable
+var45
+-1
+2
+Atom artifact-at(mart-north-pole-ice-sample, hall-a)
+NegatedAtom artifact-at(mart-north-pole-ice-sample, hall-a)
+end_variable
+begin_variable
+var46
+-1
+2
+Atom artifact-at(mart-north-pole-ice-sample, hall-b)
+NegatedAtom artifact-at(mart-north-pole-ice-sample, hall-b)
+end_variable
+begin_variable
+var47
+-1
+2
+Atom artifact-at(mart-north-pole-ice-sample, maintenance-tunnel)
+NegatedAtom artifact-at(mart-north-pole-ice-sample, maintenance-tunnel)
+end_variable
+begin_variable
+var48
+-1
+2
+Atom artifact-at(mart-north-pole-ice-sample, stasis-lab)
+NegatedAtom artifact-at(mart-north-pole-ice-sample, stasis-lab)
+end_variable
+begin_variable
+var49
+-1
+2
+Atom artifact-at(mart-pink-hat, anti-vibration-pods-room)
+NegatedAtom artifact-at(mart-pink-hat, anti-vibration-pods-room)
+end_variable
+begin_variable
+var50
+-1
+2
+Atom artifact-at(mart-pink-hat, cryo-chamber)
+NegatedAtom artifact-at(mart-pink-hat, cryo-chamber)
+end_variable
+begin_variable
+var51
+-1
+2
+Atom artifact-at(mart-pink-hat, entrance)
+NegatedAtom artifact-at(mart-pink-hat, entrance)
+end_variable
+begin_variable
+var52
+-1
+2
+Atom artifact-at(mart-pink-hat, hall-a)
+NegatedAtom artifact-at(mart-pink-hat, hall-a)
+end_variable
+begin_variable
+var53
+-1
+2
+Atom artifact-at(mart-pink-hat, hall-b)
+NegatedAtom artifact-at(mart-pink-hat, hall-b)
+end_variable
+begin_variable
+var54
+-1
+2
+Atom artifact-at(mart-pink-hat, maintenance-tunnel)
+NegatedAtom artifact-at(mart-pink-hat, maintenance-tunnel)
+end_variable
+begin_variable
+var55
+-1
+2
+Atom artifact-at(mart-pink-hat, stasis-lab)
+NegatedAtom artifact-at(mart-pink-hat, stasis-lab)
+end_variable
+begin_variable
+var56
+-1
+2
+Atom artifact-at(mart-sand-sample, anti-vibration-pods-room)
+NegatedAtom artifact-at(mart-sand-sample, anti-vibration-pods-room)
+end_variable
+begin_variable
+var57
+-1
+2
+Atom artifact-at(mart-sand-sample, cryo-chamber)
+NegatedAtom artifact-at(mart-sand-sample, cryo-chamber)
+end_variable
+begin_variable
+var58
+-1
+2
+Atom artifact-at(mart-sand-sample, entrance)
+NegatedAtom artifact-at(mart-sand-sample, entrance)
+end_variable
+begin_variable
+var59
+-1
+2
+Atom artifact-at(mart-sand-sample, hall-a)
+NegatedAtom artifact-at(mart-sand-sample, hall-a)
+end_variable
+begin_variable
+var60
+-1
+2
+Atom artifact-at(mart-sand-sample, hall-b)
+NegatedAtom artifact-at(mart-sand-sample, hall-b)
+end_variable
+begin_variable
+var61
+-1
+2
+Atom artifact-at(mart-sand-sample, maintenance-tunnel)
+NegatedAtom artifact-at(mart-sand-sample, maintenance-tunnel)
+end_variable
+begin_variable
+var62
+-1
+2
+Atom artifact-at(mart-sand-sample, stasis-lab)
+NegatedAtom artifact-at(mart-sand-sample, stasis-lab)
+end_variable
+begin_variable
+var63
+-1
+2
+Atom artifact-at(mart-sud-core-drill, anti-vibration-pods-room)
+NegatedAtom artifact-at(mart-sud-core-drill, anti-vibration-pods-room)
+end_variable
+begin_variable
+var64
+-1
+2
+Atom artifact-at(mart-sud-core-drill, cryo-chamber)
+NegatedAtom artifact-at(mart-sud-core-drill, cryo-chamber)
+end_variable
+begin_variable
+var65
+-1
+2
+Atom artifact-at(mart-sud-core-drill, entrance)
+NegatedAtom artifact-at(mart-sud-core-drill, entrance)
+end_variable
+begin_variable
+var66
+-1
+2
+Atom artifact-at(mart-sud-core-drill, hall-a)
+NegatedAtom artifact-at(mart-sud-core-drill, hall-a)
+end_variable
+begin_variable
+var67
+-1
+2
+Atom artifact-at(mart-sud-core-drill, hall-b)
+NegatedAtom artifact-at(mart-sud-core-drill, hall-b)
+end_variable
+begin_variable
+var68
+-1
+2
+Atom artifact-at(mart-sud-core-drill, maintenance-tunnel)
+NegatedAtom artifact-at(mart-sud-core-drill, maintenance-tunnel)
+end_variable
+begin_variable
+var69
+-1
+2
+Atom artifact-at(mart-sud-core-drill, stasis-lab)
+NegatedAtom artifact-at(mart-sud-core-drill, stasis-lab)
+end_variable
+begin_variable
+var70
+-1
+2
+Atom artifact-at(mart-west-core-drill, anti-vibration-pods-room)
+NegatedAtom artifact-at(mart-west-core-drill, anti-vibration-pods-room)
+end_variable
+begin_variable
+var71
+-1
+2
+Atom artifact-at(mart-west-core-drill, cryo-chamber)
+NegatedAtom artifact-at(mart-west-core-drill, cryo-chamber)
+end_variable
+begin_variable
+var72
+-1
+2
+Atom artifact-at(mart-west-core-drill, entrance)
+NegatedAtom artifact-at(mart-west-core-drill, entrance)
+end_variable
+begin_variable
+var73
+-1
+2
+Atom artifact-at(mart-west-core-drill, hall-a)
+NegatedAtom artifact-at(mart-west-core-drill, hall-a)
+end_variable
+begin_variable
+var74
+-1
+2
+Atom artifact-at(mart-west-core-drill, hall-b)
+NegatedAtom artifact-at(mart-west-core-drill, hall-b)
+end_variable
+begin_variable
+var75
+-1
+2
+Atom artifact-at(mart-west-core-drill, maintenance-tunnel)
+NegatedAtom artifact-at(mart-west-core-drill, maintenance-tunnel)
+end_variable
+begin_variable
+var76
+-1
+2
+Atom artifact-at(mart-west-core-drill, stasis-lab)
+NegatedAtom artifact-at(mart-west-core-drill, stasis-lab)
+end_variable
+begin_variable
+var77
+-1
+2
+Atom artifact-at(venus-rock-sample, anti-vibration-pods-room)
+NegatedAtom artifact-at(venus-rock-sample, anti-vibration-pods-room)
+end_variable
+begin_variable
+var78
+-1
+2
+Atom artifact-at(venus-rock-sample, cryo-chamber)
+NegatedAtom artifact-at(venus-rock-sample, cryo-chamber)
+end_variable
+begin_variable
+var79
+-1
+2
+Atom artifact-at(venus-rock-sample, entrance)
+NegatedAtom artifact-at(venus-rock-sample, entrance)
+end_variable
+begin_variable
+var80
+-1
+2
+Atom artifact-at(venus-rock-sample, hall-a)
+NegatedAtom artifact-at(venus-rock-sample, hall-a)
+end_variable
+begin_variable
+var81
+-1
+2
+Atom artifact-at(venus-rock-sample, hall-b)
+NegatedAtom artifact-at(venus-rock-sample, hall-b)
+end_variable
+begin_variable
+var82
+-1
+2
+Atom artifact-at(venus-rock-sample, maintenance-tunnel)
+NegatedAtom artifact-at(venus-rock-sample, maintenance-tunnel)
+end_variable
+begin_variable
+var83
+-1
+2
+Atom artifact-at(venus-rock-sample, stasis-lab)
+NegatedAtom artifact-at(venus-rock-sample, stasis-lab)
+end_variable
+begin_variable
+var84
+-1
+2
+Atom artifact-at(venus-sand-sample, anti-vibration-pods-room)
+NegatedAtom artifact-at(venus-sand-sample, anti-vibration-pods-room)
+end_variable
+begin_variable
+var85
+-1
+2
+Atom artifact-at(venus-sand-sample, cryo-chamber)
+NegatedAtom artifact-at(venus-sand-sample, cryo-chamber)
+end_variable
+begin_variable
+var86
+-1
+2
+Atom artifact-at(venus-sand-sample, entrance)
+NegatedAtom artifact-at(venus-sand-sample, entrance)
+end_variable
+begin_variable
+var87
+-1
+2
+Atom artifact-at(venus-sand-sample, hall-a)
+NegatedAtom artifact-at(venus-sand-sample, hall-a)
+end_variable
+begin_variable
+var88
+-1
+2
+Atom artifact-at(venus-sand-sample, hall-b)
+NegatedAtom artifact-at(venus-sand-sample, hall-b)
+end_variable
+begin_variable
+var89
+-1
+2
+Atom artifact-at(venus-sand-sample, maintenance-tunnel)
+NegatedAtom artifact-at(venus-sand-sample, maintenance-tunnel)
+end_variable
+begin_variable
+var90
+-1
+2
+Atom artifact-at(venus-sand-sample, stasis-lab)
+NegatedAtom artifact-at(venus-sand-sample, stasis-lab)
+end_variable
+begin_variable
+var91
+-1
+2
+Atom carrying(curator, asteroid-ad29tv-rock-sample)
+NegatedAtom carrying(curator, asteroid-ad29tv-rock-sample)
+end_variable
+begin_variable
+var92
+-1
+2
+Atom carrying(curator, asteroid-mg04tn-ice-sample)
+NegatedAtom carrying(curator, asteroid-mg04tn-ice-sample)
+end_variable
+begin_variable
+var93
+-1
+2
+Atom carrying(curator, mart-east-core-drill)
+NegatedAtom carrying(curator, mart-east-core-drill)
+end_variable
+begin_variable
+var94
+-1
+2
+Atom carrying(curator, mart-laser-gun)
+NegatedAtom carrying(curator, mart-laser-gun)
+end_variable
+begin_variable
+var95
+-1
+2
+Atom carrying(curator, mart-mysterious-egg)
+NegatedAtom carrying(curator, mart-mysterious-egg)
+end_variable
+begin_variable
+var96
+-1
+2
+Atom carrying(curator, mart-nord-core-drill)
+NegatedAtom carrying(curator, mart-nord-core-drill)
+end_variable
+begin_variable
+var97
+-1
+2
+Atom carrying(curator, mart-north-pole-ice-sample)
+NegatedAtom carrying(curator, mart-north-pole-ice-sample)
+end_variable
+begin_variable
+var98
+-1
+2
+Atom carrying(curator, mart-pink-hat)
+NegatedAtom carrying(curator, mart-pink-hat)
+end_variable
+begin_variable
+var99
+-1
+2
+Atom carrying(curator, mart-sand-sample)
+NegatedAtom carrying(curator, mart-sand-sample)
+end_variable
+begin_variable
+var100
+-1
+2
+Atom carrying(curator, mart-sud-core-drill)
+NegatedAtom carrying(curator, mart-sud-core-drill)
+end_variable
+begin_variable
+var101
+-1
+2
+Atom carrying(curator, mart-west-core-drill)
+NegatedAtom carrying(curator, mart-west-core-drill)
+end_variable
+begin_variable
+var102
+-1
+2
+Atom carrying(curator, venus-rock-sample)
+NegatedAtom carrying(curator, venus-rock-sample)
+end_variable
+begin_variable
+var103
+-1
+2
+Atom carrying(curator, venus-sand-sample)
+NegatedAtom carrying(curator, venus-sand-sample)
+end_variable
+begin_variable
+var104
+-1
+2
+Atom carrying-empty-pod(curator, pod1)
+NegatedAtom carrying-empty-pod(curator, pod1)
+end_variable
+begin_variable
+var105
+-1
+2
+Atom carrying-empty-pod(curator, pod2)
+NegatedAtom carrying-empty-pod(curator, pod2)
+end_variable
+begin_variable
+var106
+-1
+9
+Atom carrying-full-pod(curator, pod1)
+Atom contains-full-pod(anti-vibration-pods-room, pod1)
+Atom contains-full-pod(cryo-chamber, pod1)
+Atom contains-full-pod(entrance, pod1)
+Atom contains-full-pod(hall-a, pod1)
+Atom contains-full-pod(hall-b, pod1)
+Atom contains-full-pod(maintenance-tunnel, pod1)
+Atom contains-full-pod(stasis-lab, pod1)
+<none of those>
+end_variable
+begin_variable
+var107
+-1
+9
+Atom carrying-full-pod(curator, pod2)
+Atom contains-full-pod(anti-vibration-pods-room, pod2)
+Atom contains-full-pod(cryo-chamber, pod2)
+Atom contains-full-pod(entrance, pod2)
+Atom contains-full-pod(hall-a, pod2)
+Atom contains-full-pod(hall-b, pod2)
+Atom contains-full-pod(maintenance-tunnel, pod2)
+Atom contains-full-pod(stasis-lab, pod2)
+<none of those>
+end_variable
+begin_variable
+var108
 -1
 2
 Atom checked(anti-vibration-pods-room)
 Atom safety-unknown(anti-vibration-pods-room)
 end_variable
 begin_variable
-var15
+var109
 -1
 2
 Atom checked(cryo-chamber)
 Atom safety-unknown(cryo-chamber)
 end_variable
 begin_variable
-var16
+var110
 -1
 2
 Atom checked(entrance)
 Atom safety-unknown(entrance)
 end_variable
 begin_variable
-var17
+var111
 -1
 2
 Atom checked(hall-a)
 Atom safety-unknown(hall-a)
 end_variable
 begin_variable
-var18
+var112
 -1
 2
 Atom checked(hall-b)
 Atom safety-unknown(hall-b)
 end_variable
 begin_variable
-var19
+var113
 -1
 2
 Atom checked(maintenance-tunnel)
 Atom safety-unknown(maintenance-tunnel)
 end_variable
 begin_variable
-var20
+var114
 -1
 2
 Atom checked(stasis-lab)
 Atom safety-unknown(stasis-lab)
 end_variable
 begin_variable
-var21
+var115
 -1
 2
 Atom cold(asteroid-ad29tv-rock-sample)
 NegatedAtom cold(asteroid-ad29tv-rock-sample)
 end_variable
 begin_variable
-var22
+var116
 -1
 2
 Atom cold(asteroid-mg04tn-ice-sample)
 NegatedAtom cold(asteroid-mg04tn-ice-sample)
 end_variable
 begin_variable
-var23
+var117
 -1
 2
 Atom cold(mart-east-core-drill)
 NegatedAtom cold(mart-east-core-drill)
 end_variable
 begin_variable
-var24
+var118
 -1
 2
 Atom cold(mart-laser-gun)
 NegatedAtom cold(mart-laser-gun)
 end_variable
 begin_variable
-var25
+var119
 -1
 2
 Atom cold(mart-mysterious-egg)
 NegatedAtom cold(mart-mysterious-egg)
 end_variable
 begin_variable
-var26
+var120
 -1
 2
 Atom cold(mart-nord-core-drill)
 NegatedAtom cold(mart-nord-core-drill)
 end_variable
 begin_variable
-var27
+var121
 -1
 2
 Atom cold(mart-north-pole-ice-sample)
 NegatedAtom cold(mart-north-pole-ice-sample)
 end_variable
 begin_variable
-var28
+var122
 -1
 2
 Atom cold(mart-pink-hat)
 NegatedAtom cold(mart-pink-hat)
 end_variable
 begin_variable
-var29
+var123
 -1
 2
 Atom cold(mart-sand-sample)
 NegatedAtom cold(mart-sand-sample)
 end_variable
 begin_variable
-var30
+var124
 -1
 2
 Atom cold(mart-sud-core-drill)
 NegatedAtom cold(mart-sud-core-drill)
 end_variable
 begin_variable
-var31
+var125
 -1
 2
 Atom cold(mart-west-core-drill)
 NegatedAtom cold(mart-west-core-drill)
 end_variable
 begin_variable
-var32
+var126
 -1
 2
 Atom cold(venus-rock-sample)
 NegatedAtom cold(venus-rock-sample)
 end_variable
 begin_variable
-var33
+var127
 -1
 2
 Atom cold(venus-sand-sample)
 NegatedAtom cold(venus-sand-sample)
 end_variable
 begin_variable
-var34
+var128
+-1
+2
+Atom contains-empty-pod(cryo-chamber, pod1)
+NegatedAtom contains-empty-pod(cryo-chamber, pod1)
+end_variable
+begin_variable
+var129
+-1
+2
+Atom contains-empty-pod(cryo-chamber, pod2)
+NegatedAtom contains-empty-pod(cryo-chamber, pod2)
+end_variable
+begin_variable
+var130
+-1
+2
+Atom contains-empty-pod(entrance, pod1)
+NegatedAtom contains-empty-pod(entrance, pod1)
+end_variable
+begin_variable
+var131
+-1
+2
+Atom contains-empty-pod(entrance, pod2)
+NegatedAtom contains-empty-pod(entrance, pod2)
+end_variable
+begin_variable
+var132
+-1
+2
+Atom contains-empty-pod(hall-a, pod1)
+NegatedAtom contains-empty-pod(hall-a, pod1)
+end_variable
+begin_variable
+var133
+-1
+2
+Atom contains-empty-pod(hall-a, pod2)
+NegatedAtom contains-empty-pod(hall-a, pod2)
+end_variable
+begin_variable
+var134
+-1
+2
+Atom contains-empty-pod(hall-b, pod1)
+NegatedAtom contains-empty-pod(hall-b, pod1)
+end_variable
+begin_variable
+var135
+-1
+2
+Atom contains-empty-pod(hall-b, pod2)
+NegatedAtom contains-empty-pod(hall-b, pod2)
+end_variable
+begin_variable
+var136
+-1
+2
+Atom contains-empty-pod(maintenance-tunnel, pod1)
+NegatedAtom contains-empty-pod(maintenance-tunnel, pod1)
+end_variable
+begin_variable
+var137
+-1
+2
+Atom contains-empty-pod(maintenance-tunnel, pod2)
+NegatedAtom contains-empty-pod(maintenance-tunnel, pod2)
+end_variable
+begin_variable
+var138
+-1
+2
+Atom contains-empty-pod(stasis-lab, pod1)
+NegatedAtom contains-empty-pod(stasis-lab, pod1)
+end_variable
+begin_variable
+var139
+-1
+2
+Atom contains-empty-pod(stasis-lab, pod2)
+NegatedAtom contains-empty-pod(stasis-lab, pod2)
+end_variable
+begin_variable
+var140
+-1
+2
+Atom hands-empty(curator)
+NegatedAtom hands-empty(curator)
+end_variable
+begin_variable
+var141
 -1
 2
 Atom is-safe(anti-vibration-pods-room)
 NegatedAtom is-safe(anti-vibration-pods-room)
 end_variable
 begin_variable
-var35
+var142
 -1
 2
 Atom is-safe(cryo-chamber)
 NegatedAtom is-safe(cryo-chamber)
 end_variable
 begin_variable
-var36
+var143
 -1
 2
 Atom is-safe(entrance)
 NegatedAtom is-safe(entrance)
 end_variable
 begin_variable
-var37
+var144
 -1
 2
 Atom is-safe(hall-a)
 NegatedAtom is-safe(hall-a)
 end_variable
 begin_variable
-var38
+var145
 -1
 2
 Atom is-safe(hall-b)
 NegatedAtom is-safe(hall-b)
 end_variable
 begin_variable
-var39
+var146
 -1
 2
 Atom is-safe(maintenance-tunnel)
 NegatedAtom is-safe(maintenance-tunnel)
 end_variable
 begin_variable
-var40
+var147
 -1
 2
 Atom is-safe(stasis-lab)
 NegatedAtom is-safe(stasis-lab)
 end_variable
 begin_variable
-var41
+var148
+-1
+14
+Atom pod-contains(pod1, asteroid-ad29tv-rock-sample)
+Atom pod-contains(pod1, asteroid-mg04tn-ice-sample)
+Atom pod-contains(pod1, mart-east-core-drill)
+Atom pod-contains(pod1, mart-laser-gun)
+Atom pod-contains(pod1, mart-mysterious-egg)
+Atom pod-contains(pod1, mart-nord-core-drill)
+Atom pod-contains(pod1, mart-north-pole-ice-sample)
+Atom pod-contains(pod1, mart-pink-hat)
+Atom pod-contains(pod1, mart-sand-sample)
+Atom pod-contains(pod1, mart-sud-core-drill)
+Atom pod-contains(pod1, mart-west-core-drill)
+Atom pod-contains(pod1, venus-rock-sample)
+Atom pod-contains(pod1, venus-sand-sample)
+Atom pod-empty(pod1)
+end_variable
+begin_variable
+var149
+-1
+14
+Atom pod-contains(pod2, asteroid-ad29tv-rock-sample)
+Atom pod-contains(pod2, asteroid-mg04tn-ice-sample)
+Atom pod-contains(pod2, mart-east-core-drill)
+Atom pod-contains(pod2, mart-laser-gun)
+Atom pod-contains(pod2, mart-mysterious-egg)
+Atom pod-contains(pod2, mart-nord-core-drill)
+Atom pod-contains(pod2, mart-north-pole-ice-sample)
+Atom pod-contains(pod2, mart-pink-hat)
+Atom pod-contains(pod2, mart-sand-sample)
+Atom pod-contains(pod2, mart-sud-core-drill)
+Atom pod-contains(pod2, mart-west-core-drill)
+Atom pod-contains(pod2, venus-rock-sample)
+Atom pod-contains(pod2, venus-sand-sample)
+Atom pod-empty(pod2)
+end_variable
+begin_variable
+var150
 -1
 7
-Atom robot-at(anti-vibration-pods-room)
-Atom robot-at(cryo-chamber)
-Atom robot-at(entrance)
-Atom robot-at(hall-a)
-Atom robot-at(hall-b)
-Atom robot-at(maintenance-tunnel)
-Atom robot-at(stasis-lab)
+Atom robot-at(curator, anti-vibration-pods-room)
+Atom robot-at(curator, cryo-chamber)
+Atom robot-at(curator, entrance)
+Atom robot-at(curator, hall-a)
+Atom robot-at(curator, hall-b)
+Atom robot-at(curator, maintenance-tunnel)
+Atom robot-at(curator, stasis-lab)
 end_variable
 begin_variable
-var42
+var151
 -1
 2
-Atom sealing-mode()
-NegatedAtom sealing-mode()
+Atom sealing-mode(curator)
+NegatedAtom sealing-mode(curator)
 end_variable
 begin_variable
-var43
+var152
 -1
 2
 Atom warm(asteroid-ad29tv-rock-sample)
 NegatedAtom warm(asteroid-ad29tv-rock-sample)
 end_variable
 begin_variable
-var44
+var153
 -1
 2
 Atom warm(asteroid-mg04tn-ice-sample)
 NegatedAtom warm(asteroid-mg04tn-ice-sample)
 end_variable
 begin_variable
-var45
+var154
 -1
 2
 Atom warm(mart-east-core-drill)
 NegatedAtom warm(mart-east-core-drill)
 end_variable
 begin_variable
-var46
+var155
 -1
 2
 Atom warm(mart-laser-gun)
 NegatedAtom warm(mart-laser-gun)
 end_variable
 begin_variable
-var47
+var156
 -1
 2
 Atom warm(mart-mysterious-egg)
 NegatedAtom warm(mart-mysterious-egg)
 end_variable
 begin_variable
-var48
+var157
 -1
 2
 Atom warm(mart-nord-core-drill)
 NegatedAtom warm(mart-nord-core-drill)
 end_variable
 begin_variable
-var49
+var158
 -1
 2
 Atom warm(mart-north-pole-ice-sample)
 NegatedAtom warm(mart-north-pole-ice-sample)
 end_variable
 begin_variable
-var50
+var159
 -1
 2
 Atom warm(mart-pink-hat)
 NegatedAtom warm(mart-pink-hat)
 end_variable
 begin_variable
-var51
+var160
 -1
 2
 Atom warm(mart-sand-sample)
 NegatedAtom warm(mart-sand-sample)
 end_variable
 begin_variable
-var52
+var161
 -1
 2
 Atom warm(mart-sud-core-drill)
 NegatedAtom warm(mart-sud-core-drill)
 end_variable
 begin_variable
-var53
+var162
 -1
 2
 Atom warm(mart-west-core-drill)
 NegatedAtom warm(mart-west-core-drill)
 end_variable
 begin_variable
-var54
+var163
 -1
 2
 Atom warm(venus-rock-sample)
 NegatedAtom warm(venus-rock-sample)
 end_variable
 begin_variable
-var55
+var164
 -1
 2
 Atom warm(venus-sand-sample)
 NegatedAtom warm(venus-sand-sample)
 end_variable
-22
+12
 begin_mutex_group
 9
-0 0
-0 1
-0 2
-0 3
-0 4
-0 5
-0 6
-13 0
-13 14
+106 0
+106 1
+106 2
+106 3
+106 4
+106 5
+106 6
+106 7
+148 13
 end_mutex_group
 begin_mutex_group
 9
-1 0
-1 1
-1 2
-1 3
-1 4
-1 5
-1 6
-13 1
-13 15
-end_mutex_group
-begin_mutex_group
-9
-2 0
-2 1
-2 2
-2 3
-2 4
-2 5
-2 6
-13 2
-13 16
-end_mutex_group
-begin_mutex_group
-9
-3 0
-3 1
-3 2
-3 3
-3 4
-3 5
-3 6
-13 3
-13 17
-end_mutex_group
-begin_mutex_group
-9
-4 0
-4 1
-4 2
-4 3
-4 4
-4 5
-4 6
-13 4
-13 18
-end_mutex_group
-begin_mutex_group
-9
-5 0
-5 1
-5 2
-5 3
-5 4
-5 5
-5 6
-13 5
-13 19
-end_mutex_group
-begin_mutex_group
-9
-6 0
-6 1
-6 2
-6 3
-6 4
-6 5
-6 6
-13 6
-13 20
-end_mutex_group
-begin_mutex_group
-9
-7 0
-7 1
-7 2
-7 3
-7 4
-7 5
-7 6
-13 7
-13 21
-end_mutex_group
-begin_mutex_group
-9
-8 0
-8 1
-8 2
-8 3
-8 4
-8 5
-8 6
-13 8
-13 22
-end_mutex_group
-begin_mutex_group
-9
-9 0
-9 1
-9 2
-9 3
-9 4
-9 5
-9 6
-13 9
-13 23
-end_mutex_group
-begin_mutex_group
-9
-10 0
-10 1
-10 2
-10 3
-10 4
-10 5
-10 6
-13 10
-13 24
-end_mutex_group
-begin_mutex_group
-9
-11 0
-11 1
-11 2
-11 3
-11 4
-11 5
-11 6
-13 11
-13 25
-end_mutex_group
-begin_mutex_group
-9
-12 0
-12 1
-12 2
-12 3
-12 4
-12 5
-12 6
-13 12
-13 26
-end_mutex_group
-begin_mutex_group
-28
-13 0
-13 1
-13 2
-13 3
-13 4
-13 5
-13 6
-13 7
-13 8
-13 9
-13 10
-13 11
-13 12
-13 13
-13 14
-13 15
-13 16
-13 17
-13 18
-13 19
-13 20
-13 21
-13 22
-13 23
-13 24
-13 25
-13 26
-13 27
+107 0
+107 1
+107 2
+107 3
+107 4
+107 5
+107 6
+107 7
+149 13
 end_mutex_group
 begin_mutex_group
 2
-14 0
-14 1
+108 0
+108 1
 end_mutex_group
 begin_mutex_group
 2
-15 0
-15 1
+109 0
+109 1
 end_mutex_group
 begin_mutex_group
 2
-16 0
-16 1
+110 0
+110 1
 end_mutex_group
 begin_mutex_group
 2
-17 0
-17 1
+111 0
+111 1
 end_mutex_group
 begin_mutex_group
 2
-18 0
-18 1
+112 0
+112 1
 end_mutex_group
 begin_mutex_group
 2
-19 0
-19 1
+113 0
+113 1
 end_mutex_group
 begin_mutex_group
 2
-20 0
-20 1
+114 0
+114 1
+end_mutex_group
+begin_mutex_group
+14
+148 0
+148 1
+148 2
+148 3
+148 4
+148 5
+148 6
+148 7
+148 8
+148 9
+148 10
+148 11
+148 12
+148 13
+end_mutex_group
+begin_mutex_group
+14
+149 0
+149 1
+149 2
+149 3
+149 4
+149 5
+149 6
+149 7
+149 8
+149 9
+149 10
+149 11
+149 12
+149 13
 end_mutex_group
 begin_mutex_group
 7
-41 0
-41 1
-41 2
-41 3
-41 4
-41 5
-41 6
+150 0
+150 1
+150 2
+150 3
+150 4
+150 5
+150 6
 end_mutex_group
 begin_state
-4
-3
-3
-4
-3
-3
-3
-4
-4
-3
-3
-4
-4
-27
+1
+1
+1
+1
+0
+1
+1
+1
+1
+1
+0
+1
+1
+1
+1
+1
+1
+0
+1
+1
+1
+1
+1
+1
+1
+0
+1
+1
+1
+1
+1
+0
+1
+1
+1
+1
+1
+1
+0
+1
+1
+1
+1
+1
+1
+0
+1
+1
+1
+1
+1
+1
+1
+0
+1
+1
+1
+1
+1
+1
+0
+1
+1
+1
+1
+1
+0
+1
+1
+1
+1
+1
+1
+0
+1
+1
+1
+1
+1
+1
+1
+0
+1
+1
+1
+1
+1
+1
+0
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+8
+8
 0
 0
 0
@@ -774,6 +1436,19 @@ begin_state
 1
 1
 1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+0
 0
 0
 0
@@ -781,6 +1456,8 @@ begin_state
 1
 0
 0
+13
+13
 2
 1
 0
@@ -799,6046 +1476,16043 @@ begin_state
 end_state
 begin_goal
 17
-0 3
-1 1
-2 6
-3 3
-4 1
-5 6
-6 1
-7 3
-8 3
-9 6
-10 6
-11 3
-12 3
-23 0
-26 0
-30 0
-31 0
+3 0
+8 0
+20 0
+24 0
+29 0
+41 0
+43 0
+52 0
+59 0
+69 0
+76 0
+80 0
+87 0
+117 0
+120 0
+124 0
+125 0
 end_goal
-651
+1361
 begin_operator
-activate-seal 
+activate-seal curator
 0
 1
-0 42 -1 0
-0
-end_operator
-begin_operator
-check-seismic-status_DETDUP_0 anti-vibration-pods-room maintenance-tunnel
-1
-41 5
-2
-0 14 1 0
-0 34 -1 0
+0 151 -1 0
 0
 end_operator
 begin_operator
-check-seismic-status_DETDUP_0 cryo-chamber maintenance-tunnel
+check-seismic-status_DETDUP_0 curator anti-vibration-pods-room maintenance-tunnel
 1
-41 5
+150 5
 2
-0 15 1 0
+0 108 1 0
+0 141 -1 0
+0
+end_operator
+begin_operator
+check-seismic-status_DETDUP_0 curator cryo-chamber maintenance-tunnel
+1
+150 5
+2
+0 109 1 0
+0 142 -1 0
+0
+end_operator
+begin_operator
+check-seismic-status_DETDUP_0 curator entrance maintenance-tunnel
+1
+150 5
+2
+0 110 1 0
+0 143 -1 0
+0
+end_operator
+begin_operator
+check-seismic-status_DETDUP_0 curator hall-a maintenance-tunnel
+1
+150 5
+2
+0 111 1 0
+0 144 -1 0
+0
+end_operator
+begin_operator
+check-seismic-status_DETDUP_0 curator hall-b maintenance-tunnel
+1
+150 5
+2
+0 112 1 0
+0 145 -1 0
+0
+end_operator
+begin_operator
+check-seismic-status_DETDUP_0 curator maintenance-tunnel anti-vibration-pods-room
+1
+150 0
+2
+0 113 1 0
+0 146 -1 0
+0
+end_operator
+begin_operator
+check-seismic-status_DETDUP_0 curator maintenance-tunnel cryo-chamber
+1
+150 1
+2
+0 113 1 0
+0 146 -1 0
+0
+end_operator
+begin_operator
+check-seismic-status_DETDUP_0 curator maintenance-tunnel entrance
+1
+150 2
+2
+0 113 1 0
+0 146 -1 0
+0
+end_operator
+begin_operator
+check-seismic-status_DETDUP_0 curator maintenance-tunnel hall-a
+1
+150 3
+2
+0 113 1 0
+0 146 -1 0
+0
+end_operator
+begin_operator
+check-seismic-status_DETDUP_0 curator maintenance-tunnel hall-b
+1
+150 4
+2
+0 113 1 0
+0 146 -1 0
+0
+end_operator
+begin_operator
+check-seismic-status_DETDUP_0 curator maintenance-tunnel stasis-lab
+1
+150 6
+2
+0 113 1 0
+0 146 -1 0
+0
+end_operator
+begin_operator
+check-seismic-status_DETDUP_0 curator stasis-lab maintenance-tunnel
+1
+150 5
+2
+0 114 1 0
+0 147 -1 0
+0
+end_operator
+begin_operator
+check-seismic-status_DETDUP_1 curator anti-vibration-pods-room maintenance-tunnel
+1
+150 5
+2
+0 108 1 0
+0 141 -1 1
+0
+end_operator
+begin_operator
+check-seismic-status_DETDUP_1 curator cryo-chamber maintenance-tunnel
+1
+150 5
+2
+0 109 1 0
+0 142 -1 1
+0
+end_operator
+begin_operator
+check-seismic-status_DETDUP_1 curator entrance maintenance-tunnel
+1
+150 5
+2
+0 110 1 0
+0 143 -1 1
+0
+end_operator
+begin_operator
+check-seismic-status_DETDUP_1 curator hall-a maintenance-tunnel
+1
+150 5
+2
+0 111 1 0
+0 144 -1 1
+0
+end_operator
+begin_operator
+check-seismic-status_DETDUP_1 curator hall-b maintenance-tunnel
+1
+150 5
+2
+0 112 1 0
+0 145 -1 1
+0
+end_operator
+begin_operator
+check-seismic-status_DETDUP_1 curator maintenance-tunnel anti-vibration-pods-room
+1
+150 0
+2
+0 113 1 0
+0 146 -1 1
+0
+end_operator
+begin_operator
+check-seismic-status_DETDUP_1 curator maintenance-tunnel cryo-chamber
+1
+150 1
+2
+0 113 1 0
+0 146 -1 1
+0
+end_operator
+begin_operator
+check-seismic-status_DETDUP_1 curator maintenance-tunnel entrance
+1
+150 2
+2
+0 113 1 0
+0 146 -1 1
+0
+end_operator
+begin_operator
+check-seismic-status_DETDUP_1 curator maintenance-tunnel hall-a
+1
+150 3
+2
+0 113 1 0
+0 146 -1 1
+0
+end_operator
+begin_operator
+check-seismic-status_DETDUP_1 curator maintenance-tunnel hall-b
+1
+150 4
+2
+0 113 1 0
+0 146 -1 1
+0
+end_operator
+begin_operator
+check-seismic-status_DETDUP_1 curator maintenance-tunnel stasis-lab
+1
+150 6
+2
+0 113 1 0
+0 146 -1 1
+0
+end_operator
+begin_operator
+check-seismic-status_DETDUP_1 curator stasis-lab maintenance-tunnel
+1
+150 5
+2
+0 114 1 0
+0 147 -1 1
+0
+end_operator
+begin_operator
+deactivate-seal curator
+0
+1
+0 151 -1 1
+0
+end_operator
+begin_operator
+drop-empty-pod curator pod1 anti-vibration-pods-room
+2
+148 13
+150 0
+2
+0 104 0 1
+0 140 -1 0
+0
+end_operator
+begin_operator
+drop-empty-pod curator pod1 cryo-chamber
+2
+148 13
+150 1
+3
+0 104 0 1
+0 128 -1 0
+0 140 -1 0
+0
+end_operator
+begin_operator
+drop-empty-pod curator pod1 entrance
+2
+148 13
+150 2
+3
+0 104 0 1
+0 130 -1 0
+0 140 -1 0
+0
+end_operator
+begin_operator
+drop-empty-pod curator pod1 hall-a
+2
+148 13
+150 3
+3
+0 104 0 1
+0 132 -1 0
+0 140 -1 0
+0
+end_operator
+begin_operator
+drop-empty-pod curator pod1 hall-b
+2
+148 13
+150 4
+3
+0 104 0 1
+0 134 -1 0
+0 140 -1 0
+0
+end_operator
+begin_operator
+drop-empty-pod curator pod1 maintenance-tunnel
+2
+148 13
+150 5
+3
+0 104 0 1
+0 136 -1 0
+0 140 -1 0
+0
+end_operator
+begin_operator
+drop-empty-pod curator pod1 stasis-lab
+2
+148 13
+150 6
+3
+0 104 0 1
+0 138 -1 0
+0 140 -1 0
+0
+end_operator
+begin_operator
+drop-empty-pod curator pod2 anti-vibration-pods-room
+2
+149 13
+150 0
+2
+0 105 0 1
+0 140 -1 0
+0
+end_operator
+begin_operator
+drop-empty-pod curator pod2 cryo-chamber
+2
+149 13
+150 1
+3
+0 105 0 1
+0 129 -1 0
+0 140 -1 0
+0
+end_operator
+begin_operator
+drop-empty-pod curator pod2 entrance
+2
+149 13
+150 2
+3
+0 105 0 1
+0 131 -1 0
+0 140 -1 0
+0
+end_operator
+begin_operator
+drop-empty-pod curator pod2 hall-a
+2
+149 13
+150 3
+3
+0 105 0 1
+0 133 -1 0
+0 140 -1 0
+0
+end_operator
+begin_operator
+drop-empty-pod curator pod2 hall-b
+2
+149 13
+150 4
+3
+0 105 0 1
+0 135 -1 0
+0 140 -1 0
+0
+end_operator
+begin_operator
+drop-empty-pod curator pod2 maintenance-tunnel
+2
+149 13
+150 5
+3
+0 105 0 1
+0 137 -1 0
+0 140 -1 0
+0
+end_operator
+begin_operator
+drop-empty-pod curator pod2 stasis-lab
+2
+149 13
+150 6
+3
+0 105 0 1
+0 139 -1 0
+0 140 -1 0
+0
+end_operator
+begin_operator
+drop-full-pod curator pod1 anti-vibration-pods-room asteroid-ad29tv-rock-sample
+3
+91 0
+148 0
+150 0
+3
+0 0 -1 0
+0 106 0 1
+0 140 -1 0
+0
+end_operator
+begin_operator
+drop-full-pod curator pod1 anti-vibration-pods-room asteroid-mg04tn-ice-sample
+3
+92 0
+148 1
+150 0
+3
+0 7 -1 0
+0 106 0 1
+0 140 -1 0
+0
+end_operator
+begin_operator
+drop-full-pod curator pod1 anti-vibration-pods-room mart-east-core-drill
+3
+93 0
+148 2
+150 0
+3
+0 14 -1 0
+0 106 0 1
+0 140 -1 0
+0
+end_operator
+begin_operator
+drop-full-pod curator pod1 anti-vibration-pods-room mart-laser-gun
+3
+94 0
+148 3
+150 0
+3
+0 21 -1 0
+0 106 0 1
+0 140 -1 0
+0
+end_operator
+begin_operator
+drop-full-pod curator pod1 anti-vibration-pods-room mart-mysterious-egg
+3
+95 0
+148 4
+150 0
+3
+0 28 -1 0
+0 106 0 1
+0 140 -1 0
+0
+end_operator
+begin_operator
+drop-full-pod curator pod1 anti-vibration-pods-room mart-nord-core-drill
+3
+96 0
+148 5
+150 0
+3
 0 35 -1 0
+0 106 0 1
+0 140 -1 0
 0
 end_operator
 begin_operator
-check-seismic-status_DETDUP_0 entrance maintenance-tunnel
-1
-41 5
-2
-0 16 1 0
+drop-full-pod curator pod1 anti-vibration-pods-room mart-north-pole-ice-sample
+3
+97 0
+148 6
+150 0
+3
+0 42 -1 0
+0 106 0 1
+0 140 -1 0
+0
+end_operator
+begin_operator
+drop-full-pod curator pod1 anti-vibration-pods-room mart-pink-hat
+3
+98 0
+148 7
+150 0
+3
+0 49 -1 0
+0 106 0 1
+0 140 -1 0
+0
+end_operator
+begin_operator
+drop-full-pod curator pod1 anti-vibration-pods-room mart-sand-sample
+3
+99 0
+148 8
+150 0
+3
+0 56 -1 0
+0 106 0 1
+0 140 -1 0
+0
+end_operator
+begin_operator
+drop-full-pod curator pod1 anti-vibration-pods-room mart-sud-core-drill
+3
+100 0
+148 9
+150 0
+3
+0 63 -1 0
+0 106 0 1
+0 140 -1 0
+0
+end_operator
+begin_operator
+drop-full-pod curator pod1 anti-vibration-pods-room mart-west-core-drill
+3
+101 0
+148 10
+150 0
+3
+0 70 -1 0
+0 106 0 1
+0 140 -1 0
+0
+end_operator
+begin_operator
+drop-full-pod curator pod1 anti-vibration-pods-room venus-rock-sample
+3
+102 0
+148 11
+150 0
+3
+0 77 -1 0
+0 106 0 1
+0 140 -1 0
+0
+end_operator
+begin_operator
+drop-full-pod curator pod1 anti-vibration-pods-room venus-sand-sample
+3
+103 0
+148 12
+150 0
+3
+0 84 -1 0
+0 106 0 1
+0 140 -1 0
+0
+end_operator
+begin_operator
+drop-full-pod curator pod1 cryo-chamber asteroid-ad29tv-rock-sample
+3
+91 0
+148 0
+150 1
+3
+0 1 -1 0
+0 106 0 2
+0 140 -1 0
+0
+end_operator
+begin_operator
+drop-full-pod curator pod1 cryo-chamber asteroid-mg04tn-ice-sample
+3
+92 0
+148 1
+150 1
+3
+0 8 -1 0
+0 106 0 2
+0 140 -1 0
+0
+end_operator
+begin_operator
+drop-full-pod curator pod1 cryo-chamber mart-east-core-drill
+3
+93 0
+148 2
+150 1
+3
+0 15 -1 0
+0 106 0 2
+0 140 -1 0
+0
+end_operator
+begin_operator
+drop-full-pod curator pod1 cryo-chamber mart-laser-gun
+3
+94 0
+148 3
+150 1
+3
+0 22 -1 0
+0 106 0 2
+0 140 -1 0
+0
+end_operator
+begin_operator
+drop-full-pod curator pod1 cryo-chamber mart-mysterious-egg
+3
+95 0
+148 4
+150 1
+3
+0 29 -1 0
+0 106 0 2
+0 140 -1 0
+0
+end_operator
+begin_operator
+drop-full-pod curator pod1 cryo-chamber mart-nord-core-drill
+3
+96 0
+148 5
+150 1
+3
 0 36 -1 0
+0 106 0 2
+0 140 -1 0
 0
 end_operator
 begin_operator
-check-seismic-status_DETDUP_0 hall-a maintenance-tunnel
-1
-41 5
-2
-0 17 1 0
+drop-full-pod curator pod1 cryo-chamber mart-north-pole-ice-sample
+3
+97 0
+148 6
+150 1
+3
+0 43 -1 0
+0 106 0 2
+0 140 -1 0
+0
+end_operator
+begin_operator
+drop-full-pod curator pod1 cryo-chamber mart-pink-hat
+3
+98 0
+148 7
+150 1
+3
+0 50 -1 0
+0 106 0 2
+0 140 -1 0
+0
+end_operator
+begin_operator
+drop-full-pod curator pod1 cryo-chamber mart-sand-sample
+3
+99 0
+148 8
+150 1
+3
+0 57 -1 0
+0 106 0 2
+0 140 -1 0
+0
+end_operator
+begin_operator
+drop-full-pod curator pod1 cryo-chamber mart-sud-core-drill
+3
+100 0
+148 9
+150 1
+3
+0 64 -1 0
+0 106 0 2
+0 140 -1 0
+0
+end_operator
+begin_operator
+drop-full-pod curator pod1 cryo-chamber mart-west-core-drill
+3
+101 0
+148 10
+150 1
+3
+0 71 -1 0
+0 106 0 2
+0 140 -1 0
+0
+end_operator
+begin_operator
+drop-full-pod curator pod1 cryo-chamber venus-rock-sample
+3
+102 0
+148 11
+150 1
+3
+0 78 -1 0
+0 106 0 2
+0 140 -1 0
+0
+end_operator
+begin_operator
+drop-full-pod curator pod1 cryo-chamber venus-sand-sample
+3
+103 0
+148 12
+150 1
+3
+0 85 -1 0
+0 106 0 2
+0 140 -1 0
+0
+end_operator
+begin_operator
+drop-full-pod curator pod1 entrance asteroid-ad29tv-rock-sample
+3
+91 0
+148 0
+150 2
+3
+0 2 -1 0
+0 106 0 3
+0 140 -1 0
+0
+end_operator
+begin_operator
+drop-full-pod curator pod1 entrance asteroid-mg04tn-ice-sample
+3
+92 0
+148 1
+150 2
+3
+0 9 -1 0
+0 106 0 3
+0 140 -1 0
+0
+end_operator
+begin_operator
+drop-full-pod curator pod1 entrance mart-east-core-drill
+3
+93 0
+148 2
+150 2
+3
+0 16 -1 0
+0 106 0 3
+0 140 -1 0
+0
+end_operator
+begin_operator
+drop-full-pod curator pod1 entrance mart-laser-gun
+3
+94 0
+148 3
+150 2
+3
+0 23 -1 0
+0 106 0 3
+0 140 -1 0
+0
+end_operator
+begin_operator
+drop-full-pod curator pod1 entrance mart-mysterious-egg
+3
+95 0
+148 4
+150 2
+3
+0 30 -1 0
+0 106 0 3
+0 140 -1 0
+0
+end_operator
+begin_operator
+drop-full-pod curator pod1 entrance mart-nord-core-drill
+3
+96 0
+148 5
+150 2
+3
 0 37 -1 0
+0 106 0 3
+0 140 -1 0
 0
 end_operator
 begin_operator
-check-seismic-status_DETDUP_0 hall-b maintenance-tunnel
-1
-41 5
-2
-0 18 1 0
+drop-full-pod curator pod1 entrance mart-north-pole-ice-sample
+3
+97 0
+148 6
+150 2
+3
+0 44 -1 0
+0 106 0 3
+0 140 -1 0
+0
+end_operator
+begin_operator
+drop-full-pod curator pod1 entrance mart-pink-hat
+3
+98 0
+148 7
+150 2
+3
+0 51 -1 0
+0 106 0 3
+0 140 -1 0
+0
+end_operator
+begin_operator
+drop-full-pod curator pod1 entrance mart-sand-sample
+3
+99 0
+148 8
+150 2
+3
+0 58 -1 0
+0 106 0 3
+0 140 -1 0
+0
+end_operator
+begin_operator
+drop-full-pod curator pod1 entrance mart-sud-core-drill
+3
+100 0
+148 9
+150 2
+3
+0 65 -1 0
+0 106 0 3
+0 140 -1 0
+0
+end_operator
+begin_operator
+drop-full-pod curator pod1 entrance mart-west-core-drill
+3
+101 0
+148 10
+150 2
+3
+0 72 -1 0
+0 106 0 3
+0 140 -1 0
+0
+end_operator
+begin_operator
+drop-full-pod curator pod1 entrance venus-rock-sample
+3
+102 0
+148 11
+150 2
+3
+0 79 -1 0
+0 106 0 3
+0 140 -1 0
+0
+end_operator
+begin_operator
+drop-full-pod curator pod1 entrance venus-sand-sample
+3
+103 0
+148 12
+150 2
+3
+0 86 -1 0
+0 106 0 3
+0 140 -1 0
+0
+end_operator
+begin_operator
+drop-full-pod curator pod1 hall-a asteroid-ad29tv-rock-sample
+3
+91 0
+148 0
+150 3
+3
+0 3 -1 0
+0 106 0 4
+0 140 -1 0
+0
+end_operator
+begin_operator
+drop-full-pod curator pod1 hall-a asteroid-mg04tn-ice-sample
+3
+92 0
+148 1
+150 3
+3
+0 10 -1 0
+0 106 0 4
+0 140 -1 0
+0
+end_operator
+begin_operator
+drop-full-pod curator pod1 hall-a mart-east-core-drill
+3
+93 0
+148 2
+150 3
+3
+0 17 -1 0
+0 106 0 4
+0 140 -1 0
+0
+end_operator
+begin_operator
+drop-full-pod curator pod1 hall-a mart-laser-gun
+3
+94 0
+148 3
+150 3
+3
+0 24 -1 0
+0 106 0 4
+0 140 -1 0
+0
+end_operator
+begin_operator
+drop-full-pod curator pod1 hall-a mart-mysterious-egg
+3
+95 0
+148 4
+150 3
+3
+0 31 -1 0
+0 106 0 4
+0 140 -1 0
+0
+end_operator
+begin_operator
+drop-full-pod curator pod1 hall-a mart-nord-core-drill
+3
+96 0
+148 5
+150 3
+3
 0 38 -1 0
+0 106 0 4
+0 140 -1 0
 0
 end_operator
 begin_operator
-check-seismic-status_DETDUP_0 maintenance-tunnel anti-vibration-pods-room
-1
-41 0
-2
-0 19 1 0
+drop-full-pod curator pod1 hall-a mart-north-pole-ice-sample
+3
+97 0
+148 6
+150 3
+3
+0 45 -1 0
+0 106 0 4
+0 140 -1 0
+0
+end_operator
+begin_operator
+drop-full-pod curator pod1 hall-a mart-pink-hat
+3
+98 0
+148 7
+150 3
+3
+0 52 -1 0
+0 106 0 4
+0 140 -1 0
+0
+end_operator
+begin_operator
+drop-full-pod curator pod1 hall-a mart-sand-sample
+3
+99 0
+148 8
+150 3
+3
+0 59 -1 0
+0 106 0 4
+0 140 -1 0
+0
+end_operator
+begin_operator
+drop-full-pod curator pod1 hall-a mart-sud-core-drill
+3
+100 0
+148 9
+150 3
+3
+0 66 -1 0
+0 106 0 4
+0 140 -1 0
+0
+end_operator
+begin_operator
+drop-full-pod curator pod1 hall-a mart-west-core-drill
+3
+101 0
+148 10
+150 3
+3
+0 73 -1 0
+0 106 0 4
+0 140 -1 0
+0
+end_operator
+begin_operator
+drop-full-pod curator pod1 hall-a venus-rock-sample
+3
+102 0
+148 11
+150 3
+3
+0 80 -1 0
+0 106 0 4
+0 140 -1 0
+0
+end_operator
+begin_operator
+drop-full-pod curator pod1 hall-a venus-sand-sample
+3
+103 0
+148 12
+150 3
+3
+0 87 -1 0
+0 106 0 4
+0 140 -1 0
+0
+end_operator
+begin_operator
+drop-full-pod curator pod1 hall-b asteroid-ad29tv-rock-sample
+3
+91 0
+148 0
+150 4
+3
+0 4 -1 0
+0 106 0 5
+0 140 -1 0
+0
+end_operator
+begin_operator
+drop-full-pod curator pod1 hall-b asteroid-mg04tn-ice-sample
+3
+92 0
+148 1
+150 4
+3
+0 11 -1 0
+0 106 0 5
+0 140 -1 0
+0
+end_operator
+begin_operator
+drop-full-pod curator pod1 hall-b mart-east-core-drill
+3
+93 0
+148 2
+150 4
+3
+0 18 -1 0
+0 106 0 5
+0 140 -1 0
+0
+end_operator
+begin_operator
+drop-full-pod curator pod1 hall-b mart-laser-gun
+3
+94 0
+148 3
+150 4
+3
+0 25 -1 0
+0 106 0 5
+0 140 -1 0
+0
+end_operator
+begin_operator
+drop-full-pod curator pod1 hall-b mart-mysterious-egg
+3
+95 0
+148 4
+150 4
+3
+0 32 -1 0
+0 106 0 5
+0 140 -1 0
+0
+end_operator
+begin_operator
+drop-full-pod curator pod1 hall-b mart-nord-core-drill
+3
+96 0
+148 5
+150 4
+3
 0 39 -1 0
+0 106 0 5
+0 140 -1 0
 0
 end_operator
 begin_operator
-check-seismic-status_DETDUP_0 maintenance-tunnel cryo-chamber
-1
-41 1
-2
-0 19 1 0
-0 39 -1 0
+drop-full-pod curator pod1 hall-b mart-north-pole-ice-sample
+3
+97 0
+148 6
+150 4
+3
+0 46 -1 0
+0 106 0 5
+0 140 -1 0
 0
 end_operator
 begin_operator
-check-seismic-status_DETDUP_0 maintenance-tunnel entrance
-1
-41 2
-2
-0 19 1 0
-0 39 -1 0
+drop-full-pod curator pod1 hall-b mart-pink-hat
+3
+98 0
+148 7
+150 4
+3
+0 53 -1 0
+0 106 0 5
+0 140 -1 0
 0
 end_operator
 begin_operator
-check-seismic-status_DETDUP_0 maintenance-tunnel hall-a
-1
-41 3
-2
-0 19 1 0
-0 39 -1 0
+drop-full-pod curator pod1 hall-b mart-sand-sample
+3
+99 0
+148 8
+150 4
+3
+0 60 -1 0
+0 106 0 5
+0 140 -1 0
 0
 end_operator
 begin_operator
-check-seismic-status_DETDUP_0 maintenance-tunnel hall-b
-1
-41 4
-2
-0 19 1 0
-0 39 -1 0
+drop-full-pod curator pod1 hall-b mart-sud-core-drill
+3
+100 0
+148 9
+150 4
+3
+0 67 -1 0
+0 106 0 5
+0 140 -1 0
 0
 end_operator
 begin_operator
-check-seismic-status_DETDUP_0 maintenance-tunnel stasis-lab
-1
-41 6
-2
-0 19 1 0
-0 39 -1 0
+drop-full-pod curator pod1 hall-b mart-west-core-drill
+3
+101 0
+148 10
+150 4
+3
+0 74 -1 0
+0 106 0 5
+0 140 -1 0
 0
 end_operator
 begin_operator
-check-seismic-status_DETDUP_0 stasis-lab maintenance-tunnel
-1
-41 5
-2
-0 20 1 0
+drop-full-pod curator pod1 hall-b venus-rock-sample
+3
+102 0
+148 11
+150 4
+3
+0 81 -1 0
+0 106 0 5
+0 140 -1 0
+0
+end_operator
+begin_operator
+drop-full-pod curator pod1 hall-b venus-sand-sample
+3
+103 0
+148 12
+150 4
+3
+0 88 -1 0
+0 106 0 5
+0 140 -1 0
+0
+end_operator
+begin_operator
+drop-full-pod curator pod1 maintenance-tunnel asteroid-ad29tv-rock-sample
+3
+91 0
+148 0
+150 5
+3
+0 5 -1 0
+0 106 0 6
+0 140 -1 0
+0
+end_operator
+begin_operator
+drop-full-pod curator pod1 maintenance-tunnel asteroid-mg04tn-ice-sample
+3
+92 0
+148 1
+150 5
+3
+0 12 -1 0
+0 106 0 6
+0 140 -1 0
+0
+end_operator
+begin_operator
+drop-full-pod curator pod1 maintenance-tunnel mart-east-core-drill
+3
+93 0
+148 2
+150 5
+3
+0 19 -1 0
+0 106 0 6
+0 140 -1 0
+0
+end_operator
+begin_operator
+drop-full-pod curator pod1 maintenance-tunnel mart-laser-gun
+3
+94 0
+148 3
+150 5
+3
+0 26 -1 0
+0 106 0 6
+0 140 -1 0
+0
+end_operator
+begin_operator
+drop-full-pod curator pod1 maintenance-tunnel mart-mysterious-egg
+3
+95 0
+148 4
+150 5
+3
+0 33 -1 0
+0 106 0 6
+0 140 -1 0
+0
+end_operator
+begin_operator
+drop-full-pod curator pod1 maintenance-tunnel mart-nord-core-drill
+3
+96 0
+148 5
+150 5
+3
 0 40 -1 0
+0 106 0 6
+0 140 -1 0
 0
 end_operator
 begin_operator
-check-seismic-status_DETDUP_1 anti-vibration-pods-room maintenance-tunnel
-1
-41 5
-2
-0 14 1 0
-0 34 -1 1
+drop-full-pod curator pod1 maintenance-tunnel mart-north-pole-ice-sample
+3
+97 0
+148 6
+150 5
+3
+0 47 -1 0
+0 106 0 6
+0 140 -1 0
 0
 end_operator
 begin_operator
-check-seismic-status_DETDUP_1 cryo-chamber maintenance-tunnel
-1
-41 5
-2
-0 15 1 0
-0 35 -1 1
+drop-full-pod curator pod1 maintenance-tunnel mart-pink-hat
+3
+98 0
+148 7
+150 5
+3
+0 54 -1 0
+0 106 0 6
+0 140 -1 0
 0
 end_operator
 begin_operator
-check-seismic-status_DETDUP_1 entrance maintenance-tunnel
-1
-41 5
-2
-0 16 1 0
-0 36 -1 1
+drop-full-pod curator pod1 maintenance-tunnel mart-sand-sample
+3
+99 0
+148 8
+150 5
+3
+0 61 -1 0
+0 106 0 6
+0 140 -1 0
 0
 end_operator
 begin_operator
-check-seismic-status_DETDUP_1 hall-a maintenance-tunnel
-1
-41 5
-2
-0 17 1 0
-0 37 -1 1
+drop-full-pod curator pod1 maintenance-tunnel mart-sud-core-drill
+3
+100 0
+148 9
+150 5
+3
+0 68 -1 0
+0 106 0 6
+0 140 -1 0
 0
 end_operator
 begin_operator
-check-seismic-status_DETDUP_1 hall-b maintenance-tunnel
-1
-41 5
-2
-0 18 1 0
-0 38 -1 1
+drop-full-pod curator pod1 maintenance-tunnel mart-west-core-drill
+3
+101 0
+148 10
+150 5
+3
+0 75 -1 0
+0 106 0 6
+0 140 -1 0
 0
 end_operator
 begin_operator
-check-seismic-status_DETDUP_1 maintenance-tunnel anti-vibration-pods-room
-1
-41 0
-2
-0 19 1 0
-0 39 -1 1
+drop-full-pod curator pod1 maintenance-tunnel venus-rock-sample
+3
+102 0
+148 11
+150 5
+3
+0 82 -1 0
+0 106 0 6
+0 140 -1 0
 0
 end_operator
 begin_operator
-check-seismic-status_DETDUP_1 maintenance-tunnel cryo-chamber
-1
-41 1
-2
-0 19 1 0
-0 39 -1 1
+drop-full-pod curator pod1 maintenance-tunnel venus-sand-sample
+3
+103 0
+148 12
+150 5
+3
+0 89 -1 0
+0 106 0 6
+0 140 -1 0
 0
 end_operator
 begin_operator
-check-seismic-status_DETDUP_1 maintenance-tunnel entrance
-1
-41 2
-2
-0 19 1 0
-0 39 -1 1
+drop-full-pod curator pod1 stasis-lab asteroid-ad29tv-rock-sample
+3
+91 0
+148 0
+150 6
+3
+0 6 -1 0
+0 106 0 7
+0 140 -1 0
 0
 end_operator
 begin_operator
-check-seismic-status_DETDUP_1 maintenance-tunnel hall-a
-1
-41 3
-2
-0 19 1 0
-0 39 -1 1
+drop-full-pod curator pod1 stasis-lab asteroid-mg04tn-ice-sample
+3
+92 0
+148 1
+150 6
+3
+0 13 -1 0
+0 106 0 7
+0 140 -1 0
 0
 end_operator
 begin_operator
-check-seismic-status_DETDUP_1 maintenance-tunnel hall-b
-1
-41 4
-2
-0 19 1 0
-0 39 -1 1
+drop-full-pod curator pod1 stasis-lab mart-east-core-drill
+3
+93 0
+148 2
+150 6
+3
+0 20 -1 0
+0 106 0 7
+0 140 -1 0
 0
 end_operator
 begin_operator
-check-seismic-status_DETDUP_1 maintenance-tunnel stasis-lab
-1
-41 6
-2
-0 19 1 0
-0 39 -1 1
+drop-full-pod curator pod1 stasis-lab mart-laser-gun
+3
+94 0
+148 3
+150 6
+3
+0 27 -1 0
+0 106 0 7
+0 140 -1 0
 0
 end_operator
 begin_operator
-check-seismic-status_DETDUP_1 stasis-lab maintenance-tunnel
-1
-41 5
-2
-0 20 1 0
+drop-full-pod curator pod1 stasis-lab mart-mysterious-egg
+3
+95 0
+148 4
+150 6
+3
+0 34 -1 0
+0 106 0 7
+0 140 -1 0
+0
+end_operator
+begin_operator
+drop-full-pod curator pod1 stasis-lab mart-nord-core-drill
+3
+96 0
+148 5
+150 6
+3
+0 41 -1 0
+0 106 0 7
+0 140 -1 0
+0
+end_operator
+begin_operator
+drop-full-pod curator pod1 stasis-lab mart-north-pole-ice-sample
+3
+97 0
+148 6
+150 6
+3
+0 48 -1 0
+0 106 0 7
+0 140 -1 0
+0
+end_operator
+begin_operator
+drop-full-pod curator pod1 stasis-lab mart-pink-hat
+3
+98 0
+148 7
+150 6
+3
+0 55 -1 0
+0 106 0 7
+0 140 -1 0
+0
+end_operator
+begin_operator
+drop-full-pod curator pod1 stasis-lab mart-sand-sample
+3
+99 0
+148 8
+150 6
+3
+0 62 -1 0
+0 106 0 7
+0 140 -1 0
+0
+end_operator
+begin_operator
+drop-full-pod curator pod1 stasis-lab mart-sud-core-drill
+3
+100 0
+148 9
+150 6
+3
+0 69 -1 0
+0 106 0 7
+0 140 -1 0
+0
+end_operator
+begin_operator
+drop-full-pod curator pod1 stasis-lab mart-west-core-drill
+3
+101 0
+148 10
+150 6
+3
+0 76 -1 0
+0 106 0 7
+0 140 -1 0
+0
+end_operator
+begin_operator
+drop-full-pod curator pod1 stasis-lab venus-rock-sample
+3
+102 0
+148 11
+150 6
+3
+0 83 -1 0
+0 106 0 7
+0 140 -1 0
+0
+end_operator
+begin_operator
+drop-full-pod curator pod1 stasis-lab venus-sand-sample
+3
+103 0
+148 12
+150 6
+3
+0 90 -1 0
+0 106 0 7
+0 140 -1 0
+0
+end_operator
+begin_operator
+drop-full-pod curator pod2 anti-vibration-pods-room asteroid-ad29tv-rock-sample
+3
+91 0
+149 0
+150 0
+3
+0 0 -1 0
+0 107 0 1
+0 140 -1 0
+0
+end_operator
+begin_operator
+drop-full-pod curator pod2 anti-vibration-pods-room asteroid-mg04tn-ice-sample
+3
+92 0
+149 1
+150 0
+3
+0 7 -1 0
+0 107 0 1
+0 140 -1 0
+0
+end_operator
+begin_operator
+drop-full-pod curator pod2 anti-vibration-pods-room mart-east-core-drill
+3
+93 0
+149 2
+150 0
+3
+0 14 -1 0
+0 107 0 1
+0 140 -1 0
+0
+end_operator
+begin_operator
+drop-full-pod curator pod2 anti-vibration-pods-room mart-laser-gun
+3
+94 0
+149 3
+150 0
+3
+0 21 -1 0
+0 107 0 1
+0 140 -1 0
+0
+end_operator
+begin_operator
+drop-full-pod curator pod2 anti-vibration-pods-room mart-mysterious-egg
+3
+95 0
+149 4
+150 0
+3
+0 28 -1 0
+0 107 0 1
+0 140 -1 0
+0
+end_operator
+begin_operator
+drop-full-pod curator pod2 anti-vibration-pods-room mart-nord-core-drill
+3
+96 0
+149 5
+150 0
+3
+0 35 -1 0
+0 107 0 1
+0 140 -1 0
+0
+end_operator
+begin_operator
+drop-full-pod curator pod2 anti-vibration-pods-room mart-north-pole-ice-sample
+3
+97 0
+149 6
+150 0
+3
+0 42 -1 0
+0 107 0 1
+0 140 -1 0
+0
+end_operator
+begin_operator
+drop-full-pod curator pod2 anti-vibration-pods-room mart-pink-hat
+3
+98 0
+149 7
+150 0
+3
+0 49 -1 0
+0 107 0 1
+0 140 -1 0
+0
+end_operator
+begin_operator
+drop-full-pod curator pod2 anti-vibration-pods-room mart-sand-sample
+3
+99 0
+149 8
+150 0
+3
+0 56 -1 0
+0 107 0 1
+0 140 -1 0
+0
+end_operator
+begin_operator
+drop-full-pod curator pod2 anti-vibration-pods-room mart-sud-core-drill
+3
+100 0
+149 9
+150 0
+3
+0 63 -1 0
+0 107 0 1
+0 140 -1 0
+0
+end_operator
+begin_operator
+drop-full-pod curator pod2 anti-vibration-pods-room mart-west-core-drill
+3
+101 0
+149 10
+150 0
+3
+0 70 -1 0
+0 107 0 1
+0 140 -1 0
+0
+end_operator
+begin_operator
+drop-full-pod curator pod2 anti-vibration-pods-room venus-rock-sample
+3
+102 0
+149 11
+150 0
+3
+0 77 -1 0
+0 107 0 1
+0 140 -1 0
+0
+end_operator
+begin_operator
+drop-full-pod curator pod2 anti-vibration-pods-room venus-sand-sample
+3
+103 0
+149 12
+150 0
+3
+0 84 -1 0
+0 107 0 1
+0 140 -1 0
+0
+end_operator
+begin_operator
+drop-full-pod curator pod2 cryo-chamber asteroid-ad29tv-rock-sample
+3
+91 0
+149 0
+150 1
+3
+0 1 -1 0
+0 107 0 2
+0 140 -1 0
+0
+end_operator
+begin_operator
+drop-full-pod curator pod2 cryo-chamber asteroid-mg04tn-ice-sample
+3
+92 0
+149 1
+150 1
+3
+0 8 -1 0
+0 107 0 2
+0 140 -1 0
+0
+end_operator
+begin_operator
+drop-full-pod curator pod2 cryo-chamber mart-east-core-drill
+3
+93 0
+149 2
+150 1
+3
+0 15 -1 0
+0 107 0 2
+0 140 -1 0
+0
+end_operator
+begin_operator
+drop-full-pod curator pod2 cryo-chamber mart-laser-gun
+3
+94 0
+149 3
+150 1
+3
+0 22 -1 0
+0 107 0 2
+0 140 -1 0
+0
+end_operator
+begin_operator
+drop-full-pod curator pod2 cryo-chamber mart-mysterious-egg
+3
+95 0
+149 4
+150 1
+3
+0 29 -1 0
+0 107 0 2
+0 140 -1 0
+0
+end_operator
+begin_operator
+drop-full-pod curator pod2 cryo-chamber mart-nord-core-drill
+3
+96 0
+149 5
+150 1
+3
+0 36 -1 0
+0 107 0 2
+0 140 -1 0
+0
+end_operator
+begin_operator
+drop-full-pod curator pod2 cryo-chamber mart-north-pole-ice-sample
+3
+97 0
+149 6
+150 1
+3
+0 43 -1 0
+0 107 0 2
+0 140 -1 0
+0
+end_operator
+begin_operator
+drop-full-pod curator pod2 cryo-chamber mart-pink-hat
+3
+98 0
+149 7
+150 1
+3
+0 50 -1 0
+0 107 0 2
+0 140 -1 0
+0
+end_operator
+begin_operator
+drop-full-pod curator pod2 cryo-chamber mart-sand-sample
+3
+99 0
+149 8
+150 1
+3
+0 57 -1 0
+0 107 0 2
+0 140 -1 0
+0
+end_operator
+begin_operator
+drop-full-pod curator pod2 cryo-chamber mart-sud-core-drill
+3
+100 0
+149 9
+150 1
+3
+0 64 -1 0
+0 107 0 2
+0 140 -1 0
+0
+end_operator
+begin_operator
+drop-full-pod curator pod2 cryo-chamber mart-west-core-drill
+3
+101 0
+149 10
+150 1
+3
+0 71 -1 0
+0 107 0 2
+0 140 -1 0
+0
+end_operator
+begin_operator
+drop-full-pod curator pod2 cryo-chamber venus-rock-sample
+3
+102 0
+149 11
+150 1
+3
+0 78 -1 0
+0 107 0 2
+0 140 -1 0
+0
+end_operator
+begin_operator
+drop-full-pod curator pod2 cryo-chamber venus-sand-sample
+3
+103 0
+149 12
+150 1
+3
+0 85 -1 0
+0 107 0 2
+0 140 -1 0
+0
+end_operator
+begin_operator
+drop-full-pod curator pod2 entrance asteroid-ad29tv-rock-sample
+3
+91 0
+149 0
+150 2
+3
+0 2 -1 0
+0 107 0 3
+0 140 -1 0
+0
+end_operator
+begin_operator
+drop-full-pod curator pod2 entrance asteroid-mg04tn-ice-sample
+3
+92 0
+149 1
+150 2
+3
+0 9 -1 0
+0 107 0 3
+0 140 -1 0
+0
+end_operator
+begin_operator
+drop-full-pod curator pod2 entrance mart-east-core-drill
+3
+93 0
+149 2
+150 2
+3
+0 16 -1 0
+0 107 0 3
+0 140 -1 0
+0
+end_operator
+begin_operator
+drop-full-pod curator pod2 entrance mart-laser-gun
+3
+94 0
+149 3
+150 2
+3
+0 23 -1 0
+0 107 0 3
+0 140 -1 0
+0
+end_operator
+begin_operator
+drop-full-pod curator pod2 entrance mart-mysterious-egg
+3
+95 0
+149 4
+150 2
+3
+0 30 -1 0
+0 107 0 3
+0 140 -1 0
+0
+end_operator
+begin_operator
+drop-full-pod curator pod2 entrance mart-nord-core-drill
+3
+96 0
+149 5
+150 2
+3
+0 37 -1 0
+0 107 0 3
+0 140 -1 0
+0
+end_operator
+begin_operator
+drop-full-pod curator pod2 entrance mart-north-pole-ice-sample
+3
+97 0
+149 6
+150 2
+3
+0 44 -1 0
+0 107 0 3
+0 140 -1 0
+0
+end_operator
+begin_operator
+drop-full-pod curator pod2 entrance mart-pink-hat
+3
+98 0
+149 7
+150 2
+3
+0 51 -1 0
+0 107 0 3
+0 140 -1 0
+0
+end_operator
+begin_operator
+drop-full-pod curator pod2 entrance mart-sand-sample
+3
+99 0
+149 8
+150 2
+3
+0 58 -1 0
+0 107 0 3
+0 140 -1 0
+0
+end_operator
+begin_operator
+drop-full-pod curator pod2 entrance mart-sud-core-drill
+3
+100 0
+149 9
+150 2
+3
+0 65 -1 0
+0 107 0 3
+0 140 -1 0
+0
+end_operator
+begin_operator
+drop-full-pod curator pod2 entrance mart-west-core-drill
+3
+101 0
+149 10
+150 2
+3
+0 72 -1 0
+0 107 0 3
+0 140 -1 0
+0
+end_operator
+begin_operator
+drop-full-pod curator pod2 entrance venus-rock-sample
+3
+102 0
+149 11
+150 2
+3
+0 79 -1 0
+0 107 0 3
+0 140 -1 0
+0
+end_operator
+begin_operator
+drop-full-pod curator pod2 entrance venus-sand-sample
+3
+103 0
+149 12
+150 2
+3
+0 86 -1 0
+0 107 0 3
+0 140 -1 0
+0
+end_operator
+begin_operator
+drop-full-pod curator pod2 hall-a asteroid-ad29tv-rock-sample
+3
+91 0
+149 0
+150 3
+3
+0 3 -1 0
+0 107 0 4
+0 140 -1 0
+0
+end_operator
+begin_operator
+drop-full-pod curator pod2 hall-a asteroid-mg04tn-ice-sample
+3
+92 0
+149 1
+150 3
+3
+0 10 -1 0
+0 107 0 4
+0 140 -1 0
+0
+end_operator
+begin_operator
+drop-full-pod curator pod2 hall-a mart-east-core-drill
+3
+93 0
+149 2
+150 3
+3
+0 17 -1 0
+0 107 0 4
+0 140 -1 0
+0
+end_operator
+begin_operator
+drop-full-pod curator pod2 hall-a mart-laser-gun
+3
+94 0
+149 3
+150 3
+3
+0 24 -1 0
+0 107 0 4
+0 140 -1 0
+0
+end_operator
+begin_operator
+drop-full-pod curator pod2 hall-a mart-mysterious-egg
+3
+95 0
+149 4
+150 3
+3
+0 31 -1 0
+0 107 0 4
+0 140 -1 0
+0
+end_operator
+begin_operator
+drop-full-pod curator pod2 hall-a mart-nord-core-drill
+3
+96 0
+149 5
+150 3
+3
+0 38 -1 0
+0 107 0 4
+0 140 -1 0
+0
+end_operator
+begin_operator
+drop-full-pod curator pod2 hall-a mart-north-pole-ice-sample
+3
+97 0
+149 6
+150 3
+3
+0 45 -1 0
+0 107 0 4
+0 140 -1 0
+0
+end_operator
+begin_operator
+drop-full-pod curator pod2 hall-a mart-pink-hat
+3
+98 0
+149 7
+150 3
+3
+0 52 -1 0
+0 107 0 4
+0 140 -1 0
+0
+end_operator
+begin_operator
+drop-full-pod curator pod2 hall-a mart-sand-sample
+3
+99 0
+149 8
+150 3
+3
+0 59 -1 0
+0 107 0 4
+0 140 -1 0
+0
+end_operator
+begin_operator
+drop-full-pod curator pod2 hall-a mart-sud-core-drill
+3
+100 0
+149 9
+150 3
+3
+0 66 -1 0
+0 107 0 4
+0 140 -1 0
+0
+end_operator
+begin_operator
+drop-full-pod curator pod2 hall-a mart-west-core-drill
+3
+101 0
+149 10
+150 3
+3
+0 73 -1 0
+0 107 0 4
+0 140 -1 0
+0
+end_operator
+begin_operator
+drop-full-pod curator pod2 hall-a venus-rock-sample
+3
+102 0
+149 11
+150 3
+3
+0 80 -1 0
+0 107 0 4
+0 140 -1 0
+0
+end_operator
+begin_operator
+drop-full-pod curator pod2 hall-a venus-sand-sample
+3
+103 0
+149 12
+150 3
+3
+0 87 -1 0
+0 107 0 4
+0 140 -1 0
+0
+end_operator
+begin_operator
+drop-full-pod curator pod2 hall-b asteroid-ad29tv-rock-sample
+3
+91 0
+149 0
+150 4
+3
+0 4 -1 0
+0 107 0 5
+0 140 -1 0
+0
+end_operator
+begin_operator
+drop-full-pod curator pod2 hall-b asteroid-mg04tn-ice-sample
+3
+92 0
+149 1
+150 4
+3
+0 11 -1 0
+0 107 0 5
+0 140 -1 0
+0
+end_operator
+begin_operator
+drop-full-pod curator pod2 hall-b mart-east-core-drill
+3
+93 0
+149 2
+150 4
+3
+0 18 -1 0
+0 107 0 5
+0 140 -1 0
+0
+end_operator
+begin_operator
+drop-full-pod curator pod2 hall-b mart-laser-gun
+3
+94 0
+149 3
+150 4
+3
+0 25 -1 0
+0 107 0 5
+0 140 -1 0
+0
+end_operator
+begin_operator
+drop-full-pod curator pod2 hall-b mart-mysterious-egg
+3
+95 0
+149 4
+150 4
+3
+0 32 -1 0
+0 107 0 5
+0 140 -1 0
+0
+end_operator
+begin_operator
+drop-full-pod curator pod2 hall-b mart-nord-core-drill
+3
+96 0
+149 5
+150 4
+3
+0 39 -1 0
+0 107 0 5
+0 140 -1 0
+0
+end_operator
+begin_operator
+drop-full-pod curator pod2 hall-b mart-north-pole-ice-sample
+3
+97 0
+149 6
+150 4
+3
+0 46 -1 0
+0 107 0 5
+0 140 -1 0
+0
+end_operator
+begin_operator
+drop-full-pod curator pod2 hall-b mart-pink-hat
+3
+98 0
+149 7
+150 4
+3
+0 53 -1 0
+0 107 0 5
+0 140 -1 0
+0
+end_operator
+begin_operator
+drop-full-pod curator pod2 hall-b mart-sand-sample
+3
+99 0
+149 8
+150 4
+3
+0 60 -1 0
+0 107 0 5
+0 140 -1 0
+0
+end_operator
+begin_operator
+drop-full-pod curator pod2 hall-b mart-sud-core-drill
+3
+100 0
+149 9
+150 4
+3
+0 67 -1 0
+0 107 0 5
+0 140 -1 0
+0
+end_operator
+begin_operator
+drop-full-pod curator pod2 hall-b mart-west-core-drill
+3
+101 0
+149 10
+150 4
+3
+0 74 -1 0
+0 107 0 5
+0 140 -1 0
+0
+end_operator
+begin_operator
+drop-full-pod curator pod2 hall-b venus-rock-sample
+3
+102 0
+149 11
+150 4
+3
+0 81 -1 0
+0 107 0 5
+0 140 -1 0
+0
+end_operator
+begin_operator
+drop-full-pod curator pod2 hall-b venus-sand-sample
+3
+103 0
+149 12
+150 4
+3
+0 88 -1 0
+0 107 0 5
+0 140 -1 0
+0
+end_operator
+begin_operator
+drop-full-pod curator pod2 maintenance-tunnel asteroid-ad29tv-rock-sample
+3
+91 0
+149 0
+150 5
+3
+0 5 -1 0
+0 107 0 6
+0 140 -1 0
+0
+end_operator
+begin_operator
+drop-full-pod curator pod2 maintenance-tunnel asteroid-mg04tn-ice-sample
+3
+92 0
+149 1
+150 5
+3
+0 12 -1 0
+0 107 0 6
+0 140 -1 0
+0
+end_operator
+begin_operator
+drop-full-pod curator pod2 maintenance-tunnel mart-east-core-drill
+3
+93 0
+149 2
+150 5
+3
+0 19 -1 0
+0 107 0 6
+0 140 -1 0
+0
+end_operator
+begin_operator
+drop-full-pod curator pod2 maintenance-tunnel mart-laser-gun
+3
+94 0
+149 3
+150 5
+3
+0 26 -1 0
+0 107 0 6
+0 140 -1 0
+0
+end_operator
+begin_operator
+drop-full-pod curator pod2 maintenance-tunnel mart-mysterious-egg
+3
+95 0
+149 4
+150 5
+3
+0 33 -1 0
+0 107 0 6
+0 140 -1 0
+0
+end_operator
+begin_operator
+drop-full-pod curator pod2 maintenance-tunnel mart-nord-core-drill
+3
+96 0
+149 5
+150 5
+3
+0 40 -1 0
+0 107 0 6
+0 140 -1 0
+0
+end_operator
+begin_operator
+drop-full-pod curator pod2 maintenance-tunnel mart-north-pole-ice-sample
+3
+97 0
+149 6
+150 5
+3
+0 47 -1 0
+0 107 0 6
+0 140 -1 0
+0
+end_operator
+begin_operator
+drop-full-pod curator pod2 maintenance-tunnel mart-pink-hat
+3
+98 0
+149 7
+150 5
+3
+0 54 -1 0
+0 107 0 6
+0 140 -1 0
+0
+end_operator
+begin_operator
+drop-full-pod curator pod2 maintenance-tunnel mart-sand-sample
+3
+99 0
+149 8
+150 5
+3
+0 61 -1 0
+0 107 0 6
+0 140 -1 0
+0
+end_operator
+begin_operator
+drop-full-pod curator pod2 maintenance-tunnel mart-sud-core-drill
+3
+100 0
+149 9
+150 5
+3
+0 68 -1 0
+0 107 0 6
+0 140 -1 0
+0
+end_operator
+begin_operator
+drop-full-pod curator pod2 maintenance-tunnel mart-west-core-drill
+3
+101 0
+149 10
+150 5
+3
+0 75 -1 0
+0 107 0 6
+0 140 -1 0
+0
+end_operator
+begin_operator
+drop-full-pod curator pod2 maintenance-tunnel venus-rock-sample
+3
+102 0
+149 11
+150 5
+3
+0 82 -1 0
+0 107 0 6
+0 140 -1 0
+0
+end_operator
+begin_operator
+drop-full-pod curator pod2 maintenance-tunnel venus-sand-sample
+3
+103 0
+149 12
+150 5
+3
+0 89 -1 0
+0 107 0 6
+0 140 -1 0
+0
+end_operator
+begin_operator
+drop-full-pod curator pod2 stasis-lab asteroid-ad29tv-rock-sample
+3
+91 0
+149 0
+150 6
+3
+0 6 -1 0
+0 107 0 7
+0 140 -1 0
+0
+end_operator
+begin_operator
+drop-full-pod curator pod2 stasis-lab asteroid-mg04tn-ice-sample
+3
+92 0
+149 1
+150 6
+3
+0 13 -1 0
+0 107 0 7
+0 140 -1 0
+0
+end_operator
+begin_operator
+drop-full-pod curator pod2 stasis-lab mart-east-core-drill
+3
+93 0
+149 2
+150 6
+3
+0 20 -1 0
+0 107 0 7
+0 140 -1 0
+0
+end_operator
+begin_operator
+drop-full-pod curator pod2 stasis-lab mart-laser-gun
+3
+94 0
+149 3
+150 6
+3
+0 27 -1 0
+0 107 0 7
+0 140 -1 0
+0
+end_operator
+begin_operator
+drop-full-pod curator pod2 stasis-lab mart-mysterious-egg
+3
+95 0
+149 4
+150 6
+3
+0 34 -1 0
+0 107 0 7
+0 140 -1 0
+0
+end_operator
+begin_operator
+drop-full-pod curator pod2 stasis-lab mart-nord-core-drill
+3
+96 0
+149 5
+150 6
+3
+0 41 -1 0
+0 107 0 7
+0 140 -1 0
+0
+end_operator
+begin_operator
+drop-full-pod curator pod2 stasis-lab mart-north-pole-ice-sample
+3
+97 0
+149 6
+150 6
+3
+0 48 -1 0
+0 107 0 7
+0 140 -1 0
+0
+end_operator
+begin_operator
+drop-full-pod curator pod2 stasis-lab mart-pink-hat
+3
+98 0
+149 7
+150 6
+3
+0 55 -1 0
+0 107 0 7
+0 140 -1 0
+0
+end_operator
+begin_operator
+drop-full-pod curator pod2 stasis-lab mart-sand-sample
+3
+99 0
+149 8
+150 6
+3
+0 62 -1 0
+0 107 0 7
+0 140 -1 0
+0
+end_operator
+begin_operator
+drop-full-pod curator pod2 stasis-lab mart-sud-core-drill
+3
+100 0
+149 9
+150 6
+3
+0 69 -1 0
+0 107 0 7
+0 140 -1 0
+0
+end_operator
+begin_operator
+drop-full-pod curator pod2 stasis-lab mart-west-core-drill
+3
+101 0
+149 10
+150 6
+3
+0 76 -1 0
+0 107 0 7
+0 140 -1 0
+0
+end_operator
+begin_operator
+drop-full-pod curator pod2 stasis-lab venus-rock-sample
+3
+102 0
+149 11
+150 6
+3
+0 83 -1 0
+0 107 0 7
+0 140 -1 0
+0
+end_operator
+begin_operator
+drop-full-pod curator pod2 stasis-lab venus-sand-sample
+3
+103 0
+149 12
+150 6
+3
+0 90 -1 0
+0 107 0 7
+0 140 -1 0
+0
+end_operator
+begin_operator
+move-carrying-safe curator maintenance-tunnel anti-vibration-pods-room asteroid-mg04tn-ice-sample
+3
+92 0
+141 0
+151 1
+3
+0 7 -1 0
+0 12 -1 1
+0 150 5 0
+0
+end_operator
+begin_operator
+move-carrying-safe curator maintenance-tunnel anti-vibration-pods-room mart-east-core-drill
+3
+93 0
+141 0
+151 1
+3
+0 14 -1 0
+0 19 -1 1
+0 150 5 0
+0
+end_operator
+begin_operator
+move-carrying-safe curator maintenance-tunnel anti-vibration-pods-room mart-mysterious-egg
+3
+95 0
+141 0
+151 1
+3
+0 28 -1 0
+0 33 -1 1
+0 150 5 0
+0
+end_operator
+begin_operator
+move-carrying-safe curator maintenance-tunnel anti-vibration-pods-room mart-nord-core-drill
+3
+96 0
+141 0
+151 1
+3
+0 35 -1 0
 0 40 -1 1
+0 150 5 0
 0
 end_operator
 begin_operator
-deactivate-seal 
+move-carrying-safe curator maintenance-tunnel anti-vibration-pods-room mart-north-pole-ice-sample
+3
+97 0
+141 0
+151 1
+3
+0 42 -1 0
+0 47 -1 1
+0 150 5 0
 0
-1
+end_operator
+begin_operator
+move-carrying-safe curator maintenance-tunnel anti-vibration-pods-room mart-sud-core-drill
+3
+100 0
+141 0
+151 1
+3
+0 63 -1 0
+0 68 -1 1
+0 150 5 0
+0
+end_operator
+begin_operator
+move-carrying-safe curator maintenance-tunnel anti-vibration-pods-room mart-west-core-drill
+3
+101 0
+141 0
+151 1
+3
+0 70 -1 0
+0 75 -1 1
+0 150 5 0
+0
+end_operator
+begin_operator
+move-carrying-safe curator maintenance-tunnel cryo-chamber asteroid-mg04tn-ice-sample
+3
+92 0
+142 0
+151 1
+3
+0 8 -1 0
+0 12 -1 1
+0 150 5 1
+0
+end_operator
+begin_operator
+move-carrying-safe curator maintenance-tunnel cryo-chamber mart-east-core-drill
+3
+93 0
+142 0
+151 1
+3
+0 15 -1 0
+0 19 -1 1
+0 150 5 1
+0
+end_operator
+begin_operator
+move-carrying-safe curator maintenance-tunnel cryo-chamber mart-mysterious-egg
+3
+95 0
+142 0
+151 1
+3
+0 29 -1 0
+0 33 -1 1
+0 150 5 1
+0
+end_operator
+begin_operator
+move-carrying-safe curator maintenance-tunnel cryo-chamber mart-nord-core-drill
+3
+96 0
+142 0
+151 1
+3
+0 36 -1 0
+0 40 -1 1
+0 150 5 1
+0
+end_operator
+begin_operator
+move-carrying-safe curator maintenance-tunnel cryo-chamber mart-north-pole-ice-sample
+3
+97 0
+142 0
+151 1
+3
+0 43 -1 0
+0 47 -1 1
+0 150 5 1
+0
+end_operator
+begin_operator
+move-carrying-safe curator maintenance-tunnel cryo-chamber mart-sud-core-drill
+3
+100 0
+142 0
+151 1
+3
+0 64 -1 0
+0 68 -1 1
+0 150 5 1
+0
+end_operator
+begin_operator
+move-carrying-safe curator maintenance-tunnel cryo-chamber mart-west-core-drill
+3
+101 0
+142 0
+151 1
+3
+0 71 -1 0
+0 75 -1 1
+0 150 5 1
+0
+end_operator
+begin_operator
+move-carrying-safe curator maintenance-tunnel entrance asteroid-mg04tn-ice-sample
+3
+92 0
+143 0
+151 1
+3
+0 9 -1 0
+0 12 -1 1
+0 150 5 2
+0
+end_operator
+begin_operator
+move-carrying-safe curator maintenance-tunnel entrance mart-east-core-drill
+3
+93 0
+143 0
+151 1
+3
+0 16 -1 0
+0 19 -1 1
+0 150 5 2
+0
+end_operator
+begin_operator
+move-carrying-safe curator maintenance-tunnel entrance mart-mysterious-egg
+3
+95 0
+143 0
+151 1
+3
+0 30 -1 0
+0 33 -1 1
+0 150 5 2
+0
+end_operator
+begin_operator
+move-carrying-safe curator maintenance-tunnel entrance mart-nord-core-drill
+3
+96 0
+143 0
+151 1
+3
+0 37 -1 0
+0 40 -1 1
+0 150 5 2
+0
+end_operator
+begin_operator
+move-carrying-safe curator maintenance-tunnel entrance mart-north-pole-ice-sample
+3
+97 0
+143 0
+151 1
+3
+0 44 -1 0
+0 47 -1 1
+0 150 5 2
+0
+end_operator
+begin_operator
+move-carrying-safe curator maintenance-tunnel entrance mart-sud-core-drill
+3
+100 0
+143 0
+151 1
+3
+0 65 -1 0
+0 68 -1 1
+0 150 5 2
+0
+end_operator
+begin_operator
+move-carrying-safe curator maintenance-tunnel entrance mart-west-core-drill
+3
+101 0
+143 0
+151 1
+3
+0 72 -1 0
+0 75 -1 1
+0 150 5 2
+0
+end_operator
+begin_operator
+move-carrying-safe curator maintenance-tunnel hall-a asteroid-mg04tn-ice-sample
+3
+92 0
+144 0
+151 1
+3
+0 10 -1 0
+0 12 -1 1
+0 150 5 3
+0
+end_operator
+begin_operator
+move-carrying-safe curator maintenance-tunnel hall-a mart-east-core-drill
+3
+93 0
+144 0
+151 1
+3
+0 17 -1 0
+0 19 -1 1
+0 150 5 3
+0
+end_operator
+begin_operator
+move-carrying-safe curator maintenance-tunnel hall-a mart-mysterious-egg
+3
+95 0
+144 0
+151 1
+3
+0 31 -1 0
+0 33 -1 1
+0 150 5 3
+0
+end_operator
+begin_operator
+move-carrying-safe curator maintenance-tunnel hall-a mart-nord-core-drill
+3
+96 0
+144 0
+151 1
+3
+0 38 -1 0
+0 40 -1 1
+0 150 5 3
+0
+end_operator
+begin_operator
+move-carrying-safe curator maintenance-tunnel hall-a mart-north-pole-ice-sample
+3
+97 0
+144 0
+151 1
+3
+0 45 -1 0
+0 47 -1 1
+0 150 5 3
+0
+end_operator
+begin_operator
+move-carrying-safe curator maintenance-tunnel hall-a mart-sud-core-drill
+3
+100 0
+144 0
+151 1
+3
+0 66 -1 0
+0 68 -1 1
+0 150 5 3
+0
+end_operator
+begin_operator
+move-carrying-safe curator maintenance-tunnel hall-a mart-west-core-drill
+3
+101 0
+144 0
+151 1
+3
+0 73 -1 0
+0 75 -1 1
+0 150 5 3
+0
+end_operator
+begin_operator
+move-carrying-safe curator maintenance-tunnel hall-b asteroid-mg04tn-ice-sample
+3
+92 0
+145 0
+151 1
+3
+0 11 -1 0
+0 12 -1 1
+0 150 5 4
+0
+end_operator
+begin_operator
+move-carrying-safe curator maintenance-tunnel hall-b mart-east-core-drill
+3
+93 0
+145 0
+151 1
+3
+0 18 -1 0
+0 19 -1 1
+0 150 5 4
+0
+end_operator
+begin_operator
+move-carrying-safe curator maintenance-tunnel hall-b mart-mysterious-egg
+3
+95 0
+145 0
+151 1
+3
+0 32 -1 0
+0 33 -1 1
+0 150 5 4
+0
+end_operator
+begin_operator
+move-carrying-safe curator maintenance-tunnel hall-b mart-nord-core-drill
+3
+96 0
+145 0
+151 1
+3
+0 39 -1 0
+0 40 -1 1
+0 150 5 4
+0
+end_operator
+begin_operator
+move-carrying-safe curator maintenance-tunnel hall-b mart-north-pole-ice-sample
+3
+97 0
+145 0
+151 1
+3
+0 46 -1 0
+0 47 -1 1
+0 150 5 4
+0
+end_operator
+begin_operator
+move-carrying-safe curator maintenance-tunnel hall-b mart-sud-core-drill
+3
+100 0
+145 0
+151 1
+3
+0 67 -1 0
+0 68 -1 1
+0 150 5 4
+0
+end_operator
+begin_operator
+move-carrying-safe curator maintenance-tunnel hall-b mart-west-core-drill
+3
+101 0
+145 0
+151 1
+3
+0 74 -1 0
+0 75 -1 1
+0 150 5 4
+0
+end_operator
+begin_operator
+move-carrying-safe curator maintenance-tunnel stasis-lab asteroid-mg04tn-ice-sample
+3
+92 0
+147 0
+151 1
+3
+0 12 -1 1
+0 13 -1 0
+0 150 5 6
+0
+end_operator
+begin_operator
+move-carrying-safe curator maintenance-tunnel stasis-lab mart-east-core-drill
+3
+93 0
+147 0
+151 1
+3
+0 19 -1 1
+0 20 -1 0
+0 150 5 6
+0
+end_operator
+begin_operator
+move-carrying-safe curator maintenance-tunnel stasis-lab mart-mysterious-egg
+3
+95 0
+147 0
+151 1
+3
+0 33 -1 1
+0 34 -1 0
+0 150 5 6
+0
+end_operator
+begin_operator
+move-carrying-safe curator maintenance-tunnel stasis-lab mart-nord-core-drill
+3
+96 0
+147 0
+151 1
+3
+0 40 -1 1
+0 41 -1 0
+0 150 5 6
+0
+end_operator
+begin_operator
+move-carrying-safe curator maintenance-tunnel stasis-lab mart-north-pole-ice-sample
+3
+97 0
+147 0
+151 1
+3
+0 47 -1 1
+0 48 -1 0
+0 150 5 6
+0
+end_operator
+begin_operator
+move-carrying-safe curator maintenance-tunnel stasis-lab mart-sud-core-drill
+3
+100 0
+147 0
+151 1
+3
+0 68 -1 1
+0 69 -1 0
+0 150 5 6
+0
+end_operator
+begin_operator
+move-carrying-safe curator maintenance-tunnel stasis-lab mart-west-core-drill
+3
+101 0
+147 0
+151 1
+3
+0 75 -1 1
+0 76 -1 0
+0 150 5 6
+0
+end_operator
+begin_operator
+move-carrying-tunnel curator anti-vibration-pods-room maintenance-tunnel asteroid-mg04tn-ice-sample
+3
+92 0
+146 0
+151 0
+3
+0 7 -1 1
+0 12 -1 0
+0 150 0 5
+0
+end_operator
+begin_operator
+move-carrying-tunnel curator anti-vibration-pods-room maintenance-tunnel mart-east-core-drill
+3
+93 0
+146 0
+151 0
+3
+0 14 -1 1
+0 19 -1 0
+0 150 0 5
+0
+end_operator
+begin_operator
+move-carrying-tunnel curator anti-vibration-pods-room maintenance-tunnel mart-mysterious-egg
+3
+95 0
+146 0
+151 0
+3
+0 28 -1 1
+0 33 -1 0
+0 150 0 5
+0
+end_operator
+begin_operator
+move-carrying-tunnel curator anti-vibration-pods-room maintenance-tunnel mart-nord-core-drill
+3
+96 0
+146 0
+151 0
+3
+0 35 -1 1
+0 40 -1 0
+0 150 0 5
+0
+end_operator
+begin_operator
+move-carrying-tunnel curator anti-vibration-pods-room maintenance-tunnel mart-north-pole-ice-sample
+3
+97 0
+146 0
+151 0
+3
 0 42 -1 1
+0 47 -1 0
+0 150 0 5
 0
 end_operator
 begin_operator
-drop-empty-pod 
-0
-1
-0 13 13 27
-0
-end_operator
-begin_operator
-drop-in-cryo asteroid-ad29tv-rock-sample cryo-chamber
-1
-41 1
-4
-0 0 -1 1
-0 13 0 27
-0 21 -1 0
-0 43 -1 1
+move-carrying-tunnel curator anti-vibration-pods-room maintenance-tunnel mart-sud-core-drill
+3
+100 0
+146 0
+151 0
+3
+0 63 -1 1
+0 68 -1 0
+0 150 0 5
 0
 end_operator
 begin_operator
-drop-in-cryo asteroid-mg04tn-ice-sample cryo-chamber
-1
-41 1
-4
-0 1 -1 1
-0 13 1 27
-0 22 -1 0
-0 44 -1 1
+move-carrying-tunnel curator anti-vibration-pods-room maintenance-tunnel mart-west-core-drill
+3
+101 0
+146 0
+151 0
+3
+0 70 -1 1
+0 75 -1 0
+0 150 0 5
 0
 end_operator
 begin_operator
-drop-in-cryo mart-east-core-drill cryo-chamber
-1
-41 1
-4
-0 2 -1 1
-0 13 2 27
-0 23 -1 0
-0 45 -1 1
-0
-end_operator
-begin_operator
-drop-in-cryo mart-laser-gun cryo-chamber
-1
-41 1
-4
-0 3 -1 1
-0 13 3 27
-0 24 -1 0
-0 46 -1 1
-0
-end_operator
-begin_operator
-drop-in-cryo mart-mysterious-egg cryo-chamber
-1
-41 1
-4
-0 4 -1 1
-0 13 4 27
-0 25 -1 0
-0 47 -1 1
-0
-end_operator
-begin_operator
-drop-in-cryo mart-nord-core-drill cryo-chamber
-1
-41 1
-4
-0 5 -1 1
-0 13 5 27
-0 26 -1 0
-0 48 -1 1
-0
-end_operator
-begin_operator
-drop-in-cryo mart-north-pole-ice-sample cryo-chamber
-1
-41 1
-4
-0 6 -1 1
-0 13 6 27
-0 27 -1 0
-0 49 -1 1
-0
-end_operator
-begin_operator
-drop-in-cryo mart-pink-hat cryo-chamber
-1
-41 1
-4
-0 7 -1 1
-0 13 7 27
-0 28 -1 0
-0 50 -1 1
-0
-end_operator
-begin_operator
-drop-in-cryo mart-sand-sample cryo-chamber
-1
-41 1
-4
+move-carrying-tunnel curator cryo-chamber maintenance-tunnel asteroid-mg04tn-ice-sample
+3
+92 0
+146 0
+151 0
+3
 0 8 -1 1
-0 13 8 27
-0 29 -1 0
-0 51 -1 1
+0 12 -1 0
+0 150 1 5
 0
 end_operator
 begin_operator
-drop-in-cryo mart-sud-core-drill cryo-chamber
-1
-41 1
-4
-0 9 -1 1
-0 13 9 27
-0 30 -1 0
-0 52 -1 1
+move-carrying-tunnel curator cryo-chamber maintenance-tunnel mart-east-core-drill
+3
+93 0
+146 0
+151 0
+3
+0 15 -1 1
+0 19 -1 0
+0 150 1 5
 0
 end_operator
 begin_operator
-drop-in-cryo mart-west-core-drill cryo-chamber
-1
-41 1
-4
-0 10 -1 1
-0 13 10 27
-0 31 -1 0
-0 53 -1 1
-0
-end_operator
-begin_operator
-drop-in-cryo venus-rock-sample cryo-chamber
-1
-41 1
-4
-0 11 -1 1
-0 13 11 27
-0 32 -1 0
-0 54 -1 1
-0
-end_operator
-begin_operator
-drop-in-cryo venus-sand-sample cryo-chamber
-1
-41 1
-4
-0 12 -1 1
-0 13 12 27
+move-carrying-tunnel curator cryo-chamber maintenance-tunnel mart-mysterious-egg
+3
+95 0
+146 0
+151 0
+3
+0 29 -1 1
 0 33 -1 0
-0 55 -1 1
+0 150 1 5
 0
 end_operator
 begin_operator
-drop-in-cryo-from-pod asteroid-ad29tv-rock-sample cryo-chamber
-1
-41 1
-4
-0 0 -1 1
-0 13 14 13
-0 21 -1 0
+move-carrying-tunnel curator cryo-chamber maintenance-tunnel mart-nord-core-drill
+3
+96 0
+146 0
+151 0
+3
+0 36 -1 1
+0 40 -1 0
+0 150 1 5
+0
+end_operator
+begin_operator
+move-carrying-tunnel curator cryo-chamber maintenance-tunnel mart-north-pole-ice-sample
+3
+97 0
+146 0
+151 0
+3
 0 43 -1 1
+0 47 -1 0
+0 150 1 5
 0
 end_operator
 begin_operator
-drop-in-cryo-from-pod asteroid-mg04tn-ice-sample cryo-chamber
-1
-41 1
-4
-0 1 -1 1
-0 13 15 13
-0 22 -1 0
-0 44 -1 1
+move-carrying-tunnel curator cryo-chamber maintenance-tunnel mart-sud-core-drill
+3
+100 0
+146 0
+151 0
+3
+0 64 -1 1
+0 68 -1 0
+0 150 1 5
 0
 end_operator
 begin_operator
-drop-in-cryo-from-pod mart-east-core-drill cryo-chamber
-1
-41 1
-4
-0 2 -1 1
-0 13 16 13
-0 23 -1 0
-0 45 -1 1
+move-carrying-tunnel curator cryo-chamber maintenance-tunnel mart-west-core-drill
+3
+101 0
+146 0
+151 0
+3
+0 71 -1 1
+0 75 -1 0
+0 150 1 5
 0
 end_operator
 begin_operator
-drop-in-cryo-from-pod mart-laser-gun cryo-chamber
-1
-41 1
-4
-0 3 -1 1
-0 13 17 13
-0 24 -1 0
-0 46 -1 1
-0
-end_operator
-begin_operator
-drop-in-cryo-from-pod mart-mysterious-egg cryo-chamber
-1
-41 1
-4
-0 4 -1 1
-0 13 18 13
-0 25 -1 0
-0 47 -1 1
-0
-end_operator
-begin_operator
-drop-in-cryo-from-pod mart-nord-core-drill cryo-chamber
-1
-41 1
-4
-0 5 -1 1
-0 13 19 13
-0 26 -1 0
-0 48 -1 1
-0
-end_operator
-begin_operator
-drop-in-cryo-from-pod mart-north-pole-ice-sample cryo-chamber
-1
-41 1
-4
-0 6 -1 1
-0 13 20 13
-0 27 -1 0
-0 49 -1 1
-0
-end_operator
-begin_operator
-drop-in-cryo-from-pod mart-pink-hat cryo-chamber
-1
-41 1
-4
-0 7 -1 1
-0 13 21 13
-0 28 -1 0
-0 50 -1 1
-0
-end_operator
-begin_operator
-drop-in-cryo-from-pod mart-sand-sample cryo-chamber
-1
-41 1
-4
-0 8 -1 1
-0 13 22 13
-0 29 -1 0
-0 51 -1 1
-0
-end_operator
-begin_operator
-drop-in-cryo-from-pod mart-sud-core-drill cryo-chamber
-1
-41 1
-4
+move-carrying-tunnel curator entrance maintenance-tunnel asteroid-mg04tn-ice-sample
+3
+92 0
+146 0
+151 0
+3
 0 9 -1 1
-0 13 23 13
-0 30 -1 0
-0 52 -1 1
+0 12 -1 0
+0 150 2 5
 0
 end_operator
 begin_operator
-drop-in-cryo-from-pod mart-west-core-drill cryo-chamber
-1
-41 1
-4
-0 10 -1 1
-0 13 24 13
-0 31 -1 0
-0 53 -1 1
+move-carrying-tunnel curator entrance maintenance-tunnel mart-east-core-drill
+3
+93 0
+146 0
+151 0
+3
+0 16 -1 1
+0 19 -1 0
+0 150 2 5
 0
 end_operator
 begin_operator
-drop-in-cryo-from-pod venus-rock-sample cryo-chamber
-1
-41 1
-4
-0 11 -1 1
-0 13 25 13
-0 32 -1 0
-0 54 -1 1
-0
-end_operator
-begin_operator
-drop-in-cryo-from-pod venus-sand-sample cryo-chamber
-1
-41 1
-4
-0 12 -1 1
-0 13 26 13
+move-carrying-tunnel curator entrance maintenance-tunnel mart-mysterious-egg
+3
+95 0
+146 0
+151 0
+3
+0 30 -1 1
 0 33 -1 0
+0 150 2 5
+0
+end_operator
+begin_operator
+move-carrying-tunnel curator entrance maintenance-tunnel mart-nord-core-drill
+3
+96 0
+146 0
+151 0
+3
+0 37 -1 1
+0 40 -1 0
+0 150 2 5
+0
+end_operator
+begin_operator
+move-carrying-tunnel curator entrance maintenance-tunnel mart-north-pole-ice-sample
+3
+97 0
+146 0
+151 0
+3
+0 44 -1 1
+0 47 -1 0
+0 150 2 5
+0
+end_operator
+begin_operator
+move-carrying-tunnel curator entrance maintenance-tunnel mart-sud-core-drill
+3
+100 0
+146 0
+151 0
+3
+0 65 -1 1
+0 68 -1 0
+0 150 2 5
+0
+end_operator
+begin_operator
+move-carrying-tunnel curator entrance maintenance-tunnel mart-west-core-drill
+3
+101 0
+146 0
+151 0
+3
+0 72 -1 1
+0 75 -1 0
+0 150 2 5
+0
+end_operator
+begin_operator
+move-carrying-tunnel curator hall-a maintenance-tunnel asteroid-mg04tn-ice-sample
+3
+92 0
+146 0
+151 0
+3
+0 10 -1 1
+0 12 -1 0
+0 150 3 5
+0
+end_operator
+begin_operator
+move-carrying-tunnel curator hall-a maintenance-tunnel mart-east-core-drill
+3
+93 0
+146 0
+151 0
+3
+0 17 -1 1
+0 19 -1 0
+0 150 3 5
+0
+end_operator
+begin_operator
+move-carrying-tunnel curator hall-a maintenance-tunnel mart-mysterious-egg
+3
+95 0
+146 0
+151 0
+3
+0 31 -1 1
+0 33 -1 0
+0 150 3 5
+0
+end_operator
+begin_operator
+move-carrying-tunnel curator hall-a maintenance-tunnel mart-nord-core-drill
+3
+96 0
+146 0
+151 0
+3
+0 38 -1 1
+0 40 -1 0
+0 150 3 5
+0
+end_operator
+begin_operator
+move-carrying-tunnel curator hall-a maintenance-tunnel mart-north-pole-ice-sample
+3
+97 0
+146 0
+151 0
+3
+0 45 -1 1
+0 47 -1 0
+0 150 3 5
+0
+end_operator
+begin_operator
+move-carrying-tunnel curator hall-a maintenance-tunnel mart-sud-core-drill
+3
+100 0
+146 0
+151 0
+3
+0 66 -1 1
+0 68 -1 0
+0 150 3 5
+0
+end_operator
+begin_operator
+move-carrying-tunnel curator hall-a maintenance-tunnel mart-west-core-drill
+3
+101 0
+146 0
+151 0
+3
+0 73 -1 1
+0 75 -1 0
+0 150 3 5
+0
+end_operator
+begin_operator
+move-carrying-tunnel curator hall-b maintenance-tunnel asteroid-mg04tn-ice-sample
+3
+92 0
+146 0
+151 0
+3
+0 11 -1 1
+0 12 -1 0
+0 150 4 5
+0
+end_operator
+begin_operator
+move-carrying-tunnel curator hall-b maintenance-tunnel mart-east-core-drill
+3
+93 0
+146 0
+151 0
+3
+0 18 -1 1
+0 19 -1 0
+0 150 4 5
+0
+end_operator
+begin_operator
+move-carrying-tunnel curator hall-b maintenance-tunnel mart-mysterious-egg
+3
+95 0
+146 0
+151 0
+3
+0 32 -1 1
+0 33 -1 0
+0 150 4 5
+0
+end_operator
+begin_operator
+move-carrying-tunnel curator hall-b maintenance-tunnel mart-nord-core-drill
+3
+96 0
+146 0
+151 0
+3
+0 39 -1 1
+0 40 -1 0
+0 150 4 5
+0
+end_operator
+begin_operator
+move-carrying-tunnel curator hall-b maintenance-tunnel mart-north-pole-ice-sample
+3
+97 0
+146 0
+151 0
+3
+0 46 -1 1
+0 47 -1 0
+0 150 4 5
+0
+end_operator
+begin_operator
+move-carrying-tunnel curator hall-b maintenance-tunnel mart-sud-core-drill
+3
+100 0
+146 0
+151 0
+3
+0 67 -1 1
+0 68 -1 0
+0 150 4 5
+0
+end_operator
+begin_operator
+move-carrying-tunnel curator hall-b maintenance-tunnel mart-west-core-drill
+3
+101 0
+146 0
+151 0
+3
+0 74 -1 1
+0 75 -1 0
+0 150 4 5
+0
+end_operator
+begin_operator
+move-carrying-tunnel curator stasis-lab maintenance-tunnel asteroid-mg04tn-ice-sample
+3
+92 0
+146 0
+151 0
+3
+0 12 -1 0
+0 13 -1 1
+0 150 6 5
+0
+end_operator
+begin_operator
+move-carrying-tunnel curator stasis-lab maintenance-tunnel mart-east-core-drill
+3
+93 0
+146 0
+151 0
+3
+0 19 -1 0
+0 20 -1 1
+0 150 6 5
+0
+end_operator
+begin_operator
+move-carrying-tunnel curator stasis-lab maintenance-tunnel mart-mysterious-egg
+3
+95 0
+146 0
+151 0
+3
+0 33 -1 0
+0 34 -1 1
+0 150 6 5
+0
+end_operator
+begin_operator
+move-carrying-tunnel curator stasis-lab maintenance-tunnel mart-nord-core-drill
+3
+96 0
+146 0
+151 0
+3
+0 40 -1 0
+0 41 -1 1
+0 150 6 5
+0
+end_operator
+begin_operator
+move-carrying-tunnel curator stasis-lab maintenance-tunnel mart-north-pole-ice-sample
+3
+97 0
+146 0
+151 0
+3
+0 47 -1 0
+0 48 -1 1
+0 150 6 5
+0
+end_operator
+begin_operator
+move-carrying-tunnel curator stasis-lab maintenance-tunnel mart-sud-core-drill
+3
+100 0
+146 0
+151 0
+3
+0 68 -1 0
+0 69 -1 1
+0 150 6 5
+0
+end_operator
+begin_operator
+move-carrying-tunnel curator stasis-lab maintenance-tunnel mart-west-core-drill
+3
+101 0
+146 0
+151 0
+3
+0 75 -1 0
+0 76 -1 1
+0 150 6 5
+0
+end_operator
+begin_operator
+move-empty-safe curator maintenance-tunnel anti-vibration-pods-room
+3
+140 0
+141 0
+151 1
+1
+0 150 5 0
+0
+end_operator
+begin_operator
+move-empty-safe curator maintenance-tunnel cryo-chamber
+3
+140 0
+142 0
+151 1
+1
+0 150 5 1
+0
+end_operator
+begin_operator
+move-empty-safe curator maintenance-tunnel entrance
+3
+140 0
+143 0
+151 1
+1
+0 150 5 2
+0
+end_operator
+begin_operator
+move-empty-safe curator maintenance-tunnel hall-a
+3
+140 0
+144 0
+151 1
+1
+0 150 5 3
+0
+end_operator
+begin_operator
+move-empty-safe curator maintenance-tunnel hall-b
+3
+140 0
+145 0
+151 1
+1
+0 150 5 4
+0
+end_operator
+begin_operator
+move-empty-safe curator maintenance-tunnel stasis-lab
+3
+140 0
+147 0
+151 1
+1
+0 150 5 6
+0
+end_operator
+begin_operator
+move-empty-tunnel curator anti-vibration-pods-room maintenance-tunnel
+3
+140 0
+146 0
+151 0
+1
+0 150 0 5
+0
+end_operator
+begin_operator
+move-empty-tunnel curator cryo-chamber maintenance-tunnel
+3
+140 0
+146 0
+151 0
+1
+0 150 1 5
+0
+end_operator
+begin_operator
+move-empty-tunnel curator entrance maintenance-tunnel
+3
+140 0
+146 0
+151 0
+1
+0 150 2 5
+0
+end_operator
+begin_operator
+move-empty-tunnel curator hall-a maintenance-tunnel
+3
+140 0
+146 0
+151 0
+1
+0 150 3 5
+0
+end_operator
+begin_operator
+move-empty-tunnel curator hall-b maintenance-tunnel
+3
+140 0
+146 0
+151 0
+1
+0 150 4 5
+0
+end_operator
+begin_operator
+move-empty-tunnel curator stasis-lab maintenance-tunnel
+3
+140 0
+146 0
+151 0
+1
+0 150 6 5
+0
+end_operator
+begin_operator
+move-fragile-safe curator pod1 maintenance-tunnel anti-vibration-pods-room asteroid-ad29tv-rock-sample
+4
+106 0
+141 0
+148 0
+151 1
+3
+0 0 -1 0
+0 5 -1 1
+0 150 5 0
+0
+end_operator
+begin_operator
+move-fragile-safe curator pod1 maintenance-tunnel anti-vibration-pods-room asteroid-mg04tn-ice-sample
+4
+106 0
+141 0
+148 1
+151 1
+3
+0 7 -1 0
+0 12 -1 1
+0 150 5 0
+0
+end_operator
+begin_operator
+move-fragile-safe curator pod1 maintenance-tunnel anti-vibration-pods-room mart-east-core-drill
+4
+106 0
+141 0
+148 2
+151 1
+3
+0 14 -1 0
+0 19 -1 1
+0 150 5 0
+0
+end_operator
+begin_operator
+move-fragile-safe curator pod1 maintenance-tunnel anti-vibration-pods-room mart-laser-gun
+4
+106 0
+141 0
+148 3
+151 1
+3
+0 21 -1 0
+0 26 -1 1
+0 150 5 0
+0
+end_operator
+begin_operator
+move-fragile-safe curator pod1 maintenance-tunnel anti-vibration-pods-room mart-mysterious-egg
+4
+106 0
+141 0
+148 4
+151 1
+3
+0 28 -1 0
+0 33 -1 1
+0 150 5 0
+0
+end_operator
+begin_operator
+move-fragile-safe curator pod1 maintenance-tunnel anti-vibration-pods-room mart-nord-core-drill
+4
+106 0
+141 0
+148 5
+151 1
+3
+0 35 -1 0
+0 40 -1 1
+0 150 5 0
+0
+end_operator
+begin_operator
+move-fragile-safe curator pod1 maintenance-tunnel anti-vibration-pods-room mart-north-pole-ice-sample
+4
+106 0
+141 0
+148 6
+151 1
+3
+0 42 -1 0
+0 47 -1 1
+0 150 5 0
+0
+end_operator
+begin_operator
+move-fragile-safe curator pod1 maintenance-tunnel anti-vibration-pods-room mart-pink-hat
+4
+106 0
+141 0
+148 7
+151 1
+3
+0 49 -1 0
+0 54 -1 1
+0 150 5 0
+0
+end_operator
+begin_operator
+move-fragile-safe curator pod1 maintenance-tunnel anti-vibration-pods-room mart-sand-sample
+4
+106 0
+141 0
+148 8
+151 1
+3
+0 56 -1 0
+0 61 -1 1
+0 150 5 0
+0
+end_operator
+begin_operator
+move-fragile-safe curator pod1 maintenance-tunnel anti-vibration-pods-room mart-sud-core-drill
+4
+106 0
+141 0
+148 9
+151 1
+3
+0 63 -1 0
+0 68 -1 1
+0 150 5 0
+0
+end_operator
+begin_operator
+move-fragile-safe curator pod1 maintenance-tunnel anti-vibration-pods-room mart-west-core-drill
+4
+106 0
+141 0
+148 10
+151 1
+3
+0 70 -1 0
+0 75 -1 1
+0 150 5 0
+0
+end_operator
+begin_operator
+move-fragile-safe curator pod1 maintenance-tunnel anti-vibration-pods-room venus-rock-sample
+4
+106 0
+141 0
+148 11
+151 1
+3
+0 77 -1 0
+0 82 -1 1
+0 150 5 0
+0
+end_operator
+begin_operator
+move-fragile-safe curator pod1 maintenance-tunnel anti-vibration-pods-room venus-sand-sample
+4
+106 0
+141 0
+148 12
+151 1
+3
+0 84 -1 0
+0 89 -1 1
+0 150 5 0
+0
+end_operator
+begin_operator
+move-fragile-safe curator pod1 maintenance-tunnel cryo-chamber asteroid-ad29tv-rock-sample
+4
+106 0
+142 0
+148 0
+151 1
+3
+0 1 -1 0
+0 5 -1 1
+0 150 5 1
+0
+end_operator
+begin_operator
+move-fragile-safe curator pod1 maintenance-tunnel cryo-chamber asteroid-mg04tn-ice-sample
+4
+106 0
+142 0
+148 1
+151 1
+3
+0 8 -1 0
+0 12 -1 1
+0 150 5 1
+0
+end_operator
+begin_operator
+move-fragile-safe curator pod1 maintenance-tunnel cryo-chamber mart-east-core-drill
+4
+106 0
+142 0
+148 2
+151 1
+3
+0 15 -1 0
+0 19 -1 1
+0 150 5 1
+0
+end_operator
+begin_operator
+move-fragile-safe curator pod1 maintenance-tunnel cryo-chamber mart-laser-gun
+4
+106 0
+142 0
+148 3
+151 1
+3
+0 22 -1 0
+0 26 -1 1
+0 150 5 1
+0
+end_operator
+begin_operator
+move-fragile-safe curator pod1 maintenance-tunnel cryo-chamber mart-mysterious-egg
+4
+106 0
+142 0
+148 4
+151 1
+3
+0 29 -1 0
+0 33 -1 1
+0 150 5 1
+0
+end_operator
+begin_operator
+move-fragile-safe curator pod1 maintenance-tunnel cryo-chamber mart-nord-core-drill
+4
+106 0
+142 0
+148 5
+151 1
+3
+0 36 -1 0
+0 40 -1 1
+0 150 5 1
+0
+end_operator
+begin_operator
+move-fragile-safe curator pod1 maintenance-tunnel cryo-chamber mart-north-pole-ice-sample
+4
+106 0
+142 0
+148 6
+151 1
+3
+0 43 -1 0
+0 47 -1 1
+0 150 5 1
+0
+end_operator
+begin_operator
+move-fragile-safe curator pod1 maintenance-tunnel cryo-chamber mart-pink-hat
+4
+106 0
+142 0
+148 7
+151 1
+3
+0 50 -1 0
+0 54 -1 1
+0 150 5 1
+0
+end_operator
+begin_operator
+move-fragile-safe curator pod1 maintenance-tunnel cryo-chamber mart-sand-sample
+4
+106 0
+142 0
+148 8
+151 1
+3
+0 57 -1 0
+0 61 -1 1
+0 150 5 1
+0
+end_operator
+begin_operator
+move-fragile-safe curator pod1 maintenance-tunnel cryo-chamber mart-sud-core-drill
+4
+106 0
+142 0
+148 9
+151 1
+3
+0 64 -1 0
+0 68 -1 1
+0 150 5 1
+0
+end_operator
+begin_operator
+move-fragile-safe curator pod1 maintenance-tunnel cryo-chamber mart-west-core-drill
+4
+106 0
+142 0
+148 10
+151 1
+3
+0 71 -1 0
+0 75 -1 1
+0 150 5 1
+0
+end_operator
+begin_operator
+move-fragile-safe curator pod1 maintenance-tunnel cryo-chamber venus-rock-sample
+4
+106 0
+142 0
+148 11
+151 1
+3
+0 78 -1 0
+0 82 -1 1
+0 150 5 1
+0
+end_operator
+begin_operator
+move-fragile-safe curator pod1 maintenance-tunnel cryo-chamber venus-sand-sample
+4
+106 0
+142 0
+148 12
+151 1
+3
+0 85 -1 0
+0 89 -1 1
+0 150 5 1
+0
+end_operator
+begin_operator
+move-fragile-safe curator pod1 maintenance-tunnel entrance asteroid-ad29tv-rock-sample
+4
+106 0
+143 0
+148 0
+151 1
+3
+0 2 -1 0
+0 5 -1 1
+0 150 5 2
+0
+end_operator
+begin_operator
+move-fragile-safe curator pod1 maintenance-tunnel entrance asteroid-mg04tn-ice-sample
+4
+106 0
+143 0
+148 1
+151 1
+3
+0 9 -1 0
+0 12 -1 1
+0 150 5 2
+0
+end_operator
+begin_operator
+move-fragile-safe curator pod1 maintenance-tunnel entrance mart-east-core-drill
+4
+106 0
+143 0
+148 2
+151 1
+3
+0 16 -1 0
+0 19 -1 1
+0 150 5 2
+0
+end_operator
+begin_operator
+move-fragile-safe curator pod1 maintenance-tunnel entrance mart-laser-gun
+4
+106 0
+143 0
+148 3
+151 1
+3
+0 23 -1 0
+0 26 -1 1
+0 150 5 2
+0
+end_operator
+begin_operator
+move-fragile-safe curator pod1 maintenance-tunnel entrance mart-mysterious-egg
+4
+106 0
+143 0
+148 4
+151 1
+3
+0 30 -1 0
+0 33 -1 1
+0 150 5 2
+0
+end_operator
+begin_operator
+move-fragile-safe curator pod1 maintenance-tunnel entrance mart-nord-core-drill
+4
+106 0
+143 0
+148 5
+151 1
+3
+0 37 -1 0
+0 40 -1 1
+0 150 5 2
+0
+end_operator
+begin_operator
+move-fragile-safe curator pod1 maintenance-tunnel entrance mart-north-pole-ice-sample
+4
+106 0
+143 0
+148 6
+151 1
+3
+0 44 -1 0
+0 47 -1 1
+0 150 5 2
+0
+end_operator
+begin_operator
+move-fragile-safe curator pod1 maintenance-tunnel entrance mart-pink-hat
+4
+106 0
+143 0
+148 7
+151 1
+3
+0 51 -1 0
+0 54 -1 1
+0 150 5 2
+0
+end_operator
+begin_operator
+move-fragile-safe curator pod1 maintenance-tunnel entrance mart-sand-sample
+4
+106 0
+143 0
+148 8
+151 1
+3
+0 58 -1 0
+0 61 -1 1
+0 150 5 2
+0
+end_operator
+begin_operator
+move-fragile-safe curator pod1 maintenance-tunnel entrance mart-sud-core-drill
+4
+106 0
+143 0
+148 9
+151 1
+3
+0 65 -1 0
+0 68 -1 1
+0 150 5 2
+0
+end_operator
+begin_operator
+move-fragile-safe curator pod1 maintenance-tunnel entrance mart-west-core-drill
+4
+106 0
+143 0
+148 10
+151 1
+3
+0 72 -1 0
+0 75 -1 1
+0 150 5 2
+0
+end_operator
+begin_operator
+move-fragile-safe curator pod1 maintenance-tunnel entrance venus-rock-sample
+4
+106 0
+143 0
+148 11
+151 1
+3
+0 79 -1 0
+0 82 -1 1
+0 150 5 2
+0
+end_operator
+begin_operator
+move-fragile-safe curator pod1 maintenance-tunnel entrance venus-sand-sample
+4
+106 0
+143 0
+148 12
+151 1
+3
+0 86 -1 0
+0 89 -1 1
+0 150 5 2
+0
+end_operator
+begin_operator
+move-fragile-safe curator pod1 maintenance-tunnel hall-a asteroid-ad29tv-rock-sample
+4
+106 0
+144 0
+148 0
+151 1
+3
+0 3 -1 0
+0 5 -1 1
+0 150 5 3
+0
+end_operator
+begin_operator
+move-fragile-safe curator pod1 maintenance-tunnel hall-a asteroid-mg04tn-ice-sample
+4
+106 0
+144 0
+148 1
+151 1
+3
+0 10 -1 0
+0 12 -1 1
+0 150 5 3
+0
+end_operator
+begin_operator
+move-fragile-safe curator pod1 maintenance-tunnel hall-a mart-east-core-drill
+4
+106 0
+144 0
+148 2
+151 1
+3
+0 17 -1 0
+0 19 -1 1
+0 150 5 3
+0
+end_operator
+begin_operator
+move-fragile-safe curator pod1 maintenance-tunnel hall-a mart-laser-gun
+4
+106 0
+144 0
+148 3
+151 1
+3
+0 24 -1 0
+0 26 -1 1
+0 150 5 3
+0
+end_operator
+begin_operator
+move-fragile-safe curator pod1 maintenance-tunnel hall-a mart-mysterious-egg
+4
+106 0
+144 0
+148 4
+151 1
+3
+0 31 -1 0
+0 33 -1 1
+0 150 5 3
+0
+end_operator
+begin_operator
+move-fragile-safe curator pod1 maintenance-tunnel hall-a mart-nord-core-drill
+4
+106 0
+144 0
+148 5
+151 1
+3
+0 38 -1 0
+0 40 -1 1
+0 150 5 3
+0
+end_operator
+begin_operator
+move-fragile-safe curator pod1 maintenance-tunnel hall-a mart-north-pole-ice-sample
+4
+106 0
+144 0
+148 6
+151 1
+3
+0 45 -1 0
+0 47 -1 1
+0 150 5 3
+0
+end_operator
+begin_operator
+move-fragile-safe curator pod1 maintenance-tunnel hall-a mart-pink-hat
+4
+106 0
+144 0
+148 7
+151 1
+3
+0 52 -1 0
+0 54 -1 1
+0 150 5 3
+0
+end_operator
+begin_operator
+move-fragile-safe curator pod1 maintenance-tunnel hall-a mart-sand-sample
+4
+106 0
+144 0
+148 8
+151 1
+3
+0 59 -1 0
+0 61 -1 1
+0 150 5 3
+0
+end_operator
+begin_operator
+move-fragile-safe curator pod1 maintenance-tunnel hall-a mart-sud-core-drill
+4
+106 0
+144 0
+148 9
+151 1
+3
+0 66 -1 0
+0 68 -1 1
+0 150 5 3
+0
+end_operator
+begin_operator
+move-fragile-safe curator pod1 maintenance-tunnel hall-a mart-west-core-drill
+4
+106 0
+144 0
+148 10
+151 1
+3
+0 73 -1 0
+0 75 -1 1
+0 150 5 3
+0
+end_operator
+begin_operator
+move-fragile-safe curator pod1 maintenance-tunnel hall-a venus-rock-sample
+4
+106 0
+144 0
+148 11
+151 1
+3
+0 80 -1 0
+0 82 -1 1
+0 150 5 3
+0
+end_operator
+begin_operator
+move-fragile-safe curator pod1 maintenance-tunnel hall-a venus-sand-sample
+4
+106 0
+144 0
+148 12
+151 1
+3
+0 87 -1 0
+0 89 -1 1
+0 150 5 3
+0
+end_operator
+begin_operator
+move-fragile-safe curator pod1 maintenance-tunnel hall-b asteroid-ad29tv-rock-sample
+4
+106 0
+145 0
+148 0
+151 1
+3
+0 4 -1 0
+0 5 -1 1
+0 150 5 4
+0
+end_operator
+begin_operator
+move-fragile-safe curator pod1 maintenance-tunnel hall-b asteroid-mg04tn-ice-sample
+4
+106 0
+145 0
+148 1
+151 1
+3
+0 11 -1 0
+0 12 -1 1
+0 150 5 4
+0
+end_operator
+begin_operator
+move-fragile-safe curator pod1 maintenance-tunnel hall-b mart-east-core-drill
+4
+106 0
+145 0
+148 2
+151 1
+3
+0 18 -1 0
+0 19 -1 1
+0 150 5 4
+0
+end_operator
+begin_operator
+move-fragile-safe curator pod1 maintenance-tunnel hall-b mart-laser-gun
+4
+106 0
+145 0
+148 3
+151 1
+3
+0 25 -1 0
+0 26 -1 1
+0 150 5 4
+0
+end_operator
+begin_operator
+move-fragile-safe curator pod1 maintenance-tunnel hall-b mart-mysterious-egg
+4
+106 0
+145 0
+148 4
+151 1
+3
+0 32 -1 0
+0 33 -1 1
+0 150 5 4
+0
+end_operator
+begin_operator
+move-fragile-safe curator pod1 maintenance-tunnel hall-b mart-nord-core-drill
+4
+106 0
+145 0
+148 5
+151 1
+3
+0 39 -1 0
+0 40 -1 1
+0 150 5 4
+0
+end_operator
+begin_operator
+move-fragile-safe curator pod1 maintenance-tunnel hall-b mart-north-pole-ice-sample
+4
+106 0
+145 0
+148 6
+151 1
+3
+0 46 -1 0
+0 47 -1 1
+0 150 5 4
+0
+end_operator
+begin_operator
+move-fragile-safe curator pod1 maintenance-tunnel hall-b mart-pink-hat
+4
+106 0
+145 0
+148 7
+151 1
+3
+0 53 -1 0
+0 54 -1 1
+0 150 5 4
+0
+end_operator
+begin_operator
+move-fragile-safe curator pod1 maintenance-tunnel hall-b mart-sand-sample
+4
+106 0
+145 0
+148 8
+151 1
+3
+0 60 -1 0
+0 61 -1 1
+0 150 5 4
+0
+end_operator
+begin_operator
+move-fragile-safe curator pod1 maintenance-tunnel hall-b mart-sud-core-drill
+4
+106 0
+145 0
+148 9
+151 1
+3
+0 67 -1 0
+0 68 -1 1
+0 150 5 4
+0
+end_operator
+begin_operator
+move-fragile-safe curator pod1 maintenance-tunnel hall-b mart-west-core-drill
+4
+106 0
+145 0
+148 10
+151 1
+3
+0 74 -1 0
+0 75 -1 1
+0 150 5 4
+0
+end_operator
+begin_operator
+move-fragile-safe curator pod1 maintenance-tunnel hall-b venus-rock-sample
+4
+106 0
+145 0
+148 11
+151 1
+3
+0 81 -1 0
+0 82 -1 1
+0 150 5 4
+0
+end_operator
+begin_operator
+move-fragile-safe curator pod1 maintenance-tunnel hall-b venus-sand-sample
+4
+106 0
+145 0
+148 12
+151 1
+3
+0 88 -1 0
+0 89 -1 1
+0 150 5 4
+0
+end_operator
+begin_operator
+move-fragile-safe curator pod1 maintenance-tunnel stasis-lab asteroid-ad29tv-rock-sample
+4
+106 0
+147 0
+148 0
+151 1
+3
+0 5 -1 1
+0 6 -1 0
+0 150 5 6
+0
+end_operator
+begin_operator
+move-fragile-safe curator pod1 maintenance-tunnel stasis-lab asteroid-mg04tn-ice-sample
+4
+106 0
+147 0
+148 1
+151 1
+3
+0 12 -1 1
+0 13 -1 0
+0 150 5 6
+0
+end_operator
+begin_operator
+move-fragile-safe curator pod1 maintenance-tunnel stasis-lab mart-east-core-drill
+4
+106 0
+147 0
+148 2
+151 1
+3
+0 19 -1 1
+0 20 -1 0
+0 150 5 6
+0
+end_operator
+begin_operator
+move-fragile-safe curator pod1 maintenance-tunnel stasis-lab mart-laser-gun
+4
+106 0
+147 0
+148 3
+151 1
+3
+0 26 -1 1
+0 27 -1 0
+0 150 5 6
+0
+end_operator
+begin_operator
+move-fragile-safe curator pod1 maintenance-tunnel stasis-lab mart-mysterious-egg
+4
+106 0
+147 0
+148 4
+151 1
+3
+0 33 -1 1
+0 34 -1 0
+0 150 5 6
+0
+end_operator
+begin_operator
+move-fragile-safe curator pod1 maintenance-tunnel stasis-lab mart-nord-core-drill
+4
+106 0
+147 0
+148 5
+151 1
+3
+0 40 -1 1
+0 41 -1 0
+0 150 5 6
+0
+end_operator
+begin_operator
+move-fragile-safe curator pod1 maintenance-tunnel stasis-lab mart-north-pole-ice-sample
+4
+106 0
+147 0
+148 6
+151 1
+3
+0 47 -1 1
+0 48 -1 0
+0 150 5 6
+0
+end_operator
+begin_operator
+move-fragile-safe curator pod1 maintenance-tunnel stasis-lab mart-pink-hat
+4
+106 0
+147 0
+148 7
+151 1
+3
+0 54 -1 1
+0 55 -1 0
+0 150 5 6
+0
+end_operator
+begin_operator
+move-fragile-safe curator pod1 maintenance-tunnel stasis-lab mart-sand-sample
+4
+106 0
+147 0
+148 8
+151 1
+3
+0 61 -1 1
+0 62 -1 0
+0 150 5 6
+0
+end_operator
+begin_operator
+move-fragile-safe curator pod1 maintenance-tunnel stasis-lab mart-sud-core-drill
+4
+106 0
+147 0
+148 9
+151 1
+3
+0 68 -1 1
+0 69 -1 0
+0 150 5 6
+0
+end_operator
+begin_operator
+move-fragile-safe curator pod1 maintenance-tunnel stasis-lab mart-west-core-drill
+4
+106 0
+147 0
+148 10
+151 1
+3
+0 75 -1 1
+0 76 -1 0
+0 150 5 6
+0
+end_operator
+begin_operator
+move-fragile-safe curator pod1 maintenance-tunnel stasis-lab venus-rock-sample
+4
+106 0
+147 0
+148 11
+151 1
+3
+0 82 -1 1
+0 83 -1 0
+0 150 5 6
+0
+end_operator
+begin_operator
+move-fragile-safe curator pod1 maintenance-tunnel stasis-lab venus-sand-sample
+4
+106 0
+147 0
+148 12
+151 1
+3
+0 89 -1 1
+0 90 -1 0
+0 150 5 6
+0
+end_operator
+begin_operator
+move-fragile-safe curator pod2 maintenance-tunnel anti-vibration-pods-room asteroid-ad29tv-rock-sample
+4
+107 0
+141 0
+149 0
+151 1
+3
+0 0 -1 0
+0 5 -1 1
+0 150 5 0
+0
+end_operator
+begin_operator
+move-fragile-safe curator pod2 maintenance-tunnel anti-vibration-pods-room asteroid-mg04tn-ice-sample
+4
+107 0
+141 0
+149 1
+151 1
+3
+0 7 -1 0
+0 12 -1 1
+0 150 5 0
+0
+end_operator
+begin_operator
+move-fragile-safe curator pod2 maintenance-tunnel anti-vibration-pods-room mart-east-core-drill
+4
+107 0
+141 0
+149 2
+151 1
+3
+0 14 -1 0
+0 19 -1 1
+0 150 5 0
+0
+end_operator
+begin_operator
+move-fragile-safe curator pod2 maintenance-tunnel anti-vibration-pods-room mart-laser-gun
+4
+107 0
+141 0
+149 3
+151 1
+3
+0 21 -1 0
+0 26 -1 1
+0 150 5 0
+0
+end_operator
+begin_operator
+move-fragile-safe curator pod2 maintenance-tunnel anti-vibration-pods-room mart-mysterious-egg
+4
+107 0
+141 0
+149 4
+151 1
+3
+0 28 -1 0
+0 33 -1 1
+0 150 5 0
+0
+end_operator
+begin_operator
+move-fragile-safe curator pod2 maintenance-tunnel anti-vibration-pods-room mart-nord-core-drill
+4
+107 0
+141 0
+149 5
+151 1
+3
+0 35 -1 0
+0 40 -1 1
+0 150 5 0
+0
+end_operator
+begin_operator
+move-fragile-safe curator pod2 maintenance-tunnel anti-vibration-pods-room mart-north-pole-ice-sample
+4
+107 0
+141 0
+149 6
+151 1
+3
+0 42 -1 0
+0 47 -1 1
+0 150 5 0
+0
+end_operator
+begin_operator
+move-fragile-safe curator pod2 maintenance-tunnel anti-vibration-pods-room mart-pink-hat
+4
+107 0
+141 0
+149 7
+151 1
+3
+0 49 -1 0
+0 54 -1 1
+0 150 5 0
+0
+end_operator
+begin_operator
+move-fragile-safe curator pod2 maintenance-tunnel anti-vibration-pods-room mart-sand-sample
+4
+107 0
+141 0
+149 8
+151 1
+3
+0 56 -1 0
+0 61 -1 1
+0 150 5 0
+0
+end_operator
+begin_operator
+move-fragile-safe curator pod2 maintenance-tunnel anti-vibration-pods-room mart-sud-core-drill
+4
+107 0
+141 0
+149 9
+151 1
+3
+0 63 -1 0
+0 68 -1 1
+0 150 5 0
+0
+end_operator
+begin_operator
+move-fragile-safe curator pod2 maintenance-tunnel anti-vibration-pods-room mart-west-core-drill
+4
+107 0
+141 0
+149 10
+151 1
+3
+0 70 -1 0
+0 75 -1 1
+0 150 5 0
+0
+end_operator
+begin_operator
+move-fragile-safe curator pod2 maintenance-tunnel anti-vibration-pods-room venus-rock-sample
+4
+107 0
+141 0
+149 11
+151 1
+3
+0 77 -1 0
+0 82 -1 1
+0 150 5 0
+0
+end_operator
+begin_operator
+move-fragile-safe curator pod2 maintenance-tunnel anti-vibration-pods-room venus-sand-sample
+4
+107 0
+141 0
+149 12
+151 1
+3
+0 84 -1 0
+0 89 -1 1
+0 150 5 0
+0
+end_operator
+begin_operator
+move-fragile-safe curator pod2 maintenance-tunnel cryo-chamber asteroid-ad29tv-rock-sample
+4
+107 0
+142 0
+149 0
+151 1
+3
+0 1 -1 0
+0 5 -1 1
+0 150 5 1
+0
+end_operator
+begin_operator
+move-fragile-safe curator pod2 maintenance-tunnel cryo-chamber asteroid-mg04tn-ice-sample
+4
+107 0
+142 0
+149 1
+151 1
+3
+0 8 -1 0
+0 12 -1 1
+0 150 5 1
+0
+end_operator
+begin_operator
+move-fragile-safe curator pod2 maintenance-tunnel cryo-chamber mart-east-core-drill
+4
+107 0
+142 0
+149 2
+151 1
+3
+0 15 -1 0
+0 19 -1 1
+0 150 5 1
+0
+end_operator
+begin_operator
+move-fragile-safe curator pod2 maintenance-tunnel cryo-chamber mart-laser-gun
+4
+107 0
+142 0
+149 3
+151 1
+3
+0 22 -1 0
+0 26 -1 1
+0 150 5 1
+0
+end_operator
+begin_operator
+move-fragile-safe curator pod2 maintenance-tunnel cryo-chamber mart-mysterious-egg
+4
+107 0
+142 0
+149 4
+151 1
+3
+0 29 -1 0
+0 33 -1 1
+0 150 5 1
+0
+end_operator
+begin_operator
+move-fragile-safe curator pod2 maintenance-tunnel cryo-chamber mart-nord-core-drill
+4
+107 0
+142 0
+149 5
+151 1
+3
+0 36 -1 0
+0 40 -1 1
+0 150 5 1
+0
+end_operator
+begin_operator
+move-fragile-safe curator pod2 maintenance-tunnel cryo-chamber mart-north-pole-ice-sample
+4
+107 0
+142 0
+149 6
+151 1
+3
+0 43 -1 0
+0 47 -1 1
+0 150 5 1
+0
+end_operator
+begin_operator
+move-fragile-safe curator pod2 maintenance-tunnel cryo-chamber mart-pink-hat
+4
+107 0
+142 0
+149 7
+151 1
+3
+0 50 -1 0
+0 54 -1 1
+0 150 5 1
+0
+end_operator
+begin_operator
+move-fragile-safe curator pod2 maintenance-tunnel cryo-chamber mart-sand-sample
+4
+107 0
+142 0
+149 8
+151 1
+3
+0 57 -1 0
+0 61 -1 1
+0 150 5 1
+0
+end_operator
+begin_operator
+move-fragile-safe curator pod2 maintenance-tunnel cryo-chamber mart-sud-core-drill
+4
+107 0
+142 0
+149 9
+151 1
+3
+0 64 -1 0
+0 68 -1 1
+0 150 5 1
+0
+end_operator
+begin_operator
+move-fragile-safe curator pod2 maintenance-tunnel cryo-chamber mart-west-core-drill
+4
+107 0
+142 0
+149 10
+151 1
+3
+0 71 -1 0
+0 75 -1 1
+0 150 5 1
+0
+end_operator
+begin_operator
+move-fragile-safe curator pod2 maintenance-tunnel cryo-chamber venus-rock-sample
+4
+107 0
+142 0
+149 11
+151 1
+3
+0 78 -1 0
+0 82 -1 1
+0 150 5 1
+0
+end_operator
+begin_operator
+move-fragile-safe curator pod2 maintenance-tunnel cryo-chamber venus-sand-sample
+4
+107 0
+142 0
+149 12
+151 1
+3
+0 85 -1 0
+0 89 -1 1
+0 150 5 1
+0
+end_operator
+begin_operator
+move-fragile-safe curator pod2 maintenance-tunnel entrance asteroid-ad29tv-rock-sample
+4
+107 0
+143 0
+149 0
+151 1
+3
+0 2 -1 0
+0 5 -1 1
+0 150 5 2
+0
+end_operator
+begin_operator
+move-fragile-safe curator pod2 maintenance-tunnel entrance asteroid-mg04tn-ice-sample
+4
+107 0
+143 0
+149 1
+151 1
+3
+0 9 -1 0
+0 12 -1 1
+0 150 5 2
+0
+end_operator
+begin_operator
+move-fragile-safe curator pod2 maintenance-tunnel entrance mart-east-core-drill
+4
+107 0
+143 0
+149 2
+151 1
+3
+0 16 -1 0
+0 19 -1 1
+0 150 5 2
+0
+end_operator
+begin_operator
+move-fragile-safe curator pod2 maintenance-tunnel entrance mart-laser-gun
+4
+107 0
+143 0
+149 3
+151 1
+3
+0 23 -1 0
+0 26 -1 1
+0 150 5 2
+0
+end_operator
+begin_operator
+move-fragile-safe curator pod2 maintenance-tunnel entrance mart-mysterious-egg
+4
+107 0
+143 0
+149 4
+151 1
+3
+0 30 -1 0
+0 33 -1 1
+0 150 5 2
+0
+end_operator
+begin_operator
+move-fragile-safe curator pod2 maintenance-tunnel entrance mart-nord-core-drill
+4
+107 0
+143 0
+149 5
+151 1
+3
+0 37 -1 0
+0 40 -1 1
+0 150 5 2
+0
+end_operator
+begin_operator
+move-fragile-safe curator pod2 maintenance-tunnel entrance mart-north-pole-ice-sample
+4
+107 0
+143 0
+149 6
+151 1
+3
+0 44 -1 0
+0 47 -1 1
+0 150 5 2
+0
+end_operator
+begin_operator
+move-fragile-safe curator pod2 maintenance-tunnel entrance mart-pink-hat
+4
+107 0
+143 0
+149 7
+151 1
+3
+0 51 -1 0
+0 54 -1 1
+0 150 5 2
+0
+end_operator
+begin_operator
+move-fragile-safe curator pod2 maintenance-tunnel entrance mart-sand-sample
+4
+107 0
+143 0
+149 8
+151 1
+3
+0 58 -1 0
+0 61 -1 1
+0 150 5 2
+0
+end_operator
+begin_operator
+move-fragile-safe curator pod2 maintenance-tunnel entrance mart-sud-core-drill
+4
+107 0
+143 0
+149 9
+151 1
+3
+0 65 -1 0
+0 68 -1 1
+0 150 5 2
+0
+end_operator
+begin_operator
+move-fragile-safe curator pod2 maintenance-tunnel entrance mart-west-core-drill
+4
+107 0
+143 0
+149 10
+151 1
+3
+0 72 -1 0
+0 75 -1 1
+0 150 5 2
+0
+end_operator
+begin_operator
+move-fragile-safe curator pod2 maintenance-tunnel entrance venus-rock-sample
+4
+107 0
+143 0
+149 11
+151 1
+3
+0 79 -1 0
+0 82 -1 1
+0 150 5 2
+0
+end_operator
+begin_operator
+move-fragile-safe curator pod2 maintenance-tunnel entrance venus-sand-sample
+4
+107 0
+143 0
+149 12
+151 1
+3
+0 86 -1 0
+0 89 -1 1
+0 150 5 2
+0
+end_operator
+begin_operator
+move-fragile-safe curator pod2 maintenance-tunnel hall-a asteroid-ad29tv-rock-sample
+4
+107 0
+144 0
+149 0
+151 1
+3
+0 3 -1 0
+0 5 -1 1
+0 150 5 3
+0
+end_operator
+begin_operator
+move-fragile-safe curator pod2 maintenance-tunnel hall-a asteroid-mg04tn-ice-sample
+4
+107 0
+144 0
+149 1
+151 1
+3
+0 10 -1 0
+0 12 -1 1
+0 150 5 3
+0
+end_operator
+begin_operator
+move-fragile-safe curator pod2 maintenance-tunnel hall-a mart-east-core-drill
+4
+107 0
+144 0
+149 2
+151 1
+3
+0 17 -1 0
+0 19 -1 1
+0 150 5 3
+0
+end_operator
+begin_operator
+move-fragile-safe curator pod2 maintenance-tunnel hall-a mart-laser-gun
+4
+107 0
+144 0
+149 3
+151 1
+3
+0 24 -1 0
+0 26 -1 1
+0 150 5 3
+0
+end_operator
+begin_operator
+move-fragile-safe curator pod2 maintenance-tunnel hall-a mart-mysterious-egg
+4
+107 0
+144 0
+149 4
+151 1
+3
+0 31 -1 0
+0 33 -1 1
+0 150 5 3
+0
+end_operator
+begin_operator
+move-fragile-safe curator pod2 maintenance-tunnel hall-a mart-nord-core-drill
+4
+107 0
+144 0
+149 5
+151 1
+3
+0 38 -1 0
+0 40 -1 1
+0 150 5 3
+0
+end_operator
+begin_operator
+move-fragile-safe curator pod2 maintenance-tunnel hall-a mart-north-pole-ice-sample
+4
+107 0
+144 0
+149 6
+151 1
+3
+0 45 -1 0
+0 47 -1 1
+0 150 5 3
+0
+end_operator
+begin_operator
+move-fragile-safe curator pod2 maintenance-tunnel hall-a mart-pink-hat
+4
+107 0
+144 0
+149 7
+151 1
+3
+0 52 -1 0
+0 54 -1 1
+0 150 5 3
+0
+end_operator
+begin_operator
+move-fragile-safe curator pod2 maintenance-tunnel hall-a mart-sand-sample
+4
+107 0
+144 0
+149 8
+151 1
+3
+0 59 -1 0
+0 61 -1 1
+0 150 5 3
+0
+end_operator
+begin_operator
+move-fragile-safe curator pod2 maintenance-tunnel hall-a mart-sud-core-drill
+4
+107 0
+144 0
+149 9
+151 1
+3
+0 66 -1 0
+0 68 -1 1
+0 150 5 3
+0
+end_operator
+begin_operator
+move-fragile-safe curator pod2 maintenance-tunnel hall-a mart-west-core-drill
+4
+107 0
+144 0
+149 10
+151 1
+3
+0 73 -1 0
+0 75 -1 1
+0 150 5 3
+0
+end_operator
+begin_operator
+move-fragile-safe curator pod2 maintenance-tunnel hall-a venus-rock-sample
+4
+107 0
+144 0
+149 11
+151 1
+3
+0 80 -1 0
+0 82 -1 1
+0 150 5 3
+0
+end_operator
+begin_operator
+move-fragile-safe curator pod2 maintenance-tunnel hall-a venus-sand-sample
+4
+107 0
+144 0
+149 12
+151 1
+3
+0 87 -1 0
+0 89 -1 1
+0 150 5 3
+0
+end_operator
+begin_operator
+move-fragile-safe curator pod2 maintenance-tunnel hall-b asteroid-ad29tv-rock-sample
+4
+107 0
+145 0
+149 0
+151 1
+3
+0 4 -1 0
+0 5 -1 1
+0 150 5 4
+0
+end_operator
+begin_operator
+move-fragile-safe curator pod2 maintenance-tunnel hall-b asteroid-mg04tn-ice-sample
+4
+107 0
+145 0
+149 1
+151 1
+3
+0 11 -1 0
+0 12 -1 1
+0 150 5 4
+0
+end_operator
+begin_operator
+move-fragile-safe curator pod2 maintenance-tunnel hall-b mart-east-core-drill
+4
+107 0
+145 0
+149 2
+151 1
+3
+0 18 -1 0
+0 19 -1 1
+0 150 5 4
+0
+end_operator
+begin_operator
+move-fragile-safe curator pod2 maintenance-tunnel hall-b mart-laser-gun
+4
+107 0
+145 0
+149 3
+151 1
+3
+0 25 -1 0
+0 26 -1 1
+0 150 5 4
+0
+end_operator
+begin_operator
+move-fragile-safe curator pod2 maintenance-tunnel hall-b mart-mysterious-egg
+4
+107 0
+145 0
+149 4
+151 1
+3
+0 32 -1 0
+0 33 -1 1
+0 150 5 4
+0
+end_operator
+begin_operator
+move-fragile-safe curator pod2 maintenance-tunnel hall-b mart-nord-core-drill
+4
+107 0
+145 0
+149 5
+151 1
+3
+0 39 -1 0
+0 40 -1 1
+0 150 5 4
+0
+end_operator
+begin_operator
+move-fragile-safe curator pod2 maintenance-tunnel hall-b mart-north-pole-ice-sample
+4
+107 0
+145 0
+149 6
+151 1
+3
+0 46 -1 0
+0 47 -1 1
+0 150 5 4
+0
+end_operator
+begin_operator
+move-fragile-safe curator pod2 maintenance-tunnel hall-b mart-pink-hat
+4
+107 0
+145 0
+149 7
+151 1
+3
+0 53 -1 0
+0 54 -1 1
+0 150 5 4
+0
+end_operator
+begin_operator
+move-fragile-safe curator pod2 maintenance-tunnel hall-b mart-sand-sample
+4
+107 0
+145 0
+149 8
+151 1
+3
+0 60 -1 0
+0 61 -1 1
+0 150 5 4
+0
+end_operator
+begin_operator
+move-fragile-safe curator pod2 maintenance-tunnel hall-b mart-sud-core-drill
+4
+107 0
+145 0
+149 9
+151 1
+3
+0 67 -1 0
+0 68 -1 1
+0 150 5 4
+0
+end_operator
+begin_operator
+move-fragile-safe curator pod2 maintenance-tunnel hall-b mart-west-core-drill
+4
+107 0
+145 0
+149 10
+151 1
+3
+0 74 -1 0
+0 75 -1 1
+0 150 5 4
+0
+end_operator
+begin_operator
+move-fragile-safe curator pod2 maintenance-tunnel hall-b venus-rock-sample
+4
+107 0
+145 0
+149 11
+151 1
+3
+0 81 -1 0
+0 82 -1 1
+0 150 5 4
+0
+end_operator
+begin_operator
+move-fragile-safe curator pod2 maintenance-tunnel hall-b venus-sand-sample
+4
+107 0
+145 0
+149 12
+151 1
+3
+0 88 -1 0
+0 89 -1 1
+0 150 5 4
+0
+end_operator
+begin_operator
+move-fragile-safe curator pod2 maintenance-tunnel stasis-lab asteroid-ad29tv-rock-sample
+4
+107 0
+147 0
+149 0
+151 1
+3
+0 5 -1 1
+0 6 -1 0
+0 150 5 6
+0
+end_operator
+begin_operator
+move-fragile-safe curator pod2 maintenance-tunnel stasis-lab asteroid-mg04tn-ice-sample
+4
+107 0
+147 0
+149 1
+151 1
+3
+0 12 -1 1
+0 13 -1 0
+0 150 5 6
+0
+end_operator
+begin_operator
+move-fragile-safe curator pod2 maintenance-tunnel stasis-lab mart-east-core-drill
+4
+107 0
+147 0
+149 2
+151 1
+3
+0 19 -1 1
+0 20 -1 0
+0 150 5 6
+0
+end_operator
+begin_operator
+move-fragile-safe curator pod2 maintenance-tunnel stasis-lab mart-laser-gun
+4
+107 0
+147 0
+149 3
+151 1
+3
+0 26 -1 1
+0 27 -1 0
+0 150 5 6
+0
+end_operator
+begin_operator
+move-fragile-safe curator pod2 maintenance-tunnel stasis-lab mart-mysterious-egg
+4
+107 0
+147 0
+149 4
+151 1
+3
+0 33 -1 1
+0 34 -1 0
+0 150 5 6
+0
+end_operator
+begin_operator
+move-fragile-safe curator pod2 maintenance-tunnel stasis-lab mart-nord-core-drill
+4
+107 0
+147 0
+149 5
+151 1
+3
+0 40 -1 1
+0 41 -1 0
+0 150 5 6
+0
+end_operator
+begin_operator
+move-fragile-safe curator pod2 maintenance-tunnel stasis-lab mart-north-pole-ice-sample
+4
+107 0
+147 0
+149 6
+151 1
+3
+0 47 -1 1
+0 48 -1 0
+0 150 5 6
+0
+end_operator
+begin_operator
+move-fragile-safe curator pod2 maintenance-tunnel stasis-lab mart-pink-hat
+4
+107 0
+147 0
+149 7
+151 1
+3
+0 54 -1 1
+0 55 -1 0
+0 150 5 6
+0
+end_operator
+begin_operator
+move-fragile-safe curator pod2 maintenance-tunnel stasis-lab mart-sand-sample
+4
+107 0
+147 0
+149 8
+151 1
+3
+0 61 -1 1
+0 62 -1 0
+0 150 5 6
+0
+end_operator
+begin_operator
+move-fragile-safe curator pod2 maintenance-tunnel stasis-lab mart-sud-core-drill
+4
+107 0
+147 0
+149 9
+151 1
+3
+0 68 -1 1
+0 69 -1 0
+0 150 5 6
+0
+end_operator
+begin_operator
+move-fragile-safe curator pod2 maintenance-tunnel stasis-lab mart-west-core-drill
+4
+107 0
+147 0
+149 10
+151 1
+3
+0 75 -1 1
+0 76 -1 0
+0 150 5 6
+0
+end_operator
+begin_operator
+move-fragile-safe curator pod2 maintenance-tunnel stasis-lab venus-rock-sample
+4
+107 0
+147 0
+149 11
+151 1
+3
+0 82 -1 1
+0 83 -1 0
+0 150 5 6
+0
+end_operator
+begin_operator
+move-fragile-safe curator pod2 maintenance-tunnel stasis-lab venus-sand-sample
+4
+107 0
+147 0
+149 12
+151 1
+3
+0 89 -1 1
+0 90 -1 0
+0 150 5 6
+0
+end_operator
+begin_operator
+move-fragile-tunnel curator pod1 anti-vibration-pods-room maintenance-tunnel asteroid-ad29tv-rock-sample
+4
+106 0
+146 0
+148 0
+151 0
+3
+0 0 -1 1
+0 5 -1 0
+0 150 0 5
+0
+end_operator
+begin_operator
+move-fragile-tunnel curator pod1 anti-vibration-pods-room maintenance-tunnel asteroid-mg04tn-ice-sample
+4
+106 0
+146 0
+148 1
+151 0
+3
+0 7 -1 1
+0 12 -1 0
+0 150 0 5
+0
+end_operator
+begin_operator
+move-fragile-tunnel curator pod1 anti-vibration-pods-room maintenance-tunnel mart-east-core-drill
+4
+106 0
+146 0
+148 2
+151 0
+3
+0 14 -1 1
+0 19 -1 0
+0 150 0 5
+0
+end_operator
+begin_operator
+move-fragile-tunnel curator pod1 anti-vibration-pods-room maintenance-tunnel mart-laser-gun
+4
+106 0
+146 0
+148 3
+151 0
+3
+0 21 -1 1
+0 26 -1 0
+0 150 0 5
+0
+end_operator
+begin_operator
+move-fragile-tunnel curator pod1 anti-vibration-pods-room maintenance-tunnel mart-mysterious-egg
+4
+106 0
+146 0
+148 4
+151 0
+3
+0 28 -1 1
+0 33 -1 0
+0 150 0 5
+0
+end_operator
+begin_operator
+move-fragile-tunnel curator pod1 anti-vibration-pods-room maintenance-tunnel mart-nord-core-drill
+4
+106 0
+146 0
+148 5
+151 0
+3
+0 35 -1 1
+0 40 -1 0
+0 150 0 5
+0
+end_operator
+begin_operator
+move-fragile-tunnel curator pod1 anti-vibration-pods-room maintenance-tunnel mart-north-pole-ice-sample
+4
+106 0
+146 0
+148 6
+151 0
+3
+0 42 -1 1
+0 47 -1 0
+0 150 0 5
+0
+end_operator
+begin_operator
+move-fragile-tunnel curator pod1 anti-vibration-pods-room maintenance-tunnel mart-pink-hat
+4
+106 0
+146 0
+148 7
+151 0
+3
+0 49 -1 1
+0 54 -1 0
+0 150 0 5
+0
+end_operator
+begin_operator
+move-fragile-tunnel curator pod1 anti-vibration-pods-room maintenance-tunnel mart-sand-sample
+4
+106 0
+146 0
+148 8
+151 0
+3
+0 56 -1 1
+0 61 -1 0
+0 150 0 5
+0
+end_operator
+begin_operator
+move-fragile-tunnel curator pod1 anti-vibration-pods-room maintenance-tunnel mart-sud-core-drill
+4
+106 0
+146 0
+148 9
+151 0
+3
+0 63 -1 1
+0 68 -1 0
+0 150 0 5
+0
+end_operator
+begin_operator
+move-fragile-tunnel curator pod1 anti-vibration-pods-room maintenance-tunnel mart-west-core-drill
+4
+106 0
+146 0
+148 10
+151 0
+3
+0 70 -1 1
+0 75 -1 0
+0 150 0 5
+0
+end_operator
+begin_operator
+move-fragile-tunnel curator pod1 anti-vibration-pods-room maintenance-tunnel venus-rock-sample
+4
+106 0
+146 0
+148 11
+151 0
+3
+0 77 -1 1
+0 82 -1 0
+0 150 0 5
+0
+end_operator
+begin_operator
+move-fragile-tunnel curator pod1 anti-vibration-pods-room maintenance-tunnel venus-sand-sample
+4
+106 0
+146 0
+148 12
+151 0
+3
+0 84 -1 1
+0 89 -1 0
+0 150 0 5
+0
+end_operator
+begin_operator
+move-fragile-tunnel curator pod1 cryo-chamber maintenance-tunnel asteroid-ad29tv-rock-sample
+4
+106 0
+146 0
+148 0
+151 0
+3
+0 1 -1 1
+0 5 -1 0
+0 150 1 5
+0
+end_operator
+begin_operator
+move-fragile-tunnel curator pod1 cryo-chamber maintenance-tunnel asteroid-mg04tn-ice-sample
+4
+106 0
+146 0
+148 1
+151 0
+3
+0 8 -1 1
+0 12 -1 0
+0 150 1 5
+0
+end_operator
+begin_operator
+move-fragile-tunnel curator pod1 cryo-chamber maintenance-tunnel mart-east-core-drill
+4
+106 0
+146 0
+148 2
+151 0
+3
+0 15 -1 1
+0 19 -1 0
+0 150 1 5
+0
+end_operator
+begin_operator
+move-fragile-tunnel curator pod1 cryo-chamber maintenance-tunnel mart-laser-gun
+4
+106 0
+146 0
+148 3
+151 0
+3
+0 22 -1 1
+0 26 -1 0
+0 150 1 5
+0
+end_operator
+begin_operator
+move-fragile-tunnel curator pod1 cryo-chamber maintenance-tunnel mart-mysterious-egg
+4
+106 0
+146 0
+148 4
+151 0
+3
+0 29 -1 1
+0 33 -1 0
+0 150 1 5
+0
+end_operator
+begin_operator
+move-fragile-tunnel curator pod1 cryo-chamber maintenance-tunnel mart-nord-core-drill
+4
+106 0
+146 0
+148 5
+151 0
+3
+0 36 -1 1
+0 40 -1 0
+0 150 1 5
+0
+end_operator
+begin_operator
+move-fragile-tunnel curator pod1 cryo-chamber maintenance-tunnel mart-north-pole-ice-sample
+4
+106 0
+146 0
+148 6
+151 0
+3
+0 43 -1 1
+0 47 -1 0
+0 150 1 5
+0
+end_operator
+begin_operator
+move-fragile-tunnel curator pod1 cryo-chamber maintenance-tunnel mart-pink-hat
+4
+106 0
+146 0
+148 7
+151 0
+3
+0 50 -1 1
+0 54 -1 0
+0 150 1 5
+0
+end_operator
+begin_operator
+move-fragile-tunnel curator pod1 cryo-chamber maintenance-tunnel mart-sand-sample
+4
+106 0
+146 0
+148 8
+151 0
+3
+0 57 -1 1
+0 61 -1 0
+0 150 1 5
+0
+end_operator
+begin_operator
+move-fragile-tunnel curator pod1 cryo-chamber maintenance-tunnel mart-sud-core-drill
+4
+106 0
+146 0
+148 9
+151 0
+3
+0 64 -1 1
+0 68 -1 0
+0 150 1 5
+0
+end_operator
+begin_operator
+move-fragile-tunnel curator pod1 cryo-chamber maintenance-tunnel mart-west-core-drill
+4
+106 0
+146 0
+148 10
+151 0
+3
+0 71 -1 1
+0 75 -1 0
+0 150 1 5
+0
+end_operator
+begin_operator
+move-fragile-tunnel curator pod1 cryo-chamber maintenance-tunnel venus-rock-sample
+4
+106 0
+146 0
+148 11
+151 0
+3
+0 78 -1 1
+0 82 -1 0
+0 150 1 5
+0
+end_operator
+begin_operator
+move-fragile-tunnel curator pod1 cryo-chamber maintenance-tunnel venus-sand-sample
+4
+106 0
+146 0
+148 12
+151 0
+3
+0 85 -1 1
+0 89 -1 0
+0 150 1 5
+0
+end_operator
+begin_operator
+move-fragile-tunnel curator pod1 entrance maintenance-tunnel asteroid-ad29tv-rock-sample
+4
+106 0
+146 0
+148 0
+151 0
+3
+0 2 -1 1
+0 5 -1 0
+0 150 2 5
+0
+end_operator
+begin_operator
+move-fragile-tunnel curator pod1 entrance maintenance-tunnel asteroid-mg04tn-ice-sample
+4
+106 0
+146 0
+148 1
+151 0
+3
+0 9 -1 1
+0 12 -1 0
+0 150 2 5
+0
+end_operator
+begin_operator
+move-fragile-tunnel curator pod1 entrance maintenance-tunnel mart-east-core-drill
+4
+106 0
+146 0
+148 2
+151 0
+3
+0 16 -1 1
+0 19 -1 0
+0 150 2 5
+0
+end_operator
+begin_operator
+move-fragile-tunnel curator pod1 entrance maintenance-tunnel mart-laser-gun
+4
+106 0
+146 0
+148 3
+151 0
+3
+0 23 -1 1
+0 26 -1 0
+0 150 2 5
+0
+end_operator
+begin_operator
+move-fragile-tunnel curator pod1 entrance maintenance-tunnel mart-mysterious-egg
+4
+106 0
+146 0
+148 4
+151 0
+3
+0 30 -1 1
+0 33 -1 0
+0 150 2 5
+0
+end_operator
+begin_operator
+move-fragile-tunnel curator pod1 entrance maintenance-tunnel mart-nord-core-drill
+4
+106 0
+146 0
+148 5
+151 0
+3
+0 37 -1 1
+0 40 -1 0
+0 150 2 5
+0
+end_operator
+begin_operator
+move-fragile-tunnel curator pod1 entrance maintenance-tunnel mart-north-pole-ice-sample
+4
+106 0
+146 0
+148 6
+151 0
+3
+0 44 -1 1
+0 47 -1 0
+0 150 2 5
+0
+end_operator
+begin_operator
+move-fragile-tunnel curator pod1 entrance maintenance-tunnel mart-pink-hat
+4
+106 0
+146 0
+148 7
+151 0
+3
+0 51 -1 1
+0 54 -1 0
+0 150 2 5
+0
+end_operator
+begin_operator
+move-fragile-tunnel curator pod1 entrance maintenance-tunnel mart-sand-sample
+4
+106 0
+146 0
+148 8
+151 0
+3
+0 58 -1 1
+0 61 -1 0
+0 150 2 5
+0
+end_operator
+begin_operator
+move-fragile-tunnel curator pod1 entrance maintenance-tunnel mart-sud-core-drill
+4
+106 0
+146 0
+148 9
+151 0
+3
+0 65 -1 1
+0 68 -1 0
+0 150 2 5
+0
+end_operator
+begin_operator
+move-fragile-tunnel curator pod1 entrance maintenance-tunnel mart-west-core-drill
+4
+106 0
+146 0
+148 10
+151 0
+3
+0 72 -1 1
+0 75 -1 0
+0 150 2 5
+0
+end_operator
+begin_operator
+move-fragile-tunnel curator pod1 entrance maintenance-tunnel venus-rock-sample
+4
+106 0
+146 0
+148 11
+151 0
+3
+0 79 -1 1
+0 82 -1 0
+0 150 2 5
+0
+end_operator
+begin_operator
+move-fragile-tunnel curator pod1 entrance maintenance-tunnel venus-sand-sample
+4
+106 0
+146 0
+148 12
+151 0
+3
+0 86 -1 1
+0 89 -1 0
+0 150 2 5
+0
+end_operator
+begin_operator
+move-fragile-tunnel curator pod1 hall-a maintenance-tunnel asteroid-ad29tv-rock-sample
+4
+106 0
+146 0
+148 0
+151 0
+3
+0 3 -1 1
+0 5 -1 0
+0 150 3 5
+0
+end_operator
+begin_operator
+move-fragile-tunnel curator pod1 hall-a maintenance-tunnel asteroid-mg04tn-ice-sample
+4
+106 0
+146 0
+148 1
+151 0
+3
+0 10 -1 1
+0 12 -1 0
+0 150 3 5
+0
+end_operator
+begin_operator
+move-fragile-tunnel curator pod1 hall-a maintenance-tunnel mart-east-core-drill
+4
+106 0
+146 0
+148 2
+151 0
+3
+0 17 -1 1
+0 19 -1 0
+0 150 3 5
+0
+end_operator
+begin_operator
+move-fragile-tunnel curator pod1 hall-a maintenance-tunnel mart-laser-gun
+4
+106 0
+146 0
+148 3
+151 0
+3
+0 24 -1 1
+0 26 -1 0
+0 150 3 5
+0
+end_operator
+begin_operator
+move-fragile-tunnel curator pod1 hall-a maintenance-tunnel mart-mysterious-egg
+4
+106 0
+146 0
+148 4
+151 0
+3
+0 31 -1 1
+0 33 -1 0
+0 150 3 5
+0
+end_operator
+begin_operator
+move-fragile-tunnel curator pod1 hall-a maintenance-tunnel mart-nord-core-drill
+4
+106 0
+146 0
+148 5
+151 0
+3
+0 38 -1 1
+0 40 -1 0
+0 150 3 5
+0
+end_operator
+begin_operator
+move-fragile-tunnel curator pod1 hall-a maintenance-tunnel mart-north-pole-ice-sample
+4
+106 0
+146 0
+148 6
+151 0
+3
+0 45 -1 1
+0 47 -1 0
+0 150 3 5
+0
+end_operator
+begin_operator
+move-fragile-tunnel curator pod1 hall-a maintenance-tunnel mart-pink-hat
+4
+106 0
+146 0
+148 7
+151 0
+3
+0 52 -1 1
+0 54 -1 0
+0 150 3 5
+0
+end_operator
+begin_operator
+move-fragile-tunnel curator pod1 hall-a maintenance-tunnel mart-sand-sample
+4
+106 0
+146 0
+148 8
+151 0
+3
+0 59 -1 1
+0 61 -1 0
+0 150 3 5
+0
+end_operator
+begin_operator
+move-fragile-tunnel curator pod1 hall-a maintenance-tunnel mart-sud-core-drill
+4
+106 0
+146 0
+148 9
+151 0
+3
+0 66 -1 1
+0 68 -1 0
+0 150 3 5
+0
+end_operator
+begin_operator
+move-fragile-tunnel curator pod1 hall-a maintenance-tunnel mart-west-core-drill
+4
+106 0
+146 0
+148 10
+151 0
+3
+0 73 -1 1
+0 75 -1 0
+0 150 3 5
+0
+end_operator
+begin_operator
+move-fragile-tunnel curator pod1 hall-a maintenance-tunnel venus-rock-sample
+4
+106 0
+146 0
+148 11
+151 0
+3
+0 80 -1 1
+0 82 -1 0
+0 150 3 5
+0
+end_operator
+begin_operator
+move-fragile-tunnel curator pod1 hall-a maintenance-tunnel venus-sand-sample
+4
+106 0
+146 0
+148 12
+151 0
+3
+0 87 -1 1
+0 89 -1 0
+0 150 3 5
+0
+end_operator
+begin_operator
+move-fragile-tunnel curator pod1 hall-b maintenance-tunnel asteroid-ad29tv-rock-sample
+4
+106 0
+146 0
+148 0
+151 0
+3
+0 4 -1 1
+0 5 -1 0
+0 150 4 5
+0
+end_operator
+begin_operator
+move-fragile-tunnel curator pod1 hall-b maintenance-tunnel asteroid-mg04tn-ice-sample
+4
+106 0
+146 0
+148 1
+151 0
+3
+0 11 -1 1
+0 12 -1 0
+0 150 4 5
+0
+end_operator
+begin_operator
+move-fragile-tunnel curator pod1 hall-b maintenance-tunnel mart-east-core-drill
+4
+106 0
+146 0
+148 2
+151 0
+3
+0 18 -1 1
+0 19 -1 0
+0 150 4 5
+0
+end_operator
+begin_operator
+move-fragile-tunnel curator pod1 hall-b maintenance-tunnel mart-laser-gun
+4
+106 0
+146 0
+148 3
+151 0
+3
+0 25 -1 1
+0 26 -1 0
+0 150 4 5
+0
+end_operator
+begin_operator
+move-fragile-tunnel curator pod1 hall-b maintenance-tunnel mart-mysterious-egg
+4
+106 0
+146 0
+148 4
+151 0
+3
+0 32 -1 1
+0 33 -1 0
+0 150 4 5
+0
+end_operator
+begin_operator
+move-fragile-tunnel curator pod1 hall-b maintenance-tunnel mart-nord-core-drill
+4
+106 0
+146 0
+148 5
+151 0
+3
+0 39 -1 1
+0 40 -1 0
+0 150 4 5
+0
+end_operator
+begin_operator
+move-fragile-tunnel curator pod1 hall-b maintenance-tunnel mart-north-pole-ice-sample
+4
+106 0
+146 0
+148 6
+151 0
+3
+0 46 -1 1
+0 47 -1 0
+0 150 4 5
+0
+end_operator
+begin_operator
+move-fragile-tunnel curator pod1 hall-b maintenance-tunnel mart-pink-hat
+4
+106 0
+146 0
+148 7
+151 0
+3
+0 53 -1 1
+0 54 -1 0
+0 150 4 5
+0
+end_operator
+begin_operator
+move-fragile-tunnel curator pod1 hall-b maintenance-tunnel mart-sand-sample
+4
+106 0
+146 0
+148 8
+151 0
+3
+0 60 -1 1
+0 61 -1 0
+0 150 4 5
+0
+end_operator
+begin_operator
+move-fragile-tunnel curator pod1 hall-b maintenance-tunnel mart-sud-core-drill
+4
+106 0
+146 0
+148 9
+151 0
+3
+0 67 -1 1
+0 68 -1 0
+0 150 4 5
+0
+end_operator
+begin_operator
+move-fragile-tunnel curator pod1 hall-b maintenance-tunnel mart-west-core-drill
+4
+106 0
+146 0
+148 10
+151 0
+3
+0 74 -1 1
+0 75 -1 0
+0 150 4 5
+0
+end_operator
+begin_operator
+move-fragile-tunnel curator pod1 hall-b maintenance-tunnel venus-rock-sample
+4
+106 0
+146 0
+148 11
+151 0
+3
+0 81 -1 1
+0 82 -1 0
+0 150 4 5
+0
+end_operator
+begin_operator
+move-fragile-tunnel curator pod1 hall-b maintenance-tunnel venus-sand-sample
+4
+106 0
+146 0
+148 12
+151 0
+3
+0 88 -1 1
+0 89 -1 0
+0 150 4 5
+0
+end_operator
+begin_operator
+move-fragile-tunnel curator pod1 stasis-lab maintenance-tunnel asteroid-ad29tv-rock-sample
+4
+106 0
+146 0
+148 0
+151 0
+3
+0 5 -1 0
+0 6 -1 1
+0 150 6 5
+0
+end_operator
+begin_operator
+move-fragile-tunnel curator pod1 stasis-lab maintenance-tunnel asteroid-mg04tn-ice-sample
+4
+106 0
+146 0
+148 1
+151 0
+3
+0 12 -1 0
+0 13 -1 1
+0 150 6 5
+0
+end_operator
+begin_operator
+move-fragile-tunnel curator pod1 stasis-lab maintenance-tunnel mart-east-core-drill
+4
+106 0
+146 0
+148 2
+151 0
+3
+0 19 -1 0
+0 20 -1 1
+0 150 6 5
+0
+end_operator
+begin_operator
+move-fragile-tunnel curator pod1 stasis-lab maintenance-tunnel mart-laser-gun
+4
+106 0
+146 0
+148 3
+151 0
+3
+0 26 -1 0
+0 27 -1 1
+0 150 6 5
+0
+end_operator
+begin_operator
+move-fragile-tunnel curator pod1 stasis-lab maintenance-tunnel mart-mysterious-egg
+4
+106 0
+146 0
+148 4
+151 0
+3
+0 33 -1 0
+0 34 -1 1
+0 150 6 5
+0
+end_operator
+begin_operator
+move-fragile-tunnel curator pod1 stasis-lab maintenance-tunnel mart-nord-core-drill
+4
+106 0
+146 0
+148 5
+151 0
+3
+0 40 -1 0
+0 41 -1 1
+0 150 6 5
+0
+end_operator
+begin_operator
+move-fragile-tunnel curator pod1 stasis-lab maintenance-tunnel mart-north-pole-ice-sample
+4
+106 0
+146 0
+148 6
+151 0
+3
+0 47 -1 0
+0 48 -1 1
+0 150 6 5
+0
+end_operator
+begin_operator
+move-fragile-tunnel curator pod1 stasis-lab maintenance-tunnel mart-pink-hat
+4
+106 0
+146 0
+148 7
+151 0
+3
+0 54 -1 0
 0 55 -1 1
+0 150 6 5
 0
 end_operator
 begin_operator
-drop-standard asteroid-ad29tv-rock-sample anti-vibration-pods-room
-1
-41 0
-2
-0 0 -1 0
-0 13 0 27
+move-fragile-tunnel curator pod1 stasis-lab maintenance-tunnel mart-sand-sample
+4
+106 0
+146 0
+148 8
+151 0
+3
+0 61 -1 0
+0 62 -1 1
+0 150 6 5
 0
 end_operator
 begin_operator
-drop-standard asteroid-ad29tv-rock-sample entrance
-1
-41 2
-2
-0 0 -1 2
-0 13 0 27
+move-fragile-tunnel curator pod1 stasis-lab maintenance-tunnel mart-sud-core-drill
+4
+106 0
+146 0
+148 9
+151 0
+3
+0 68 -1 0
+0 69 -1 1
+0 150 6 5
 0
 end_operator
 begin_operator
-drop-standard asteroid-ad29tv-rock-sample hall-a
-1
-41 3
-2
-0 0 -1 3
-0 13 0 27
+move-fragile-tunnel curator pod1 stasis-lab maintenance-tunnel mart-west-core-drill
+4
+106 0
+146 0
+148 10
+151 0
+3
+0 75 -1 0
+0 76 -1 1
+0 150 6 5
 0
 end_operator
 begin_operator
-drop-standard asteroid-ad29tv-rock-sample hall-b
-1
-41 4
-2
-0 0 -1 4
-0 13 0 27
+move-fragile-tunnel curator pod1 stasis-lab maintenance-tunnel venus-rock-sample
+4
+106 0
+146 0
+148 11
+151 0
+3
+0 82 -1 0
+0 83 -1 1
+0 150 6 5
 0
 end_operator
 begin_operator
-drop-standard asteroid-ad29tv-rock-sample maintenance-tunnel
-1
-41 5
-2
-0 0 -1 5
-0 13 0 27
+move-fragile-tunnel curator pod1 stasis-lab maintenance-tunnel venus-sand-sample
+4
+106 0
+146 0
+148 12
+151 0
+3
+0 89 -1 0
+0 90 -1 1
+0 150 6 5
 0
 end_operator
 begin_operator
-drop-standard asteroid-ad29tv-rock-sample stasis-lab
-1
-41 6
-2
-0 0 -1 6
-0 13 0 27
-0
-end_operator
-begin_operator
-drop-standard asteroid-mg04tn-ice-sample anti-vibration-pods-room
-1
-41 0
-2
-0 1 -1 0
-0 13 1 27
-0
-end_operator
-begin_operator
-drop-standard asteroid-mg04tn-ice-sample entrance
-1
-41 2
-2
-0 1 -1 2
-0 13 1 27
-0
-end_operator
-begin_operator
-drop-standard asteroid-mg04tn-ice-sample hall-a
-1
-41 3
-2
-0 1 -1 3
-0 13 1 27
-0
-end_operator
-begin_operator
-drop-standard asteroid-mg04tn-ice-sample hall-b
-1
-41 4
-2
-0 1 -1 4
-0 13 1 27
-0
-end_operator
-begin_operator
-drop-standard asteroid-mg04tn-ice-sample maintenance-tunnel
-1
-41 5
-2
-0 1 -1 5
-0 13 1 27
-0
-end_operator
-begin_operator
-drop-standard asteroid-mg04tn-ice-sample stasis-lab
-1
-41 6
-2
-0 1 -1 6
-0 13 1 27
-0
-end_operator
-begin_operator
-drop-standard mart-east-core-drill anti-vibration-pods-room
-1
-41 0
-2
-0 2 -1 0
-0 13 2 27
-0
-end_operator
-begin_operator
-drop-standard mart-east-core-drill entrance
-1
-41 2
-2
-0 2 -1 2
-0 13 2 27
-0
-end_operator
-begin_operator
-drop-standard mart-east-core-drill hall-a
-1
-41 3
-2
-0 2 -1 3
-0 13 2 27
-0
-end_operator
-begin_operator
-drop-standard mart-east-core-drill hall-b
-1
-41 4
-2
-0 2 -1 4
-0 13 2 27
-0
-end_operator
-begin_operator
-drop-standard mart-east-core-drill maintenance-tunnel
-1
-41 5
-2
-0 2 -1 5
-0 13 2 27
-0
-end_operator
-begin_operator
-drop-standard mart-east-core-drill stasis-lab
-1
-41 6
-2
-0 2 -1 6
-0 13 2 27
-0
-end_operator
-begin_operator
-drop-standard mart-laser-gun anti-vibration-pods-room
-1
-41 0
-2
-0 3 -1 0
-0 13 3 27
-0
-end_operator
-begin_operator
-drop-standard mart-laser-gun entrance
-1
-41 2
-2
-0 3 -1 2
-0 13 3 27
-0
-end_operator
-begin_operator
-drop-standard mart-laser-gun hall-a
-1
-41 3
-2
-0 3 -1 3
-0 13 3 27
-0
-end_operator
-begin_operator
-drop-standard mart-laser-gun hall-b
-1
-41 4
-2
-0 3 -1 4
-0 13 3 27
-0
-end_operator
-begin_operator
-drop-standard mart-laser-gun maintenance-tunnel
-1
-41 5
-2
-0 3 -1 5
-0 13 3 27
-0
-end_operator
-begin_operator
-drop-standard mart-laser-gun stasis-lab
-1
-41 6
-2
-0 3 -1 6
-0 13 3 27
-0
-end_operator
-begin_operator
-drop-standard mart-mysterious-egg anti-vibration-pods-room
-1
-41 0
-2
-0 4 -1 0
-0 13 4 27
-0
-end_operator
-begin_operator
-drop-standard mart-mysterious-egg entrance
-1
-41 2
-2
-0 4 -1 2
-0 13 4 27
-0
-end_operator
-begin_operator
-drop-standard mart-mysterious-egg hall-a
-1
-41 3
-2
-0 4 -1 3
-0 13 4 27
-0
-end_operator
-begin_operator
-drop-standard mart-mysterious-egg hall-b
-1
-41 4
-2
-0 4 -1 4
-0 13 4 27
-0
-end_operator
-begin_operator
-drop-standard mart-mysterious-egg maintenance-tunnel
-1
-41 5
-2
-0 4 -1 5
-0 13 4 27
-0
-end_operator
-begin_operator
-drop-standard mart-mysterious-egg stasis-lab
-1
-41 6
-2
-0 4 -1 6
-0 13 4 27
-0
-end_operator
-begin_operator
-drop-standard mart-nord-core-drill anti-vibration-pods-room
-1
-41 0
-2
+move-fragile-tunnel curator pod2 anti-vibration-pods-room maintenance-tunnel asteroid-ad29tv-rock-sample
+4
+107 0
+146 0
+149 0
+151 0
+3
+0 0 -1 1
 0 5 -1 0
-0 13 5 27
+0 150 0 5
 0
 end_operator
 begin_operator
-drop-standard mart-nord-core-drill entrance
-1
-41 2
-2
-0 5 -1 2
-0 13 5 27
-0
-end_operator
-begin_operator
-drop-standard mart-nord-core-drill hall-a
-1
-41 3
-2
-0 5 -1 3
-0 13 5 27
-0
-end_operator
-begin_operator
-drop-standard mart-nord-core-drill hall-b
-1
-41 4
-2
-0 5 -1 4
-0 13 5 27
-0
-end_operator
-begin_operator
-drop-standard mart-nord-core-drill maintenance-tunnel
-1
-41 5
-2
-0 5 -1 5
-0 13 5 27
-0
-end_operator
-begin_operator
-drop-standard mart-nord-core-drill stasis-lab
-1
-41 6
-2
-0 5 -1 6
-0 13 5 27
-0
-end_operator
-begin_operator
-drop-standard mart-north-pole-ice-sample anti-vibration-pods-room
-1
-41 0
-2
-0 6 -1 0
-0 13 6 27
-0
-end_operator
-begin_operator
-drop-standard mart-north-pole-ice-sample entrance
-1
-41 2
-2
-0 6 -1 2
-0 13 6 27
-0
-end_operator
-begin_operator
-drop-standard mart-north-pole-ice-sample hall-a
-1
-41 3
-2
-0 6 -1 3
-0 13 6 27
-0
-end_operator
-begin_operator
-drop-standard mart-north-pole-ice-sample hall-b
-1
-41 4
-2
-0 6 -1 4
-0 13 6 27
-0
-end_operator
-begin_operator
-drop-standard mart-north-pole-ice-sample maintenance-tunnel
-1
-41 5
-2
-0 6 -1 5
-0 13 6 27
-0
-end_operator
-begin_operator
-drop-standard mart-north-pole-ice-sample stasis-lab
-1
-41 6
-2
-0 6 -1 6
-0 13 6 27
-0
-end_operator
-begin_operator
-drop-standard mart-pink-hat anti-vibration-pods-room
-1
-41 0
-2
-0 7 -1 0
-0 13 7 27
-0
-end_operator
-begin_operator
-drop-standard mart-pink-hat entrance
-1
-41 2
-2
-0 7 -1 2
-0 13 7 27
-0
-end_operator
-begin_operator
-drop-standard mart-pink-hat hall-a
-1
-41 3
-2
-0 7 -1 3
-0 13 7 27
-0
-end_operator
-begin_operator
-drop-standard mart-pink-hat hall-b
-1
-41 4
-2
-0 7 -1 4
-0 13 7 27
-0
-end_operator
-begin_operator
-drop-standard mart-pink-hat maintenance-tunnel
-1
-41 5
-2
-0 7 -1 5
-0 13 7 27
-0
-end_operator
-begin_operator
-drop-standard mart-pink-hat stasis-lab
-1
-41 6
-2
-0 7 -1 6
-0 13 7 27
-0
-end_operator
-begin_operator
-drop-standard mart-sand-sample anti-vibration-pods-room
-1
-41 0
-2
-0 8 -1 0
-0 13 8 27
-0
-end_operator
-begin_operator
-drop-standard mart-sand-sample entrance
-1
-41 2
-2
-0 8 -1 2
-0 13 8 27
-0
-end_operator
-begin_operator
-drop-standard mart-sand-sample hall-a
-1
-41 3
-2
-0 8 -1 3
-0 13 8 27
-0
-end_operator
-begin_operator
-drop-standard mart-sand-sample hall-b
-1
-41 4
-2
-0 8 -1 4
-0 13 8 27
-0
-end_operator
-begin_operator
-drop-standard mart-sand-sample maintenance-tunnel
-1
-41 5
-2
-0 8 -1 5
-0 13 8 27
-0
-end_operator
-begin_operator
-drop-standard mart-sand-sample stasis-lab
-1
-41 6
-2
-0 8 -1 6
-0 13 8 27
-0
-end_operator
-begin_operator
-drop-standard mart-sud-core-drill anti-vibration-pods-room
-1
-41 0
-2
-0 9 -1 0
-0 13 9 27
-0
-end_operator
-begin_operator
-drop-standard mart-sud-core-drill entrance
-1
-41 2
-2
-0 9 -1 2
-0 13 9 27
-0
-end_operator
-begin_operator
-drop-standard mart-sud-core-drill hall-a
-1
-41 3
-2
-0 9 -1 3
-0 13 9 27
-0
-end_operator
-begin_operator
-drop-standard mart-sud-core-drill hall-b
-1
-41 4
-2
-0 9 -1 4
-0 13 9 27
-0
-end_operator
-begin_operator
-drop-standard mart-sud-core-drill maintenance-tunnel
-1
-41 5
-2
-0 9 -1 5
-0 13 9 27
-0
-end_operator
-begin_operator
-drop-standard mart-sud-core-drill stasis-lab
-1
-41 6
-2
-0 9 -1 6
-0 13 9 27
-0
-end_operator
-begin_operator
-drop-standard mart-west-core-drill anti-vibration-pods-room
-1
-41 0
-2
-0 10 -1 0
-0 13 10 27
-0
-end_operator
-begin_operator
-drop-standard mart-west-core-drill entrance
-1
-41 2
-2
-0 10 -1 2
-0 13 10 27
-0
-end_operator
-begin_operator
-drop-standard mart-west-core-drill hall-a
-1
-41 3
-2
-0 10 -1 3
-0 13 10 27
-0
-end_operator
-begin_operator
-drop-standard mart-west-core-drill hall-b
-1
-41 4
-2
-0 10 -1 4
-0 13 10 27
-0
-end_operator
-begin_operator
-drop-standard mart-west-core-drill maintenance-tunnel
-1
-41 5
-2
-0 10 -1 5
-0 13 10 27
-0
-end_operator
-begin_operator
-drop-standard mart-west-core-drill stasis-lab
-1
-41 6
-2
-0 10 -1 6
-0 13 10 27
-0
-end_operator
-begin_operator
-drop-standard venus-rock-sample anti-vibration-pods-room
-1
-41 0
-2
-0 11 -1 0
-0 13 11 27
-0
-end_operator
-begin_operator
-drop-standard venus-rock-sample entrance
-1
-41 2
-2
-0 11 -1 2
-0 13 11 27
-0
-end_operator
-begin_operator
-drop-standard venus-rock-sample hall-a
-1
-41 3
-2
-0 11 -1 3
-0 13 11 27
-0
-end_operator
-begin_operator
-drop-standard venus-rock-sample hall-b
-1
-41 4
-2
-0 11 -1 4
-0 13 11 27
-0
-end_operator
-begin_operator
-drop-standard venus-rock-sample maintenance-tunnel
-1
-41 5
-2
-0 11 -1 5
-0 13 11 27
-0
-end_operator
-begin_operator
-drop-standard venus-rock-sample stasis-lab
-1
-41 6
-2
-0 11 -1 6
-0 13 11 27
-0
-end_operator
-begin_operator
-drop-standard venus-sand-sample anti-vibration-pods-room
-1
-41 0
-2
+move-fragile-tunnel curator pod2 anti-vibration-pods-room maintenance-tunnel asteroid-mg04tn-ice-sample
+4
+107 0
+146 0
+149 1
+151 0
+3
+0 7 -1 1
 0 12 -1 0
-0 13 12 27
+0 150 0 5
 0
 end_operator
 begin_operator
-drop-standard venus-sand-sample entrance
-1
-41 2
-2
-0 12 -1 2
-0 13 12 27
+move-fragile-tunnel curator pod2 anti-vibration-pods-room maintenance-tunnel mart-east-core-drill
+4
+107 0
+146 0
+149 2
+151 0
+3
+0 14 -1 1
+0 19 -1 0
+0 150 0 5
 0
 end_operator
 begin_operator
-drop-standard venus-sand-sample hall-a
-1
-41 3
-2
-0 12 -1 3
-0 13 12 27
+move-fragile-tunnel curator pod2 anti-vibration-pods-room maintenance-tunnel mart-laser-gun
+4
+107 0
+146 0
+149 3
+151 0
+3
+0 21 -1 1
+0 26 -1 0
+0 150 0 5
 0
 end_operator
 begin_operator
-drop-standard venus-sand-sample hall-b
-1
-41 4
-2
-0 12 -1 4
-0 13 12 27
+move-fragile-tunnel curator pod2 anti-vibration-pods-room maintenance-tunnel mart-mysterious-egg
+4
+107 0
+146 0
+149 4
+151 0
+3
+0 28 -1 1
+0 33 -1 0
+0 150 0 5
 0
 end_operator
 begin_operator
-drop-standard venus-sand-sample maintenance-tunnel
-1
-41 5
-2
-0 12 -1 5
-0 13 12 27
+move-fragile-tunnel curator pod2 anti-vibration-pods-room maintenance-tunnel mart-nord-core-drill
+4
+107 0
+146 0
+149 5
+151 0
+3
+0 35 -1 1
+0 40 -1 0
+0 150 0 5
 0
 end_operator
 begin_operator
-drop-standard venus-sand-sample stasis-lab
-1
-41 6
-2
-0 12 -1 6
-0 13 12 27
+move-fragile-tunnel curator pod2 anti-vibration-pods-room maintenance-tunnel mart-north-pole-ice-sample
+4
+107 0
+146 0
+149 6
+151 0
+3
+0 42 -1 1
+0 47 -1 0
+0 150 0 5
 0
 end_operator
 begin_operator
-drop-standard-from-pod asteroid-ad29tv-rock-sample anti-vibration-pods-room
-1
-41 0
-2
-0 0 -1 0
-0 13 14 13
+move-fragile-tunnel curator pod2 anti-vibration-pods-room maintenance-tunnel mart-pink-hat
+4
+107 0
+146 0
+149 7
+151 0
+3
+0 49 -1 1
+0 54 -1 0
+0 150 0 5
 0
 end_operator
 begin_operator
-drop-standard-from-pod asteroid-ad29tv-rock-sample entrance
-1
-41 2
-2
-0 0 -1 2
-0 13 14 13
+move-fragile-tunnel curator pod2 anti-vibration-pods-room maintenance-tunnel mart-sand-sample
+4
+107 0
+146 0
+149 8
+151 0
+3
+0 56 -1 1
+0 61 -1 0
+0 150 0 5
 0
 end_operator
 begin_operator
-drop-standard-from-pod asteroid-ad29tv-rock-sample hall-a
-1
-41 3
-2
-0 0 -1 3
-0 13 14 13
+move-fragile-tunnel curator pod2 anti-vibration-pods-room maintenance-tunnel mart-sud-core-drill
+4
+107 0
+146 0
+149 9
+151 0
+3
+0 63 -1 1
+0 68 -1 0
+0 150 0 5
 0
 end_operator
 begin_operator
-drop-standard-from-pod asteroid-ad29tv-rock-sample hall-b
-1
-41 4
-2
-0 0 -1 4
-0 13 14 13
+move-fragile-tunnel curator pod2 anti-vibration-pods-room maintenance-tunnel mart-west-core-drill
+4
+107 0
+146 0
+149 10
+151 0
+3
+0 70 -1 1
+0 75 -1 0
+0 150 0 5
 0
 end_operator
 begin_operator
-drop-standard-from-pod asteroid-ad29tv-rock-sample maintenance-tunnel
-1
-41 5
-2
-0 0 -1 5
-0 13 14 13
+move-fragile-tunnel curator pod2 anti-vibration-pods-room maintenance-tunnel venus-rock-sample
+4
+107 0
+146 0
+149 11
+151 0
+3
+0 77 -1 1
+0 82 -1 0
+0 150 0 5
 0
 end_operator
 begin_operator
-drop-standard-from-pod asteroid-ad29tv-rock-sample stasis-lab
-1
-41 6
-2
-0 0 -1 6
-0 13 14 13
+move-fragile-tunnel curator pod2 anti-vibration-pods-room maintenance-tunnel venus-sand-sample
+4
+107 0
+146 0
+149 12
+151 0
+3
+0 84 -1 1
+0 89 -1 0
+0 150 0 5
 0
 end_operator
 begin_operator
-drop-standard-from-pod asteroid-mg04tn-ice-sample anti-vibration-pods-room
-1
-41 0
-2
-0 1 -1 0
-0 13 15 13
-0
-end_operator
-begin_operator
-drop-standard-from-pod asteroid-mg04tn-ice-sample entrance
-1
-41 2
-2
-0 1 -1 2
-0 13 15 13
-0
-end_operator
-begin_operator
-drop-standard-from-pod asteroid-mg04tn-ice-sample hall-a
-1
-41 3
-2
-0 1 -1 3
-0 13 15 13
-0
-end_operator
-begin_operator
-drop-standard-from-pod asteroid-mg04tn-ice-sample hall-b
-1
-41 4
-2
-0 1 -1 4
-0 13 15 13
-0
-end_operator
-begin_operator
-drop-standard-from-pod asteroid-mg04tn-ice-sample maintenance-tunnel
-1
-41 5
-2
-0 1 -1 5
-0 13 15 13
-0
-end_operator
-begin_operator
-drop-standard-from-pod asteroid-mg04tn-ice-sample stasis-lab
-1
-41 6
-2
-0 1 -1 6
-0 13 15 13
-0
-end_operator
-begin_operator
-drop-standard-from-pod mart-east-core-drill anti-vibration-pods-room
-1
-41 0
-2
-0 2 -1 0
-0 13 16 13
-0
-end_operator
-begin_operator
-drop-standard-from-pod mart-east-core-drill entrance
-1
-41 2
-2
-0 2 -1 2
-0 13 16 13
-0
-end_operator
-begin_operator
-drop-standard-from-pod mart-east-core-drill hall-a
-1
-41 3
-2
-0 2 -1 3
-0 13 16 13
-0
-end_operator
-begin_operator
-drop-standard-from-pod mart-east-core-drill hall-b
-1
-41 4
-2
-0 2 -1 4
-0 13 16 13
-0
-end_operator
-begin_operator
-drop-standard-from-pod mart-east-core-drill maintenance-tunnel
-1
-41 5
-2
-0 2 -1 5
-0 13 16 13
-0
-end_operator
-begin_operator
-drop-standard-from-pod mart-east-core-drill stasis-lab
-1
-41 6
-2
-0 2 -1 6
-0 13 16 13
-0
-end_operator
-begin_operator
-drop-standard-from-pod mart-laser-gun anti-vibration-pods-room
-1
-41 0
-2
-0 3 -1 0
-0 13 17 13
-0
-end_operator
-begin_operator
-drop-standard-from-pod mart-laser-gun entrance
-1
-41 2
-2
-0 3 -1 2
-0 13 17 13
-0
-end_operator
-begin_operator
-drop-standard-from-pod mart-laser-gun hall-a
-1
-41 3
-2
-0 3 -1 3
-0 13 17 13
-0
-end_operator
-begin_operator
-drop-standard-from-pod mart-laser-gun hall-b
-1
-41 4
-2
-0 3 -1 4
-0 13 17 13
-0
-end_operator
-begin_operator
-drop-standard-from-pod mart-laser-gun maintenance-tunnel
-1
-41 5
-2
-0 3 -1 5
-0 13 17 13
-0
-end_operator
-begin_operator
-drop-standard-from-pod mart-laser-gun stasis-lab
-1
-41 6
-2
-0 3 -1 6
-0 13 17 13
-0
-end_operator
-begin_operator
-drop-standard-from-pod mart-mysterious-egg anti-vibration-pods-room
-1
-41 0
-2
-0 4 -1 0
-0 13 18 13
-0
-end_operator
-begin_operator
-drop-standard-from-pod mart-mysterious-egg entrance
-1
-41 2
-2
-0 4 -1 2
-0 13 18 13
-0
-end_operator
-begin_operator
-drop-standard-from-pod mart-mysterious-egg hall-a
-1
-41 3
-2
-0 4 -1 3
-0 13 18 13
-0
-end_operator
-begin_operator
-drop-standard-from-pod mart-mysterious-egg hall-b
-1
-41 4
-2
-0 4 -1 4
-0 13 18 13
-0
-end_operator
-begin_operator
-drop-standard-from-pod mart-mysterious-egg maintenance-tunnel
-1
-41 5
-2
-0 4 -1 5
-0 13 18 13
-0
-end_operator
-begin_operator
-drop-standard-from-pod mart-mysterious-egg stasis-lab
-1
-41 6
-2
-0 4 -1 6
-0 13 18 13
-0
-end_operator
-begin_operator
-drop-standard-from-pod mart-nord-core-drill anti-vibration-pods-room
-1
-41 0
-2
+move-fragile-tunnel curator pod2 cryo-chamber maintenance-tunnel asteroid-ad29tv-rock-sample
+4
+107 0
+146 0
+149 0
+151 0
+3
+0 1 -1 1
 0 5 -1 0
-0 13 19 13
+0 150 1 5
 0
 end_operator
 begin_operator
-drop-standard-from-pod mart-nord-core-drill entrance
-1
-41 2
-2
-0 5 -1 2
-0 13 19 13
-0
-end_operator
-begin_operator
-drop-standard-from-pod mart-nord-core-drill hall-a
-1
-41 3
-2
-0 5 -1 3
-0 13 19 13
-0
-end_operator
-begin_operator
-drop-standard-from-pod mart-nord-core-drill hall-b
-1
-41 4
-2
-0 5 -1 4
-0 13 19 13
-0
-end_operator
-begin_operator
-drop-standard-from-pod mart-nord-core-drill maintenance-tunnel
-1
-41 5
-2
-0 5 -1 5
-0 13 19 13
-0
-end_operator
-begin_operator
-drop-standard-from-pod mart-nord-core-drill stasis-lab
-1
-41 6
-2
-0 5 -1 6
-0 13 19 13
-0
-end_operator
-begin_operator
-drop-standard-from-pod mart-north-pole-ice-sample anti-vibration-pods-room
-1
-41 0
-2
-0 6 -1 0
-0 13 20 13
-0
-end_operator
-begin_operator
-drop-standard-from-pod mart-north-pole-ice-sample entrance
-1
-41 2
-2
-0 6 -1 2
-0 13 20 13
-0
-end_operator
-begin_operator
-drop-standard-from-pod mart-north-pole-ice-sample hall-a
-1
-41 3
-2
-0 6 -1 3
-0 13 20 13
-0
-end_operator
-begin_operator
-drop-standard-from-pod mart-north-pole-ice-sample hall-b
-1
-41 4
-2
-0 6 -1 4
-0 13 20 13
-0
-end_operator
-begin_operator
-drop-standard-from-pod mart-north-pole-ice-sample maintenance-tunnel
-1
-41 5
-2
-0 6 -1 5
-0 13 20 13
-0
-end_operator
-begin_operator
-drop-standard-from-pod mart-north-pole-ice-sample stasis-lab
-1
-41 6
-2
-0 6 -1 6
-0 13 20 13
-0
-end_operator
-begin_operator
-drop-standard-from-pod mart-pink-hat anti-vibration-pods-room
-1
-41 0
-2
-0 7 -1 0
-0 13 21 13
-0
-end_operator
-begin_operator
-drop-standard-from-pod mart-pink-hat entrance
-1
-41 2
-2
-0 7 -1 2
-0 13 21 13
-0
-end_operator
-begin_operator
-drop-standard-from-pod mart-pink-hat hall-a
-1
-41 3
-2
-0 7 -1 3
-0 13 21 13
-0
-end_operator
-begin_operator
-drop-standard-from-pod mart-pink-hat hall-b
-1
-41 4
-2
-0 7 -1 4
-0 13 21 13
-0
-end_operator
-begin_operator
-drop-standard-from-pod mart-pink-hat maintenance-tunnel
-1
-41 5
-2
-0 7 -1 5
-0 13 21 13
-0
-end_operator
-begin_operator
-drop-standard-from-pod mart-pink-hat stasis-lab
-1
-41 6
-2
-0 7 -1 6
-0 13 21 13
-0
-end_operator
-begin_operator
-drop-standard-from-pod mart-sand-sample anti-vibration-pods-room
-1
-41 0
-2
-0 8 -1 0
-0 13 22 13
-0
-end_operator
-begin_operator
-drop-standard-from-pod mart-sand-sample entrance
-1
-41 2
-2
-0 8 -1 2
-0 13 22 13
-0
-end_operator
-begin_operator
-drop-standard-from-pod mart-sand-sample hall-a
-1
-41 3
-2
-0 8 -1 3
-0 13 22 13
-0
-end_operator
-begin_operator
-drop-standard-from-pod mart-sand-sample hall-b
-1
-41 4
-2
-0 8 -1 4
-0 13 22 13
-0
-end_operator
-begin_operator
-drop-standard-from-pod mart-sand-sample maintenance-tunnel
-1
-41 5
-2
-0 8 -1 5
-0 13 22 13
-0
-end_operator
-begin_operator
-drop-standard-from-pod mart-sand-sample stasis-lab
-1
-41 6
-2
-0 8 -1 6
-0 13 22 13
-0
-end_operator
-begin_operator
-drop-standard-from-pod mart-sud-core-drill anti-vibration-pods-room
-1
-41 0
-2
-0 9 -1 0
-0 13 23 13
-0
-end_operator
-begin_operator
-drop-standard-from-pod mart-sud-core-drill entrance
-1
-41 2
-2
-0 9 -1 2
-0 13 23 13
-0
-end_operator
-begin_operator
-drop-standard-from-pod mart-sud-core-drill hall-a
-1
-41 3
-2
-0 9 -1 3
-0 13 23 13
-0
-end_operator
-begin_operator
-drop-standard-from-pod mart-sud-core-drill hall-b
-1
-41 4
-2
-0 9 -1 4
-0 13 23 13
-0
-end_operator
-begin_operator
-drop-standard-from-pod mart-sud-core-drill maintenance-tunnel
-1
-41 5
-2
-0 9 -1 5
-0 13 23 13
-0
-end_operator
-begin_operator
-drop-standard-from-pod mart-sud-core-drill stasis-lab
-1
-41 6
-2
-0 9 -1 6
-0 13 23 13
-0
-end_operator
-begin_operator
-drop-standard-from-pod mart-west-core-drill anti-vibration-pods-room
-1
-41 0
-2
-0 10 -1 0
-0 13 24 13
-0
-end_operator
-begin_operator
-drop-standard-from-pod mart-west-core-drill entrance
-1
-41 2
-2
-0 10 -1 2
-0 13 24 13
-0
-end_operator
-begin_operator
-drop-standard-from-pod mart-west-core-drill hall-a
-1
-41 3
-2
-0 10 -1 3
-0 13 24 13
-0
-end_operator
-begin_operator
-drop-standard-from-pod mart-west-core-drill hall-b
-1
-41 4
-2
-0 10 -1 4
-0 13 24 13
-0
-end_operator
-begin_operator
-drop-standard-from-pod mart-west-core-drill maintenance-tunnel
-1
-41 5
-2
-0 10 -1 5
-0 13 24 13
-0
-end_operator
-begin_operator
-drop-standard-from-pod mart-west-core-drill stasis-lab
-1
-41 6
-2
-0 10 -1 6
-0 13 24 13
-0
-end_operator
-begin_operator
-drop-standard-from-pod venus-rock-sample anti-vibration-pods-room
-1
-41 0
-2
-0 11 -1 0
-0 13 25 13
-0
-end_operator
-begin_operator
-drop-standard-from-pod venus-rock-sample entrance
-1
-41 2
-2
-0 11 -1 2
-0 13 25 13
-0
-end_operator
-begin_operator
-drop-standard-from-pod venus-rock-sample hall-a
-1
-41 3
-2
-0 11 -1 3
-0 13 25 13
-0
-end_operator
-begin_operator
-drop-standard-from-pod venus-rock-sample hall-b
-1
-41 4
-2
-0 11 -1 4
-0 13 25 13
-0
-end_operator
-begin_operator
-drop-standard-from-pod venus-rock-sample maintenance-tunnel
-1
-41 5
-2
-0 11 -1 5
-0 13 25 13
-0
-end_operator
-begin_operator
-drop-standard-from-pod venus-rock-sample stasis-lab
-1
-41 6
-2
-0 11 -1 6
-0 13 25 13
-0
-end_operator
-begin_operator
-drop-standard-from-pod venus-sand-sample anti-vibration-pods-room
-1
-41 0
-2
+move-fragile-tunnel curator pod2 cryo-chamber maintenance-tunnel asteroid-mg04tn-ice-sample
+4
+107 0
+146 0
+149 1
+151 0
+3
+0 8 -1 1
 0 12 -1 0
-0 13 26 13
+0 150 1 5
 0
 end_operator
 begin_operator
-drop-standard-from-pod venus-sand-sample entrance
+move-fragile-tunnel curator pod2 cryo-chamber maintenance-tunnel mart-east-core-drill
+4
+107 0
+146 0
+149 2
+151 0
+3
+0 15 -1 1
+0 19 -1 0
+0 150 1 5
+0
+end_operator
+begin_operator
+move-fragile-tunnel curator pod2 cryo-chamber maintenance-tunnel mart-laser-gun
+4
+107 0
+146 0
+149 3
+151 0
+3
+0 22 -1 1
+0 26 -1 0
+0 150 1 5
+0
+end_operator
+begin_operator
+move-fragile-tunnel curator pod2 cryo-chamber maintenance-tunnel mart-mysterious-egg
+4
+107 0
+146 0
+149 4
+151 0
+3
+0 29 -1 1
+0 33 -1 0
+0 150 1 5
+0
+end_operator
+begin_operator
+move-fragile-tunnel curator pod2 cryo-chamber maintenance-tunnel mart-nord-core-drill
+4
+107 0
+146 0
+149 5
+151 0
+3
+0 36 -1 1
+0 40 -1 0
+0 150 1 5
+0
+end_operator
+begin_operator
+move-fragile-tunnel curator pod2 cryo-chamber maintenance-tunnel mart-north-pole-ice-sample
+4
+107 0
+146 0
+149 6
+151 0
+3
+0 43 -1 1
+0 47 -1 0
+0 150 1 5
+0
+end_operator
+begin_operator
+move-fragile-tunnel curator pod2 cryo-chamber maintenance-tunnel mart-pink-hat
+4
+107 0
+146 0
+149 7
+151 0
+3
+0 50 -1 1
+0 54 -1 0
+0 150 1 5
+0
+end_operator
+begin_operator
+move-fragile-tunnel curator pod2 cryo-chamber maintenance-tunnel mart-sand-sample
+4
+107 0
+146 0
+149 8
+151 0
+3
+0 57 -1 1
+0 61 -1 0
+0 150 1 5
+0
+end_operator
+begin_operator
+move-fragile-tunnel curator pod2 cryo-chamber maintenance-tunnel mart-sud-core-drill
+4
+107 0
+146 0
+149 9
+151 0
+3
+0 64 -1 1
+0 68 -1 0
+0 150 1 5
+0
+end_operator
+begin_operator
+move-fragile-tunnel curator pod2 cryo-chamber maintenance-tunnel mart-west-core-drill
+4
+107 0
+146 0
+149 10
+151 0
+3
+0 71 -1 1
+0 75 -1 0
+0 150 1 5
+0
+end_operator
+begin_operator
+move-fragile-tunnel curator pod2 cryo-chamber maintenance-tunnel venus-rock-sample
+4
+107 0
+146 0
+149 11
+151 0
+3
+0 78 -1 1
+0 82 -1 0
+0 150 1 5
+0
+end_operator
+begin_operator
+move-fragile-tunnel curator pod2 cryo-chamber maintenance-tunnel venus-sand-sample
+4
+107 0
+146 0
+149 12
+151 0
+3
+0 85 -1 1
+0 89 -1 0
+0 150 1 5
+0
+end_operator
+begin_operator
+move-fragile-tunnel curator pod2 entrance maintenance-tunnel asteroid-ad29tv-rock-sample
+4
+107 0
+146 0
+149 0
+151 0
+3
+0 2 -1 1
+0 5 -1 0
+0 150 2 5
+0
+end_operator
+begin_operator
+move-fragile-tunnel curator pod2 entrance maintenance-tunnel asteroid-mg04tn-ice-sample
+4
+107 0
+146 0
+149 1
+151 0
+3
+0 9 -1 1
+0 12 -1 0
+0 150 2 5
+0
+end_operator
+begin_operator
+move-fragile-tunnel curator pod2 entrance maintenance-tunnel mart-east-core-drill
+4
+107 0
+146 0
+149 2
+151 0
+3
+0 16 -1 1
+0 19 -1 0
+0 150 2 5
+0
+end_operator
+begin_operator
+move-fragile-tunnel curator pod2 entrance maintenance-tunnel mart-laser-gun
+4
+107 0
+146 0
+149 3
+151 0
+3
+0 23 -1 1
+0 26 -1 0
+0 150 2 5
+0
+end_operator
+begin_operator
+move-fragile-tunnel curator pod2 entrance maintenance-tunnel mart-mysterious-egg
+4
+107 0
+146 0
+149 4
+151 0
+3
+0 30 -1 1
+0 33 -1 0
+0 150 2 5
+0
+end_operator
+begin_operator
+move-fragile-tunnel curator pod2 entrance maintenance-tunnel mart-nord-core-drill
+4
+107 0
+146 0
+149 5
+151 0
+3
+0 37 -1 1
+0 40 -1 0
+0 150 2 5
+0
+end_operator
+begin_operator
+move-fragile-tunnel curator pod2 entrance maintenance-tunnel mart-north-pole-ice-sample
+4
+107 0
+146 0
+149 6
+151 0
+3
+0 44 -1 1
+0 47 -1 0
+0 150 2 5
+0
+end_operator
+begin_operator
+move-fragile-tunnel curator pod2 entrance maintenance-tunnel mart-pink-hat
+4
+107 0
+146 0
+149 7
+151 0
+3
+0 51 -1 1
+0 54 -1 0
+0 150 2 5
+0
+end_operator
+begin_operator
+move-fragile-tunnel curator pod2 entrance maintenance-tunnel mart-sand-sample
+4
+107 0
+146 0
+149 8
+151 0
+3
+0 58 -1 1
+0 61 -1 0
+0 150 2 5
+0
+end_operator
+begin_operator
+move-fragile-tunnel curator pod2 entrance maintenance-tunnel mart-sud-core-drill
+4
+107 0
+146 0
+149 9
+151 0
+3
+0 65 -1 1
+0 68 -1 0
+0 150 2 5
+0
+end_operator
+begin_operator
+move-fragile-tunnel curator pod2 entrance maintenance-tunnel mart-west-core-drill
+4
+107 0
+146 0
+149 10
+151 0
+3
+0 72 -1 1
+0 75 -1 0
+0 150 2 5
+0
+end_operator
+begin_operator
+move-fragile-tunnel curator pod2 entrance maintenance-tunnel venus-rock-sample
+4
+107 0
+146 0
+149 11
+151 0
+3
+0 79 -1 1
+0 82 -1 0
+0 150 2 5
+0
+end_operator
+begin_operator
+move-fragile-tunnel curator pod2 entrance maintenance-tunnel venus-sand-sample
+4
+107 0
+146 0
+149 12
+151 0
+3
+0 86 -1 1
+0 89 -1 0
+0 150 2 5
+0
+end_operator
+begin_operator
+move-fragile-tunnel curator pod2 hall-a maintenance-tunnel asteroid-ad29tv-rock-sample
+4
+107 0
+146 0
+149 0
+151 0
+3
+0 3 -1 1
+0 5 -1 0
+0 150 3 5
+0
+end_operator
+begin_operator
+move-fragile-tunnel curator pod2 hall-a maintenance-tunnel asteroid-mg04tn-ice-sample
+4
+107 0
+146 0
+149 1
+151 0
+3
+0 10 -1 1
+0 12 -1 0
+0 150 3 5
+0
+end_operator
+begin_operator
+move-fragile-tunnel curator pod2 hall-a maintenance-tunnel mart-east-core-drill
+4
+107 0
+146 0
+149 2
+151 0
+3
+0 17 -1 1
+0 19 -1 0
+0 150 3 5
+0
+end_operator
+begin_operator
+move-fragile-tunnel curator pod2 hall-a maintenance-tunnel mart-laser-gun
+4
+107 0
+146 0
+149 3
+151 0
+3
+0 24 -1 1
+0 26 -1 0
+0 150 3 5
+0
+end_operator
+begin_operator
+move-fragile-tunnel curator pod2 hall-a maintenance-tunnel mart-mysterious-egg
+4
+107 0
+146 0
+149 4
+151 0
+3
+0 31 -1 1
+0 33 -1 0
+0 150 3 5
+0
+end_operator
+begin_operator
+move-fragile-tunnel curator pod2 hall-a maintenance-tunnel mart-nord-core-drill
+4
+107 0
+146 0
+149 5
+151 0
+3
+0 38 -1 1
+0 40 -1 0
+0 150 3 5
+0
+end_operator
+begin_operator
+move-fragile-tunnel curator pod2 hall-a maintenance-tunnel mart-north-pole-ice-sample
+4
+107 0
+146 0
+149 6
+151 0
+3
+0 45 -1 1
+0 47 -1 0
+0 150 3 5
+0
+end_operator
+begin_operator
+move-fragile-tunnel curator pod2 hall-a maintenance-tunnel mart-pink-hat
+4
+107 0
+146 0
+149 7
+151 0
+3
+0 52 -1 1
+0 54 -1 0
+0 150 3 5
+0
+end_operator
+begin_operator
+move-fragile-tunnel curator pod2 hall-a maintenance-tunnel mart-sand-sample
+4
+107 0
+146 0
+149 8
+151 0
+3
+0 59 -1 1
+0 61 -1 0
+0 150 3 5
+0
+end_operator
+begin_operator
+move-fragile-tunnel curator pod2 hall-a maintenance-tunnel mart-sud-core-drill
+4
+107 0
+146 0
+149 9
+151 0
+3
+0 66 -1 1
+0 68 -1 0
+0 150 3 5
+0
+end_operator
+begin_operator
+move-fragile-tunnel curator pod2 hall-a maintenance-tunnel mart-west-core-drill
+4
+107 0
+146 0
+149 10
+151 0
+3
+0 73 -1 1
+0 75 -1 0
+0 150 3 5
+0
+end_operator
+begin_operator
+move-fragile-tunnel curator pod2 hall-a maintenance-tunnel venus-rock-sample
+4
+107 0
+146 0
+149 11
+151 0
+3
+0 80 -1 1
+0 82 -1 0
+0 150 3 5
+0
+end_operator
+begin_operator
+move-fragile-tunnel curator pod2 hall-a maintenance-tunnel venus-sand-sample
+4
+107 0
+146 0
+149 12
+151 0
+3
+0 87 -1 1
+0 89 -1 0
+0 150 3 5
+0
+end_operator
+begin_operator
+move-fragile-tunnel curator pod2 hall-b maintenance-tunnel asteroid-ad29tv-rock-sample
+4
+107 0
+146 0
+149 0
+151 0
+3
+0 4 -1 1
+0 5 -1 0
+0 150 4 5
+0
+end_operator
+begin_operator
+move-fragile-tunnel curator pod2 hall-b maintenance-tunnel asteroid-mg04tn-ice-sample
+4
+107 0
+146 0
+149 1
+151 0
+3
+0 11 -1 1
+0 12 -1 0
+0 150 4 5
+0
+end_operator
+begin_operator
+move-fragile-tunnel curator pod2 hall-b maintenance-tunnel mart-east-core-drill
+4
+107 0
+146 0
+149 2
+151 0
+3
+0 18 -1 1
+0 19 -1 0
+0 150 4 5
+0
+end_operator
+begin_operator
+move-fragile-tunnel curator pod2 hall-b maintenance-tunnel mart-laser-gun
+4
+107 0
+146 0
+149 3
+151 0
+3
+0 25 -1 1
+0 26 -1 0
+0 150 4 5
+0
+end_operator
+begin_operator
+move-fragile-tunnel curator pod2 hall-b maintenance-tunnel mart-mysterious-egg
+4
+107 0
+146 0
+149 4
+151 0
+3
+0 32 -1 1
+0 33 -1 0
+0 150 4 5
+0
+end_operator
+begin_operator
+move-fragile-tunnel curator pod2 hall-b maintenance-tunnel mart-nord-core-drill
+4
+107 0
+146 0
+149 5
+151 0
+3
+0 39 -1 1
+0 40 -1 0
+0 150 4 5
+0
+end_operator
+begin_operator
+move-fragile-tunnel curator pod2 hall-b maintenance-tunnel mart-north-pole-ice-sample
+4
+107 0
+146 0
+149 6
+151 0
+3
+0 46 -1 1
+0 47 -1 0
+0 150 4 5
+0
+end_operator
+begin_operator
+move-fragile-tunnel curator pod2 hall-b maintenance-tunnel mart-pink-hat
+4
+107 0
+146 0
+149 7
+151 0
+3
+0 53 -1 1
+0 54 -1 0
+0 150 4 5
+0
+end_operator
+begin_operator
+move-fragile-tunnel curator pod2 hall-b maintenance-tunnel mart-sand-sample
+4
+107 0
+146 0
+149 8
+151 0
+3
+0 60 -1 1
+0 61 -1 0
+0 150 4 5
+0
+end_operator
+begin_operator
+move-fragile-tunnel curator pod2 hall-b maintenance-tunnel mart-sud-core-drill
+4
+107 0
+146 0
+149 9
+151 0
+3
+0 67 -1 1
+0 68 -1 0
+0 150 4 5
+0
+end_operator
+begin_operator
+move-fragile-tunnel curator pod2 hall-b maintenance-tunnel mart-west-core-drill
+4
+107 0
+146 0
+149 10
+151 0
+3
+0 74 -1 1
+0 75 -1 0
+0 150 4 5
+0
+end_operator
+begin_operator
+move-fragile-tunnel curator pod2 hall-b maintenance-tunnel venus-rock-sample
+4
+107 0
+146 0
+149 11
+151 0
+3
+0 81 -1 1
+0 82 -1 0
+0 150 4 5
+0
+end_operator
+begin_operator
+move-fragile-tunnel curator pod2 hall-b maintenance-tunnel venus-sand-sample
+4
+107 0
+146 0
+149 12
+151 0
+3
+0 88 -1 1
+0 89 -1 0
+0 150 4 5
+0
+end_operator
+begin_operator
+move-fragile-tunnel curator pod2 stasis-lab maintenance-tunnel asteroid-ad29tv-rock-sample
+4
+107 0
+146 0
+149 0
+151 0
+3
+0 5 -1 0
+0 6 -1 1
+0 150 6 5
+0
+end_operator
+begin_operator
+move-fragile-tunnel curator pod2 stasis-lab maintenance-tunnel asteroid-mg04tn-ice-sample
+4
+107 0
+146 0
+149 1
+151 0
+3
+0 12 -1 0
+0 13 -1 1
+0 150 6 5
+0
+end_operator
+begin_operator
+move-fragile-tunnel curator pod2 stasis-lab maintenance-tunnel mart-east-core-drill
+4
+107 0
+146 0
+149 2
+151 0
+3
+0 19 -1 0
+0 20 -1 1
+0 150 6 5
+0
+end_operator
+begin_operator
+move-fragile-tunnel curator pod2 stasis-lab maintenance-tunnel mart-laser-gun
+4
+107 0
+146 0
+149 3
+151 0
+3
+0 26 -1 0
+0 27 -1 1
+0 150 6 5
+0
+end_operator
+begin_operator
+move-fragile-tunnel curator pod2 stasis-lab maintenance-tunnel mart-mysterious-egg
+4
+107 0
+146 0
+149 4
+151 0
+3
+0 33 -1 0
+0 34 -1 1
+0 150 6 5
+0
+end_operator
+begin_operator
+move-fragile-tunnel curator pod2 stasis-lab maintenance-tunnel mart-nord-core-drill
+4
+107 0
+146 0
+149 5
+151 0
+3
+0 40 -1 0
+0 41 -1 1
+0 150 6 5
+0
+end_operator
+begin_operator
+move-fragile-tunnel curator pod2 stasis-lab maintenance-tunnel mart-north-pole-ice-sample
+4
+107 0
+146 0
+149 6
+151 0
+3
+0 47 -1 0
+0 48 -1 1
+0 150 6 5
+0
+end_operator
+begin_operator
+move-fragile-tunnel curator pod2 stasis-lab maintenance-tunnel mart-pink-hat
+4
+107 0
+146 0
+149 7
+151 0
+3
+0 54 -1 0
+0 55 -1 1
+0 150 6 5
+0
+end_operator
+begin_operator
+move-fragile-tunnel curator pod2 stasis-lab maintenance-tunnel mart-sand-sample
+4
+107 0
+146 0
+149 8
+151 0
+3
+0 61 -1 0
+0 62 -1 1
+0 150 6 5
+0
+end_operator
+begin_operator
+move-fragile-tunnel curator pod2 stasis-lab maintenance-tunnel mart-sud-core-drill
+4
+107 0
+146 0
+149 9
+151 0
+3
+0 68 -1 0
+0 69 -1 1
+0 150 6 5
+0
+end_operator
+begin_operator
+move-fragile-tunnel curator pod2 stasis-lab maintenance-tunnel mart-west-core-drill
+4
+107 0
+146 0
+149 10
+151 0
+3
+0 75 -1 0
+0 76 -1 1
+0 150 6 5
+0
+end_operator
+begin_operator
+move-fragile-tunnel curator pod2 stasis-lab maintenance-tunnel venus-rock-sample
+4
+107 0
+146 0
+149 11
+151 0
+3
+0 82 -1 0
+0 83 -1 1
+0 150 6 5
+0
+end_operator
+begin_operator
+move-fragile-tunnel curator pod2 stasis-lab maintenance-tunnel venus-sand-sample
+4
+107 0
+146 0
+149 12
+151 0
+3
+0 89 -1 0
+0 90 -1 1
+0 150 6 5
+0
+end_operator
+begin_operator
+move-pod-safe curator pod1 maintenance-tunnel anti-vibration-pods-room
+3
+104 0
+141 0
+151 1
 1
-41 2
+0 150 5 0
+0
+end_operator
+begin_operator
+move-pod-safe curator pod1 maintenance-tunnel cryo-chamber
+3
+104 0
+142 0
+151 1
+1
+0 150 5 1
+0
+end_operator
+begin_operator
+move-pod-safe curator pod1 maintenance-tunnel entrance
+3
+104 0
+143 0
+151 1
+1
+0 150 5 2
+0
+end_operator
+begin_operator
+move-pod-safe curator pod1 maintenance-tunnel hall-a
+3
+104 0
+144 0
+151 1
+1
+0 150 5 3
+0
+end_operator
+begin_operator
+move-pod-safe curator pod1 maintenance-tunnel hall-b
+3
+104 0
+145 0
+151 1
+1
+0 150 5 4
+0
+end_operator
+begin_operator
+move-pod-safe curator pod1 maintenance-tunnel stasis-lab
+3
+104 0
+147 0
+151 1
+1
+0 150 5 6
+0
+end_operator
+begin_operator
+move-pod-safe curator pod2 maintenance-tunnel anti-vibration-pods-room
+3
+105 0
+141 0
+151 1
+1
+0 150 5 0
+0
+end_operator
+begin_operator
+move-pod-safe curator pod2 maintenance-tunnel cryo-chamber
+3
+105 0
+142 0
+151 1
+1
+0 150 5 1
+0
+end_operator
+begin_operator
+move-pod-safe curator pod2 maintenance-tunnel entrance
+3
+105 0
+143 0
+151 1
+1
+0 150 5 2
+0
+end_operator
+begin_operator
+move-pod-safe curator pod2 maintenance-tunnel hall-a
+3
+105 0
+144 0
+151 1
+1
+0 150 5 3
+0
+end_operator
+begin_operator
+move-pod-safe curator pod2 maintenance-tunnel hall-b
+3
+105 0
+145 0
+151 1
+1
+0 150 5 4
+0
+end_operator
+begin_operator
+move-pod-safe curator pod2 maintenance-tunnel stasis-lab
+3
+105 0
+147 0
+151 1
+1
+0 150 5 6
+0
+end_operator
+begin_operator
+move-pod-tunnel curator pod1 anti-vibration-pods-room maintenance-tunnel
+3
+104 0
+146 0
+151 0
+1
+0 150 0 5
+0
+end_operator
+begin_operator
+move-pod-tunnel curator pod1 cryo-chamber maintenance-tunnel
+3
+104 0
+146 0
+151 0
+1
+0 150 1 5
+0
+end_operator
+begin_operator
+move-pod-tunnel curator pod1 entrance maintenance-tunnel
+3
+104 0
+146 0
+151 0
+1
+0 150 2 5
+0
+end_operator
+begin_operator
+move-pod-tunnel curator pod1 hall-a maintenance-tunnel
+3
+104 0
+146 0
+151 0
+1
+0 150 3 5
+0
+end_operator
+begin_operator
+move-pod-tunnel curator pod1 hall-b maintenance-tunnel
+3
+104 0
+146 0
+151 0
+1
+0 150 4 5
+0
+end_operator
+begin_operator
+move-pod-tunnel curator pod1 stasis-lab maintenance-tunnel
+3
+104 0
+146 0
+151 0
+1
+0 150 6 5
+0
+end_operator
+begin_operator
+move-pod-tunnel curator pod2 anti-vibration-pods-room maintenance-tunnel
+3
+105 0
+146 0
+151 0
+1
+0 150 0 5
+0
+end_operator
+begin_operator
+move-pod-tunnel curator pod2 cryo-chamber maintenance-tunnel
+3
+105 0
+146 0
+151 0
+1
+0 150 1 5
+0
+end_operator
+begin_operator
+move-pod-tunnel curator pod2 entrance maintenance-tunnel
+3
+105 0
+146 0
+151 0
+1
+0 150 2 5
+0
+end_operator
+begin_operator
+move-pod-tunnel curator pod2 hall-a maintenance-tunnel
+3
+105 0
+146 0
+151 0
+1
+0 150 3 5
+0
+end_operator
+begin_operator
+move-pod-tunnel curator pod2 hall-b maintenance-tunnel
+3
+105 0
+146 0
+151 0
+1
+0 150 4 5
+0
+end_operator
+begin_operator
+move-pod-tunnel curator pod2 stasis-lab maintenance-tunnel
+3
+105 0
+146 0
+151 0
+1
+0 150 6 5
+0
+end_operator
+begin_operator
+pick-up-artifact-standard asteroid-mg04tn-ice-sample anti-vibration-pods-room curator
+1
+150 0
+3
+0 7 0 1
+0 92 -1 0
+0 140 0 1
+0
+end_operator
+begin_operator
+pick-up-artifact-standard asteroid-mg04tn-ice-sample cryo-chamber curator
+1
+150 1
+3
+0 8 0 1
+0 92 -1 0
+0 140 0 1
+0
+end_operator
+begin_operator
+pick-up-artifact-standard asteroid-mg04tn-ice-sample entrance curator
+1
+150 2
+3
+0 9 0 1
+0 92 -1 0
+0 140 0 1
+0
+end_operator
+begin_operator
+pick-up-artifact-standard asteroid-mg04tn-ice-sample hall-a curator
+1
+150 3
+3
+0 10 0 1
+0 92 -1 0
+0 140 0 1
+0
+end_operator
+begin_operator
+pick-up-artifact-standard asteroid-mg04tn-ice-sample hall-b curator
+1
+150 4
+3
+0 11 0 1
+0 92 -1 0
+0 140 0 1
+0
+end_operator
+begin_operator
+pick-up-artifact-standard asteroid-mg04tn-ice-sample maintenance-tunnel curator
+1
+150 5
+3
+0 12 0 1
+0 92 -1 0
+0 140 0 1
+0
+end_operator
+begin_operator
+pick-up-artifact-standard asteroid-mg04tn-ice-sample stasis-lab curator
+1
+150 6
+3
+0 13 0 1
+0 92 -1 0
+0 140 0 1
+0
+end_operator
+begin_operator
+pick-up-artifact-standard mart-east-core-drill anti-vibration-pods-room curator
+1
+150 0
+3
+0 14 0 1
+0 93 -1 0
+0 140 0 1
+0
+end_operator
+begin_operator
+pick-up-artifact-standard mart-east-core-drill cryo-chamber curator
+1
+150 1
+3
+0 15 0 1
+0 93 -1 0
+0 140 0 1
+0
+end_operator
+begin_operator
+pick-up-artifact-standard mart-east-core-drill entrance curator
+1
+150 2
+3
+0 16 0 1
+0 93 -1 0
+0 140 0 1
+0
+end_operator
+begin_operator
+pick-up-artifact-standard mart-east-core-drill hall-a curator
+1
+150 3
+3
+0 17 0 1
+0 93 -1 0
+0 140 0 1
+0
+end_operator
+begin_operator
+pick-up-artifact-standard mart-east-core-drill hall-b curator
+1
+150 4
+3
+0 18 0 1
+0 93 -1 0
+0 140 0 1
+0
+end_operator
+begin_operator
+pick-up-artifact-standard mart-east-core-drill maintenance-tunnel curator
+1
+150 5
+3
+0 19 0 1
+0 93 -1 0
+0 140 0 1
+0
+end_operator
+begin_operator
+pick-up-artifact-standard mart-east-core-drill stasis-lab curator
+1
+150 6
+3
+0 20 0 1
+0 93 -1 0
+0 140 0 1
+0
+end_operator
+begin_operator
+pick-up-artifact-standard mart-mysterious-egg anti-vibration-pods-room curator
+1
+150 0
+3
+0 28 0 1
+0 95 -1 0
+0 140 0 1
+0
+end_operator
+begin_operator
+pick-up-artifact-standard mart-mysterious-egg cryo-chamber curator
+1
+150 1
+3
+0 29 0 1
+0 95 -1 0
+0 140 0 1
+0
+end_operator
+begin_operator
+pick-up-artifact-standard mart-mysterious-egg entrance curator
+1
+150 2
+3
+0 30 0 1
+0 95 -1 0
+0 140 0 1
+0
+end_operator
+begin_operator
+pick-up-artifact-standard mart-mysterious-egg hall-a curator
+1
+150 3
+3
+0 31 0 1
+0 95 -1 0
+0 140 0 1
+0
+end_operator
+begin_operator
+pick-up-artifact-standard mart-mysterious-egg hall-b curator
+1
+150 4
+3
+0 32 0 1
+0 95 -1 0
+0 140 0 1
+0
+end_operator
+begin_operator
+pick-up-artifact-standard mart-mysterious-egg maintenance-tunnel curator
+1
+150 5
+3
+0 33 0 1
+0 95 -1 0
+0 140 0 1
+0
+end_operator
+begin_operator
+pick-up-artifact-standard mart-mysterious-egg stasis-lab curator
+1
+150 6
+3
+0 34 0 1
+0 95 -1 0
+0 140 0 1
+0
+end_operator
+begin_operator
+pick-up-artifact-standard mart-nord-core-drill anti-vibration-pods-room curator
+1
+150 0
+3
+0 35 0 1
+0 96 -1 0
+0 140 0 1
+0
+end_operator
+begin_operator
+pick-up-artifact-standard mart-nord-core-drill cryo-chamber curator
+1
+150 1
+3
+0 36 0 1
+0 96 -1 0
+0 140 0 1
+0
+end_operator
+begin_operator
+pick-up-artifact-standard mart-nord-core-drill entrance curator
+1
+150 2
+3
+0 37 0 1
+0 96 -1 0
+0 140 0 1
+0
+end_operator
+begin_operator
+pick-up-artifact-standard mart-nord-core-drill hall-a curator
+1
+150 3
+3
+0 38 0 1
+0 96 -1 0
+0 140 0 1
+0
+end_operator
+begin_operator
+pick-up-artifact-standard mart-nord-core-drill hall-b curator
+1
+150 4
+3
+0 39 0 1
+0 96 -1 0
+0 140 0 1
+0
+end_operator
+begin_operator
+pick-up-artifact-standard mart-nord-core-drill maintenance-tunnel curator
+1
+150 5
+3
+0 40 0 1
+0 96 -1 0
+0 140 0 1
+0
+end_operator
+begin_operator
+pick-up-artifact-standard mart-nord-core-drill stasis-lab curator
+1
+150 6
+3
+0 41 0 1
+0 96 -1 0
+0 140 0 1
+0
+end_operator
+begin_operator
+pick-up-artifact-standard mart-north-pole-ice-sample anti-vibration-pods-room curator
+1
+150 0
+3
+0 42 0 1
+0 97 -1 0
+0 140 0 1
+0
+end_operator
+begin_operator
+pick-up-artifact-standard mart-north-pole-ice-sample cryo-chamber curator
+1
+150 1
+3
+0 43 0 1
+0 97 -1 0
+0 140 0 1
+0
+end_operator
+begin_operator
+pick-up-artifact-standard mart-north-pole-ice-sample entrance curator
+1
+150 2
+3
+0 44 0 1
+0 97 -1 0
+0 140 0 1
+0
+end_operator
+begin_operator
+pick-up-artifact-standard mart-north-pole-ice-sample hall-a curator
+1
+150 3
+3
+0 45 0 1
+0 97 -1 0
+0 140 0 1
+0
+end_operator
+begin_operator
+pick-up-artifact-standard mart-north-pole-ice-sample hall-b curator
+1
+150 4
+3
+0 46 0 1
+0 97 -1 0
+0 140 0 1
+0
+end_operator
+begin_operator
+pick-up-artifact-standard mart-north-pole-ice-sample maintenance-tunnel curator
+1
+150 5
+3
+0 47 0 1
+0 97 -1 0
+0 140 0 1
+0
+end_operator
+begin_operator
+pick-up-artifact-standard mart-north-pole-ice-sample stasis-lab curator
+1
+150 6
+3
+0 48 0 1
+0 97 -1 0
+0 140 0 1
+0
+end_operator
+begin_operator
+pick-up-artifact-standard mart-sud-core-drill anti-vibration-pods-room curator
+1
+150 0
+3
+0 63 0 1
+0 100 -1 0
+0 140 0 1
+0
+end_operator
+begin_operator
+pick-up-artifact-standard mart-sud-core-drill cryo-chamber curator
+1
+150 1
+3
+0 64 0 1
+0 100 -1 0
+0 140 0 1
+0
+end_operator
+begin_operator
+pick-up-artifact-standard mart-sud-core-drill entrance curator
+1
+150 2
+3
+0 65 0 1
+0 100 -1 0
+0 140 0 1
+0
+end_operator
+begin_operator
+pick-up-artifact-standard mart-sud-core-drill hall-a curator
+1
+150 3
+3
+0 66 0 1
+0 100 -1 0
+0 140 0 1
+0
+end_operator
+begin_operator
+pick-up-artifact-standard mart-sud-core-drill hall-b curator
+1
+150 4
+3
+0 67 0 1
+0 100 -1 0
+0 140 0 1
+0
+end_operator
+begin_operator
+pick-up-artifact-standard mart-sud-core-drill maintenance-tunnel curator
+1
+150 5
+3
+0 68 0 1
+0 100 -1 0
+0 140 0 1
+0
+end_operator
+begin_operator
+pick-up-artifact-standard mart-sud-core-drill stasis-lab curator
+1
+150 6
+3
+0 69 0 1
+0 100 -1 0
+0 140 0 1
+0
+end_operator
+begin_operator
+pick-up-artifact-standard mart-west-core-drill anti-vibration-pods-room curator
+1
+150 0
+3
+0 70 0 1
+0 101 -1 0
+0 140 0 1
+0
+end_operator
+begin_operator
+pick-up-artifact-standard mart-west-core-drill cryo-chamber curator
+1
+150 1
+3
+0 71 0 1
+0 101 -1 0
+0 140 0 1
+0
+end_operator
+begin_operator
+pick-up-artifact-standard mart-west-core-drill entrance curator
+1
+150 2
+3
+0 72 0 1
+0 101 -1 0
+0 140 0 1
+0
+end_operator
+begin_operator
+pick-up-artifact-standard mart-west-core-drill hall-a curator
+1
+150 3
+3
+0 73 0 1
+0 101 -1 0
+0 140 0 1
+0
+end_operator
+begin_operator
+pick-up-artifact-standard mart-west-core-drill hall-b curator
+1
+150 4
+3
+0 74 0 1
+0 101 -1 0
+0 140 0 1
+0
+end_operator
+begin_operator
+pick-up-artifact-standard mart-west-core-drill maintenance-tunnel curator
+1
+150 5
+3
+0 75 0 1
+0 101 -1 0
+0 140 0 1
+0
+end_operator
+begin_operator
+pick-up-artifact-standard mart-west-core-drill stasis-lab curator
+1
+150 6
+3
+0 76 0 1
+0 101 -1 0
+0 140 0 1
+0
+end_operator
+begin_operator
+pick-up-empty-pod curator anti-vibration-pods-room pod1
+2
+148 13
+150 0
+2
+0 104 -1 0
+0 140 0 1
+0
+end_operator
+begin_operator
+pick-up-empty-pod curator anti-vibration-pods-room pod2
+2
+149 13
+150 0
+2
+0 105 -1 0
+0 140 0 1
+0
+end_operator
+begin_operator
+pick-up-empty-pod curator cryo-chamber pod1
+3
+128 0
+148 13
+150 1
+2
+0 104 -1 0
+0 140 0 1
+0
+end_operator
+begin_operator
+pick-up-empty-pod curator cryo-chamber pod2
+3
+129 0
+149 13
+150 1
+2
+0 105 -1 0
+0 140 0 1
+0
+end_operator
+begin_operator
+pick-up-empty-pod curator entrance pod1
+3
+130 0
+148 13
+150 2
+2
+0 104 -1 0
+0 140 0 1
+0
+end_operator
+begin_operator
+pick-up-empty-pod curator entrance pod2
+3
+131 0
+149 13
+150 2
+2
+0 105 -1 0
+0 140 0 1
+0
+end_operator
+begin_operator
+pick-up-empty-pod curator hall-a pod1
+3
+132 0
+148 13
+150 3
+2
+0 104 -1 0
+0 140 0 1
+0
+end_operator
+begin_operator
+pick-up-empty-pod curator hall-a pod2
+3
+133 0
+149 13
+150 3
+2
+0 105 -1 0
+0 140 0 1
+0
+end_operator
+begin_operator
+pick-up-empty-pod curator hall-b pod1
+3
+134 0
+148 13
+150 4
+2
+0 104 -1 0
+0 140 0 1
+0
+end_operator
+begin_operator
+pick-up-empty-pod curator hall-b pod2
+3
+135 0
+149 13
+150 4
+2
+0 105 -1 0
+0 140 0 1
+0
+end_operator
+begin_operator
+pick-up-empty-pod curator maintenance-tunnel pod1
+3
+136 0
+148 13
+150 5
+2
+0 104 -1 0
+0 140 0 1
+0
+end_operator
+begin_operator
+pick-up-empty-pod curator maintenance-tunnel pod2
+3
+137 0
+149 13
+150 5
+2
+0 105 -1 0
+0 140 0 1
+0
+end_operator
+begin_operator
+pick-up-empty-pod curator stasis-lab pod1
+3
+138 0
+148 13
+150 6
+2
+0 104 -1 0
+0 140 0 1
+0
+end_operator
+begin_operator
+pick-up-empty-pod curator stasis-lab pod2
+3
+139 0
+149 13
+150 6
+2
+0 105 -1 0
+0 140 0 1
+0
+end_operator
+begin_operator
+pick-up-full-pod curator anti-vibration-pods-room pod1 asteroid-ad29tv-rock-sample
+2
+148 0
+150 0
+3
+0 91 -1 0
+0 106 1 0
+0 140 0 1
+0
+end_operator
+begin_operator
+pick-up-full-pod curator anti-vibration-pods-room pod1 asteroid-mg04tn-ice-sample
+2
+148 1
+150 0
+3
+0 92 -1 0
+0 106 1 0
+0 140 0 1
+0
+end_operator
+begin_operator
+pick-up-full-pod curator anti-vibration-pods-room pod1 mart-east-core-drill
+2
+148 2
+150 0
+3
+0 93 -1 0
+0 106 1 0
+0 140 0 1
+0
+end_operator
+begin_operator
+pick-up-full-pod curator anti-vibration-pods-room pod1 mart-laser-gun
+2
+148 3
+150 0
+3
+0 94 -1 0
+0 106 1 0
+0 140 0 1
+0
+end_operator
+begin_operator
+pick-up-full-pod curator anti-vibration-pods-room pod1 mart-mysterious-egg
+2
+148 4
+150 0
+3
+0 95 -1 0
+0 106 1 0
+0 140 0 1
+0
+end_operator
+begin_operator
+pick-up-full-pod curator anti-vibration-pods-room pod1 mart-nord-core-drill
+2
+148 5
+150 0
+3
+0 96 -1 0
+0 106 1 0
+0 140 0 1
+0
+end_operator
+begin_operator
+pick-up-full-pod curator anti-vibration-pods-room pod1 mart-north-pole-ice-sample
+2
+148 6
+150 0
+3
+0 97 -1 0
+0 106 1 0
+0 140 0 1
+0
+end_operator
+begin_operator
+pick-up-full-pod curator anti-vibration-pods-room pod1 mart-pink-hat
+2
+148 7
+150 0
+3
+0 98 -1 0
+0 106 1 0
+0 140 0 1
+0
+end_operator
+begin_operator
+pick-up-full-pod curator anti-vibration-pods-room pod1 mart-sand-sample
+2
+148 8
+150 0
+3
+0 99 -1 0
+0 106 1 0
+0 140 0 1
+0
+end_operator
+begin_operator
+pick-up-full-pod curator anti-vibration-pods-room pod1 mart-sud-core-drill
+2
+148 9
+150 0
+3
+0 100 -1 0
+0 106 1 0
+0 140 0 1
+0
+end_operator
+begin_operator
+pick-up-full-pod curator anti-vibration-pods-room pod1 mart-west-core-drill
+2
+148 10
+150 0
+3
+0 101 -1 0
+0 106 1 0
+0 140 0 1
+0
+end_operator
+begin_operator
+pick-up-full-pod curator anti-vibration-pods-room pod1 venus-rock-sample
+2
+148 11
+150 0
+3
+0 102 -1 0
+0 106 1 0
+0 140 0 1
+0
+end_operator
+begin_operator
+pick-up-full-pod curator anti-vibration-pods-room pod1 venus-sand-sample
+2
+148 12
+150 0
+3
+0 103 -1 0
+0 106 1 0
+0 140 0 1
+0
+end_operator
+begin_operator
+pick-up-full-pod curator anti-vibration-pods-room pod2 asteroid-ad29tv-rock-sample
+2
+149 0
+150 0
+3
+0 91 -1 0
+0 107 1 0
+0 140 0 1
+0
+end_operator
+begin_operator
+pick-up-full-pod curator anti-vibration-pods-room pod2 asteroid-mg04tn-ice-sample
+2
+149 1
+150 0
+3
+0 92 -1 0
+0 107 1 0
+0 140 0 1
+0
+end_operator
+begin_operator
+pick-up-full-pod curator anti-vibration-pods-room pod2 mart-east-core-drill
+2
+149 2
+150 0
+3
+0 93 -1 0
+0 107 1 0
+0 140 0 1
+0
+end_operator
+begin_operator
+pick-up-full-pod curator anti-vibration-pods-room pod2 mart-laser-gun
+2
+149 3
+150 0
+3
+0 94 -1 0
+0 107 1 0
+0 140 0 1
+0
+end_operator
+begin_operator
+pick-up-full-pod curator anti-vibration-pods-room pod2 mart-mysterious-egg
+2
+149 4
+150 0
+3
+0 95 -1 0
+0 107 1 0
+0 140 0 1
+0
+end_operator
+begin_operator
+pick-up-full-pod curator anti-vibration-pods-room pod2 mart-nord-core-drill
+2
+149 5
+150 0
+3
+0 96 -1 0
+0 107 1 0
+0 140 0 1
+0
+end_operator
+begin_operator
+pick-up-full-pod curator anti-vibration-pods-room pod2 mart-north-pole-ice-sample
+2
+149 6
+150 0
+3
+0 97 -1 0
+0 107 1 0
+0 140 0 1
+0
+end_operator
+begin_operator
+pick-up-full-pod curator anti-vibration-pods-room pod2 mart-pink-hat
+2
+149 7
+150 0
+3
+0 98 -1 0
+0 107 1 0
+0 140 0 1
+0
+end_operator
+begin_operator
+pick-up-full-pod curator anti-vibration-pods-room pod2 mart-sand-sample
+2
+149 8
+150 0
+3
+0 99 -1 0
+0 107 1 0
+0 140 0 1
+0
+end_operator
+begin_operator
+pick-up-full-pod curator anti-vibration-pods-room pod2 mart-sud-core-drill
+2
+149 9
+150 0
+3
+0 100 -1 0
+0 107 1 0
+0 140 0 1
+0
+end_operator
+begin_operator
+pick-up-full-pod curator anti-vibration-pods-room pod2 mart-west-core-drill
+2
+149 10
+150 0
+3
+0 101 -1 0
+0 107 1 0
+0 140 0 1
+0
+end_operator
+begin_operator
+pick-up-full-pod curator anti-vibration-pods-room pod2 venus-rock-sample
+2
+149 11
+150 0
+3
+0 102 -1 0
+0 107 1 0
+0 140 0 1
+0
+end_operator
+begin_operator
+pick-up-full-pod curator anti-vibration-pods-room pod2 venus-sand-sample
+2
+149 12
+150 0
+3
+0 103 -1 0
+0 107 1 0
+0 140 0 1
+0
+end_operator
+begin_operator
+pick-up-full-pod curator cryo-chamber pod1 asteroid-ad29tv-rock-sample
+2
+148 0
+150 1
+3
+0 91 -1 0
+0 106 2 0
+0 140 0 1
+0
+end_operator
+begin_operator
+pick-up-full-pod curator cryo-chamber pod1 asteroid-mg04tn-ice-sample
+2
+148 1
+150 1
+3
+0 92 -1 0
+0 106 2 0
+0 140 0 1
+0
+end_operator
+begin_operator
+pick-up-full-pod curator cryo-chamber pod1 mart-east-core-drill
+2
+148 2
+150 1
+3
+0 93 -1 0
+0 106 2 0
+0 140 0 1
+0
+end_operator
+begin_operator
+pick-up-full-pod curator cryo-chamber pod1 mart-laser-gun
+2
+148 3
+150 1
+3
+0 94 -1 0
+0 106 2 0
+0 140 0 1
+0
+end_operator
+begin_operator
+pick-up-full-pod curator cryo-chamber pod1 mart-mysterious-egg
+2
+148 4
+150 1
+3
+0 95 -1 0
+0 106 2 0
+0 140 0 1
+0
+end_operator
+begin_operator
+pick-up-full-pod curator cryo-chamber pod1 mart-nord-core-drill
+2
+148 5
+150 1
+3
+0 96 -1 0
+0 106 2 0
+0 140 0 1
+0
+end_operator
+begin_operator
+pick-up-full-pod curator cryo-chamber pod1 mart-north-pole-ice-sample
+2
+148 6
+150 1
+3
+0 97 -1 0
+0 106 2 0
+0 140 0 1
+0
+end_operator
+begin_operator
+pick-up-full-pod curator cryo-chamber pod1 mart-pink-hat
+2
+148 7
+150 1
+3
+0 98 -1 0
+0 106 2 0
+0 140 0 1
+0
+end_operator
+begin_operator
+pick-up-full-pod curator cryo-chamber pod1 mart-sand-sample
+2
+148 8
+150 1
+3
+0 99 -1 0
+0 106 2 0
+0 140 0 1
+0
+end_operator
+begin_operator
+pick-up-full-pod curator cryo-chamber pod1 mart-sud-core-drill
+2
+148 9
+150 1
+3
+0 100 -1 0
+0 106 2 0
+0 140 0 1
+0
+end_operator
+begin_operator
+pick-up-full-pod curator cryo-chamber pod1 mart-west-core-drill
+2
+148 10
+150 1
+3
+0 101 -1 0
+0 106 2 0
+0 140 0 1
+0
+end_operator
+begin_operator
+pick-up-full-pod curator cryo-chamber pod1 venus-rock-sample
+2
+148 11
+150 1
+3
+0 102 -1 0
+0 106 2 0
+0 140 0 1
+0
+end_operator
+begin_operator
+pick-up-full-pod curator cryo-chamber pod1 venus-sand-sample
+2
+148 12
+150 1
+3
+0 103 -1 0
+0 106 2 0
+0 140 0 1
+0
+end_operator
+begin_operator
+pick-up-full-pod curator cryo-chamber pod2 asteroid-ad29tv-rock-sample
+2
+149 0
+150 1
+3
+0 91 -1 0
+0 107 2 0
+0 140 0 1
+0
+end_operator
+begin_operator
+pick-up-full-pod curator cryo-chamber pod2 asteroid-mg04tn-ice-sample
+2
+149 1
+150 1
+3
+0 92 -1 0
+0 107 2 0
+0 140 0 1
+0
+end_operator
+begin_operator
+pick-up-full-pod curator cryo-chamber pod2 mart-east-core-drill
+2
+149 2
+150 1
+3
+0 93 -1 0
+0 107 2 0
+0 140 0 1
+0
+end_operator
+begin_operator
+pick-up-full-pod curator cryo-chamber pod2 mart-laser-gun
+2
+149 3
+150 1
+3
+0 94 -1 0
+0 107 2 0
+0 140 0 1
+0
+end_operator
+begin_operator
+pick-up-full-pod curator cryo-chamber pod2 mart-mysterious-egg
+2
+149 4
+150 1
+3
+0 95 -1 0
+0 107 2 0
+0 140 0 1
+0
+end_operator
+begin_operator
+pick-up-full-pod curator cryo-chamber pod2 mart-nord-core-drill
+2
+149 5
+150 1
+3
+0 96 -1 0
+0 107 2 0
+0 140 0 1
+0
+end_operator
+begin_operator
+pick-up-full-pod curator cryo-chamber pod2 mart-north-pole-ice-sample
+2
+149 6
+150 1
+3
+0 97 -1 0
+0 107 2 0
+0 140 0 1
+0
+end_operator
+begin_operator
+pick-up-full-pod curator cryo-chamber pod2 mart-pink-hat
+2
+149 7
+150 1
+3
+0 98 -1 0
+0 107 2 0
+0 140 0 1
+0
+end_operator
+begin_operator
+pick-up-full-pod curator cryo-chamber pod2 mart-sand-sample
+2
+149 8
+150 1
+3
+0 99 -1 0
+0 107 2 0
+0 140 0 1
+0
+end_operator
+begin_operator
+pick-up-full-pod curator cryo-chamber pod2 mart-sud-core-drill
+2
+149 9
+150 1
+3
+0 100 -1 0
+0 107 2 0
+0 140 0 1
+0
+end_operator
+begin_operator
+pick-up-full-pod curator cryo-chamber pod2 mart-west-core-drill
+2
+149 10
+150 1
+3
+0 101 -1 0
+0 107 2 0
+0 140 0 1
+0
+end_operator
+begin_operator
+pick-up-full-pod curator cryo-chamber pod2 venus-rock-sample
+2
+149 11
+150 1
+3
+0 102 -1 0
+0 107 2 0
+0 140 0 1
+0
+end_operator
+begin_operator
+pick-up-full-pod curator cryo-chamber pod2 venus-sand-sample
+2
+149 12
+150 1
+3
+0 103 -1 0
+0 107 2 0
+0 140 0 1
+0
+end_operator
+begin_operator
+pick-up-full-pod curator entrance pod1 asteroid-ad29tv-rock-sample
+2
+148 0
+150 2
+3
+0 91 -1 0
+0 106 3 0
+0 140 0 1
+0
+end_operator
+begin_operator
+pick-up-full-pod curator entrance pod1 asteroid-mg04tn-ice-sample
+2
+148 1
+150 2
+3
+0 92 -1 0
+0 106 3 0
+0 140 0 1
+0
+end_operator
+begin_operator
+pick-up-full-pod curator entrance pod1 mart-east-core-drill
+2
+148 2
+150 2
+3
+0 93 -1 0
+0 106 3 0
+0 140 0 1
+0
+end_operator
+begin_operator
+pick-up-full-pod curator entrance pod1 mart-laser-gun
+2
+148 3
+150 2
+3
+0 94 -1 0
+0 106 3 0
+0 140 0 1
+0
+end_operator
+begin_operator
+pick-up-full-pod curator entrance pod1 mart-mysterious-egg
+2
+148 4
+150 2
+3
+0 95 -1 0
+0 106 3 0
+0 140 0 1
+0
+end_operator
+begin_operator
+pick-up-full-pod curator entrance pod1 mart-nord-core-drill
+2
+148 5
+150 2
+3
+0 96 -1 0
+0 106 3 0
+0 140 0 1
+0
+end_operator
+begin_operator
+pick-up-full-pod curator entrance pod1 mart-north-pole-ice-sample
+2
+148 6
+150 2
+3
+0 97 -1 0
+0 106 3 0
+0 140 0 1
+0
+end_operator
+begin_operator
+pick-up-full-pod curator entrance pod1 mart-pink-hat
+2
+148 7
+150 2
+3
+0 98 -1 0
+0 106 3 0
+0 140 0 1
+0
+end_operator
+begin_operator
+pick-up-full-pod curator entrance pod1 mart-sand-sample
+2
+148 8
+150 2
+3
+0 99 -1 0
+0 106 3 0
+0 140 0 1
+0
+end_operator
+begin_operator
+pick-up-full-pod curator entrance pod1 mart-sud-core-drill
+2
+148 9
+150 2
+3
+0 100 -1 0
+0 106 3 0
+0 140 0 1
+0
+end_operator
+begin_operator
+pick-up-full-pod curator entrance pod1 mart-west-core-drill
+2
+148 10
+150 2
+3
+0 101 -1 0
+0 106 3 0
+0 140 0 1
+0
+end_operator
+begin_operator
+pick-up-full-pod curator entrance pod1 venus-rock-sample
+2
+148 11
+150 2
+3
+0 102 -1 0
+0 106 3 0
+0 140 0 1
+0
+end_operator
+begin_operator
+pick-up-full-pod curator entrance pod1 venus-sand-sample
+2
+148 12
+150 2
+3
+0 103 -1 0
+0 106 3 0
+0 140 0 1
+0
+end_operator
+begin_operator
+pick-up-full-pod curator entrance pod2 asteroid-ad29tv-rock-sample
+2
+149 0
+150 2
+3
+0 91 -1 0
+0 107 3 0
+0 140 0 1
+0
+end_operator
+begin_operator
+pick-up-full-pod curator entrance pod2 asteroid-mg04tn-ice-sample
+2
+149 1
+150 2
+3
+0 92 -1 0
+0 107 3 0
+0 140 0 1
+0
+end_operator
+begin_operator
+pick-up-full-pod curator entrance pod2 mart-east-core-drill
+2
+149 2
+150 2
+3
+0 93 -1 0
+0 107 3 0
+0 140 0 1
+0
+end_operator
+begin_operator
+pick-up-full-pod curator entrance pod2 mart-laser-gun
+2
+149 3
+150 2
+3
+0 94 -1 0
+0 107 3 0
+0 140 0 1
+0
+end_operator
+begin_operator
+pick-up-full-pod curator entrance pod2 mart-mysterious-egg
+2
+149 4
+150 2
+3
+0 95 -1 0
+0 107 3 0
+0 140 0 1
+0
+end_operator
+begin_operator
+pick-up-full-pod curator entrance pod2 mart-nord-core-drill
+2
+149 5
+150 2
+3
+0 96 -1 0
+0 107 3 0
+0 140 0 1
+0
+end_operator
+begin_operator
+pick-up-full-pod curator entrance pod2 mart-north-pole-ice-sample
+2
+149 6
+150 2
+3
+0 97 -1 0
+0 107 3 0
+0 140 0 1
+0
+end_operator
+begin_operator
+pick-up-full-pod curator entrance pod2 mart-pink-hat
+2
+149 7
+150 2
+3
+0 98 -1 0
+0 107 3 0
+0 140 0 1
+0
+end_operator
+begin_operator
+pick-up-full-pod curator entrance pod2 mart-sand-sample
+2
+149 8
+150 2
+3
+0 99 -1 0
+0 107 3 0
+0 140 0 1
+0
+end_operator
+begin_operator
+pick-up-full-pod curator entrance pod2 mart-sud-core-drill
+2
+149 9
+150 2
+3
+0 100 -1 0
+0 107 3 0
+0 140 0 1
+0
+end_operator
+begin_operator
+pick-up-full-pod curator entrance pod2 mart-west-core-drill
+2
+149 10
+150 2
+3
+0 101 -1 0
+0 107 3 0
+0 140 0 1
+0
+end_operator
+begin_operator
+pick-up-full-pod curator entrance pod2 venus-rock-sample
+2
+149 11
+150 2
+3
+0 102 -1 0
+0 107 3 0
+0 140 0 1
+0
+end_operator
+begin_operator
+pick-up-full-pod curator entrance pod2 venus-sand-sample
+2
+149 12
+150 2
+3
+0 103 -1 0
+0 107 3 0
+0 140 0 1
+0
+end_operator
+begin_operator
+pick-up-full-pod curator hall-a pod1 asteroid-ad29tv-rock-sample
+2
+148 0
+150 3
+3
+0 91 -1 0
+0 106 4 0
+0 140 0 1
+0
+end_operator
+begin_operator
+pick-up-full-pod curator hall-a pod1 asteroid-mg04tn-ice-sample
+2
+148 1
+150 3
+3
+0 92 -1 0
+0 106 4 0
+0 140 0 1
+0
+end_operator
+begin_operator
+pick-up-full-pod curator hall-a pod1 mart-east-core-drill
+2
+148 2
+150 3
+3
+0 93 -1 0
+0 106 4 0
+0 140 0 1
+0
+end_operator
+begin_operator
+pick-up-full-pod curator hall-a pod1 mart-laser-gun
+2
+148 3
+150 3
+3
+0 94 -1 0
+0 106 4 0
+0 140 0 1
+0
+end_operator
+begin_operator
+pick-up-full-pod curator hall-a pod1 mart-mysterious-egg
+2
+148 4
+150 3
+3
+0 95 -1 0
+0 106 4 0
+0 140 0 1
+0
+end_operator
+begin_operator
+pick-up-full-pod curator hall-a pod1 mart-nord-core-drill
+2
+148 5
+150 3
+3
+0 96 -1 0
+0 106 4 0
+0 140 0 1
+0
+end_operator
+begin_operator
+pick-up-full-pod curator hall-a pod1 mart-north-pole-ice-sample
+2
+148 6
+150 3
+3
+0 97 -1 0
+0 106 4 0
+0 140 0 1
+0
+end_operator
+begin_operator
+pick-up-full-pod curator hall-a pod1 mart-pink-hat
+2
+148 7
+150 3
+3
+0 98 -1 0
+0 106 4 0
+0 140 0 1
+0
+end_operator
+begin_operator
+pick-up-full-pod curator hall-a pod1 mart-sand-sample
+2
+148 8
+150 3
+3
+0 99 -1 0
+0 106 4 0
+0 140 0 1
+0
+end_operator
+begin_operator
+pick-up-full-pod curator hall-a pod1 mart-sud-core-drill
+2
+148 9
+150 3
+3
+0 100 -1 0
+0 106 4 0
+0 140 0 1
+0
+end_operator
+begin_operator
+pick-up-full-pod curator hall-a pod1 mart-west-core-drill
+2
+148 10
+150 3
+3
+0 101 -1 0
+0 106 4 0
+0 140 0 1
+0
+end_operator
+begin_operator
+pick-up-full-pod curator hall-a pod1 venus-rock-sample
+2
+148 11
+150 3
+3
+0 102 -1 0
+0 106 4 0
+0 140 0 1
+0
+end_operator
+begin_operator
+pick-up-full-pod curator hall-a pod1 venus-sand-sample
+2
+148 12
+150 3
+3
+0 103 -1 0
+0 106 4 0
+0 140 0 1
+0
+end_operator
+begin_operator
+pick-up-full-pod curator hall-a pod2 asteroid-ad29tv-rock-sample
+2
+149 0
+150 3
+3
+0 91 -1 0
+0 107 4 0
+0 140 0 1
+0
+end_operator
+begin_operator
+pick-up-full-pod curator hall-a pod2 asteroid-mg04tn-ice-sample
+2
+149 1
+150 3
+3
+0 92 -1 0
+0 107 4 0
+0 140 0 1
+0
+end_operator
+begin_operator
+pick-up-full-pod curator hall-a pod2 mart-east-core-drill
+2
+149 2
+150 3
+3
+0 93 -1 0
+0 107 4 0
+0 140 0 1
+0
+end_operator
+begin_operator
+pick-up-full-pod curator hall-a pod2 mart-laser-gun
+2
+149 3
+150 3
+3
+0 94 -1 0
+0 107 4 0
+0 140 0 1
+0
+end_operator
+begin_operator
+pick-up-full-pod curator hall-a pod2 mart-mysterious-egg
+2
+149 4
+150 3
+3
+0 95 -1 0
+0 107 4 0
+0 140 0 1
+0
+end_operator
+begin_operator
+pick-up-full-pod curator hall-a pod2 mart-nord-core-drill
+2
+149 5
+150 3
+3
+0 96 -1 0
+0 107 4 0
+0 140 0 1
+0
+end_operator
+begin_operator
+pick-up-full-pod curator hall-a pod2 mart-north-pole-ice-sample
+2
+149 6
+150 3
+3
+0 97 -1 0
+0 107 4 0
+0 140 0 1
+0
+end_operator
+begin_operator
+pick-up-full-pod curator hall-a pod2 mart-pink-hat
+2
+149 7
+150 3
+3
+0 98 -1 0
+0 107 4 0
+0 140 0 1
+0
+end_operator
+begin_operator
+pick-up-full-pod curator hall-a pod2 mart-sand-sample
+2
+149 8
+150 3
+3
+0 99 -1 0
+0 107 4 0
+0 140 0 1
+0
+end_operator
+begin_operator
+pick-up-full-pod curator hall-a pod2 mart-sud-core-drill
+2
+149 9
+150 3
+3
+0 100 -1 0
+0 107 4 0
+0 140 0 1
+0
+end_operator
+begin_operator
+pick-up-full-pod curator hall-a pod2 mart-west-core-drill
+2
+149 10
+150 3
+3
+0 101 -1 0
+0 107 4 0
+0 140 0 1
+0
+end_operator
+begin_operator
+pick-up-full-pod curator hall-a pod2 venus-rock-sample
+2
+149 11
+150 3
+3
+0 102 -1 0
+0 107 4 0
+0 140 0 1
+0
+end_operator
+begin_operator
+pick-up-full-pod curator hall-a pod2 venus-sand-sample
+2
+149 12
+150 3
+3
+0 103 -1 0
+0 107 4 0
+0 140 0 1
+0
+end_operator
+begin_operator
+pick-up-full-pod curator hall-b pod1 asteroid-ad29tv-rock-sample
+2
+148 0
+150 4
+3
+0 91 -1 0
+0 106 5 0
+0 140 0 1
+0
+end_operator
+begin_operator
+pick-up-full-pod curator hall-b pod1 asteroid-mg04tn-ice-sample
+2
+148 1
+150 4
+3
+0 92 -1 0
+0 106 5 0
+0 140 0 1
+0
+end_operator
+begin_operator
+pick-up-full-pod curator hall-b pod1 mart-east-core-drill
+2
+148 2
+150 4
+3
+0 93 -1 0
+0 106 5 0
+0 140 0 1
+0
+end_operator
+begin_operator
+pick-up-full-pod curator hall-b pod1 mart-laser-gun
+2
+148 3
+150 4
+3
+0 94 -1 0
+0 106 5 0
+0 140 0 1
+0
+end_operator
+begin_operator
+pick-up-full-pod curator hall-b pod1 mart-mysterious-egg
+2
+148 4
+150 4
+3
+0 95 -1 0
+0 106 5 0
+0 140 0 1
+0
+end_operator
+begin_operator
+pick-up-full-pod curator hall-b pod1 mart-nord-core-drill
+2
+148 5
+150 4
+3
+0 96 -1 0
+0 106 5 0
+0 140 0 1
+0
+end_operator
+begin_operator
+pick-up-full-pod curator hall-b pod1 mart-north-pole-ice-sample
+2
+148 6
+150 4
+3
+0 97 -1 0
+0 106 5 0
+0 140 0 1
+0
+end_operator
+begin_operator
+pick-up-full-pod curator hall-b pod1 mart-pink-hat
+2
+148 7
+150 4
+3
+0 98 -1 0
+0 106 5 0
+0 140 0 1
+0
+end_operator
+begin_operator
+pick-up-full-pod curator hall-b pod1 mart-sand-sample
+2
+148 8
+150 4
+3
+0 99 -1 0
+0 106 5 0
+0 140 0 1
+0
+end_operator
+begin_operator
+pick-up-full-pod curator hall-b pod1 mart-sud-core-drill
+2
+148 9
+150 4
+3
+0 100 -1 0
+0 106 5 0
+0 140 0 1
+0
+end_operator
+begin_operator
+pick-up-full-pod curator hall-b pod1 mart-west-core-drill
+2
+148 10
+150 4
+3
+0 101 -1 0
+0 106 5 0
+0 140 0 1
+0
+end_operator
+begin_operator
+pick-up-full-pod curator hall-b pod1 venus-rock-sample
+2
+148 11
+150 4
+3
+0 102 -1 0
+0 106 5 0
+0 140 0 1
+0
+end_operator
+begin_operator
+pick-up-full-pod curator hall-b pod1 venus-sand-sample
+2
+148 12
+150 4
+3
+0 103 -1 0
+0 106 5 0
+0 140 0 1
+0
+end_operator
+begin_operator
+pick-up-full-pod curator hall-b pod2 asteroid-ad29tv-rock-sample
+2
+149 0
+150 4
+3
+0 91 -1 0
+0 107 5 0
+0 140 0 1
+0
+end_operator
+begin_operator
+pick-up-full-pod curator hall-b pod2 asteroid-mg04tn-ice-sample
+2
+149 1
+150 4
+3
+0 92 -1 0
+0 107 5 0
+0 140 0 1
+0
+end_operator
+begin_operator
+pick-up-full-pod curator hall-b pod2 mart-east-core-drill
+2
+149 2
+150 4
+3
+0 93 -1 0
+0 107 5 0
+0 140 0 1
+0
+end_operator
+begin_operator
+pick-up-full-pod curator hall-b pod2 mart-laser-gun
+2
+149 3
+150 4
+3
+0 94 -1 0
+0 107 5 0
+0 140 0 1
+0
+end_operator
+begin_operator
+pick-up-full-pod curator hall-b pod2 mart-mysterious-egg
+2
+149 4
+150 4
+3
+0 95 -1 0
+0 107 5 0
+0 140 0 1
+0
+end_operator
+begin_operator
+pick-up-full-pod curator hall-b pod2 mart-nord-core-drill
+2
+149 5
+150 4
+3
+0 96 -1 0
+0 107 5 0
+0 140 0 1
+0
+end_operator
+begin_operator
+pick-up-full-pod curator hall-b pod2 mart-north-pole-ice-sample
+2
+149 6
+150 4
+3
+0 97 -1 0
+0 107 5 0
+0 140 0 1
+0
+end_operator
+begin_operator
+pick-up-full-pod curator hall-b pod2 mart-pink-hat
+2
+149 7
+150 4
+3
+0 98 -1 0
+0 107 5 0
+0 140 0 1
+0
+end_operator
+begin_operator
+pick-up-full-pod curator hall-b pod2 mart-sand-sample
+2
+149 8
+150 4
+3
+0 99 -1 0
+0 107 5 0
+0 140 0 1
+0
+end_operator
+begin_operator
+pick-up-full-pod curator hall-b pod2 mart-sud-core-drill
+2
+149 9
+150 4
+3
+0 100 -1 0
+0 107 5 0
+0 140 0 1
+0
+end_operator
+begin_operator
+pick-up-full-pod curator hall-b pod2 mart-west-core-drill
+2
+149 10
+150 4
+3
+0 101 -1 0
+0 107 5 0
+0 140 0 1
+0
+end_operator
+begin_operator
+pick-up-full-pod curator hall-b pod2 venus-rock-sample
+2
+149 11
+150 4
+3
+0 102 -1 0
+0 107 5 0
+0 140 0 1
+0
+end_operator
+begin_operator
+pick-up-full-pod curator hall-b pod2 venus-sand-sample
+2
+149 12
+150 4
+3
+0 103 -1 0
+0 107 5 0
+0 140 0 1
+0
+end_operator
+begin_operator
+pick-up-full-pod curator maintenance-tunnel pod1 asteroid-ad29tv-rock-sample
+2
+148 0
+150 5
+3
+0 91 -1 0
+0 106 6 0
+0 140 0 1
+0
+end_operator
+begin_operator
+pick-up-full-pod curator maintenance-tunnel pod1 asteroid-mg04tn-ice-sample
+2
+148 1
+150 5
+3
+0 92 -1 0
+0 106 6 0
+0 140 0 1
+0
+end_operator
+begin_operator
+pick-up-full-pod curator maintenance-tunnel pod1 mart-east-core-drill
+2
+148 2
+150 5
+3
+0 93 -1 0
+0 106 6 0
+0 140 0 1
+0
+end_operator
+begin_operator
+pick-up-full-pod curator maintenance-tunnel pod1 mart-laser-gun
+2
+148 3
+150 5
+3
+0 94 -1 0
+0 106 6 0
+0 140 0 1
+0
+end_operator
+begin_operator
+pick-up-full-pod curator maintenance-tunnel pod1 mart-mysterious-egg
+2
+148 4
+150 5
+3
+0 95 -1 0
+0 106 6 0
+0 140 0 1
+0
+end_operator
+begin_operator
+pick-up-full-pod curator maintenance-tunnel pod1 mart-nord-core-drill
+2
+148 5
+150 5
+3
+0 96 -1 0
+0 106 6 0
+0 140 0 1
+0
+end_operator
+begin_operator
+pick-up-full-pod curator maintenance-tunnel pod1 mart-north-pole-ice-sample
+2
+148 6
+150 5
+3
+0 97 -1 0
+0 106 6 0
+0 140 0 1
+0
+end_operator
+begin_operator
+pick-up-full-pod curator maintenance-tunnel pod1 mart-pink-hat
+2
+148 7
+150 5
+3
+0 98 -1 0
+0 106 6 0
+0 140 0 1
+0
+end_operator
+begin_operator
+pick-up-full-pod curator maintenance-tunnel pod1 mart-sand-sample
+2
+148 8
+150 5
+3
+0 99 -1 0
+0 106 6 0
+0 140 0 1
+0
+end_operator
+begin_operator
+pick-up-full-pod curator maintenance-tunnel pod1 mart-sud-core-drill
+2
+148 9
+150 5
+3
+0 100 -1 0
+0 106 6 0
+0 140 0 1
+0
+end_operator
+begin_operator
+pick-up-full-pod curator maintenance-tunnel pod1 mart-west-core-drill
+2
+148 10
+150 5
+3
+0 101 -1 0
+0 106 6 0
+0 140 0 1
+0
+end_operator
+begin_operator
+pick-up-full-pod curator maintenance-tunnel pod1 venus-rock-sample
+2
+148 11
+150 5
+3
+0 102 -1 0
+0 106 6 0
+0 140 0 1
+0
+end_operator
+begin_operator
+pick-up-full-pod curator maintenance-tunnel pod1 venus-sand-sample
+2
+148 12
+150 5
+3
+0 103 -1 0
+0 106 6 0
+0 140 0 1
+0
+end_operator
+begin_operator
+pick-up-full-pod curator maintenance-tunnel pod2 asteroid-ad29tv-rock-sample
+2
+149 0
+150 5
+3
+0 91 -1 0
+0 107 6 0
+0 140 0 1
+0
+end_operator
+begin_operator
+pick-up-full-pod curator maintenance-tunnel pod2 asteroid-mg04tn-ice-sample
 2
-0 12 -1 2
-0 13 26 13
+149 1
+150 5
+3
+0 92 -1 0
+0 107 6 0
+0 140 0 1
 0
 end_operator
 begin_operator
-drop-standard-from-pod venus-sand-sample hall-a
-1
-41 3
+pick-up-full-pod curator maintenance-tunnel pod2 mart-east-core-drill
 2
-0 12 -1 3
-0 13 26 13
+149 2
+150 5
+3
+0 93 -1 0
+0 107 6 0
+0 140 0 1
 0
 end_operator
 begin_operator
-drop-standard-from-pod venus-sand-sample hall-b
-1
-41 4
+pick-up-full-pod curator maintenance-tunnel pod2 mart-laser-gun
 2
-0 12 -1 4
-0 13 26 13
+149 3
+150 5
+3
+0 94 -1 0
+0 107 6 0
+0 140 0 1
 0
 end_operator
 begin_operator
-drop-standard-from-pod venus-sand-sample maintenance-tunnel
-1
-41 5
+pick-up-full-pod curator maintenance-tunnel pod2 mart-mysterious-egg
+2
+149 4
+150 5
+3
+0 95 -1 0
+0 107 6 0
+0 140 0 1
+0
+end_operator
+begin_operator
+pick-up-full-pod curator maintenance-tunnel pod2 mart-nord-core-drill
+2
+149 5
+150 5
+3
+0 96 -1 0
+0 107 6 0
+0 140 0 1
+0
+end_operator
+begin_operator
+pick-up-full-pod curator maintenance-tunnel pod2 mart-north-pole-ice-sample
+2
+149 6
+150 5
+3
+0 97 -1 0
+0 107 6 0
+0 140 0 1
+0
+end_operator
+begin_operator
+pick-up-full-pod curator maintenance-tunnel pod2 mart-pink-hat
+2
+149 7
+150 5
+3
+0 98 -1 0
+0 107 6 0
+0 140 0 1
+0
+end_operator
+begin_operator
+pick-up-full-pod curator maintenance-tunnel pod2 mart-sand-sample
+2
+149 8
+150 5
+3
+0 99 -1 0
+0 107 6 0
+0 140 0 1
+0
+end_operator
+begin_operator
+pick-up-full-pod curator maintenance-tunnel pod2 mart-sud-core-drill
+2
+149 9
+150 5
+3
+0 100 -1 0
+0 107 6 0
+0 140 0 1
+0
+end_operator
+begin_operator
+pick-up-full-pod curator maintenance-tunnel pod2 mart-west-core-drill
+2
+149 10
+150 5
+3
+0 101 -1 0
+0 107 6 0
+0 140 0 1
+0
+end_operator
+begin_operator
+pick-up-full-pod curator maintenance-tunnel pod2 venus-rock-sample
+2
+149 11
+150 5
+3
+0 102 -1 0
+0 107 6 0
+0 140 0 1
+0
+end_operator
+begin_operator
+pick-up-full-pod curator maintenance-tunnel pod2 venus-sand-sample
+2
+149 12
+150 5
+3
+0 103 -1 0
+0 107 6 0
+0 140 0 1
+0
+end_operator
+begin_operator
+pick-up-full-pod curator stasis-lab pod1 asteroid-ad29tv-rock-sample
+2
+148 0
+150 6
+3
+0 91 -1 0
+0 106 7 0
+0 140 0 1
+0
+end_operator
+begin_operator
+pick-up-full-pod curator stasis-lab pod1 asteroid-mg04tn-ice-sample
+2
+148 1
+150 6
+3
+0 92 -1 0
+0 106 7 0
+0 140 0 1
+0
+end_operator
+begin_operator
+pick-up-full-pod curator stasis-lab pod1 mart-east-core-drill
+2
+148 2
+150 6
+3
+0 93 -1 0
+0 106 7 0
+0 140 0 1
+0
+end_operator
+begin_operator
+pick-up-full-pod curator stasis-lab pod1 mart-laser-gun
+2
+148 3
+150 6
+3
+0 94 -1 0
+0 106 7 0
+0 140 0 1
+0
+end_operator
+begin_operator
+pick-up-full-pod curator stasis-lab pod1 mart-mysterious-egg
+2
+148 4
+150 6
+3
+0 95 -1 0
+0 106 7 0
+0 140 0 1
+0
+end_operator
+begin_operator
+pick-up-full-pod curator stasis-lab pod1 mart-nord-core-drill
+2
+148 5
+150 6
+3
+0 96 -1 0
+0 106 7 0
+0 140 0 1
+0
+end_operator
+begin_operator
+pick-up-full-pod curator stasis-lab pod1 mart-north-pole-ice-sample
+2
+148 6
+150 6
+3
+0 97 -1 0
+0 106 7 0
+0 140 0 1
+0
+end_operator
+begin_operator
+pick-up-full-pod curator stasis-lab pod1 mart-pink-hat
+2
+148 7
+150 6
+3
+0 98 -1 0
+0 106 7 0
+0 140 0 1
+0
+end_operator
+begin_operator
+pick-up-full-pod curator stasis-lab pod1 mart-sand-sample
+2
+148 8
+150 6
+3
+0 99 -1 0
+0 106 7 0
+0 140 0 1
+0
+end_operator
+begin_operator
+pick-up-full-pod curator stasis-lab pod1 mart-sud-core-drill
+2
+148 9
+150 6
+3
+0 100 -1 0
+0 106 7 0
+0 140 0 1
+0
+end_operator
+begin_operator
+pick-up-full-pod curator stasis-lab pod1 mart-west-core-drill
+2
+148 10
+150 6
+3
+0 101 -1 0
+0 106 7 0
+0 140 0 1
+0
+end_operator
+begin_operator
+pick-up-full-pod curator stasis-lab pod1 venus-rock-sample
+2
+148 11
+150 6
+3
+0 102 -1 0
+0 106 7 0
+0 140 0 1
+0
+end_operator
+begin_operator
+pick-up-full-pod curator stasis-lab pod1 venus-sand-sample
+2
+148 12
+150 6
+3
+0 103 -1 0
+0 106 7 0
+0 140 0 1
+0
+end_operator
+begin_operator
+pick-up-full-pod curator stasis-lab pod2 asteroid-ad29tv-rock-sample
+2
+149 0
+150 6
+3
+0 91 -1 0
+0 107 7 0
+0 140 0 1
+0
+end_operator
+begin_operator
+pick-up-full-pod curator stasis-lab pod2 asteroid-mg04tn-ice-sample
+2
+149 1
+150 6
+3
+0 92 -1 0
+0 107 7 0
+0 140 0 1
+0
+end_operator
+begin_operator
+pick-up-full-pod curator stasis-lab pod2 mart-east-core-drill
+2
+149 2
+150 6
+3
+0 93 -1 0
+0 107 7 0
+0 140 0 1
+0
+end_operator
+begin_operator
+pick-up-full-pod curator stasis-lab pod2 mart-laser-gun
+2
+149 3
+150 6
+3
+0 94 -1 0
+0 107 7 0
+0 140 0 1
+0
+end_operator
+begin_operator
+pick-up-full-pod curator stasis-lab pod2 mart-mysterious-egg
+2
+149 4
+150 6
+3
+0 95 -1 0
+0 107 7 0
+0 140 0 1
+0
+end_operator
+begin_operator
+pick-up-full-pod curator stasis-lab pod2 mart-nord-core-drill
+2
+149 5
+150 6
+3
+0 96 -1 0
+0 107 7 0
+0 140 0 1
+0
+end_operator
+begin_operator
+pick-up-full-pod curator stasis-lab pod2 mart-north-pole-ice-sample
+2
+149 6
+150 6
+3
+0 97 -1 0
+0 107 7 0
+0 140 0 1
+0
+end_operator
+begin_operator
+pick-up-full-pod curator stasis-lab pod2 mart-pink-hat
+2
+149 7
+150 6
+3
+0 98 -1 0
+0 107 7 0
+0 140 0 1
+0
+end_operator
+begin_operator
+pick-up-full-pod curator stasis-lab pod2 mart-sand-sample
 2
-0 12 -1 5
-0 13 26 13
+149 8
+150 6
+3
+0 99 -1 0
+0 107 7 0
+0 140 0 1
+0
+end_operator
+begin_operator
+pick-up-full-pod curator stasis-lab pod2 mart-sud-core-drill
+2
+149 9
+150 6
+3
+0 100 -1 0
+0 107 7 0
+0 140 0 1
+0
+end_operator
+begin_operator
+pick-up-full-pod curator stasis-lab pod2 mart-west-core-drill
+2
+149 10
+150 6
+3
+0 101 -1 0
+0 107 7 0
+0 140 0 1
+0
+end_operator
+begin_operator
+pick-up-full-pod curator stasis-lab pod2 venus-rock-sample
+2
+149 11
+150 6
+3
+0 102 -1 0
+0 107 7 0
+0 140 0 1
+0
+end_operator
+begin_operator
+pick-up-full-pod curator stasis-lab pod2 venus-sand-sample
+2
+149 12
+150 6
+3
+0 103 -1 0
+0 107 7 0
+0 140 0 1
+0
+end_operator
+begin_operator
+put-in-pod asteroid-ad29tv-rock-sample anti-vibration-pods-room curator pod1
+1
+150 0
+5
+0 0 0 1
+0 91 -1 0
+0 104 0 1
+0 106 -1 0
+0 148 13 0
+0
+end_operator
+begin_operator
+put-in-pod asteroid-ad29tv-rock-sample anti-vibration-pods-room curator pod2
+1
+150 0
+5
+0 0 0 1
+0 91 -1 0
+0 105 0 1
+0 107 -1 0
+0 149 13 0
+0
+end_operator
+begin_operator
+put-in-pod asteroid-ad29tv-rock-sample cryo-chamber curator pod1
+1
+150 1
+5
+0 1 0 1
+0 91 -1 0
+0 104 0 1
+0 106 -1 0
+0 148 13 0
+0
+end_operator
+begin_operator
+put-in-pod asteroid-ad29tv-rock-sample cryo-chamber curator pod2
+1
+150 1
+5
+0 1 0 1
+0 91 -1 0
+0 105 0 1
+0 107 -1 0
+0 149 13 0
+0
+end_operator
+begin_operator
+put-in-pod asteroid-ad29tv-rock-sample entrance curator pod1
+1
+150 2
+5
+0 2 0 1
+0 91 -1 0
+0 104 0 1
+0 106 -1 0
+0 148 13 0
+0
+end_operator
+begin_operator
+put-in-pod asteroid-ad29tv-rock-sample entrance curator pod2
+1
+150 2
+5
+0 2 0 1
+0 91 -1 0
+0 105 0 1
+0 107 -1 0
+0 149 13 0
+0
+end_operator
+begin_operator
+put-in-pod asteroid-ad29tv-rock-sample hall-a curator pod1
+1
+150 3
+5
+0 3 0 1
+0 91 -1 0
+0 104 0 1
+0 106 -1 0
+0 148 13 0
+0
+end_operator
+begin_operator
+put-in-pod asteroid-ad29tv-rock-sample hall-a curator pod2
+1
+150 3
+5
+0 3 0 1
+0 91 -1 0
+0 105 0 1
+0 107 -1 0
+0 149 13 0
+0
+end_operator
+begin_operator
+put-in-pod asteroid-ad29tv-rock-sample hall-b curator pod1
+1
+150 4
+5
+0 4 0 1
+0 91 -1 0
+0 104 0 1
+0 106 -1 0
+0 148 13 0
+0
+end_operator
+begin_operator
+put-in-pod asteroid-ad29tv-rock-sample hall-b curator pod2
+1
+150 4
+5
+0 4 0 1
+0 91 -1 0
+0 105 0 1
+0 107 -1 0
+0 149 13 0
+0
+end_operator
+begin_operator
+put-in-pod asteroid-ad29tv-rock-sample maintenance-tunnel curator pod1
+1
+150 5
+5
+0 5 0 1
+0 91 -1 0
+0 104 0 1
+0 106 -1 0
+0 148 13 0
+0
+end_operator
+begin_operator
+put-in-pod asteroid-ad29tv-rock-sample maintenance-tunnel curator pod2
+1
+150 5
+5
+0 5 0 1
+0 91 -1 0
+0 105 0 1
+0 107 -1 0
+0 149 13 0
+0
+end_operator
+begin_operator
+put-in-pod asteroid-ad29tv-rock-sample stasis-lab curator pod1
+1
+150 6
+5
+0 6 0 1
+0 91 -1 0
+0 104 0 1
+0 106 -1 0
+0 148 13 0
+0
+end_operator
+begin_operator
+put-in-pod asteroid-ad29tv-rock-sample stasis-lab curator pod2
+1
+150 6
+5
+0 6 0 1
+0 91 -1 0
+0 105 0 1
+0 107 -1 0
+0 149 13 0
+0
+end_operator
+begin_operator
+put-in-pod asteroid-mg04tn-ice-sample anti-vibration-pods-room curator pod1
+1
+150 0
+5
+0 7 0 1
+0 92 -1 0
+0 104 0 1
+0 106 -1 0
+0 148 13 1
+0
+end_operator
+begin_operator
+put-in-pod asteroid-mg04tn-ice-sample anti-vibration-pods-room curator pod2
+1
+150 0
+5
+0 7 0 1
+0 92 -1 0
+0 105 0 1
+0 107 -1 0
+0 149 13 1
+0
+end_operator
+begin_operator
+put-in-pod asteroid-mg04tn-ice-sample cryo-chamber curator pod1
+1
+150 1
+5
+0 8 0 1
+0 92 -1 0
+0 104 0 1
+0 106 -1 0
+0 148 13 1
+0
+end_operator
+begin_operator
+put-in-pod asteroid-mg04tn-ice-sample cryo-chamber curator pod2
+1
+150 1
+5
+0 8 0 1
+0 92 -1 0
+0 105 0 1
+0 107 -1 0
+0 149 13 1
+0
+end_operator
+begin_operator
+put-in-pod asteroid-mg04tn-ice-sample entrance curator pod1
+1
+150 2
+5
+0 9 0 1
+0 92 -1 0
+0 104 0 1
+0 106 -1 0
+0 148 13 1
 0
 end_operator
 begin_operator
-drop-standard-from-pod venus-sand-sample stasis-lab
+put-in-pod asteroid-mg04tn-ice-sample entrance curator pod2
 1
-41 6
-2
-0 12 -1 6
-0 13 26 13
+150 2
+5
+0 9 0 1
+0 92 -1 0
+0 105 0 1
+0 107 -1 0
+0 149 13 1
 0
 end_operator
 begin_operator
-move-carrying-safe maintenance-tunnel anti-vibration-pods-room asteroid-mg04tn-ice-sample
-2
-13 1
-34 0
+put-in-pod asteroid-mg04tn-ice-sample hall-a curator pod1
 1
-0 41 5 0
+150 3
+5
+0 10 0 1
+0 92 -1 0
+0 104 0 1
+0 106 -1 0
+0 148 13 1
 0
 end_operator
 begin_operator
-move-carrying-safe maintenance-tunnel anti-vibration-pods-room mart-east-core-drill
-2
-13 2
-34 0
+put-in-pod asteroid-mg04tn-ice-sample hall-a curator pod2
 1
-0 41 5 0
+150 3
+5
+0 10 0 1
+0 92 -1 0
+0 105 0 1
+0 107 -1 0
+0 149 13 1
 0
 end_operator
 begin_operator
-move-carrying-safe maintenance-tunnel anti-vibration-pods-room mart-mysterious-egg
-2
-13 4
-34 0
+put-in-pod asteroid-mg04tn-ice-sample hall-b curator pod1
 1
-0 41 5 0
+150 4
+5
+0 11 0 1
+0 92 -1 0
+0 104 0 1
+0 106 -1 0
+0 148 13 1
 0
 end_operator
 begin_operator
-move-carrying-safe maintenance-tunnel anti-vibration-pods-room mart-nord-core-drill
-2
-13 5
-34 0
+put-in-pod asteroid-mg04tn-ice-sample hall-b curator pod2
 1
-0 41 5 0
+150 4
+5
+0 11 0 1
+0 92 -1 0
+0 105 0 1
+0 107 -1 0
+0 149 13 1
 0
 end_operator
 begin_operator
-move-carrying-safe maintenance-tunnel anti-vibration-pods-room mart-north-pole-ice-sample
-2
-13 6
-34 0
+put-in-pod asteroid-mg04tn-ice-sample maintenance-tunnel curator pod1
 1
-0 41 5 0
+150 5
+5
+0 12 0 1
+0 92 -1 0
+0 104 0 1
+0 106 -1 0
+0 148 13 1
 0
 end_operator
 begin_operator
-move-carrying-safe maintenance-tunnel anti-vibration-pods-room mart-sud-core-drill
-2
-13 9
-34 0
+put-in-pod asteroid-mg04tn-ice-sample maintenance-tunnel curator pod2
 1
-0 41 5 0
+150 5
+5
+0 12 0 1
+0 92 -1 0
+0 105 0 1
+0 107 -1 0
+0 149 13 1
 0
 end_operator
 begin_operator
-move-carrying-safe maintenance-tunnel anti-vibration-pods-room mart-west-core-drill
-2
-13 10
-34 0
+put-in-pod asteroid-mg04tn-ice-sample stasis-lab curator pod1
 1
-0 41 5 0
+150 6
+5
+0 13 0 1
+0 92 -1 0
+0 104 0 1
+0 106 -1 0
+0 148 13 1
 0
 end_operator
 begin_operator
-move-carrying-safe maintenance-tunnel cryo-chamber asteroid-mg04tn-ice-sample
-2
-13 1
-35 0
+put-in-pod asteroid-mg04tn-ice-sample stasis-lab curator pod2
 1
-0 41 5 1
+150 6
+5
+0 13 0 1
+0 92 -1 0
+0 105 0 1
+0 107 -1 0
+0 149 13 1
 0
 end_operator
 begin_operator
-move-carrying-safe maintenance-tunnel cryo-chamber mart-east-core-drill
-2
-13 2
-35 0
+put-in-pod mart-east-core-drill anti-vibration-pods-room curator pod1
 1
-0 41 5 1
+150 0
+5
+0 14 0 1
+0 93 -1 0
+0 104 0 1
+0 106 -1 0
+0 148 13 2
 0
 end_operator
 begin_operator
-move-carrying-safe maintenance-tunnel cryo-chamber mart-mysterious-egg
-2
-13 4
-35 0
+put-in-pod mart-east-core-drill anti-vibration-pods-room curator pod2
 1
-0 41 5 1
+150 0
+5
+0 14 0 1
+0 93 -1 0
+0 105 0 1
+0 107 -1 0
+0 149 13 2
 0
 end_operator
 begin_operator
-move-carrying-safe maintenance-tunnel cryo-chamber mart-nord-core-drill
-2
-13 5
-35 0
+put-in-pod mart-east-core-drill cryo-chamber curator pod1
 1
-0 41 5 1
+150 1
+5
+0 15 0 1
+0 93 -1 0
+0 104 0 1
+0 106 -1 0
+0 148 13 2
 0
 end_operator
 begin_operator
-move-carrying-safe maintenance-tunnel cryo-chamber mart-north-pole-ice-sample
-2
-13 6
-35 0
+put-in-pod mart-east-core-drill cryo-chamber curator pod2
 1
-0 41 5 1
+150 1
+5
+0 15 0 1
+0 93 -1 0
+0 105 0 1
+0 107 -1 0
+0 149 13 2
 0
 end_operator
 begin_operator
-move-carrying-safe maintenance-tunnel cryo-chamber mart-sud-core-drill
-2
-13 9
-35 0
+put-in-pod mart-east-core-drill entrance curator pod1
 1
-0 41 5 1
+150 2
+5
+0 16 0 1
+0 93 -1 0
+0 104 0 1
+0 106 -1 0
+0 148 13 2
 0
 end_operator
 begin_operator
-move-carrying-safe maintenance-tunnel cryo-chamber mart-west-core-drill
-2
-13 10
-35 0
+put-in-pod mart-east-core-drill entrance curator pod2
 1
-0 41 5 1
+150 2
+5
+0 16 0 1
+0 93 -1 0
+0 105 0 1
+0 107 -1 0
+0 149 13 2
 0
 end_operator
 begin_operator
-move-carrying-safe maintenance-tunnel entrance asteroid-mg04tn-ice-sample
-2
-13 1
-36 0
+put-in-pod mart-east-core-drill hall-a curator pod1
 1
-0 41 5 2
+150 3
+5
+0 17 0 1
+0 93 -1 0
+0 104 0 1
+0 106 -1 0
+0 148 13 2
 0
 end_operator
 begin_operator
-move-carrying-safe maintenance-tunnel entrance mart-east-core-drill
-2
-13 2
-36 0
+put-in-pod mart-east-core-drill hall-a curator pod2
 1
-0 41 5 2
+150 3
+5
+0 17 0 1
+0 93 -1 0
+0 105 0 1
+0 107 -1 0
+0 149 13 2
 0
 end_operator
 begin_operator
-move-carrying-safe maintenance-tunnel entrance mart-mysterious-egg
-2
-13 4
-36 0
+put-in-pod mart-east-core-drill hall-b curator pod1
 1
-0 41 5 2
+150 4
+5
+0 18 0 1
+0 93 -1 0
+0 104 0 1
+0 106 -1 0
+0 148 13 2
 0
 end_operator
 begin_operator
-move-carrying-safe maintenance-tunnel entrance mart-nord-core-drill
-2
-13 5
-36 0
+put-in-pod mart-east-core-drill hall-b curator pod2
 1
-0 41 5 2
+150 4
+5
+0 18 0 1
+0 93 -1 0
+0 105 0 1
+0 107 -1 0
+0 149 13 2
 0
 end_operator
 begin_operator
-move-carrying-safe maintenance-tunnel entrance mart-north-pole-ice-sample
-2
-13 6
-36 0
+put-in-pod mart-east-core-drill maintenance-tunnel curator pod1
 1
-0 41 5 2
+150 5
+5
+0 19 0 1
+0 93 -1 0
+0 104 0 1
+0 106 -1 0
+0 148 13 2
 0
 end_operator
 begin_operator
-move-carrying-safe maintenance-tunnel entrance mart-sud-core-drill
-2
-13 9
-36 0
+put-in-pod mart-east-core-drill maintenance-tunnel curator pod2
 1
-0 41 5 2
+150 5
+5
+0 19 0 1
+0 93 -1 0
+0 105 0 1
+0 107 -1 0
+0 149 13 2
 0
 end_operator
 begin_operator
-move-carrying-safe maintenance-tunnel entrance mart-west-core-drill
-2
-13 10
-36 0
+put-in-pod mart-east-core-drill stasis-lab curator pod1
 1
-0 41 5 2
+150 6
+5
+0 20 0 1
+0 93 -1 0
+0 104 0 1
+0 106 -1 0
+0 148 13 2
 0
 end_operator
 begin_operator
-move-carrying-safe maintenance-tunnel hall-a asteroid-mg04tn-ice-sample
-2
-13 1
-37 0
+put-in-pod mart-east-core-drill stasis-lab curator pod2
 1
-0 41 5 3
+150 6
+5
+0 20 0 1
+0 93 -1 0
+0 105 0 1
+0 107 -1 0
+0 149 13 2
 0
 end_operator
 begin_operator
-move-carrying-safe maintenance-tunnel hall-a mart-east-core-drill
-2
-13 2
-37 0
+put-in-pod mart-laser-gun anti-vibration-pods-room curator pod1
 1
-0 41 5 3
+150 0
+5
+0 21 0 1
+0 94 -1 0
+0 104 0 1
+0 106 -1 0
+0 148 13 3
 0
 end_operator
 begin_operator
-move-carrying-safe maintenance-tunnel hall-a mart-mysterious-egg
-2
-13 4
-37 0
+put-in-pod mart-laser-gun anti-vibration-pods-room curator pod2
 1
-0 41 5 3
+150 0
+5
+0 21 0 1
+0 94 -1 0
+0 105 0 1
+0 107 -1 0
+0 149 13 3
 0
 end_operator
 begin_operator
-move-carrying-safe maintenance-tunnel hall-a mart-nord-core-drill
-2
-13 5
-37 0
+put-in-pod mart-laser-gun cryo-chamber curator pod1
 1
-0 41 5 3
+150 1
+5
+0 22 0 1
+0 94 -1 0
+0 104 0 1
+0 106 -1 0
+0 148 13 3
 0
 end_operator
 begin_operator
-move-carrying-safe maintenance-tunnel hall-a mart-north-pole-ice-sample
-2
-13 6
-37 0
+put-in-pod mart-laser-gun cryo-chamber curator pod2
 1
-0 41 5 3
+150 1
+5
+0 22 0 1
+0 94 -1 0
+0 105 0 1
+0 107 -1 0
+0 149 13 3
 0
 end_operator
 begin_operator
-move-carrying-safe maintenance-tunnel hall-a mart-sud-core-drill
-2
-13 9
-37 0
+put-in-pod mart-laser-gun entrance curator pod1
 1
-0 41 5 3
+150 2
+5
+0 23 0 1
+0 94 -1 0
+0 104 0 1
+0 106 -1 0
+0 148 13 3
 0
 end_operator
 begin_operator
-move-carrying-safe maintenance-tunnel hall-a mart-west-core-drill
-2
-13 10
-37 0
+put-in-pod mart-laser-gun entrance curator pod2
 1
-0 41 5 3
+150 2
+5
+0 23 0 1
+0 94 -1 0
+0 105 0 1
+0 107 -1 0
+0 149 13 3
 0
 end_operator
 begin_operator
-move-carrying-safe maintenance-tunnel hall-b asteroid-mg04tn-ice-sample
-2
-13 1
-38 0
+put-in-pod mart-laser-gun hall-a curator pod1
 1
-0 41 5 4
+150 3
+5
+0 24 0 1
+0 94 -1 0
+0 104 0 1
+0 106 -1 0
+0 148 13 3
 0
 end_operator
 begin_operator
-move-carrying-safe maintenance-tunnel hall-b mart-east-core-drill
-2
-13 2
-38 0
+put-in-pod mart-laser-gun hall-a curator pod2
 1
-0 41 5 4
+150 3
+5
+0 24 0 1
+0 94 -1 0
+0 105 0 1
+0 107 -1 0
+0 149 13 3
 0
 end_operator
 begin_operator
-move-carrying-safe maintenance-tunnel hall-b mart-mysterious-egg
-2
-13 4
-38 0
+put-in-pod mart-laser-gun hall-b curator pod1
 1
-0 41 5 4
+150 4
+5
+0 25 0 1
+0 94 -1 0
+0 104 0 1
+0 106 -1 0
+0 148 13 3
 0
 end_operator
 begin_operator
-move-carrying-safe maintenance-tunnel hall-b mart-nord-core-drill
-2
-13 5
-38 0
+put-in-pod mart-laser-gun hall-b curator pod2
 1
-0 41 5 4
+150 4
+5
+0 25 0 1
+0 94 -1 0
+0 105 0 1
+0 107 -1 0
+0 149 13 3
 0
 end_operator
 begin_operator
-move-carrying-safe maintenance-tunnel hall-b mart-north-pole-ice-sample
-2
-13 6
-38 0
+put-in-pod mart-laser-gun maintenance-tunnel curator pod1
 1
-0 41 5 4
+150 5
+5
+0 26 0 1
+0 94 -1 0
+0 104 0 1
+0 106 -1 0
+0 148 13 3
 0
 end_operator
 begin_operator
-move-carrying-safe maintenance-tunnel hall-b mart-sud-core-drill
-2
-13 9
-38 0
+put-in-pod mart-laser-gun maintenance-tunnel curator pod2
 1
-0 41 5 4
+150 5
+5
+0 26 0 1
+0 94 -1 0
+0 105 0 1
+0 107 -1 0
+0 149 13 3
 0
 end_operator
 begin_operator
-move-carrying-safe maintenance-tunnel hall-b mart-west-core-drill
-2
-13 10
-38 0
+put-in-pod mart-laser-gun stasis-lab curator pod1
 1
-0 41 5 4
+150 6
+5
+0 27 0 1
+0 94 -1 0
+0 104 0 1
+0 106 -1 0
+0 148 13 3
 0
 end_operator
 begin_operator
-move-carrying-safe maintenance-tunnel stasis-lab asteroid-mg04tn-ice-sample
-2
-13 1
-40 0
+put-in-pod mart-laser-gun stasis-lab curator pod2
 1
-0 41 5 6
+150 6
+5
+0 27 0 1
+0 94 -1 0
+0 105 0 1
+0 107 -1 0
+0 149 13 3
 0
 end_operator
 begin_operator
-move-carrying-safe maintenance-tunnel stasis-lab mart-east-core-drill
-2
-13 2
-40 0
+put-in-pod mart-mysterious-egg anti-vibration-pods-room curator pod1
 1
-0 41 5 6
+150 0
+5
+0 28 0 1
+0 95 -1 0
+0 104 0 1
+0 106 -1 0
+0 148 13 4
 0
 end_operator
 begin_operator
-move-carrying-safe maintenance-tunnel stasis-lab mart-mysterious-egg
-2
-13 4
-40 0
+put-in-pod mart-mysterious-egg anti-vibration-pods-room curator pod2
 1
-0 41 5 6
+150 0
+5
+0 28 0 1
+0 95 -1 0
+0 105 0 1
+0 107 -1 0
+0 149 13 4
 0
 end_operator
 begin_operator
-move-carrying-safe maintenance-tunnel stasis-lab mart-nord-core-drill
-2
-13 5
-40 0
+put-in-pod mart-mysterious-egg cryo-chamber curator pod1
 1
-0 41 5 6
+150 1
+5
+0 29 0 1
+0 95 -1 0
+0 104 0 1
+0 106 -1 0
+0 148 13 4
 0
 end_operator
 begin_operator
-move-carrying-safe maintenance-tunnel stasis-lab mart-north-pole-ice-sample
-2
-13 6
-40 0
+put-in-pod mart-mysterious-egg cryo-chamber curator pod2
 1
-0 41 5 6
+150 1
+5
+0 29 0 1
+0 95 -1 0
+0 105 0 1
+0 107 -1 0
+0 149 13 4
 0
 end_operator
 begin_operator
-move-carrying-safe maintenance-tunnel stasis-lab mart-sud-core-drill
-2
-13 9
-40 0
+put-in-pod mart-mysterious-egg entrance curator pod1
 1
-0 41 5 6
+150 2
+5
+0 30 0 1
+0 95 -1 0
+0 104 0 1
+0 106 -1 0
+0 148 13 4
 0
 end_operator
 begin_operator
-move-carrying-safe maintenance-tunnel stasis-lab mart-west-core-drill
-2
-13 10
-40 0
+put-in-pod mart-mysterious-egg entrance curator pod2
 1
-0 41 5 6
+150 2
+5
+0 30 0 1
+0 95 -1 0
+0 105 0 1
+0 107 -1 0
+0 149 13 4
 0
 end_operator
 begin_operator
-move-carrying-tunnel anti-vibration-pods-room maintenance-tunnel asteroid-mg04tn-ice-sample
-3
-13 1
-39 0
-42 0
+put-in-pod mart-mysterious-egg hall-a curator pod1
 1
-0 41 0 5
+150 3
+5
+0 31 0 1
+0 95 -1 0
+0 104 0 1
+0 106 -1 0
+0 148 13 4
 0
 end_operator
 begin_operator
-move-carrying-tunnel anti-vibration-pods-room maintenance-tunnel mart-east-core-drill
-3
-13 2
-39 0
-42 0
+put-in-pod mart-mysterious-egg hall-a curator pod2
 1
-0 41 0 5
+150 3
+5
+0 31 0 1
+0 95 -1 0
+0 105 0 1
+0 107 -1 0
+0 149 13 4
 0
 end_operator
 begin_operator
-move-carrying-tunnel anti-vibration-pods-room maintenance-tunnel mart-mysterious-egg
-3
-13 4
-39 0
-42 0
+put-in-pod mart-mysterious-egg hall-b curator pod1
 1
-0 41 0 5
+150 4
+5
+0 32 0 1
+0 95 -1 0
+0 104 0 1
+0 106 -1 0
+0 148 13 4
 0
 end_operator
 begin_operator
-move-carrying-tunnel anti-vibration-pods-room maintenance-tunnel mart-nord-core-drill
-3
-13 5
-39 0
-42 0
+put-in-pod mart-mysterious-egg hall-b curator pod2
 1
-0 41 0 5
+150 4
+5
+0 32 0 1
+0 95 -1 0
+0 105 0 1
+0 107 -1 0
+0 149 13 4
 0
 end_operator
 begin_operator
-move-carrying-tunnel anti-vibration-pods-room maintenance-tunnel mart-north-pole-ice-sample
-3
-13 6
-39 0
-42 0
+put-in-pod mart-mysterious-egg maintenance-tunnel curator pod1
 1
-0 41 0 5
+150 5
+5
+0 33 0 1
+0 95 -1 0
+0 104 0 1
+0 106 -1 0
+0 148 13 4
 0
 end_operator
 begin_operator
-move-carrying-tunnel anti-vibration-pods-room maintenance-tunnel mart-sud-core-drill
-3
-13 9
-39 0
-42 0
+put-in-pod mart-mysterious-egg maintenance-tunnel curator pod2
 1
-0 41 0 5
+150 5
+5
+0 33 0 1
+0 95 -1 0
+0 105 0 1
+0 107 -1 0
+0 149 13 4
 0
 end_operator
 begin_operator
-move-carrying-tunnel anti-vibration-pods-room maintenance-tunnel mart-west-core-drill
-3
-13 10
-39 0
-42 0
+put-in-pod mart-mysterious-egg stasis-lab curator pod1
 1
-0 41 0 5
+150 6
+5
+0 34 0 1
+0 95 -1 0
+0 104 0 1
+0 106 -1 0
+0 148 13 4
 0
 end_operator
 begin_operator
-move-carrying-tunnel cryo-chamber maintenance-tunnel asteroid-mg04tn-ice-sample
-3
-13 1
-39 0
-42 0
+put-in-pod mart-mysterious-egg stasis-lab curator pod2
 1
-0 41 1 5
+150 6
+5
+0 34 0 1
+0 95 -1 0
+0 105 0 1
+0 107 -1 0
+0 149 13 4
 0
 end_operator
 begin_operator
-move-carrying-tunnel cryo-chamber maintenance-tunnel mart-east-core-drill
-3
-13 2
-39 0
-42 0
+put-in-pod mart-nord-core-drill anti-vibration-pods-room curator pod1
 1
-0 41 1 5
+150 0
+5
+0 35 0 1
+0 96 -1 0
+0 104 0 1
+0 106 -1 0
+0 148 13 5
 0
 end_operator
 begin_operator
-move-carrying-tunnel cryo-chamber maintenance-tunnel mart-mysterious-egg
-3
-13 4
-39 0
-42 0
+put-in-pod mart-nord-core-drill anti-vibration-pods-room curator pod2
 1
-0 41 1 5
+150 0
+5
+0 35 0 1
+0 96 -1 0
+0 105 0 1
+0 107 -1 0
+0 149 13 5
 0
 end_operator
 begin_operator
-move-carrying-tunnel cryo-chamber maintenance-tunnel mart-nord-core-drill
-3
-13 5
-39 0
-42 0
+put-in-pod mart-nord-core-drill cryo-chamber curator pod1
 1
-0 41 1 5
+150 1
+5
+0 36 0 1
+0 96 -1 0
+0 104 0 1
+0 106 -1 0
+0 148 13 5
 0
 end_operator
 begin_operator
-move-carrying-tunnel cryo-chamber maintenance-tunnel mart-north-pole-ice-sample
-3
-13 6
-39 0
-42 0
+put-in-pod mart-nord-core-drill cryo-chamber curator pod2
 1
-0 41 1 5
+150 1
+5
+0 36 0 1
+0 96 -1 0
+0 105 0 1
+0 107 -1 0
+0 149 13 5
 0
 end_operator
 begin_operator
-move-carrying-tunnel cryo-chamber maintenance-tunnel mart-sud-core-drill
-3
-13 9
-39 0
-42 0
+put-in-pod mart-nord-core-drill entrance curator pod1
 1
-0 41 1 5
+150 2
+5
+0 37 0 1
+0 96 -1 0
+0 104 0 1
+0 106 -1 0
+0 148 13 5
 0
 end_operator
 begin_operator
-move-carrying-tunnel cryo-chamber maintenance-tunnel mart-west-core-drill
-3
-13 10
-39 0
-42 0
+put-in-pod mart-nord-core-drill entrance curator pod2
 1
-0 41 1 5
+150 2
+5
+0 37 0 1
+0 96 -1 0
+0 105 0 1
+0 107 -1 0
+0 149 13 5
 0
 end_operator
 begin_operator
-move-carrying-tunnel entrance maintenance-tunnel asteroid-mg04tn-ice-sample
-3
-13 1
-39 0
-42 0
+put-in-pod mart-nord-core-drill hall-a curator pod1
 1
-0 41 2 5
+150 3
+5
+0 38 0 1
+0 96 -1 0
+0 104 0 1
+0 106 -1 0
+0 148 13 5
 0
 end_operator
 begin_operator
-move-carrying-tunnel entrance maintenance-tunnel mart-east-core-drill
-3
-13 2
-39 0
-42 0
+put-in-pod mart-nord-core-drill hall-a curator pod2
 1
-0 41 2 5
+150 3
+5
+0 38 0 1
+0 96 -1 0
+0 105 0 1
+0 107 -1 0
+0 149 13 5
 0
 end_operator
 begin_operator
-move-carrying-tunnel entrance maintenance-tunnel mart-mysterious-egg
-3
-13 4
-39 0
-42 0
+put-in-pod mart-nord-core-drill hall-b curator pod1
 1
-0 41 2 5
+150 4
+5
+0 39 0 1
+0 96 -1 0
+0 104 0 1
+0 106 -1 0
+0 148 13 5
 0
 end_operator
 begin_operator
-move-carrying-tunnel entrance maintenance-tunnel mart-nord-core-drill
-3
-13 5
-39 0
-42 0
+put-in-pod mart-nord-core-drill hall-b curator pod2
 1
-0 41 2 5
+150 4
+5
+0 39 0 1
+0 96 -1 0
+0 105 0 1
+0 107 -1 0
+0 149 13 5
 0
 end_operator
 begin_operator
-move-carrying-tunnel entrance maintenance-tunnel mart-north-pole-ice-sample
-3
-13 6
-39 0
-42 0
+put-in-pod mart-nord-core-drill maintenance-tunnel curator pod1
 1
-0 41 2 5
+150 5
+5
+0 40 0 1
+0 96 -1 0
+0 104 0 1
+0 106 -1 0
+0 148 13 5
 0
 end_operator
 begin_operator
-move-carrying-tunnel entrance maintenance-tunnel mart-sud-core-drill
-3
-13 9
-39 0
-42 0
+put-in-pod mart-nord-core-drill maintenance-tunnel curator pod2
 1
-0 41 2 5
+150 5
+5
+0 40 0 1
+0 96 -1 0
+0 105 0 1
+0 107 -1 0
+0 149 13 5
 0
 end_operator
 begin_operator
-move-carrying-tunnel entrance maintenance-tunnel mart-west-core-drill
-3
-13 10
-39 0
-42 0
+put-in-pod mart-nord-core-drill stasis-lab curator pod1
 1
-0 41 2 5
+150 6
+5
+0 41 0 1
+0 96 -1 0
+0 104 0 1
+0 106 -1 0
+0 148 13 5
 0
 end_operator
 begin_operator
-move-carrying-tunnel hall-a maintenance-tunnel asteroid-mg04tn-ice-sample
-3
-13 1
-39 0
-42 0
+put-in-pod mart-nord-core-drill stasis-lab curator pod2
 1
-0 41 3 5
+150 6
+5
+0 41 0 1
+0 96 -1 0
+0 105 0 1
+0 107 -1 0
+0 149 13 5
 0
 end_operator
 begin_operator
-move-carrying-tunnel hall-a maintenance-tunnel mart-east-core-drill
-3
-13 2
-39 0
-42 0
+put-in-pod mart-north-pole-ice-sample anti-vibration-pods-room curator pod1
 1
-0 41 3 5
+150 0
+5
+0 42 0 1
+0 97 -1 0
+0 104 0 1
+0 106 -1 0
+0 148 13 6
 0
 end_operator
 begin_operator
-move-carrying-tunnel hall-a maintenance-tunnel mart-mysterious-egg
-3
-13 4
-39 0
-42 0
+put-in-pod mart-north-pole-ice-sample anti-vibration-pods-room curator pod2
 1
-0 41 3 5
+150 0
+5
+0 42 0 1
+0 97 -1 0
+0 105 0 1
+0 107 -1 0
+0 149 13 6
 0
 end_operator
 begin_operator
-move-carrying-tunnel hall-a maintenance-tunnel mart-nord-core-drill
-3
-13 5
-39 0
-42 0
+put-in-pod mart-north-pole-ice-sample cryo-chamber curator pod1
 1
-0 41 3 5
+150 1
+5
+0 43 0 1
+0 97 -1 0
+0 104 0 1
+0 106 -1 0
+0 148 13 6
 0
 end_operator
 begin_operator
-move-carrying-tunnel hall-a maintenance-tunnel mart-north-pole-ice-sample
-3
-13 6
-39 0
-42 0
+put-in-pod mart-north-pole-ice-sample cryo-chamber curator pod2
 1
-0 41 3 5
+150 1
+5
+0 43 0 1
+0 97 -1 0
+0 105 0 1
+0 107 -1 0
+0 149 13 6
 0
 end_operator
 begin_operator
-move-carrying-tunnel hall-a maintenance-tunnel mart-sud-core-drill
-3
-13 9
-39 0
-42 0
+put-in-pod mart-north-pole-ice-sample entrance curator pod1
 1
-0 41 3 5
+150 2
+5
+0 44 0 1
+0 97 -1 0
+0 104 0 1
+0 106 -1 0
+0 148 13 6
 0
 end_operator
 begin_operator
-move-carrying-tunnel hall-a maintenance-tunnel mart-west-core-drill
-3
-13 10
-39 0
-42 0
+put-in-pod mart-north-pole-ice-sample entrance curator pod2
 1
-0 41 3 5
+150 2
+5
+0 44 0 1
+0 97 -1 0
+0 105 0 1
+0 107 -1 0
+0 149 13 6
 0
 end_operator
 begin_operator
-move-carrying-tunnel hall-b maintenance-tunnel asteroid-mg04tn-ice-sample
-3
-13 1
-39 0
-42 0
+put-in-pod mart-north-pole-ice-sample hall-a curator pod1
 1
-0 41 4 5
+150 3
+5
+0 45 0 1
+0 97 -1 0
+0 104 0 1
+0 106 -1 0
+0 148 13 6
 0
 end_operator
 begin_operator
-move-carrying-tunnel hall-b maintenance-tunnel mart-east-core-drill
-3
-13 2
-39 0
-42 0
+put-in-pod mart-north-pole-ice-sample hall-a curator pod2
 1
-0 41 4 5
+150 3
+5
+0 45 0 1
+0 97 -1 0
+0 105 0 1
+0 107 -1 0
+0 149 13 6
 0
 end_operator
 begin_operator
-move-carrying-tunnel hall-b maintenance-tunnel mart-mysterious-egg
-3
-13 4
-39 0
-42 0
+put-in-pod mart-north-pole-ice-sample hall-b curator pod1
 1
-0 41 4 5
+150 4
+5
+0 46 0 1
+0 97 -1 0
+0 104 0 1
+0 106 -1 0
+0 148 13 6
 0
 end_operator
 begin_operator
-move-carrying-tunnel hall-b maintenance-tunnel mart-nord-core-drill
-3
-13 5
-39 0
-42 0
+put-in-pod mart-north-pole-ice-sample hall-b curator pod2
 1
-0 41 4 5
+150 4
+5
+0 46 0 1
+0 97 -1 0
+0 105 0 1
+0 107 -1 0
+0 149 13 6
 0
 end_operator
 begin_operator
-move-carrying-tunnel hall-b maintenance-tunnel mart-north-pole-ice-sample
-3
-13 6
-39 0
-42 0
+put-in-pod mart-north-pole-ice-sample maintenance-tunnel curator pod1
 1
-0 41 4 5
+150 5
+5
+0 47 0 1
+0 97 -1 0
+0 104 0 1
+0 106 -1 0
+0 148 13 6
 0
 end_operator
 begin_operator
-move-carrying-tunnel hall-b maintenance-tunnel mart-sud-core-drill
-3
-13 9
-39 0
-42 0
+put-in-pod mart-north-pole-ice-sample maintenance-tunnel curator pod2
 1
-0 41 4 5
+150 5
+5
+0 47 0 1
+0 97 -1 0
+0 105 0 1
+0 107 -1 0
+0 149 13 6
 0
 end_operator
 begin_operator
-move-carrying-tunnel hall-b maintenance-tunnel mart-west-core-drill
-3
-13 10
-39 0
-42 0
+put-in-pod mart-north-pole-ice-sample stasis-lab curator pod1
 1
-0 41 4 5
+150 6
+5
+0 48 0 1
+0 97 -1 0
+0 104 0 1
+0 106 -1 0
+0 148 13 6
 0
 end_operator
 begin_operator
-move-carrying-tunnel stasis-lab maintenance-tunnel asteroid-mg04tn-ice-sample
-3
-13 1
-39 0
-42 0
+put-in-pod mart-north-pole-ice-sample stasis-lab curator pod2
 1
-0 41 6 5
+150 6
+5
+0 48 0 1
+0 97 -1 0
+0 105 0 1
+0 107 -1 0
+0 149 13 6
 0
 end_operator
 begin_operator
-move-carrying-tunnel stasis-lab maintenance-tunnel mart-east-core-drill
-3
-13 2
-39 0
-42 0
+put-in-pod mart-pink-hat anti-vibration-pods-room curator pod1
 1
-0 41 6 5
+150 0
+5
+0 49 0 1
+0 98 -1 0
+0 104 0 1
+0 106 -1 0
+0 148 13 7
 0
 end_operator
 begin_operator
-move-carrying-tunnel stasis-lab maintenance-tunnel mart-mysterious-egg
-3
-13 4
-39 0
-42 0
+put-in-pod mart-pink-hat anti-vibration-pods-room curator pod2
 1
-0 41 6 5
+150 0
+5
+0 49 0 1
+0 98 -1 0
+0 105 0 1
+0 107 -1 0
+0 149 13 7
 0
 end_operator
 begin_operator
-move-carrying-tunnel stasis-lab maintenance-tunnel mart-nord-core-drill
-3
-13 5
-39 0
-42 0
+put-in-pod mart-pink-hat cryo-chamber curator pod1
 1
-0 41 6 5
+150 1
+5
+0 50 0 1
+0 98 -1 0
+0 104 0 1
+0 106 -1 0
+0 148 13 7
 0
 end_operator
 begin_operator
-move-carrying-tunnel stasis-lab maintenance-tunnel mart-north-pole-ice-sample
-3
-13 6
-39 0
-42 0
+put-in-pod mart-pink-hat cryo-chamber curator pod2
 1
-0 41 6 5
+150 1
+5
+0 50 0 1
+0 98 -1 0
+0 105 0 1
+0 107 -1 0
+0 149 13 7
 0
 end_operator
 begin_operator
-move-carrying-tunnel stasis-lab maintenance-tunnel mart-sud-core-drill
-3
-13 9
-39 0
-42 0
+put-in-pod mart-pink-hat entrance curator pod1
 1
-0 41 6 5
+150 2
+5
+0 51 0 1
+0 98 -1 0
+0 104 0 1
+0 106 -1 0
+0 148 13 7
 0
 end_operator
 begin_operator
-move-carrying-tunnel stasis-lab maintenance-tunnel mart-west-core-drill
-3
-13 10
-39 0
-42 0
+put-in-pod mart-pink-hat entrance curator pod2
 1
-0 41 6 5
+150 2
+5
+0 51 0 1
+0 98 -1 0
+0 105 0 1
+0 107 -1 0
+0 149 13 7
 0
 end_operator
 begin_operator
-move-empty-safe maintenance-tunnel anti-vibration-pods-room
-2
-13 27
-34 0
+put-in-pod mart-pink-hat hall-a curator pod1
 1
-0 41 5 0
+150 3
+5
+0 52 0 1
+0 98 -1 0
+0 104 0 1
+0 106 -1 0
+0 148 13 7
 0
 end_operator
 begin_operator
-move-empty-safe maintenance-tunnel cryo-chamber
-2
-13 27
-35 0
+put-in-pod mart-pink-hat hall-a curator pod2
 1
-0 41 5 1
+150 3
+5
+0 52 0 1
+0 98 -1 0
+0 105 0 1
+0 107 -1 0
+0 149 13 7
 0
 end_operator
 begin_operator
-move-empty-safe maintenance-tunnel entrance
-2
-13 27
-36 0
+put-in-pod mart-pink-hat hall-b curator pod1
 1
-0 41 5 2
+150 4
+5
+0 53 0 1
+0 98 -1 0
+0 104 0 1
+0 106 -1 0
+0 148 13 7
 0
 end_operator
 begin_operator
-move-empty-safe maintenance-tunnel hall-a
-2
-13 27
-37 0
+put-in-pod mart-pink-hat hall-b curator pod2
 1
-0 41 5 3
+150 4
+5
+0 53 0 1
+0 98 -1 0
+0 105 0 1
+0 107 -1 0
+0 149 13 7
 0
 end_operator
 begin_operator
-move-empty-safe maintenance-tunnel hall-b
-2
-13 27
-38 0
+put-in-pod mart-pink-hat maintenance-tunnel curator pod1
 1
-0 41 5 4
+150 5
+5
+0 54 0 1
+0 98 -1 0
+0 104 0 1
+0 106 -1 0
+0 148 13 7
 0
 end_operator
 begin_operator
-move-empty-safe maintenance-tunnel stasis-lab
-2
-13 27
-40 0
+put-in-pod mart-pink-hat maintenance-tunnel curator pod2
 1
-0 41 5 6
+150 5
+5
+0 54 0 1
+0 98 -1 0
+0 105 0 1
+0 107 -1 0
+0 149 13 7
 0
 end_operator
 begin_operator
-move-empty-tunnel anti-vibration-pods-room maintenance-tunnel
-3
-13 27
-39 0
-42 0
+put-in-pod mart-pink-hat stasis-lab curator pod1
 1
-0 41 0 5
+150 6
+5
+0 55 0 1
+0 98 -1 0
+0 104 0 1
+0 106 -1 0
+0 148 13 7
 0
 end_operator
 begin_operator
-move-empty-tunnel cryo-chamber maintenance-tunnel
-3
-13 27
-39 0
-42 0
+put-in-pod mart-pink-hat stasis-lab curator pod2
 1
-0 41 1 5
+150 6
+5
+0 55 0 1
+0 98 -1 0
+0 105 0 1
+0 107 -1 0
+0 149 13 7
 0
 end_operator
 begin_operator
-move-empty-tunnel entrance maintenance-tunnel
-3
-13 27
-39 0
-42 0
+put-in-pod mart-sand-sample anti-vibration-pods-room curator pod1
 1
-0 41 2 5
+150 0
+5
+0 56 0 1
+0 99 -1 0
+0 104 0 1
+0 106 -1 0
+0 148 13 8
 0
 end_operator
 begin_operator
-move-empty-tunnel hall-a maintenance-tunnel
-3
-13 27
-39 0
-42 0
+put-in-pod mart-sand-sample anti-vibration-pods-room curator pod2
 1
-0 41 3 5
+150 0
+5
+0 56 0 1
+0 99 -1 0
+0 105 0 1
+0 107 -1 0
+0 149 13 8
 0
 end_operator
 begin_operator
-move-empty-tunnel hall-b maintenance-tunnel
-3
-13 27
-39 0
-42 0
+put-in-pod mart-sand-sample cryo-chamber curator pod1
 1
-0 41 4 5
+150 1
+5
+0 57 0 1
+0 99 -1 0
+0 104 0 1
+0 106 -1 0
+0 148 13 8
 0
 end_operator
 begin_operator
-move-empty-tunnel stasis-lab maintenance-tunnel
-3
-13 27
-39 0
-42 0
+put-in-pod mart-sand-sample cryo-chamber curator pod2
 1
-0 41 6 5
+150 1
+5
+0 57 0 1
+0 99 -1 0
+0 105 0 1
+0 107 -1 0
+0 149 13 8
 0
 end_operator
 begin_operator
-move-fragile-safe maintenance-tunnel anti-vibration-pods-room asteroid-ad29tv-rock-sample
-2
-13 14
-34 0
+put-in-pod mart-sand-sample entrance curator pod1
 1
-0 41 5 0
+150 2
+5
+0 58 0 1
+0 99 -1 0
+0 104 0 1
+0 106 -1 0
+0 148 13 8
 0
 end_operator
 begin_operator
-move-fragile-safe maintenance-tunnel anti-vibration-pods-room asteroid-mg04tn-ice-sample
-2
-13 15
-34 0
+put-in-pod mart-sand-sample entrance curator pod2
 1
-0 41 5 0
+150 2
+5
+0 58 0 1
+0 99 -1 0
+0 105 0 1
+0 107 -1 0
+0 149 13 8
 0
 end_operator
 begin_operator
-move-fragile-safe maintenance-tunnel anti-vibration-pods-room mart-east-core-drill
-2
-13 16
-34 0
+put-in-pod mart-sand-sample hall-a curator pod1
 1
-0 41 5 0
+150 3
+5
+0 59 0 1
+0 99 -1 0
+0 104 0 1
+0 106 -1 0
+0 148 13 8
 0
 end_operator
 begin_operator
-move-fragile-safe maintenance-tunnel anti-vibration-pods-room mart-laser-gun
-2
-13 17
-34 0
+put-in-pod mart-sand-sample hall-a curator pod2
 1
-0 41 5 0
+150 3
+5
+0 59 0 1
+0 99 -1 0
+0 105 0 1
+0 107 -1 0
+0 149 13 8
 0
 end_operator
 begin_operator
-move-fragile-safe maintenance-tunnel anti-vibration-pods-room mart-mysterious-egg
-2
-13 18
-34 0
+put-in-pod mart-sand-sample hall-b curator pod1
 1
-0 41 5 0
+150 4
+5
+0 60 0 1
+0 99 -1 0
+0 104 0 1
+0 106 -1 0
+0 148 13 8
 0
 end_operator
 begin_operator
-move-fragile-safe maintenance-tunnel anti-vibration-pods-room mart-nord-core-drill
-2
-13 19
-34 0
+put-in-pod mart-sand-sample hall-b curator pod2
 1
-0 41 5 0
+150 4
+5
+0 60 0 1
+0 99 -1 0
+0 105 0 1
+0 107 -1 0
+0 149 13 8
 0
 end_operator
 begin_operator
-move-fragile-safe maintenance-tunnel anti-vibration-pods-room mart-north-pole-ice-sample
-2
-13 20
-34 0
+put-in-pod mart-sand-sample maintenance-tunnel curator pod1
 1
-0 41 5 0
+150 5
+5
+0 61 0 1
+0 99 -1 0
+0 104 0 1
+0 106 -1 0
+0 148 13 8
 0
 end_operator
 begin_operator
-move-fragile-safe maintenance-tunnel anti-vibration-pods-room mart-pink-hat
-2
-13 21
-34 0
+put-in-pod mart-sand-sample maintenance-tunnel curator pod2
 1
-0 41 5 0
+150 5
+5
+0 61 0 1
+0 99 -1 0
+0 105 0 1
+0 107 -1 0
+0 149 13 8
 0
 end_operator
 begin_operator
-move-fragile-safe maintenance-tunnel anti-vibration-pods-room mart-sand-sample
-2
-13 22
-34 0
+put-in-pod mart-sand-sample stasis-lab curator pod1
 1
-0 41 5 0
+150 6
+5
+0 62 0 1
+0 99 -1 0
+0 104 0 1
+0 106 -1 0
+0 148 13 8
 0
 end_operator
 begin_operator
-move-fragile-safe maintenance-tunnel anti-vibration-pods-room mart-sud-core-drill
-2
-13 23
-34 0
+put-in-pod mart-sand-sample stasis-lab curator pod2
 1
-0 41 5 0
+150 6
+5
+0 62 0 1
+0 99 -1 0
+0 105 0 1
+0 107 -1 0
+0 149 13 8
 0
 end_operator
 begin_operator
-move-fragile-safe maintenance-tunnel anti-vibration-pods-room mart-west-core-drill
-2
-13 24
-34 0
+put-in-pod mart-sud-core-drill anti-vibration-pods-room curator pod1
 1
-0 41 5 0
+150 0
+5
+0 63 0 1
+0 100 -1 0
+0 104 0 1
+0 106 -1 0
+0 148 13 9
 0
 end_operator
 begin_operator
-move-fragile-safe maintenance-tunnel anti-vibration-pods-room venus-rock-sample
-2
-13 25
-34 0
+put-in-pod mart-sud-core-drill anti-vibration-pods-room curator pod2
 1
-0 41 5 0
+150 0
+5
+0 63 0 1
+0 100 -1 0
+0 105 0 1
+0 107 -1 0
+0 149 13 9
 0
 end_operator
 begin_operator
-move-fragile-safe maintenance-tunnel anti-vibration-pods-room venus-sand-sample
-2
-13 26
-34 0
+put-in-pod mart-sud-core-drill cryo-chamber curator pod1
 1
-0 41 5 0
+150 1
+5
+0 64 0 1
+0 100 -1 0
+0 104 0 1
+0 106 -1 0
+0 148 13 9
 0
 end_operator
 begin_operator
-move-fragile-safe maintenance-tunnel cryo-chamber asteroid-ad29tv-rock-sample
-2
-13 14
-35 0
+put-in-pod mart-sud-core-drill cryo-chamber curator pod2
 1
-0 41 5 1
+150 1
+5
+0 64 0 1
+0 100 -1 0
+0 105 0 1
+0 107 -1 0
+0 149 13 9
 0
 end_operator
 begin_operator
-move-fragile-safe maintenance-tunnel cryo-chamber asteroid-mg04tn-ice-sample
-2
-13 15
-35 0
+put-in-pod mart-sud-core-drill entrance curator pod1
 1
-0 41 5 1
+150 2
+5
+0 65 0 1
+0 100 -1 0
+0 104 0 1
+0 106 -1 0
+0 148 13 9
 0
 end_operator
 begin_operator
-move-fragile-safe maintenance-tunnel cryo-chamber mart-east-core-drill
-2
-13 16
-35 0
+put-in-pod mart-sud-core-drill entrance curator pod2
 1
-0 41 5 1
+150 2
+5
+0 65 0 1
+0 100 -1 0
+0 105 0 1
+0 107 -1 0
+0 149 13 9
 0
 end_operator
 begin_operator
-move-fragile-safe maintenance-tunnel cryo-chamber mart-laser-gun
-2
-13 17
-35 0
+put-in-pod mart-sud-core-drill hall-a curator pod1
 1
-0 41 5 1
+150 3
+5
+0 66 0 1
+0 100 -1 0
+0 104 0 1
+0 106 -1 0
+0 148 13 9
 0
 end_operator
 begin_operator
-move-fragile-safe maintenance-tunnel cryo-chamber mart-mysterious-egg
-2
-13 18
-35 0
+put-in-pod mart-sud-core-drill hall-a curator pod2
 1
-0 41 5 1
+150 3
+5
+0 66 0 1
+0 100 -1 0
+0 105 0 1
+0 107 -1 0
+0 149 13 9
 0
 end_operator
 begin_operator
-move-fragile-safe maintenance-tunnel cryo-chamber mart-nord-core-drill
-2
-13 19
-35 0
+put-in-pod mart-sud-core-drill hall-b curator pod1
 1
-0 41 5 1
+150 4
+5
+0 67 0 1
+0 100 -1 0
+0 104 0 1
+0 106 -1 0
+0 148 13 9
 0
 end_operator
 begin_operator
-move-fragile-safe maintenance-tunnel cryo-chamber mart-north-pole-ice-sample
-2
-13 20
-35 0
+put-in-pod mart-sud-core-drill hall-b curator pod2
 1
-0 41 5 1
+150 4
+5
+0 67 0 1
+0 100 -1 0
+0 105 0 1
+0 107 -1 0
+0 149 13 9
 0
 end_operator
 begin_operator
-move-fragile-safe maintenance-tunnel cryo-chamber mart-pink-hat
-2
-13 21
-35 0
+put-in-pod mart-sud-core-drill maintenance-tunnel curator pod1
 1
-0 41 5 1
+150 5
+5
+0 68 0 1
+0 100 -1 0
+0 104 0 1
+0 106 -1 0
+0 148 13 9
 0
 end_operator
 begin_operator
-move-fragile-safe maintenance-tunnel cryo-chamber mart-sand-sample
-2
-13 22
-35 0
+put-in-pod mart-sud-core-drill maintenance-tunnel curator pod2
 1
-0 41 5 1
+150 5
+5
+0 68 0 1
+0 100 -1 0
+0 105 0 1
+0 107 -1 0
+0 149 13 9
 0
 end_operator
 begin_operator
-move-fragile-safe maintenance-tunnel cryo-chamber mart-sud-core-drill
-2
-13 23
-35 0
+put-in-pod mart-sud-core-drill stasis-lab curator pod1
 1
-0 41 5 1
+150 6
+5
+0 69 0 1
+0 100 -1 0
+0 104 0 1
+0 106 -1 0
+0 148 13 9
 0
 end_operator
 begin_operator
-move-fragile-safe maintenance-tunnel cryo-chamber mart-west-core-drill
-2
-13 24
-35 0
+put-in-pod mart-sud-core-drill stasis-lab curator pod2
 1
-0 41 5 1
+150 6
+5
+0 69 0 1
+0 100 -1 0
+0 105 0 1
+0 107 -1 0
+0 149 13 9
 0
 end_operator
 begin_operator
-move-fragile-safe maintenance-tunnel cryo-chamber venus-rock-sample
-2
-13 25
-35 0
+put-in-pod mart-west-core-drill anti-vibration-pods-room curator pod1
 1
-0 41 5 1
+150 0
+5
+0 70 0 1
+0 101 -1 0
+0 104 0 1
+0 106 -1 0
+0 148 13 10
 0
 end_operator
 begin_operator
-move-fragile-safe maintenance-tunnel cryo-chamber venus-sand-sample
-2
-13 26
-35 0
+put-in-pod mart-west-core-drill anti-vibration-pods-room curator pod2
 1
-0 41 5 1
+150 0
+5
+0 70 0 1
+0 101 -1 0
+0 105 0 1
+0 107 -1 0
+0 149 13 10
 0
 end_operator
 begin_operator
-move-fragile-safe maintenance-tunnel entrance asteroid-ad29tv-rock-sample
-2
-13 14
-36 0
+put-in-pod mart-west-core-drill cryo-chamber curator pod1
 1
-0 41 5 2
+150 1
+5
+0 71 0 1
+0 101 -1 0
+0 104 0 1
+0 106 -1 0
+0 148 13 10
 0
 end_operator
 begin_operator
-move-fragile-safe maintenance-tunnel entrance asteroid-mg04tn-ice-sample
-2
-13 15
-36 0
+put-in-pod mart-west-core-drill cryo-chamber curator pod2
 1
-0 41 5 2
+150 1
+5
+0 71 0 1
+0 101 -1 0
+0 105 0 1
+0 107 -1 0
+0 149 13 10
 0
 end_operator
 begin_operator
-move-fragile-safe maintenance-tunnel entrance mart-east-core-drill
-2
-13 16
-36 0
+put-in-pod mart-west-core-drill entrance curator pod1
 1
-0 41 5 2
+150 2
+5
+0 72 0 1
+0 101 -1 0
+0 104 0 1
+0 106 -1 0
+0 148 13 10
 0
 end_operator
 begin_operator
-move-fragile-safe maintenance-tunnel entrance mart-laser-gun
-2
-13 17
-36 0
+put-in-pod mart-west-core-drill entrance curator pod2
 1
-0 41 5 2
+150 2
+5
+0 72 0 1
+0 101 -1 0
+0 105 0 1
+0 107 -1 0
+0 149 13 10
 0
 end_operator
 begin_operator
-move-fragile-safe maintenance-tunnel entrance mart-mysterious-egg
-2
-13 18
-36 0
+put-in-pod mart-west-core-drill hall-a curator pod1
 1
-0 41 5 2
+150 3
+5
+0 73 0 1
+0 101 -1 0
+0 104 0 1
+0 106 -1 0
+0 148 13 10
 0
 end_operator
 begin_operator
-move-fragile-safe maintenance-tunnel entrance mart-nord-core-drill
-2
-13 19
-36 0
+put-in-pod mart-west-core-drill hall-a curator pod2
 1
-0 41 5 2
+150 3
+5
+0 73 0 1
+0 101 -1 0
+0 105 0 1
+0 107 -1 0
+0 149 13 10
 0
 end_operator
 begin_operator
-move-fragile-safe maintenance-tunnel entrance mart-north-pole-ice-sample
-2
-13 20
-36 0
+put-in-pod mart-west-core-drill hall-b curator pod1
 1
-0 41 5 2
+150 4
+5
+0 74 0 1
+0 101 -1 0
+0 104 0 1
+0 106 -1 0
+0 148 13 10
 0
 end_operator
 begin_operator
-move-fragile-safe maintenance-tunnel entrance mart-pink-hat
-2
-13 21
-36 0
+put-in-pod mart-west-core-drill hall-b curator pod2
 1
-0 41 5 2
+150 4
+5
+0 74 0 1
+0 101 -1 0
+0 105 0 1
+0 107 -1 0
+0 149 13 10
 0
 end_operator
 begin_operator
-move-fragile-safe maintenance-tunnel entrance mart-sand-sample
-2
-13 22
-36 0
+put-in-pod mart-west-core-drill maintenance-tunnel curator pod1
 1
-0 41 5 2
+150 5
+5
+0 75 0 1
+0 101 -1 0
+0 104 0 1
+0 106 -1 0
+0 148 13 10
 0
 end_operator
 begin_operator
-move-fragile-safe maintenance-tunnel entrance mart-sud-core-drill
-2
-13 23
-36 0
+put-in-pod mart-west-core-drill maintenance-tunnel curator pod2
 1
-0 41 5 2
+150 5
+5
+0 75 0 1
+0 101 -1 0
+0 105 0 1
+0 107 -1 0
+0 149 13 10
 0
 end_operator
 begin_operator
-move-fragile-safe maintenance-tunnel entrance mart-west-core-drill
-2
-13 24
-36 0
+put-in-pod mart-west-core-drill stasis-lab curator pod1
 1
-0 41 5 2
+150 6
+5
+0 76 0 1
+0 101 -1 0
+0 104 0 1
+0 106 -1 0
+0 148 13 10
 0
 end_operator
 begin_operator
-move-fragile-safe maintenance-tunnel entrance venus-rock-sample
-2
-13 25
-36 0
+put-in-pod mart-west-core-drill stasis-lab curator pod2
 1
-0 41 5 2
+150 6
+5
+0 76 0 1
+0 101 -1 0
+0 105 0 1
+0 107 -1 0
+0 149 13 10
 0
 end_operator
 begin_operator
-move-fragile-safe maintenance-tunnel entrance venus-sand-sample
-2
-13 26
-36 0
+put-in-pod venus-rock-sample anti-vibration-pods-room curator pod1
 1
-0 41 5 2
+150 0
+5
+0 77 0 1
+0 102 -1 0
+0 104 0 1
+0 106 -1 0
+0 148 13 11
 0
 end_operator
 begin_operator
-move-fragile-safe maintenance-tunnel hall-a asteroid-ad29tv-rock-sample
-2
-13 14
-37 0
+put-in-pod venus-rock-sample anti-vibration-pods-room curator pod2
 1
-0 41 5 3
+150 0
+5
+0 77 0 1
+0 102 -1 0
+0 105 0 1
+0 107 -1 0
+0 149 13 11
 0
 end_operator
 begin_operator
-move-fragile-safe maintenance-tunnel hall-a asteroid-mg04tn-ice-sample
-2
-13 15
-37 0
+put-in-pod venus-rock-sample cryo-chamber curator pod1
 1
-0 41 5 3
+150 1
+5
+0 78 0 1
+0 102 -1 0
+0 104 0 1
+0 106 -1 0
+0 148 13 11
 0
 end_operator
 begin_operator
-move-fragile-safe maintenance-tunnel hall-a mart-east-core-drill
-2
-13 16
-37 0
+put-in-pod venus-rock-sample cryo-chamber curator pod2
 1
-0 41 5 3
+150 1
+5
+0 78 0 1
+0 102 -1 0
+0 105 0 1
+0 107 -1 0
+0 149 13 11
 0
 end_operator
 begin_operator
-move-fragile-safe maintenance-tunnel hall-a mart-laser-gun
-2
-13 17
-37 0
+put-in-pod venus-rock-sample entrance curator pod1
 1
-0 41 5 3
+150 2
+5
+0 79 0 1
+0 102 -1 0
+0 104 0 1
+0 106 -1 0
+0 148 13 11
 0
 end_operator
 begin_operator
-move-fragile-safe maintenance-tunnel hall-a mart-mysterious-egg
-2
-13 18
-37 0
+put-in-pod venus-rock-sample entrance curator pod2
 1
-0 41 5 3
+150 2
+5
+0 79 0 1
+0 102 -1 0
+0 105 0 1
+0 107 -1 0
+0 149 13 11
 0
 end_operator
 begin_operator
-move-fragile-safe maintenance-tunnel hall-a mart-nord-core-drill
-2
-13 19
-37 0
+put-in-pod venus-rock-sample hall-a curator pod1
 1
-0 41 5 3
+150 3
+5
+0 80 0 1
+0 102 -1 0
+0 104 0 1
+0 106 -1 0
+0 148 13 11
 0
 end_operator
 begin_operator
-move-fragile-safe maintenance-tunnel hall-a mart-north-pole-ice-sample
-2
-13 20
-37 0
+put-in-pod venus-rock-sample hall-a curator pod2
 1
-0 41 5 3
+150 3
+5
+0 80 0 1
+0 102 -1 0
+0 105 0 1
+0 107 -1 0
+0 149 13 11
 0
 end_operator
 begin_operator
-move-fragile-safe maintenance-tunnel hall-a mart-pink-hat
-2
-13 21
-37 0
+put-in-pod venus-rock-sample hall-b curator pod1
 1
-0 41 5 3
+150 4
+5
+0 81 0 1
+0 102 -1 0
+0 104 0 1
+0 106 -1 0
+0 148 13 11
 0
 end_operator
 begin_operator
-move-fragile-safe maintenance-tunnel hall-a mart-sand-sample
-2
-13 22
-37 0
+put-in-pod venus-rock-sample hall-b curator pod2
 1
-0 41 5 3
+150 4
+5
+0 81 0 1
+0 102 -1 0
+0 105 0 1
+0 107 -1 0
+0 149 13 11
 0
 end_operator
 begin_operator
-move-fragile-safe maintenance-tunnel hall-a mart-sud-core-drill
-2
-13 23
-37 0
+put-in-pod venus-rock-sample maintenance-tunnel curator pod1
 1
-0 41 5 3
+150 5
+5
+0 82 0 1
+0 102 -1 0
+0 104 0 1
+0 106 -1 0
+0 148 13 11
 0
 end_operator
 begin_operator
-move-fragile-safe maintenance-tunnel hall-a mart-west-core-drill
-2
-13 24
-37 0
+put-in-pod venus-rock-sample maintenance-tunnel curator pod2
 1
-0 41 5 3
+150 5
+5
+0 82 0 1
+0 102 -1 0
+0 105 0 1
+0 107 -1 0
+0 149 13 11
 0
 end_operator
 begin_operator
-move-fragile-safe maintenance-tunnel hall-a venus-rock-sample
-2
-13 25
-37 0
+put-in-pod venus-rock-sample stasis-lab curator pod1
 1
-0 41 5 3
+150 6
+5
+0 83 0 1
+0 102 -1 0
+0 104 0 1
+0 106 -1 0
+0 148 13 11
 0
 end_operator
 begin_operator
-move-fragile-safe maintenance-tunnel hall-a venus-sand-sample
-2
-13 26
-37 0
+put-in-pod venus-rock-sample stasis-lab curator pod2
 1
-0 41 5 3
+150 6
+5
+0 83 0 1
+0 102 -1 0
+0 105 0 1
+0 107 -1 0
+0 149 13 11
 0
 end_operator
 begin_operator
-move-fragile-safe maintenance-tunnel hall-b asteroid-ad29tv-rock-sample
-2
-13 14
-38 0
+put-in-pod venus-sand-sample anti-vibration-pods-room curator pod1
 1
-0 41 5 4
+150 0
+5
+0 84 0 1
+0 103 -1 0
+0 104 0 1
+0 106 -1 0
+0 148 13 12
 0
 end_operator
 begin_operator
-move-fragile-safe maintenance-tunnel hall-b asteroid-mg04tn-ice-sample
-2
-13 15
-38 0
+put-in-pod venus-sand-sample anti-vibration-pods-room curator pod2
 1
-0 41 5 4
+150 0
+5
+0 84 0 1
+0 103 -1 0
+0 105 0 1
+0 107 -1 0
+0 149 13 12
 0
 end_operator
 begin_operator
-move-fragile-safe maintenance-tunnel hall-b mart-east-core-drill
-2
-13 16
-38 0
+put-in-pod venus-sand-sample cryo-chamber curator pod1
 1
-0 41 5 4
+150 1
+5
+0 85 0 1
+0 103 -1 0
+0 104 0 1
+0 106 -1 0
+0 148 13 12
 0
 end_operator
 begin_operator
-move-fragile-safe maintenance-tunnel hall-b mart-laser-gun
-2
-13 17
-38 0
+put-in-pod venus-sand-sample cryo-chamber curator pod2
 1
-0 41 5 4
+150 1
+5
+0 85 0 1
+0 103 -1 0
+0 105 0 1
+0 107 -1 0
+0 149 13 12
 0
 end_operator
 begin_operator
-move-fragile-safe maintenance-tunnel hall-b mart-mysterious-egg
-2
-13 18
-38 0
+put-in-pod venus-sand-sample entrance curator pod1
 1
-0 41 5 4
+150 2
+5
+0 86 0 1
+0 103 -1 0
+0 104 0 1
+0 106 -1 0
+0 148 13 12
 0
 end_operator
 begin_operator
-move-fragile-safe maintenance-tunnel hall-b mart-nord-core-drill
-2
-13 19
-38 0
+put-in-pod venus-sand-sample entrance curator pod2
 1
-0 41 5 4
+150 2
+5
+0 86 0 1
+0 103 -1 0
+0 105 0 1
+0 107 -1 0
+0 149 13 12
 0
 end_operator
 begin_operator
-move-fragile-safe maintenance-tunnel hall-b mart-north-pole-ice-sample
-2
-13 20
-38 0
+put-in-pod venus-sand-sample hall-a curator pod1
 1
-0 41 5 4
+150 3
+5
+0 87 0 1
+0 103 -1 0
+0 104 0 1
+0 106 -1 0
+0 148 13 12
 0
 end_operator
 begin_operator
-move-fragile-safe maintenance-tunnel hall-b mart-pink-hat
-2
-13 21
-38 0
+put-in-pod venus-sand-sample hall-a curator pod2
 1
-0 41 5 4
+150 3
+5
+0 87 0 1
+0 103 -1 0
+0 105 0 1
+0 107 -1 0
+0 149 13 12
 0
 end_operator
 begin_operator
-move-fragile-safe maintenance-tunnel hall-b mart-sand-sample
-2
-13 22
-38 0
+put-in-pod venus-sand-sample hall-b curator pod1
 1
-0 41 5 4
+150 4
+5
+0 88 0 1
+0 103 -1 0
+0 104 0 1
+0 106 -1 0
+0 148 13 12
 0
 end_operator
 begin_operator
-move-fragile-safe maintenance-tunnel hall-b mart-sud-core-drill
-2
-13 23
-38 0
+put-in-pod venus-sand-sample hall-b curator pod2
 1
-0 41 5 4
+150 4
+5
+0 88 0 1
+0 103 -1 0
+0 105 0 1
+0 107 -1 0
+0 149 13 12
 0
 end_operator
 begin_operator
-move-fragile-safe maintenance-tunnel hall-b mart-west-core-drill
-2
-13 24
-38 0
+put-in-pod venus-sand-sample maintenance-tunnel curator pod1
 1
-0 41 5 4
+150 5
+5
+0 89 0 1
+0 103 -1 0
+0 104 0 1
+0 106 -1 0
+0 148 13 12
 0
 end_operator
 begin_operator
-move-fragile-safe maintenance-tunnel hall-b venus-rock-sample
-2
-13 25
-38 0
+put-in-pod venus-sand-sample maintenance-tunnel curator pod2
 1
-0 41 5 4
+150 5
+5
+0 89 0 1
+0 103 -1 0
+0 105 0 1
+0 107 -1 0
+0 149 13 12
 0
 end_operator
 begin_operator
-move-fragile-safe maintenance-tunnel hall-b venus-sand-sample
-2
-13 26
-38 0
+put-in-pod venus-sand-sample stasis-lab curator pod1
 1
-0 41 5 4
+150 6
+5
+0 90 0 1
+0 103 -1 0
+0 104 0 1
+0 106 -1 0
+0 148 13 12
 0
 end_operator
 begin_operator
-move-fragile-safe maintenance-tunnel stasis-lab asteroid-ad29tv-rock-sample
-2
-13 14
-40 0
+put-in-pod venus-sand-sample stasis-lab curator pod2
 1
-0 41 5 6
+150 6
+5
+0 90 0 1
+0 103 -1 0
+0 105 0 1
+0 107 -1 0
+0 149 13 12
 0
 end_operator
 begin_operator
-move-fragile-safe maintenance-tunnel stasis-lab asteroid-mg04tn-ice-sample
-2
-13 15
-40 0
+release-artifact curator asteroid-ad29tv-rock-sample anti-vibration-pods-room
 1
-0 41 5 6
+150 0
+3
+0 0 -1 0
+0 91 0 1
+0 140 -1 0
 0
 end_operator
 begin_operator
-move-fragile-safe maintenance-tunnel stasis-lab mart-east-core-drill
-2
-13 16
-40 0
+release-artifact curator asteroid-ad29tv-rock-sample entrance
 1
-0 41 5 6
+150 2
+3
+0 2 -1 0
+0 91 0 1
+0 140 -1 0
 0
 end_operator
 begin_operator
-move-fragile-safe maintenance-tunnel stasis-lab mart-laser-gun
-2
-13 17
-40 0
+release-artifact curator asteroid-ad29tv-rock-sample hall-a
 1
-0 41 5 6
+150 3
+3
+0 3 -1 0
+0 91 0 1
+0 140 -1 0
 0
 end_operator
 begin_operator
-move-fragile-safe maintenance-tunnel stasis-lab mart-mysterious-egg
-2
-13 18
-40 0
+release-artifact curator asteroid-ad29tv-rock-sample hall-b
 1
-0 41 5 6
+150 4
+3
+0 4 -1 0
+0 91 0 1
+0 140 -1 0
 0
 end_operator
 begin_operator
-move-fragile-safe maintenance-tunnel stasis-lab mart-nord-core-drill
-2
-13 19
-40 0
+release-artifact curator asteroid-ad29tv-rock-sample maintenance-tunnel
 1
-0 41 5 6
+150 5
+3
+0 5 -1 0
+0 91 0 1
+0 140 -1 0
 0
 end_operator
 begin_operator
-move-fragile-safe maintenance-tunnel stasis-lab mart-north-pole-ice-sample
-2
-13 20
-40 0
+release-artifact curator asteroid-ad29tv-rock-sample stasis-lab
 1
-0 41 5 6
+150 6
+3
+0 6 -1 0
+0 91 0 1
+0 140 -1 0
 0
 end_operator
 begin_operator
-move-fragile-safe maintenance-tunnel stasis-lab mart-pink-hat
-2
-13 21
-40 0
+release-artifact curator asteroid-mg04tn-ice-sample anti-vibration-pods-room
 1
-0 41 5 6
+150 0
+3
+0 7 -1 0
+0 92 0 1
+0 140 -1 0
 0
 end_operator
 begin_operator
-move-fragile-safe maintenance-tunnel stasis-lab mart-sand-sample
-2
-13 22
-40 0
+release-artifact curator asteroid-mg04tn-ice-sample entrance
 1
-0 41 5 6
+150 2
+3
+0 9 -1 0
+0 92 0 1
+0 140 -1 0
 0
 end_operator
 begin_operator
-move-fragile-safe maintenance-tunnel stasis-lab mart-sud-core-drill
-2
-13 23
-40 0
+release-artifact curator asteroid-mg04tn-ice-sample hall-a
 1
-0 41 5 6
+150 3
+3
+0 10 -1 0
+0 92 0 1
+0 140 -1 0
 0
 end_operator
 begin_operator
-move-fragile-safe maintenance-tunnel stasis-lab mart-west-core-drill
-2
-13 24
-40 0
+release-artifact curator asteroid-mg04tn-ice-sample hall-b
 1
-0 41 5 6
+150 4
+3
+0 11 -1 0
+0 92 0 1
+0 140 -1 0
 0
 end_operator
 begin_operator
-move-fragile-safe maintenance-tunnel stasis-lab venus-rock-sample
-2
-13 25
-40 0
+release-artifact curator asteroid-mg04tn-ice-sample maintenance-tunnel
 1
-0 41 5 6
+150 5
+3
+0 12 -1 0
+0 92 0 1
+0 140 -1 0
 0
 end_operator
 begin_operator
-move-fragile-safe maintenance-tunnel stasis-lab venus-sand-sample
-2
-13 26
-40 0
+release-artifact curator asteroid-mg04tn-ice-sample stasis-lab
 1
-0 41 5 6
+150 6
+3
+0 13 -1 0
+0 92 0 1
+0 140 -1 0
 0
 end_operator
 begin_operator
-move-fragile-tunnel anti-vibration-pods-room maintenance-tunnel asteroid-ad29tv-rock-sample
-3
-13 14
-39 0
-42 0
+release-artifact curator mart-east-core-drill anti-vibration-pods-room
 1
-0 41 0 5
+150 0
+3
+0 14 -1 0
+0 93 0 1
+0 140 -1 0
 0
 end_operator
 begin_operator
-move-fragile-tunnel anti-vibration-pods-room maintenance-tunnel asteroid-mg04tn-ice-sample
-3
-13 15
-39 0
-42 0
+release-artifact curator mart-east-core-drill entrance
 1
-0 41 0 5
+150 2
+3
+0 16 -1 0
+0 93 0 1
+0 140 -1 0
 0
 end_operator
 begin_operator
-move-fragile-tunnel anti-vibration-pods-room maintenance-tunnel mart-east-core-drill
-3
-13 16
-39 0
-42 0
+release-artifact curator mart-east-core-drill hall-a
 1
-0 41 0 5
+150 3
+3
+0 17 -1 0
+0 93 0 1
+0 140 -1 0
 0
 end_operator
 begin_operator
-move-fragile-tunnel anti-vibration-pods-room maintenance-tunnel mart-laser-gun
-3
-13 17
-39 0
-42 0
+release-artifact curator mart-east-core-drill hall-b
 1
-0 41 0 5
+150 4
+3
+0 18 -1 0
+0 93 0 1
+0 140 -1 0
 0
 end_operator
 begin_operator
-move-fragile-tunnel anti-vibration-pods-room maintenance-tunnel mart-mysterious-egg
-3
-13 18
-39 0
-42 0
+release-artifact curator mart-east-core-drill maintenance-tunnel
 1
-0 41 0 5
+150 5
+3
+0 19 -1 0
+0 93 0 1
+0 140 -1 0
 0
 end_operator
 begin_operator
-move-fragile-tunnel anti-vibration-pods-room maintenance-tunnel mart-nord-core-drill
-3
-13 19
-39 0
-42 0
+release-artifact curator mart-east-core-drill stasis-lab
 1
-0 41 0 5
+150 6
+3
+0 20 -1 0
+0 93 0 1
+0 140 -1 0
 0
 end_operator
 begin_operator
-move-fragile-tunnel anti-vibration-pods-room maintenance-tunnel mart-north-pole-ice-sample
-3
-13 20
-39 0
-42 0
+release-artifact curator mart-laser-gun anti-vibration-pods-room
 1
-0 41 0 5
+150 0
+3
+0 21 -1 0
+0 94 0 1
+0 140 -1 0
 0
 end_operator
 begin_operator
-move-fragile-tunnel anti-vibration-pods-room maintenance-tunnel mart-pink-hat
-3
-13 21
-39 0
-42 0
+release-artifact curator mart-laser-gun entrance
 1
-0 41 0 5
+150 2
+3
+0 23 -1 0
+0 94 0 1
+0 140 -1 0
 0
 end_operator
 begin_operator
-move-fragile-tunnel anti-vibration-pods-room maintenance-tunnel mart-sand-sample
-3
-13 22
-39 0
-42 0
+release-artifact curator mart-laser-gun hall-a
 1
-0 41 0 5
+150 3
+3
+0 24 -1 0
+0 94 0 1
+0 140 -1 0
 0
 end_operator
 begin_operator
-move-fragile-tunnel anti-vibration-pods-room maintenance-tunnel mart-sud-core-drill
-3
-13 23
-39 0
-42 0
+release-artifact curator mart-laser-gun hall-b
 1
-0 41 0 5
+150 4
+3
+0 25 -1 0
+0 94 0 1
+0 140 -1 0
 0
 end_operator
 begin_operator
-move-fragile-tunnel anti-vibration-pods-room maintenance-tunnel mart-west-core-drill
-3
-13 24
-39 0
-42 0
+release-artifact curator mart-laser-gun maintenance-tunnel
 1
-0 41 0 5
+150 5
+3
+0 26 -1 0
+0 94 0 1
+0 140 -1 0
 0
 end_operator
 begin_operator
-move-fragile-tunnel anti-vibration-pods-room maintenance-tunnel venus-rock-sample
-3
-13 25
-39 0
-42 0
+release-artifact curator mart-laser-gun stasis-lab
 1
-0 41 0 5
+150 6
+3
+0 27 -1 0
+0 94 0 1
+0 140 -1 0
 0
 end_operator
 begin_operator
-move-fragile-tunnel anti-vibration-pods-room maintenance-tunnel venus-sand-sample
-3
-13 26
-39 0
-42 0
+release-artifact curator mart-mysterious-egg anti-vibration-pods-room
 1
-0 41 0 5
+150 0
+3
+0 28 -1 0
+0 95 0 1
+0 140 -1 0
 0
 end_operator
 begin_operator
-move-fragile-tunnel cryo-chamber maintenance-tunnel asteroid-ad29tv-rock-sample
-3
-13 14
-39 0
-42 0
+release-artifact curator mart-mysterious-egg entrance
 1
-0 41 1 5
+150 2
+3
+0 30 -1 0
+0 95 0 1
+0 140 -1 0
 0
 end_operator
 begin_operator
-move-fragile-tunnel cryo-chamber maintenance-tunnel asteroid-mg04tn-ice-sample
-3
-13 15
-39 0
-42 0
+release-artifact curator mart-mysterious-egg hall-a
 1
-0 41 1 5
+150 3
+3
+0 31 -1 0
+0 95 0 1
+0 140 -1 0
 0
 end_operator
 begin_operator
-move-fragile-tunnel cryo-chamber maintenance-tunnel mart-east-core-drill
-3
-13 16
-39 0
-42 0
+release-artifact curator mart-mysterious-egg hall-b
 1
-0 41 1 5
+150 4
+3
+0 32 -1 0
+0 95 0 1
+0 140 -1 0
 0
 end_operator
 begin_operator
-move-fragile-tunnel cryo-chamber maintenance-tunnel mart-laser-gun
-3
-13 17
-39 0
-42 0
+release-artifact curator mart-mysterious-egg maintenance-tunnel
 1
-0 41 1 5
+150 5
+3
+0 33 -1 0
+0 95 0 1
+0 140 -1 0
 0
 end_operator
 begin_operator
-move-fragile-tunnel cryo-chamber maintenance-tunnel mart-mysterious-egg
-3
-13 18
-39 0
-42 0
+release-artifact curator mart-mysterious-egg stasis-lab
 1
-0 41 1 5
+150 6
+3
+0 34 -1 0
+0 95 0 1
+0 140 -1 0
 0
 end_operator
 begin_operator
-move-fragile-tunnel cryo-chamber maintenance-tunnel mart-nord-core-drill
-3
-13 19
-39 0
-42 0
+release-artifact curator mart-nord-core-drill anti-vibration-pods-room
 1
-0 41 1 5
+150 0
+3
+0 35 -1 0
+0 96 0 1
+0 140 -1 0
 0
 end_operator
 begin_operator
-move-fragile-tunnel cryo-chamber maintenance-tunnel mart-north-pole-ice-sample
-3
-13 20
-39 0
-42 0
+release-artifact curator mart-nord-core-drill entrance
 1
-0 41 1 5
+150 2
+3
+0 37 -1 0
+0 96 0 1
+0 140 -1 0
 0
 end_operator
 begin_operator
-move-fragile-tunnel cryo-chamber maintenance-tunnel mart-pink-hat
-3
-13 21
-39 0
-42 0
+release-artifact curator mart-nord-core-drill hall-a
 1
-0 41 1 5
+150 3
+3
+0 38 -1 0
+0 96 0 1
+0 140 -1 0
 0
 end_operator
 begin_operator
-move-fragile-tunnel cryo-chamber maintenance-tunnel mart-sand-sample
-3
-13 22
-39 0
-42 0
+release-artifact curator mart-nord-core-drill hall-b
 1
-0 41 1 5
+150 4
+3
+0 39 -1 0
+0 96 0 1
+0 140 -1 0
 0
 end_operator
 begin_operator
-move-fragile-tunnel cryo-chamber maintenance-tunnel mart-sud-core-drill
-3
-13 23
-39 0
-42 0
+release-artifact curator mart-nord-core-drill maintenance-tunnel
 1
-0 41 1 5
+150 5
+3
+0 40 -1 0
+0 96 0 1
+0 140 -1 0
 0
 end_operator
 begin_operator
-move-fragile-tunnel cryo-chamber maintenance-tunnel mart-west-core-drill
-3
-13 24
-39 0
-42 0
+release-artifact curator mart-nord-core-drill stasis-lab
 1
-0 41 1 5
+150 6
+3
+0 41 -1 0
+0 96 0 1
+0 140 -1 0
 0
 end_operator
 begin_operator
-move-fragile-tunnel cryo-chamber maintenance-tunnel venus-rock-sample
-3
-13 25
-39 0
-42 0
+release-artifact curator mart-north-pole-ice-sample anti-vibration-pods-room
 1
-0 41 1 5
+150 0
+3
+0 42 -1 0
+0 97 0 1
+0 140 -1 0
 0
 end_operator
 begin_operator
-move-fragile-tunnel cryo-chamber maintenance-tunnel venus-sand-sample
-3
-13 26
-39 0
-42 0
+release-artifact curator mart-north-pole-ice-sample entrance
 1
-0 41 1 5
+150 2
+3
+0 44 -1 0
+0 97 0 1
+0 140 -1 0
 0
 end_operator
 begin_operator
-move-fragile-tunnel entrance maintenance-tunnel asteroid-ad29tv-rock-sample
-3
-13 14
-39 0
-42 0
+release-artifact curator mart-north-pole-ice-sample hall-a
 1
-0 41 2 5
+150 3
+3
+0 45 -1 0
+0 97 0 1
+0 140 -1 0
 0
 end_operator
 begin_operator
-move-fragile-tunnel entrance maintenance-tunnel asteroid-mg04tn-ice-sample
-3
-13 15
-39 0
-42 0
+release-artifact curator mart-north-pole-ice-sample hall-b
 1
-0 41 2 5
+150 4
+3
+0 46 -1 0
+0 97 0 1
+0 140 -1 0
 0
 end_operator
 begin_operator
-move-fragile-tunnel entrance maintenance-tunnel mart-east-core-drill
-3
-13 16
-39 0
-42 0
+release-artifact curator mart-north-pole-ice-sample maintenance-tunnel
 1
-0 41 2 5
+150 5
+3
+0 47 -1 0
+0 97 0 1
+0 140 -1 0
 0
 end_operator
 begin_operator
-move-fragile-tunnel entrance maintenance-tunnel mart-laser-gun
-3
-13 17
-39 0
-42 0
+release-artifact curator mart-north-pole-ice-sample stasis-lab
 1
-0 41 2 5
+150 6
+3
+0 48 -1 0
+0 97 0 1
+0 140 -1 0
 0
 end_operator
 begin_operator
-move-fragile-tunnel entrance maintenance-tunnel mart-mysterious-egg
-3
-13 18
-39 0
-42 0
+release-artifact curator mart-pink-hat anti-vibration-pods-room
 1
-0 41 2 5
+150 0
+3
+0 49 -1 0
+0 98 0 1
+0 140 -1 0
 0
 end_operator
 begin_operator
-move-fragile-tunnel entrance maintenance-tunnel mart-nord-core-drill
-3
-13 19
-39 0
-42 0
+release-artifact curator mart-pink-hat entrance
 1
-0 41 2 5
+150 2
+3
+0 51 -1 0
+0 98 0 1
+0 140 -1 0
 0
 end_operator
 begin_operator
-move-fragile-tunnel entrance maintenance-tunnel mart-north-pole-ice-sample
-3
-13 20
-39 0
-42 0
+release-artifact curator mart-pink-hat hall-a
 1
-0 41 2 5
+150 3
+3
+0 52 -1 0
+0 98 0 1
+0 140 -1 0
 0
 end_operator
 begin_operator
-move-fragile-tunnel entrance maintenance-tunnel mart-pink-hat
-3
-13 21
-39 0
-42 0
+release-artifact curator mart-pink-hat hall-b
 1
-0 41 2 5
+150 4
+3
+0 53 -1 0
+0 98 0 1
+0 140 -1 0
 0
 end_operator
 begin_operator
-move-fragile-tunnel entrance maintenance-tunnel mart-sand-sample
-3
-13 22
-39 0
-42 0
+release-artifact curator mart-pink-hat maintenance-tunnel
 1
-0 41 2 5
+150 5
+3
+0 54 -1 0
+0 98 0 1
+0 140 -1 0
 0
 end_operator
 begin_operator
-move-fragile-tunnel entrance maintenance-tunnel mart-sud-core-drill
-3
-13 23
-39 0
-42 0
+release-artifact curator mart-pink-hat stasis-lab
 1
-0 41 2 5
+150 6
+3
+0 55 -1 0
+0 98 0 1
+0 140 -1 0
 0
 end_operator
 begin_operator
-move-fragile-tunnel entrance maintenance-tunnel mart-west-core-drill
-3
-13 24
-39 0
-42 0
+release-artifact curator mart-sand-sample anti-vibration-pods-room
 1
-0 41 2 5
+150 0
+3
+0 56 -1 0
+0 99 0 1
+0 140 -1 0
 0
 end_operator
 begin_operator
-move-fragile-tunnel entrance maintenance-tunnel venus-rock-sample
-3
-13 25
-39 0
-42 0
+release-artifact curator mart-sand-sample entrance
 1
-0 41 2 5
+150 2
+3
+0 58 -1 0
+0 99 0 1
+0 140 -1 0
 0
 end_operator
 begin_operator
-move-fragile-tunnel entrance maintenance-tunnel venus-sand-sample
-3
-13 26
-39 0
-42 0
+release-artifact curator mart-sand-sample hall-a
 1
-0 41 2 5
+150 3
+3
+0 59 -1 0
+0 99 0 1
+0 140 -1 0
 0
 end_operator
 begin_operator
-move-fragile-tunnel hall-a maintenance-tunnel asteroid-ad29tv-rock-sample
-3
-13 14
-39 0
-42 0
+release-artifact curator mart-sand-sample hall-b
 1
-0 41 3 5
+150 4
+3
+0 60 -1 0
+0 99 0 1
+0 140 -1 0
 0
 end_operator
 begin_operator
-move-fragile-tunnel hall-a maintenance-tunnel asteroid-mg04tn-ice-sample
-3
-13 15
-39 0
-42 0
+release-artifact curator mart-sand-sample maintenance-tunnel
 1
-0 41 3 5
+150 5
+3
+0 61 -1 0
+0 99 0 1
+0 140 -1 0
 0
 end_operator
 begin_operator
-move-fragile-tunnel hall-a maintenance-tunnel mart-east-core-drill
-3
-13 16
-39 0
-42 0
+release-artifact curator mart-sand-sample stasis-lab
 1
-0 41 3 5
+150 6
+3
+0 62 -1 0
+0 99 0 1
+0 140 -1 0
 0
 end_operator
 begin_operator
-move-fragile-tunnel hall-a maintenance-tunnel mart-laser-gun
-3
-13 17
-39 0
-42 0
+release-artifact curator mart-sud-core-drill anti-vibration-pods-room
 1
-0 41 3 5
+150 0
+3
+0 63 -1 0
+0 100 0 1
+0 140 -1 0
 0
 end_operator
 begin_operator
-move-fragile-tunnel hall-a maintenance-tunnel mart-mysterious-egg
-3
-13 18
-39 0
-42 0
+release-artifact curator mart-sud-core-drill entrance
 1
-0 41 3 5
+150 2
+3
+0 65 -1 0
+0 100 0 1
+0 140 -1 0
 0
 end_operator
 begin_operator
-move-fragile-tunnel hall-a maintenance-tunnel mart-nord-core-drill
-3
-13 19
-39 0
-42 0
+release-artifact curator mart-sud-core-drill hall-a
 1
-0 41 3 5
+150 3
+3
+0 66 -1 0
+0 100 0 1
+0 140 -1 0
 0
 end_operator
 begin_operator
-move-fragile-tunnel hall-a maintenance-tunnel mart-north-pole-ice-sample
-3
-13 20
-39 0
-42 0
+release-artifact curator mart-sud-core-drill hall-b
 1
-0 41 3 5
+150 4
+3
+0 67 -1 0
+0 100 0 1
+0 140 -1 0
 0
 end_operator
 begin_operator
-move-fragile-tunnel hall-a maintenance-tunnel mart-pink-hat
-3
-13 21
-39 0
-42 0
+release-artifact curator mart-sud-core-drill maintenance-tunnel
 1
-0 41 3 5
+150 5
+3
+0 68 -1 0
+0 100 0 1
+0 140 -1 0
 0
 end_operator
 begin_operator
-move-fragile-tunnel hall-a maintenance-tunnel mart-sand-sample
-3
-13 22
-39 0
-42 0
+release-artifact curator mart-sud-core-drill stasis-lab
 1
-0 41 3 5
+150 6
+3
+0 69 -1 0
+0 100 0 1
+0 140 -1 0
 0
 end_operator
 begin_operator
-move-fragile-tunnel hall-a maintenance-tunnel mart-sud-core-drill
-3
-13 23
-39 0
-42 0
+release-artifact curator mart-west-core-drill anti-vibration-pods-room
 1
-0 41 3 5
+150 0
+3
+0 70 -1 0
+0 101 0 1
+0 140 -1 0
 0
 end_operator
 begin_operator
-move-fragile-tunnel hall-a maintenance-tunnel mart-west-core-drill
-3
-13 24
-39 0
-42 0
+release-artifact curator mart-west-core-drill entrance
 1
-0 41 3 5
+150 2
+3
+0 72 -1 0
+0 101 0 1
+0 140 -1 0
 0
 end_operator
 begin_operator
-move-fragile-tunnel hall-a maintenance-tunnel venus-rock-sample
-3
-13 25
-39 0
-42 0
+release-artifact curator mart-west-core-drill hall-a
 1
-0 41 3 5
+150 3
+3
+0 73 -1 0
+0 101 0 1
+0 140 -1 0
 0
 end_operator
 begin_operator
-move-fragile-tunnel hall-a maintenance-tunnel venus-sand-sample
-3
-13 26
-39 0
-42 0
+release-artifact curator mart-west-core-drill hall-b
 1
-0 41 3 5
+150 4
+3
+0 74 -1 0
+0 101 0 1
+0 140 -1 0
 0
 end_operator
 begin_operator
-move-fragile-tunnel hall-b maintenance-tunnel asteroid-ad29tv-rock-sample
-3
-13 14
-39 0
-42 0
+release-artifact curator mart-west-core-drill maintenance-tunnel
 1
-0 41 4 5
+150 5
+3
+0 75 -1 0
+0 101 0 1
+0 140 -1 0
 0
 end_operator
 begin_operator
-move-fragile-tunnel hall-b maintenance-tunnel asteroid-mg04tn-ice-sample
-3
-13 15
-39 0
-42 0
+release-artifact curator mart-west-core-drill stasis-lab
 1
-0 41 4 5
+150 6
+3
+0 76 -1 0
+0 101 0 1
+0 140 -1 0
 0
 end_operator
 begin_operator
-move-fragile-tunnel hall-b maintenance-tunnel mart-east-core-drill
-3
-13 16
-39 0
-42 0
+release-artifact curator venus-rock-sample anti-vibration-pods-room
 1
-0 41 4 5
+150 0
+3
+0 77 -1 0
+0 102 0 1
+0 140 -1 0
 0
 end_operator
 begin_operator
-move-fragile-tunnel hall-b maintenance-tunnel mart-laser-gun
-3
-13 17
-39 0
-42 0
+release-artifact curator venus-rock-sample entrance
 1
-0 41 4 5
+150 2
+3
+0 79 -1 0
+0 102 0 1
+0 140 -1 0
 0
 end_operator
 begin_operator
-move-fragile-tunnel hall-b maintenance-tunnel mart-mysterious-egg
-3
-13 18
-39 0
-42 0
+release-artifact curator venus-rock-sample hall-a
 1
-0 41 4 5
+150 3
+3
+0 80 -1 0
+0 102 0 1
+0 140 -1 0
 0
 end_operator
 begin_operator
-move-fragile-tunnel hall-b maintenance-tunnel mart-nord-core-drill
-3
-13 19
-39 0
-42 0
+release-artifact curator venus-rock-sample hall-b
 1
-0 41 4 5
+150 4
+3
+0 81 -1 0
+0 102 0 1
+0 140 -1 0
 0
 end_operator
 begin_operator
-move-fragile-tunnel hall-b maintenance-tunnel mart-north-pole-ice-sample
-3
-13 20
-39 0
-42 0
+release-artifact curator venus-rock-sample maintenance-tunnel
 1
-0 41 4 5
+150 5
+3
+0 82 -1 0
+0 102 0 1
+0 140 -1 0
 0
 end_operator
 begin_operator
-move-fragile-tunnel hall-b maintenance-tunnel mart-pink-hat
-3
-13 21
-39 0
-42 0
+release-artifact curator venus-rock-sample stasis-lab
 1
-0 41 4 5
+150 6
+3
+0 83 -1 0
+0 102 0 1
+0 140 -1 0
 0
 end_operator
 begin_operator
-move-fragile-tunnel hall-b maintenance-tunnel mart-sand-sample
-3
-13 22
-39 0
-42 0
+release-artifact curator venus-sand-sample anti-vibration-pods-room
 1
-0 41 4 5
+150 0
+3
+0 84 -1 0
+0 103 0 1
+0 140 -1 0
 0
 end_operator
 begin_operator
-move-fragile-tunnel hall-b maintenance-tunnel mart-sud-core-drill
-3
-13 23
-39 0
-42 0
+release-artifact curator venus-sand-sample entrance
 1
-0 41 4 5
+150 2
+3
+0 86 -1 0
+0 103 0 1
+0 140 -1 0
 0
 end_operator
 begin_operator
-move-fragile-tunnel hall-b maintenance-tunnel mart-west-core-drill
-3
-13 24
-39 0
-42 0
+release-artifact curator venus-sand-sample hall-a
 1
-0 41 4 5
+150 3
+3
+0 87 -1 0
+0 103 0 1
+0 140 -1 0
 0
 end_operator
 begin_operator
-move-fragile-tunnel hall-b maintenance-tunnel venus-rock-sample
-3
-13 25
-39 0
-42 0
+release-artifact curator venus-sand-sample hall-b
 1
-0 41 4 5
+150 4
+3
+0 88 -1 0
+0 103 0 1
+0 140 -1 0
 0
 end_operator
 begin_operator
-move-fragile-tunnel hall-b maintenance-tunnel venus-sand-sample
-3
-13 26
-39 0
-42 0
+release-artifact curator venus-sand-sample maintenance-tunnel
 1
-0 41 4 5
+150 5
+3
+0 89 -1 0
+0 103 0 1
+0 140 -1 0
 0
 end_operator
 begin_operator
-move-fragile-tunnel stasis-lab maintenance-tunnel asteroid-ad29tv-rock-sample
-3
-13 14
-39 0
-42 0
+release-artifact curator venus-sand-sample stasis-lab
 1
-0 41 6 5
+150 6
+3
+0 90 -1 0
+0 103 0 1
+0 140 -1 0
 0
 end_operator
 begin_operator
-move-fragile-tunnel stasis-lab maintenance-tunnel asteroid-mg04tn-ice-sample
-3
-13 15
-39 0
-42 0
+release-artifact-from-pod curator asteroid-ad29tv-rock-sample anti-vibration-pods-room pod1
 1
-0 41 6 5
+150 0
+5
+0 0 -1 0
+0 91 -1 1
+0 104 -1 0
+0 106 0 8
+0 148 0 13
 0
 end_operator
 begin_operator
-move-fragile-tunnel stasis-lab maintenance-tunnel mart-east-core-drill
-3
-13 16
-39 0
-42 0
+release-artifact-from-pod curator asteroid-ad29tv-rock-sample anti-vibration-pods-room pod2
 1
-0 41 6 5
+150 0
+5
+0 0 -1 0
+0 91 -1 1
+0 105 -1 0
+0 107 0 8
+0 149 0 13
 0
 end_operator
 begin_operator
-move-fragile-tunnel stasis-lab maintenance-tunnel mart-laser-gun
-3
-13 17
-39 0
-42 0
+release-artifact-from-pod curator asteroid-ad29tv-rock-sample entrance pod1
 1
-0 41 6 5
+150 2
+5
+0 2 -1 0
+0 91 -1 1
+0 104 -1 0
+0 106 0 8
+0 148 0 13
 0
 end_operator
 begin_operator
-move-fragile-tunnel stasis-lab maintenance-tunnel mart-mysterious-egg
-3
-13 18
-39 0
-42 0
+release-artifact-from-pod curator asteroid-ad29tv-rock-sample entrance pod2
 1
-0 41 6 5
+150 2
+5
+0 2 -1 0
+0 91 -1 1
+0 105 -1 0
+0 107 0 8
+0 149 0 13
 0
 end_operator
 begin_operator
-move-fragile-tunnel stasis-lab maintenance-tunnel mart-nord-core-drill
-3
-13 19
-39 0
-42 0
+release-artifact-from-pod curator asteroid-ad29tv-rock-sample hall-a pod1
 1
-0 41 6 5
+150 3
+5
+0 3 -1 0
+0 91 -1 1
+0 104 -1 0
+0 106 0 8
+0 148 0 13
 0
 end_operator
 begin_operator
-move-fragile-tunnel stasis-lab maintenance-tunnel mart-north-pole-ice-sample
-3
-13 20
-39 0
-42 0
+release-artifact-from-pod curator asteroid-ad29tv-rock-sample hall-a pod2
 1
-0 41 6 5
+150 3
+5
+0 3 -1 0
+0 91 -1 1
+0 105 -1 0
+0 107 0 8
+0 149 0 13
 0
 end_operator
 begin_operator
-move-fragile-tunnel stasis-lab maintenance-tunnel mart-pink-hat
-3
-13 21
-39 0
-42 0
+release-artifact-from-pod curator asteroid-ad29tv-rock-sample hall-b pod1
 1
-0 41 6 5
+150 4
+5
+0 4 -1 0
+0 91 -1 1
+0 104 -1 0
+0 106 0 8
+0 148 0 13
 0
 end_operator
 begin_operator
-move-fragile-tunnel stasis-lab maintenance-tunnel mart-sand-sample
-3
-13 22
-39 0
-42 0
+release-artifact-from-pod curator asteroid-ad29tv-rock-sample hall-b pod2
 1
-0 41 6 5
+150 4
+5
+0 4 -1 0
+0 91 -1 1
+0 105 -1 0
+0 107 0 8
+0 149 0 13
 0
 end_operator
 begin_operator
-move-fragile-tunnel stasis-lab maintenance-tunnel mart-sud-core-drill
-3
-13 23
-39 0
-42 0
+release-artifact-from-pod curator asteroid-ad29tv-rock-sample maintenance-tunnel pod1
 1
-0 41 6 5
+150 5
+5
+0 5 -1 0
+0 91 -1 1
+0 104 -1 0
+0 106 0 8
+0 148 0 13
 0
 end_operator
 begin_operator
-move-fragile-tunnel stasis-lab maintenance-tunnel mart-west-core-drill
-3
-13 24
-39 0
-42 0
+release-artifact-from-pod curator asteroid-ad29tv-rock-sample maintenance-tunnel pod2
 1
-0 41 6 5
+150 5
+5
+0 5 -1 0
+0 91 -1 1
+0 105 -1 0
+0 107 0 8
+0 149 0 13
 0
 end_operator
 begin_operator
-move-fragile-tunnel stasis-lab maintenance-tunnel venus-rock-sample
-3
-13 25
-39 0
-42 0
+release-artifact-from-pod curator asteroid-ad29tv-rock-sample stasis-lab pod1
 1
-0 41 6 5
+150 6
+5
+0 6 -1 0
+0 91 -1 1
+0 104 -1 0
+0 106 0 8
+0 148 0 13
 0
 end_operator
 begin_operator
-move-fragile-tunnel stasis-lab maintenance-tunnel venus-sand-sample
-3
-13 26
-39 0
-42 0
+release-artifact-from-pod curator asteroid-ad29tv-rock-sample stasis-lab pod2
 1
-0 41 6 5
+150 6
+5
+0 6 -1 0
+0 91 -1 1
+0 105 -1 0
+0 107 0 8
+0 149 0 13
 0
 end_operator
 begin_operator
-pick-up asteroid-ad29tv-rock-sample anti-vibration-pods-room
+release-artifact-from-pod curator asteroid-mg04tn-ice-sample anti-vibration-pods-room pod1
 1
-41 0
-2
-0 0 0 7
-0 13 27 0
+150 0
+5
+0 7 -1 0
+0 92 -1 1
+0 104 -1 0
+0 106 0 8
+0 148 1 13
 0
 end_operator
 begin_operator
-pick-up asteroid-ad29tv-rock-sample cryo-chamber
+release-artifact-from-pod curator asteroid-mg04tn-ice-sample anti-vibration-pods-room pod2
 1
-41 1
-2
-0 0 1 7
-0 13 27 0
+150 0
+5
+0 7 -1 0
+0 92 -1 1
+0 105 -1 0
+0 107 0 8
+0 149 1 13
 0
 end_operator
 begin_operator
-pick-up asteroid-ad29tv-rock-sample entrance
+release-artifact-from-pod curator asteroid-mg04tn-ice-sample entrance pod1
 1
-41 2
-2
-0 0 2 7
-0 13 27 0
+150 2
+5
+0 9 -1 0
+0 92 -1 1
+0 104 -1 0
+0 106 0 8
+0 148 1 13
 0
 end_operator
 begin_operator
-pick-up asteroid-ad29tv-rock-sample hall-a
+release-artifact-from-pod curator asteroid-mg04tn-ice-sample entrance pod2
 1
-41 3
-2
-0 0 3 7
-0 13 27 0
+150 2
+5
+0 9 -1 0
+0 92 -1 1
+0 105 -1 0
+0 107 0 8
+0 149 1 13
 0
 end_operator
 begin_operator
-pick-up asteroid-ad29tv-rock-sample hall-b
+release-artifact-from-pod curator asteroid-mg04tn-ice-sample hall-a pod1
 1
-41 4
-2
-0 0 4 7
-0 13 27 0
+150 3
+5
+0 10 -1 0
+0 92 -1 1
+0 104 -1 0
+0 106 0 8
+0 148 1 13
 0
 end_operator
 begin_operator
-pick-up asteroid-ad29tv-rock-sample maintenance-tunnel
+release-artifact-from-pod curator asteroid-mg04tn-ice-sample hall-a pod2
 1
-41 5
-2
-0 0 5 7
-0 13 27 0
+150 3
+5
+0 10 -1 0
+0 92 -1 1
+0 105 -1 0
+0 107 0 8
+0 149 1 13
 0
 end_operator
 begin_operator
-pick-up asteroid-ad29tv-rock-sample stasis-lab
+release-artifact-from-pod curator asteroid-mg04tn-ice-sample hall-b pod1
 1
-41 6
-2
-0 0 6 7
-0 13 27 0
+150 4
+5
+0 11 -1 0
+0 92 -1 1
+0 104 -1 0
+0 106 0 8
+0 148 1 13
 0
 end_operator
 begin_operator
-pick-up asteroid-mg04tn-ice-sample anti-vibration-pods-room
+release-artifact-from-pod curator asteroid-mg04tn-ice-sample hall-b pod2
 1
-41 0
-2
-0 1 0 7
-0 13 27 1
+150 4
+5
+0 11 -1 0
+0 92 -1 1
+0 105 -1 0
+0 107 0 8
+0 149 1 13
 0
 end_operator
 begin_operator
-pick-up asteroid-mg04tn-ice-sample cryo-chamber
+release-artifact-from-pod curator asteroid-mg04tn-ice-sample maintenance-tunnel pod1
 1
-41 1
-2
-0 1 1 7
-0 13 27 1
+150 5
+5
+0 12 -1 0
+0 92 -1 1
+0 104 -1 0
+0 106 0 8
+0 148 1 13
 0
 end_operator
 begin_operator
-pick-up asteroid-mg04tn-ice-sample entrance
+release-artifact-from-pod curator asteroid-mg04tn-ice-sample maintenance-tunnel pod2
 1
-41 2
-2
-0 1 2 7
-0 13 27 1
+150 5
+5
+0 12 -1 0
+0 92 -1 1
+0 105 -1 0
+0 107 0 8
+0 149 1 13
 0
 end_operator
 begin_operator
-pick-up asteroid-mg04tn-ice-sample hall-a
+release-artifact-from-pod curator asteroid-mg04tn-ice-sample stasis-lab pod1
 1
-41 3
-2
-0 1 3 7
-0 13 27 1
+150 6
+5
+0 13 -1 0
+0 92 -1 1
+0 104 -1 0
+0 106 0 8
+0 148 1 13
 0
 end_operator
 begin_operator
-pick-up asteroid-mg04tn-ice-sample hall-b
+release-artifact-from-pod curator asteroid-mg04tn-ice-sample stasis-lab pod2
 1
-41 4
-2
-0 1 4 7
-0 13 27 1
+150 6
+5
+0 13 -1 0
+0 92 -1 1
+0 105 -1 0
+0 107 0 8
+0 149 1 13
 0
 end_operator
 begin_operator
-pick-up asteroid-mg04tn-ice-sample maintenance-tunnel
+release-artifact-from-pod curator mart-east-core-drill anti-vibration-pods-room pod1
 1
-41 5
-2
-0 1 5 7
-0 13 27 1
+150 0
+5
+0 14 -1 0
+0 93 -1 1
+0 104 -1 0
+0 106 0 8
+0 148 2 13
 0
 end_operator
 begin_operator
-pick-up asteroid-mg04tn-ice-sample stasis-lab
+release-artifact-from-pod curator mart-east-core-drill anti-vibration-pods-room pod2
 1
-41 6
-2
-0 1 6 7
-0 13 27 1
+150 0
+5
+0 14 -1 0
+0 93 -1 1
+0 105 -1 0
+0 107 0 8
+0 149 2 13
 0
 end_operator
 begin_operator
-pick-up mart-east-core-drill anti-vibration-pods-room
+release-artifact-from-pod curator mart-east-core-drill entrance pod1
 1
-41 0
-2
-0 2 0 7
-0 13 27 2
+150 2
+5
+0 16 -1 0
+0 93 -1 1
+0 104 -1 0
+0 106 0 8
+0 148 2 13
 0
 end_operator
 begin_operator
-pick-up mart-east-core-drill cryo-chamber
+release-artifact-from-pod curator mart-east-core-drill entrance pod2
 1
-41 1
-2
-0 2 1 7
-0 13 27 2
+150 2
+5
+0 16 -1 0
+0 93 -1 1
+0 105 -1 0
+0 107 0 8
+0 149 2 13
 0
 end_operator
 begin_operator
-pick-up mart-east-core-drill entrance
+release-artifact-from-pod curator mart-east-core-drill hall-a pod1
 1
-41 2
-2
-0 2 2 7
-0 13 27 2
+150 3
+5
+0 17 -1 0
+0 93 -1 1
+0 104 -1 0
+0 106 0 8
+0 148 2 13
 0
 end_operator
 begin_operator
-pick-up mart-east-core-drill hall-a
+release-artifact-from-pod curator mart-east-core-drill hall-a pod2
 1
-41 3
-2
-0 2 3 7
-0 13 27 2
+150 3
+5
+0 17 -1 0
+0 93 -1 1
+0 105 -1 0
+0 107 0 8
+0 149 2 13
 0
 end_operator
 begin_operator
-pick-up mart-east-core-drill hall-b
+release-artifact-from-pod curator mart-east-core-drill hall-b pod1
 1
-41 4
-2
-0 2 4 7
-0 13 27 2
+150 4
+5
+0 18 -1 0
+0 93 -1 1
+0 104 -1 0
+0 106 0 8
+0 148 2 13
 0
 end_operator
 begin_operator
-pick-up mart-east-core-drill maintenance-tunnel
+release-artifact-from-pod curator mart-east-core-drill hall-b pod2
 1
-41 5
-2
-0 2 5 7
-0 13 27 2
+150 4
+5
+0 18 -1 0
+0 93 -1 1
+0 105 -1 0
+0 107 0 8
+0 149 2 13
 0
 end_operator
 begin_operator
-pick-up mart-east-core-drill stasis-lab
+release-artifact-from-pod curator mart-east-core-drill maintenance-tunnel pod1
 1
-41 6
-2
-0 2 6 7
-0 13 27 2
+150 5
+5
+0 19 -1 0
+0 93 -1 1
+0 104 -1 0
+0 106 0 8
+0 148 2 13
 0
 end_operator
 begin_operator
-pick-up mart-laser-gun anti-vibration-pods-room
+release-artifact-from-pod curator mart-east-core-drill maintenance-tunnel pod2
 1
-41 0
-2
-0 3 0 7
-0 13 27 3
+150 5
+5
+0 19 -1 0
+0 93 -1 1
+0 105 -1 0
+0 107 0 8
+0 149 2 13
 0
 end_operator
 begin_operator
-pick-up mart-laser-gun cryo-chamber
+release-artifact-from-pod curator mart-east-core-drill stasis-lab pod1
 1
-41 1
-2
-0 3 1 7
-0 13 27 3
+150 6
+5
+0 20 -1 0
+0 93 -1 1
+0 104 -1 0
+0 106 0 8
+0 148 2 13
 0
 end_operator
 begin_operator
-pick-up mart-laser-gun entrance
+release-artifact-from-pod curator mart-east-core-drill stasis-lab pod2
 1
-41 2
-2
-0 3 2 7
-0 13 27 3
+150 6
+5
+0 20 -1 0
+0 93 -1 1
+0 105 -1 0
+0 107 0 8
+0 149 2 13
 0
 end_operator
 begin_operator
-pick-up mart-laser-gun hall-a
+release-artifact-from-pod curator mart-laser-gun anti-vibration-pods-room pod1
 1
-41 3
-2
-0 3 3 7
-0 13 27 3
+150 0
+5
+0 21 -1 0
+0 94 -1 1
+0 104 -1 0
+0 106 0 8
+0 148 3 13
 0
 end_operator
 begin_operator
-pick-up mart-laser-gun hall-b
+release-artifact-from-pod curator mart-laser-gun anti-vibration-pods-room pod2
 1
-41 4
-2
-0 3 4 7
-0 13 27 3
+150 0
+5
+0 21 -1 0
+0 94 -1 1
+0 105 -1 0
+0 107 0 8
+0 149 3 13
 0
 end_operator
 begin_operator
-pick-up mart-laser-gun maintenance-tunnel
+release-artifact-from-pod curator mart-laser-gun entrance pod1
 1
-41 5
-2
-0 3 5 7
-0 13 27 3
+150 2
+5
+0 23 -1 0
+0 94 -1 1
+0 104 -1 0
+0 106 0 8
+0 148 3 13
 0
 end_operator
 begin_operator
-pick-up mart-laser-gun stasis-lab
+release-artifact-from-pod curator mart-laser-gun entrance pod2
 1
-41 6
-2
-0 3 6 7
-0 13 27 3
+150 2
+5
+0 23 -1 0
+0 94 -1 1
+0 105 -1 0
+0 107 0 8
+0 149 3 13
 0
 end_operator
 begin_operator
-pick-up mart-mysterious-egg anti-vibration-pods-room
+release-artifact-from-pod curator mart-laser-gun hall-a pod1
 1
-41 0
-2
-0 4 0 7
-0 13 27 4
+150 3
+5
+0 24 -1 0
+0 94 -1 1
+0 104 -1 0
+0 106 0 8
+0 148 3 13
 0
 end_operator
 begin_operator
-pick-up mart-mysterious-egg cryo-chamber
+release-artifact-from-pod curator mart-laser-gun hall-a pod2
 1
-41 1
-2
-0 4 1 7
-0 13 27 4
+150 3
+5
+0 24 -1 0
+0 94 -1 1
+0 105 -1 0
+0 107 0 8
+0 149 3 13
 0
 end_operator
 begin_operator
-pick-up mart-mysterious-egg entrance
+release-artifact-from-pod curator mart-laser-gun hall-b pod1
 1
-41 2
-2
-0 4 2 7
-0 13 27 4
+150 4
+5
+0 25 -1 0
+0 94 -1 1
+0 104 -1 0
+0 106 0 8
+0 148 3 13
 0
 end_operator
 begin_operator
-pick-up mart-mysterious-egg hall-a
+release-artifact-from-pod curator mart-laser-gun hall-b pod2
 1
-41 3
-2
-0 4 3 7
-0 13 27 4
+150 4
+5
+0 25 -1 0
+0 94 -1 1
+0 105 -1 0
+0 107 0 8
+0 149 3 13
 0
 end_operator
 begin_operator
-pick-up mart-mysterious-egg hall-b
+release-artifact-from-pod curator mart-laser-gun maintenance-tunnel pod1
 1
-41 4
-2
-0 4 4 7
-0 13 27 4
+150 5
+5
+0 26 -1 0
+0 94 -1 1
+0 104 -1 0
+0 106 0 8
+0 148 3 13
 0
 end_operator
 begin_operator
-pick-up mart-mysterious-egg maintenance-tunnel
+release-artifact-from-pod curator mart-laser-gun maintenance-tunnel pod2
 1
-41 5
-2
-0 4 5 7
-0 13 27 4
+150 5
+5
+0 26 -1 0
+0 94 -1 1
+0 105 -1 0
+0 107 0 8
+0 149 3 13
 0
 end_operator
 begin_operator
-pick-up mart-mysterious-egg stasis-lab
+release-artifact-from-pod curator mart-laser-gun stasis-lab pod1
 1
-41 6
-2
-0 4 6 7
-0 13 27 4
+150 6
+5
+0 27 -1 0
+0 94 -1 1
+0 104 -1 0
+0 106 0 8
+0 148 3 13
 0
 end_operator
 begin_operator
-pick-up mart-nord-core-drill anti-vibration-pods-room
+release-artifact-from-pod curator mart-laser-gun stasis-lab pod2
 1
-41 0
-2
-0 5 0 7
-0 13 27 5
+150 6
+5
+0 27 -1 0
+0 94 -1 1
+0 105 -1 0
+0 107 0 8
+0 149 3 13
 0
 end_operator
 begin_operator
-pick-up mart-nord-core-drill cryo-chamber
+release-artifact-from-pod curator mart-mysterious-egg anti-vibration-pods-room pod1
 1
-41 1
-2
-0 5 1 7
-0 13 27 5
+150 0
+5
+0 28 -1 0
+0 95 -1 1
+0 104 -1 0
+0 106 0 8
+0 148 4 13
 0
 end_operator
 begin_operator
-pick-up mart-nord-core-drill entrance
+release-artifact-from-pod curator mart-mysterious-egg anti-vibration-pods-room pod2
 1
-41 2
-2
-0 5 2 7
-0 13 27 5
+150 0
+5
+0 28 -1 0
+0 95 -1 1
+0 105 -1 0
+0 107 0 8
+0 149 4 13
 0
 end_operator
 begin_operator
-pick-up mart-nord-core-drill hall-a
+release-artifact-from-pod curator mart-mysterious-egg entrance pod1
 1
-41 3
-2
-0 5 3 7
-0 13 27 5
+150 2
+5
+0 30 -1 0
+0 95 -1 1
+0 104 -1 0
+0 106 0 8
+0 148 4 13
 0
 end_operator
 begin_operator
-pick-up mart-nord-core-drill hall-b
+release-artifact-from-pod curator mart-mysterious-egg entrance pod2
 1
-41 4
-2
-0 5 4 7
-0 13 27 5
+150 2
+5
+0 30 -1 0
+0 95 -1 1
+0 105 -1 0
+0 107 0 8
+0 149 4 13
 0
 end_operator
 begin_operator
-pick-up mart-nord-core-drill maintenance-tunnel
+release-artifact-from-pod curator mart-mysterious-egg hall-a pod1
 1
-41 5
-2
-0 5 5 7
-0 13 27 5
+150 3
+5
+0 31 -1 0
+0 95 -1 1
+0 104 -1 0
+0 106 0 8
+0 148 4 13
 0
 end_operator
 begin_operator
-pick-up mart-nord-core-drill stasis-lab
+release-artifact-from-pod curator mart-mysterious-egg hall-a pod2
 1
-41 6
-2
-0 5 6 7
-0 13 27 5
+150 3
+5
+0 31 -1 0
+0 95 -1 1
+0 105 -1 0
+0 107 0 8
+0 149 4 13
 0
 end_operator
 begin_operator
-pick-up mart-north-pole-ice-sample anti-vibration-pods-room
+release-artifact-from-pod curator mart-mysterious-egg hall-b pod1
 1
-41 0
-2
-0 6 0 7
-0 13 27 6
+150 4
+5
+0 32 -1 0
+0 95 -1 1
+0 104 -1 0
+0 106 0 8
+0 148 4 13
 0
 end_operator
 begin_operator
-pick-up mart-north-pole-ice-sample cryo-chamber
+release-artifact-from-pod curator mart-mysterious-egg hall-b pod2
 1
-41 1
-2
-0 6 1 7
-0 13 27 6
+150 4
+5
+0 32 -1 0
+0 95 -1 1
+0 105 -1 0
+0 107 0 8
+0 149 4 13
 0
 end_operator
 begin_operator
-pick-up mart-north-pole-ice-sample entrance
+release-artifact-from-pod curator mart-mysterious-egg maintenance-tunnel pod1
 1
-41 2
-2
-0 6 2 7
-0 13 27 6
+150 5
+5
+0 33 -1 0
+0 95 -1 1
+0 104 -1 0
+0 106 0 8
+0 148 4 13
 0
 end_operator
 begin_operator
-pick-up mart-north-pole-ice-sample hall-a
+release-artifact-from-pod curator mart-mysterious-egg maintenance-tunnel pod2
 1
-41 3
-2
-0 6 3 7
-0 13 27 6
+150 5
+5
+0 33 -1 0
+0 95 -1 1
+0 105 -1 0
+0 107 0 8
+0 149 4 13
 0
 end_operator
 begin_operator
-pick-up mart-north-pole-ice-sample hall-b
+release-artifact-from-pod curator mart-mysterious-egg stasis-lab pod1
 1
-41 4
-2
-0 6 4 7
-0 13 27 6
+150 6
+5
+0 34 -1 0
+0 95 -1 1
+0 104 -1 0
+0 106 0 8
+0 148 4 13
 0
 end_operator
 begin_operator
-pick-up mart-north-pole-ice-sample maintenance-tunnel
+release-artifact-from-pod curator mart-mysterious-egg stasis-lab pod2
 1
-41 5
-2
-0 6 5 7
-0 13 27 6
+150 6
+5
+0 34 -1 0
+0 95 -1 1
+0 105 -1 0
+0 107 0 8
+0 149 4 13
 0
 end_operator
 begin_operator
-pick-up mart-north-pole-ice-sample stasis-lab
+release-artifact-from-pod curator mart-nord-core-drill anti-vibration-pods-room pod1
 1
-41 6
-2
-0 6 6 7
-0 13 27 6
+150 0
+5
+0 35 -1 0
+0 96 -1 1
+0 104 -1 0
+0 106 0 8
+0 148 5 13
 0
 end_operator
 begin_operator
-pick-up mart-pink-hat anti-vibration-pods-room
+release-artifact-from-pod curator mart-nord-core-drill anti-vibration-pods-room pod2
 1
-41 0
-2
-0 7 0 7
-0 13 27 7
+150 0
+5
+0 35 -1 0
+0 96 -1 1
+0 105 -1 0
+0 107 0 8
+0 149 5 13
 0
 end_operator
 begin_operator
-pick-up mart-pink-hat cryo-chamber
+release-artifact-from-pod curator mart-nord-core-drill entrance pod1
 1
-41 1
-2
-0 7 1 7
-0 13 27 7
+150 2
+5
+0 37 -1 0
+0 96 -1 1
+0 104 -1 0
+0 106 0 8
+0 148 5 13
 0
 end_operator
 begin_operator
-pick-up mart-pink-hat entrance
+release-artifact-from-pod curator mart-nord-core-drill entrance pod2
 1
-41 2
-2
-0 7 2 7
-0 13 27 7
+150 2
+5
+0 37 -1 0
+0 96 -1 1
+0 105 -1 0
+0 107 0 8
+0 149 5 13
 0
 end_operator
 begin_operator
-pick-up mart-pink-hat hall-a
+release-artifact-from-pod curator mart-nord-core-drill hall-a pod1
 1
-41 3
-2
-0 7 3 7
-0 13 27 7
+150 3
+5
+0 38 -1 0
+0 96 -1 1
+0 104 -1 0
+0 106 0 8
+0 148 5 13
 0
 end_operator
 begin_operator
-pick-up mart-pink-hat hall-b
+release-artifact-from-pod curator mart-nord-core-drill hall-a pod2
 1
-41 4
-2
-0 7 4 7
-0 13 27 7
+150 3
+5
+0 38 -1 0
+0 96 -1 1
+0 105 -1 0
+0 107 0 8
+0 149 5 13
 0
 end_operator
 begin_operator
-pick-up mart-pink-hat maintenance-tunnel
+release-artifact-from-pod curator mart-nord-core-drill hall-b pod1
 1
-41 5
-2
-0 7 5 7
-0 13 27 7
+150 4
+5
+0 39 -1 0
+0 96 -1 1
+0 104 -1 0
+0 106 0 8
+0 148 5 13
 0
 end_operator
 begin_operator
-pick-up mart-pink-hat stasis-lab
+release-artifact-from-pod curator mart-nord-core-drill hall-b pod2
 1
-41 6
-2
-0 7 6 7
-0 13 27 7
+150 4
+5
+0 39 -1 0
+0 96 -1 1
+0 105 -1 0
+0 107 0 8
+0 149 5 13
 0
 end_operator
 begin_operator
-pick-up mart-sand-sample anti-vibration-pods-room
+release-artifact-from-pod curator mart-nord-core-drill maintenance-tunnel pod1
 1
-41 0
-2
-0 8 0 7
-0 13 27 8
+150 5
+5
+0 40 -1 0
+0 96 -1 1
+0 104 -1 0
+0 106 0 8
+0 148 5 13
 0
 end_operator
 begin_operator
-pick-up mart-sand-sample cryo-chamber
+release-artifact-from-pod curator mart-nord-core-drill maintenance-tunnel pod2
 1
-41 1
-2
-0 8 1 7
-0 13 27 8
+150 5
+5
+0 40 -1 0
+0 96 -1 1
+0 105 -1 0
+0 107 0 8
+0 149 5 13
 0
 end_operator
 begin_operator
-pick-up mart-sand-sample entrance
+release-artifact-from-pod curator mart-nord-core-drill stasis-lab pod1
 1
-41 2
-2
-0 8 2 7
-0 13 27 8
+150 6
+5
+0 41 -1 0
+0 96 -1 1
+0 104 -1 0
+0 106 0 8
+0 148 5 13
 0
 end_operator
 begin_operator
-pick-up mart-sand-sample hall-a
+release-artifact-from-pod curator mart-nord-core-drill stasis-lab pod2
 1
-41 3
-2
-0 8 3 7
-0 13 27 8
+150 6
+5
+0 41 -1 0
+0 96 -1 1
+0 105 -1 0
+0 107 0 8
+0 149 5 13
 0
 end_operator
 begin_operator
-pick-up mart-sand-sample hall-b
+release-artifact-from-pod curator mart-north-pole-ice-sample anti-vibration-pods-room pod1
 1
-41 4
-2
-0 8 4 7
-0 13 27 8
+150 0
+5
+0 42 -1 0
+0 97 -1 1
+0 104 -1 0
+0 106 0 8
+0 148 6 13
 0
 end_operator
 begin_operator
-pick-up mart-sand-sample maintenance-tunnel
+release-artifact-from-pod curator mart-north-pole-ice-sample anti-vibration-pods-room pod2
 1
-41 5
-2
-0 8 5 7
-0 13 27 8
+150 0
+5
+0 42 -1 0
+0 97 -1 1
+0 105 -1 0
+0 107 0 8
+0 149 6 13
 0
 end_operator
 begin_operator
-pick-up mart-sand-sample stasis-lab
+release-artifact-from-pod curator mart-north-pole-ice-sample entrance pod1
 1
-41 6
-2
-0 8 6 7
-0 13 27 8
+150 2
+5
+0 44 -1 0
+0 97 -1 1
+0 104 -1 0
+0 106 0 8
+0 148 6 13
 0
 end_operator
 begin_operator
-pick-up mart-sud-core-drill anti-vibration-pods-room
+release-artifact-from-pod curator mart-north-pole-ice-sample entrance pod2
 1
-41 0
-2
-0 9 0 7
-0 13 27 9
+150 2
+5
+0 44 -1 0
+0 97 -1 1
+0 105 -1 0
+0 107 0 8
+0 149 6 13
 0
 end_operator
 begin_operator
-pick-up mart-sud-core-drill cryo-chamber
+release-artifact-from-pod curator mart-north-pole-ice-sample hall-a pod1
 1
-41 1
-2
-0 9 1 7
-0 13 27 9
+150 3
+5
+0 45 -1 0
+0 97 -1 1
+0 104 -1 0
+0 106 0 8
+0 148 6 13
 0
 end_operator
 begin_operator
-pick-up mart-sud-core-drill entrance
+release-artifact-from-pod curator mart-north-pole-ice-sample hall-a pod2
 1
-41 2
-2
-0 9 2 7
-0 13 27 9
+150 3
+5
+0 45 -1 0
+0 97 -1 1
+0 105 -1 0
+0 107 0 8
+0 149 6 13
 0
 end_operator
 begin_operator
-pick-up mart-sud-core-drill hall-a
+release-artifact-from-pod curator mart-north-pole-ice-sample hall-b pod1
 1
-41 3
-2
-0 9 3 7
-0 13 27 9
+150 4
+5
+0 46 -1 0
+0 97 -1 1
+0 104 -1 0
+0 106 0 8
+0 148 6 13
 0
 end_operator
 begin_operator
-pick-up mart-sud-core-drill hall-b
+release-artifact-from-pod curator mart-north-pole-ice-sample hall-b pod2
 1
-41 4
-2
-0 9 4 7
-0 13 27 9
+150 4
+5
+0 46 -1 0
+0 97 -1 1
+0 105 -1 0
+0 107 0 8
+0 149 6 13
 0
 end_operator
 begin_operator
-pick-up mart-sud-core-drill maintenance-tunnel
+release-artifact-from-pod curator mart-north-pole-ice-sample maintenance-tunnel pod1
 1
-41 5
-2
-0 9 5 7
-0 13 27 9
+150 5
+5
+0 47 -1 0
+0 97 -1 1
+0 104 -1 0
+0 106 0 8
+0 148 6 13
 0
 end_operator
 begin_operator
-pick-up mart-sud-core-drill stasis-lab
+release-artifact-from-pod curator mart-north-pole-ice-sample maintenance-tunnel pod2
 1
-41 6
-2
-0 9 6 7
-0 13 27 9
+150 5
+5
+0 47 -1 0
+0 97 -1 1
+0 105 -1 0
+0 107 0 8
+0 149 6 13
 0
 end_operator
 begin_operator
-pick-up mart-west-core-drill anti-vibration-pods-room
+release-artifact-from-pod curator mart-north-pole-ice-sample stasis-lab pod1
 1
-41 0
-2
-0 10 0 7
-0 13 27 10
+150 6
+5
+0 48 -1 0
+0 97 -1 1
+0 104 -1 0
+0 106 0 8
+0 148 6 13
 0
 end_operator
 begin_operator
-pick-up mart-west-core-drill cryo-chamber
+release-artifact-from-pod curator mart-north-pole-ice-sample stasis-lab pod2
 1
-41 1
-2
-0 10 1 7
-0 13 27 10
+150 6
+5
+0 48 -1 0
+0 97 -1 1
+0 105 -1 0
+0 107 0 8
+0 149 6 13
 0
 end_operator
 begin_operator
-pick-up mart-west-core-drill entrance
+release-artifact-from-pod curator mart-pink-hat anti-vibration-pods-room pod1
 1
-41 2
-2
-0 10 2 7
-0 13 27 10
+150 0
+5
+0 49 -1 0
+0 98 -1 1
+0 104 -1 0
+0 106 0 8
+0 148 7 13
 0
 end_operator
 begin_operator
-pick-up mart-west-core-drill hall-a
+release-artifact-from-pod curator mart-pink-hat anti-vibration-pods-room pod2
 1
-41 3
-2
-0 10 3 7
-0 13 27 10
+150 0
+5
+0 49 -1 0
+0 98 -1 1
+0 105 -1 0
+0 107 0 8
+0 149 7 13
 0
 end_operator
 begin_operator
-pick-up mart-west-core-drill hall-b
+release-artifact-from-pod curator mart-pink-hat entrance pod1
 1
-41 4
-2
-0 10 4 7
-0 13 27 10
+150 2
+5
+0 51 -1 0
+0 98 -1 1
+0 104 -1 0
+0 106 0 8
+0 148 7 13
 0
 end_operator
 begin_operator
-pick-up mart-west-core-drill maintenance-tunnel
+release-artifact-from-pod curator mart-pink-hat entrance pod2
 1
-41 5
-2
-0 10 5 7
-0 13 27 10
+150 2
+5
+0 51 -1 0
+0 98 -1 1
+0 105 -1 0
+0 107 0 8
+0 149 7 13
 0
 end_operator
 begin_operator
-pick-up mart-west-core-drill stasis-lab
+release-artifact-from-pod curator mart-pink-hat hall-a pod1
 1
-41 6
-2
-0 10 6 7
-0 13 27 10
+150 3
+5
+0 52 -1 0
+0 98 -1 1
+0 104 -1 0
+0 106 0 8
+0 148 7 13
 0
 end_operator
 begin_operator
-pick-up venus-rock-sample anti-vibration-pods-room
+release-artifact-from-pod curator mart-pink-hat hall-a pod2
 1
-41 0
-2
-0 11 0 7
-0 13 27 11
+150 3
+5
+0 52 -1 0
+0 98 -1 1
+0 105 -1 0
+0 107 0 8
+0 149 7 13
 0
 end_operator
 begin_operator
-pick-up venus-rock-sample cryo-chamber
+release-artifact-from-pod curator mart-pink-hat hall-b pod1
 1
-41 1
-2
-0 11 1 7
-0 13 27 11
+150 4
+5
+0 53 -1 0
+0 98 -1 1
+0 104 -1 0
+0 106 0 8
+0 148 7 13
 0
 end_operator
 begin_operator
-pick-up venus-rock-sample entrance
+release-artifact-from-pod curator mart-pink-hat hall-b pod2
 1
-41 2
-2
-0 11 2 7
-0 13 27 11
+150 4
+5
+0 53 -1 0
+0 98 -1 1
+0 105 -1 0
+0 107 0 8
+0 149 7 13
 0
 end_operator
 begin_operator
-pick-up venus-rock-sample hall-a
+release-artifact-from-pod curator mart-pink-hat maintenance-tunnel pod1
 1
-41 3
-2
-0 11 3 7
-0 13 27 11
+150 5
+5
+0 54 -1 0
+0 98 -1 1
+0 104 -1 0
+0 106 0 8
+0 148 7 13
 0
 end_operator
 begin_operator
-pick-up venus-rock-sample hall-b
+release-artifact-from-pod curator mart-pink-hat maintenance-tunnel pod2
 1
-41 4
-2
-0 11 4 7
-0 13 27 11
+150 5
+5
+0 54 -1 0
+0 98 -1 1
+0 105 -1 0
+0 107 0 8
+0 149 7 13
 0
 end_operator
 begin_operator
-pick-up venus-rock-sample maintenance-tunnel
+release-artifact-from-pod curator mart-pink-hat stasis-lab pod1
 1
-41 5
-2
-0 11 5 7
-0 13 27 11
+150 6
+5
+0 55 -1 0
+0 98 -1 1
+0 104 -1 0
+0 106 0 8
+0 148 7 13
 0
 end_operator
 begin_operator
-pick-up venus-rock-sample stasis-lab
+release-artifact-from-pod curator mart-pink-hat stasis-lab pod2
 1
-41 6
-2
-0 11 6 7
-0 13 27 11
+150 6
+5
+0 55 -1 0
+0 98 -1 1
+0 105 -1 0
+0 107 0 8
+0 149 7 13
 0
 end_operator
 begin_operator
-pick-up venus-sand-sample anti-vibration-pods-room
+release-artifact-from-pod curator mart-sand-sample anti-vibration-pods-room pod1
 1
-41 0
-2
-0 12 0 7
-0 13 27 12
+150 0
+5
+0 56 -1 0
+0 99 -1 1
+0 104 -1 0
+0 106 0 8
+0 148 8 13
 0
 end_operator
 begin_operator
-pick-up venus-sand-sample cryo-chamber
+release-artifact-from-pod curator mart-sand-sample anti-vibration-pods-room pod2
 1
-41 1
-2
-0 12 1 7
-0 13 27 12
+150 0
+5
+0 56 -1 0
+0 99 -1 1
+0 105 -1 0
+0 107 0 8
+0 149 8 13
 0
 end_operator
 begin_operator
-pick-up venus-sand-sample entrance
+release-artifact-from-pod curator mart-sand-sample entrance pod1
 1
-41 2
-2
-0 12 2 7
-0 13 27 12
+150 2
+5
+0 58 -1 0
+0 99 -1 1
+0 104 -1 0
+0 106 0 8
+0 148 8 13
 0
 end_operator
 begin_operator
-pick-up venus-sand-sample hall-a
+release-artifact-from-pod curator mart-sand-sample entrance pod2
 1
-41 3
-2
-0 12 3 7
-0 13 27 12
+150 2
+5
+0 58 -1 0
+0 99 -1 1
+0 105 -1 0
+0 107 0 8
+0 149 8 13
 0
 end_operator
 begin_operator
-pick-up venus-sand-sample hall-b
+release-artifact-from-pod curator mart-sand-sample hall-a pod1
 1
-41 4
-2
-0 12 4 7
-0 13 27 12
+150 3
+5
+0 59 -1 0
+0 99 -1 1
+0 104 -1 0
+0 106 0 8
+0 148 8 13
 0
 end_operator
 begin_operator
-pick-up venus-sand-sample maintenance-tunnel
+release-artifact-from-pod curator mart-sand-sample hall-a pod2
 1
-41 5
-2
-0 12 5 7
-0 13 27 12
+150 3
+5
+0 59 -1 0
+0 99 -1 1
+0 105 -1 0
+0 107 0 8
+0 149 8 13
 0
 end_operator
 begin_operator
-pick-up venus-sand-sample stasis-lab
+release-artifact-from-pod curator mart-sand-sample hall-b pod1
 1
-41 6
-2
-0 12 6 7
-0 13 27 12
+150 4
+5
+0 60 -1 0
+0 99 -1 1
+0 104 -1 0
+0 106 0 8
+0 148 8 13
 0
 end_operator
 begin_operator
-pick-up-empty-pod anti-vibration-pods-room
-1
-41 0
+release-artifact-from-pod curator mart-sand-sample hall-b pod2
 1
-0 13 27 13
+150 4
+5
+0 60 -1 0
+0 99 -1 1
+0 105 -1 0
+0 107 0 8
+0 149 8 13
 0
 end_operator
 begin_operator
-secure-pick-up asteroid-ad29tv-rock-sample anti-vibration-pods-room
+release-artifact-from-pod curator mart-sand-sample maintenance-tunnel pod1
 1
-41 0
-2
-0 0 0 7
-0 13 13 14
+150 5
+5
+0 61 -1 0
+0 99 -1 1
+0 104 -1 0
+0 106 0 8
+0 148 8 13
 0
 end_operator
 begin_operator
-secure-pick-up asteroid-ad29tv-rock-sample cryo-chamber
+release-artifact-from-pod curator mart-sand-sample maintenance-tunnel pod2
 1
-41 1
-2
-0 0 1 7
-0 13 13 14
+150 5
+5
+0 61 -1 0
+0 99 -1 1
+0 105 -1 0
+0 107 0 8
+0 149 8 13
 0
 end_operator
 begin_operator
-secure-pick-up asteroid-ad29tv-rock-sample entrance
+release-artifact-from-pod curator mart-sand-sample stasis-lab pod1
 1
-41 2
-2
-0 0 2 7
-0 13 13 14
+150 6
+5
+0 62 -1 0
+0 99 -1 1
+0 104 -1 0
+0 106 0 8
+0 148 8 13
 0
 end_operator
 begin_operator
-secure-pick-up asteroid-ad29tv-rock-sample hall-a
+release-artifact-from-pod curator mart-sand-sample stasis-lab pod2
 1
-41 3
-2
-0 0 3 7
-0 13 13 14
+150 6
+5
+0 62 -1 0
+0 99 -1 1
+0 105 -1 0
+0 107 0 8
+0 149 8 13
 0
 end_operator
 begin_operator
-secure-pick-up asteroid-ad29tv-rock-sample hall-b
+release-artifact-from-pod curator mart-sud-core-drill anti-vibration-pods-room pod1
 1
-41 4
-2
-0 0 4 7
-0 13 13 14
+150 0
+5
+0 63 -1 0
+0 100 -1 1
+0 104 -1 0
+0 106 0 8
+0 148 9 13
 0
 end_operator
 begin_operator
-secure-pick-up asteroid-ad29tv-rock-sample maintenance-tunnel
+release-artifact-from-pod curator mart-sud-core-drill anti-vibration-pods-room pod2
 1
-41 5
-2
-0 0 5 7
-0 13 13 14
+150 0
+5
+0 63 -1 0
+0 100 -1 1
+0 105 -1 0
+0 107 0 8
+0 149 9 13
 0
 end_operator
 begin_operator
-secure-pick-up asteroid-ad29tv-rock-sample stasis-lab
+release-artifact-from-pod curator mart-sud-core-drill entrance pod1
 1
-41 6
-2
-0 0 6 7
-0 13 13 14
+150 2
+5
+0 65 -1 0
+0 100 -1 1
+0 104 -1 0
+0 106 0 8
+0 148 9 13
 0
 end_operator
 begin_operator
-secure-pick-up asteroid-mg04tn-ice-sample anti-vibration-pods-room
+release-artifact-from-pod curator mart-sud-core-drill entrance pod2
 1
-41 0
-2
-0 1 0 7
-0 13 13 15
+150 2
+5
+0 65 -1 0
+0 100 -1 1
+0 105 -1 0
+0 107 0 8
+0 149 9 13
 0
 end_operator
 begin_operator
-secure-pick-up asteroid-mg04tn-ice-sample cryo-chamber
+release-artifact-from-pod curator mart-sud-core-drill hall-a pod1
 1
-41 1
-2
-0 1 1 7
-0 13 13 15
+150 3
+5
+0 66 -1 0
+0 100 -1 1
+0 104 -1 0
+0 106 0 8
+0 148 9 13
 0
 end_operator
 begin_operator
-secure-pick-up asteroid-mg04tn-ice-sample entrance
+release-artifact-from-pod curator mart-sud-core-drill hall-a pod2
 1
-41 2
-2
-0 1 2 7
-0 13 13 15
+150 3
+5
+0 66 -1 0
+0 100 -1 1
+0 105 -1 0
+0 107 0 8
+0 149 9 13
 0
 end_operator
 begin_operator
-secure-pick-up asteroid-mg04tn-ice-sample hall-a
+release-artifact-from-pod curator mart-sud-core-drill hall-b pod1
 1
-41 3
-2
-0 1 3 7
-0 13 13 15
+150 4
+5
+0 67 -1 0
+0 100 -1 1
+0 104 -1 0
+0 106 0 8
+0 148 9 13
 0
 end_operator
 begin_operator
-secure-pick-up asteroid-mg04tn-ice-sample hall-b
+release-artifact-from-pod curator mart-sud-core-drill hall-b pod2
 1
-41 4
-2
-0 1 4 7
-0 13 13 15
+150 4
+5
+0 67 -1 0
+0 100 -1 1
+0 105 -1 0
+0 107 0 8
+0 149 9 13
 0
 end_operator
 begin_operator
-secure-pick-up asteroid-mg04tn-ice-sample maintenance-tunnel
+release-artifact-from-pod curator mart-sud-core-drill maintenance-tunnel pod1
 1
-41 5
-2
-0 1 5 7
-0 13 13 15
+150 5
+5
+0 68 -1 0
+0 100 -1 1
+0 104 -1 0
+0 106 0 8
+0 148 9 13
 0
 end_operator
 begin_operator
-secure-pick-up asteroid-mg04tn-ice-sample stasis-lab
+release-artifact-from-pod curator mart-sud-core-drill maintenance-tunnel pod2
 1
-41 6
-2
-0 1 6 7
-0 13 13 15
+150 5
+5
+0 68 -1 0
+0 100 -1 1
+0 105 -1 0
+0 107 0 8
+0 149 9 13
 0
 end_operator
 begin_operator
-secure-pick-up mart-east-core-drill anti-vibration-pods-room
+release-artifact-from-pod curator mart-sud-core-drill stasis-lab pod1
 1
-41 0
-2
-0 2 0 7
-0 13 13 16
+150 6
+5
+0 69 -1 0
+0 100 -1 1
+0 104 -1 0
+0 106 0 8
+0 148 9 13
 0
 end_operator
 begin_operator
-secure-pick-up mart-east-core-drill cryo-chamber
+release-artifact-from-pod curator mart-sud-core-drill stasis-lab pod2
 1
-41 1
-2
-0 2 1 7
-0 13 13 16
+150 6
+5
+0 69 -1 0
+0 100 -1 1
+0 105 -1 0
+0 107 0 8
+0 149 9 13
 0
 end_operator
 begin_operator
-secure-pick-up mart-east-core-drill entrance
+release-artifact-from-pod curator mart-west-core-drill anti-vibration-pods-room pod1
 1
-41 2
-2
-0 2 2 7
-0 13 13 16
+150 0
+5
+0 70 -1 0
+0 101 -1 1
+0 104 -1 0
+0 106 0 8
+0 148 10 13
 0
 end_operator
 begin_operator
-secure-pick-up mart-east-core-drill hall-a
+release-artifact-from-pod curator mart-west-core-drill anti-vibration-pods-room pod2
 1
-41 3
-2
-0 2 3 7
-0 13 13 16
+150 0
+5
+0 70 -1 0
+0 101 -1 1
+0 105 -1 0
+0 107 0 8
+0 149 10 13
 0
 end_operator
 begin_operator
-secure-pick-up mart-east-core-drill hall-b
+release-artifact-from-pod curator mart-west-core-drill entrance pod1
 1
-41 4
-2
-0 2 4 7
-0 13 13 16
+150 2
+5
+0 72 -1 0
+0 101 -1 1
+0 104 -1 0
+0 106 0 8
+0 148 10 13
 0
 end_operator
 begin_operator
-secure-pick-up mart-east-core-drill maintenance-tunnel
+release-artifact-from-pod curator mart-west-core-drill entrance pod2
 1
-41 5
-2
-0 2 5 7
-0 13 13 16
+150 2
+5
+0 72 -1 0
+0 101 -1 1
+0 105 -1 0
+0 107 0 8
+0 149 10 13
 0
 end_operator
 begin_operator
-secure-pick-up mart-east-core-drill stasis-lab
+release-artifact-from-pod curator mart-west-core-drill hall-a pod1
 1
-41 6
-2
-0 2 6 7
-0 13 13 16
+150 3
+5
+0 73 -1 0
+0 101 -1 1
+0 104 -1 0
+0 106 0 8
+0 148 10 13
 0
 end_operator
 begin_operator
-secure-pick-up mart-laser-gun anti-vibration-pods-room
+release-artifact-from-pod curator mart-west-core-drill hall-a pod2
 1
-41 0
-2
-0 3 0 7
-0 13 13 17
+150 3
+5
+0 73 -1 0
+0 101 -1 1
+0 105 -1 0
+0 107 0 8
+0 149 10 13
 0
 end_operator
 begin_operator
-secure-pick-up mart-laser-gun cryo-chamber
+release-artifact-from-pod curator mart-west-core-drill hall-b pod1
 1
-41 1
-2
-0 3 1 7
-0 13 13 17
+150 4
+5
+0 74 -1 0
+0 101 -1 1
+0 104 -1 0
+0 106 0 8
+0 148 10 13
 0
 end_operator
 begin_operator
-secure-pick-up mart-laser-gun entrance
+release-artifact-from-pod curator mart-west-core-drill hall-b pod2
 1
-41 2
-2
-0 3 2 7
-0 13 13 17
+150 4
+5
+0 74 -1 0
+0 101 -1 1
+0 105 -1 0
+0 107 0 8
+0 149 10 13
 0
 end_operator
 begin_operator
-secure-pick-up mart-laser-gun hall-a
+release-artifact-from-pod curator mart-west-core-drill maintenance-tunnel pod1
 1
-41 3
-2
-0 3 3 7
-0 13 13 17
+150 5
+5
+0 75 -1 0
+0 101 -1 1
+0 104 -1 0
+0 106 0 8
+0 148 10 13
 0
 end_operator
 begin_operator
-secure-pick-up mart-laser-gun hall-b
+release-artifact-from-pod curator mart-west-core-drill maintenance-tunnel pod2
 1
-41 4
-2
-0 3 4 7
-0 13 13 17
+150 5
+5
+0 75 -1 0
+0 101 -1 1
+0 105 -1 0
+0 107 0 8
+0 149 10 13
 0
 end_operator
 begin_operator
-secure-pick-up mart-laser-gun maintenance-tunnel
+release-artifact-from-pod curator mart-west-core-drill stasis-lab pod1
 1
-41 5
-2
-0 3 5 7
-0 13 13 17
+150 6
+5
+0 76 -1 0
+0 101 -1 1
+0 104 -1 0
+0 106 0 8
+0 148 10 13
 0
 end_operator
 begin_operator
-secure-pick-up mart-laser-gun stasis-lab
+release-artifact-from-pod curator mart-west-core-drill stasis-lab pod2
 1
-41 6
-2
-0 3 6 7
-0 13 13 17
+150 6
+5
+0 76 -1 0
+0 101 -1 1
+0 105 -1 0
+0 107 0 8
+0 149 10 13
 0
 end_operator
 begin_operator
-secure-pick-up mart-mysterious-egg anti-vibration-pods-room
+release-artifact-from-pod curator venus-rock-sample anti-vibration-pods-room pod1
 1
-41 0
-2
-0 4 0 7
-0 13 13 18
+150 0
+5
+0 77 -1 0
+0 102 -1 1
+0 104 -1 0
+0 106 0 8
+0 148 11 13
 0
 end_operator
 begin_operator
-secure-pick-up mart-mysterious-egg cryo-chamber
+release-artifact-from-pod curator venus-rock-sample anti-vibration-pods-room pod2
 1
-41 1
-2
-0 4 1 7
-0 13 13 18
+150 0
+5
+0 77 -1 0
+0 102 -1 1
+0 105 -1 0
+0 107 0 8
+0 149 11 13
 0
 end_operator
 begin_operator
-secure-pick-up mart-mysterious-egg entrance
+release-artifact-from-pod curator venus-rock-sample entrance pod1
 1
-41 2
-2
-0 4 2 7
-0 13 13 18
+150 2
+5
+0 79 -1 0
+0 102 -1 1
+0 104 -1 0
+0 106 0 8
+0 148 11 13
 0
 end_operator
 begin_operator
-secure-pick-up mart-mysterious-egg hall-a
+release-artifact-from-pod curator venus-rock-sample entrance pod2
 1
-41 3
-2
-0 4 3 7
-0 13 13 18
+150 2
+5
+0 79 -1 0
+0 102 -1 1
+0 105 -1 0
+0 107 0 8
+0 149 11 13
 0
 end_operator
 begin_operator
-secure-pick-up mart-mysterious-egg hall-b
+release-artifact-from-pod curator venus-rock-sample hall-a pod1
 1
-41 4
-2
-0 4 4 7
-0 13 13 18
+150 3
+5
+0 80 -1 0
+0 102 -1 1
+0 104 -1 0
+0 106 0 8
+0 148 11 13
 0
 end_operator
 begin_operator
-secure-pick-up mart-mysterious-egg maintenance-tunnel
+release-artifact-from-pod curator venus-rock-sample hall-a pod2
 1
-41 5
-2
-0 4 5 7
-0 13 13 18
+150 3
+5
+0 80 -1 0
+0 102 -1 1
+0 105 -1 0
+0 107 0 8
+0 149 11 13
 0
 end_operator
 begin_operator
-secure-pick-up mart-mysterious-egg stasis-lab
+release-artifact-from-pod curator venus-rock-sample hall-b pod1
 1
-41 6
-2
-0 4 6 7
-0 13 13 18
+150 4
+5
+0 81 -1 0
+0 102 -1 1
+0 104 -1 0
+0 106 0 8
+0 148 11 13
 0
 end_operator
 begin_operator
-secure-pick-up mart-nord-core-drill anti-vibration-pods-room
+release-artifact-from-pod curator venus-rock-sample hall-b pod2
 1
-41 0
-2
-0 5 0 7
-0 13 13 19
+150 4
+5
+0 81 -1 0
+0 102 -1 1
+0 105 -1 0
+0 107 0 8
+0 149 11 13
 0
 end_operator
 begin_operator
-secure-pick-up mart-nord-core-drill cryo-chamber
+release-artifact-from-pod curator venus-rock-sample maintenance-tunnel pod1
 1
-41 1
-2
-0 5 1 7
-0 13 13 19
+150 5
+5
+0 82 -1 0
+0 102 -1 1
+0 104 -1 0
+0 106 0 8
+0 148 11 13
 0
 end_operator
 begin_operator
-secure-pick-up mart-nord-core-drill entrance
+release-artifact-from-pod curator venus-rock-sample maintenance-tunnel pod2
 1
-41 2
-2
-0 5 2 7
-0 13 13 19
+150 5
+5
+0 82 -1 0
+0 102 -1 1
+0 105 -1 0
+0 107 0 8
+0 149 11 13
 0
 end_operator
 begin_operator
-secure-pick-up mart-nord-core-drill hall-a
+release-artifact-from-pod curator venus-rock-sample stasis-lab pod1
 1
-41 3
-2
-0 5 3 7
-0 13 13 19
+150 6
+5
+0 83 -1 0
+0 102 -1 1
+0 104 -1 0
+0 106 0 8
+0 148 11 13
 0
 end_operator
 begin_operator
-secure-pick-up mart-nord-core-drill hall-b
+release-artifact-from-pod curator venus-rock-sample stasis-lab pod2
 1
-41 4
-2
-0 5 4 7
-0 13 13 19
+150 6
+5
+0 83 -1 0
+0 102 -1 1
+0 105 -1 0
+0 107 0 8
+0 149 11 13
 0
 end_operator
 begin_operator
-secure-pick-up mart-nord-core-drill maintenance-tunnel
+release-artifact-from-pod curator venus-sand-sample anti-vibration-pods-room pod1
 1
-41 5
-2
-0 5 5 7
-0 13 13 19
+150 0
+5
+0 84 -1 0
+0 103 -1 1
+0 104 -1 0
+0 106 0 8
+0 148 12 13
 0
 end_operator
 begin_operator
-secure-pick-up mart-nord-core-drill stasis-lab
+release-artifact-from-pod curator venus-sand-sample anti-vibration-pods-room pod2
 1
-41 6
-2
-0 5 6 7
-0 13 13 19
+150 0
+5
+0 84 -1 0
+0 103 -1 1
+0 105 -1 0
+0 107 0 8
+0 149 12 13
 0
 end_operator
 begin_operator
-secure-pick-up mart-north-pole-ice-sample anti-vibration-pods-room
+release-artifact-from-pod curator venus-sand-sample entrance pod1
 1
-41 0
-2
-0 6 0 7
-0 13 13 20
+150 2
+5
+0 86 -1 0
+0 103 -1 1
+0 104 -1 0
+0 106 0 8
+0 148 12 13
 0
 end_operator
 begin_operator
-secure-pick-up mart-north-pole-ice-sample cryo-chamber
+release-artifact-from-pod curator venus-sand-sample entrance pod2
 1
-41 1
-2
-0 6 1 7
-0 13 13 20
+150 2
+5
+0 86 -1 0
+0 103 -1 1
+0 105 -1 0
+0 107 0 8
+0 149 12 13
 0
 end_operator
 begin_operator
-secure-pick-up mart-north-pole-ice-sample entrance
+release-artifact-from-pod curator venus-sand-sample hall-a pod1
 1
-41 2
-2
-0 6 2 7
-0 13 13 20
+150 3
+5
+0 87 -1 0
+0 103 -1 1
+0 104 -1 0
+0 106 0 8
+0 148 12 13
 0
 end_operator
 begin_operator
-secure-pick-up mart-north-pole-ice-sample hall-a
+release-artifact-from-pod curator venus-sand-sample hall-a pod2
 1
-41 3
-2
-0 6 3 7
-0 13 13 20
+150 3
+5
+0 87 -1 0
+0 103 -1 1
+0 105 -1 0
+0 107 0 8
+0 149 12 13
 0
 end_operator
 begin_operator
-secure-pick-up mart-north-pole-ice-sample hall-b
+release-artifact-from-pod curator venus-sand-sample hall-b pod1
 1
-41 4
-2
-0 6 4 7
-0 13 13 20
+150 4
+5
+0 88 -1 0
+0 103 -1 1
+0 104 -1 0
+0 106 0 8
+0 148 12 13
 0
 end_operator
 begin_operator
-secure-pick-up mart-north-pole-ice-sample maintenance-tunnel
+release-artifact-from-pod curator venus-sand-sample hall-b pod2
 1
-41 5
-2
-0 6 5 7
-0 13 13 20
+150 4
+5
+0 88 -1 0
+0 103 -1 1
+0 105 -1 0
+0 107 0 8
+0 149 12 13
 0
 end_operator
 begin_operator
-secure-pick-up mart-north-pole-ice-sample stasis-lab
+release-artifact-from-pod curator venus-sand-sample maintenance-tunnel pod1
 1
-41 6
-2
-0 6 6 7
-0 13 13 20
+150 5
+5
+0 89 -1 0
+0 103 -1 1
+0 104 -1 0
+0 106 0 8
+0 148 12 13
 0
 end_operator
 begin_operator
-secure-pick-up mart-pink-hat anti-vibration-pods-room
+release-artifact-from-pod curator venus-sand-sample maintenance-tunnel pod2
 1
-41 0
-2
-0 7 0 7
-0 13 13 21
+150 5
+5
+0 89 -1 0
+0 103 -1 1
+0 105 -1 0
+0 107 0 8
+0 149 12 13
 0
 end_operator
 begin_operator
-secure-pick-up mart-pink-hat cryo-chamber
+release-artifact-from-pod curator venus-sand-sample stasis-lab pod1
 1
-41 1
-2
-0 7 1 7
-0 13 13 21
+150 6
+5
+0 90 -1 0
+0 103 -1 1
+0 104 -1 0
+0 106 0 8
+0 148 12 13
 0
 end_operator
 begin_operator
-secure-pick-up mart-pink-hat entrance
+release-artifact-from-pod curator venus-sand-sample stasis-lab pod2
 1
-41 2
-2
-0 7 2 7
-0 13 13 21
+150 6
+5
+0 90 -1 0
+0 103 -1 1
+0 105 -1 0
+0 107 0 8
+0 149 12 13
 0
 end_operator
 begin_operator
-secure-pick-up mart-pink-hat hall-a
+release-artifact-in-cryo curator asteroid-ad29tv-rock-sample cryo-chamber
 1
-41 3
-2
-0 7 3 7
-0 13 13 21
+150 1
+5
+0 1 -1 0
+0 91 0 1
+0 115 -1 0
+0 140 -1 0
+0 152 -1 1
 0
 end_operator
 begin_operator
-secure-pick-up mart-pink-hat hall-b
+release-artifact-in-cryo curator asteroid-mg04tn-ice-sample cryo-chamber
 1
-41 4
-2
-0 7 4 7
-0 13 13 21
+150 1
+5
+0 8 -1 0
+0 92 0 1
+0 116 -1 0
+0 140 -1 0
+0 153 -1 1
 0
 end_operator
 begin_operator
-secure-pick-up mart-pink-hat maintenance-tunnel
+release-artifact-in-cryo curator mart-east-core-drill cryo-chamber
 1
-41 5
-2
-0 7 5 7
-0 13 13 21
+150 1
+5
+0 15 -1 0
+0 93 0 1
+0 117 -1 0
+0 140 -1 0
+0 154 -1 1
 0
 end_operator
 begin_operator
-secure-pick-up mart-pink-hat stasis-lab
+release-artifact-in-cryo curator mart-laser-gun cryo-chamber
 1
-41 6
-2
-0 7 6 7
-0 13 13 21
+150 1
+5
+0 22 -1 0
+0 94 0 1
+0 118 -1 0
+0 140 -1 0
+0 155 -1 1
 0
 end_operator
 begin_operator
-secure-pick-up mart-sand-sample anti-vibration-pods-room
+release-artifact-in-cryo curator mart-mysterious-egg cryo-chamber
 1
-41 0
-2
-0 8 0 7
-0 13 13 22
+150 1
+5
+0 29 -1 0
+0 95 0 1
+0 119 -1 0
+0 140 -1 0
+0 156 -1 1
 0
 end_operator
 begin_operator
-secure-pick-up mart-sand-sample cryo-chamber
+release-artifact-in-cryo curator mart-nord-core-drill cryo-chamber
 1
-41 1
-2
-0 8 1 7
-0 13 13 22
+150 1
+5
+0 36 -1 0
+0 96 0 1
+0 120 -1 0
+0 140 -1 0
+0 157 -1 1
 0
 end_operator
 begin_operator
-secure-pick-up mart-sand-sample entrance
+release-artifact-in-cryo curator mart-north-pole-ice-sample cryo-chamber
 1
-41 2
-2
-0 8 2 7
-0 13 13 22
+150 1
+5
+0 43 -1 0
+0 97 0 1
+0 121 -1 0
+0 140 -1 0
+0 158 -1 1
 0
 end_operator
 begin_operator
-secure-pick-up mart-sand-sample hall-a
+release-artifact-in-cryo curator mart-pink-hat cryo-chamber
 1
-41 3
-2
-0 8 3 7
-0 13 13 22
+150 1
+5
+0 50 -1 0
+0 98 0 1
+0 122 -1 0
+0 140 -1 0
+0 159 -1 1
 0
 end_operator
 begin_operator
-secure-pick-up mart-sand-sample hall-b
+release-artifact-in-cryo curator mart-sand-sample cryo-chamber
 1
-41 4
-2
-0 8 4 7
-0 13 13 22
+150 1
+5
+0 57 -1 0
+0 99 0 1
+0 123 -1 0
+0 140 -1 0
+0 160 -1 1
 0
 end_operator
 begin_operator
-secure-pick-up mart-sand-sample maintenance-tunnel
+release-artifact-in-cryo curator mart-sud-core-drill cryo-chamber
 1
-41 5
-2
-0 8 5 7
-0 13 13 22
+150 1
+5
+0 64 -1 0
+0 100 0 1
+0 124 -1 0
+0 140 -1 0
+0 161 -1 1
 0
 end_operator
 begin_operator
-secure-pick-up mart-sand-sample stasis-lab
+release-artifact-in-cryo curator mart-west-core-drill cryo-chamber
 1
-41 6
-2
-0 8 6 7
-0 13 13 22
+150 1
+5
+0 71 -1 0
+0 101 0 1
+0 125 -1 0
+0 140 -1 0
+0 162 -1 1
 0
 end_operator
 begin_operator
-secure-pick-up mart-sud-core-drill anti-vibration-pods-room
+release-artifact-in-cryo curator venus-rock-sample cryo-chamber
 1
-41 0
-2
-0 9 0 7
-0 13 13 23
+150 1
+5
+0 78 -1 0
+0 102 0 1
+0 126 -1 0
+0 140 -1 0
+0 163 -1 1
 0
 end_operator
 begin_operator
-secure-pick-up mart-sud-core-drill cryo-chamber
+release-artifact-in-cryo curator venus-sand-sample cryo-chamber
 1
-41 1
-2
-0 9 1 7
-0 13 13 23
+150 1
+5
+0 85 -1 0
+0 103 0 1
+0 127 -1 0
+0 140 -1 0
+0 164 -1 1
 0
 end_operator
 begin_operator
-secure-pick-up mart-sud-core-drill entrance
+release-artifact-in-cryo-from-pod curator asteroid-ad29tv-rock-sample cryo-chamber pod1
 1
-41 2
-2
-0 9 2 7
-0 13 13 23
+150 1
+6
+0 1 -1 0
+0 104 -1 0
+0 106 0 8
+0 115 -1 0
+0 148 0 13
+0 152 -1 1
 0
 end_operator
 begin_operator
-secure-pick-up mart-sud-core-drill hall-a
+release-artifact-in-cryo-from-pod curator asteroid-ad29tv-rock-sample cryo-chamber pod2
 1
-41 3
-2
-0 9 3 7
-0 13 13 23
+150 1
+6
+0 1 -1 0
+0 105 -1 0
+0 107 0 8
+0 115 -1 0
+0 149 0 13
+0 152 -1 1
 0
 end_operator
 begin_operator
-secure-pick-up mart-sud-core-drill hall-b
+release-artifact-in-cryo-from-pod curator asteroid-mg04tn-ice-sample cryo-chamber pod1
 1
-41 4
-2
-0 9 4 7
-0 13 13 23
+150 1
+6
+0 8 -1 0
+0 104 -1 0
+0 106 0 8
+0 116 -1 0
+0 148 1 13
+0 153 -1 1
 0
 end_operator
 begin_operator
-secure-pick-up mart-sud-core-drill maintenance-tunnel
+release-artifact-in-cryo-from-pod curator asteroid-mg04tn-ice-sample cryo-chamber pod2
 1
-41 5
-2
-0 9 5 7
-0 13 13 23
+150 1
+6
+0 8 -1 0
+0 105 -1 0
+0 107 0 8
+0 116 -1 0
+0 149 1 13
+0 153 -1 1
 0
 end_operator
 begin_operator
-secure-pick-up mart-sud-core-drill stasis-lab
+release-artifact-in-cryo-from-pod curator mart-east-core-drill cryo-chamber pod1
 1
-41 6
-2
-0 9 6 7
-0 13 13 23
+150 1
+6
+0 15 -1 0
+0 104 -1 0
+0 106 0 8
+0 117 -1 0
+0 148 2 13
+0 154 -1 1
 0
 end_operator
 begin_operator
-secure-pick-up mart-west-core-drill anti-vibration-pods-room
+release-artifact-in-cryo-from-pod curator mart-east-core-drill cryo-chamber pod2
 1
-41 0
-2
-0 10 0 7
-0 13 13 24
+150 1
+6
+0 15 -1 0
+0 105 -1 0
+0 107 0 8
+0 117 -1 0
+0 149 2 13
+0 154 -1 1
 0
 end_operator
 begin_operator
-secure-pick-up mart-west-core-drill cryo-chamber
+release-artifact-in-cryo-from-pod curator mart-laser-gun cryo-chamber pod1
 1
-41 1
-2
-0 10 1 7
-0 13 13 24
+150 1
+6
+0 22 -1 0
+0 104 -1 0
+0 106 0 8
+0 118 -1 0
+0 148 3 13
+0 155 -1 1
 0
 end_operator
 begin_operator
-secure-pick-up mart-west-core-drill entrance
+release-artifact-in-cryo-from-pod curator mart-laser-gun cryo-chamber pod2
 1
-41 2
-2
-0 10 2 7
-0 13 13 24
+150 1
+6
+0 22 -1 0
+0 105 -1 0
+0 107 0 8
+0 118 -1 0
+0 149 3 13
+0 155 -1 1
 0
 end_operator
 begin_operator
-secure-pick-up mart-west-core-drill hall-a
+release-artifact-in-cryo-from-pod curator mart-mysterious-egg cryo-chamber pod1
 1
-41 3
-2
-0 10 3 7
-0 13 13 24
+150 1
+6
+0 29 -1 0
+0 104 -1 0
+0 106 0 8
+0 119 -1 0
+0 148 4 13
+0 156 -1 1
 0
 end_operator
 begin_operator
-secure-pick-up mart-west-core-drill hall-b
+release-artifact-in-cryo-from-pod curator mart-mysterious-egg cryo-chamber pod2
 1
-41 4
-2
-0 10 4 7
-0 13 13 24
+150 1
+6
+0 29 -1 0
+0 105 -1 0
+0 107 0 8
+0 119 -1 0
+0 149 4 13
+0 156 -1 1
 0
 end_operator
 begin_operator
-secure-pick-up mart-west-core-drill maintenance-tunnel
+release-artifact-in-cryo-from-pod curator mart-nord-core-drill cryo-chamber pod1
 1
-41 5
-2
-0 10 5 7
-0 13 13 24
+150 1
+6
+0 36 -1 0
+0 104 -1 0
+0 106 0 8
+0 120 -1 0
+0 148 5 13
+0 157 -1 1
 0
 end_operator
 begin_operator
-secure-pick-up mart-west-core-drill stasis-lab
+release-artifact-in-cryo-from-pod curator mart-nord-core-drill cryo-chamber pod2
 1
-41 6
-2
-0 10 6 7
-0 13 13 24
+150 1
+6
+0 36 -1 0
+0 105 -1 0
+0 107 0 8
+0 120 -1 0
+0 149 5 13
+0 157 -1 1
 0
 end_operator
 begin_operator
-secure-pick-up venus-rock-sample anti-vibration-pods-room
+release-artifact-in-cryo-from-pod curator mart-north-pole-ice-sample cryo-chamber pod1
 1
-41 0
-2
-0 11 0 7
-0 13 13 25
+150 1
+6
+0 43 -1 0
+0 104 -1 0
+0 106 0 8
+0 121 -1 0
+0 148 6 13
+0 158 -1 1
 0
 end_operator
 begin_operator
-secure-pick-up venus-rock-sample cryo-chamber
+release-artifact-in-cryo-from-pod curator mart-north-pole-ice-sample cryo-chamber pod2
 1
-41 1
-2
-0 11 1 7
-0 13 13 25
+150 1
+6
+0 43 -1 0
+0 105 -1 0
+0 107 0 8
+0 121 -1 0
+0 149 6 13
+0 158 -1 1
 0
 end_operator
 begin_operator
-secure-pick-up venus-rock-sample entrance
+release-artifact-in-cryo-from-pod curator mart-pink-hat cryo-chamber pod1
 1
-41 2
-2
-0 11 2 7
-0 13 13 25
+150 1
+6
+0 50 -1 0
+0 104 -1 0
+0 106 0 8
+0 122 -1 0
+0 148 7 13
+0 159 -1 1
 0
 end_operator
 begin_operator
-secure-pick-up venus-rock-sample hall-a
+release-artifact-in-cryo-from-pod curator mart-pink-hat cryo-chamber pod2
 1
-41 3
-2
-0 11 3 7
-0 13 13 25
+150 1
+6
+0 50 -1 0
+0 105 -1 0
+0 107 0 8
+0 122 -1 0
+0 149 7 13
+0 159 -1 1
 0
 end_operator
 begin_operator
-secure-pick-up venus-rock-sample hall-b
+release-artifact-in-cryo-from-pod curator mart-sand-sample cryo-chamber pod1
 1
-41 4
-2
-0 11 4 7
-0 13 13 25
+150 1
+6
+0 57 -1 0
+0 104 -1 0
+0 106 0 8
+0 123 -1 0
+0 148 8 13
+0 160 -1 1
 0
 end_operator
 begin_operator
-secure-pick-up venus-rock-sample maintenance-tunnel
+release-artifact-in-cryo-from-pod curator mart-sand-sample cryo-chamber pod2
 1
-41 5
-2
-0 11 5 7
-0 13 13 25
+150 1
+6
+0 57 -1 0
+0 105 -1 0
+0 107 0 8
+0 123 -1 0
+0 149 8 13
+0 160 -1 1
 0
 end_operator
 begin_operator
-secure-pick-up venus-rock-sample stasis-lab
+release-artifact-in-cryo-from-pod curator mart-sud-core-drill cryo-chamber pod1
 1
-41 6
-2
-0 11 6 7
-0 13 13 25
+150 1
+6
+0 64 -1 0
+0 104 -1 0
+0 106 0 8
+0 124 -1 0
+0 148 9 13
+0 161 -1 1
 0
 end_operator
 begin_operator
-secure-pick-up venus-sand-sample anti-vibration-pods-room
+release-artifact-in-cryo-from-pod curator mart-sud-core-drill cryo-chamber pod2
 1
-41 0
-2
-0 12 0 7
-0 13 13 26
+150 1
+6
+0 64 -1 0
+0 105 -1 0
+0 107 0 8
+0 124 -1 0
+0 149 9 13
+0 161 -1 1
 0
 end_operator
 begin_operator
-secure-pick-up venus-sand-sample cryo-chamber
+release-artifact-in-cryo-from-pod curator mart-west-core-drill cryo-chamber pod1
 1
-41 1
-2
-0 12 1 7
-0 13 13 26
+150 1
+6
+0 71 -1 0
+0 104 -1 0
+0 106 0 8
+0 125 -1 0
+0 148 10 13
+0 162 -1 1
 0
 end_operator
 begin_operator
-secure-pick-up venus-sand-sample entrance
+release-artifact-in-cryo-from-pod curator mart-west-core-drill cryo-chamber pod2
 1
-41 2
-2
-0 12 2 7
-0 13 13 26
+150 1
+6
+0 71 -1 0
+0 105 -1 0
+0 107 0 8
+0 125 -1 0
+0 149 10 13
+0 162 -1 1
 0
 end_operator
 begin_operator
-secure-pick-up venus-sand-sample hall-a
+release-artifact-in-cryo-from-pod curator venus-rock-sample cryo-chamber pod1
 1
-41 3
-2
-0 12 3 7
-0 13 13 26
+150 1
+6
+0 78 -1 0
+0 104 -1 0
+0 106 0 8
+0 126 -1 0
+0 148 11 13
+0 163 -1 1
 0
 end_operator
 begin_operator
-secure-pick-up venus-sand-sample hall-b
+release-artifact-in-cryo-from-pod curator venus-rock-sample cryo-chamber pod2
 1
-41 4
-2
-0 12 4 7
-0 13 13 26
+150 1
+6
+0 78 -1 0
+0 105 -1 0
+0 107 0 8
+0 126 -1 0
+0 149 11 13
+0 163 -1 1
 0
 end_operator
 begin_operator
-secure-pick-up venus-sand-sample maintenance-tunnel
+release-artifact-in-cryo-from-pod curator venus-sand-sample cryo-chamber pod1
 1
-41 5
-2
-0 12 5 7
-0 13 13 26
+150 1
+6
+0 85 -1 0
+0 104 -1 0
+0 106 0 8
+0 127 -1 0
+0 148 12 13
+0 164 -1 1
 0
 end_operator
 begin_operator
-secure-pick-up venus-sand-sample stasis-lab
+release-artifact-in-cryo-from-pod curator venus-sand-sample cryo-chamber pod2
 1
-41 6
-2
-0 12 6 7
-0 13 13 26
+150 1
+6
+0 85 -1 0
+0 105 -1 0
+0 107 0 8
+0 127 -1 0
+0 149 12 13
+0 164 -1 1
 0
 end_operator
 begin_operator
 wait-for-seismic-window anti-vibration-pods-room
 1
-34 1
+141 1
 1
-0 14 0 1
+0 108 0 1
 0
 end_operator
 begin_operator
 wait-for-seismic-window cryo-chamber
 1
-35 1
+142 1
 1
-0 15 0 1
+0 109 0 1
 0
 end_operator
 begin_operator
 wait-for-seismic-window entrance
 1
-36 1
+143 1
 1
-0 16 0 1
+0 110 0 1
 0
 end_operator
 begin_operator
 wait-for-seismic-window hall-a
 1
-37 1
+144 1
 1
-0 17 0 1
+0 111 0 1
 0
 end_operator
 begin_operator
 wait-for-seismic-window hall-b
 1
-38 1
+145 1
 1
-0 18 0 1
+0 112 0 1
 0
 end_operator
 begin_operator
 wait-for-seismic-window maintenance-tunnel
 1
-39 1
+146 1
 1
-0 19 0 1
+0 113 0 1
 0
 end_operator
 begin_operator
 wait-for-seismic-window stasis-lab
 1
-40 1
+147 1
 1
-0 20 0 1
+0 114 0 1
 0
 end_operator
 0
