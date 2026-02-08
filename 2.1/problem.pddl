@@ -4,6 +4,7 @@
   (:objects
     ;; Robot
     curator                     - robot
+    curator2                    - robot
 
     ;; Pods
     pod1                        - pod

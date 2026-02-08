@@ -4,7 +4,7 @@ end_version
 begin_metric
 0
 end_metric
-165
+166
 begin_variable
 var0
 -1
@@ -1116,88 +1116,95 @@ begin_variable
 var152
 -1
 2
+Atom sealing-mode(curator2)
+NegatedAtom sealing-mode(curator2)
+end_variable
+begin_variable
+var153
+-1
+2
 Atom warm(asteroid-ad29tv-rock-sample)
 NegatedAtom warm(asteroid-ad29tv-rock-sample)
 end_variable
 begin_variable
-var153
+var154
 -1
 2
 Atom warm(asteroid-mg04tn-ice-sample)
 NegatedAtom warm(asteroid-mg04tn-ice-sample)
 end_variable
 begin_variable
-var154
+var155
 -1
 2
 Atom warm(mart-east-core-drill)
 NegatedAtom warm(mart-east-core-drill)
 end_variable
 begin_variable
-var155
+var156
 -1
 2
 Atom warm(mart-laser-gun)
 NegatedAtom warm(mart-laser-gun)
 end_variable
 begin_variable
-var156
+var157
 -1
 2
 Atom warm(mart-mysterious-egg)
 NegatedAtom warm(mart-mysterious-egg)
 end_variable
 begin_variable
-var157
+var158
 -1
 2
 Atom warm(mart-nord-core-drill)
 NegatedAtom warm(mart-nord-core-drill)
 end_variable
 begin_variable
-var158
+var159
 -1
 2
 Atom warm(mart-north-pole-ice-sample)
 NegatedAtom warm(mart-north-pole-ice-sample)
 end_variable
 begin_variable
-var159
+var160
 -1
 2
 Atom warm(mart-pink-hat)
 NegatedAtom warm(mart-pink-hat)
 end_variable
 begin_variable
-var160
+var161
 -1
 2
 Atom warm(mart-sand-sample)
 NegatedAtom warm(mart-sand-sample)
 end_variable
 begin_variable
-var161
+var162
 -1
 2
 Atom warm(mart-sud-core-drill)
 NegatedAtom warm(mart-sud-core-drill)
 end_variable
 begin_variable
-var162
+var163
 -1
 2
 Atom warm(mart-west-core-drill)
 NegatedAtom warm(mart-west-core-drill)
 end_variable
 begin_variable
-var163
+var164
 -1
 2
 Atom warm(venus-rock-sample)
 NegatedAtom warm(venus-rock-sample)
 end_variable
 begin_variable
-var164
+var165
 -1
 2
 Atom warm(venus-sand-sample)
@@ -1460,6 +1467,7 @@ begin_state
 13
 2
 1
+1
 0
 0
 0
@@ -1494,12 +1502,19 @@ begin_goal
 124 0
 125 0
 end_goal
-1361
+1363
 begin_operator
 activate-seal curator
 0
 1
 0 151 -1 0
+0
+end_operator
+begin_operator
+activate-seal curator2
+0
+1
+0 152 -1 0
 0
 end_operator
 begin_operator
@@ -1723,6 +1738,13 @@ deactivate-seal curator
 0
 1
 0 151 -1 1
+0
+end_operator
+begin_operator
+deactivate-seal curator2
+0
+1
+0 152 -1 1
 0
 end_operator
 begin_operator
@@ -16974,7 +16996,7 @@ release-artifact-in-cryo curator asteroid-ad29tv-rock-sample cryo-chamber
 0 91 0 1
 0 115 -1 0
 0 140 -1 0
-0 152 -1 1
+0 153 -1 1
 0
 end_operator
 begin_operator
@@ -16986,7 +17008,7 @@ release-artifact-in-cryo curator asteroid-mg04tn-ice-sample cryo-chamber
 0 92 0 1
 0 116 -1 0
 0 140 -1 0
-0 153 -1 1
+0 154 -1 1
 0
 end_operator
 begin_operator
@@ -16998,7 +17020,7 @@ release-artifact-in-cryo curator mart-east-core-drill cryo-chamber
 0 93 0 1
 0 117 -1 0
 0 140 -1 0
-0 154 -1 1
+0 155 -1 1
 0
 end_operator
 begin_operator
@@ -17010,7 +17032,7 @@ release-artifact-in-cryo curator mart-laser-gun cryo-chamber
 0 94 0 1
 0 118 -1 0
 0 140 -1 0
-0 155 -1 1
+0 156 -1 1
 0
 end_operator
 begin_operator
@@ -17022,7 +17044,7 @@ release-artifact-in-cryo curator mart-mysterious-egg cryo-chamber
 0 95 0 1
 0 119 -1 0
 0 140 -1 0
-0 156 -1 1
+0 157 -1 1
 0
 end_operator
 begin_operator
@@ -17034,7 +17056,7 @@ release-artifact-in-cryo curator mart-nord-core-drill cryo-chamber
 0 96 0 1
 0 120 -1 0
 0 140 -1 0
-0 157 -1 1
+0 158 -1 1
 0
 end_operator
 begin_operator
@@ -17046,7 +17068,7 @@ release-artifact-in-cryo curator mart-north-pole-ice-sample cryo-chamber
 0 97 0 1
 0 121 -1 0
 0 140 -1 0
-0 158 -1 1
+0 159 -1 1
 0
 end_operator
 begin_operator
@@ -17058,7 +17080,7 @@ release-artifact-in-cryo curator mart-pink-hat cryo-chamber
 0 98 0 1
 0 122 -1 0
 0 140 -1 0
-0 159 -1 1
+0 160 -1 1
 0
 end_operator
 begin_operator
@@ -17070,7 +17092,7 @@ release-artifact-in-cryo curator mart-sand-sample cryo-chamber
 0 99 0 1
 0 123 -1 0
 0 140 -1 0
-0 160 -1 1
+0 161 -1 1
 0
 end_operator
 begin_operator
@@ -17082,7 +17104,7 @@ release-artifact-in-cryo curator mart-sud-core-drill cryo-chamber
 0 100 0 1
 0 124 -1 0
 0 140 -1 0
-0 161 -1 1
+0 162 -1 1
 0
 end_operator
 begin_operator
@@ -17094,7 +17116,7 @@ release-artifact-in-cryo curator mart-west-core-drill cryo-chamber
 0 101 0 1
 0 125 -1 0
 0 140 -1 0
-0 162 -1 1
+0 163 -1 1
 0
 end_operator
 begin_operator
@@ -17106,7 +17128,7 @@ release-artifact-in-cryo curator venus-rock-sample cryo-chamber
 0 102 0 1
 0 126 -1 0
 0 140 -1 0
-0 163 -1 1
+0 164 -1 1
 0
 end_operator
 begin_operator
@@ -17118,7 +17140,7 @@ release-artifact-in-cryo curator venus-sand-sample cryo-chamber
 0 103 0 1
 0 127 -1 0
 0 140 -1 0
-0 164 -1 1
+0 165 -1 1
 0
 end_operator
 begin_operator
@@ -17131,7 +17153,7 @@ release-artifact-in-cryo-from-pod curator asteroid-ad29tv-rock-sample cryo-chamb
 0 106 0 8
 0 115 -1 0
 0 148 0 13
-0 152 -1 1
+0 153 -1 1
 0
 end_operator
 begin_operator
@@ -17144,7 +17166,7 @@ release-artifact-in-cryo-from-pod curator asteroid-ad29tv-rock-sample cryo-chamb
 0 107 0 8
 0 115 -1 0
 0 149 0 13
-0 152 -1 1
+0 153 -1 1
 0
 end_operator
 begin_operator
@@ -17157,7 +17179,7 @@ release-artifact-in-cryo-from-pod curator asteroid-mg04tn-ice-sample cryo-chambe
 0 106 0 8
 0 116 -1 0
 0 148 1 13
-0 153 -1 1
+0 154 -1 1
 0
 end_operator
 begin_operator
@@ -17170,7 +17192,7 @@ release-artifact-in-cryo-from-pod curator asteroid-mg04tn-ice-sample cryo-chambe
 0 107 0 8
 0 116 -1 0
 0 149 1 13
-0 153 -1 1
+0 154 -1 1
 0
 end_operator
 begin_operator
@@ -17183,7 +17205,7 @@ release-artifact-in-cryo-from-pod curator mart-east-core-drill cryo-chamber pod1
 0 106 0 8
 0 117 -1 0
 0 148 2 13
-0 154 -1 1
+0 155 -1 1
 0
 end_operator
 begin_operator
@@ -17196,7 +17218,7 @@ release-artifact-in-cryo-from-pod curator mart-east-core-drill cryo-chamber pod2
 0 107 0 8
 0 117 -1 0
 0 149 2 13
-0 154 -1 1
+0 155 -1 1
 0
 end_operator
 begin_operator
@@ -17209,7 +17231,7 @@ release-artifact-in-cryo-from-pod curator mart-laser-gun cryo-chamber pod1
 0 106 0 8
 0 118 -1 0
 0 148 3 13
-0 155 -1 1
+0 156 -1 1
 0
 end_operator
 begin_operator
@@ -17222,7 +17244,7 @@ release-artifact-in-cryo-from-pod curator mart-laser-gun cryo-chamber pod2
 0 107 0 8
 0 118 -1 0
 0 149 3 13
-0 155 -1 1
+0 156 -1 1
 0
 end_operator
 begin_operator
@@ -17235,7 +17257,7 @@ release-artifact-in-cryo-from-pod curator mart-mysterious-egg cryo-chamber pod1
 0 106 0 8
 0 119 -1 0
 0 148 4 13
-0 156 -1 1
+0 157 -1 1
 0
 end_operator
 begin_operator
@@ -17248,7 +17270,7 @@ release-artifact-in-cryo-from-pod curator mart-mysterious-egg cryo-chamber pod2
 0 107 0 8
 0 119 -1 0
 0 149 4 13
-0 156 -1 1
+0 157 -1 1
 0
 end_operator
 begin_operator
@@ -17261,7 +17283,7 @@ release-artifact-in-cryo-from-pod curator mart-nord-core-drill cryo-chamber pod1
 0 106 0 8
 0 120 -1 0
 0 148 5 13
-0 157 -1 1
+0 158 -1 1
 0
 end_operator
 begin_operator
@@ -17274,7 +17296,7 @@ release-artifact-in-cryo-from-pod curator mart-nord-core-drill cryo-chamber pod2
 0 107 0 8
 0 120 -1 0
 0 149 5 13
-0 157 -1 1
+0 158 -1 1
 0
 end_operator
 begin_operator
@@ -17287,7 +17309,7 @@ release-artifact-in-cryo-from-pod curator mart-north-pole-ice-sample cryo-chambe
 0 106 0 8
 0 121 -1 0
 0 148 6 13
-0 158 -1 1
+0 159 -1 1
 0
 end_operator
 begin_operator
@@ -17300,7 +17322,7 @@ release-artifact-in-cryo-from-pod curator mart-north-pole-ice-sample cryo-chambe
 0 107 0 8
 0 121 -1 0
 0 149 6 13
-0 158 -1 1
+0 159 -1 1
 0
 end_operator
 begin_operator
@@ -17313,7 +17335,7 @@ release-artifact-in-cryo-from-pod curator mart-pink-hat cryo-chamber pod1
 0 106 0 8
 0 122 -1 0
 0 148 7 13
-0 159 -1 1
+0 160 -1 1
 0
 end_operator
 begin_operator
@@ -17326,7 +17348,7 @@ release-artifact-in-cryo-from-pod curator mart-pink-hat cryo-chamber pod2
 0 107 0 8
 0 122 -1 0
 0 149 7 13
-0 159 -1 1
+0 160 -1 1
 0
 end_operator
 begin_operator
@@ -17339,7 +17361,7 @@ release-artifact-in-cryo-from-pod curator mart-sand-sample cryo-chamber pod1
 0 106 0 8
 0 123 -1 0
 0 148 8 13
-0 160 -1 1
+0 161 -1 1
 0
 end_operator
 begin_operator
@@ -17352,7 +17374,7 @@ release-artifact-in-cryo-from-pod curator mart-sand-sample cryo-chamber pod2
 0 107 0 8
 0 123 -1 0
 0 149 8 13
-0 160 -1 1
+0 161 -1 1
 0
 end_operator
 begin_operator
@@ -17365,7 +17387,7 @@ release-artifact-in-cryo-from-pod curator mart-sud-core-drill cryo-chamber pod1
 0 106 0 8
 0 124 -1 0
 0 148 9 13
-0 161 -1 1
+0 162 -1 1
 0
 end_operator
 begin_operator
@@ -17378,7 +17400,7 @@ release-artifact-in-cryo-from-pod curator mart-sud-core-drill cryo-chamber pod2
 0 107 0 8
 0 124 -1 0
 0 149 9 13
-0 161 -1 1
+0 162 -1 1
 0
 end_operator
 begin_operator
@@ -17391,7 +17413,7 @@ release-artifact-in-cryo-from-pod curator mart-west-core-drill cryo-chamber pod1
 0 106 0 8
 0 125 -1 0
 0 148 10 13
-0 162 -1 1
+0 163 -1 1
 0
 end_operator
 begin_operator
@@ -17404,7 +17426,7 @@ release-artifact-in-cryo-from-pod curator mart-west-core-drill cryo-chamber pod2
 0 107 0 8
 0 125 -1 0
 0 149 10 13
-0 162 -1 1
+0 163 -1 1
 0
 end_operator
 begin_operator
@@ -17417,7 +17439,7 @@ release-artifact-in-cryo-from-pod curator venus-rock-sample cryo-chamber pod1
 0 106 0 8
 0 126 -1 0
 0 148 11 13
-0 163 -1 1
+0 164 -1 1
 0
 end_operator
 begin_operator
@@ -17430,7 +17452,7 @@ release-artifact-in-cryo-from-pod curator venus-rock-sample cryo-chamber pod2
 0 107 0 8
 0 126 -1 0
 0 149 11 13
-0 163 -1 1
+0 164 -1 1
 0
 end_operator
 begin_operator
@@ -17443,7 +17465,7 @@ release-artifact-in-cryo-from-pod curator venus-sand-sample cryo-chamber pod1
 0 106 0 8
 0 127 -1 0
 0 148 12 13
-0 164 -1 1
+0 165 -1 1
 0
 end_operator
 begin_operator
@@ -17456,7 +17478,7 @@ release-artifact-in-cryo-from-pod curator venus-sand-sample cryo-chamber pod2
 0 107 0 8
 0 127 -1 0
 0 149 12 13
-0 164 -1 1
+0 165 -1 1
 0
 end_operator
 begin_operator
