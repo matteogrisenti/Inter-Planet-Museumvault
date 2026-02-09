@@ -22,8 +22,9 @@
     (sealing-mode ?r - robot)                              ; Robot mode (sealing or normal)
 
     ;; Locations Features
-    (checked ?l - location)                     ; ! True if the location has been checked by the robot
-    (unchecked ?l - location)                   ; ! True if the location has not been checked by the robot
+    (is-seismic ?l - location)                   ; True if the location is currently experiencing seismic activity (earthquake)
+    (to-check ?l - location)                     ; ! True if the location has been checked by the robot
+    (has-mars-quake ?l - location)                   ; ! True if the location has not been checked by the robot
     (safety-unknown ?l - location)              ; ! True if the safety status is unknown (allows re-checking)
     (connected ?l1 ?l2 - location)            ; Location are linked or not 
     (is-unpressurized ?l - location)          ; True for tuneel
@@ -47,6 +48,7 @@
     ; which managment in the solver can slow down the resolution. 
 
     ; Note 2: To increase complexity we can add a capacity for the cryo-chamber room
+
 
     ;; Artifacts Features
     (is-type  ?a - artifact ?t - artifact-type)     ; Artifact a belong to the Artifact Tipology t 
@@ -75,16 +77,31 @@
 
   ;; MOVEMENT
 
+    ;;TODO togliere cl'update della posizione dell'artifact dalle azioni di movimento e metterlo solo nelle azioni di drop down, in questo modo si aumenta la complessità del problema, obbligando a fare il drop down per aggiornare la posizione dell'artifact.
+    ;; verifica che non sia anche con i pod sta cosa
+  ;; cerca di entrare nella staza, se è unsafe riprova, altrimenti entra
+  (:action try-to-enter-seismic-room
+      :parameters (?r - robot ?to ?from - location)
+      :precondition (and (robot-at ?r ?from) (connected ?from ?to) (is-seismic ?to))
+      :effect (and 
+          (oneof 
+              (and (is-safe ?to) (not (robot-at ?r ?from)) (robot-at ?r ?to))          ;; CASE A: Room is safe
+              (and (not (is-safe ?to)))    ;; CASE B: Room is unsafe
+          )
+      )
+  )
+
+
   ;; ! Check sismic status of a room: this action is used to check if a room is safe or not.
   (:action check-seismic-status
     :parameters (?r - robot ?to ?current - location)
-    :precondition (and (robot-at ?r ?current) (connected ?current ?to) (safety-unknown ?to))
+    :precondition (and (robot-at ?r ?current) (connected ?current ?to) (safety-unknown ?to) (is-seismic ?to))
     :effect (and 
         (checked ?to)
         (not (safety-unknown ?to))
         (oneof  ;; NON-DETERMINISTIC EFFECT: the result of the check can be either safe or unsafe
             (is-safe ?to)          ;; CASE A: Room is safe
-            (not (is-safe ?to))    ;; CASE B: Room is unsafe
+            (and (not (is-safe ?to)))    ;; CASE B: Room is unsafe
         )
     )
   )

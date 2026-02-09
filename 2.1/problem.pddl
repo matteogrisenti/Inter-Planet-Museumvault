@@ -85,7 +85,8 @@
     (checked entrance )                   (checked hall-a)
     (checked cryo-chamber)      (checked anti-vibration-pods-room ) (checked maintenance-tunnel ) (checked stasis-lab )
     (safety-unknown hall-b) ; !Hall B is the only room that need to be checked by the robot, becouse it is the only one that is not safe at the beginning.
-    
+    (is-seismic hall-b) ; !Hall B is the only room that is experiencing seismic activity at the beginning, so it is the only one that need to be checked by the robot.
+
     ;; ROOM DROPOUT TYPE PROPERTIES
     (is-standard-room hall-a )             (is-standard-room hall-b )
     (is-standard-room entrance )           (is-standard-room anti-vibration-pods-room ) 
