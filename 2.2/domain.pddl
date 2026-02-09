@@ -1,11 +1,13 @@
 (define (domain single-robot)
-  (:requirements :strips :typing :non-deterministic) ;; ! ADDED NON-DETERMINISTIC REQUIREMENT FOR THE DROP ACTIONS
+  (:requirements :strips :typing :non-deterministic)
 
   ;; Types derived from scenario entities 
   ; The robot is not a type, becouse in this scenario we have only one robot
   ; so it can be modelled as one object in the problem file.
   (:types
     robot             ; The unique robot in the environment (but can be extended to multiple robots in the future)
+    robot-type        ; Robot types: admin, technician, scientist 
+    drone             ; Drones: used to explore unsafe areas and check the safety status of the rooms
     pod               ; Anti-vibration pod: used to secure fragile artifacts during transportation
     location          ; Locations: the different rooms in the enviroment
     artifact          ; Artifacts: the different artifact in the enviroment
@@ -14,12 +16,18 @@
 
   (:predicates
     ;; Robot Features - they all refears to the unique robot in the enviroment
+    (robot-type ?r - robot ?t - robot-type)   ; Robot type (admin, technician, scientist)
     (robot-at ?r - robot ?l - location)                    ; Robot's current location
     (hands-empty ?r - robot)                                ; Robot's hand status ( true if empty)  
     (carrying ?r - robot ?a - artifact)                    ; Robot is carrying the artifact ?a
-    (carrying-full-pod ?r - robot ?p - pod)               ; *Robot has a secure fragile artifact inside an anti vibration pod (this assumes that if has a pod and an artifact, this latter is inside the pod)
+    (carrying-full-pod ?r - robot ?p - pod)               ; Robot has a secure fragile artifact inside an anti vibration pod (this assumes that if has a pod and an artifact, this latter is inside the pod)
     (carrying-empty-pod ?r - robot ?p - pod)                 ; Robot is carrying empty pods (ready to secure fragile artifacts)
     (sealing-mode ?r - robot)                              ; Robot mode (sealing or normal)
+
+    ;;* Robot capabilities
+    (can-access ?r - robot ?l - location)          ; Robot can access the location ?l
+    (can-pickup ?r - robot ?at - artifact-type)          ; Robot can pick up the artifact ?a
+    
 
     ;; Locations Features
     (is-seismic ?l - location)                   ; True if the location is currently experiencing seismic activity (earthquake)
@@ -74,13 +82,12 @@
 
   ;; MOVEMENT
 
-    ;;TODO togliere cl'update della posizione dell'artifact dalle azioni di movimento e metterlo solo nelle azioni di drop down, in questo modo si aumenta la complessità del problema, obbligando a fare il drop down per aggiornare la posizione dell'artifact.
-    ;; verifica che non sia anche con i pod sta cosa
-  ;; cerca di entrare nella staza, se è unsafe riprova, altrimenti entra
+  ;; tries to move to a room without checking its safety status. If the room is safe, the robot can move there, otherwise it can't.
   (:action try-to-enter-seismic-room
       :parameters (?r - robot ?to ?from - location)
       :precondition (and 
           (robot-at ?r ?from) 
+          (can-access ?r ?to)
           (connected ?from ?to) 
           (is-seismic ?to)
           (not (sealing-mode ?r)) ;; this is used just for travelling Tunnel to room B
@@ -88,7 +95,7 @@
       :effect (and 
           (oneof 
               (and (is-safe ?to) (not (robot-at ?r ?from)) (robot-at ?r ?to))          ;; CASE A: Room is safe
-              (not (is-safe ?to))    ;; CASE B: Room is unsafe
+              (and (not (is-safe ?to)))    ;; CASE B: Room is unsafe
           )
       )
   )
@@ -105,6 +112,7 @@
         (is-pressurized ?to)       ;; Target is pressurized 
         (is-safe ?to)              ;; Target is safe
         (not (sealing-mode ?r))
+        (can-access ?r ?to)
     )
     :effect (and (not (robot-at ?r ?from)) (robot-at ?r ?to))
   )
@@ -118,6 +126,7 @@
         (is-unpressurized ?to)     ;; Target is unpressurized
         (sealing-mode ?r)             ;; Constraint: Must be sealed
         (is-safe ?to)              ;; Target is safe
+        (can-access ?r ?to)
     )
     :effect (and (not (robot-at ?r ?from)) (robot-at ?r ?to))
   )
@@ -155,12 +164,14 @@
   )
 
   (:action pick-up-full-pod
-      :parameters (?r - robot ?l - location ?p - pod ?a - artifact)
+      :parameters (?r - robot ?l - location ?p - pod ?a - artifact ?at - artifact-type)
       :precondition (and 
           (robot-at ?r ?l)
           (contains-full-pod ?l ?p)
           (pod-contains ?p ?a)
           (hands-empty ?r)
+          (can-pickup ?r ?at)
+          (is-type  ?a ?at)
       )
       :effect (and 
           (not (hands-empty ?r))
@@ -214,12 +225,14 @@
   ;; Used for sturdy items. If you pick up a fragile item this way, 
   ;; you won't be able to move it (due to move constraints).
   (:action pick-up-artifact-standard
-    :parameters (?a - artifact ?l - location ?r - robot)
+    :parameters (?a - artifact ?at - artifact-type ?l - location ?r - robot)
     :precondition (and 
         (robot-at ?r ?l)            ; Robot and Artifact in the same 
         (artifact-at ?a ?l)      ; location
         (hands-empty ?r)             ; Robot free
         (no-fragile  ?a)
+        (can-pickup ?r ?at)
+        (is-type  ?a ?at)
     )
     :effect (and 
         (not (hands-empty ?r)) 
@@ -232,12 +245,14 @@
   ;; Transition: carrying-empty-pod -> carrying-in-pod ?a
   ;; This action "secures" the artifact immediately.
   (:action put-in-pod
-    :parameters (?a - artifact ?l - location ?r - robot ?p - pod)
+    :parameters (?a - artifact ?at - artifact-type ?l - location ?r - robot ?p - pod)
     :precondition (and 
         (robot-at ?r ?l)            ; Robot and Artifact in the same 
         (artifact-at ?a ?l)      ; location
         (carrying-empty-pod ?r ?p)    ; Robot carrying already an empty pod
         (pod-empty ?p)         ; Pod is empty
+        (can-pickup ?r ?at)
+        (is-type  ?a ?at)
     )
     :effect (and 
         (not (carrying-empty-pod ?r ?p))
@@ -303,6 +318,7 @@
         (robot-at ?r ?l) 
         (carrying ?r ?a)
         (is-chill-room ?l)
+        (warm  ?a )
     )
     :effect (and 
         (not (carrying ?r ?a)) 
