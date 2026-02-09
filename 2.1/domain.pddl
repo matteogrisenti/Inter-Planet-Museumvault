@@ -23,8 +23,6 @@
 
     ;; Locations Features
     (is-seismic ?l - location)                   ; True if the location is currently experiencing seismic activity (earthquake)
-    (to-check ?l - location)                     ; ! True if the location has been checked by the robot
-    (has-mars-quake ?l - location)                   ; ! True if the location has not been checked by the robot
     (safety-unknown ?l - location)              ; ! True if the safety status is unknown (allows re-checking)
     (connected ?l1 ?l2 - location)            ; Location are linked or not 
     (is-unpressurized ?l - location)          ; True for tuneel
@@ -92,20 +90,6 @@
   )
 
 
-  ;; ! Check sismic status of a room: this action is used to check if a room is safe or not.
-  (:action check-seismic-status
-    :parameters (?r - robot ?to ?current - location)
-    :precondition (and (robot-at ?r ?current) (connected ?current ?to) (safety-unknown ?to) (is-seismic ?to))
-    :effect (and 
-        (checked ?to)
-        (not (safety-unknown ?to))
-        (oneof  ;; NON-DETERMINISTIC EFFECT: the result of the check can be either safe or unsafe
-            (is-safe ?to)          ;; CASE A: Room is safe
-            (and (not (is-safe ?to)))    ;; CASE B: Room is unsafe
-        )
-    )
-  )
-
   ;; ! Action to wait for seismic window (resetting knowledge to allow retry)
   (:action wait-for-seismic-window
     :parameters (?l - location)
@@ -167,9 +151,9 @@
         (not (sealing-mode ?r))  
     )
     :effect (and 
-        (not (robot-at ?r ?from)) (robot-at ?r ?to) (artifact-at ?a ?to) (not (artifact-at ?a ?from)) ;; ! Move robot and artifact together
+        (not (robot-at ?r ?from)) (robot-at ?r ?to))
     )
-  )
+  
   ;; 4. Move Standard Item to Tunnel (Requires Sealing)
   (:action move-carrying-tunnel
     :parameters (?r - robot ?from ?to - location ?a - artifact)
@@ -183,7 +167,7 @@
         (is-safe ?to)              ;; Target is safe
     )
     :effect (and 
-        (not (robot-at ?r ?from)) (robot-at ?r ?to) (artifact-at ?a ?to) (not (artifact-at ?a ?from)) ;; ! Move robot and artifact together
+        (not (robot-at ?r ?from)) (robot-at ?r ?to)
     )
   )
 
@@ -203,7 +187,7 @@
         (not (sealing-mode ?r))
     )
     :effect (and 
-        (not (robot-at ?r ?from)) (robot-at ?r ?to) (artifact-at ?a ?to) (not (artifact-at ?a ?from)) ;; ! Move robot and artifact together
+        (not (robot-at ?r ?from)) (robot-at ?r ?to)
     )
   )
   ;; 6. Move Fragile Item to Tunnel (Requires Pod AND Sealing)
@@ -221,7 +205,7 @@
         (is-safe ?to)                     ;; Target is safe
     )
     :effect (and 
-        (not (robot-at ?r ?from)) (robot-at ?r ?to) (artifact-at ?a ?to) (not (artifact-at ?a ?from)) ;; ! Move robot and artifact together
+        (not (robot-at ?r ?from)) (robot-at ?r ?to)
     )
   )
 
