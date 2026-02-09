@@ -27,7 +27,6 @@
     (connected ?l1 ?l2 - location)            ; Location are linked or not 
     (is-unpressurized ?l - location)          ; True for tuneel
     (is-pressurized   ?l - location)
-    (is-unsafe ?l - location)                     ; True if not safe to enter 
     (is-safe ?l - location)                    ; ( Model the mars_quake const for Hall B)
     ; The next flag are used to shape the drop action; which effect change based on the 
     ; nature of the location where the artifact is dropped down.
@@ -89,25 +88,7 @@
       )
   )
 
-
-  ;; ! Action to wait for seismic window (resetting knowledge to allow retry)
-  (:action wait-for-seismic-window
-    :parameters (?l - location)
-    :precondition (and 
-        (checked ?l)       ;; We have checked
-        (not (is-safe ?l)) ;; And it is unsafe (earthquake)
-    )
-    :effect (and 
-        (not (checked ?l))      ;; Forget the result
-        (safety-unknown ?l)     ;; Reset to unknown
-    )
-  )
-
   ;; MOVEMENT
-
-
-
-
 
   ;; A: Moving Empty (No artifact constraints) -> No artifact position updade
   ;; 1. Move Empty to a Safe Room (No sealing needed)
