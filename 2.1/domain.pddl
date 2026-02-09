@@ -79,7 +79,12 @@
   ;; cerca di entrare nella staza, se è unsafe riprova, altrimenti entra
   (:action try-to-enter-seismic-room
       :parameters (?r - robot ?to ?from - location)
-      :precondition (and (robot-at ?r ?from) (connected ?from ?to) (is-seismic ?to))
+      :precondition (and 
+          (robot-at ?r ?from) 
+          (connected ?from ?to) 
+          (is-seismic ?to)
+          (not (sealing-mode ?r)) ;; this is used just for travelling Tunnel to room B
+        )
       :effect (and 
           (oneof 
               (and (is-safe ?to) (not (robot-at ?r ?from)) (robot-at ?r ?to))          ;; CASE A: Room is safe
@@ -92,125 +97,27 @@
 
   ;; A: Moving Empty (No artifact constraints) -> No artifact position updade
   ;; 1. Move Empty to a Safe Room (No sealing needed)
-  (:action move-empty-safe
+  (:action move-to-pressurized-room
     :parameters (?r - robot ?from ?to - location)
     :precondition (and 
         (robot-at ?r ?from)
         (connected ?from ?to)
-        (hands-empty ?r)
         (is-pressurized ?to)       ;; Target is pressurized 
         (is-safe ?to)              ;; Target is safe
         (not (sealing-mode ?r))
     )
     :effect (and (not (robot-at ?r ?from)) (robot-at ?r ?to))
   )
+
   ;; 2. Move Empty to Tunnel (Requires Sealing)
-  (:action move-empty-tunnel
+  (:action move-to-unpressurized-room
     :parameters (?r - robot ?from ?to - location)
     :precondition (and 
         (robot-at ?r ?from)
         (connected ?from ?to)
-        (hands-empty ?r)
         (is-unpressurized ?to)     ;; Target is unpressurized
         (sealing-mode ?r)             ;; Constraint: Must be sealed
         (is-safe ?to)              ;; Target is safe
-    )
-    :effect (and (not (robot-at ?r ?from)) (robot-at ?r ?to))
-  )
-
-  ;; B. Moving Standard Artifacts (No pod needed)
-  ;; 3. Move Standard Item to Safe Room
-  (:action move-carrying-safe
-    :parameters (?r - robot ?from ?to - location ?a - artifact)
-    :precondition (and 
-        (robot-at ?r ?from)
-        (connected ?from ?to)
-        (carrying ?r ?a)
-        (no-fragile ?a)            ;; Ensure it's NOT fragile
-        (is-pressurized ?to)       ;; Target is pressurized 
-        (is-safe ?to)              ;; Target is safe
-        (not (sealing-mode ?r))  
-    )
-    :effect (and 
-        (not (robot-at ?r ?from)) (robot-at ?r ?to))
-    )
-  
-  ;; 4. Move Standard Item to Tunnel (Requires Sealing)
-  (:action move-carrying-tunnel
-    :parameters (?r - robot ?from ?to - location ?a - artifact)
-    :precondition (and 
-        (robot-at ?r ?from)
-        (connected ?from ?to)
-        (carrying ?r ?a)
-        (no-fragile ?a)            ;; Ensure it's NOT fragile
-        (is-unpressurized ?to)     ;; Target is unpressurized
-        (sealing-mode ?r)             ;; Constraint: Must be sealed
-        (is-safe ?to)              ;; Target is safe
-    )
-    :effect (and 
-        (not (robot-at ?r ?from)) (robot-at ?r ?to)
-    )
-  )
-
-  ;; C. Moving Fragile Artifacts (Pod required)
-  ;; 5. Move Fragile Item to Safe Room (Requires Pod)
-  (:action move-fragile-safe
-    :parameters (?r - robot ?p - pod ?from ?to - location ?a - artifact)
-    :precondition (and 
-        (robot-at ?r ?from)
-        (connected ?from ?to)
-        ;; Constraint: The fragile asrtifact must put inside an 
-        ;; anti-vibration-pod to be secured during trasporation
-        (carrying-full-pod ?r ?p)              ;; <=
-        (pod-contains ?p ?a)
-        (is-pressurized ?to)              ;; Target is pressurized 
-        (is-safe ?to)                     ;; Target is safe
-        (not (sealing-mode ?r))
-    )
-    :effect (and 
-        (not (robot-at ?r ?from)) (robot-at ?r ?to)
-    )
-  )
-  ;; 6. Move Fragile Item to Tunnel (Requires Pod AND Sealing)
-  (:action move-fragile-tunnel
-    :parameters (?r - robot ?p - pod ?from ?to - location ?a - artifact)
-    :precondition (and 
-        (robot-at ?r ?from)
-        (connected ?from ?to)
-        (carrying-full-pod ?r ?p)              ;; <=
-        (pod-contains ?p ?a)
-        ;; Constraint: The fragile asrtifact must put inside an 
-        ;; anti-vibration-pod to be secured during trasporation
-        (is-unpressurized ?to)            ;; Target is unpressurized
-        (sealing-mode ?r)                    ;; Constraint: Must be sealed
-        (is-safe ?to)                     ;; Target is safe
-    )
-    :effect (and 
-        (not (robot-at ?r ?from)) (robot-at ?r ?to)
-    )
-  )
-
-  ;; Move with Empty Pod to Safe Room (otherwise the robot can't move because previously it required to have just an artifact or empty hands)
-  (:action move-pod-safe
-    :parameters (?r - robot ?p - pod ?from ?to - location)
-    :precondition (and 
-        (robot-at ?r ?from)
-        (connected ?from ?to)
-        (carrying-empty-pod ?r ?p)
-        (is-pressurized ?to) (is-safe ?to)
-        (not (sealing-mode ?r))
-    )
-    :effect (and (not (robot-at ?r ?from)) (robot-at ?r ?to))
-  )
-
-  ;; Move with Empty Pod to Tunnel
-  (:action move-pod-tunnel
-    :parameters (?r - robot ?p - pod ?from ?to - location)
-    :precondition (and 
-        (robot-at ?r ?from)
-        (connected ?from ?to)
-        (carrying-empty-pod ?r ?p)
-        (is-unpressurized ?to) (sealing-mode ?r) (is-safe ?to)
     )
     :effect (and (not (robot-at ?r ?from)) (robot-at ?r ?to))
   )
