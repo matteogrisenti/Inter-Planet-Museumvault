@@ -8,25 +8,26 @@ class WorldState:
     
     def __init__(self, problem_data: Dict[str, Any]):
         # --- Static World Configuration ---
-        self.locations = problem_data['locations']          # List of all locations
-        self.artifacts = problem_data['artifacts']          # List of all artifacts
-        self.connections = problem_data['connections']      # Topology (connections between rooms)
+        self.locations = problem_data['locations']          
+        self.artifacts = problem_data['artifacts']          
+        self.connections = problem_data['connections']      
         
         # --- Dynamic State: Robot ---
-        self.robot_location = None              # Current room of the robot
-        self.robot_hand_empty = True            # Flag: Is the robot's hand free?
-        self.robot_carrying = None              # Name of artifact held in hand (if any)
-        self.robot_carrying_in_pod = None       # Name of artifact held inside a pod (if any)
-        self.robot_carrying_empty_pods = False  # Flag: Is robot holding an empty pod?
-        self.robot_sealing_mode = False         # Flag: Is the robot sealed/pressurized?
+        self.robot_location = None              
+        self.robot_hand_empty = True            
+        self.robot_carrying = None              # Held directly
+        self.robot_carrying_in_pod = None       # Held inside a pod
+        self.robot_carrying_empty_pods = False  
+        self.robot_sealing_mode = False         
 
         # --- Dynamic State: Environment ---
-        self.artifact_locations = {}            # Map: Artifact Name -> Location
-        self.pod_locations = {}                 # Map: Pod Name -> Location (for pods on the floor)
-        self.artifact_temperatures = {}         # Map: Artifact Name -> 'warm' or 'cold'
-        self.artifact_fragility = {}            # Map: Artifact Name -> boolean (is fragile?)
+        self.artifact_locations = {}            # Map: Artifact -> Location (Floor)
+        self.pod_locations = {}                 # Map: Pod -> Location (Floor)
+        self.pod_contents = {}                  # Map: Pod -> Artifact (If pod is on floor and full)
         
-        # Initialize state from the parsed PDDL problem
+        self.artifact_temperatures = {}         
+        self.artifact_fragility = {}            
+        
         self._initialize_from_problem(problem_data['initial_state'])
     
     def _initialize_from_problem(self, initial_state: Dict[str, List[Tuple]]):
@@ -34,22 +35,24 @@ class WorldState:
         
         # 1. Robot Configuration
         if 'robot-at' in initial_state:
-            # PDDL: (robot-at curator entrance) -> We want 'entrance' (index 1)
             self.robot_location = initial_state['robot-at'][0][1]
         
         self.robot_hand_empty = 'hands-empty' in initial_state
+        self.robot_sealing_mode = 'sealing-mode-on' in initial_state
         
         # 2. Object Locations
         if 'artifact-at' in initial_state:
             for artifact, location in initial_state['artifact-at']:
                 self.artifact_locations[artifact] = location
 
-        if 'contains-empty-pod' in initial_state:
-            for location, pod in initial_state['contains-empty-pod']:
+        # --- FIX: Handle generic pod-at predicate ---
+        if 'pod-at' in initial_state:
+            for pod, location in initial_state['pod-at']:
                 self.pod_locations[pod] = location
         
-        if 'contains-full-pod' in initial_state:
-            for location, pod in initial_state['contains-full-pod']:
+        # Fallback for old PDDL if used
+        if 'contains-empty-pod' in initial_state:
+            for location, pod in initial_state['contains-empty-pod']:
                 self.pod_locations[pod] = location
         
         # 3. Artifact Properties
@@ -68,13 +71,8 @@ class WorldState:
     def apply_action(self, action_name: str, parameters: List[str]) -> str:
         """
         Updates the world state based on the action applied.
-        Returns a human-readable description of the event.
         """
-        
-        # Clean up action name (remove solver suffixes like _DETDUP)
         clean_name = action_name.split('_')[0].lower()
-        
-        # Build base description
         description = f"{clean_name}"
         if parameters:
             description += f" ({', '.join(parameters)})"
@@ -91,18 +89,18 @@ class WorldState:
             return "[UNLOCK] Sealing Deactivated"
         
         elif 'move-to' in clean_name:
-            # Parameters: ?r ?from ?to
             if len(parameters) >= 3:
-                from_loc, to_loc = parameters[1], parameters[2]
+                # parameters: ?r ?from ?to
+                to_loc = parameters[2]
                 self.robot_location = to_loc
-                return f"Move: {from_loc} -> {to_loc}"
+                return f"Move -> {to_loc}"
             
         elif 'try-to-enter' in clean_name:
-             # Parameters: ?r ?to ?from (Note reversed order in domain!)
+             # Parameters: ?r ?to ?from
              if len(parameters) >= 3:
-                 to_loc, from_loc = parameters[1], parameters[2]
+                 to_loc = parameters[1]
                  self.robot_location = to_loc
-                 return f"Enter Seismic Room: {from_loc} -> {to_loc}"
+                 return f"Risk Entry -> {to_loc}"
 
         # ==========================
         #  POD MANAGEMENT
@@ -127,27 +125,33 @@ class WorldState:
             
         elif clean_name == 'put-in-pod':
             # Parameters: ?a ?l ?r ?p
-            # Logic: Robot puts an artifact (from hand or immediate vicinity) into the held pod
+            # Robot puts item from FLOOR into HELD pod
             artifact = parameters[0]
-            self.robot_carrying_empty_pods = False
-            self.robot_carrying_in_pod = artifact
-            # Ensure artifact is removed from map if it was there
+            self.robot_carrying_empty_pods = False # Pod is now full
+            self.robot_carrying_in_pod = artifact  # Robot holds full pod
+            
             if artifact in self.artifact_locations:
                 del self.artifact_locations[artifact]
             return f"Secure {artifact} in Pod"
 
         elif clean_name == 'pick-up-full-pod':
              # Parameters: ?r ?l ?p ?a
+             # This assumes picking up from floor.
+             # If PDDL state had (pod-contains p a), we must trust the plan parameters
              pod = parameters[2]
              artifact = parameters[3]
+             
              self.robot_carrying_in_pod = artifact
              self.robot_hand_empty = False
              
-             # Remove items from the floor
+             # Remove pod from floor
              if pod in self.pod_locations:
                  del self.pod_locations[pod]
-             if artifact in self.artifact_locations:
-                 del self.artifact_locations[artifact]
+             
+             # Remove artifact from "pod contents on floor" tracker
+             if pod in self.pod_contents:
+                 del self.pod_contents[pod]
+                 
              return f"Pick Up Full {pod}"
 
         elif clean_name == 'drop-full-pod':
@@ -159,10 +163,12 @@ class WorldState:
             self.robot_carrying_in_pod = None
             self.robot_hand_empty = True
             
-            # Place both pod and artifact on the map
-            self.artifact_locations[artifact] = location
+            # --- FIX: Artifact stays INSIDE pod, not on floor ---
             self.pod_locations[pod] = location
-            return f"Drop Full {pod} with {artifact}"
+            self.pod_contents[pod] = artifact 
+            # We do NOT add to self.artifact_locations
+            
+            return f"Drop Full {pod}"
 
         # ==========================
         #  ARTIFACT MANIPULATION
@@ -178,64 +184,59 @@ class WorldState:
 
         elif 'release-artifact' in clean_name:
             # Handles: release-artifact, release-artifact-from-pod, release-artifact-in-cryo
-            # Common structure is usually: ?r ?a ?l ...
-            artifact = parameters[1]
-            location = parameters[2]
+            # Parameters usually: ?r ?a ?l ...
             
-            desc_prefix = ""
-            
-            # 1. Determine Unload Source
+            # Check parameter index for artifact/location based on action variant
             if 'from-pod' in clean_name:
-                self.robot_carrying_in_pod = None
-                self.robot_carrying_empty_pods = True  # Keep the empty pod
-                desc_prefix = "Unload Pod: "
+                 # release-artifact-from-pod: ?r ?a ?l ?p
+                 artifact = parameters[1]
+                 location = parameters[2]
+                 self.robot_carrying_in_pod = None
+                 self.robot_carrying_empty_pods = True  # Keep the empty pod
+                 desc = "Unpack"
             else:
-                self.robot_carrying = None
-                self.robot_hand_empty = True
-                desc_prefix = "Drop: "
+                 # release-artifact: ?r ?a ?l
+                 artifact = parameters[1]
+                 location = parameters[2]
+                 self.robot_carrying = None
+                 self.robot_hand_empty = True
+                 desc = "Drop"
 
-            # 2. Apply Temperature Changes
+            # Apply Temperature Changes
             if 'cryo' in clean_name:
                 self.artifact_temperatures[artifact] = 'cold'
-                desc_prefix += "(Cooling) "
+                desc += " (Cool)"
 
-            # 3. Update Location
+            # Update Location (Item is now on the floor)
             self.artifact_locations[artifact] = location
-            return f"{desc_prefix} {artifact} at {location}"
+            return f"{desc} {artifact}"
 
         return description
 
     def get_state_summary(self) -> str:
-        """Get a text summary of current state for the visualization footer."""
         summary = []
         summary.append(f"Loc: {self.robot_location}")
-        
-        if self.robot_sealing_mode:
-            summary.append("[SEALED]")
+        if self.robot_sealing_mode: summary.append("[SEALED]")
         
         if self.robot_carrying_in_pod:
-            summary.append(f"Holding: Pod({self.robot_carrying_in_pod})")
+            summary.append(f"Holding: Full Pod ({self.robot_carrying_in_pod})")
         elif self.robot_carrying_empty_pods:
             summary.append("Holding: Empty Pod")
         elif self.robot_carrying:
             summary.append(f"Holding: {self.robot_carrying}")
         else:
             summary.append("Hands: Empty")
-        
         return " | ".join(summary)
 
     def to_dict(self) -> Dict[str, Any]:
-        """Serialize current state to dictionary for debugging."""
         return {
             'robot_location': self.robot_location,
             'hand_empty': self.robot_hand_empty,
             'robot_carrying': self.robot_carrying,
             'carrying_in_pod': self.robot_carrying_in_pod,
-            'carrying_empty_pods': self.robot_carrying_empty_pods,
-            'sealing_mode': self.robot_sealing_mode,
+            'pod_contents': self.pod_contents.copy(), # Track floor pods content
             'artifact_locations': self.artifact_locations.copy(),
             'pod_locations': self.pod_locations.copy(),
             'artifact_temperatures': self.artifact_temperatures.copy(),
-            'artifact_fragility': self.artifact_fragility.copy(),
-            'artifact_count': len(self.artifact_locations)
+            'artifact_count': len(self.artifact_locations) + len(self.pod_contents)
         }
