@@ -29,6 +29,7 @@ def save_debug_json(problem_data, plan, output_path):
     final_dump = sim_state.to_dict()
     
     # 4. Compare Artifacts
+    ''' 
     initial_artifacts = set(initial_dump['artifact_locations'].keys())
     final_artifacts = set(final_dump['artifact_locations'].keys())
     
@@ -53,6 +54,7 @@ def save_debug_json(problem_data, plan, output_path):
     if new_artifacts:
         print(f"⚠️  WARNING: Found {len(new_artifacts)} new artifacts in final state that were not in initial state!")
         print(f"   Names: {', '.join(new_artifacts)}")
+    '''
 
 def run_visualization(input_dir: Path, output_dir: Path, mode: str):
     """Orchestrates parsing and rendering."""
@@ -86,8 +88,8 @@ def run_visualization(input_dir: Path, output_dir: Path, mode: str):
     output_dir.mkdir(parents=True, exist_ok=True)
 
     # 3. Debug Phase (Generate JSON)
-    # print("--- Generating Debug Log ---")
-    # save_debug_json(problem_data, plan, output_dir)
+    print("--- Generating Debug Log ---")
+    save_debug_json(problem_data, plan, output_dir)
 
     # 4. Visualization Phase
     viz = Visualizer(problem_data, plan)

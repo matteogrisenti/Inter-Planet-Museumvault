@@ -18,20 +18,20 @@ class ComicBookGenerator:
         
     def _get_agent_status(self, state: WorldState) -> Dict[str, str]:
         """Helper to extract rich status info from the world state."""
-        # 1. Determine Hand Status
-        if state.hand_empty:
+        # 1. Determine Hand Status (UPDATED VARIABLE NAMES)
+        if state.robot_hand_empty:
             hand = "Empty"
-        elif state.carrying_empty_pods:
+        elif state.robot_carrying_empty_pods:
             hand = "Holding Empty Pod"
-        elif state.carrying_in_pod:
-            hand = f"Carrying {state.carrying_in_pod} (in Pod)"
+        elif state.robot_carrying_in_pod:
+            hand = f"Carrying {state.robot_carrying_in_pod} (in Pod)"
         elif state.robot_carrying:
             hand = f"Carrying {state.robot_carrying}"
         else:
             hand = "Unknown"
             
-        # 2. Determine Seal Status
-        seal = "Sealed (Pressurized)" if state.sealing_mode else "Unsealed (Normal)"
+        # 2. Determine Seal Status (UPDATED VARIABLE NAMES)
+        seal = "Sealed (Pressurized)" if state.robot_sealing_mode else "Unsealed (Normal)"
         
         return {
             "loc": state.robot_location,
@@ -70,34 +70,37 @@ class ComicBookGenerator:
         # Capture state BEFORE the batch begins
         batch_start_info = self._get_agent_status(sim)
         
+        # EXPANDED KEYWORDS FOR ROBUST DETECTION
+        PICKUP_KEYWORDS = ['pick-up', 'put-in-pod', 'secure']
+        DROP_KEYWORDS = ['drop', 'release', 'unload']
+
         for action_name, params in self.plan:
+            # Check for matches
+            is_pickup = any(k in action_name for k in PICKUP_KEYWORDS)
+            is_drop = any(k in action_name for k in DROP_KEYWORDS)
             
             # --- CHECK FOR MODE SWITCHING (Transit -> Delivery) ---
-            if 'pick-up' in action_name and batch_type == "TRANSIT":
-                # Close the Transit Batch (if any moves happened)
+            if is_pickup and batch_type == "TRANSIT":
                 if current_batch_actions:
                     self._save_episode(episode_count, "TRANSIT", batch_start_info, current_batch_actions, sim)
                     episode_count += 1
                 
-                # Start Delivery Batch
                 batch_type = "DELIVERY"
                 current_batch_actions = []
-                batch_start_info = self._get_agent_status(sim) # State right before pickup
+                batch_start_info = self._get_agent_status(sim)
             
             # --- EXECUTE ACTION ---
             desc = sim.apply_action(action_name, params)
             current_batch_actions.append(desc)
             
             # --- CHECK FOR MODE SWITCHING (Delivery -> Transit) ---
-            if 'drop' in action_name and batch_type == "DELIVERY":
-                # Close the Delivery Batch
+            if is_drop and batch_type == "DELIVERY":
                 self._save_episode(episode_count, "DELIVERY", batch_start_info, current_batch_actions, sim)
                 episode_count += 1
                 
-                # Start Transit Batch
                 batch_type = "TRANSIT"
                 current_batch_actions = []
-                batch_start_info = self._get_agent_status(sim) # State right after drop
+                batch_start_info = self._get_agent_status(sim)
 
         # --- EPILOGUE (Leftover actions) ---
         if current_batch_actions:
@@ -146,6 +149,7 @@ class ComicBookGenerator:
         
         # High-res figure for the map image
         fig, ax = plt.subplots(figsize=(12, 10))
+        # Use the visualizer's draw state method
         self.visualizer._draw_state(ax, state, title)
         plt.savefig(img_path, bbox_inches='tight', dpi=100)
         plt.close(fig)
@@ -176,17 +180,13 @@ class ComicBookViewer:
 
     def show(self):
         """Launches the interactive viewer."""
-        # 16x9 aspect ratio
         self.fig = plt.figure(figsize=(18, 9)) 
         self.fig.canvas.manager.set_window_title("PDDL Comic Book Viewer")
         self.fig.patch.set_facecolor('#2C3E50')
         
-        # --- LAYOUT FIX: Use tight margins to maximize space ---
         plt.subplots_adjust(left=0.02, right=0.98, top=0.92, bottom=0.1)
         
-        # --- LAYOUT FIX: 50/50 Split (ratio=[1, 1]) ---
         gs = self.fig.add_gridspec(1, 2, width_ratios=[1, 1])
-        
         self.ax_img = self.fig.add_subplot(gs[0, 0]) 
         self.ax_text = self.fig.add_subplot(gs[0, 1]) 
         
@@ -212,18 +212,16 @@ class ComicBookViewer:
         with open(json_path, 'r') as f:
             data = json.load(f)
         
-        # --- LEFT PANEL: IMAGE ---
+        # Image Panel
         if png_path.exists():
             img = plt.imread(str(png_path))
             self.ax_img.clear()
             self.ax_img.imshow(img)
             self.ax_img.axis('off') 
         
-        # --- RIGHT PANEL: TEXT ---
+        # Text Panel
         self.ax_text.clear()
         self.ax_text.set_facecolor('#ECF0F1')
-        
-        # Hide borders
         self.ax_text.set_xticks([])
         self.ax_text.set_yticks([])
         for spine in self.ax_text.spines.values():
@@ -231,23 +229,20 @@ class ComicBookViewer:
         
         full_text = "\n".join(data['text'])
         
-        # Title Header
         self.ax_text.text(0.02, 0.96, data['title'], 
                          transform=self.ax_text.transAxes,
                          fontsize=16, weight='bold', color='#2C3E50',
                          verticalalignment='top')
         
-        # --- TEXT FIX: Smaller font (10) and tighter spacing (1.25) ---
         self.ax_text.text(0.02, 0.90, full_text, 
                          transform=self.ax_text.transAxes,
-                         fontsize=10,             # Smaller font to fit more lines
-                         linespacing=1.25,        # Tighter lines
+                         fontsize=10, 
+                         linespacing=1.25,
                          verticalalignment='top',
                          fontfamily='monospace', 
                          color='#2C3E50',
-                         wrap=True)               # Enable basic wrapping logic
+                         wrap=True)
         
-        # Page indicator
         self.fig.suptitle(f"Page {self.current_idx} / {len(self.pages)-1}", 
                          fontsize=12, color='#BDC3C7', y=0.98)
         
