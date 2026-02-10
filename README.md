@@ -24,20 +24,21 @@ To run the container, execute this script:
 docker run -v "/$(pwd):/computer" -it --privileged --rm myplanutils bash
 ```
 
-**3. Activate Planutils**: 
-To run the planutils script we need to active it:
+or 
+
+(if first time do also ```chmod +x run_container.sh```):
 
 ```bash
-planutils activate
+./run_container.sh
 ```
 
-## Run Planner - Test Example
-1) Go inside the test example directory: 
-   ```bash 
-   cd /computer
-   cd /text_example
-   ```
-2) Run Fast Downward Planner:
-   ```bash 
-   downward --alias lama-first test_domain.pddl test_problem.pddl
-   ```
+
+**3. Activate Planutils**: 
+
+navigate to the repository folder inside the container, then:
+
+```bash
+bash setup.sh
+```
+
+This will install prp planner (answer ```Y``` to the question about installing it) and it will activate the planutils environment (i.e. ```planutils activate```) for you.

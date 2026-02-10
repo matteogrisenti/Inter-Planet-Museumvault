@@ -2,8 +2,14 @@
   (:domain single-robot)
 
   (:objects
-    ;; Robot
+    ;; *Robot types
+    admin technician scientist  - robot-type
+
+    ;; *Robot
     curator                     - robot
+    
+    ;; *Drone
+
 
     ;; Pods
     pod1                        - pod
@@ -18,11 +24,9 @@
     stasis-lab                  - location
 
     ;; Artifacts Tipology
-    martian-core            - artifact-type
-    martian-generic         - artifact-type
-    martian-civilization    - artifact-type                                 
-    asteroid-generic        - artifact-type           
-    venus-generic           - artifact-type    
+    technological            - artifact-type
+    scientific               - artifact-type
+    top-secret                - artifact-type  
       
     ;; Artifacts 
     ; Martian Core Artifacts
@@ -50,6 +54,11 @@
   )
 
   (:init
+    ;; ROBOT CAPABILITIES
+    ;; Admin
+    (robot-type curator admin) ; Curator is a admin, so he can access all
+    (can-access curator entrance) (can-access curator maintenance-tunnel) (can-access curator hall-a) (can-access curator hall-b) (can-access curator cryo-chamber) (can-access curator anti-vibration-pods-room) (can-access curator stasis-lab)
+    (can-pickup curator technological) (can-pickup curator scientific) (can-pickup curator top-secret) ; Curator can pick up all the artifact types
     
     ;; PODS
     (pod-empty pod1) (pod-empty pod2) ; Both pods are empty at the beginning
@@ -101,23 +110,28 @@
     
     ;; ARTIFACTS TYPOLOGY
     ; Martian Core Artifacts - martian-core
-    (is-type  mart-nord-core-drill martian-core ) 
-    (is-type  mart-sud-core-drill  martian-core )
-    (is-type  mart-east-core-drill martian-core )
-    (is-type  mart-west-core-drill martian-core )
+    (is-type  mart-nord-core-drill scientific ) 
+    (is-type  mart-sud-core-drill  scientific )
+    (is-type  mart-east-core-drill scientific )
+    (is-type  mart-west-core-drill scientific )
     ; Martian Generic Artifacts - martian-generic 
-    (is-type  mart-sand-sample           martian-generic ) 
-    (is-type  mart-north-pole-ice-sample martian-generic ) 
-    (is-type  mart-mysterious-egg        martian-generic ) 
+    (is-type  mart-sand-sample           scientific ) 
+    (is-type  mart-north-pole-ice-sample scientific ) 
+    (is-type  mart-mysterious-egg        scientific )
+    (is-type  mart-mysterious-egg        top-secret ) ; The mysterious egg is also a top-secret artifact, so it need to be handled with care
+    
     ; Martian Civilization Artifacts - martian-civilization
-    (is-type  mart-laser-gun martian-civilization )
-    (is-type  mart-pink-hat  martian-civilization )
+    (is-type  mart-laser-gun technological )
+    (is-type  mart-laser-gun  top-secret )
+    (is-type  mart-pink-hat  technological )
+    (is-type  mart-pink-hat  top-secret )
+
     ; Asteroid Generic Artifacts - asteroid-generic
-    (is-type  asteroid-MG04TN-ice-sample  asteroid-generic )
-    (is-type  asteroid-AD29TV-rock-sample asteroid-generic )
+    (is-type  asteroid-MG04TN-ice-sample  scientific )
+    (is-type  asteroid-AD29TV-rock-sample scientific )
     ; Venus Generic Artifacts - venus-generic
-    (is-type  venus-sand-sample venus-generic )
-    (is-type  venus-rock-sample venus-generic )
+    (is-type  venus-sand-sample scientific )
+    (is-type  venus-rock-sample scientific )
                         
     
     ;; ARTIFACTS INITIAL POSITION
