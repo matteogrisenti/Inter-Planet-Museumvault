@@ -1,10 +1,10 @@
 # Single Robot Scenario
-run script
+To run the current PDDL model with the PRP (Probabilistic Relevant Planner) solver:
 ```bash 
-downward --alias lama-first domain.pddl problem.pddl
+planutils run prp domain.pddl problem.pddl
 ```
 
-# Introduction
+## Introduction
 In this specific scenario, a **single robot** must navigate a hazardous environment to preserve artifacts and evacuate threatened zones. The robotic curator has three primary objectives:
 1. **Relocate** Martian Core Samples to the **Stasis Lab**.
 2. **Move** temperature-sensitive artifacts (Ice/Eggs) to the **Cryo-Chamber**.
@@ -15,19 +15,21 @@ The map is built as a **Star Topology** centered on the **Maintenance Tunnel**, 
 
 ### Location Features
 * **🔗 Connection:** Modeled as a tuple feature `(connected ?l1 ?l2 - location)`.
-* **💨 Pressurization:** Defines if a room is pressurized. Only the Tunnel is unpressurized `(is-unpressurized ?l - location)`.
-* **⚠️ Safety:** Defines if a room is safe to enter `(is-safe ?l -location)`.
+* **💨 Pressurization:** Defines if a room is pressurized `(is-pressurized ?l - location)`. Only the Tunnel is unpressurized `(is-unpressurized ?l - location)`.
+* **⚠️ Safety & Seismicity:** 
+  * `(is-seismic ?l)`: Identifies rooms that can experienc earthquakes ( Hall B ). 
+  * `(is-safe ?l)`: A dynamic status. The robot must probe seismic rooms to confirm safety before entry. The other rooms ( normal ) are always safe. 
 * **🌡️ Drop Zones:** Distinguishes room types for drop effects:
     * `(is-standard-room ?l)`: Standard drop behavior.
     * `(is-chill-room ?l)`: Drops here cool the artifact (Cryo-Chamber).
 * **📦 Resources:** `(contain-free-pod ?l)` indicates the room stocks empty anti-vibration pods.
 
-> **📝 Note 1:** It would be interesting to test the same problem with a **positive definition** of the last two features (e.g., `is-pressurized`, `is-safe`). In theory, this implies a larger number of atoms which can affect the velocity of the resolver.
+> **📝 Note 1:** It would be interesting to test the same problem with only **positive definition** or only **negative definition** of the last two features (e.g., `is-pressurized`, `is-safe`). In theory, this implies a lower number of atoms but add the requirements of the **not** operato in the precodition of the action which can slow down the resolution computation.
 
 > **📝 Note 2:** To increase complexity, we can add a `capacity` constraint for the Cryo-Chamber room.
 
 ## 🤖 Robot
-Since we have only one robot, we avoid defining it as a `type`, but as a simple object in the problem.
+The Curator is modeled as a unique object. It manages internal states to handle complex transportation requirements.
 
 ### Robot Features
 * **📍 Location:** `(robot-at ?l - location)`
@@ -109,3 +111,8 @@ The mission is complete when:
 3. **Hall B Artifacts** are evacuated and placed in `hall-a`.
 
 > **📝 Note 4:** We can add flexibility by allowing cold artifacts to be stored in **either** the Cryo-Chamber **or** the Stasis-Lab. This allows us to test if the planner finds the optimal goal versus a suboptimal (but valid) one.
+
+
+
+
+## OUTPUT

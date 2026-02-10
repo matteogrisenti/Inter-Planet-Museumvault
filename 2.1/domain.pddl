@@ -2,8 +2,6 @@
   (:requirements :strips :typing :non-deterministic) ;; ! ADDED NON-DETERMINISTIC REQUIREMENT FOR THE DROP ACTIONS
 
   ;; Types derived from scenario entities 
-  ; The robot is not a type, becouse in this scenario we have only one robot
-  ; so it can be modelled as one object in the problem file.
   (:types
     robot             ; The unique robot in the environment (but can be extended to multiple robots in the future)
     pod               ; Anti-vibration pod: used to secure fragile artifacts during transportation
