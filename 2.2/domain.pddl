@@ -6,7 +6,6 @@
   ; so it can be modelled as one object in the problem file.
   (:types
     robot             ; The unique robot in the environment (but can be extended to multiple robots in the future)
-    robot-type        ; Robot types: admin, technician, scientist 
     drone             ; Drones: used to explore unsafe areas and check the safety status of the rooms
     pod               ; Anti-vibration pod: used to secure fragile artifacts during transportation
     location          ; Locations: the different rooms in the enviroment
@@ -16,7 +15,6 @@
 
   (:predicates
     ;; Robot Features - they all refears to the unique robot in the enviroment
-    (robot-type ?r - robot ?t - robot-type)   ; Robot type (admin, technician, scientist)
     (robot-at ?r - robot ?l - location)                    ; Robot's current location
     (hands-empty ?r - robot)                                ; Robot's hand status ( true if empty)  
     (carrying ?r - robot ?a - artifact)                    ; Robot is carrying the artifact ?a
@@ -25,9 +23,16 @@
     (sealing-mode ?r - robot)                              ; Robot mode (sealing or normal)
 
     ;;* Robot capabilities
-    (can-access ?r - robot ?l - location)          ; Robot can access the location ?l
-    (can-pickup ?r - robot ?at - artifact-type)          ; Robot can pick up the artifact ?a
-    
+    (can-access ?r - robot ?l - location)                        ; Robot can access the location ?l
+    (can-pickup ?r - robot ?at - artifact-type)                  ; Robot can pick up the artifact ?a
+    (can-carry-two ?r - robot)                                      ; Robot can carry two items at the same time (technician robot)
+    (second-slot-carrying-artifact ?r - robot ?a - artifact)               ; Robot is already carrying an item (used to model the fact that the technician can carry two items at the same time)
+    (second-slot-empty ?r - robot)                                  ; Robot is carrying only one item (used to model the fact that the technician can carry two items at the same time)
+
+    ;;* Drone Features
+    (drone-at ?d - drone ?l - location)                    ; Drone's current location
+    (drone-carrying ?d - drone ?a - artifact)             ; Drone is carrying the artifact ?a
+    (drone-empty ?d - drone)                              ; Drone is empty
 
     ;; Locations Features
     (is-seismic ?l - location)                   ; True if the location is currently experiencing seismic activity (earthquake)
@@ -100,6 +105,75 @@
       )
   )
 
+  (:action drone-enters-dangerous-room
+      :parameters (?d - drone ?to ?from - location)
+      :precondition (and 
+          (drone-at ?d ?from)
+          (connected ?from ?to)
+          (is-seismic ?to)
+      )
+      :effect (and 
+            (not (drone-at ?d ?from))
+            (drone-at ?d ?to)
+      )
+  )
+
+  (:action drone-exits-dangerous-room
+      :parameters (?d - drone ?to ?from - location)
+      :precondition (and 
+          (drone-at ?d ?from)
+          (connected ?from ?to)
+          (is-seismic ?from)
+      )
+      :effect (and 
+            (not (drone-at ?d ?from))
+            (drone-at ?d ?to)
+      )
+  )
+
+  (:action drone-enter-tunnel
+      :parameters (?d - drone ?to ?from - location)
+      :precondition (and 
+          (drone-at ?d ?from)
+          (connected ?from ?to)
+          (is-unpressurized ?to)
+      )
+      :effect (and 
+            (not (drone-at ?d ?from))
+            (drone-at ?d ?to)
+      )
+  )
+  
+  (:action drone-pickup-artifact
+      :parameters (?d - drone ?a - artifact ?l - location)
+      :precondition (and 
+          (drone-at ?d ?l)
+          (artifact-at ?a ?l)
+          (no-fragile ?a)
+          (drone-empty ?d)
+      )
+      :effect (and 
+          (not (artifact-at ?a ?l))
+          (drone-carrying ?d ?a)
+          (not (drone-empty ?d))
+      )
+  )
+  
+  (:action drone-release-artifact
+      :parameters (?d - drone ?a - artifact ?l - location)
+      :precondition (and 
+          (drone-carrying ?d ?a)
+          (drone-at ?d ?l)
+      )
+      :effect (and 
+          (not (drone-carrying ?d ?a))
+          (artifact-at ?a ?l)
+          (drone-empty ?d)
+      )
+  )
+  
+  
+
   ;; MOVEMENT
 
   ;; A: Moving Empty (No artifact constraints) -> No artifact position updade
@@ -111,10 +185,14 @@
         (connected ?from ?to)
         (is-pressurized ?to)       ;; Target is pressurized 
         (is-safe ?to)              ;; Target is safe
-        (not (sealing-mode ?r))
+
         (can-access ?r ?to)
     )
-    :effect (and (not (robot-at ?r ?from)) (robot-at ?r ?to))
+    :effect (and 
+        (not (robot-at ?r ?from)) 
+        (robot-at ?r ?to)
+        (not (sealing-mode ?r))
+    )
   )
 
   ;; 2. Move Empty to Tunnel (Requires Sealing)
@@ -141,7 +219,7 @@
   )
   (:action deactivate-seal
     :parameters (?r - robot)
-    :precondition ()
+    :precondition (and (sealing-mode ?r))
     :effect (not (sealing-mode ?r))
   )
 
@@ -347,4 +425,41 @@
         (not (warm ?a)) (cold ?a) ; Instant Temp Logic
     )
   )
+
+  ;; * Second object slot actions (Technician Robot Only)
+  
+  ; Pick-up action
+  (:action pick-up-second-object
+      :parameters (
+            ?r - robot ?a - artifact ?at - artifact-type ?l - location
+      )
+      :precondition (and 
+            (robot-at ?r ?l)
+            (can-carry-two ?r)
+            (artifact-at ?a ?l)
+            (second-slot-empty ?r)           ; Second slot must be empty
+            (can-pickup ?r ?at)
+            (is-type  ?a ?at)
+            (no-fragile  ?a)
+        )
+      :effect (and 
+          (not (second-slot-empty ?r))
+          (carrying-second-object ?r ?a)
+          (not (artifact-at ?a ?l))
+      )
+  )
+
+  (:action release-second-object
+      :parameters (?r - robot ?a - artifact ?l - location)
+      :precondition (and 
+            (robot-at ?r ?l)
+            (carrying-second-object ?r ?a)
+        )
+      :effect (and 
+          (second-slot-empty ?r)
+          (not (carrying-second-object ?r ?a))
+          (artifact-at ?a ?l)
+      )
+  )
+  
 )

@@ -56,7 +56,7 @@ def save_debug_json(problem_data, plan, output_path):
         print(f"   Names: {', '.join(new_artifacts)}")
     '''
 
-def run_visualization(input_dir: Path, output_dir: Path, mode: str):
+def run_visualization(input_dir: Path, output_dir: Path, mode: str, max_steps_limit: int = None):
     """Orchestrates parsing and rendering."""
     # 1. File Path Setup
     domain_file = input_dir / "domain.pddl"
@@ -82,7 +82,7 @@ def run_visualization(input_dir: Path, output_dir: Path, mode: str):
         sys.exit(1)
 
     print(f"✔ Domain: {domain_data['name']}")
-    print(f"✔ Plan Length: {len(plan)} actions")
+    print(f"✔ Plan Length: {len(plan)} actions (Parsed from file)")
 
     # Create output directory
     output_dir.mkdir(parents=True, exist_ok=True)
@@ -96,13 +96,16 @@ def run_visualization(input_dir: Path, output_dir: Path, mode: str):
     
     if mode in ['1']:  # Full Animation
         out = output_dir / "pddl_full_simulation.gif"
-        print(f"🎬 Creating full animation: {out.name}...")
-        viz.create_animation(str(out), interval=800)
+        steps_val = max_steps_limit if max_steps_limit else None
+        steps_msg = f"{steps_val}" if steps_val else "Unlimited"
+        print(f"🎬 Creating full animation: {out.name} (Steps: {steps_msg})...")
+        viz.create_animation(str(out), interval=800, max_steps=steps_val)
 
     if mode == '2':  # Preview Animation
-        out = output_dir / "pddl_preview_50.gif"
-        print(f"🎬 Creating preview (50 steps): {out.name}...")
-        viz.create_animation(str(out), interval=600, max_steps=50)
+        out = output_dir / "pddl_preview.gif"
+        steps_val = max_steps_limit if max_steps_limit else 50
+        print(f"🎬 Creating preview: {out.name} (Steps: {steps_val})...")
+        viz.create_animation(str(out), interval=600, max_steps=steps_val)
 
     if mode in ['3']:  # Static Comparison
         out = output_dir / "pddl_static_comparison.png"
@@ -125,6 +128,7 @@ def main():
     
     # We allow mode to be passed as argument to skip the menu
     parser.add_argument("--mode", type=str, choices=['1', '2', '3', '4', '5'], help="Directly select mode")
+    parser.add_argument("--steps", type=int, default=None, help="Limit number of steps (default: Infinite for Mode 1, 50 for Mode 2)")
     args = parser.parse_args()
 
     input_path = Path(args.directory).resolve()
@@ -154,7 +158,7 @@ def main():
         print("Invalid choice. Exiting.")
         return
 
-    run_visualization(input_path, output_path, choice)
+    run_visualization(input_path, output_path, choice, max_steps_limit=args.steps)
 
     print("\n" + "="*60)
     print(" Visualization Complete! ".center(60, " "))

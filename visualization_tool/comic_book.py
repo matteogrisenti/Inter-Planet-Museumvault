@@ -16,132 +16,100 @@ class ComicBookGenerator:
         self.output_dir.mkdir(parents=True, exist_ok=True)
         self.visualizer = Visualizer(problem_data, plan)
         
-    def _get_agent_status(self, state: WorldState) -> Dict[str, str]:
+    def _get_agent_status(self, state: WorldState) -> Dict[str, Any]:
         """Helper to extract rich status info from the world state."""
-        # 1. Determine Hand Status (UPDATED VARIABLE NAMES)
-        if state.robot_hand_empty:
-            hand = "Empty"
-        elif state.robot_carrying_empty_pods:
-            hand = "Holding Empty Pod"
-        elif state.robot_carrying_in_pod:
-            hand = f"Carrying {state.robot_carrying_in_pod} (in Pod)"
-        elif state.robot_carrying:
-            hand = f"Carrying {state.robot_carrying}"
-        else:
-            hand = "Unknown"
-            
-        # 2. Determine Seal Status (UPDATED VARIABLE NAMES)
-        seal = "Sealed (Pressurized)" if state.robot_sealing_mode else "Unsealed (Normal)"
+        status = {}
         
-        return {
-            "loc": state.robot_location,
-            "hand": hand,
-            "seal": seal
-        }
+        # ROBOTS
+        for r_name, r_data in state.robots.items():
+            if r_data['hand_empty']:
+                hand = "Empty"
+            elif r_data['carrying_empty_pods']:
+                hand = "Holding Empty Pod"
+            elif r_data['carrying_in_pod']:
+                hand = f"Carrying {r_data['carrying_in_pod']} (in Pod)"
+            elif r_data['carrying']:
+                hand = f"Carrying {r_data['carrying']}"
+            else:
+                hand = "Unknown"
+                
+            seal = "Sealed (Pressurized)" if r_data['sealing_mode'] else "Unsealed (Normal)"
+            
+            status[r_name] = {
+                "loc": r_data['loc'],
+                "hand": hand,
+                "seal": seal
+            }
+            
+        # DRONES
+        for d_name, d_data in state.drones.items():
+            status[d_name] = {
+                "loc": d_data['loc'],
+                "hand": "Empty" if d_data['empty'] else f"Carrying {d_data['carrying']}",
+                "seal": "N/A"
+            }
+            
+        return status
 
     def generate(self):
-        """Generates the comic book pages with strict segmentation for Transit vs Delivery."""
+        """Generates the comic book pages in SEQUENTIAL mode (1 Action = 1 Page)."""
         print(f"🎨 Generating Comic Book in: {self.output_dir}")
         
         sim = WorldState(self.problem_data)
         
         # --- PROLOGUE ---
         start_status = self._get_agent_status(sim)
+        init_lines = ["INITIAL STATUS:"]
+        for agent, info in start_status.items():
+             init_lines.append(f"• {agent.upper()}: {info['loc']} | {info['hand']} | {info['seal']}")
+        
+        init_lines.extend([
+            "",
+            "PLAN OVERVIEW:",
+            f"  • Total Steps: {len(self.plan)}",
+            "  • Mission Start..."
+        ])
+
         self._save_page(
             page_num=0,
             title="Prologue: The Vault Opens",
             state=sim,
-            text_lines=[
-                "INITIAL STATUS:",
-                f"  • Location:   {start_status['loc']}",
-                f"  • Inventory:  {start_status['hand']}",
-                f"  • Artifacts:  {len(sim.artifact_locations)} items pending",
-                "",
-                "PLAN OVERVIEW:",
-                f"  • Total Steps: {len(self.plan)}",
-                "  • Mission Start..."
-            ]
+            text_lines=init_lines
         )
         
-        episode_count = 1
-        current_batch_actions = []
-        batch_type = "TRANSIT" 
-        
-        # Capture state BEFORE the batch begins
-        batch_start_info = self._get_agent_status(sim)
-        
-        # EXPANDED KEYWORDS FOR ROBUST DETECTION
-        PICKUP_KEYWORDS = ['pick-up', 'put-in-pod', 'secure']
-        DROP_KEYWORDS = ['drop', 'release', 'unload']
-
-        for action_name, params in self.plan:
-            # Check for matches
-            is_pickup = any(k in action_name for k in PICKUP_KEYWORDS)
-            is_drop = any(k in action_name for k in DROP_KEYWORDS)
+        # --- SEQUENTIAL GENERATION ---
+        for i, (action_name, params) in enumerate(self.plan):
+            step_num = i + 1
             
-            # --- CHECK FOR MODE SWITCHING (Transit -> Delivery) ---
-            if is_pickup and batch_type == "TRANSIT":
-                if current_batch_actions:
-                    self._save_episode(episode_count, "TRANSIT", batch_start_info, current_batch_actions, sim)
-                    episode_count += 1
-                
-                batch_type = "DELIVERY"
-                current_batch_actions = []
-                batch_start_info = self._get_agent_status(sim)
-            
-            # --- EXECUTE ACTION ---
+            # Apply Action
             desc = sim.apply_action(action_name, params)
-            current_batch_actions.append(desc)
             
-            # --- CHECK FOR MODE SWITCHING (Delivery -> Transit) ---
-            if is_drop and batch_type == "DELIVERY":
-                self._save_episode(episode_count, "DELIVERY", batch_start_info, current_batch_actions, sim)
-                episode_count += 1
+            # Get New Status
+            current_status = self._get_agent_status(sim)
+            
+            # Format Text
+            lines = [
+                f"ACTION {step_num}/{len(self.plan)}",
+                "=" * 35,
+                f"⏩ {desc}",
+                "",
+                "CURRENT STATUS:"
+            ]
+            
+            for agent, info in current_status.items():
+                lines.append(f"• {agent.upper()}: {info['loc']}")
+                # Add seal info if relevant
+                if info['seal'] != "N/A" and "Sealed" in info['seal']:
+                    lines.append(f"  [SEALED]")
                 
-                batch_type = "TRANSIT"
-                current_batch_actions = []
-                batch_start_info = self._get_agent_status(sim)
+                if "Empty" not in info['hand']:
+                    lines.append(f"  [HAND: {info['hand']}]")
 
-        # --- EPILOGUE (Leftover actions) ---
-        if current_batch_actions:
-            self._save_episode(episode_count, "EPILOGUE", batch_start_info, current_batch_actions, sim)
+            # Save Page
+            page_title = f"Step {step_num}: {desc}"
+            self._save_page(step_num, page_title, sim, lines)
             
-        print(f"✨ Comic Book Generation Complete! ({episode_count} pages)")
-
-    def _save_episode(self, episode_num, batch_type, start_info, actions, final_state):
-        """Formats the detailed text log and saves the page."""
-        
-        final_info = self._get_agent_status(final_state)
-        
-        if batch_type == "TRANSIT":
-            title = f"Episode {episode_num}: Repositioning"
-            context_header = "TRANSIT LOG:"
-        elif batch_type == "DELIVERY":
-            title = f"Episode {episode_num}: Delivery Mission"
-            context_header = "DELIVERY LOG:"
-        else:
-            title = f"Episode {episode_num}: Final Operations"
-            context_header = "ACTION LOG:"
-
-        lines = [
-            f"{batch_type} EPISODE",
-            "=" * 35,
-            "",
-            "INITIAL STATE:",
-            f"  • Location:   {start_info['loc']}",
-            f"  • Inventory:  {start_info['hand']}",
-            f"  • Seal Mode:  {start_info['seal']}",
-            "",
-            context_header,
-            *[f"  {i+1}. {act}" for i, act in enumerate(actions)],
-            "",
-            "TERMINAL STATE:",
-            f"  • Location:   {final_info['loc']}",
-            f"  • Inventory:  {final_info['hand']}",
-            f"  • Seal Mode:  {final_info['seal']}"
-        ]
-        
-        self._save_page(episode_num, title, final_state, lines)
+        print(f"✨ Comic Book Generation Complete! ({len(self.plan) + 1} pages)")
 
     def _save_page(self, page_num: int, title: str, state: WorldState, text_lines: List[str]):
         filename_base = f"page_{page_num:03d}"
@@ -156,7 +124,11 @@ class ComicBookGenerator:
         
         # Save Text Data
         json_path = self.output_dir / f"{filename_base}.json"
-        page_data = {"title": title, "page_num": page_num, "text": text_lines}
+        
+        # Ensure text is JSON serializable
+        clean_lines = [str(l) for l in text_lines]
+        
+        page_data = {"title": title, "page_num": page_num, "text": clean_lines}
         with open(json_path, 'w') as f:
             json.dump(page_data, f, indent=4)
 
@@ -230,21 +202,21 @@ class ComicBookViewer:
         full_text = "\n".join(data['text'])
         
         self.ax_text.text(0.02, 0.96, data['title'], 
-                         transform=self.ax_text.transAxes,
-                         fontsize=16, weight='bold', color='#2C3E50',
-                         verticalalignment='top')
+                          transform=self.ax_text.transAxes,
+                          fontsize=16, weight='bold', color='#2C3E50',
+                          verticalalignment='top')
         
         self.ax_text.text(0.02, 0.90, full_text, 
-                         transform=self.ax_text.transAxes,
-                         fontsize=10, 
-                         linespacing=1.25,
-                         verticalalignment='top',
-                         fontfamily='monospace', 
-                         color='#2C3E50',
-                         wrap=True)
+                          transform=self.ax_text.transAxes,
+                          fontsize=10, 
+                          linespacing=1.25,
+                          verticalalignment='top',
+                          fontfamily='monospace', 
+                          color='#2C3E50',
+                          wrap=True)
         
         self.fig.suptitle(f"Page {self.current_idx} / {len(self.pages)-1}", 
-                         fontsize=12, color='#BDC3C7', y=0.98)
+                          fontsize=12, color='#BDC3C7', y=0.98)
         
         self.fig.canvas.draw_idle()
 

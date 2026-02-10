@@ -2,14 +2,13 @@
   (:domain single-robot)
 
   (:objects
-    ;; *Robot types
-    admin technician scientist  - robot-type
-
     ;; *Robot
-    curator                     - robot
+    curator                        - robot
+    technician                     - robot
+    scientist                      - robot
     
     ;; *Drone
-
+    drone                        - drone
 
     ;; Pods
     pod1                        - pod
@@ -43,7 +42,11 @@
     ; Martian Civilization Artifacts
     mart-laser-gun              - artifact
     mart-pink-hat               - artifact
-      
+    
+    ; Mission Artifacts
+    rover-wheel                 - artifact
+    space-suit                  - artifact
+
     ; Asteroid Generic Artifacts
     asteroid-MG04TN-ice-sample  - artifact
     asteroid-AD29TV-rock-sample - artifact
@@ -51,15 +54,32 @@
     ; Venus Generic Artifacts
     venus-sand-sample           - artifact
     venus-rock-sample           - artifact
+
+    ;; --- ESSENTIAL NEW ARTIFACTS ---
+    quantum-chip                - artifact  ;; Technological + Fragile (Needs Technician + Pod)
+    alien-fossil                - artifact  ;; Scientific + Needs Cooling (Needs Scientist + Cryo)
+    ancient-key                 - artifact  ;; Top-Secret + Inside Hall B (Needs Curator + Seismic check)
   )
 
   (:init
     ;; ROBOT CAPABILITIES
-    ;; Admin
-    (robot-type curator admin) ; Curator is a admin, so he can access all
-    (can-access curator entrance) (can-access curator maintenance-tunnel) (can-access curator hall-a) (can-access curator hall-b) (can-access curator cryo-chamber) (can-access curator anti-vibration-pods-room) (can-access curator stasis-lab)
-    (can-pickup curator technological) (can-pickup curator scientific) (can-pickup curator top-secret) ; Curator can pick up all the artifact types
+    ;; curator
+    (can-access curator entrance) (can-access curator maintenance-tunnel) (can-access curator hall-a) (can-access curator hall-b) (can-access curator cryo-chamber) (can-access curator anti-vibration-pods-room)
+    (can-pickup curator scientific) (can-pickup curator top-secret) ; curator can pick up all the artifact types
+    ;; Technician
+    (can-access technician entrance) (can-access technician maintenance-tunnel) (can-access technician hall-a) (can-access technician cryo-chamber) (can-access technician anti-vibration-pods-room)
+    (can-pickup technician technological) (can-pickup technician2 technological) ; Technicians can pick up technological artifacts
+    (can-carry-two technician) ; Technicians can carry two items at the same time
+    (second-slot-empty technician) ; Technicians are carrying only one item at the beginning
+
+    ;; Scientist
+    (can-access scientist stasis-lab) (can-access scientist maintenance-tunnel)
+    (can-pickup scientist scientific) (can-pickup scientist top-secret) (can-pickup scientist technological) ; Scientists can pick up all the artifact types
     
+    ;; DRONE
+    (drone-at drone maintenance-tunnel) ; Drone initial position is in the maintenance-tunnel
+    (drone-empty drone)
+
     ;; PODS
     (pod-empty pod1) (pod-empty pod2) ; Both pods are empty at the beginning
 
@@ -105,25 +125,30 @@
     
     
     ;; ROBOT
-    (robot-at curator entrance)   ; Robot inital position is in the entrance
-    (hands-empty curator)          ; Robot start without any object 
-    
+    (robot-at curator entrance)  (hands-empty curator)      ; curator starts in the entrance with empty hands
+    (robot-at technician entrance) (hands-empty technician) ; technician starts in the entrance with empty hands
+    (robot-at technician2 entrance) (hands-empty technician2) ; Technician2 starts in the entrance with empty hands
+    (robot-at scientist stasis-lab) (hands-empty scientist) ; Scientist starts in the stasis-lab with empty hands
+
+
     ;; ARTIFACTS TYPOLOGY
     ; Martian Core Artifacts - martian-core
     (is-type  mart-nord-core-drill scientific ) 
     (is-type  mart-sud-core-drill  scientific )
     (is-type  mart-east-core-drill scientific )
     (is-type  mart-west-core-drill scientific )
+    
     ; Martian Generic Artifacts - martian-generic 
     (is-type  mart-sand-sample           scientific ) 
     (is-type  mart-north-pole-ice-sample scientific ) 
-    (is-type  mart-mysterious-egg        scientific )
     (is-type  mart-mysterious-egg        top-secret ) ; The mysterious egg is also a top-secret artifact, so it need to be handled with care
     
+    ; Mission Artifacts - mission-artifacts
+    (is-type  rover-wheel  technological )
+    (is-type  space-suit   technological )
+
     ; Martian Civilization Artifacts - martian-civilization
-    (is-type  mart-laser-gun technological )
     (is-type  mart-laser-gun  top-secret )
-    (is-type  mart-pink-hat  technological )
     (is-type  mart-pink-hat  top-secret )
 
     ; Asteroid Generic Artifacts - asteroid-generic
@@ -147,6 +172,10 @@
     (artifact-at  mart-mysterious-egg         hall-a )
     (artifact-at  asteroid-MG04TN-ice-sample  hall-a )
 
+    ; Mission Artifacts
+    (artifact-at  rover-wheel  hall-a )
+    (artifact-at  space-suit   hall-a )
+
     ; Hall B: All the other stuffs
     (artifact-at  mart-sand-sample            hall-b )
     (artifact-at  mart-laser-gun              hall-b )
@@ -162,6 +191,7 @@
     (warm  mart-east-core-drill )          (warm  mart-west-core-drill )
     (warm  mart-north-pole-ice-sample )    (warm  mart-mysterious-egg  )
     (warm  asteroid-MG04TN-ice-sample )    (warm  mart-sand-sample )
+    (warm  rover-wheel )                    (warm  space-suit )
     (warm  mart-laser-gun )                (warm  mart-pink-hat )
     (warm  asteroid-AD29TV-rock-sample )   (warm  venus-sand-sample )
     (warm  venus-rock-sample )
@@ -171,14 +201,32 @@
     (fragile  mart-laser-gun    )
     (fragile  mart-pink-hat     )  
     (fragile  asteroid-AD29TV-rock-sample )  
-    (fragile  venus-sand-sample )
-    (fragile  venus-rock-sample )
+    
 
-    ; Artifacl in Hall A - no-fragile
+    ; No-fragile
+    (no-fragile  venus-sand-sample )
+    (no-fragile  venus-rock-sample )
     (no-fragile mart-nord-core-drill )      (no-fragile mart-sud-core-drill )
     (no-fragile mart-east-core-drill )      (no-fragile mart-west-core-drill )
     (no-fragile mart-mysterious-egg  )      (no-fragile asteroid-MG04TN-ice-sample )
-    (no-fragile mart-north-pole-ice-sample )
+    (no-fragile mart-north-pole-ice-sample ) (no-fragile  rover-wheel ) (no-fragile space-suit)
+
+    ;; ARTIFACT TYPOLOGY
+    (is-type quantum-chip technological)
+    (is-type alien-fossil scientific)
+    (is-type ancient-key top-secret)
+
+    ;; INITIAL POSITIONS
+    (artifact-at quantum-chip hall-a)
+    (artifact-at alien-fossil hall-a)
+    (artifact-at ancient-key hall-b)      ;; Force the Curator/Drone to deal with the earthquake
+
+    ;; TEMPERATURE & FRAGILITY
+    (warm quantum-chip) (warm alien-fossil) (warm ancient-key)
+    
+    (fragile quantum-chip)                ;; Needs Pod
+    (fragile ancient-key)                 ;; Needs Pod
+    (no-fragile alien-fossil)             ;; Can be carried by hand
   )
 
   ;; The goal is reached when all the artifact where bringed in their final destitation:
@@ -196,6 +244,7 @@
     (artifact-at  mart-sud-core-drill         stasis-lab )   
     (artifact-at  mart-east-core-drill        stasis-lab ) 
     (artifact-at  mart-west-core-drill        stasis-lab )
+    (artifact-at rover-wheel stasis-lab ) (artifact-at space-suit stasis-lab )
     ; The other artifact that need to be cold are in the Cry Chamber 
     (artifact-at  mart-north-pole-ice-sample  cryo-chamber )
     (artifact-at  mart-mysterious-egg         cryo-chamber )    
@@ -206,7 +255,7 @@
     (artifact-at  mart-pink-hat               hall-a )  
     (artifact-at  asteroid-AD29TV-rock-sample hall-a )  
     (artifact-at  venus-sand-sample           hall-a )
-    (artifact-at  venus-rock-sample           hall-a ) 
+    (artifact-at  venus-rock-sample           hall-a )
 
     ; TEMPERATURE CONSTRAINT
     (cold  mart-nord-core-drill )  
@@ -218,6 +267,11 @@
     ; (cold  mart-north-pole-ice-sample )
     ; (cold  mart-mysterious-egg        )    
     ; (cold  asteroid-MG04TN-ice-sample )
+
+    ;; NEW GOALS
+    (artifact-at quantum-chip stasis-lab) (cold quantum-chip)
+    (artifact-at alien-fossil cryo-chamber) (cold alien-fossil)
+    (artifact-at ancient-key hall-a)      ;; Retrieve the secret key from the danger zone
     )   
   )
 )

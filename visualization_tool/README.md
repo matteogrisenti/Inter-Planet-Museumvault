@@ -20,7 +20,12 @@ Run the script by pointing it to the directory containing your domain.pddl, prob
 
 ```bash
 cd visualization_tool/
-python main.py <directory>
+python main.py <directory> --mode <mode>
+```
+
+example:
+```bash
+python main.py ../2.2 --mode 4
 ```
 
 **Interactive Mode**: When you run the script, you will be prompted to choose a visualization type:

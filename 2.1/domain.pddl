@@ -80,7 +80,11 @@
             (is-unseismic ?to)
         )
         :effect (and 
-            (not (robot-at ?r ?from)) (robot-at ?r ?to))
+            (not (robot-at ?r ?from)) 
+            (robot-at ?r ?to)
+            (not (sealing-mode-on ?r))
+            (sealing-mode-off ?r)
+        )
     )
 
     ;; ACTION: move-to-unpressurized-room
@@ -95,7 +99,12 @@
             (is-unseismic ?to)
             (sealing-mode-on ?r) ; Hard physical constraint
         )
-        :effect (and (not (robot-at ?r ?from)) (robot-at ?r ?to))
+        :effect (and 
+      (not (robot-at ?r ?from)) 
+      (robot-at ?r ?to)
+      (not (sealing-mode-on ?r))
+      (sealing-mode-off ?r)
+  )
     )
 
     ;; ACTION: try-to-enter-seismic-room
