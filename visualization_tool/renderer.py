@@ -306,7 +306,7 @@ class Renderer:
                 pos = self.location_positions[loc]
                 draw_x, draw_y = pos[0], pos[1] - 0.8
                 
-                poly = patches.RegularPolygon((draw_x, draw_y), 3, 0.25, color='#8E44AD', zorder=15)
+                poly = patches.RegularPolygon(xy=(draw_x, draw_y), numVertices=3, radius=0.25, color='#8E44AD', zorder=15)
                 ax.add_patch(poly)
                 ax.text(draw_x, draw_y, 'D', ha='center', va='center', color='white', fontsize=7, zorder=16)
                 

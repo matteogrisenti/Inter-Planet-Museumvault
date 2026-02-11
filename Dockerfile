@@ -12,14 +12,6 @@ RUN planutils install -y downward
 
 # Handle Non Deterministic Case
 RUN planutils install -y prp
-RUN apt-get update && apt-get install -y graphviz
-
-# Handle Visualizatio Library
-# We use pip to install the libraries and ensure they are compatible
-RUN pip3 install --no-cache-dir \
-    "matplotlib>=3.5.0" \
-    "numpy>=1.21.0" \
-    "Pillow>=9.0.0"
 
 
 # Modify the configuration file to enable hostfs, i.e. use the host file system
