@@ -1,119 +1,98 @@
-# Single Robot Scenario
-To run the current PDDL model with the PRP (Probabilistic Relevant Planner) solver:
+# Single Robot Scenario ( NON DETERMINISTIC )
+This project models a robotic curator in a hazardous environment. The domain is designed for non-deterministic planning, specifically requiring a solver capable of handling oneof effects (probabilistic outcomes) and conditional observation, such as PRP (Probabilistic Relevant Planner).
+
+To run the current PDDL model with the PRP solver:
 ```bash 
-planutils run prp domain.pddl problem.pddl
 planutils run prp domain.pddl problem.pddl -- --dump-policy 2
 ```
 
-## Introduction
-In this specific scenario, a **single robot** must navigate a hazardous environment to preserve artifacts and evacuate threatened zones. The robotic curator has three primary objectives:
-1. **Relocate** Martian Core Samples to the **Stasis Lab**.
-2. **Move** temperature-sensitive artifacts (Ice/Eggs) to the **Cryo-Chamber**.
-3. **Evacuate** all artifacts from **Hall B** (threatened by seismic activity) to **Hall A**.
-
-## 🗺️ Topology
+## 🗺️ Environment & Topology
 The map is built as a **Star Topology** centered on the **Maintenance Tunnel**, to which all other rooms are linked. The rooms are modeled as instances of the type `location`.
 
-### Location Features
-* **🔗 Connection:** Modeled as a tuple feature `(connected ?l1 ?l2 - location)`.
-* **💨 Pressurization:** Defines if a room is pressurized `(is-pressurized ?l - location)`. Only the Tunnel is unpressurized `(is-unpressurized ?l - location)`.
-* **⚠️ Safety & Seismicity:** 
-  * `(is-seismic ?l)`: Identifies rooms that can experienc earthquakes ( Hall B ). 
-  * `(is-safe ?l)`: A dynamic status. The robot must probe seismic rooms to confirm safety before entry. The other rooms ( normal ) are always safe. 
-* **🌡️ Drop Zones:** Distinguishes room types for drop effects:
-    * `(is-standard-room ?l)`: Standard drop behavior.
-    * `(is-chill-room ?l)`: Drops here cool the artifact (Cryo-Chamber).
-* **📦 Resources:** `(contain-free-pod ?l)` indicates the room stocks empty anti-vibration pods.
+### 1. Atmospheric Pressure
+* **(is-pressurized ?l):** Safe for normal operation. The robot must *deactivate* its seal to perform complex manipulation here (though the current planner keeps it simple).
+* **(is-unpressurized ?l):** Vacuum areas (e.g., `maintenance-tunnel`).
+    * **Constraint:** The robot **must** have `(sealing-mode-on)` to enter.
 
-> **📝 Note 1:** It would be interesting to test the same problem with only **positive definition** or only **negative definition** of the last two features (e.g., `is-pressurized`, `is-safe`). In theory, this implies a lower number of atoms but add the requirements of the **not** operato in the precodition of the action which can slow down the resolution computation.
+### 2. Seismic Safety (Non-Deterministic)
+Some rooms are prone to earthquakes. The state of these rooms is not fully known until the robot attempts to enter.
+* **(is-unseismic ?l):** The room is guaranteed safe.
+* **(is-seismic ?l):** The room might be unsafe.
+* **Action `try-to-enter-seismic-room`:** This is a non-deterministic action.
+    * *Outcome A:* The room is `(is-safe)`, and the robot enters.
+    * *Outcome B:* The room is `(is-unsafe)`, and the robot fails to enter (stays at origin).
 
-> **📝 Note 2:** To increase complexity, we can add a `capacity` constraint for the Cryo-Chamber room.
+### 3. Room Specializations
+* **(is-standard-room ?l):** Normal drop zones.
+* **(is-chill-room ?l):** Cryo-Chamber. Dropping an artifact here applies the `(cold ?a)` effect.
 
-## 🤖 Robot
-The Curator is modeled as a unique object. It manages internal states to handle complex transportation requirements.
 
-### Robot Features
-* **📍 Location:** `(robot-at ?l - location)`
-* **✋ Hand Status:** `(hand-empty)` (True if holding nothing)
-* **📦 Inventory:**
-    * `(carrying ?a - artifact)`: Robot is holding an artifact directly.
-    * `(carrying-empty-pods)`: Robot is holding an empty anti-vibration pod.
-    * `(carrying-in-pod ?a - artifact)`: Robot is holding an artifact secured inside a pod.
-* **⚙️ Mode:** `(sealing-mode)` (Required to enter the unpressurized tunnel).
 
-### Robot Actions
-The robot's capabilities are split to handle resource constraints and safety checks:
+## 🤖 The Robot (Curator)
+The robot is a sophisticated agent with internal sealing mechanisms and inventory management.
 
-* **Movement:**
-    * `move-empty-*`: Move while holding nothing (Safe Room vs Tunnel).
-    * `move-carrying-*`: Move while carrying a **non-fragile** artifact (Safe Room vs Tunnel).
-    * `move-fragile-*`: Move while carrying a **fragile** artifact (requires `carrying-in-pod`).
-* **Sealing:** `activate-seal` / `deactivate-seal` to traverse the Maintenance Tunnel.
-* **Pod Management:**
-    * `pick-up-empty-pod`: Retrieve an empty pod from the Pod Room.
-    * `drop-empty-pod`: Drop an empty pod to free hands.
-* **Manipulation:**
-    * `pick-up`: Standard pickup for sturdy items.
-    * `secure-pick-up`: Pickup an item and immediately place it into a held empty pod.
-    * `drop-standard`: Drop a loose item.
-    * `drop-standard-from-pod`: Unload an item from a pod into a standard room (keeping the pod).
-    * `drop-in-cryo`: Drop a loose item into the Cryo-Chamber (applies cooling).
-    * `drop-in-cryo-from-pod`: Unload an item from a pod into the Cryo-Chamber (applies cooling).
+### States
+* **Sealing:** `(sealing-mode-on ?r)` vs `(sealing-mode-off ?r)`.
+* **Hands:** `(hands-empty ?r)` or `(carrying ?r ?a)`.
+* **Pod Integration:**
+    * `(carrying-empty-pod ?r ?p)`: Robot is holding an empty container.
+    * `(carrying-full-pod ?r ?p)`: Robot is holding a container with an artifact inside.
 
-## 💎 Artifacts
-Artifacts are modeled with specific **types** and **features** to handle preservation requirements.
+### Capabilities (Actions)
 
-### Artifact Types
-* **Martian Core Artifact**
-* **Martian Generic Artifact**
-* **Martian Civilization Artifact**
-* **Asteroid Generic Artifact**
-* **Venus Generic Artifact**
-
-### Artifact Features
-* **Typology:** `(is-type ?a - artifact ?t - artifact-type)`
-* **📍 Location:** `(artifact-at ?a - artifact ?l - location)`
-* **💔 Fragility:**
-    * `(fragile ?a)`: Artifact requires an anti-vibration pod for transport.
-    * `(no-fragile ?a)`: Artifact can be carried normally.
-* **🌡️ Temperature:**
-    * `(warm ?a)`: Default state.
-    * `(cold ?a)`: Artifact has been cooled (achieved by dropping in Cryo-Chamber).
-
-> **📝 Note 3:** `need-chill` and `need-vibration-pods` predicates were removed in favor of `cold` state tracking and `fragile` constraints.
-
-### Selected Artifact Set
-The problem instance includes specific items initialized with fragility and temperature properties, for example:
-
-| Artifact Name | Type | Fragile? |
+| Category | Action | Description |
 | :--- | :--- | :--- |
-| `mart-nord-core-drill` | `martian-core` | No |
-| `mart-sand-sample` | `martian-generic` | **Yes** |
-| `mart-laser-gun` | `martian-civilization` | **Yes** |
+| **Movement** | `move-to-pressurized-room` | Standard move between safe, pressurized rooms. |
+| | `move-to-unpressurized-room` | Move into/through vacuum. **Requires:** `sealing-mode-on`. |
+| | `try-to-enter-seismic-room` | **Non-deterministic.** Attempts to enter a seismic room. May fail if room is unsafe. |
+| **Sealing** | `activate-seal` | Prepares robot for vacuum. |
+| | `deactivate-seal` | Opens seals. Only allowed in pressurized rooms. |
+| **Pod Handling** | `pick-up-empty-pod` | Picks up a specific pod object `?p`. |
+| | `pick-up-full-pod` | Picks up a pod that already contains an item. |
+| | `drop-empty-pod` | Drops an empty pod to free hands. |
+| | `drop-full-pod` | Drops a full pod (does not unpack it). |
+| **Artifacts** | `pick-up-artifact-standard` | Grabs a `no-fragile` item directly. |
+| | `put-in-pod` | **Load Logic:** While carrying an empty pod, the robot grabs an artifact and seals it inside. Outcome: `carrying-full-pod`. |
+| | `release-artifact` | Drops a `no-fragile` item directly. |
+| | `release-artifact-from-pod` | **Unload Logic:** Unpacks item into room. Robot keeps the empty pod. |
+| **Cryo** | `release-artifact-in-cryo` | Drops item in Cryo-Chamber -> Item becomes `(cold)`. |
+| | `release-artifact-in-cryo-from-pod` | Unpacks item in Cryo-Chamber -> Item becomes `(cold)`. |
 
-## 🏁 Initial State & Goals
+
+
+## 📦 Objects: Pods & Artifacts
+
+### Pods
+Unlike previous iterations where pods were room properties, **Pods are now physical objects** (`pod1`, `pod2`).
+* They can be moved between rooms.
+* They have states: `(pod-empty ?p)` or `(pod-full ?p)`.
+* **Utility:** Required to transport `fragile` items.
+
+### Artifacts
+Artifacts have specific handling requirements defined by their type.
+
+* **Fragility:**
+    * `(fragile ?a)`: Cannot be picked up directly. Must be handled via `put-in-pod` or pre-loaded pods.
+    * `(no-fragile ?a)`: Can be carried in "hand" without a pod.
+* **Temperature:**
+    * `(warm ?a)`: Initial state.
+    * `(cold ?a)`: Achieved by processing the item in a `chill-room`.
+
+
+
+## 🏁 Problem Instance (problem.pddl)
 
 ### Initial State
-The state establishes the star topology centered on the **Maintenance Tunnel**.
-* **Robot:** Starts at the `entrance` with `handempty`.
-* **Environment:**
-    * `maintenance-tunnel` is `is-unpressurized` and `is-safe`.
-    * `anti-vibration-pods-room` has `(contain-free-pod)`.
-    * All rooms are initially `is-safe` (Hall B safety is static in this problem instance).
-* **Artifact Distribution:**
-    * **Hall A:** Contains Core Drills and Ice/Organic Samples (Non-Fragile).
-    * **Hall B:** Contains Generic/Civilization items (Fragile, require pods).
-* **Properties:** Artifacts in Hall B are explicitly marked as `(fragile ?a)`, forcing the robot to use pods to move them.
+* **Robot:** At `entrance`, hands empty, seal off.
+* **Pods:** Two empty pods located in `anti-vibration-pods-room`.
+* **Seismic Threat:** `hall-b` is marked `(is-seismic)`.
+* **Artifacts:**
+    * **Hall A:** Contains Core Drills (Warm, Non-Fragile).
+    * **Hall B:** Contains Samples & Tools (Fragile, require Pods).
 
-### Goal State
-The mission is complete when:
-1. **Martian Core Artifacts** are inside the `stasis-lab` and are `cold`.
-2. **Temperature Sensitive Artifacts** (Ice/Eggs) are inside the `cryo-chamber`.
-3. **Hall B Artifacts** are evacuated and placed in `hall-a`.
-
-> **📝 Note 4:** We can add flexibility by allowing cold artifacts to be stored in **either** the Cryo-Chamber **or** the Stasis-Lab. This allows us to test if the planner finds the optimal goal versus a suboptimal (but valid) one.
-
-
-
-
-## OUTPUT
+### Goals
+1.  **Martian Cores:** Must be at `stasis-lab` AND be `cold`.
+    * *Strategy:* Robot must detour to `cryo-chamber` to cool them before final delivery.
+2.  **Biological Samples:** Must be at `cryo-chamber` (implicitly becoming cold).
+3.  **Rescue Mission:** All artifacts currently in `hall-b` must be moved to `hall-a`.
+    * *Constraint:* These items are `fragile`, so the robot must fetch pods from the pod room, bring them to Hall B, load the items, and transport them out.
