@@ -484,7 +484,7 @@ var49
 Atom warm(venus-sand-sample)
 NegatedAtom warm(venus-sand-sample)
 end_variable
-20
+19
 begin_mutex_group
 9
 0 0
@@ -647,21 +647,6 @@ begin_mutex_group
 12 6
 30 12
 31 12
-end_mutex_group
-begin_mutex_group
-12
-13 0
-13 1
-13 2
-13 3
-13 4
-13 5
-13 6
-13 7
-13 8
-13 9
-13 10
-13 11
 end_mutex_group
 begin_mutex_group
 12

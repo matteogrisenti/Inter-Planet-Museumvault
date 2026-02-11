@@ -2,6 +2,7 @@
 To run the current PDDL model with the PRP (Probabilistic Relevant Planner) solver:
 ```bash 
 planutils run prp domain.pddl problem.pddl
+planutils run prp domain.pddl problem.pddl -- --dump-policy 2
 ```
 
 ## Introduction
