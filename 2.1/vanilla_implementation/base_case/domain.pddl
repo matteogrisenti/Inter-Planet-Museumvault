@@ -80,10 +80,9 @@
             (is-unseismic ?to)
         )
         :effect (and 
-            (not (robot-at ?r ?from)) 
-            (robot-at ?r ?to)
-            (not (sealing-mode-on ?r))
-            (sealing-mode-off ?r)
+            (not (robot-at ?r ?from)) (robot-at ?r ?to)
+            ; the sealing mode is deactivated automatically
+            (not (sealing-mode-on ?r)) (sealing-mode-off ?r)           
         )
     )
 
@@ -100,11 +99,9 @@
             (sealing-mode-on ?r) ; Hard physical constraint
         )
         :effect (and 
-      (not (robot-at ?r ?from)) 
-      (robot-at ?r ?to)
-      (not (sealing-mode-on ?r))
-      (sealing-mode-off ?r)
-  )
+            (not (robot-at ?r ?from)) 
+            (robot-at ?r ?to)
+        )
     )
 
     ;; ACTION: try-to-enter-seismic-room
@@ -122,7 +119,12 @@
         ;; NON DETERMINISTIC EFFECT
         :effect (oneof 
             ;; CASE A: Room is safe
-            (and (is-safe ?to) (not (robot-at ?r ?from)) (robot-at ?r ?to))      
+            (and 
+                (is-safe ?to) 
+                (not (robot-at ?r ?from)) (robot-at ?r ?to)
+                ; the sealing mode is deactivated automatically
+                (not (sealing-mode-on ?r)) (sealing-mode-off ?r)    
+            )      
             ;; CASE B: Room is unsafe
             (not (is-safe ?to))    
         )
@@ -141,6 +143,7 @@
     )
 
     ;; ACTION: deactivate-seal
+    ;; Note: The planner never deactivate the seal mode autonumusly, becouse it have no drawbacks
     ;; PURPOSE: Opens the robot's external hatches/interfaces.
     ;; CONSTRAINT: Only allowed in pressurized rooms to prevent internal damage.
     (:action deactivate-seal
@@ -186,12 +189,12 @@
             (robot-at ?r ?l)
             (pod-at ?p ?l)
             (pod-contains ?p ?a)
+            (hands-empty ?r)
         )
         :effect (and 
             ;; Now the robot carrying a full pod
             (not (hands-empty ?r))
             (carrying-full-pod ?r ?p)
-            (carrying ?r ?a)
             ;; The pod is not more in that room but carried by the robot
             (not (pod-at ?p ?l))
         )
@@ -229,10 +232,7 @@
         )
         :effect (and 
             (not (carrying-full-pod ?r ?p))
-            (not (carrying ?r ?a)) ; Robot no longer holds artifact directly
             (hands-empty ?r)
-            (contains-full-pod ?l ?p)
-            ;; (artifact-at ?a ?l)    ; Artifact location updates to room
             (pod-at ?p ?l)
         )
     )
@@ -273,7 +273,6 @@
         :effect (and 
             (not (carrying-empty-pod ?r ?p))
             (carrying-full-pod ?r ?p)  ; Transition to 'Full Pod' state
-            (carrying ?r ?a)
             (not (artifact-at ?a ?l))
             (not (pod-empty ?p)) (pod-full ?p)
             (pod-contains ?p ?a)
@@ -293,7 +292,7 @@
         )
         :effect (and 
             (not (carrying ?r ?a)) 
-            (not (hands-full ?r)) (hands-empty ?r) 
+            (hands-empty ?r) 
             (artifact-at ?a ?l)
         )
     )
@@ -312,7 +311,6 @@
         :effect (and
             (not (carrying-full-pod ?r ?p))
             (carrying-empty-pod ?r ?p) ; Hands remain full, pod empty
-            (not (carrying ?r ?a))
             (artifact-at ?a ?l)
             (not (pod-contains ?p ?a))
             (pod-empty ?p) (not (pod-full ?p))
@@ -331,7 +329,7 @@
         )
         :effect (and 
             (not (carrying ?r ?a)) 
-            (not (hands-full ?r)) (hands-empty ?r) 
+            (hands-empty ?r) 
             (artifact-at ?a ?l)
             (not (warm ?a)) (cold ?a) ; Instant Temp Logic
         )

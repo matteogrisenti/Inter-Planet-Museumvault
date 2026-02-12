@@ -1,169 +1,204 @@
 import re
-from typing import Dict, List, Tuple, Any
+import json
+from pathlib import Path
 
 class PDDLParser:
-    """Parser for PDDL domain and problem files."""
+    """Parses PDDL files (Domain, Problem) and Plan files."""
     
     @staticmethod
-    def remove_comments(content: str) -> str:
-        """Removes all comments (starting with ;) from the PDDL content."""
-        lines = []
-        for line in content.splitlines():
-            # Keep everything before the first semicolon
-            clean_line = line.split(';')[0]
-            lines.append(clean_line)
-        return '\n'.join(lines)
+    def tokenize(text):
+        # Remove comments
+        text = re.sub(r';.*$', '', text, flags=re.MULTILINE)
+        text = text.lower()
+        # Pad parentheses
+        text = text.replace('(', ' ( ').replace(')', ' ) ')
+        return text.split()
 
     @staticmethod
-    def parse_domain(filepath: str) -> Dict[str, Any]:
+    def parse_sexpr(tokens):
+        if not tokens:
+            raise SyntaxError("Unexpected EOF")
+        token = tokens.pop(0)
+        if token == '(':
+            L = []
+            while tokens[0] != ')':
+                L.append(PDDLParser.parse_sexpr(tokens))
+            tokens.pop(0) # pop ')'
+            return L
+        elif token == ')':
+            raise SyntaxError("Unexpected )")
+        else:
+            return token
+
+    @staticmethod
+    def parse_file(filepath):
         with open(filepath, 'r') as f:
-            raw_content = f.read()
+            content = f.read()
+        tokens = PDDLParser.tokenize(content)
+        expressions = []
+        while tokens:
+            expressions.append(PDDLParser.parse_sexpr(tokens))
+        return expressions
+
+class Action:
+    def __init__(self, name, parameters, effects):
+        self.name = name
+        self.parameters = parameters
+        self.effects = effects
+
+    def __repr__(self):
+        return f"<Action {self.name}>"
+
+class World:
+    def __init__(self, domain_file, problem_file, plan_file):
+        self.actions = {}
+        self.current_state = set()
+        # Structured history for JSON export
+        # Format: [{ "step": 0, "action": "INIT", "state": [...] }, { "step": 1, ... }]
+        self.history = [] 
         
-        content = PDDLParser.remove_comments(raw_content)
+        # 1. Load Domain
+        self._load_domain(domain_file)
         
-        domain_data = {
-            'name': None,
-            'types': [],
-            'predicates': [],
-            'actions': []
-        }
+        # 2. Load Initial State
+        self._load_problem(problem_file)
         
-        name_match = re.search(r'\(define\s+\(domain\s+(\S+)\)', content, re.IGNORECASE)
-        if name_match:
-            domain_data['name'] = name_match.group(1)
+        # Record Initial State
+        self.history.append({
+            "step": 0,
+            "action": "INITIAL_STATE",
+            "parameters": [],
+            "effects": {"add": [], "del": []},
+            "state": sorted([list(atom) for atom in self.current_state], key=lambda x: (x[0], x[1]))
+        })
+
+        # 3. Execute Plan
+        self._execute_plan(plan_file)
+
+    def _load_domain(self, filepath):
+        print(f"Loading Domain: {filepath.name}...")
+        exprs = PDDLParser.parse_file(filepath)
+        domain_def = next(e for e in exprs if e[0] == 'define' and 'domain' in e[1])
         
-        types_match = re.search(r'\(:types\s+(.*?)\)', content, re.DOTALL | re.IGNORECASE)
-        if types_match:
-            types_text = types_match.group(1)
-            # Normalize types to lowercase just in case
-            domain_data['types'] = [t.strip().lower() for t in types_text.split() if t.strip() and t.strip() != '-']
+        for item in domain_def:
+            if isinstance(item, list) and item[0] == ':action':
+                name = item[1]
+                
+                # Parse Parameters (stripping types like '- robot')
+                raw_params = item[item.index(':parameters') + 1]
+                clean_params = []
+                i = 0
+                while i < len(raw_params):
+                    token = raw_params[i]
+                    if token.startswith('?'):
+                        clean_params.append(token)
+                    if token == '-':
+                        i += 1 
+                    i += 1
+                
+                # Parse Effect
+                effect_idx = item.index(':effect') + 1
+                effects = item[effect_idx]
+                
+                self.actions[name] = Action(name, clean_params, effects)
+
+    def _load_problem(self, filepath):
+        print(f"Loading Problem: {filepath.name}...")
+        exprs = PDDLParser.parse_file(filepath)
+        problem_def = next(e for e in exprs if e[0] == 'define' and 'problem' in e[1])
         
-        action_pattern = r'\(:action\s+(\S+)'
-        # Normalize action names to lowercase
-        domain_data['actions'] = [a.lower() for a in re.findall(action_pattern, content, re.IGNORECASE)]
-        
-        return domain_data
-    
-    @staticmethod
-    def parse_problem(filepath: str) -> Dict[str, Any]:
+        for item in problem_def:
+            if isinstance(item, list) and item[0] == ':init':
+                for atom in item[1:]:
+                    if isinstance(atom, list):
+                        self.current_state.add(tuple(atom))
+
+    def _execute_plan(self, filepath):
+        print(f"Executing Plan: {filepath.name}...")
         with open(filepath, 'r') as f:
-            raw_content = f.read()
-            
-        content = PDDLParser.remove_comments(raw_content)
+            content = f.read()
         
-        problem_data = {
-            'name': None,
-            'domain': None,
-            'objects': {},
-            'locations': [],
-            'artifacts': [],
-            'connections': [],
-            'initial_state': {}
-        }
+        tokens = PDDLParser.tokenize(content)
+        step = 1
         
-        # 1. Metadata
-        name_match = re.search(r'\(define\s+\(problem\s+(\S+)\)', content, re.IGNORECASE)
-        if name_match:
-            problem_data['name'] = name_match.group(1)
-        
-        domain_match = re.search(r'\(:domain\s+(\S+)\)', content, re.IGNORECASE)
-        if domain_match:
-            problem_data['domain'] = domain_match.group(1)
-        
-        # 2. Objects (Now with Lowercase Normalization)
-        obj_start = re.search(r'\(:objects', content, re.IGNORECASE)
-        if obj_start:
-            start_idx = obj_start.end()
-            objects_text, _ = PDDLParser._extract_balanced_block(content, start_idx)
-            
-            flat_text = objects_text.replace('\n', ' ')
-            parts = re.split(r'\s+-\s+', flat_text)
-            
-            for i in range(1, len(parts)):
-                current_chunk = parts[i].split()
-                if not current_chunk: continue
-                
-                obj_type = current_chunk[0].lower() # Lowercase Type
-                
-                if i == 1:
-                    prev_chunk = parts[i-1].split()
-                    obj_names = prev_chunk
-                else:
-                    prev_chunk = parts[i-1].split()
-                    obj_names = prev_chunk[1:]
-                
-                # --- CRITICAL FIX: Lowercase all object names ---
-                obj_names = [name.lower() for name in obj_names]
-                
-                if obj_type not in problem_data['objects']:
-                    problem_data['objects'][obj_type] = []
-                
-                problem_data['objects'][obj_type].extend(obj_names)
-                
-                if obj_type == 'location':
-                    problem_data['locations'].extend(obj_names)
-                elif 'artifact' in obj_type or 'item' in obj_type:
-                    problem_data['artifacts'].extend(obj_names)
+        while tokens:
+            if tokens[0] == '(':
+                expr = PDDLParser.parse_sexpr(tokens)
+                action_name = expr[0]
+                args = expr[1:]
+                self.apply_action(action_name, args, step)
+                step += 1
+            else:
+                tokens.pop(0)
 
-        # 3. Init State (Now with Lowercase Normalization)
-        init_start = re.search(r'\(:init', content, re.IGNORECASE)
-        if init_start:
-            start_idx = init_start.end()
-            init_text, _ = PDDLParser._extract_balanced_block(content, start_idx)
-            
-            predicate_pattern = r'\(\s*([^\s\)]+)(?:\s+([^)]*))?\s*\)'
-            predicates = re.findall(predicate_pattern, init_text)
-            
-            for pred_name, args_str in predicates:
-                pred_name = pred_name.lower()
-                
-                # --- CRITICAL FIX: Lowercase all arguments ---
-                args = [a.lower() for a in args_str.split()] if args_str else []
-                
-                if 'connected' in pred_name and len(args) >= 2:
-                    problem_data['connections'].append((args[0], args[1]))
-                
-                if pred_name not in problem_data['initial_state']:
-                    problem_data['initial_state'][pred_name] = []
-                
-                problem_data['initial_state'][pred_name].append(tuple(args))
+    def apply_action(self, action_name, args, step_num):
+        # Clean action name (remove _detdup_0, _psi_1, etc.)
+        # Regex: matches _ followed by detdup/psi, optional chars, end of string
+        base_name = re.sub(r'_(detdup|psi).*', '', action_name)
 
-        return problem_data
-    
-    @staticmethod
-    def _extract_balanced_block(content: str, start_index: int) -> Tuple[str, int]:
-        balance = 1 
-        current_idx = start_index
-        extracted = []
+        if base_name not in self.actions:
+            print(f"⚠️ Warning Step {step_num}: Unknown action '{action_name}' (normalized: '{base_name}')")
+            # Record state anyway to keep continuity
+            self.history.append({
+                "step": step_num,
+                "action": action_name,
+                "error": "Unknown Action",
+                "state": sorted([list(atom) for atom in self.current_state])
+            })
+            return
+
+        action_def = self.actions[base_name]
+        bindings = dict(zip(action_def.parameters, args))
         
-        while current_idx < len(content) and balance > 0:
-            char = content[current_idx]
-            if char == '(':
-                balance += 1
-            elif char == ')':
-                balance -= 1
-            
-            if balance > 0:
-                extracted.append(char)
-            current_idx += 1
-            
-        return "".join(extracted), current_idx
+        add_list = set()
+        del_list = set()
+        
+        self._resolve_effects(action_def.effects, bindings, add_list, del_list)
+        
+        # Apply updates
+        self.current_state = {atom for atom in self.current_state if atom not in del_list}
+        self.current_state.update(add_list)
+        
+        # Save structured history
+        self.history.append({
+            "step": step_num,
+            "action": base_name,
+            "raw_action": action_name,
+            "parameters": args,
+            "effects": {
+                "add": [list(a) for a in add_list],
+                "del": [list(d) for d in del_list]
+            },
+            "state": sorted([list(atom) for atom in self.current_state], key=lambda x: (x[0], x[1]))
+        })
 
-    @staticmethod
-    def parse_plan(filepath: str) -> List[Tuple[str, List[str]]]:
-        actions = []
-        with open(filepath, 'r') as f:
-            for line in f:
-                line = line.split(';')[0].strip()
-                if not line: continue
-                
-                if line.startswith('(') and line.endswith(')'):
-                    line = line[1:-1]
-                
-                parts = line.split()
-                if parts:
-                    # --- CRITICAL FIX: Lowercase action name and parameters ---
-                    action_name = parts[0].lower()
-                    parameters = [p.lower() for p in parts[1:]]
-                    actions.append((action_name, parameters))
-        return actions
+    def _resolve_effects(self, effect_node, bindings, add_list, del_list):
+        if not isinstance(effect_node, list):
+            return
+        
+        op = effect_node[0]
+        
+        if op == 'and':
+            for sub in effect_node[1:]:
+                self._resolve_effects(sub, bindings, add_list, del_list)
+        elif op == 'not':
+            atom = self._ground_atom(effect_node[1], bindings)
+            del_list.add(atom)
+        elif op == 'oneof':
+            # HEURISTIC: Always assume the first outcome (Case A: Success) 
+            self._resolve_effects(effect_node[1], bindings, add_list, del_list)
+        else:
+            # Base atom add
+            atom = self._ground_atom(effect_node, bindings)
+            add_list.add(atom)
+
+    def _ground_atom(self, template, bindings):
+        return tuple(bindings.get(item, item) for item in template)
+
+    def save_trace_to_json(self, output_dir):
+        """Saves the complete execution history to trace.json"""
+        output_path = output_dir / "trace.json"
+        with open(output_path, 'w') as f:
+            json.dump(self.history, f, indent=2)
+        print(f"✅ Trace saved to: {output_path}")
+        print(f"   Total Steps: {len(self.history)}")

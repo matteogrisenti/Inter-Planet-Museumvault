@@ -1,18 +1,128 @@
 import matplotlib.pyplot as plt
 import matplotlib.patches as patches
 from matplotlib.animation import FuncAnimation, PillowWriter
+import json
+import re
+from pathlib import Path
 from typing import Dict, Any, List, Tuple
-from world import WorldState
 
-class Visualizer:
-    """Creates visual simulation of the planning execution."""
-    
-    def __init__(self, problem_data: Dict[str, Any], plan: List[Tuple[str, List[str]]]):
-        self.problem_data = problem_data
-        self.plan = plan
-        self.world_state = WorldState(problem_data)
+class StateParser:
+    """
+    Parses a list of PDDL atoms (strings or lists) into a structured dictionary
+    representing the visual state of the world (robots, items, locations).
+    """
+    @staticmethod
+    def parse(atoms: List[List[str]]) -> Dict[str, Any]:
+        state = {
+            'robots': {},
+            'drones': {},
+            'artifacts': {},
+            'pods': {},
+            'locations': set(),
+            'permissions': {}, # access/pickup
+            'seismic': []
+        }
         
-        # Room Dimensions
+        # Helper to ensure robot dict exists
+        def get_robot(name):
+            if name not in state['robots']:
+                state['robots'][name] = {
+                    'loc': None, 'holding': None, 'holding_pod': None,
+                    'pod_content': None, 'sealed': False, 'type': 'unknown'
+                }
+            return state['robots'][name]
+
+        # Helper to ensure drone dict exists
+        def get_drone(name):
+            if name not in state['drones']:
+                state['drones'][name] = {'loc': None, 'holding': None}
+            return state['drones'][name]
+
+        for atom in atoms:
+            # Atom format: ["predicate", "arg1", "arg2", ...]
+            pred = atom[0]
+            args = atom[1:]
+
+            # --- ROBOTS ---
+            if pred == 'robot-at':
+                get_robot(args[0])['loc'] = args[1]
+                state['locations'].add(args[1])
+            elif pred == 'sealing-mode':
+                get_robot(args[0])['sealed'] = True
+            elif pred == 'carrying':
+                get_robot(args[0])['holding'] = args[1]
+            elif pred == 'carrying-empty-pod':
+                r = get_robot(args[0])
+                r['holding_pod'] = args[1]
+                r['pod_content'] = None
+            elif pred == 'carrying-full-pod':
+                r = get_robot(args[0])
+                r['holding_pod'] = args[1]
+                # We often need another atom to know WHAT is in the pod, 
+                # but sometimes the plan implies it. We'll check 'pod-contains' later.
+            
+            # --- DRONES ---
+            elif pred == 'drone-at':
+                get_drone(args[0])['loc'] = args[1]
+            elif pred == 'drone-carrying':
+                get_drone(args[0])['holding'] = args[1]
+
+            # --- ARTIFACTS ---
+            elif pred == 'artifact-at':
+                state['artifacts'][args[0]] = {'loc': args[1], 'temp': 'warm'} # default temp
+            elif pred == 'cold':
+                if args[0] in state['artifacts']:
+                    state['artifacts'][args[0]]['temp'] = 'cold'
+            
+            # --- PODS (In Rooms) ---
+            # CASE 1: Domain specific 'contains-empty-pod ?loc ?pod'
+            elif pred == 'contains-empty-pod':
+                state['pods'][args[1]] = {'loc': args[0], 'content': None}
+            
+            # CASE 2: Domain specific 'contains-full-pod ?loc ?pod'
+            elif pred == 'contains-full-pod':
+                state['pods'][args[1]] = {'loc': args[0], 'content': 'unknown'}
+            
+            # CASE 3: Standard 'pod-at ?pod ?loc' (The missing feature)
+            elif pred == 'pod-at':
+                # args[0] = pod, args[1] = location
+                if args[0] not in state['pods']:
+                    state['pods'][args[0]] = {'loc': args[1], 'content': None}
+                else:
+                    state['pods'][args[0]]['loc'] = args[1]
+
+            elif pred == 'pod-contains':
+                # Can apply to pods on floor or in hand
+                pod_id = args[0]
+                item_id = args[1]
+                
+                # Check if pod is on floor
+                if pod_id in state['pods']:
+                    state['pods'][pod_id]['content'] = item_id
+                
+                # Check if pod is in hand (robot)
+                for r in state['robots'].values():
+                    if r['holding_pod'] == pod_id:
+                        r['pod_content'] = item_id
+
+            # --- ENVIRONMENT ---
+            elif pred == 'is-seismic':
+                state['seismic'].append(args[0])
+            elif pred == 'can-access':
+                r, l = args
+                if r not in state['permissions']: state['permissions'][r] = []
+                state['permissions'][r].append(l)
+
+        return state
+
+class Renderer:
+    """Visualizes the PDDL trace using Matplotlib."""
+    
+    def __init__(self, trace_file: Path):
+        with open(trace_file, 'r') as f:
+            self.history = json.load(f)
+        
+        # --- CONFIGURATION ---
         self.location_sizes = {
             'entrance': (2, 3.0),
             'maintenance-tunnel': (9.0, 1.2),
@@ -22,8 +132,16 @@ class Visualizer:
             'anti-vibration-pods-room': (1.5, 3.0),
             'stasis-lab': (6.0, 3.0)
         }
-
-        self.location_positions = self._compute_layout()
+        
+        self.location_positions = {
+            'cryo-chamber': (-4.0, -1.7),
+            'maintenance-tunnel': (2.5, 0),
+            'entrance': (-0.75, -2.5),
+            'anti-vibration-pods-room': (-1.0, 2.5),
+            'hall-a': (1.75, 2.5),
+            'hall-b': (5.25, 2.5),
+            'stasis-lab': (4.0, -2.5)
+        }
         
         self.location_colors = {
             'entrance': '#D3D3D3',
@@ -34,41 +152,21 @@ class Visualizer:
             'anti-vibration-pods-room': '#E8DAEF',
             'stasis-lab': '#FAF0E6'
         }
-        
-        self.artifact_colors = {
-            'warm': '#FF6B6B',
-            'cold': '#4ECDC4'
-        }
-        
-        # Analyze robots to assign dynamic roles/colors
-        self.robot_metadata = self._analyze_robot_roles()
-    
-    def _analyze_robot_roles(self) -> Dict[str, Dict[str, Any]]:
-        """
-        Dynamically determines robot roles, colors, and short names based on:
-        1. Name heuristics (e.g., 'tech' -> Technician)
-        2. Permissions (Capabilities)
-        """
+
+        # Analyze roles based on the initial state (Step 0)
+        self.robot_metadata = self._analyze_robot_roles(self.history[0]['state'])
+
+    def _analyze_robot_roles(self, initial_atoms) -> Dict[str, Dict]:
+        state = StateParser.parse(initial_atoms)
         metadata = {}
         
-        # Color Palette
         COLOR_ADMIN = '#2E86C1'      # Blue
         COLOR_TECH = '#E67E22'       # Orange
         COLOR_SCI = '#8E44AD'        # Purple
         COLOR_DEFAULT = '#7F8C8D'    # Grey
         
-        for r_name in self.world_state.robots:
-            perms = self.world_state.permissions.get(r_name, {'pickup': set(), 'access': set()})
-            pickup_types = perms.get('pickup', set())
-            
-            # --- Role Inference ---
-            role = 'unknown'
-            color = COLOR_DEFAULT
-            short = r_name[:3].upper()
-            
+        for r_name in state['robots']:
             name_lower = r_name.lower()
-            
-            # Heuristic 1: Name-based (Strongest)
             if 'curator' in name_lower or 'admin' in name_lower:
                 role = 'admin'
                 color = COLOR_ADMIN
@@ -76,332 +174,190 @@ class Visualizer:
             elif 'tech' in name_lower:
                 role = 'technician'
                 color = COLOR_TECH
-                short = "TEC"
-                # Add number if present
-                if name_lower[-1].isdigit():
-                     short = f"T{name_lower[-1]}"
+                short = f"T{name_lower[-1]}" if name_lower[-1].isdigit() else "TEC"
             elif 'sci' in name_lower:
                 role = 'scientist'
                 color = COLOR_SCI
                 short = "SCI"
-            
-            # Heuristic 2: Capability-based (Fallback)
             else:
-                if 'top-secret' in pickup_types:
-                    role = 'admin'
-                    color = COLOR_ADMIN
-                    short = "ADM"
-                elif 'scientific' in pickup_types:
-                    role = 'scientist'
-                    color = COLOR_SCI
-                    short = "SCI"
-                elif 'technological' in pickup_types:
-                    role = 'technician'
-                    color = COLOR_TECH
-                    short = "TEC"
+                role = 'unknown'
+                color = COLOR_DEFAULT
+                short = r_name[:3].upper()
             
-            metadata[r_name] = {
-                'role': role,
-                'color': color,
-                'short_name': short
-            }
-            
+            metadata[r_name] = {'color': color, 'short': short, 'role': role}
         return metadata
 
-    def _compute_layout(self) -> Dict[str, Tuple[float, float]]:
-        layout = {
-            'cryo-chamber': (-4.0, -1.7),
-            'maintenance-tunnel': (2.5, 0),
-            'entrance': (-0.75, -2.5),
-            'anti-vibration-pods-room': (-1.0, 2.5),
-            'hall-a': (1.75, 2.5),
-            'hall-b': (5.25, 2.5),
-            'stasis-lab': (4.0, -2.5)
-        }
+    def render_frame(self, ax, step_index):
+        """Draws a single state onto the provided Axes."""
+        step_data = self.history[step_index]
+        state = StateParser.parse(step_data['state'])
         
-        positions = {}
-        for loc in self.problem_data['locations']:
-            if loc in layout:
-                positions[loc] = layout[loc]
-            else:
-                positions[loc] = (len(positions) * 2, 5)
-        return positions
-    
-    def create_animation(self, output_file: str = 'pddl_simulation.gif', 
-                        interval: int = 800, max_steps: int = None):
-        fig, ax = plt.subplots(figsize=(16, 10))
-        fig.patch.set_facecolor('#FDF5E6')
-        ax.set_facecolor('#FDF5E6')
-        
-        steps_to_show = self.plan[:max_steps] if max_steps else self.plan
-        
-        states = [WorldState(self.problem_data)]
-        descriptions = ["Initial State"]
-        
-        current_state = WorldState(self.problem_data)
-        for action_name, parameters in steps_to_show:
-            desc = current_state.apply_action(action_name, parameters)
-            descriptions.append(desc)
-            
-            # Deep Copy for Animation State (Manual serialization/deserialization)
-            new_state = WorldState(self.problem_data)
-            # Restore state from dict to ensure full copy
-            state_dict = current_state.to_dict()
-            
-            # Reconstruct dynamic properties
-            new_state.artifact_locations = state_dict['artifact_locations'].copy()
-            new_state.pod_locations = state_dict['pod_locations'].copy()
-            new_state.pod_contents = state_dict['pod_contents'].copy()
-            new_state.artifact_temperatures = state_dict['artifact_temperatures'].copy()
-            
-            new_state.robots = {
-                k: v.copy() for k, v in state_dict['robots'].items()
-            }
-            new_state.drones = {
-                k: v.copy() for k, v in state_dict['drones'].items()
-            }
-            new_state.permissions = {
-                k: {'access': v['access'].copy(), 'pickup': v['pickup'].copy()} 
-                for k, v in self.world_state.permissions.items()
-            }
-
-            states.append(new_state)
-            current_state = new_state
-        
-        def update(frame):
-            ax.clear()
-            self._draw_state(ax, states[frame], f'Step {frame}: {descriptions[frame]}')
-
-        print(f"Creating animation with {len(states)} frames...")
-        anim = FuncAnimation(fig, update, frames=len(states), interval=interval, repeat=True)
-        writer = PillowWriter(fps=1000/interval)
-        anim.save(output_file, writer=writer, dpi=100)
-        print(f"Animation saved to: {output_file}")
-        plt.close()
-        return output_file
-
-    def create_static_visualization(self, output_file: str = 'pddl_static.png'):
-        fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(20, 10))
-        fig.patch.set_facecolor('#FDF5E6')
-        
-        self._draw_state(ax1, self.world_state, "Initial State")
-        
-        final_state = WorldState(self.problem_data)
-        for action_name, parameters in self.plan:
-             final_state.apply_action(action_name, parameters)
-        
-        self._draw_state(ax2, final_state, "Final State")
-        
-        plt.tight_layout()
-        plt.savefig(output_file, dpi=150, bbox_inches='tight')
-        plt.close()
-        return output_file
-    
-    def _draw_state(self, ax, state: WorldState, title: str):
+        ax.clear()
         ax.set_facecolor('#FDF5E6')
         ax.set_xlim(-8, 9)
         ax.set_ylim(-5, 6)
         ax.set_aspect('equal')
         ax.axis('off')
-        ax.set_title(title, fontsize=16, weight='bold', pad=15)
         
-        # 1. Draw Rooms
+        title = f"Step {step_data['step']}: {step_data['action'].upper()}"
+        if step_data.get('error'):
+             title += f" ({step_data['error']})"
+        ax.set_title(title, fontsize=14, weight='bold', pad=10)
+
+        # 1. DRAW ROOMS
         for loc, pos in self.location_positions.items():
             color = self.location_colors.get(loc, '#E0E0E0')
             width, height = self.location_sizes.get(loc, (1.5, 1.5))
+            
+            # Seismic Warning (Red Tint)
+            if loc in state['seismic']:
+                color = '#FFCCCB' # Light red
+            
             rect = patches.Rectangle(
                 (pos[0] - width/2, pos[1] - height/2), width, height,
-                linewidth=2, edgecolor='#4A4A4A', facecolor=color, alpha=0.9
+                linewidth=2, edgecolor='#4A4A4A', facecolor=color, alpha=0.9, zorder=1
             )
             ax.add_patch(rect)
             
-            label_y_offset = height/2 - 0.4 if height > 2 else 0
-            ax.text(pos[0], pos[1] + label_y_offset, loc.replace('-', ' ').title(), 
-                   ha='center', va='center', fontsize=10, weight='bold', color='#333333')
-            
-            # Draw Permissions Info (Little icons/text in corner of room)
-            # This is complex because permissions are by robot. 
-            # We will list who can ACCESS this room.
-            access_list = []
-            for r_name, perms in state.permissions.items():
-                if loc in perms['access']:
-                    # Use dynamic short name
-                    meta = self.robot_metadata.get(r_name, {'short_name': r_name[:3].upper()})
-                    access_list.append(meta['short_name'])
+            # Room Label
+            label_y = pos[1] + height/2 - 0.3 if height > 2 else pos[1]
+            ax.text(pos[0], label_y, loc.replace('-', ' ').title(), 
+                   ha='center', va='center', fontsize=9, weight='bold', color='#333333', zorder=2)
 
-            
-            if access_list:
-                access_str = "Acc: " + ",".join(access_list)
-                ax.text(pos[0], pos[1] - height/2 + 0.2, access_str, 
-                       ha='center', va='bottom', fontsize=5, color='#555555')
-
-
-        # 2. Draw Connections
-        for loc1, loc2 in self.problem_data['connections']:
-            if loc1 in self.location_positions and loc2 in self.location_positions:
-                pos1 = self.location_positions[loc1]
-                pos2 = self.location_positions[loc2]
-                ax.plot([pos1[0], pos2[0]], [pos1[1], pos2[1]], 'k:', alpha=0.15, linewidth=1)
-
-        # 3. Draw Pods
-        for pod, location in state.pod_locations.items():
-            if location in self.location_positions:
-                pos = self.location_positions[location]
-                room_w, room_h = self.location_sizes.get(location, (1.5, 1.5))
-                pod_size = 0.3
+        # 2. DRAW PODS (On Floor)
+        for pod_id, pod_data in state['pods'].items():
+            loc = pod_data['loc']
+            if loc in self.location_positions:
+                pos = self.location_positions[loc]
                 
-                # Custom layout for the pod room
-                if location == 'anti-vibration-pods-room':
-                    if '1' in pod:
-                        draw_x = (pos[0] - room_w/2) + 0.2
-                        draw_y = (pos[1] - room_h/2) + 0.2
-                    elif '2' in pod:
-                        draw_x = (pos[0] + room_w/2) - pod_size - 0.2
-                        draw_y = (pos[1] - room_h/2) + 0.2
-                    else:
-                        draw_x = pos[0] - pod_size/2
-                        draw_y = pos[1] - room_h/2 + 0.2
-                else:
-                    offset_x = (hash(pod) % 5 - 2) * 0.2
-                    offset_y = (hash(pod + "y") % 5 - 2) * 0.2
-                    draw_x = pos[0] - pod_size/2 + offset_x
-                    draw_y = pos[1] - pod_size/2 + offset_y
+                # Jitter based on name hash to avoid overlap
+                ox = (hash(pod_id) % 5 - 2) * 0.2
+                oy = (hash(pod_id+"y") % 5 - 2) * 0.2
                 
-                # Check if pod contains something
-                is_full = pod in state.pod_contents
-                face_color = '#228B22' if is_full else '#32CD32' # Darker green if full
+                # Special layout for Pod Room
+                if loc == 'anti-vibration-pods-room':
+                    ox = 0
+                    oy = 0.5 if '1' in pod_id else -0.5
                 
-                pod_rect = patches.Rectangle((draw_x, draw_y), pod_size, pod_size, linewidth=1.0, edgecolor='#006400', facecolor=face_color, alpha=1.0, zorder=4)
-                ax.add_patch(pod_rect)
+                draw_x, draw_y = pos[0] + ox - 0.15, pos[1] + oy - 0.15
                 
-                if is_full:
-                    ax.text(draw_x + pod_size/2, draw_y + pod_size/2, "★", ha='center', va='center', fontsize=6, color='white')
+                color = '#228B22' if pod_data['content'] else '#90EE90'
+                rect = patches.Rectangle((draw_x, draw_y), 0.3, 0.3, 
+                                       facecolor=color, edgecolor='darkgreen', zorder=3)
+                ax.add_patch(rect)
+                if pod_data['content']:
+                     ax.text(draw_x+0.15, draw_y+0.15, "★", ha='center', va='center', color='white', fontsize=6, zorder=4)
 
-        # 4. Draw Artifacts (On floor only)
-        for artifact, location in state.artifact_locations.items():
-            if location in self.location_positions:
-                pos = self.location_positions[location]
-                temp = state.artifact_temperatures.get(artifact, 'warm')
-                color = self.artifact_colors.get(temp, '#888888')
-                offset_x = (hash(artifact) % 10 - 5) * 0.15
-                offset_y = (hash(artifact + "y") % 10 - 5) * 0.15
-                ax.scatter(pos[0] + offset_x, pos[1] + offset_y, s=150, c=color, marker='o', edgecolors='black', linewidths=1.5, zorder=5)
+        # 3. DRAW ARTIFACTS (On Floor)
+        for art_id, art_data in state['artifacts'].items():
+            loc = art_data['loc']
+            if loc in self.location_positions:
+                pos = self.location_positions[loc]
+                ox = (hash(art_id) % 8 - 4) * 0.15
+                oy = (hash(art_id+"x") % 8 - 4) * 0.15
+                
+                color = '#4ECDC4' if art_data.get('temp') == 'cold' else '#FF6B6B'
+                ax.scatter(pos[0] + ox, pos[1] + oy, s=100, c=color, edgecolors='black', zorder=4)
 
-        # 5. Draw Robots
-        # Sort keys to ensure deterministic drawing order
-        for i, r_name in enumerate(sorted(state.robots.keys())):
-            r_data = state.robots[r_name]
+        # 4. DRAW ROBOTS
+        for i, (r_name, r_data) in enumerate(sorted(state['robots'].items())):
             loc = r_data['loc']
-            
             if loc in self.location_positions:
                 pos = self.location_positions[loc]
                 
-                # Offset multiple robots in same room
+                # Smart offset for multiple robots
+                ox = (i % 3 - 1) * 0.6
+                oy = 0.0
+                draw_x, draw_y = pos[0] + ox, pos[1] + oy
                 
-                offset_x = (i % 3 - 1) * 0.6
-                offset_y = 0.3 # Move robot above center
-                if i > 2: offset_y += 0.3 # Second row if many robots
+                meta = self.robot_metadata.get(r_name, {'color': '#999', 'short': '??'})
                 
-                draw_x, draw_y = pos[0] + offset_x, pos[1] + offset_y
+                # Body
+                edge = 'red' if r_data['sealed'] else 'black'
+                width = 3 if r_data['sealed'] else 1.5
+                circle = patches.Circle((draw_x, draw_y), 0.35, 
+                                      facecolor=meta['color'], edgecolor=edge, linewidth=width, zorder=10)
+                ax.add_patch(circle)
                 
-                # Use dynamic color
-                meta = self.robot_metadata.get(r_name, {'color': '#7F8C8D', 'short_name': r_name[:3].upper()})
-                color = meta['color']
+                # Label
+                ax.text(draw_x, draw_y, meta['short'], ha='center', va='center', 
+                       color='white', weight='bold', fontsize=8, zorder=11)
+                
+                # Holding Visualization
+                hold_x, hold_y = draw_x + 0.3, draw_y - 0.3
+                
+                if r_data['holding_pod']:
+                    # Draw Pod in hand
+                    p_color = '#228B22' if r_data['pod_content'] else '#A9A9A9'
+                    p_rect = patches.Rectangle((hold_x, hold_y), 0.25, 0.25, 
+                                             facecolor=p_color, edgecolor='black', zorder=12)
+                    ax.add_patch(p_rect)
+                    if r_data['pod_content']:
+                         ax.text(hold_x+0.125, hold_y+0.125, "★", ha='center', va='center', color='white', fontsize=5, zorder=13)
+                
+                elif r_data['holding']:
+                    # Draw Artifact in hand
+                    ax.scatter(hold_x+0.1, hold_y+0.1, s=60, c='#FFD700', edgecolors='black', zorder=12)
 
-                # --- ROBOT BODY ---
-                # Sealing Mode: Red Border
-                edge_color = 'red' if r_data['sealing_mode'] else 'black'
-                edge_width = 3 if r_data['sealing_mode'] else 2
-                
-                robot_circle = patches.Circle((draw_x, draw_y), 0.35, color=color, ec=edge_color, linewidth=edge_width, zorder=10)
-                ax.add_patch(robot_circle)
-                
-                # Letter: Use short name (first 2 chars if possible, else 1)
-                # T1, T2, AD, CU etc.
-                letter = meta['short_name'][:2]
-                font_size = 10 if len(letter) > 1 else 12
-                ax.text(draw_x, draw_y, letter, ha='center', va='center', fontsize=font_size, weight='bold', color='white', zorder=11)
-                
-                # --- POD / CARRYING STATUS VISUALIZATION ---
-                # Draw small circles next to robot to represent holding items visually
-                
-                item_x = draw_x + 0.35  # Right of robot
-                item_y = draw_y - 0.25  # Lower right
-                
-                if r_data['carrying_empty_pods']:
-                    # Draw Empty Grey Circle (Pod)
-                    pod_circle = patches.Circle((item_x, item_y), 0.15, color='#A9A9A9', ec='black', linewidth=1, zorder=12)
-                    ax.add_patch(pod_circle)
-                
-                elif r_data['carrying_in_pod']:
-                    # Draw Pod with Artifact Inside
-                    # 1. Pod Circle
-                    pod_circle = patches.Circle((item_x, item_y), 0.15, color='#A9A9A9', ec='black', linewidth=1, zorder=12)
-                    ax.add_patch(pod_circle)
-                    
-                    # 2. Artifact Inside (Color based on temp if possible, default red)
-                    # We need to look up artifact temp, but r_data only has name.
-                    # We can try to look it up in state.artifact_temperatures if it was tracked there? 
-                    # Actually state.artifact_temperatures usually tracks items on floor.
-                    # But we can assume 'warm' (Red) or 'cold' (Blue) based on artifact name/knowledge?
-                    # Simplified: Use a generic color or try to find it. 
-                    # Let's use a distinct color for the "inner" item.
-                    
-                    inner_color = '#FFD700' # Gold generic for item inside
-                    
-                    artifact_circle = patches.Circle((item_x, item_y), 0.08, color=inner_color, ec='black', linewidth=0.5, zorder=13)
-                    ax.add_patch(artifact_circle)
-                
-                elif r_data['carrying']:
-                    # Draw Artifact directly
-                    item_color = '#FF6B6B' # Default warm red
-                    artifact_circle = patches.Circle((item_x, item_y), 0.12, color=item_color, ec='black', linewidth=1, zorder=12)
-                    ax.add_patch(artifact_circle)
-
-                # --- ROBOT STATUS TEXT ---
-                status_text = []
-                status_text.append(f"{r_name.title()}")
-                if r_data['sealing_mode']: status_text.append("[LOCK]")
-                
-                if r_data['carrying_in_pod']: 
-                    item_name = r_data['carrying_in_pod']
-                    if len(item_name) > 10: item_name = item_name[:8] + ".."
-                    status_text.append(f"InPod: {item_name}")
-                elif r_data['carrying_empty_pods']: 
-                    status_text.append("Pod: Empty")
-                elif r_data['carrying']: 
-                    item_name = r_data['carrying']
-                    if len(item_name) > 10: item_name = item_name[:8] + ".."
-                    status_text.append(f"Hold: {item_name}")
-                
-                full_label = "\n".join(status_text)
-                ax.text(draw_x, draw_y + 0.5, full_label, 
-                       ha='center', va='bottom', fontsize=6, weight='bold', color='black',
-                       bbox=dict(boxstyle='round,pad=0.2', facecolor='white', alpha=0.8, edgecolor='#333333'),
-                       zorder=20)
-        
-        # 6. Draw Drones
-        for d_name in sorted(state.drones.keys()):
-            d_data = state.drones[d_name]
+        # 5. DRAW DRONES
+        for d_name, d_data in state['drones'].items():
             loc = d_data['loc']
-            
             if loc in self.location_positions:
                 pos = self.location_positions[loc]
+                draw_x, draw_y = pos[0], pos[1] - 0.8
                 
-                # Drones fly higher/offset
-                offset_x = 0
-                offset_y = -0.8 
+                poly = patches.RegularPolygon(xy=(draw_x, draw_y), numVertices=3, radius=0.25, color='#8E44AD', zorder=15)
+                ax.add_patch(poly)
+                ax.text(draw_x, draw_y, 'D', ha='center', va='center', color='white', fontsize=7, zorder=16)
                 
-                draw_x, draw_y = pos[0] + offset_x, pos[1] + offset_y
-                
-                # Drone visualization: Purple Triangle
-                drone_patch = patches.RegularPolygon((draw_x, draw_y), numVertices=3, radius=0.25, orientation=0, color='#8E44AD', ec='black', zorder=15)
-                ax.add_patch(drone_patch)
-                
-                ax.text(draw_x, draw_y, 'D', ha='center', va='center', fontsize=8, weight='bold', color='white', zorder=16)
+                if d_data['holding']:
+                     ax.text(draw_x, draw_y-0.3, "Item", ha='center', fontsize=6, color='purple')
 
-                if not d_data['empty']:
-                     item = d_data['carrying']
-                     if len(item) > 10: item = item[:8] + ".."
-                     ax.text(draw_x, draw_y - 0.35, f"Carry: {item}", 
-                             ha='center', va='top', fontsize=5, color='purple', weight='bold')
+    def save_gif(self, output_path: Path, max_frames=None, interval=800):
+        """Generates the GIF animation."""
+        fig, ax = plt.subplots(figsize=(16, 10))
+        fig.patch.set_facecolor('#FDF5E6')
+        
+        frames = self.history
+        if max_frames:
+            frames = frames[:max_frames]
+            
+        print(f"Rendering {len(frames)} frames to GIF...")
+        
+        def update(frame_idx):
+            self.render_frame(ax, frame_idx)
+            
+        anim = FuncAnimation(fig, update, frames=len(frames), interval=interval)
+        writer = PillowWriter(fps=1000/interval)
+        
+        anim.save(output_path, writer=writer, dpi=100)
+        plt.close()
+        print(f"✅ GIF saved to {output_path}")
+
+    def save_static(self, output_path: Path):
+        """Saves a comparison of Start vs End."""
+        fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(20, 10))
+        fig.patch.set_facecolor('#FDF5E6')
+        
+        self.render_frame(ax1, 0)
+        ax1.set_title("Initial State", fontsize=16, weight='bold')
+        
+        self.render_frame(ax2, -1)
+        ax2.set_title("Final State", fontsize=16, weight='bold')
+        
+        plt.tight_layout()
+        plt.savefig(output_path, dpi=150, bbox_inches='tight')
+        plt.close()
+        print(f"✅ Static image saved to {output_path}")
+
+if __name__ == "__main__":
+    import sys
+    try:
+        trace_path = Path("viz/trace.json") 
+        if len(sys.argv) > 1:
+            trace_path = Path(sys.argv[1])
+            
+        renderer = Renderer(trace_path)
+        renderer.save_static(trace_path.parent / "summary.png")
+    except FileNotFoundError:
+        print("trace.json not found. Run main.py first.")

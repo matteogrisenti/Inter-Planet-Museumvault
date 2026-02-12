@@ -1,0 +1,140 @@
+================================================================================
+                     PDDL TRANSLATION PHASE ANALYSIS
+================================================================================
+File Source: Terminal Output (Optimized - Base Case)
+Strategy:    Optimized PDDL (ADL / Conditional Effects / Concise Logic)
+Status:      Successful, Highly Efficient
+================================================================================
+
+--------------------------------------------------------------------------------
+| FEATURE / METRIC            | VALUE (LOG) | DESCRIPTION & EVALUATION GUIDE                                                                 |
+--------------------------------------------------------------------------------
+| 1. Instantiation            |             | THE "EXPLOSION" CHECK                                                                          |
+|    - Relevant Atoms         | 896         | Down from 1117 (Vanilla).                                                                      |
+|                             |             | -> EVALUATION: Better.                                                                         |
+|                             |             | The optimized logic uses fewer distinct predicates to describe the same                        |
+|                             |             | world state (likely by removing explicit "negative" states like                                |
+|                             |             | "sealing-mode-off").                                                                           |
+|                             |             |                                                                                                |
+|    - Auxiliary Atoms        | 724         | Down from 922 (Vanilla).                                                                       |
+|                             |             | -> EVALUATION: Proportional reduction.                                                         |
+--------------------------------------------------------------------------------
+| 2. Invariant Synthesis      |             | THE "OPTIMIZATION" CHECK                                                                       |
+|    - Translator Variables   | 34          | Down from 50 (Vanilla).                                                                        |
+|                             |             | -> EVALUATION: Stronger Compression.                                                           |
+|                             |             | The translator found a more concise variable representation.                                   |
+|                             |             |                                                                                                |
+|    - Mutex Groups           | 16          | Down from 19 (Vanilla).                                                                        |
+--------------------------------------------------------------------------------
+| 3. Reachability Analysis    |             | THE "BUG" CHECK                                                                                |
+|    - Operators Removed      | 42          | -> EVALUATION: Interesting Difference.                                                         |
+|                             |             | Unlike Vanilla (0 removed), the Optimized version generated 42 actions                         |
+|                             |             | that were deemed unreachable/useless. This often happens when using                            |
+|                             |             | broader action definitions that get pruned later.                                              |
+--------------------------------------------------------------------------------
+| 4. Operator Generation      |             | THE "SCALING" BOTTLENECK                                                                       |
+|    - Translator Operators   | 509         | Down from 692 (Vanilla).                                                                       |
+|                             |             | -> EVALUATION: ~26% Reduction.                                                                 |
+|                             |             | This is the primary benefit of the Optimized strategy. Fewer operators                           |
+|                             |             | means a smaller branching factor for the search.                                               |
+--------------------------------------------------------------------------------
+| 5. Performance Resources    |             | THE "COST" CHECK                                                                               |
+|    - Translator Task Size   | 3553        | Down from 5732.                                                                                |
+|                             |             |                                                                                                |
+|    - Peak Memory            | 18.5 MB     | Down from 20 MB.                                                                               |
+|                             |             | -> EVALUATION: Slightly lighter footprint.                                                     |
+|                             |             |                                                                                                |
+|    - Total Time             | 0.175s      | Slightly slower than Vanilla (0.127s) due to more complex parsing,                             |
+|                             |             | but still negligible.                                                                          |
+--------------------------------------------------------------------------------
+
+
+================================================================================
+                     PDDL PREPROCESSOR PHASE ANALYSIS
+================================================================================
+File Source: Terminal Output (Optimized - Base Case)
+Strategy:    Optimized PDDL
+Status:      Clean
+================================================================================
+
+--------------------------------------------------------------------------------
+| FEATURE / METRIC            | VALUE (LOG) | DESCRIPTION & EVALUATION GUIDE                                                                 |
+--------------------------------------------------------------------------------
+| 1. Causal Graph Structure   |             | THE "COMPLEXITY" CHECK                                                                         |
+|    - Graph Status           | Not Acyclic | -> EVALUATION: Standard.                                                                       |
+--------------------------------------------------------------------------------
+| 2. Variable Pruning         |             | THE "EFFICIENCY" CHECK                                                                         |
+|    - Variables Necessary    | 34 of 34    | -> EVALUATION: 100% Efficiency.                                                                |
+|                             |             |                                                                                                |
+|    - Mutex Groups Necessary | 0 of 16     | -> EVALUATION: Anomaly?                                                                        |
+|                             |             | The preprocessor discarded ALL mutex groups. This suggests your optimized                      |
+|                             |             | SAS+ encoding was so strict that extra constraints weren't needed.                             |
+--------------------------------------------------------------------------------
+| 3. Operator Pruning         |             | THE "REACHABILITY" CHECK                                                                       |
+|    - Operators Necessary    | 509/509     | -> EVALUATION: 100% Kept.                                                                      |
+--------------------------------------------------------------------------------
+| 4. Transition Complexity    |             | THE "HEURISTIC" CHECK                                                                          |
+|    - Domain Transition      | Solvable in | -> EVALUATION: "0".                                                                            |
+|      Graphs                 | poly time 0 | Complexity remains low.                                                                        |
+--------------------------------------------------------------------------------
+
+
+================================================================================
+                  PDDL SEARCH & POLICY PHASE ANALYSIS
+================================================================================
+File Source: Terminal Output (Optimized - Base Case)
+Strategy:    Optimized PDDL
+Status:      Fast Success (Slightly reduced States & Plan Length)
+================================================================================
+
+--------------------------------------------------------------------------------
+| FEATURE / METRIC            | VALUE (LOG) | DESCRIPTION & EVALUATION GUIDE                                                                 |
+--------------------------------------------------------------------------------
+| 1. The Search Process       |             | FINDING THE PLAN                                                                               |
+|    - Initial Search Time    | 0.02s       | -> EVALUATION: Identical to Vanilla.                                                           |
+|                             |             | At this small scale, both are instant.                                                         |
+|                             |             |                                                                                                |
+|    - Generated States       | 3,850       | Up from 3,067 (Vanilla).                                                                       |
+|                             |             | -> EVALUATION: NEGATIVE ANOMALY.                                                               |
+|                             |             | The optimized strategy actually explored *more* states.                                        |
+|                             |             | Possible Reason: Conditional effects might be creating a "flatter"                             |
+|                             |             | heuristic landscape, or the pruned operators affected the FF heuristic's                       |
+|                             |             | accuracy slightly.                                                                             |
+|                             |             |                                                                                                |
+|    - Dead Ends              | 0           | -> EVALUATION: Perfect.                                                                        |
+--------------------------------------------------------------------------------
+| 2. The Solution Quality     |             | THE "ROBOT BEHAVIOR" CHECK                                                                     |
+|    - Plan Length            | 123 steps   | Down from 126 steps (Vanilla).                                                                 |
+|                             |             | -> EVALUATION: Slight Improvement (-3 steps).                                                  |
+|                             |             | The improvement is minor because the logic is likely still requiring                           |
+|                             |             | explicit seal/unseal actions, but the "smart" robot might have optimized                       |
+|                             |             | a few move sequences.                                                                          |
+--------------------------------------------------------------------------------
+| 3. Non-Determinism Handling |             | THE "SAFETY" CHECK                                                                             |
+|    - Strong Cyclic Plan     | True        | -> EVALUATION: Success.                                                                        |
+--------------------------------------------------------------------------------
+| 4. Simulation & Verification|             | THE "REALITY" CHECK                                                                            |
+|    - Successful States      | 131         | -> EVALUATION: Consistent execution.                                                           |
+|                             |             |                                                                                                |
+|    - Total Time             | 0.14s       | Down from 0.16s (Vanilla).                                                                     |
+|                             |             | -> EVALUATION: ~12% Faster overall.                                                            |
+--------------------------------------------------------------------------------
+
+================================================================================
+                                 VERDICT
+================================================================================
+Comparison: Optimized vs. Vanilla (Base Case)
+
+1. Translation: The Optimized strategy is significantly lighter.
+   - 26% fewer operators.
+   - 32% fewer variables.
+   - 20% fewer atoms.
+
+2. Search: The Optimized strategy was slightly LESS efficient in search.
+   - Explored ~800 more states than Vanilla.
+   - However, it found a slightly shorter plan (123 vs 126).
+
+3. Conclusion: At this small scale, the "Optimized" strategy saves memory
+   but hasn't yet shown a massive speed advantage. The real test will be
+   Batch 2 and 3.
+================================================================================

@@ -9,7 +9,10 @@ RUN planutils install -y popf
 RUN planutils install -y optic
 RUN planutils install -y tfd
 RUN planutils install -y downward
+
+# Handle Non Deterministic Case
 RUN planutils install -y prp
+
 
 # Modify the configuration file to enable hostfs, i.e. use the host file system
 RUN perl -pi.bak -e "s/mount hostfs = no/mount hostfs = yes/g" /etc/apptainer/apptainer.conf
