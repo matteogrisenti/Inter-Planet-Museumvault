@@ -6,7 +6,6 @@
   ; so it can be modelled as one object in the problem file.
   (:types
     robot             ; The unique robot in the environment (but can be extended to multiple robots in the future)
-    drone             ; Drones: used to explore unsafe areas and check the safety status of the rooms
     pod               ; Anti-vibration pod: used to secure fragile artifacts during transportation
     location          ; Locations: the different rooms in the enviroment
     artifact          ; Artifacts: the different artifact in the enviroment
@@ -29,11 +28,7 @@
     (second-slot-carrying-artifact ?r - robot ?a - artifact)               ; Robot is already carrying an item (used to model the fact that the technician can carry two items at the same time)
     (second-slot-empty ?r - robot)                                  ; Robot is carrying only one item (used to model the fact that the technician can carry two items at the same time)
 
-    ;;* Drone Features
-    (drone-at ?d - drone ?l - location)                    ; Drone's current location
-    (drone-carrying ?d - drone ?a - artifact)             ; Drone is carrying the artifact ?a
-    (drone-empty ?d - drone)                              ; Drone is empty
-
+    
     ;; Locations Features
     (is-seismic ?l - location)                   ; True if the location is currently experiencing seismic activity (earthquake)
     (safety-unknown ?l - location)              ; ! True if the safety status is unknown (allows re-checking)
@@ -104,73 +99,6 @@
           )
       )
   )
-
-  (:action drone-enters-dangerous-room
-      :parameters (?d - drone ?to ?from - location)
-      :precondition (and 
-          (drone-at ?d ?from)
-          (connected ?from ?to)
-          (is-seismic ?to)
-      )
-      :effect (and 
-            (not (drone-at ?d ?from))
-            (drone-at ?d ?to)
-      )
-  )
-
-  (:action drone-exits-dangerous-room
-      :parameters (?d - drone ?to ?from - location)
-      :precondition (and 
-          (drone-at ?d ?from)
-          (connected ?from ?to)
-          (is-seismic ?from)
-      )
-      :effect (and 
-            (not (drone-at ?d ?from))
-            (drone-at ?d ?to)
-      )
-  )
-
-  (:action drone-enter-tunnel
-      :parameters (?d - drone ?to ?from - location)
-      :precondition (and 
-          (drone-at ?d ?from)
-          (connected ?from ?to)
-          (is-unpressurized ?to)
-      )
-      :effect (and 
-            (not (drone-at ?d ?from))
-            (drone-at ?d ?to)
-      )
-  )
-  
-  (:action drone-pickup-artifact
-      :parameters (?d - drone ?a - artifact ?l - location)
-      :precondition (and 
-          (drone-at ?d ?l)
-          (artifact-at ?a ?l)
-          (no-fragile ?a)
-          (drone-empty ?d)
-      )
-      :effect (and 
-          (not (artifact-at ?a ?l))
-          (drone-carrying ?d ?a)
-          (not (drone-empty ?d))
-      )
-  )
-  
-  (:action drone-release-artifact
-      :parameters (?d - drone ?a - artifact ?l - location)
-      :precondition (and 
-          (drone-carrying ?d ?a)
-          (drone-at ?d ?l)
-      )
-      :effect (and 
-          (not (drone-carrying ?d ?a))
-          (artifact-at ?a ?l)
-          (drone-empty ?d)
-      )
-  )
   
   
 
@@ -236,6 +164,7 @@
         (hands-empty ?r)                ; Must have free hands
     )
     :effect (and 
+        (not (contains-empty-pod ?l ?p))
         (not (hands-empty ?r))
         (carrying-empty-pod ?r ?p)
     )

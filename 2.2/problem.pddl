@@ -6,9 +6,6 @@
     curator                        - robot
     technician                     - robot
     scientist                      - robot
-    
-    ;; *Drone
-    drone                        - drone
 
     ;; Pods
     pod1                        - pod
@@ -57,8 +54,6 @@
 
     ;; --- ESSENTIAL NEW ARTIFACTS ---
     quantum-chip                - artifact  ;; Technological + Fragile (Needs Technician + Pod)
-    alien-fossil                - artifact  ;; Scientific + Needs Cooling (Needs Scientist + Cryo)
-    ancient-key                 - artifact  ;; Top-Secret + Inside Hall B (Needs Curator + Seismic check)
   )
 
   (:init
@@ -67,7 +62,7 @@
     (can-access curator entrance) (can-access curator maintenance-tunnel) (can-access curator hall-a) (can-access curator hall-b) (can-access curator cryo-chamber) (can-access curator anti-vibration-pods-room)
     (can-pickup curator scientific) (can-pickup curator top-secret) ; curator can pick up all the artifact types
     ;; Technician
-    (can-access technician entrance) (can-access technician maintenance-tunnel) (can-access technician hall-a) (can-access technician cryo-chamber) (can-access technician anti-vibration-pods-room)
+    (can-access technician entrance) (can-access technician maintenance-tunnel) (can-access technician hall-a) (can-access technician hall-b) (can-access technician cryo-chamber) (can-access technician anti-vibration-pods-room)
     (can-pickup technician technological) (can-pickup technician2 technological) ; Technicians can pick up technological artifacts
     (can-carry-two technician) ; Technicians can carry two items at the same time
     (second-slot-empty technician) ; Technicians are carrying only one item at the beginning
@@ -76,10 +71,6 @@
     (can-access scientist stasis-lab) (can-access scientist maintenance-tunnel)
     (can-pickup scientist scientific) (can-pickup scientist top-secret) (can-pickup scientist technological) ; Scientists can pick up all the artifact types
     
-    ;; DRONE
-    (drone-at drone maintenance-tunnel) ; Drone initial position is in the maintenance-tunnel
-    (drone-empty drone)
-
     ;; PODS
     (pod-empty pod1) (pod-empty pod2) ; Both pods are empty at the beginning
 
@@ -103,8 +94,7 @@
 
     ;; ROOM SAFTY PROPERTIES 
     ;; All the roms are safe at the beginning. 
-    (is-safe entrance )                   (is-safe hall-a   )
-    ;; (is-safe hall-b   )                   
+    (is-safe entrance )                   (is-safe hall-a   )               
     (is-safe cryo-chamber )
     (is-safe anti-vibration-pods-room )   (is-safe maintenance-tunnel )
     (is-safe stasis-lab )
@@ -173,8 +163,8 @@
     (artifact-at  asteroid-MG04TN-ice-sample  hall-a )
 
     ; Mission Artifacts
-    (artifact-at  rover-wheel  hall-a )
-    (artifact-at  space-suit   hall-a )
+    (artifact-at  rover-wheel  hall-b )
+    (artifact-at  space-suit   hall-b )
 
     ; Hall B: All the other stuffs
     (artifact-at  mart-sand-sample            hall-b )
@@ -213,20 +203,14 @@
 
     ;; ARTIFACT TYPOLOGY
     (is-type quantum-chip technological)
-    (is-type alien-fossil scientific)
-    (is-type ancient-key top-secret)
 
     ;; INITIAL POSITIONS
-    (artifact-at quantum-chip hall-a)
-    (artifact-at alien-fossil hall-a)
-    (artifact-at ancient-key hall-b)      ;; Force the Curator/Drone to deal with the earthquake
+    (artifact-at quantum-chip hall-b)
 
     ;; TEMPERATURE & FRAGILITY
-    (warm quantum-chip) (warm alien-fossil) (warm ancient-key)
+    (warm quantum-chip)
     
     (fragile quantum-chip)                ;; Needs Pod
-    (fragile ancient-key)                 ;; Needs Pod
-    (no-fragile alien-fossil)             ;; Can be carried by hand
   )
 
   ;; The goal is reached when all the artifact where bringed in their final destitation:
@@ -269,9 +253,6 @@
     ; (cold  asteroid-MG04TN-ice-sample )
 
     ;; NEW GOALS
-    (artifact-at quantum-chip stasis-lab) (cold quantum-chip)
-    (artifact-at alien-fossil cryo-chamber) (cold alien-fossil)
-    (artifact-at ancient-key hall-a)      ;; Retrieve the secret key from the danger zone
-    )   
+    (artifact-at quantum-chip stasis-lab) (cold quantum-chip)    )   
   )
 )
