@@ -59,7 +59,6 @@
   ;; ========================
 
   ;; MOVEMENT
-
   ;; tries to move to a room without checking its safety status. If the room is safe, the robot can move there, otherwise it can't.
   (:action try-to-enter-seismic-room
       :parameters (?r - robot ?to ?from - location)
@@ -182,6 +181,7 @@
     )
   )
 
+  ;; 3. Drop Full Pod (with artifact inside)
  (:action drop-full-pod
      :parameters (?r - robot ?p - pod ?l - location ?a - artifact)
      :precondition (and 
@@ -266,30 +266,28 @@
   )
 
   ;; 2. Unload From Pod (Standard Room)
-  ;; Transition: carrying-in-pod ?a -> carrying-empty-pod
-  ;; Logic: We place the artifact down, but keep the empty pod in hand.
+  ;; Transition: carrying-full-pod -> carrying-empty-pod
   (:action release-artifact-from-pod
     :parameters (?r - robot ?a - artifact ?l - location ?p - pod) ;; Aggiunto ?p
     :precondition (and
         (robot-at ?r ?l)
-        (carrying-full-pod ?r ?p)  ;; Usiamo carrying-full-pod invece di carrying-in-pod
-        (pod-contains ?p ?a)       ;; Specifichiamo cosa c'è dentro
+        (carrying-full-pod ?r ?p)  
+        (pod-contains ?p ?a)       
         (is-standard-room ?l)
     )
     :effect (and
         (not (carrying-full-pod ?r ?p))
-        (carrying-empty-pod ?r ?p)      ;; Il robot tiene il pod vuoto (2 argomenti!)
+        (carrying-empty-pod ?r ?p)      ; Robot still holds the empty pod
+         (not (carrying ?r ?a))     ; Robot no longer carries the artifact
+         (artifact-at ?a ?l)        ; Artifact is now at the location
+         (not (pod-contains ?p ?a)) ; Pod is now empty
+         (pod-empty ?p)            ; Pod is marked as empty
         (not (carrying ?r ?a))
         (artifact-at ?a ?l)
         (not (pod-contains ?p ?a))
         (pod-empty ?p)
     )
-  )
-
-  ;; Note: we have not modelled yet the action to drop the pod with inside an artifact;
-  ;; Transition carrying-in-pod ?a -> empty hand
-  ;; To inglude this logi we should also consider that the artifact could stay inside 
-  ;; or outside a pod and also more ...
+  ).
 
   ;; B. Dropping to Cryo-Chamber (Temperature Effect)
   ;; 3. Cryo Drop (From Bare Hands)
@@ -311,7 +309,6 @@
   )
 
   ;; 4. Cryo Unload (From Pod)
-  ;; Transition: carrying-in-pod ?a -> carrying-empty-pod
   (:action release-artifact-in-cryo-from-pod
     :parameters (?r - robot ?a - artifact ?l - location ?p - pod)
     :precondition (and 
@@ -330,7 +327,7 @@
     )
   )
 
-  ;; * Second object slot actions (Technician Robot Only)
+  ;; * Second object slot actions (Technician Robot Only) - Pickup and Release
   
   ; Pick-up action
   (:action pick-up-second-object
