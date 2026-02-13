@@ -1,0 +1,5 @@
+In questa fase non possiamo usare azioni non-deterministiche, quindi utilizziamo il predicato `is-safe` in maniera leggermente diversa rispetto alla versione 2.1. Invece di essere statico inizialmente, sfruttiamo i Timed Initial Literals per dire quando ci sarà il terremoto e quando no, e quindi `is-safe` sarà vero o falso a seconda del tempo. In questo modo, quando il robot prova ad entrare in una stanza, deve controllare se è sicura o meno, e se non lo è, non può entrarci. Questo ci permette di mantenere la logica di sicurezza senza dover ricorrere a meccaniche non-deterministiche.
+
+Per cui l'azione try-to-enter-sismic-room non serve più dato che basterà utilizzare l'azione move-to-pressurized-room, che ha già come precondizione il fatto che la stanza sia sicura, e se non lo è, semplicemente non potrà essere eseguita e quindi il planner dovrà trovare un'altra strategia (es. aspettare che il terremoto finisca).
+
+Inoltre possiamo togliere lo stato (is-seismic ?l) dato che non è più necessario dato che basta vedere (is-safe ?l) e non ci sono più azioni specifiche se la stanza è sismica o meno.

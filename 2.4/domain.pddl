@@ -1,9 +1,6 @@
-(define (domain multi-robot)
-  (:requirements :strips :typing :non-deterministic)
+(define (domain temporal-multi-robot)
+  (:requirements :strips :typing :non-deterministic :durative-actions)
 
-  ;; Types derived from scenario entities 
-  ; The robot is not a type, becouse in this scenario we have only one robot
-  ; so it can be modelled as one object in the problem file.
   (:types
     robot             ; Agents (Curator, Technician, Scientist)
     pod               ; Anti-vibration containers
@@ -34,8 +31,8 @@
     (connected ?l1 ?l2 - location)
     (is-pressurized ?l - location)
     (is-unpressurized ?l - location)
-    (is-safe ?l - location)                         ; Room status (safe to enter)
-    (is-seismic ?l - location)                      ; Triggers safety checks
+    (is-safe ?l - location)                      ; ! Room safety status (this is used to determine if the robot can enter or not, 
+                                                        ; !but it is not deterministic, so we have to check it every time we try to enter a room)
     (is-standard-room ?l - location)                ; Normal storage/drop rooms
     (is-chill-room ?l - location)                   ; Rooms that cool artifacts (Cryo-Chamber)
 
@@ -58,144 +55,132 @@
   ;; ACTIONS 
   ;; ========================
 
-  ;; MOVEMENT
-  ;; tries to move to a room without checking its safety status. If the room is safe, the robot can move there, otherwise it can't.
-  (:action try-to-enter-seismic-room
-      :parameters (?r - robot ?to ?from - location)
-      :precondition (and 
-          (robot-at ?r ?from) 
-          (can-access ?r ?to)
-          (connected ?from ?to) 
-          (is-seismic ?to)
-          (not (sealing-mode ?r)) ;; this is used just for travelling Tunnel to room B
-        )
-      :effect (and 
-          (oneof 
-              (and (is-safe ?to) (not (robot-at ?r ?from)) (robot-at ?r ?to))          ;; CASE A: Room is safe
-              (and (not (is-safe ?to)))    ;; CASE B: Room is unsafe
-          )
-      )
-  )
-
-  ;; MOVEMENT
+  ;; MOVEMENT ACTIONS
 
   ;; A: Moving Empty (No artifact constraints) -> No artifact position updade
   ;; 1. Move Empty to a Safe Room (No sealing needed)
-  (:action move-to-pressurized-room
+  (:durative-action move-to-pressurized-room
     :parameters (?r - robot ?from ?to - location)
-    :precondition (and 
-        (robot-at ?r ?from)
-        (connected ?from ?to)
-        (is-pressurized ?to)       ;; Target is pressurized 
-        (is-safe ?to)              ;; Target is safe
-
-        (can-access ?r ?to)
+    :duration (= ?duration 5)
+    :condition (and 
+        (at start (robot-at ?r ?from))   
+        (over all (connected ?from ?to)) 
+        (over all (is-pressurized ?to))     ;; Target is pressurized at all times during the move
+        (over all (is-safe ?to))              ;; Target must be safe at all times during the move (this is what allows us to avoid the try-to-enter-seismic-room action)
+        (over all (can-access ?r ?to))
     )
     :effect (and 
-        (not (robot-at ?r ?from)) 
-        (robot-at ?r ?to)
-        (not (sealing-mode ?r))
+        (at start (not (robot-at ?r ?from))) ; first remove robot from original location
+        (at end (robot-at ?r ?to))          ; then place it in the new location when reached
+        (at end (not (sealing-mode ?r)))   ; when enters room the sealing mode automatically turns off
     )
   )
 
   ;; 2. Move Empty to Tunnel (Requires Sealing)
-  (:action move-to-unpressurized-room
+  (:durative-action move-to-unpressurized-room
     :parameters (?r - robot ?from ?to - location)
-    :precondition (and 
-        (robot-at ?r ?from)
-        (connected ?from ?to)
-        (is-unpressurized ?to)     ;; Target is unpressurized
-        (sealing-mode ?r)             ;; Constraint: Must be sealed
-        (is-safe ?to)              ;; Target is safe
-        (can-access ?r ?to)
+    :duration (= ?duration 5)
+    :condition (and 
+        (at start (robot-at ?r ?from))   
+        (at start (sealing-mode ?r))             ;; Constraint: Must be sealed
+        (over all (connected ?from ?to)) 
+        (over all (is-unpressurized ?to))     ;; Target is unpressurized
+        (over all (is-safe ?to))              ;; Target is safe
+        (over all (can-access ?r ?to))
     )
-    :effect (and (not (robot-at ?r ?from)) (robot-at ?r ?to))
+    :effect (and 
+        (at start (not (robot-at ?r ?from))) 
+        (at end (robot-at ?r ?to))
   )
 
 
   ;; SEALING MECHANISM
   ;; Robot activates sealing mode. Can be done anywhere.
-  (:action activate-seal
+  (:durative-action activate-seal
     :parameters (?r - robot)
-    :precondition ()
-    :effect (sealing-mode ?r)
+    :duration (= ?duration 2)
+    :condition (at start (not (sealing-mode ?r)))
+    :effect (at end (sealing-mode ?r))
   )
-  (:action deactivate-seal
+  (:durative-action deactivate-seal ;; probably unused due to the automatic deactivation when entering pressurized rooms, but added for completeness
     :parameters (?r - robot)
-    :precondition (and (sealing-mode ?r))
-    :effect (not (sealing-mode ?r))
+    :duration (= ?duration 2)
+    :condition (at start (sealing-mode ?r))
+    :effect (at end (not (sealing-mode ?r)))
   )
 
 
   ;; POD MANAGEMENT: EQUIPPING & UNEQUIPPING
   ;; 1. Pick Up Pod
   ;; Transition: hands-empty -> carrying-empty-pod
-  (:action pick-up-empty-pod
+  (:durative-action pick-up-empty-pod
     :parameters (?r - robot ?l - location ?p - pod)
-    :precondition (and 
-        (robot-at ?r ?l)
-        (contains-empty-pod ?l ?p)       ; Must be in room the contain free pod
-        (pod-empty ?p)                ; Pod must be empty
-        (hands-empty ?r)                ; Must have free hands
+    :duration (= ?duration 3)
+    :condition (and 
+        (at start (pod-empty ?p))                  ; Pod must be empty
+        (at start (hands-empty ?r))                ; Must have free hands
+        (over all (robot-at ?r ?l))                ; Robot must be at the location for the entire duration
+        (over all (contains-empty-pod ?l ?p))      ; Must be in room the contain free pod
     )
     :effect (and 
-        (not (contains-empty-pod ?l ?p))
-        (not (hands-empty ?r))
-        (carrying-empty-pod ?r ?p)
+        (at start (not (contains-empty-pod ?l ?p))) ; Pod is no longer available in the room (no other robot can take it while it is picked up)
+        (at start (not (hands-empty ?r)))           ; hands are not empty anomer (it can't take another objects meanwhile)
+        (at end (carrying-empty-pod ?r ?p))         ; Robot is now carrying the empty pod
     )
   )
 
-  (:action pick-up-full-pod
+  (:durative-action pick-up-full-pod
       :parameters (?r - robot ?l - location ?p - pod ?a - artifact ?at - artifact-type)
-      :precondition (and 
-          (robot-at ?r ?l)
-          (contains-full-pod ?l ?p)
-          (pod-contains ?p ?a)
-          (hands-empty ?r)
-          (can-pickup ?r ?at)
-          (is-type  ?a ?at)
+      :duration (= ?duration 3)
+      :condition (and 
+          (at start (contains-full-pod ?l ?p))      ; Pod must be in the room at the start
+          (at start (hands-empty ?r))               ; Must have free hands at the start
+          (over all (pod-contains ?p ?a))           ; Pod must contain the artifact for the entire duration
+          (over all (robot-at ?r ?l))               ; Robot must be at the location for the entire duration;
+          (over all (can-pickup ?r ?at))            ; Robot must be able to pick up the artifact type for the entire duration
+          (over all (is-type  ?a ?at))              ; Artifact must be of the correct type for the entire duration
       )
       :effect (and 
-          (not (hands-empty ?r))
-          (carrying-full-pod ?r ?p)
-          (carrying ?r ?a)
-          (not (contains-full-pod ?l ?p))
+          (at start (not (hands-empty ?r)))              ; Robot's hands are no longer empty at the start (cannot take other objects while it is picking up something)
+          (at start (not (contains-full-pod ?l ?p)))     ; Pod is no longer available in the room (no other robot can take it while it is picked up)
+          (at end (carrying-full-pod ?r ?p))             ; Robot is now carrying the full pod at the end
+          (at end (carrying ?r ?a))                      ; Robot is now also carrying the artifact at the end
       )
   )
   
 
   ;; 2. Drop Pod
-  ;; Transition: carrying-empty-pod -> hands-empty
-  ;; Useful if we need to free hands to move a non-fragile item normally
-  (:action drop-empty-pod
+  (:durative-action drop-empty-pod
     :parameters (?r - robot ?p - pod ?l - location)
-    :precondition (and 
-        (carrying-empty-pod ?r ?p)
-        (robot-at ?r ?l)
-        (pod-empty ?p)
+    :duration (= ?duration 3)
+    :condition (and 
+        (at start (carrying-empty-pod ?r ?p))      ; Robot must be carrying the empty pod at the start
+        (over all (pod-empty ?p))            ; Pod must not be empty at the start (it is being dropped, so it will become available in the room)
+        (over all (robot-at ?r ?l))                ; Robot must be at the location for the entire duration
     )
     :effect (and 
-        (not (carrying-empty-pod ?r ?p))
-        (hands-empty ?r)
-        (contains-empty-pod ?l ?p)       ; Pod is now available in the room
+        (at start (not (carrying-empty-pod ?r ?p)))
+        (at end (hands-empty ?r))
+        (at end (contains-empty-pod ?l ?p))       ; Pod is now available in the room
     )
   )
 
   ;; 3. Drop Full Pod (with artifact inside)
- (:action drop-full-pod
+ (:durative-action drop-full-pod
      :parameters (?r - robot ?p - pod ?l - location ?a - artifact)
-     :precondition (and 
-         (carrying-full-pod ?r ?p)
-         (carrying ?r ?a)
-         (robot-at ?r ?l)
-         (not (pod-empty ?p))
-         (pod-contains ?p ?a)
+     :duration (= ?duration 3)
+     :condition (and 
+         (at start (carrying-full-pod ?r ?p))           ; Robot must be carrying the full pod at the start
+         (at start (carrying ?r ?a))                    ; Robot must be carrying the artifact for the entire duration (it is being dropped, so it will become available in the room)
+         (over all (robot-at ?r ?l))                    ; Robot must be at the location for the entire duration
+         (over all (not (pod-empty ?p)))                ; Pod must not be empty along the entire duration (otherwise one could take the object inside)
+         (over all (pod-contains ?p ?a))                ; The contained object must be kept inside the pod
      )
      :effect (and 
-         (not (carrying-full-pod ?r ?p))
-         (hands-empty ?r)
-         (contains-full-pod ?l ?p)       ; Pod is now available in the room
-         (artifact-at ?a ?l)             ; Artifact is now at the location
+         (at start (not (carrying-full-pod ?r ?p)))     ; Robot is no longer carrying the full pod at the start
+         (at end (hands-empty ?r))                      ; Robot's hands are empty at the end
+         (at end (contains-full-pod ?l ?p))             ; Full pod is now available in the room
+         (at end (artifact-at ?a ?l))                   ; Artifact is now at the location
      )
  )
  
@@ -203,9 +188,6 @@
   ;; PICK UP ARTIFACT ACTIONS
 
   ;; 1. STANDARD PICK UP
-  ;; Transition: hands-empty -> carrying ?a
-  ;; Used for sturdy items. If you pick up a fragile item this way, 
-  ;; you won't be able to move it (due to move constraints).
   (:action pick-up-artifact-standard
     :parameters (?a - artifact ?at - artifact-type ?l - location ?r - robot)
     :precondition (and 
