@@ -1,78 +1,56 @@
-(define (domain single-robot)
+(define (domain multi-robot)
   (:requirements :strips :typing :non-deterministic)
 
   ;; Types derived from scenario entities 
   ; The robot is not a type, becouse in this scenario we have only one robot
   ; so it can be modelled as one object in the problem file.
   (:types
-    robot             ; The unique robot in the environment (but can be extended to multiple robots in the future)
-    pod               ; Anti-vibration pod: used to secure fragile artifacts during transportation
-    location          ; Locations: the different rooms in the enviroment
-    artifact          ; Artifacts: the different artifact in the enviroment
-    artifact-type     ; Artifacts Tipologies: the different tipologies of artifacts in the enviroment
+    robot             ; Agents (Curator, Technician, Scientist)
+    pod               ; Anti-vibration containers
+    location          ; Rooms and tunnels
+    artifact          ; Items to be retrieved
+    artifact-type     ; Categories (scientific, technological, top-secret)
   )
 
   (:predicates
-    ;; Robot Features - they all refears to the unique robot in the enviroment
-    (robot-at ?r - robot ?l - location)                    ; Robot's current location
-    (hands-empty ?r - robot)                                ; Robot's hand status ( true if empty)  
-    (carrying ?r - robot ?a - artifact)                    ; Robot is carrying the artifact ?a
-    (carrying-full-pod ?r - robot ?p - pod)               ; Robot has a secure fragile artifact inside an anti vibration pod (this assumes that if has a pod and an artifact, this latter is inside the pod)
-    (carrying-empty-pod ?r - robot ?p - pod)                 ; Robot is carrying empty pods (ready to secure fragile artifacts)
-    (sealing-mode ?r - robot)                              ; Robot mode (sealing or normal)
-
-    ;;* Robot capabilities
-    (can-access ?r - robot ?l - location)                        ; Robot can access the location ?l
-    (can-pickup ?r - robot ?at - artifact-type)                  ; Robot can pick up the artifact ?a
-    (can-carry-two ?r - robot)                                      ; Robot can carry two items at the same time (technician robot)
-    (second-slot-carrying-artifact ?r - robot ?a - artifact)               ; Robot is already carrying an item (used to model the fact that the technician can carry two items at the same time)
-    (second-slot-empty ?r - robot)                                  ; Robot is carrying only one item (used to model the fact that the technician can carry two items at the same time)
-
+    ;; --- ROBOT STATE ---
+    (robot-at ?r - robot ?l - location)
+    (hands-empty ?r - robot)
+    (sealing-mode ?r - robot)                       ; Required for unpressurized zones
     
-    ;; Locations Features
-    (is-seismic ?l - location)                   ; True if the location is currently experiencing seismic activity (earthquake)
-    (safety-unknown ?l - location)              ; ! True if the safety status is unknown (allows re-checking)
-    (connected ?l1 ?l2 - location)            ; Location are linked or not 
-    (is-unpressurized ?l - location)          ; True for tuneel
-    (is-pressurized   ?l - location)
-    (is-safe ?l - location)                    ; ( Model the mars_quake const for Hall B)
-    ; The next flag are used to shape the drop action; which effect change based on the 
-    ; nature of the location where the artifact is dropped down.
-    (is-standard-room ?l - location)           ; change the location of the dropped artifact
-    (is-chill-room ?l - location)              ; change both the locationand the temperature state of the artifact
-    ; This feature is required to model the fact that in the pod storage roome there are free
-    ; pod to collect
+    ;; --- POSSESSION ---
+    (carrying ?r - robot ?a - artifact)             ; Robot is carrying artifact ?a
+    (carrying-empty-pod ?r - robot ?p - pod)        ; Robot is holding an empty pod
+    (carrying-full-pod ?r - robot ?p - pod)         ; Robot is holding a pod with an artifact inside
+    (carrying-second-object ?r - robot ?a - artifact) ; For Technician (second slot)
+    (second-slot-empty ?r - robot)                  ; Status of the Technician's second slot
+
+    ;; --- CAPABILITIES ---
+    (can-access ?r - robot ?l - location)           ; Access permissions per room
+    (can-pickup ?r - robot ?at - artifact-type)     ; Permissions per artifact type
+    (can-carry-two ?r - robot)                      ; Flag for Technician-type robots
+
+    ;; --- ENVIRONMENTAL PROPERTIES ---
+    (connected ?l1 ?l2 - location)
+    (is-pressurized ?l - location)
+    (is-unpressurized ?l - location)
+    (is-safe ?l - location)                         ; Room status (safe to enter)
+    (is-seismic ?l - location)                      ; Triggers safety checks
+    (is-standard-room ?l - location)                ; Normal storage/drop rooms
+    (is-chill-room ?l - location)                   ; Rooms that cool artifacts (Cryo-Chamber)
+
+    ;; --- ARTIFACT & POD STATUS ---
+    (artifact-at ?a - artifact ?l - location)
+    (is-type ?a - artifact ?t - artifact-type)
+    (fragile ?a - artifact)
+    (no-fragile ?a - artifact)
+    (warm ?a - artifact)
+    (cold ?a - artifact)
+    
     (contains-empty-pod ?l - location ?p - pod)
-    (contains-full-pod ?l - location ?p - pod) ; This feature is required to model the fact that in the pod storage roome there are full
-    ; Note 1 : can be a nice think to test the same problem but with only positive 
-    ; or negative definition of the last two is- feature:
-    ; - (is-pressurized ?l - location)      or      - (is-unpressurized ?l - location)
-    ; - (is-safe ?l -location)                      - (is-unsafe ?l -location)
-    ; In theory this will require the 'not' operator in the definition of the action to 
-    ; the safe or the pressure feature. The 'not' operator need requirement ':negative-preconditions'
-    ; which managment in the solver can slow down the resolution. 
-
-    ; Note 2: To increase complexity we can add a capacity for the cryo-chamber room
-
-
-    ;; Artifacts Features
-    (is-type  ?a - artifact ?t - artifact-type)     ; Artifact a belong to the Artifact Tipology t 
-    (artifact-at  ?a - artifact ?l - location)      ; Artifact a at location l 
-    ; (artifact-carried-by ?a - artifact ?r - robot)  ; Artifact a is carried by the robot (used to model the fact that the artifact is in the hand of the robot)
-    ; (carrying-in-pod ?a - artifact)                 ; Artifact a is carried inside
-    (fragile  ?a - artifact)                     ; Artifact need to be traveled inside an anti-vibration-pod
-    (no-fragile  ?a - artifact )                   
-    (cold  ?a - artifact )                       ; Artifact are already cold
-    (warm  ?a - artifact )
-
-    ;; Pod Features
-    (pod-contains ?p - pod ?a - artifact)           ; Pod p contains artifact a (used to model the fact that the artifact is inside the pod)
-    (pod-empty ?p - pod)                            ; Pod is empty and can be used to secure a fragile artifact
-    
-
-    ; Note 3: need-chill and need-vibration-pods can be removed becouse coincid with the location feature of the 
-    ; artifact becouse both feature depend on where the artifact is situated
-
+    (contains-full-pod ?l - location ?p - pod)
+    (pod-empty ?p - pod)
+    (pod-contains ?p - pod ?a - artifact)           ; Artifact-pod association
   )
 
   
@@ -99,8 +77,6 @@
           )
       )
   )
-  
-  
 
   ;; MOVEMENT
 
@@ -224,7 +200,6 @@
  )
  
   
-
   ;; PICK UP ACTIONS
 
   ;; 1. STANDARD PICK UP
