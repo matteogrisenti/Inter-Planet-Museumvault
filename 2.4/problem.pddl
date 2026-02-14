@@ -1,4 +1,4 @@
-(define (problem temporal-multi-robotmulti-robot-problem)
+(define (problem temporal-multi-robot-problem)
   (:domain temporal-multi-robot)
 
   (:objects
@@ -68,11 +68,25 @@
     (is-pressurized entrance) (is-pressurized hall-a) (is-pressurized hall-b) 
     (is-pressurized cryo-chamber) (is-pressurized anti-vibration-pods-room) (is-pressurized stasis-lab)
 
+    ;; Static safe rooms (Hall B is handled via TILs above)
     (is-safe entrance) (is-safe hall-a) (is-safe cryo-chamber)
     (is-safe anti-vibration-pods-room) (is-safe maintenance-tunnel) (is-safe stasis-lab)
     
+    ;; ============================================================
+    ;; SEISMIC ACTIVITY (TIMED INITIAL LITERALS)
+    ;; ============================================================
+    ;; Hall B starts as safe.
+    (is-safe hall-b)
+    
+    ;; First Earthquake window: Unsafe between time 20 and 40
+    (at 20 (not (is-safe hall-b)))
+    (at 40 (is-safe hall-b))
+
+    ;; Second Earthquake window: Unsafe between time 70 and 90
+    (at 70 (not (is-safe hall-b)))
+    (at 90 (is-safe hall-b))
+
     ;; Special Room Properties
-    (is-seismic hall-b)
     (is-chill-room cryo-chamber)
     (is-standard-room hall-a) (is-standard-room hall-b) (is-standard-room entrance) 
     (is-standard-room anti-vibration-pods-room) (is-standard-room maintenance-tunnel) (is-standard-room stasis-lab)
