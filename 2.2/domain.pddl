@@ -106,8 +106,8 @@
         (connected ?from ?to)
         (is-unpressurized ?to)     ;; Target is unpressurized
         (sealing-mode ?r)             ;; Constraint: Must be sealed
-        (is-safe ?to)              ;; Target is safe
-        (can-access ?r ?to)
+        ; (is-safe ?to)              ;; Target is safe (tunnel is always safe, so no need to check)
+        (can-access ?r ?to)         ; also this could be skipped (since everybody can access the tunnel) but we can keep it for consistency with the other move actions
     )
     :effect (and (not (robot-at ?r ?from)) (robot-at ?r ?to))
   )
@@ -182,18 +182,15 @@
 
   ;; 3. Drop Full Pod (with artifact inside)
  (:action drop-full-pod
-     :parameters (?r - robot ?p - pod ?l - location ?a - artifact)
+     :parameters (?r - robot ?p - pod ?l - location)
      :precondition (and 
          (carrying-full-pod ?r ?p)
          (robot-at ?r ?l)
-         (not (pod-empty ?p))
-         (pod-contains ?p ?a)
      )
      :effect (and 
          (not (carrying-full-pod ?r ?p))
          (hands-empty ?r)
          (contains-full-pod ?l ?p)       ; Pod is now available in the room
-         (artifact-at ?a ?l)             ; Artifact is now at the location
      )
  )
  
@@ -255,7 +252,7 @@
         (robot-at ?r ?l) 
         (carrying ?r ?a)
         (is-standard-room ?l)
-        (no-fragile ?a)                 ; Fragile items can't be dropped like this, they need to be put in a pod first (handled by move constraints
+        ; (no-fragile ?a)                 ; Fragile items can't be dropped like this, they need to be put in a pod first (handled by move constraints
     )
     :effect (and 
         (not (carrying ?r ?a)) 
@@ -276,9 +273,9 @@
     )
     :effect (and
         (not (carrying-full-pod ?r ?p))
+        (not (pod-contains ?p ?a)) ; Pod is now empty
         (carrying-empty-pod ?r ?p)      ; Robot still holds the empty pod
         (artifact-at ?a ?l)        ; Artifact is now at the location
-        (not (pod-contains ?p ?a)) ; Pod is now empty
         (pod-empty ?p)            ; Pod is marked as empty
     )
   )

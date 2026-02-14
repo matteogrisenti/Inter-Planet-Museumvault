@@ -177,4 +177,172 @@
          (at end (contains-full-pod ?l ?p))             ; Full pod is now available in the room
      )
  )
+ 
+  
+  ;; PICK UP ARTIFACT ACTIONS
+
+  ;; 1. STANDARD PICK UP
+  (:durative-action pick-up-artifact
+    :parameters (?a - artifact ?at - artifact-type ?l - location ?r - robot)
+    :duration (= ?duration 2)
+    :condition (and 
+        (at start (artifact-at ?a ?l))         ; location
+        (at start (hands-empty ?r))             ; Robot free
+        (at start (no-fragile  ?a))
+        (at start (can-pickup ?r ?at))
+        (at start (is-type  ?a ?at))
+        (over all (robot-at ?r ?l))            ; Robot and Artifact in the same 
+    )
+    :effect (and 
+        (at start (not (artifact-at ?a ?l)))
+        (at start (not (hands-empty ?r))) 
+        (at end (carrying ?r ?a))            
+    )
+  )
+
+  ;; 4. PUT IN POD (Load into Pod)
+  ;; Transition: carrying-empty-pod -> carrying-in-pod ?a
+  ;; This action "secures" the artifact immediately.
+  (:durative-action put-in-pod
+    :parameters (?a - artifact ?at - artifact-type ?l - location ?r - robot ?p - pod)
+    :duration (= ?duration 3)
+    :condition (and 
+        (at start (artifact-at ?a ?l))         
+        (at start (carrying-empty-pod ?r ?p))  ; Robot carrying already an empty pod
+        (at start (pod-empty ?p))              ; Pod is empty
+        (at start (can-pickup ?r ?at))         ; use at start since these are fixed properties
+        (at start (is-type  ?a ?at))           ; use at start since these are fixed properties
+        (over all (robot-at ?r ?l))            ; Robot and Artifact in the same location for the entire duration
+    )
+    :effect (and 
+        (at start (not (artifact-at ?a ?l)))
+        (at start (not (carrying-empty-pod ?r ?p)))
+        (at start (not (pod-empty ?p)))
+        (at end (carrying-full-pod ?r ?p))  
+        (at end (pod-contains ?p ?a))
+    )
+  )
+
+
+  ;; DROP DOWN ACTIONS
+  ;; A. Dropping to Standard Rooms
+  ;; 1. Standard Artifact Drop 
+  (:durative-action release-artifact
+    :parameters (?r - robot ?a - artifact ?l - location)
+    :duration (= ?duration 3)
+    :condition (and 
+        (at start (carrying ?r ?a))
+        (over all (robot-at ?r ?l)) 
+    )
+    :effect (and 
+        (at start (not (carrying ?r ?a))) 
+        (at end (hands-empty ?r)) 
+        (at end (artifact-at ?a ?l))
+    )
+  )
+
+  ;; 2. Unload From Pod (Standard Room)
+  ;; Transition: carrying-full-pod -> carrying-empty-pod
+  (:durative-action release-artifact-from-pod
+    :parameters (?r - robot ?a - artifact ?l - location ?p - pod)
+    :duration (= ?duration 3)
+    :condition (and
+        (at start (carrying-full-pod ?r ?p))  
+        (at start (pod-contains ?p ?a))       
+        (over all (robot-at ?r ?l))
+    )
+    :effect (and
+        (at start (not (carrying-full-pod ?r ?p)))
+        (at start (not (pod-contains ?p ?a))) ; Pod is now empty
+        (at end (artifact-at ?a ?l))
+        (at end (pod-empty ?p))
+        (at end (carrying-empty-pod ?r ?p))      ; Robot still holds the empty pod
+    )
+  )
+
+  ;; ! B. Cooling artifact in the Cryo-Chamber (Temperature Effect)
+  ; This works both if robots carries just and objects but also if the object is in the pod (instead of realeasing it and then cooling it -> in the end it should have the same effect/time cost)
+;   (:durative-action cool-artifact-in-cryo
+;     :parameters (?r - robot ?a - artifact ?l - location)
+;     :duration (= ?duration 2)
+;     :condition (and 
+;         (at start (warm ?a))                      ; Artifact must be warm at the start
+;         (over all (artifact-at ?a ?l))              ; Artifact must be inside the Cryo-Chamber for the whole time of the action
+;         (at start (robot-at ?r ?l))                 ; Robot must be at the location for the entire duration
+;         (over all (is-chill-room ?l))               ; Location must be a chill room for the entire duration
+;     )
+;     :effect (and 
+;         (at start (not (warm ?a)))                  ; Artifact is no longer warm at the start
+;         (at end (cold ?a))                          ; Artifact is cold at the end
+;     )
+;   )
+
+  (:durative-action cool-artifact-while-carrying
+    :parameters (?r - robot ?a - artifact ?l - location)
+    :duration (= ?duration 2)
+    :condition (and 
+        (at start (warm ?a))                       ; Artifact must be warm at the start
+        (at start  (is-chill-room ?l))             ; use at start since these is a fixed properties
+        (over all (robot-at ?r ?l))                ; Robot must be at the location for the entire duration
+        (over all (carrying ?r ?a))              
+    )
+    :effect (and 
+        (at start (not (warm ?a)))                  ; Artifact is no longer warm at the start
+        (at end (cold ?a))                          ; Artifact is cold at the end
+    )
+  )
+
+  (:durative-action cool-artifact-while-carrying-in-pod
+     :parameters (?r - robot ?a - artifact ?l - location ?p - pod)
+     :duration (= ?duration 2)
+     :condition (and 
+         (at start (warm ?a))                       ; Artifact must be warm at the start
+         (at start (is-chill-room ?l))              ; use at start since these is fixed properties
+         (over all (carrying-full-pod ?r ?p))       ; Robot must be carrying the full pod (this implies pod-contains ?p ?a) for the entire duration
+         (over all (robot-at ?r ?l))                 ; Robot must be at the location for the entire duration
+     )
+     :effect (and 
+         (at start (not (warm ?a)))                  ; Artifact is no longer warm at the start
+         (at end (cold ?a))                          ; Artifact is cold at the end
+     )
+  )
+
+
+  ;; * Second object slot actions (Technician Robot Only) - Pickup and Release
+  
+  ; Pick-up action
+  (:durative-action pick-up-second-object
+      :parameters (
+            ?r - robot ?a - artifact ?at - artifact-type ?l - location
+      )
+      :duration (= ?duration 2)
+      :condition (and 
+            (at start (artifact-at ?a ?l))
+            (at start (second-slot-empty ?r))           ; Second slot must be empty
+            (at start (can-carry-two ?r))               ; use at start since these is fixed properties
+            (at start (can-pickup ?r ?at))
+            (at start (is-type  ?a ?at))
+            (at start (no-fragile  ?a))
+            (over all (robot-at ?r ?l))
+        )
+      :effect (and 
+          (at start (not (second-slot-empty ?r)))
+          (at start (not (artifact-at ?a ?l)))
+          (at end (carrying-second-object ?r ?a))
+      )
+  )
+
+  (:durative-action release-second-object
+      :parameters (?r - robot ?a - artifact ?l - location)
+      :duration (= ?duration 2)
+      :condition (and 
+            (at start (carrying-second-object ?r ?a))
+            (over all (robot-at ?r ?l))
+        )
+      :effect (and 
+          (at start (not (carrying-second-object ?r ?a)))
+          (at end (second-slot-empty ?r))
+          (at end (artifact-at ?a ?l))
+      )
+  )
 )

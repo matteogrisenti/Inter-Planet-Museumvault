@@ -3,3 +3,6 @@ In questa fase non possiamo usare azioni non-deterministiche, quindi utilizziamo
 Per cui l'azione try-to-enter-sismic-room non serve più dato che basterà utilizzare l'azione move-to-pressurized-room, che ha già come precondizione il fatto che la stanza sia sicura, e se non lo è, semplicemente non potrà essere eseguita e quindi il planner dovrà trovare un'altra strategia (es. aspettare che il terremoto finisca).
 
 Inoltre possiamo togliere lo stato (is-seismic ?l) dato che non è più necessario dato che basta vedere (is-safe ?l) e non ci sono più azioni specifiche se la stanza è sismica o meno.
+
+
+dato che over all rallenta, le cose che non possono cambiare tipo "upressurized" o "pressurized" e così via sono messe "at start"
