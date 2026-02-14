@@ -1,0 +1,287 @@
+(planutils) root@2f75552ce64a:/computer/2.1$ planutils run prp domain.pddl problem.pddl -- --dump-policy 2
+1. Running translator
+Second argument is a file name: use two translator arguments.
+Parsing...
+Parsing: [0.000s CPU, 0.015s wall-clock]
+Normalizing task... [0.000s CPU, 0.000s wall-clock]
+Instantiating...
+Generating Datalog program... [0.000s CPU, 0.001s wall-clock]
+Normalizing Datalog program...
+Normalizing Datalog program: [0.000s CPU, 0.010s wall-clock]
+Preparing model... [0.010s CPU, 0.002s wall-clock]
+Generated 123 rules.
+Computing model... [0.010s CPU, 0.013s wall-clock]
+1117 relevant atoms
+922 auxiliary atoms
+2039 final queue length
+3607 total queue pushes
+Completing instantiation... [0.020s CPU, 0.024s wall-clock]
+Instantiating: [0.040s CPU, 0.051s wall-clock]
+Computing fact groups...
+Finding invariants...
+37 initial candidates
+Finding invariants: [0.010s CPU, 0.011s wall-clock]
+Checking invariant weight... [0.000s CPU, 0.000s wall-clock]
+Instantiating groups... [0.010s CPU, 0.001s wall-clock]
+Collecting mutex groups... [0.000s CPU, 0.000s wall-clock]
+Choosing groups...
+31 uncovered facts
+Choosing groups: [0.000s CPU, 0.000s wall-clock]
+Building translation key... [0.000s CPU, 0.000s wall-clock]
+Computing fact groups: [0.020s CPU, 0.013s wall-clock]
+Building STRIPS to SAS dictionary... [0.000s CPU, 0.000s wall-clock]
+Building dictionary for full mutex groups... [0.000s CPU, 0.000s wall-clock]
+Building mutex information...
+Building mutex information: [0.000s CPU, 0.000s wall-clock]
+Translating task...
+Processing axioms...
+Simplifying axioms... [0.000s CPU, 0.000s wall-clock]
+Processing axioms: [0.000s CPU, 0.002s wall-clock]
+Translating task: [0.020s CPU, 0.022s wall-clock]
+229 effect conditions simplified
+0 implied preconditions added
+Detecting unreachable propositions...
+Removed false proposition: 13 = <none of those>
+Removed false proposition: 30 = <none of those>
+Removed false proposition: 31 = <none of those>
+Removed false proposition: 34 = <none of those>
+0 operators removed
+4 propositions removed
+Detecting unreachable propositions: [0.010s CPU, 0.006s wall-clock]
+Translator variables: 50
+Translator derived variables: 0
+Translator facts: 229
+Translator goal facts: 17
+Translator mutex groups: 19
+Translator total mutex groups size: 189
+Translator operators: 692
+Translator axioms: 0
+Translator task size: 5732
+Translator peak memory: 20132 KB
+Writing output... [0.000s CPU, 0.014s wall-clock]
+Done! [0.110s CPU, 0.127s wall-clock]
+
+2. Running preprocessor
+Building causal graph...
+The causal graph is not acyclic.
+50 variables of 50 necessary
+15 of 19 mutex groups necessary.
+692 of 692 operators necessary.
+0 of 0 axiom rules necessary.
+Building domain transition graphs...
+solveable in poly time 0
+Building successor generator...
+Preprocessor facts: 229
+Preprocessor derived variables: 0
+Preprocessor task size: 5685
+Writing output...
+done
+
+
+3. Running search
+/workspace/prp/search/downward ipc policy-repair --dump-policy 2
+time: cannot run /workspace/prp/search/unitcost: No such file or directory
+This is a task.
+/workspace/prp/search/downward-release --heuristic "h=ff(cost_type=1)" --search "lazy_greedy([h],preferred=[h])" --random-seed 814102613 --dump-policy 2 < output
+Simplifying transitions... done!
+Variables: 50
+Bytes per state: 12
+
+Total allotted time (s): 1800
+Max time for core JIC (remaining used in final-round repairs): 1800
+Max time for each of the 1 epochs: 1800
+
+ !! Warning: Disabling the simplification of unary operators !!
+ !!           to keep the non-deterministic planning sound.  !!
+Generated 3067 state(s).
+Dead ends: 0 state(s). (0 recorded)
+activate-seal curator (1)
+move-to-unpressurized-room curator entrance maintenance-tunnel (1)
+move-to-pressurized-room curator maintenance-tunnel anti-vibration-pods-room (1)
+activate-seal curator (1)
+pick-up-empty-pod curator anti-vibration-pods-room pod2 (1)
+move-to-unpressurized-room curator anti-vibration-pods-room maintenance-tunnel (1)
+try-to-enter-seismic-room_DETDUP_0 curator hall-b maintenance-tunnel (1)
+activate-seal curator (1)
+put-in-pod asteroid-ad29tv-rock-sample hall-b curator pod2 (1)
+move-to-unpressurized-room curator hall-b maintenance-tunnel (1)
+move-to-pressurized-room curator maintenance-tunnel hall-a (1)
+activate-seal curator (1)
+release-artifact-from-pod curator asteroid-ad29tv-rock-sample hall-a pod2 (1)
+move-to-unpressurized-room curator hall-a maintenance-tunnel (1)
+try-to-enter-seismic-room_DETDUP_0 curator hall-b maintenance-tunnel (1)
+activate-seal curator (1)
+put-in-pod mart-laser-gun hall-b curator pod2 (1)
+move-to-unpressurized-room curator hall-b maintenance-tunnel (1)
+move-to-pressurized-room curator maintenance-tunnel hall-a (1)
+activate-seal curator (1)
+release-artifact-from-pod curator mart-laser-gun hall-a pod2 (1)
+move-to-unpressurized-room curator hall-a maintenance-tunnel (1)
+try-to-enter-seismic-room_DETDUP_0 curator hall-b maintenance-tunnel (1)
+activate-seal curator (1)
+put-in-pod mart-pink-hat hall-b curator pod2 (1)
+move-to-unpressurized-room curator hall-b maintenance-tunnel (1)
+move-to-pressurized-room curator maintenance-tunnel hall-a (1)
+activate-seal curator (1)
+release-artifact-from-pod curator mart-pink-hat hall-a pod2 (1)
+move-to-unpressurized-room curator hall-a maintenance-tunnel (1)
+try-to-enter-seismic-room_DETDUP_0 curator hall-b maintenance-tunnel (1)
+activate-seal curator (1)
+put-in-pod mart-sand-sample hall-b curator pod2 (1)
+move-to-unpressurized-room curator hall-b maintenance-tunnel (1)
+move-to-pressurized-room curator maintenance-tunnel hall-a (1)
+activate-seal curator (1)
+release-artifact-from-pod curator mart-sand-sample hall-a pod2 (1)
+move-to-unpressurized-room curator hall-a maintenance-tunnel (1)
+try-to-enter-seismic-room_DETDUP_0 curator hall-b maintenance-tunnel (1)
+activate-seal curator (1)
+put-in-pod venus-rock-sample hall-b curator pod2 (1)
+move-to-unpressurized-room curator hall-b maintenance-tunnel (1)
+move-to-pressurized-room curator maintenance-tunnel hall-a (1)
+activate-seal curator (1)
+release-artifact-from-pod curator venus-rock-sample hall-a pod2 (1)
+move-to-unpressurized-room curator hall-a maintenance-tunnel (1)
+try-to-enter-seismic-room_DETDUP_0 curator hall-b maintenance-tunnel (1)
+activate-seal curator (1)
+put-in-pod venus-sand-sample hall-b curator pod2 (1)
+move-to-unpressurized-room curator hall-b maintenance-tunnel (1)
+move-to-pressurized-room curator maintenance-tunnel hall-a (1)
+activate-seal curator (1)
+release-artifact-from-pod curator venus-sand-sample hall-a pod2 (1)
+drop-empty-pod curator pod2 hall-a (1)
+pick-up-artifact-standard asteroid-mg04tn-ice-sample hall-a curator (1)
+move-to-unpressurized-room curator hall-a maintenance-tunnel (1)
+move-to-pressurized-room curator maintenance-tunnel cryo-chamber (1)
+release-artifact-in-cryo curator asteroid-mg04tn-ice-sample cryo-chamber (1)
+activate-seal curator (1)
+move-to-unpressurized-room curator cryo-chamber maintenance-tunnel (1)
+move-to-pressurized-room curator maintenance-tunnel hall-a (1)
+activate-seal curator (1)
+pick-up-artifact-standard mart-east-core-drill hall-a curator (1)
+move-to-unpressurized-room curator hall-a maintenance-tunnel (1)
+move-to-pressurized-room curator maintenance-tunnel cryo-chamber (1)
+activate-seal curator (1)
+release-artifact-in-cryo curator mart-east-core-drill cryo-chamber (1)
+pick-up-artifact-standard mart-east-core-drill cryo-chamber curator (1)
+move-to-unpressurized-room curator cryo-chamber maintenance-tunnel (1)
+move-to-pressurized-room curator maintenance-tunnel stasis-lab (1)
+release-artifact curator mart-east-core-drill stasis-lab (1)
+activate-seal curator (1)
+move-to-unpressurized-room curator stasis-lab maintenance-tunnel (1)
+move-to-pressurized-room curator maintenance-tunnel hall-a (1)
+activate-seal curator (1)
+pick-up-artifact-standard mart-mysterious-egg hall-a curator (1)
+move-to-unpressurized-room curator hall-a maintenance-tunnel (1)
+move-to-pressurized-room curator maintenance-tunnel cryo-chamber (1)
+release-artifact-in-cryo curator mart-mysterious-egg cryo-chamber (1)
+activate-seal curator (1)
+move-to-unpressurized-room curator cryo-chamber maintenance-tunnel (1)
+move-to-pressurized-room curator maintenance-tunnel hall-a (1)
+activate-seal curator (1)
+pick-up-artifact-standard mart-nord-core-drill hall-a curator (1)
+move-to-unpressurized-room curator hall-a maintenance-tunnel (1)
+move-to-pressurized-room curator maintenance-tunnel cryo-chamber (1)
+activate-seal curator (1)
+release-artifact-in-cryo curator mart-nord-core-drill cryo-chamber (1)
+pick-up-artifact-standard mart-nord-core-drill cryo-chamber curator (1)
+move-to-unpressurized-room curator cryo-chamber maintenance-tunnel (1)
+move-to-pressurized-room curator maintenance-tunnel stasis-lab (1)
+release-artifact curator mart-nord-core-drill stasis-lab (1)
+activate-seal curator (1)
+move-to-unpressurized-room curator stasis-lab maintenance-tunnel (1)
+move-to-pressurized-room curator maintenance-tunnel hall-a (1)
+activate-seal curator (1)
+pick-up-artifact-standard mart-north-pole-ice-sample hall-a curator (1)
+move-to-unpressurized-room curator hall-a maintenance-tunnel (1)
+move-to-pressurized-room curator maintenance-tunnel cryo-chamber (1)
+release-artifact-in-cryo curator mart-north-pole-ice-sample cryo-chamber (1)
+activate-seal curator (1)
+move-to-unpressurized-room curator cryo-chamber maintenance-tunnel (1)
+move-to-pressurized-room curator maintenance-tunnel hall-a (1)
+activate-seal curator (1)
+pick-up-artifact-standard mart-sud-core-drill hall-a curator (1)
+move-to-unpressurized-room curator hall-a maintenance-tunnel (1)
+move-to-pressurized-room curator maintenance-tunnel cryo-chamber (1)
+activate-seal curator (1)
+release-artifact-in-cryo curator mart-sud-core-drill cryo-chamber (1)
+pick-up-artifact-standard mart-sud-core-drill cryo-chamber curator (1)
+move-to-unpressurized-room curator cryo-chamber maintenance-tunnel (1)
+move-to-pressurized-room curator maintenance-tunnel stasis-lab (1)
+release-artifact curator mart-sud-core-drill stasis-lab (1)
+activate-seal curator (1)
+move-to-unpressurized-room curator stasis-lab maintenance-tunnel (1)
+move-to-pressurized-room curator maintenance-tunnel hall-a (1)
+activate-seal curator (1)
+pick-up-artifact-standard mart-west-core-drill hall-a curator (1)
+move-to-unpressurized-room curator hall-a maintenance-tunnel (1)
+move-to-pressurized-room curator maintenance-tunnel cryo-chamber (1)
+activate-seal curator (1)
+release-artifact-in-cryo curator mart-west-core-drill cryo-chamber (1)
+pick-up-artifact-standard mart-west-core-drill cryo-chamber curator (1)
+move-to-unpressurized-room curator cryo-chamber maintenance-tunnel (1)
+move-to-pressurized-room curator maintenance-tunnel stasis-lab (1)
+release-artifact curator mart-west-core-drill stasis-lab (1)
+Plan length: 126 step(s).
+Plan cost: 126
+Initial search time: 0.02s
+Initial total time: 0.06s
+
+
+Creating the simulator...
+
+
+Regressing the plan...
+
+
+Generating an initial policy...
+
+
+Computing just-in-time repairs...
+
+Could not close 0 of 0 open leaf states.
+Investigated 1 states for the strong cyclic plan.
+Marking policy strong cyclic.
+Went through another policy of score 1
+
+
+Running a final SCD check...
+
+
+Running the simulation...
+...achieved the goal!
+
+
+
+                  -{ General Statistics }-
+
+        FSAP Combination Count: 0
+       Monotonicity violations: 0
+             Successful states: 136 +/- 0
+                       Replans: 0 +/- 0
+                       Actions: 136 +/- 0
+             Recorded Deadends: 0
+            State-Action Pairs: 127
+  Forbidden State-Action Pairs: 0
+               Strongly Cyclic: True
+                  Policy Score: 1
+                     Succeeded: 1 / 1
+ Depth limit (of 1000) reached: 0 / 1
+
+
+                  -{ Timing Statistics }-
+
+        Regression Computation: 0s
+         Engine Initialization: 0s
+                   Search Time: 0.02s
+           Policy Construction: 0.02s
+ Evaluating the policy quality: 0.09s
+              Using the policy: 0.03s
+          Just-in-case Repairs: 0.11s
+                Simulator time: 0s
+                    Total time: 0.16s
+
+
+
+Dumping the policy and fsaps...
+Strong cyclic plan found.
+Peak memory: 8352 KB

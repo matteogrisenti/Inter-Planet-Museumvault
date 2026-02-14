@@ -1,0 +1,132 @@
+================================================================================
+                     PDDL TRANSLATION PHASE ANALYSIS
+================================================================================
+File Source: Terminal Output (Stress Case)
+Strategy:    Vanilla PDDL (Base + Batch 1 + Batch 2 + Batch 3)
+Status:      Successful, Perfectly Linear Scaling
+================================================================================
+
+--------------------------------------------------------------------------------
+| FEATURE / METRIC            | VALUE (LOG) | DESCRIPTION & EVALUATION GUIDE                                                                 |
+--------------------------------------------------------------------------------
+| 1. Instantiation            |             | THE "EXPLOSION" CHECK                                                                          |
+|    - Relevant Atoms         | 3292        | Up from 2567 (Batch 2).                                                                        |
+|                             |             | -> EVALUATION: Linear Growth. +725 atoms for the new batch.                                    |
+|                             |             | The consistency here is remarkable. Your domain definition is practically                      |
+|                             |             | immune to combinatorial explosion during instantiation.                                        |
+|                             |             |                                                                                                |
+|    - Auxiliary Atoms        | 2377        | -> EVALUATION: Healthy ratio (~0.72) maintained.                                               |
+--------------------------------------------------------------------------------
+| 2. Invariant Synthesis      |             | THE "OPTIMIZATION" CHECK                                                                       |
+|    - Translator Variables   | 140         | Up from 110 (Batch 2).                                                                         |
+|                             |             | -> EVALUATION: Exact math. 10 new items = 30 new variables (Location,                          |
+|                             |             | Carried status, Temperature/Fragility).                                                        |
+|                             |             |                                                                                                |
+|    - Mutex Groups           | 49          | Up from 39 (Batch 2).                                                                          |
+|                             |             | -> EVALUATION: The solver correctly identified 10 new exclusion groups.                        |
+--------------------------------------------------------------------------------
+| 3. Reachability Analysis    |             | THE "BUG" CHECK                                                                                |
+|    - Operators Removed      | 0           | -> EVALUATION: Perfect.                                                                        |
+--------------------------------------------------------------------------------
+| 4. Operator Generation      |             | THE "SCALING" BOTTLENECK                                                                       |
+|    - Translator Operators   | 2162        | Up from 1672 (Batch 2).                                                                        |
+|                             |             | -> EVALUATION: Linear.                                                                         |
+|                             |             | Even with 40+ items, the operator count is tiny compared to typical                            |
+|                             |             | IPC competition domains (which often hit 100k+).                                               |
+--------------------------------------------------------------------------------
+| 5. Performance Resources    |             | THE "COST" CHECK                                                                               |
+|    - Translator Task Size   | 18037       | Up from 13937.                                                                                 |
+|                             |             |                                                                                                |
+|    - Peak Memory            | 28 MB       | Up from 25.5 MB.                                                                               |
+|                             |             | -> EVALUATION: The memory footprint is negligible.                                             |
+|                             |             |                                                                                                |
+|    - Total Time             | 0.39s       | Up from 0.33s.                                                                                 |
+--------------------------------------------------------------------------------
+
+
+================================================================================
+                     PDDL PREPROCESSOR PHASE ANALYSIS
+================================================================================
+File Source: Terminal Output (Stress Case)
+Strategy:    Vanilla PDDL
+Status:      Stable
+================================================================================
+
+--------------------------------------------------------------------------------
+| FEATURE / METRIC            | VALUE (LOG) | DESCRIPTION & EVALUATION GUIDE                                                                 |
+--------------------------------------------------------------------------------
+| 1. Causal Graph Structure   |             | THE "COMPLEXITY" CHECK                                                                         |
+|    - Graph Status           | Not Acyclic | -> EVALUATION: Unchanged.                                                                      |
+--------------------------------------------------------------------------------
+| 2. Variable Pruning         |             | THE "EFFICIENCY" CHECK                                                                         |
+|    - Variables Necessary    | 140 of 140  | -> EVALUATION: 100% Efficiency.                                                                |
+|                             |             |                                                                                                |
+|    - Mutex Groups Necessary | 45 of 49    | -> EVALUATION: High utilization of constraints.                                                |
+--------------------------------------------------------------------------------
+| 3. Operator Pruning         |             | THE "REACHABILITY" CHECK                                                                       |
+|    - Operators Necessary    | 2162/2162   | -> EVALUATION: 100% Kept.                                                                      |
+--------------------------------------------------------------------------------
+| 4. Transition Complexity    |             | THE "HEURISTIC" CHECK                                                                          |
+|    - Domain Transition      | Solvable in | -> EVALUATION: "0".                                                                            |
+|      Graphs                 | poly time 0 | Complexity remains low despite increased scale.                                                |
+--------------------------------------------------------------------------------
+
+
+================================================================================
+                  PDDL SEARCH & POLICY PHASE ANALYSIS
+================================================================================
+File Source: Terminal Output (Stress Case)
+Strategy:    Vanilla PDDL (Base + Batch 1 + Batch 2 + Batch 3)
+Status:      Surprising Result (Plan Length vs. Search Effort)
+================================================================================
+
+--------------------------------------------------------------------------------
+| FEATURE / METRIC            | VALUE (LOG) | DESCRIPTION & EVALUATION GUIDE                                                                 |
+--------------------------------------------------------------------------------
+| 1. The Search Process       |             | FINDING THE PLAN                                                                               |
+|    - Initial Search Time    | 0.31s       | Up from 0.27s (Batch 2).                                                                       |
+|                             |             | -> EVALUATION: Still remarkably fast.                                                          |
+|                             |             |                                                                                                |
+|    - Generated States       | 15,755      | DOWN from 23,262 (Batch 2).                                                                    |
+|                             |             | -> EVALUATION: POSITIVE ANOMALY.                                                               |
+|                             |             | Batch 3 (Seismic) added "simpler" tasks than Batch 2 (Cores).                                  |
+|                             |             | The "Core" tasks required complex state changes (Temp change),                                 |
+|                             |             | creating a wider branching factor. Batch 3 is just "fetching",                                 |
+|                             |             | so the heuristic guided the search very directly, despite the volume.                          |
+|                             |             |                                                                                                |
+|    - Dead Ends              | 0           | -> EVALUATION: Perfect.                                                                        |
+--------------------------------------------------------------------------------
+| 2. The Solution Quality     |             | THE "ROBOT BEHAVIOR" CHECK                                                                     |
+|    - Plan Length            | 392 steps   | Up from 311 steps.                                                                             |
+|                             |             | -> EVALUATION: EXTREME.                                                                        |
+|                             |             | This is the true cost of the Stress Test. A 400-step plan for                                  |
+|                             |             | a single robot is massive. The "Vanilla" strategy generates                                    |
+|                             |             | verbose plans (activate seal -> move -> deactivate -> drop).                                   |
+--------------------------------------------------------------------------------
+| 3. Non-Determinism Handling |             | THE "SAFETY" CHECK                                                                             |
+|    - Strong Cyclic Plan     | True        | -> EVALUATION: Success.                                                                        |
+--------------------------------------------------------------------------------
+| 4. Simulation & Verification|             | THE "REALITY" CHECK                                                                            |
+|    - Successful States      | 425         | -> EVALUATION: The difference between 425 (simulated) and 392 (plan)                           |
+|                             |             | indicates ~33 steps were spent retrying failed seismic entries.                                |
+|                             |             |                                                                                                |
+|    - Total Time             | 0.97s       | -> EVALUATION: Finally hitting ~1 second total execution time.                                 |
+--------------------------------------------------------------------------------
+
+================================================================================
+                                 FINAL VERDICT
+================================================================================
+The "Vanilla" PDDL Strategy has PASSED the Stress Test with flying colors.
+
+1. Efficiency: The strategy proved highly memory-efficient. Even with 40+
+   items, translation memory never exceeded 30MB.
+
+2. Scalability: The bottleneck was NOT the "Seismic Nightmare" (Batch 3),
+   but rather the "Heavy Cores" (Batch 2). This reveals that *Task Complexity*
+   (routing logic) impacts the solver more than *Task Volume* (number of items).
+
+3. Limit Reached: The practical limit here is Plan Length (392 steps).
+   While the solver can compute it in 1 second, executing a 400-step plan
+   with a single robot is operationally inefficient. This suggests the need
+   for Multi-Agent planning (more robots) rather than just a faster solver.
+================================================================================
