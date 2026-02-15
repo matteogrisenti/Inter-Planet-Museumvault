@@ -93,6 +93,7 @@ def run_visualization(input_dir: Path, output_dir: Path, mode: str, max_steps_li
             
             print(f"\n✅ OPTIC Combined Animation Complete!")
             print(f"   🎬 Animation: {gif_path}")
+            print(f"   🎥 Video: {gif_path.with_suffix('.mp4')}")
             return
 
         # --- MODES 1-5: STANDARD VISUALIZATION ---

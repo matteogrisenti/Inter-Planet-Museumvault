@@ -8,7 +8,7 @@ import re
 import matplotlib.pyplot as plt
 import matplotlib.patches as mpatches
 from matplotlib.lines import Line2D
-from matplotlib.animation import FuncAnimation, PillowWriter
+from matplotlib.animation import FuncAnimation, PillowWriter, FFMpegWriter
 import json
 from pathlib import Path
 from typing import Dict, Any, List
@@ -287,6 +287,7 @@ class CombinedOpticVisualization:
     def render_combined_gif(self, output_path: Path, fps=2, max_frames=None, trace_file: Path = None):
         """
         Render combined GIF with map animation and temporal diagram.
+        Also attempts to save as MP4 if ffmpeg is available.
         """
         # ... (setup code same as before until loop) ...
         # Calculate time steps (one frame per second by default)
@@ -413,11 +414,22 @@ class CombinedOpticVisualization:
         anim = FuncAnimation(fig, update, frames=num_frames, repeat=True)
         
         # Save as GIF
+        print(f"Saving GIF to {output_path}...")
         writer = PillowWriter(fps=fps)
         anim.save(output_path, writer=writer)
+        print(f"✅ GIF saved to: {output_path}")
+
+        # Save as MP4
+        mp4_path = output_path.with_suffix('.mp4')
+        print(f"Attempting to save MP4 to {mp4_path}...")
+        try:
+            writer_mp4 = FFMpegWriter(fps=fps, metadata=dict(artist='OpticViz'), bitrate=1800)
+            anim.save(mp4_path, writer=writer_mp4)
+            print(f"✅ MP4 saved to: {mp4_path}")
+        except Exception as e:
+            print(f"⚠️ Could not save MP4 (ffmpeg might be missing): {e}")
+
         plt.close()
-        
-        print(f"✅ Combined animation saved to: {output_path}")
     
     def _render_actions_panel(self, ax, current_time: float):
         """Render panel showing currently executing actions."""
