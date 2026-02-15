@@ -337,11 +337,14 @@ class CombinedOpticVisualization:
         # Sort actions by END time for sequential updates
         # But we iterate by time steps.
         
-        # Create figure (Even TALLER for more spacing)
-        fig = plt.figure(figsize=(16, 24)) # Increased height 22->24
-        # Ratios: Map gets much more space (4.0), Actions (2.5), Timeline (1.2)
-        # Reduced hspace to bring map and actions closer
-        gs = fig.add_gridspec(3, 1, height_ratios=[4.0, 2.5, 1.2], hspace=0.01)
+        # Create figure (Reduced height to remove excess vertical space)
+        fig = plt.figure(figsize=(16, 20))
+        
+        # Manually adjust margins to be tight
+        plt.subplots_adjust(left=0.05, right=0.95, top=0.95, bottom=0.05, hspace=0.0)
+        
+        # Ratios: Map (4.5), Actions (2.0), Timeline (1.0)
+        gs = fig.add_gridspec(3, 1, height_ratios=[4.5, 2.0, 1.0], hspace=0.0)
         ax_map = fig.add_subplot(gs[0])
         ax_actions = fig.add_subplot(gs[1])
         ax_timeline = fig.add_subplot(gs[2])
@@ -441,7 +444,7 @@ class CombinedOpticVisualization:
                 'scientist': '#8E44AD'
             }
             
-            y_pos = 0.85  # Start lower to create padding below title
+            y_pos = 0.65  # Start lower to create padding below title
             
             # Use smaller font or fewer items if needed, but we have more space now
             for i, action in enumerate(active_actions[:8]): 
@@ -457,11 +460,11 @@ class CombinedOpticVisualization:
                        bbox=dict(boxstyle='round,pad=0.8', facecolor='white', 
                                 edgecolor=color, linewidth=2, alpha=0.9))
                 
-                y_pos -= 0.10 # Reduced relative spacing as panel is taller
+                y_pos -= 0.15 # Reduced relative spacing as panel is taller
         else:
             # No active actions
             ax.text(0.5, 0.5, "No active actions", ha='center', va='center',
-                   fontsize=12, style='italic', color='gray')
+                   fontsize=16, style='italic', color='gray')
 
     
     def _render_timeline_frame(self, ax, current_time: float):
