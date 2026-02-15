@@ -24,20 +24,58 @@ class TemporalDiagram:
         'other': '#95a5a6'            # Gray
     }
     
-    def __init__(self, timeline_data: Dict[str, Any]):
+    def __init__(self, timeline_data: Dict[str, Any], problem_pddl_path: Path = None):
         """
         Initialize the temporal diagram renderer.
         
         Args:
             timeline_data: Dictionary with 'robots', 'actions', and 'total_time'
+            problem_pddl_path: Optional path to problem.pddl for earthquake data
         """
         self.data = timeline_data
         self.robots = timeline_data['robots']
         self.actions = timeline_data['actions']
         self.total_time = timeline_data['total_time']
+        self.problem_pddl_path = problem_pddl_path
         
         # Create parser instance for categorization
         self.parser = OpticParser(Path("dummy"))  # Just for categorization method
+        
+        # Extract earthquake windows from problem file
+        self.earthquake_windows = self._extract_earthquake_windows()
+    
+    def _extract_earthquake_windows(self) -> List[tuple]:
+        """
+        Extract earthquake time windows from problem.pddl.
+        Returns list of (start_time, end_time) tuples.
+        """
+        if not self.problem_pddl_path or not self.problem_pddl_path.exists():
+            return []
+        
+        import re
+        
+        try:
+            with open(self.problem_pddl_path, 'r') as f:
+                content = f.read()
+            
+            # Look for patterns like: (at 10 (not (is-safe hall-b))) and (at 31 (is-safe hall-b))
+            # Earthquake starts when is-safe becomes false, ends when it becomes true again
+            earthquake_starts = re.findall(r'\(at\s+(\d+(?:\.\d+)?)\s+\(not\s+\(is-safe', content)
+            earthquake_ends = re.findall(r'\(at\s+(\d+(?:\.\d+)?)\s+\(is-safe\s+hall-b\)\)', content)
+            
+            # Parse to floats
+            starts = [float(t) for t in earthquake_starts]
+            ends = [float(t) for t in earthquake_ends]
+            
+            # Pair them up (assuming they alternate start, end, start, end...)
+            windows = []
+            for i in range(min(len(starts), len(ends))):
+                windows.append((starts[i], ends[i]))
+            
+            return windows
+        except Exception as e:
+            print(f"⚠️ Could not extract earthquake windows: {e}")
+            return []
         
     def render(self, output_path: Path, figsize=None, show_labels=True):
         """
@@ -59,6 +97,17 @@ class TemporalDiagram:
             figsize = (width, 8) # Increased height slightly
         
         fig, ax = plt.subplots(figsize=figsize)
+        
+        # Draw earthquake windows first (behind everything else)
+        for start, end in self.earthquake_windows:
+            ax.axvspan(start, end, color='red', alpha=0.15, zorder=0)
+            # Add label at the top of the span
+            mid_time = (start + end) / 2
+            ax.text(mid_time, len(self.robots) - 0.5, 'EARTHQUAKE', 
+                   ha='center', va='center', fontsize=10, fontweight='bold',
+                   color='red', alpha=0.6, rotation=0,
+                   bbox=dict(boxstyle='round,pad=0.3', facecolor='white', 
+                            edgecolor='red', linewidth=1.5, alpha=0.8))
         
         # Create a mapping from robot name to Y position
         robot_positions = {robot: idx for idx, robot in enumerate(self.robots)}
@@ -90,7 +139,8 @@ class TemporalDiagram:
                 color=color, 
                 edgecolor='black',
                 linewidth=0.8,  # Slightly thicker borders
-                alpha=0.85  # Slightly more opaque
+                alpha=0.85,  # Slightly more opaque
+                zorder=5  # Draw on top of earthquake regions
             )
             
             # Add label with improved threshold
@@ -98,17 +148,17 @@ class TemporalDiagram:
                 # Better action name abbreviation
                 action_label = self._format_action_label(action['action'], duration)
                 
-                # Dynamic font sizing
-                # Base size 9, increase with duration
+                # Dynamic font sizing with larger base for report
+                # Base size 16, increase with duration
                 # Linear scale: approx +1 pt for every 2 seconds
-                calc_size = 9 + int(duration * 0.4)
+                calc_size = 14 + int(duration * 0.4)
                 
                 # Reduce size if text is long to prevent wrapping issues/overflow
                 if len(action_label) > 10:
-                    calc_size = max(9, calc_size - 2)
+                    calc_size = max(14, calc_size - 2)
                     
                 # Cap minimum and maximum sizes
-                final_size = max(9, min(20, calc_size))
+                final_size = max(14, min(20, calc_size))
 
                 ax.text(
                     start + duration / 2, 
@@ -120,14 +170,15 @@ class TemporalDiagram:
                     fontweight='bold',
                     color='white',
                     wrap=True, # Enable wrapping
-                    bbox=dict(boxstyle='round,pad=0.2', facecolor='black', alpha=0.3, edgecolor='none')
+                    bbox=dict(boxstyle='round,pad=0.3', facecolor='black', alpha=0.5, edgecolor='none'),
+                    zorder=10  # Bring text to front (above bars which are zorder=5)
                 )
         
         # Configure axes with larger fonts
         ax.set_yticks(range(len(self.robots)))
         ax.set_yticklabels([robot.capitalize() for robot in self.robots], fontsize=12, fontweight='bold')
-        ax.set_xlabel('Time (seconds)', fontsize=14, fontweight='bold')
-        ax.set_ylabel('Robots', fontsize=14, fontweight='bold')
+        ax.set_xlabel('Time (seconds)', fontsize=12, fontweight='bold')
+        ax.set_ylabel('Robots', fontsize=12, fontweight='bold')
         ax.set_title(f'Temporal Action Timeline - OPTIC Planner (Scale: {figsize[0]/self.total_time:.2f} in/s)', fontsize=16, fontweight='bold', pad=15)
         
         # Set X axis limits
@@ -142,6 +193,12 @@ class TemporalDiagram:
         
         # Create legend with larger font
         legend_elements = []
+        
+        # Add earthquake indicator to legend if present
+        if self.earthquake_windows:
+            legend_elements.append(mpatches.Patch(color='red', alpha=0.3, label='Earthquake Window', 
+                                                 edgecolor='red', linewidth=1.5))
+        
         for category in sorted(used_categories):
             color = self.COLORS.get(category, self.COLORS['other'])
             label = category.replace('_', ' ').title()

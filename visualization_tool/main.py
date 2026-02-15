@@ -40,8 +40,11 @@ def run_visualization(input_dir: Path, output_dir: Path, mode: str, max_steps_li
             parser = OpticParser(output_file)
             timeline_data = parser.parse()
             
+            # Get problem.pddl path for earthquake data
+            problem_file = input_dir / "problem.pddl" if (input_dir / "problem.pddl").exists() else None
+            
             # Generate temporal diagram
-            diagram = TemporalDiagram(timeline_data)
+            diagram = TemporalDiagram(timeline_data, problem_file)
             diagram.print_summary()
             
             diagram_path = output_dir / "temporal_diagram.png"

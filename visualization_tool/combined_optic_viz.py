@@ -11,7 +11,7 @@ from matplotlib.lines import Line2D
 from matplotlib.animation import FuncAnimation, PillowWriter, FFMpegWriter
 import json
 from pathlib import Path
-from typing import Dict, Any, List
+from typing import Dict, Any, List, Tuple
 from optic_parser import OpticParser
 from temporal_diagram import TemporalDiagram
 
@@ -39,6 +39,9 @@ class CombinedOpticVisualization:
         # Get room layout from problem file if available
         self.locations = self._extract_locations()
         
+        # Parse earthquake windows if problem file is provided
+        self.earthquake_windows = self._parse_earthquake_windows() if problem_pddl_path else []
+        
     def _extract_locations(self) -> Dict[str, tuple]:
         """
         Extract location information from problem.pddl.
@@ -57,6 +60,48 @@ class CombinedOpticVisualization:
         
         # TODO: Parse from problem.pddl if available
         return default_layout
+    
+    def _parse_earthquake_windows(self) -> List[Tuple[float, float]]:
+        """
+        Parse earthquake windows from problem.pddl TIL (Timed Initial Literals).
+        Reuses the same logic as TemporalDiagram.
+        
+        Returns:
+            List of (start_time, end_time) tuples for earthquake periods
+        """
+        if not self.problem_pddl_path or not self.problem_pddl_path.exists():
+            return []
+        
+        try:
+            with open(self.problem_pddl_path, 'r') as f:
+                content = f.read()
+            
+            # Remove comments
+            content = re.sub(r';.*', '', content)
+            
+            # Find all TIL events for is-safe hall-b
+            unsafe_pattern = r'\(at\s+(\d+(?:\.\d+)?)\s+\(not\s+\(is-safe\s+hall-b\)\)\)'
+            safe_pattern = r'\(at\s+(\d+(?:\.\d+)?)\s+\(is-safe\s+hall-b\)\)'
+            
+            unsafe_times = [float(m.group(1)) for m in re.finditer(unsafe_pattern, content)]
+            safe_times = [float(m.group(1)) for m in re.finditer(safe_pattern, content)]
+            
+            # Pair up unsafe/safe times to create windows
+            windows = []
+            unsafe_times.sort()
+            safe_times.sort()
+            
+            for unsafe_time in unsafe_times:
+                # Find the next safe time after this unsafe time
+                matching_safe = [t for t in safe_times if t > unsafe_time]
+                if matching_safe:
+                    windows.append((unsafe_time, matching_safe[0]))
+            
+            return windows
+            
+        except Exception as e:
+            print(f"⚠️ Warning: Could not parse earthquake windows: {e}")
+            return []
     
     def _get_robot_state_at_time(self, current_time: float) -> Dict[str, Any]:
         """
@@ -484,6 +529,17 @@ class CombinedOpticVisualization:
         # Similar to TemporalDiagram.render but with progress marker
         robot_positions = {robot: idx for idx, robot in enumerate(self.robots)}
         used_categories = set()
+        
+        # Draw earthquake indicators FIRST (so they appear behind action bars)
+        for start, end in self.earthquake_windows:
+            ax.axvspan(start, end, color='#ff6b6b', alpha=0.15, zorder=0, label='_nolegend_')
+            # Add earthquake label at the top
+            mid_time = (start + end) / 2
+            ax.text(mid_time, len(self.robots) - 0.5, 'EARTHQUAKE', 
+                   ha='center', va='center', fontsize=8, fontweight='bold',
+                   color='red', alpha=0.6, rotation=0,
+                   bbox=dict(boxstyle='round,pad=0.2', facecolor='white', 
+                            edgecolor='red', linewidth=1.0, alpha=0.8))
         
         # Color scheme
         COLORS = {
