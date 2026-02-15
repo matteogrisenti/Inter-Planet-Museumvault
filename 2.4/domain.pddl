@@ -279,7 +279,7 @@
 
   (:durative-action cool-artifact-while-carrying
     :parameters (?r - robot ?a - artifact ?l - location)
-    :duration (= ?duration 6)
+    :duration (= ?duration 12)
     :condition (and 
         (at start (warm ?a))                       ; Artifact must be warm at the start
         (at start  (is-chill-room ?l))             ; use at start since these is a fixed properties
@@ -294,7 +294,7 @@
 
   (:durative-action cool-artifact-while-carrying-in-pod
      :parameters (?r - robot ?a - artifact ?l - location ?p - pod)
-     :duration (= ?duration 8)
+     :duration (= ?duration 14)
      :condition (and 
          (at start (warm ?a))                       ; Artifact must be warm at the start
          (at start (is-chill-room ?l))              ; use at start since these is fixed properties
