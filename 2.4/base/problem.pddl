@@ -120,7 +120,7 @@
     ; (artifact-at mart-west-core-drill hall-a) (is-type mart-west-core-drill scientific) (warm mart-west-core-drill) (no-fragile mart-west-core-drill)
     
     ; ;; Hall A: Samples & Mysterious Egg
-    ; (artifact-at mart-north-pole-ice-sample hall-a) (is-type mart-north-pole-ice-sample scientific) (warm mart-north-pole-ice-sample) (no-fragile mart-north-pole-ice-sample)
+    (artifact-at mart-north-pole-ice-sample hall-a) (is-type mart-north-pole-ice-sample scientific) (warm mart-north-pole-ice-sample) (no-fragile mart-north-pole-ice-sample)
     (artifact-at mart-mysterious-egg hall-a) (is-type mart-mysterious-egg top-secret) (warm mart-mysterious-egg) (no-fragile mart-mysterious-egg)
     ; (artifact-at asteroid-MG04TN-ice-sample hall-a) (is-type asteroid-MG04TN-ice-sample scientific) (warm asteroid-MG04TN-ice-sample) (no-fragile asteroid-MG04TN-ice-sample)
 
@@ -152,11 +152,11 @@
     ; (artifact-at space-suit stasis-lab)
     (artifact-at quantum-chip stasis-lab) (cold quantum-chip)
 
-    ; (artifact-at mart-north-pole-ice-sample cryo-chamber)
+    (artifact-at mart-north-pole-ice-sample cryo-chamber)
     (artifact-at mart-mysterious-egg cryo-chamber)    
     ; (artifact-at asteroid-MG04TN-ice-sample cryo-chamber)
 
-    ; (artifact-at mart-sand-sample hall-a)
+    (artifact-at mart-sand-sample hall-a)
     (artifact-at mart-laser-gun hall-a)
     ; (artifact-at mart-pink-hat hall-a)  
     ; (artifact-at asteroid-AD29TV-rock-sample hall-a)  

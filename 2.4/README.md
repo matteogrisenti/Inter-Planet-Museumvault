@@ -6,3 +6,12 @@ Inoltre possiamo togliere lo stato (is-seismic ?l) dato che non è più necessar
 
 
 dato che over all rallenta, le cose che non possono cambiare tipo "upressurized" o "pressurized" e così via sono messe "at start"
+
+alcune prioprietà sono fisse quindi possiamo usare at start.
+
+nell'implementazione base (adattando le actions in durative-actions e facendo le ottimizzazioi sopra riusciamo a risolvere il problema con max 6-7 artefatti).
+
+Ho provato a fare queste ottimizzazioni:
+- introdurre fragile (c'era prima ma l'ho tolto per semplificare, ora lo reintroduco per ridurre il branching) nel pickup con pod che obbliga a caricare solo oggetti fragili
+- se tiro via sealing mode che si disattiva appena entro e se tiro proprio via la sealing mode disattivabile e parto con essa attiva già dall'inizio il problema ci mette un sacco a risolversi
+- provato a rendere specifiche le azioni di pickup per ogni tipo di artefatto, ma non sembra migliorare molto, anzi peggiora un po' (forse perché aumenta il numero di azioni) arriva sempre a max 6 artefatti (come prima, ma ci mette un po' di più per trovare la soluzione)
