@@ -1,5 +1,5 @@
 (define (domain multi-robot)
-    (:requirements :strips :typing :non-deterministic)
+    (:requirements :strips :typing)
 
     ;; Types derived from scenario entities 
     ; The robot is not a type, becouse in this scenario we have only one robot
@@ -70,17 +70,11 @@
             (is-seismic ?to)
             (can-access ?r ?to)
         )
-        ;; NON DETERMINISTIC EFFECT
-        :effect (oneof 
-            ;; CASE A: Room is safe
-            (and 
-                (is-safe ?to) 
-                (not (robot-at ?r ?from)) (robot-at ?r ?to)
-                ; the sealing mode is deactivated automatically
-                (not (sealing-mode ?r))    
-            )      
-            ;; CASE B: Room is unsafe
-            (not (is-safe ?to))    
+        :effect (and 
+            (is-safe ?to) 
+            (not (robot-at ?r ?from)) 
+            (robot-at ?r ?to)
+            (not (sealing-mode ?r))    
         )
     )
 
@@ -95,6 +89,7 @@
             (connected ?from ?to)
             (is-pressurized ?to)       ;; Target is pressurized 
             (is-safe ?to)              ;; Target is safe
+
             (can-access ?r ?to)
         )
         :effect (and 
@@ -125,6 +120,15 @@
         :parameters (?r - robot)
         :precondition ()
         :effect (sealing-mode ?r)
+    )
+    (:action deactivate-seal
+        :parameters (?r - robot ?l - location)
+        :precondition (and 
+            (robot-at ?r ?l)
+            (is-pressurized ?l) ; Safety check: Cannot vent in a tunnel
+            (sealing-mode ?r)
+        )
+        :effect (not (sealing-mode ?r))
     )
 
 
@@ -284,6 +288,7 @@
             (robot-at ?r ?l) 
             (carrying-slot-1 ?r ?a)
             (is-chill-room ?l)
+            (warm  ?a )
         )
         :effect (and 
             (not (carrying-slot-1 ?r ?a)) 
@@ -300,6 +305,7 @@
             (can-carry-two ?r)
             (carrying-slot-2 ?r ?a)
             (is-chill-room ?l)
+            (warm  ?a )
         )
         :effect (and 
             (not (carrying-slot-2 ?r ?a)) 
