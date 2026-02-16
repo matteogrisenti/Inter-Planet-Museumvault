@@ -21,7 +21,7 @@
     mart-east-core-drill mart-west-core-drill - artifact
     mart-sand-sample mart-north-pole-ice-sample - artifact
     mart-mysterious-egg mart-laser-gun mart-pink-hat - artifact
-    rover-wheel space-suit quantum-chip - artifact
+    rover-wheel space-suit quantum-chip rusty-lightsaber - artifact
     asteroid-MG04TN-ice-sample asteroid-AD29TV-rock-sample - artifact
     venus-sand-sample venus-rock-sample - artifact
   )
@@ -101,9 +101,10 @@
 
     ;; --- HALL B ---
     ;; Mission Gear
-    (artifact-at rover-wheel hall-b) (is-type rover-wheel technological) (warm rover-wheel) (no-fragile rover-wheel)
+    (artifact-at rover-wheel hall-b) (is-type rover-wheel technological) (warm rover-wheel) (fragile rover-wheel)
     (artifact-at space-suit hall-b) (is-type space-suit technological) (warm space-suit) (no-fragile space-suit)
     (artifact-at quantum-chip hall-b) (is-type quantum-chip technological) (warm quantum-chip) (fragile quantum-chip)
+    (artifact-at rusty-lightsaber hall-b) (is-type rusty-lightsaber technological) (warm rusty-lightsaber) (no-fragile rusty-lightsaber)
 
     ;; Hall B: Samples & Civilization Artifacts
     (artifact-at mart-sand-sample hall-b) (is-type mart-sand-sample scientific) (warm mart-sand-sample) (fragile mart-sand-sample)
@@ -126,6 +127,7 @@
     (artifact-at rover-wheel stasis-lab)
     (artifact-at space-suit stasis-lab)
     (artifact-at quantum-chip stasis-lab) (cold quantum-chip)
+    (artifact-at rusty-lightsaber stasis-lab) (cold rusty-lightsaber)
 
     (artifact-at mart-north-pole-ice-sample cryo-chamber)
     (artifact-at mart-mysterious-egg cryo-chamber)    
