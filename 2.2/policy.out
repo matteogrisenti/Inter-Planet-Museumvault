@@ -1,0 +1,132 @@
+
+If holds: var1:6 var0:6 var5:0 var4:0
+Execute: goal / SC / d=0
+
+If holds: var13:1 var2:1 var1:7 var0:6 var5:0 var4:0
+Execute: release-artifact-from-pod-slot-1 scientist quantum-chip stasis-lab pod1 / SC / d=1
+
+If holds: var13:0 var2:1 var1:7 var0:6 var5:0 var4:0
+Execute: move-to-pressurized-room scientist maintenance-tunnel stasis-lab / SC / d=2
+
+If holds: var13:0 var7:0 var2:8 var1:7 var0:6 var5:0 var4:0
+Execute: pick-up-pod-slot-1 scientist maintenance-tunnel pod1 / SC / d=3
+
+If holds: var13:1 var16:0 var7:0 var2:8 var1:7 var0:6 var5:0 var4:0
+Execute: move-to-unpressurized-room scientist stasis-lab maintenance-tunnel / SC / d=4
+
+If holds: var13:1 var16:0 var14:5 var7:0 var2:2 var1:7 var0:6 var5:0 var4:0
+Execute: drop-pod-slot-1 technician pod1 maintenance-tunnel / SC / d=5
+
+If holds: var13:1 var16:0 var14:1 var17:0 var7:0 var2:2 var1:7 var0:6 var5:0 var4:0
+Execute: move-to-unpressurized-room technician cryo-chamber maintenance-tunnel / SC / d=6
+
+If holds: var13:1 var16:0 var14:1 var17:0 var7:0 var2:2 var10:0 var1:1 var0:6 var5:0 var4:0
+Execute: put-in-pod quantum-chip technological cryo-chamber technician pod1 / SC / d=7
+
+If holds: var13:1 var16:0 var14:1 var17:0 var7:0 var2:2 var1:7 var0:6 var4:0
+Execute: release-artifact-cryo-from-pod-slot-1 technician quantum-chip cryo-chamber pod1 / SC / d=8
+
+If holds: var13:1 var16:0 var14:1 var7:0 var2:2 var1:7 var0:6 var4:0
+Execute: activate-seal technician / SC / d=9
+
+If holds: var13:1 var16:0 var14:5 var7:0 var2:2 var1:7 var0:6 var4:0
+Execute: move-to-pressurized-room technician maintenance-tunnel cryo-chamber / SC / d=10
+
+If holds: var13:1 var16:0 var14:4 var17:0 var7:0 var2:2 var1:7 var0:6 var4:0
+Execute: move-to-unpressurized-room technician hall-b maintenance-tunnel / SC / d=11
+
+If holds: var13:1 var16:0 var14:4 var7:0 var2:2 var1:7 var0:6 var4:0
+Execute: activate-seal technician / SC / d=12
+
+If holds: var13:1 var16:0 var14:4 var7:0 var2:2 var10:0 var1:4 var0:6 var4:0
+Execute: put-in-pod quantum-chip technological hall-b technician pod1 / SC / d=13
+
+If holds: var13:1 var16:0 var14:5 var7:0 var2:2 var10:0 var1:4 var0:6 var4:0
+Execute: try-to-enter-seismic-room technician hall-b maintenance-tunnel / SC / d=14
+
+If holds: var13:1 var16:0 var14:5 var7:0 var8:0 var2:8 var10:0 var1:4 var0:6 var4:0
+Execute: pick-up-pod-slot-1 technician maintenance-tunnel pod1 / SC / d=15
+
+If holds: var13:1 var16:0 var12:5 var14:5 var7:0 var8:0 var2:0 var10:0 var1:4 var0:6 var4:0
+Execute: drop-pod-slot-1 curator pod1 maintenance-tunnel / SC / d=16
+
+If holds: var13:1 var16:0 var12:5 var14:4 var17:0 var7:0 var8:0 var2:0 var10:0 var1:4 var0:6 var4:0
+Execute: move-to-unpressurized-room technician hall-b maintenance-tunnel / SC / d=17
+
+If holds: var13:1 var16:0 var12:0 var15:0 var14:4 var17:0 var7:0 var8:0 var2:0 var10:0 var1:4 var0:6 var4:0
+Execute: move-to-unpressurized-room curator anti-vibration-pods-room maintenance-tunnel / SC / d=18
+
+If holds: var13:1 var16:0 var12:0 var15:0 var14:4 var17:0 var7:0 var8:0 var2:3 var6:0 var10:0 var1:4 var0:6 var4:0
+Execute: pick-up-pod-slot-1 curator anti-vibration-pods-room pod1 / SC / d=19
+
+If holds: var13:1 var16:0 var12:0 var14:4 var17:0 var7:0 var8:0 var2:3 var6:0 var10:0 var1:4 var0:6 var4:0
+Execute: activate-seal curator / SC / d=20
+
+If holds: var13:1 var16:0 var12:0 var14:4 var7:0 var8:0 var2:3 var6:0 var10:0 var1:4 var0:6 var4:0
+Execute: activate-seal technician / SC / d=21
+
+If holds: var13:1 var16:0 var12:0 var14:5 var7:0 var8:0 var2:3 var6:0 var10:0 var1:4 var0:6 var4:0
+Execute: try-to-enter-seismic-room technician hall-b maintenance-tunnel / SC / d=22
+
+If holds: var13:1 var16:0 var12:0 var14:5 var8:0 var2:3 var6:0 var10:0 var1:4 var0:8 var4:0
+Execute: release-artifact-slot-1 scientist mart-nord-core-drill stasis-lab / SC / d=23
+
+If holds: var13:1 var12:0 var14:5 var8:0 var2:3 var6:0 var10:0 var1:4 var0:8 var4:0
+Execute: activate-seal scientist / SC / d=24
+
+If holds: var13:0 var12:0 var14:5 var8:0 var2:3 var6:0 var10:0 var1:4 var0:8 var4:0
+Execute: move-to-pressurized-room scientist maintenance-tunnel stasis-lab / SC / d=25
+
+If holds: var13:0 var12:0 var14:5 var7:0 var8:0 var2:3 var6:0 var10:0 var1:4 var0:5 var4:0
+Execute: pick-up-slot-1 mart-nord-core-drill scientific maintenance-tunnel scientist / SC / d=26
+
+If holds: var13:0 var12:5 var14:5 var7:0 var8:0 var2:3 var6:0 var10:0 var1:4 var0:5 var4:0
+Execute: move-to-pressurized-room curator maintenance-tunnel anti-vibration-pods-room / SC / d=27
+
+If holds: var13:0 var12:5 var14:5 var7:0 var8:0 var2:3 var10:0 var1:4 var0:7 var4:0
+Execute: release-artifact-slot-1 curator mart-nord-core-drill maintenance-tunnel / SC / d=28
+
+If holds: var13:0 var12:1 var15:0 var14:5 var7:0 var8:0 var2:3 var10:0 var1:4 var0:7 var4:0
+Execute: move-to-unpressurized-room curator cryo-chamber maintenance-tunnel / SC / d=29
+
+If holds: var13:0 var12:1 var15:0 var14:5 var7:0 var8:0 var2:3 var6:0 var10:0 var1:4 var0:1 var4:0
+Execute: pick-up-slot-1 mart-nord-core-drill scientific cryo-chamber curator / SC / d=30
+
+If holds: var13:0 var12:1 var15:0 var14:5 var18:0 var7:0 var8:0 var2:3 var10:0 var1:4 var0:7
+Execute: release-artifact-cryo-slot-1 curator mart-nord-core-drill cryo-chamber / SC / d=31
+
+If holds: var13:0 var12:1 var14:5 var18:0 var7:0 var8:0 var2:3 var10:0 var1:4 var0:7
+Execute: activate-seal curator / SC / d=32
+
+If holds: var13:0 var12:5 var14:5 var18:0 var7:0 var8:0 var2:3 var10:0 var1:4 var0:7
+Execute: move-to-pressurized-room curator maintenance-tunnel cryo-chamber / SC / d=33
+
+If holds: var13:0 var12:3 var15:0 var14:5 var18:0 var7:0 var8:0 var2:3 var10:0 var1:4 var0:7
+Execute: move-to-unpressurized-room curator hall-a maintenance-tunnel / SC / d=34
+
+If holds: var13:0 var12:3 var15:0 var14:5 var18:0 var7:0 var8:0 var2:3 var6:0 var10:0 var1:4 var0:3
+Execute: pick-up-slot-1 mart-nord-core-drill scientific hall-a curator / SC / d=35
+
+If holds: var13:0 var12:3 var14:5 var18:0 var7:0 var8:0 var2:3 var6:0 var10:0 var1:4 var0:3
+Execute: activate-seal curator / SC / d=36
+
+If holds: var13:0 var12:5 var14:5 var18:0 var7:0 var8:0 var2:3 var6:0 var10:0 var1:4 var0:3
+Execute: move-to-pressurized-room curator maintenance-tunnel hall-a / SC / d=37
+
+If holds: var13:0 var12:2 var15:0 var14:5 var18:0 var7:0 var8:0 var2:3 var6:0 var10:0 var1:4 var0:3
+Execute: move-to-unpressurized-room curator entrance maintenance-tunnel / SC / d=38
+
+If holds: var13:0 var12:2 var14:5 var18:0 var7:0 var8:0 var2:3 var6:0 var10:0 var1:4 var0:3
+Execute: activate-seal curator / SC / d=39
+
+If holds: var13:1 var16:0 var12:2 var14:5 var18:0 var7:0 var8:0 var2:3 var6:0 var10:0 var1:4 var0:3
+Execute: move-to-unpressurized-room scientist stasis-lab maintenance-tunnel / SC / d=40
+
+If holds: var13:1 var12:2 var14:5 var18:0 var7:0 var8:0 var2:3 var6:0 var10:0 var1:4 var0:3
+Execute: activate-seal scientist / SC / d=41
+
+If holds: var13:1 var12:2 var14:2 var17:0 var18:0 var7:0 var8:0 var2:3 var6:0 var10:0 var1:4 var0:3
+Execute: move-to-unpressurized-room technician entrance maintenance-tunnel / SC / d=42
+
+If holds: var13:1 var12:2 var14:2 var18:0 var7:0 var8:0 var2:3 var6:0 var10:0 var1:4 var0:3
+Execute: activate-seal technician / SC / d=43
