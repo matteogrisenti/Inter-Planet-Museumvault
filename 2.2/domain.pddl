@@ -67,11 +67,11 @@
           (can-access ?r ?to)
           (connected ?from ?to) 
           (is-seismic ?to)
-          (not (sealing-mode ?r)) ;; this is used just for travelling Tunnel to room B
+          ; (not (sealing-mode ?r)) ;; this is used just for travelling Tunnel to room B
         )
       :effect (and 
           (oneof 
-              (and (is-safe ?to) (not (robot-at ?r ?from)) (robot-at ?r ?to))          ;; CASE A: Room is safe
+              (and (is-safe ?to) (not (robot-at ?r ?from)) (robot-at ?r ?to) (not (sealing-mode ?r)))          ;; CASE A: Room is safe
               (and (not (is-safe ?to)))    ;; CASE B: Room is unsafe
           )
       )
@@ -120,11 +120,11 @@
     :precondition ()
     :effect (sealing-mode ?r)
   )
-  (:action deactivate-seal
-    :parameters (?r - robot)
-    :precondition (and (sealing-mode ?r))
-    :effect (not (sealing-mode ?r))
-  )
+;   (:action deactivate-seal
+;     :parameters (?r - robot)
+;     :precondition (and (sealing-mode ?r))
+;     :effect (not (sealing-mode ?r))
+;   )
 
 
   ;; POD MANAGEMENT: EQUIPPING & UNEQUIPPING
