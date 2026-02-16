@@ -233,8 +233,7 @@
     )
     :effect (and 
         (not (carrying-empty-pod ?r ?p))
-        (carrying-full-pod ?r ?p)
-        (carrying ?r ?a)     
+        (carrying-full-pod ?r ?p)    
         (not (artifact-at ?a ?l))
         (not (pod-empty ?p))
         (pod-contains ?p ?a)
