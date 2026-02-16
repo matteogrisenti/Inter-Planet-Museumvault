@@ -86,6 +86,7 @@ class World:
         domain_def = next(e for e in exprs if e[0] == 'define' and 'domain' in e[1])
         
         for item in domain_def:
+            
             if isinstance(item, list) and item[0] == ':action':
                 name = item[1]
                 
@@ -113,9 +114,17 @@ class World:
         problem_def = next(e for e in exprs if e[0] == 'define' and 'problem' in e[1])
         
         for item in problem_def:
+            # Skip the metric definition
+            if isinstance(item, list) and item[0] == ':metric':
+                continue
+
             if isinstance(item, list) and item[0] == ':init':
                 for atom in item[1:]:
                     if isinstance(atom, list):
+                        # FIX: Skip numeric assignments like (= (total-cost) 0)
+                        if atom[0] == '=':
+                            continue
+                            
                         self.current_state.add(tuple(atom))
                         
                         # Extract artifact type information
@@ -124,6 +133,7 @@ class World:
                             artifact_type = atom[2]
                             self.artifact_types[artifact_name] = artifact_type
                             self.artifact_colors[artifact_name] = self._assign_color(artifact_type)
+
 
     def _assign_color(self, artifact_type):
         """Assign colors based on artifact type"""
@@ -345,6 +355,11 @@ class World:
             return
         
         op = effect_node[0]
+
+        # FIX: Ignore numeric fluents/functions
+        numeric_ops = {'increase', 'decrease', 'assign', 'multiply', 'divide'}
+        if op in numeric_ops:
+            return
         
         if op == 'and':
             for sub in effect_node[1:]:

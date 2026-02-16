@@ -1,5 +1,5 @@
 (define (domain multi-robot)
-    (:requirements :strips :typing :non-deterministic)
+    (:requirements :strips :typing)
 
     ;; Types derived from scenario entities 
     ; The robot is not a type, becouse in this scenario we have only one robot
@@ -70,17 +70,11 @@
             (is-seismic ?to)
             (can-access ?r ?to)
         )
-        ;; NON DETERMINISTIC EFFECT
-        :effect (oneof 
-            ;; CASE A: Room is safe
-            (and 
-                (is-safe ?to) 
-                (not (robot-at ?r ?from)) (robot-at ?r ?to)
-                ; the sealing mode is deactivated automatically
-                (not (sealing-mode ?r))    
-            )      
-            ;; CASE B: Room is unsafe
-            (not (is-safe ?to))    
+        :effect (and 
+            (is-safe ?to) 
+            (not (robot-at ?r ?from)) 
+            (robot-at ?r ?to)
+            (not (sealing-mode ?r))    
         )
     )
 
@@ -95,6 +89,7 @@
             (connected ?from ?to)
             (is-pressurized ?to)       ;; Target is pressurized 
             (is-safe ?to)              ;; Target is safe
+
             (can-access ?r ?to)
         )
         :effect (and 
