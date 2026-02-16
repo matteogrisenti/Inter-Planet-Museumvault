@@ -27,7 +27,7 @@
 
     ;; --- CAPABILITIES ---
     (can-access ?r - robot ?l - location)           ; Access permissions per room
-    (can-pickup ?r - robot ?at - artifact-type)     ; Permissions per artifact type
+    (can-pickup ?r - robot ?at - artifact-type)  ; Permissions per artifact type
     (can-carry-two ?r - robot)                      ; Flag for Technician-type robots
 
     ;; --- ENVIRONMENTAL PROPERTIES ---
@@ -47,10 +47,9 @@
     (warm ?a - artifact)
     (cold ?a - artifact)
     
-    (contains-empty-pod ?l - location ?p - pod)
-    (contains-full-pod ?l - location ?p - pod)
     (pod-empty ?p - pod)
     (pod-contains ?p - pod ?a - artifact)           ; Artifact-pod association
+    (pod-at ?p - pod ?l - location)                 ; Pod location
   )
 
   
@@ -67,11 +66,11 @@
           (can-access ?r ?to)
           (connected ?from ?to) 
           (is-seismic ?to)
-          (not (sealing-mode ?r)) ;; this is used just for travelling Tunnel to room B
+          ; (not (sealing-mode ?r)) ;; this is used just for travelling Tunnel to room B
         )
       :effect (and 
           (oneof 
-              (and (is-safe ?to) (not (robot-at ?r ?from)) (robot-at ?r ?to))          ;; CASE A: Room is safe
+              (and (is-safe ?to) (not (robot-at ?r ?from)) (robot-at ?r ?to) (not (sealing-mode ?r)))          ;; CASE A: Room is safe
               (and (not (is-safe ?to)))    ;; CASE B: Room is unsafe
           )
       )
@@ -106,8 +105,8 @@
         (connected ?from ?to)
         (is-unpressurized ?to)     ;; Target is unpressurized
         (sealing-mode ?r)             ;; Constraint: Must be sealed
-        (is-safe ?to)              ;; Target is safe
-        (can-access ?r ?to)
+        ; (is-safe ?to)              ;; Target is safe (tunnel is always safe, so no need to check)
+        (can-access ?r ?to)         ; also this could be skipped (since everybody can access the tunnel) but we can keep it for consistency with the other move actions
     )
     :effect (and (not (robot-at ?r ?from)) (robot-at ?r ?to))
   )
@@ -120,11 +119,11 @@
     :precondition ()
     :effect (sealing-mode ?r)
   )
-  (:action deactivate-seal
-    :parameters (?r - robot)
-    :precondition (and (sealing-mode ?r))
-    :effect (not (sealing-mode ?r))
-  )
+;   (:action deactivate-seal
+;     :parameters (?r - robot)
+;     :precondition (and (sealing-mode ?r))
+;     :effect (not (sealing-mode ?r))
+;   )
 
 
   ;; POD MANAGEMENT: EQUIPPING & UNEQUIPPING
@@ -134,12 +133,12 @@
     :parameters (?r - robot ?l - location ?p - pod)
     :precondition (and 
         (robot-at ?r ?l)
-        (contains-empty-pod ?l ?p)       ; Must be in room the contain free pod
+        (pod-at ?p ?l)
         (pod-empty ?p)                ; Pod must be empty
         (hands-empty ?r)                ; Must have free hands
     )
     :effect (and 
-        (not (contains-empty-pod ?l ?p))
+        (not (pod-at ?p ?l))
         (not (hands-empty ?r))
         (carrying-empty-pod ?r ?p)
     )
@@ -149,7 +148,7 @@
       :parameters (?r - robot ?l - location ?p - pod ?a - artifact ?at - artifact-type)
       :precondition (and 
           (robot-at ?r ?l)
-          (contains-full-pod ?l ?p)
+          (pod-at ?p ?l)
           (pod-contains ?p ?a)
           (hands-empty ?r)
           (can-pickup ?r ?at)
@@ -158,8 +157,7 @@
       :effect (and 
           (not (hands-empty ?r))
           (carrying-full-pod ?r ?p)
-          (carrying ?r ?a)
-          (not (contains-full-pod ?l ?p))
+          (not (pod-at ?p ?l))
       )
   )
   
@@ -177,25 +175,21 @@
     :effect (and 
         (not (carrying-empty-pod ?r ?p))
         (hands-empty ?r)
-        (contains-empty-pod ?l ?p)       ; Pod is now available in the room
+        (pod-at ?p ?l)       ; Pod is now available in the room
     )
   )
 
   ;; 3. Drop Full Pod (with artifact inside)
  (:action drop-full-pod
-     :parameters (?r - robot ?p - pod ?l - location ?a - artifact)
+     :parameters (?r - robot ?p - pod ?l - location)
      :precondition (and 
          (carrying-full-pod ?r ?p)
-         (carrying ?r ?a)
          (robot-at ?r ?l)
-         (not (pod-empty ?p))
-         (pod-contains ?p ?a)
      )
      :effect (and 
          (not (carrying-full-pod ?r ?p))
          (hands-empty ?r)
-         (contains-full-pod ?l ?p)       ; Pod is now available in the room
-         (artifact-at ?a ?l)             ; Artifact is now at the location
+         (pod-at ?p ?l)       ; Pod is now available in the room
      )
  )
  
@@ -238,8 +232,7 @@
     )
     :effect (and 
         (not (carrying-empty-pod ?r ?p))
-        (carrying-full-pod ?r ?p)
-        (carrying ?r ?a)     
+        (carrying-full-pod ?r ?p)    
         (not (artifact-at ?a ?l))
         (not (pod-empty ?p))
         (pod-contains ?p ?a)
@@ -257,6 +250,7 @@
         (robot-at ?r ?l) 
         (carrying ?r ?a)
         (is-standard-room ?l)
+        ; (no-fragile ?a)                 ; Fragile items can't be dropped like this, they need to be put in a pod first (handled by move constraints
     )
     :effect (and 
         (not (carrying ?r ?a)) 
@@ -277,22 +271,17 @@
     )
     :effect (and
         (not (carrying-full-pod ?r ?p))
+        (not (pod-contains ?p ?a)) ; Pod is now empty
         (carrying-empty-pod ?r ?p)      ; Robot still holds the empty pod
-         (not (carrying ?r ?a))     ; Robot no longer carries the artifact
-         (artifact-at ?a ?l)        ; Artifact is now at the location
-         (not (pod-contains ?p ?a)) ; Pod is now empty
-         (pod-empty ?p)            ; Pod is marked as empty
-        (not (carrying ?r ?a))
-        (artifact-at ?a ?l)
-        (not (pod-contains ?p ?a))
-        (pod-empty ?p)
+        (artifact-at ?a ?l)        ; Artifact is now at the location
+        (pod-empty ?p)            ; Pod is marked as empty
     )
-  ).
+  )
 
   ;; B. Dropping to Cryo-Chamber (Temperature Effect)
   ;; 3. Cryo Drop (From Bare Hands)
   ;; Transition: carrying ?a -> hands-empty
-  (:action release-artifact-in-cryo
+  (:action release-artifact-in-cryo                       ; robot releases a non-fragil artifact in the cryo-chamber and it becomes cold
     :parameters (?r - robot ?a - artifact ?l - location)
     :precondition (and 
         (robot-at ?r ?l) 
@@ -341,7 +330,7 @@
             (second-slot-empty ?r)           ; Second slot must be empty
             (can-pickup ?r ?at)
             (is-type  ?a ?at)
-            (no-fragile  ?a)
+            (no-fragile  ?a)                 ; The second slot can contain non-fragile objects only (so it cannot take 2 pods simultaneously)
         )
       :effect (and 
           (not (second-slot-empty ?r))

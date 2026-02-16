@@ -157,7 +157,16 @@ class Renderer:
         self.robot_metadata = self._analyze_robot_roles(self.history[0]['state'])
 
     def _analyze_robot_roles(self, initial_atoms) -> Dict[str, Dict]:
-        state = StateParser.parse(initial_atoms)
+        # Parse atoms if they are strings
+        parsed_atoms = []
+        for atom in initial_atoms:
+            if isinstance(atom, str):
+                clean = atom.replace('(', '').replace(')', '')
+                parsed_atoms.append(clean.split())
+            else:
+                parsed_atoms.append(atom)
+                
+        state = StateParser.parse(parsed_atoms)
         metadata = {}
         
         COLOR_ADMIN = '#2E86C1'      # Blue
@@ -190,7 +199,26 @@ class Renderer:
     def render_frame(self, ax, step_index):
         """Draws a single state onto the provided Axes."""
         step_data = self.history[step_index]
-        state = StateParser.parse(step_data['state'])
+        title = f"Step {step_data['step']}: {step_data['action'].upper()}"
+        if step_data.get('error'):
+             title += f" ({step_data['error']})"
+        self.render_state(ax, step_data['state'], title=title)
+
+    def render_state(self, ax, state_atoms, title=None):
+        """Draws a state from a list of atoms/predicates."""
+        # Convert state_atoms to list format if necessary
+        # The parser expects atoms like ["robot-at", "r1", "l1"]
+        # If input is a set or list of strings, convert them
+        parsed_atoms = []
+        for atom in state_atoms:
+            if isinstance(atom, str):
+                # Simple parsing for string atoms like "(robot-at r1 l1)"
+                clean = atom.replace('(', '').replace(')', '')
+                parsed_atoms.append(clean.split())
+            else:
+                parsed_atoms.append(atom)
+                
+        state = StateParser.parse(parsed_atoms)
         
         ax.clear()
         ax.set_facecolor('#FDF5E6')
@@ -199,10 +227,8 @@ class Renderer:
         ax.set_aspect('equal')
         ax.axis('off')
         
-        title = f"Step {step_data['step']}: {step_data['action'].upper()}"
-        if step_data.get('error'):
-             title += f" ({step_data['error']})"
-        ax.set_title(title, fontsize=14, weight='bold', pad=10)
+        if title:
+            ax.set_title(title, fontsize=14, weight='bold', pad=10)
 
         # 1. DRAW ROOMS
         for loc, pos in self.location_positions.items():
