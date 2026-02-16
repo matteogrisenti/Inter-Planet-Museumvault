@@ -132,9 +132,9 @@
         :precondition (and 
             (robot-at ?r ?l)
             (is-pressurized ?l) ; Safety check: Cannot vent in a tunnel
-            (sealing-mode-on ?r)
+            (sealing-mode ?r)
         )
-        :effect (and (sealing-mode-off ?r) (not (sealing-mode-on ?r)))
+        :effect (not (sealing-mode ?r))
     )
 
 
@@ -279,7 +279,6 @@
             (is-standard-room ?l)
         )
         :effect (and
-            (not (carrying-pod-slot-1 ?r ?p))
             (not (pod-contains ?p ?a))  ; Pod is now empty
             (artifact-at ?a ?l)        ; Artifact is now at the location
             (pod-empty ?p)            ; Pod is marked as empty

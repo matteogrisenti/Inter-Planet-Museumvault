@@ -10,16 +10,17 @@ class StateParser:
     """
     Parses a list of PDDL atoms (strings or lists) into a structured dictionary
     representing the visual state of the world (robots, items, locations).
+    ENHANCED: Now supports slot-based inventory and artifact metadata
     """
     @staticmethod
-    def parse(atoms: List[List[str]]) -> Dict[str, Any]:
+    def parse(atoms: List[List[str]], artifact_metadata: Dict = None) -> Dict[str, Any]:
         state = {
             'robots': {},
             'drones': {},
             'artifacts': {},
             'pods': {},
             'locations': set(),
-            'permissions': {}, # access/pickup
+            'permissions': {},
             'seismic': []
         }
         
@@ -27,8 +28,17 @@ class StateParser:
         def get_robot(name):
             if name not in state['robots']:
                 state['robots'][name] = {
-                    'loc': None, 'holding': None, 'holding_pod': None,
-                    'pod_content': None, 'sealed': False, 'type': 'unknown'
+                    'loc': None,
+                    'holding': None,
+                    'holding_pod': None,
+                    'pod_content': None,
+                    'sealed': False,
+                    'type': 'unknown',
+                    # NEW: Slot-based inventory
+                    'slot_1': None,
+                    'slot_2': None,
+                    'slot_1_type': None,
+                    'slot_2_type': None
                 }
             return state['robots'][name]
 
@@ -39,7 +49,6 @@ class StateParser:
             return state['drones'][name]
 
         for atom in atoms:
-            # Atom format: ["predicate", "arg1", "arg2", ...]
             pred = atom[0]
             args = atom[1:]
 
@@ -49,8 +58,11 @@ class StateParser:
                 state['locations'].add(args[1])
             elif pred == 'sealing-mode':
                 get_robot(args[0])['sealed'] = True
+            
+            # OLD DOMAIN predicates
             elif pred == 'carrying':
-                get_robot(args[0])['holding'] = args[1]
+                r = get_robot(args[0])
+                r['holding'] = args[1]
             elif pred == 'carrying-empty-pod':
                 r = get_robot(args[0])
                 r['holding_pod'] = args[1]
@@ -58,8 +70,24 @@ class StateParser:
             elif pred == 'carrying-full-pod':
                 r = get_robot(args[0])
                 r['holding_pod'] = args[1]
-                # We often need another atom to know WHAT is in the pod, 
-                # but sometimes the plan implies it. We'll check 'pod-contains' later.
+            elif pred == 'carrying-second-object':
+                r = get_robot(args[0])
+                r['slot_2'] = args[1]
+                r['slot_2_type'] = 'artifact'
+            
+            # NEW DOMAIN predicates - Slot-based
+            elif pred == 'carrying-slot-1':
+                r = get_robot(args[0])
+                r['slot_1'] = args[1]
+                r['slot_1_type'] = 'artifact'
+            elif pred == 'carrying-slot-2':
+                r = get_robot(args[0])
+                r['slot_2'] = args[1]
+                r['slot_2_type'] = 'artifact'
+            elif pred == 'carrying-pod-slot-1':
+                r = get_robot(args[0])
+                r['slot_1'] = args[1]
+                r['slot_1_type'] = 'pod'
             
             # --- DRONES ---
             elif pred == 'drone-at':
@@ -69,30 +97,44 @@ class StateParser:
 
             # --- ARTIFACTS ---
             elif pred == 'artifact-at':
-                state['artifacts'][args[0]] = {'loc': args[1], 'temp': 'warm'} # default temp
+                art_type = None
+                art_color = '#FF6B6B'  # Default warm red
+                
+                # Get type and color from metadata if available
+                if artifact_metadata and args[0] in artifact_metadata:
+                    meta = artifact_metadata[args[0]]
+                    art_type = meta.get('type')
+                    art_color = meta.get('display_color', art_color)
+                
+                state['artifacts'][args[0]] = {
+                    'loc': args[1],
+                    'temp': 'warm',  # default
+                    'type': art_type,
+                    'color': art_color
+                }
             elif pred == 'cold':
                 if args[0] in state['artifacts']:
                     state['artifacts'][args[0]]['temp'] = 'cold'
+                    # Update color if we have metadata
+                    if artifact_metadata and args[0] in artifact_metadata:
+                        state['artifacts'][args[0]]['color'] = artifact_metadata[args[0]].get('display_color')
+            elif pred == 'warm':
+                if args[0] in state['artifacts']:
+                    state['artifacts'][args[0]]['temp'] = 'warm'
+                    if artifact_metadata and args[0] in artifact_metadata:
+                        state['artifacts'][args[0]]['color'] = artifact_metadata[args[0]].get('display_color')
             
             # --- PODS (In Rooms) ---
-            # CASE 1: Domain specific 'contains-empty-pod ?loc ?pod'
             elif pred == 'contains-empty-pod':
                 state['pods'][args[1]] = {'loc': args[0], 'content': None}
-            
-            # CASE 2: Domain specific 'contains-full-pod ?loc ?pod'
             elif pred == 'contains-full-pod':
                 state['pods'][args[1]] = {'loc': args[0], 'content': 'unknown'}
-            
-            # CASE 3: Standard 'pod-at ?pod ?loc' (The missing feature)
             elif pred == 'pod-at':
-                # args[0] = pod, args[1] = location
                 if args[0] not in state['pods']:
                     state['pods'][args[0]] = {'loc': args[1], 'content': None}
                 else:
                     state['pods'][args[0]]['loc'] = args[1]
-
             elif pred == 'pod-contains':
-                # Can apply to pods on floor or in hand
                 pod_id = args[0]
                 item_id = args[1]
                 
@@ -100,9 +142,12 @@ class StateParser:
                 if pod_id in state['pods']:
                     state['pods'][pod_id]['content'] = item_id
                 
-                # Check if pod is in hand (robot)
+                # Check if pod is in hand (robot) - OLD DOMAIN
                 for r in state['robots'].values():
                     if r['holding_pod'] == pod_id:
+                        r['pod_content'] = item_id
+                    # NEW DOMAIN
+                    if r['slot_1'] == pod_id and r['slot_1_type'] == 'pod':
                         r['pod_content'] = item_id
 
             # --- ENVIRONMENT ---
@@ -110,13 +155,14 @@ class StateParser:
                 state['seismic'].append(args[0])
             elif pred == 'can-access':
                 r, l = args
-                if r not in state['permissions']: state['permissions'][r] = []
+                if r not in state['permissions']:
+                    state['permissions'][r] = []
                 state['permissions'][r].append(l)
 
         return state
 
 class Renderer:
-    """Visualizes the PDDL trace using Matplotlib."""
+    """Visualizes the PDDL trace using Matplotlib with enhanced slot and color support."""
     
     def __init__(self, trace_file: Path):
         with open(trace_file, 'r') as f:
@@ -153,11 +199,10 @@ class Renderer:
             'stasis-lab': '#FAF0E6'
         }
 
-        # Analyze roles based on the initial state (Step 0)
+        # Analyze roles based on the initial state
         self.robot_metadata = self._analyze_robot_roles(self.history[0]['state'])
 
     def _analyze_robot_roles(self, initial_atoms) -> Dict[str, Dict]:
-        # Parse atoms if they are strings
         parsed_atoms = []
         for atom in initial_atoms:
             if isinstance(atom, str):
@@ -193,7 +238,8 @@ class Renderer:
                 color = COLOR_DEFAULT
                 short = r_name[:3].upper()
             
-            metadata[r_name] = {'color': color, 'short': short, 'role': role}
+            metadata[r_name] = {'role': role, 'color': color, 'short': short}
+        
         return metadata
 
     def render_frame(self, ax, step_index):
@@ -201,24 +247,24 @@ class Renderer:
         step_data = self.history[step_index]
         title = f"Step {step_data['step']}: {step_data['action'].upper()}"
         if step_data.get('error'):
-             title += f" ({step_data['error']})"
-        self.render_state(ax, step_data['state'], title=title)
+            title += f" ({step_data['error']})"
+        
+        # Get artifact metadata if available (from enhanced parser)
+        artifact_metadata = step_data.get('artifact_metadata', {})
+        
+        self.render_state(ax, step_data['state'], title=title, artifact_metadata=artifact_metadata)
 
-    def render_state(self, ax, state_atoms, title=None):
+    def render_state(self, ax, state_atoms, title=None, artifact_metadata=None):
         """Draws a state from a list of atoms/predicates."""
-        # Convert state_atoms to list format if necessary
-        # The parser expects atoms like ["robot-at", "r1", "l1"]
-        # If input is a set or list of strings, convert them
         parsed_atoms = []
         for atom in state_atoms:
             if isinstance(atom, str):
-                # Simple parsing for string atoms like "(robot-at r1 l1)"
                 clean = atom.replace('(', '').replace(')', '')
                 parsed_atoms.append(clean.split())
             else:
                 parsed_atoms.append(atom)
                 
-        state = StateParser.parse(parsed_atoms)
+        state = StateParser.parse(parsed_atoms, artifact_metadata)
         
         ax.clear()
         ax.set_facecolor('#FDF5E6')
@@ -235,9 +281,8 @@ class Renderer:
             color = self.location_colors.get(loc, '#E0E0E0')
             width, height = self.location_sizes.get(loc, (1.5, 1.5))
             
-            # Seismic Warning (Red Tint)
             if loc in state['seismic']:
-                color = '#FFCCCB' # Light red
+                color = '#FFCCCB'
             
             rect = patches.Rectangle(
                 (pos[0] - width/2, pos[1] - height/2), width, height,
@@ -245,7 +290,6 @@ class Renderer:
             )
             ax.add_patch(rect)
             
-            # Room Label
             label_y = pos[1] + height/2 - 0.3 if height > 2 else pos[1]
             ax.text(pos[0], label_y, loc.replace('-', ' ').title(), 
                    ha='center', va='center', fontsize=9, weight='bold', color='#333333', zorder=2)
@@ -256,11 +300,9 @@ class Renderer:
             if loc in self.location_positions:
                 pos = self.location_positions[loc]
                 
-                # Jitter based on name hash to avoid overlap
                 ox = (hash(pod_id) % 5 - 2) * 0.2
                 oy = (hash(pod_id+"y") % 5 - 2) * 0.2
                 
-                # Special layout for Pod Room
                 if loc == 'anti-vibration-pods-room':
                     ox = 0
                     oy = 0.5 if '1' in pod_id else -0.5
@@ -272,9 +314,10 @@ class Renderer:
                                        facecolor=color, edgecolor='darkgreen', zorder=3)
                 ax.add_patch(rect)
                 if pod_data['content']:
-                     ax.text(draw_x+0.15, draw_y+0.15, "★", ha='center', va='center', color='white', fontsize=6, zorder=4)
+                    ax.text(draw_x+0.15, draw_y+0.15, "★", ha='center', va='center', 
+                           color='white', fontsize=6, zorder=4)
 
-        # 3. DRAW ARTIFACTS (On Floor)
+        # 3. DRAW ARTIFACTS (On Floor) - WITH COLOR CODING
         for art_id, art_data in state['artifacts'].items():
             loc = art_data['loc']
             if loc in self.location_positions:
@@ -282,16 +325,24 @@ class Renderer:
                 ox = (hash(art_id) % 8 - 4) * 0.15
                 oy = (hash(art_id+"x") % 8 - 4) * 0.15
                 
-                color = '#4ECDC4' if art_data.get('temp') == 'cold' else '#FF6B6B'
+                # Use the color from metadata (includes type and temperature)
+                color = art_data.get('color', '#FF6B6B')
+                
                 ax.scatter(pos[0] + ox, pos[1] + oy, s=100, c=color, edgecolors='black', zorder=4)
+                
+                # Optional: Add type indicator
+                if art_data.get('type'):
+                    type_initial = art_data['type'][0].upper()
+                    ax.text(pos[0] + ox, pos[1] + oy, type_initial, 
+                           ha='center', va='center', fontsize=6, weight='bold', 
+                           color='white', zorder=5)
 
-        # 4. DRAW ROBOTS
+        # 4. DRAW ROBOTS - WITH SLOT VISUALIZATION
         for i, (r_name, r_data) in enumerate(sorted(state['robots'].items())):
             loc = r_data['loc']
             if loc in self.location_positions:
                 pos = self.location_positions[loc]
                 
-                # Smart offset for multiple robots
                 ox = (i % 3 - 1) * 0.6
                 oy = 0.0
                 draw_x, draw_y = pos[0] + ox, pos[1] + oy
@@ -309,21 +360,8 @@ class Renderer:
                 ax.text(draw_x, draw_y, meta['short'], ha='center', va='center', 
                        color='white', weight='bold', fontsize=8, zorder=11)
                 
-                # Holding Visualization
-                hold_x, hold_y = draw_x + 0.3, draw_y - 0.3
-                
-                if r_data['holding_pod']:
-                    # Draw Pod in hand
-                    p_color = '#228B22' if r_data['pod_content'] else '#A9A9A9'
-                    p_rect = patches.Rectangle((hold_x, hold_y), 0.25, 0.25, 
-                                             facecolor=p_color, edgecolor='black', zorder=12)
-                    ax.add_patch(p_rect)
-                    if r_data['pod_content']:
-                         ax.text(hold_x+0.125, hold_y+0.125, "★", ha='center', va='center', color='white', fontsize=5, zorder=13)
-                
-                elif r_data['holding']:
-                    # Draw Artifact in hand
-                    ax.scatter(hold_x+0.1, hold_y+0.1, s=60, c='#FFD700', edgecolors='black', zorder=12)
+                # SLOT VISUALIZATION - Support both old and new domains
+                self._draw_robot_inventory(ax, draw_x, draw_y, r_data, artifact_metadata)
 
         # 5. DRAW DRONES
         for d_name, d_data in state['drones'].items():
@@ -332,12 +370,60 @@ class Renderer:
                 pos = self.location_positions[loc]
                 draw_x, draw_y = pos[0], pos[1] - 0.8
                 
-                poly = patches.RegularPolygon(xy=(draw_x, draw_y), numVertices=3, radius=0.25, color='#8E44AD', zorder=15)
+                poly = patches.RegularPolygon(xy=(draw_x, draw_y), numVertices=3, 
+                                            radius=0.25, color='#8E44AD', zorder=15)
                 ax.add_patch(poly)
-                ax.text(draw_x, draw_y, 'D', ha='center', va='center', color='white', fontsize=7, zorder=16)
+                ax.text(draw_x, draw_y, 'D', ha='center', va='center', 
+                       color='white', fontsize=7, zorder=16)
                 
                 if d_data['holding']:
-                     ax.text(draw_x, draw_y-0.3, "Item", ha='center', fontsize=6, color='purple')
+                    ax.text(draw_x, draw_y-0.3, "Item", ha='center', fontsize=6, color='purple')
+
+    def _draw_robot_inventory(self, ax, robot_x, robot_y, robot_data, artifact_metadata):
+        """Draw what the robot is carrying - supports both old and new domain formats"""
+        
+        # Position for inventory display
+        inv_x = robot_x + 0.5
+        inv_y = robot_y
+        
+        slots_to_draw = []
+        
+        # NEW DOMAIN - Slot-based
+        if robot_data['slot_1'] is not None:
+            slots_to_draw.append(('Slot1', robot_data['slot_1'], robot_data['slot_1_type'], robot_data.get('pod_content')))
+        if robot_data['slot_2'] is not None:
+            slots_to_draw.append(('Slot2', robot_data['slot_2'], robot_data['slot_2_type'], None))
+        
+        # OLD DOMAIN - Legacy support
+        if robot_data['holding_pod'] is not None and not slots_to_draw:
+            slots_to_draw.append(('Pod', robot_data['holding_pod'], 'pod', robot_data.get('pod_content')))
+        elif robot_data['holding'] is not None and not slots_to_draw:
+            slots_to_draw.append(('Hand', robot_data['holding'], 'artifact', None))
+        
+        # Draw each slot
+        for idx, (slot_name, item_id, item_type, pod_content) in enumerate(slots_to_draw):
+            offset_y = -0.3 * idx
+            draw_y = inv_y + offset_y
+            
+            if item_type == 'pod':
+                # Draw pod
+                p_color = '#228B22' if pod_content else '#A9A9A9'
+                p_rect = patches.Rectangle((inv_x, draw_y - 0.125), 0.25, 0.25, 
+                                         facecolor=p_color, edgecolor='black', zorder=12)
+                ax.add_patch(p_rect)
+                if pod_content:
+                    ax.text(inv_x + 0.125, draw_y, "★", ha='center', va='center', 
+                           color='white', fontsize=5, zorder=13)
+            elif item_type == 'artifact':
+                # Draw artifact with color coding
+                art_color = '#FFD700'  # Default gold
+                
+                # Get color from metadata if available
+                if artifact_metadata and item_id in artifact_metadata:
+                    art_color = artifact_metadata[item_id].get('display_color', art_color)
+                
+                ax.scatter(inv_x + 0.125, draw_y, s=60, c=art_color, 
+                          edgecolors='black', zorder=12)
 
     def save_gif(self, output_path: Path, max_frames=None, interval=800):
         """Generates the GIF animation."""
@@ -385,5 +471,6 @@ if __name__ == "__main__":
             
         renderer = Renderer(trace_path)
         renderer.save_static(trace_path.parent / "summary.png")
+        renderer.save_gif(trace_path.parent / "animation.gif")
     except FileNotFoundError:
-        print("trace.json not found. Run main.py first.")
+        print("trace.json not found. Run parser first.")
