@@ -293,7 +293,6 @@
             (robot-at ?r ?l) 
             (carrying-slot-1 ?r ?a)
             (is-chill-room ?l)
-            (warm  ?a )
         )
         :effect (and 
             (not (carrying-slot-1 ?r ?a)) 
@@ -310,7 +309,6 @@
             (can-carry-two ?r)
             (carrying-slot-2 ?r ?a)
             (is-chill-room ?l)
-            (warm  ?a )
         )
         :effect (and 
             (not (carrying-slot-2 ?r ?a)) 

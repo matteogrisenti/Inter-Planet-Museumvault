@@ -5807,7 +5807,7 @@ release-artifact-cryo-slot-1 curator asteroid-mg04tn-ice-sample cryo-chamber
 0 1 -1 1
 0 16 2 11
 0 21 -1 0
-0 47 0 1
+0 47 -1 1
 0
 end_operator
 begin_operator
@@ -5818,7 +5818,7 @@ release-artifact-cryo-slot-1 curator mart-east-core-drill cryo-chamber
 0 2 -1 1
 0 16 3 11
 0 22 -1 0
-0 48 0 1
+0 48 -1 1
 0
 end_operator
 begin_operator
@@ -5829,7 +5829,7 @@ release-artifact-cryo-slot-1 curator mart-mysterious-egg cryo-chamber
 0 4 -1 1
 0 16 4 11
 0 24 -1 0
-0 50 0 1
+0 50 -1 1
 0
 end_operator
 begin_operator
@@ -5840,7 +5840,7 @@ release-artifact-cryo-slot-1 curator mart-nord-core-drill cryo-chamber
 0 5 -1 1
 0 16 5 11
 0 25 -1 0
-0 51 0 1
+0 51 -1 1
 0
 end_operator
 begin_operator
@@ -5851,7 +5851,7 @@ release-artifact-cryo-slot-1 curator mart-north-pole-ice-sample cryo-chamber
 0 6 -1 1
 0 16 6 11
 0 26 -1 0
-0 52 0 1
+0 52 -1 1
 0
 end_operator
 begin_operator
@@ -5862,7 +5862,7 @@ release-artifact-cryo-slot-1 curator mart-sud-core-drill cryo-chamber
 0 9 -1 1
 0 16 7 11
 0 29 -1 0
-0 55 0 1
+0 55 -1 1
 0
 end_operator
 begin_operator
@@ -5873,7 +5873,7 @@ release-artifact-cryo-slot-1 curator mart-west-core-drill cryo-chamber
 0 10 -1 1
 0 16 8 11
 0 30 -1 0
-0 56 0 1
+0 56 -1 1
 0
 end_operator
 begin_operator
@@ -5884,7 +5884,7 @@ release-artifact-cryo-slot-1 curator venus-rock-sample cryo-chamber
 0 14 -1 1
 0 16 9 11
 0 34 -1 0
-0 60 0 1
+0 60 -1 1
 0
 end_operator
 begin_operator
@@ -5895,7 +5895,7 @@ release-artifact-cryo-slot-1 curator venus-sand-sample cryo-chamber
 0 15 -1 1
 0 16 10 11
 0 35 -1 0
-0 61 0 1
+0 61 -1 1
 0
 end_operator
 begin_operator
