@@ -115,7 +115,7 @@
     ;; --- HALL A ---
     ;; Martian Core Drills
     (artifact-at mart-nord-core-drill hall-a) (is-type mart-nord-core-drill scientific) (warm mart-nord-core-drill) (no-fragile mart-nord-core-drill)
-    (artifact-at mart-sud-core-drill hall-a) (is-type mart-sud-core-drill scientific) (warm mart-sud-core-drill) (no-fragile mart-sud-core-drill)
+    ; (artifact-at mart-sud-core-drill hall-a) (is-type mart-sud-core-drill scientific) (warm mart-sud-core-drill) (no-fragile mart-sud-core-drill)
     ; (artifact-at mart-east-core-drill hall-a) (is-type mart-east-core-drill scientific) (warm mart-east-core-drill) (no-fragile mart-east-core-drill)
     ; (artifact-at mart-west-core-drill hall-a) (is-type mart-west-core-drill scientific) (warm mart-west-core-drill) (no-fragile mart-west-core-drill)
     
@@ -129,11 +129,11 @@
     ; (artifact-at rover-wheel hall-b) (is-type rover-wheel technological) (warm rover-wheel) (no-fragile rover-wheel)
     (artifact-at space-suit hall-b) (is-type space-suit technological) (warm space-suit) (no-fragile space-suit)
     (artifact-at quantum-chip hall-b) (is-type quantum-chip technological) (warm quantum-chip)
-    (artifact-at rusty-lightsaber hall-b) (is-type rusty-lightsaber technological) (warm rusty-lightsaber) (no-fragile rusty-lightsaber)
+    ; (artifact-at rusty-lightsaber hall-b) (is-type rusty-lightsaber technological) (warm rusty-lightsaber) (no-fragile rusty-lightsaber)
 
     ;; Hall B: Samples & Civilization Artifacts
-    (artifact-at mart-sand-sample hall-b) (is-type mart-sand-sample scientific) (warm mart-sand-sample)
-    ; (artifact-at mart-laser-gun hall-b) (is-type mart-laser-gun top-secret) (warm mart-laser-gun)
+    ; (artifact-at mart-sand-sample hall-b) (is-type mart-sand-sample scientific) (warm mart-sand-sample)
+    (artifact-at mart-laser-gun hall-b) (is-type mart-laser-gun top-secret) (warm mart-laser-gun)
     ; (artifact-at mart-pink-hat hall-b) (is-type mart-pink-hat top-secret) (warm mart-pink-hat)
     ; (artifact-at asteroid-AD29TV-rock-sample hall-b) (is-type asteroid-AD29TV-rock-sample scientific) (warm asteroid-AD29TV-rock-sample)
     ; (artifact-at venus-sand-sample hall-b) (is-type venus-sand-sample scientific) (warm venus-sand-sample) (no-fragile venus-sand-sample)
@@ -146,7 +146,7 @@
   (:goal (and
     ;; Final Locations
     (artifact-at mart-nord-core-drill stasis-lab) (cold mart-nord-core-drill)
-    (artifact-at mart-sud-core-drill stasis-lab) (cold mart-sud-core-drill)
+    ; (artifact-at mart-sud-core-drill stasis-lab) (cold mart-sud-core-drill)
     ; (artifact-at mart-east-core-drill stasis-lab) (cold mart-east-core-drill)
     ; (artifact-at mart-west-core-drill stasis-lab) (cold mart-west-core-drill)
     ; (artifact-at rover-wheel stasis-lab)
@@ -158,8 +158,8 @@
     (artifact-at mart-mysterious-egg cryo-chamber)    
     ; (artifact-at asteroid-MG04TN-ice-sample cryo-chamber)
 
-    (artifact-at mart-sand-sample hall-a)
-    ; (artifact-at mart-laser-gun hall-a)
+    ; (artifact-at mart-sand-sample hall-a)
+    (artifact-at mart-laser-gun hall-a)
     ; (artifact-at mart-pink-hat hall-a)  
     ; (artifact-at asteroid-AD29TV-rock-sample hall-a)  
     ; (artifact-at venus-sand-sample hall-a)
