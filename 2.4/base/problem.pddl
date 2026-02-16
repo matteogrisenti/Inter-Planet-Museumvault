@@ -126,7 +126,7 @@
 
     ;; --- HALL B ---
     ;; Mission Gear
-    (artifact-at rover-wheel hall-b) (is-type rover-wheel technological) (warm rover-wheel) (no-fragile rover-wheel)
+    ; (artifact-at rover-wheel hall-b) (is-type rover-wheel technological) (warm rover-wheel) (no-fragile rover-wheel)
     ; (artifact-at space-suit hall-b) (is-type space-suit technological) (warm space-suit) (no-fragile space-suit)
     (artifact-at quantum-chip hall-b) (is-type quantum-chip technological) (warm quantum-chip)
 
