@@ -49,6 +49,7 @@
     
     (pod-empty ?p - pod)
     (pod-contains ?p - pod ?a - artifact)           ; Artifact-pod association
+    (pod-at ?p - pod ?l - location)                 ; Pod location
   )
 
   
@@ -132,12 +133,12 @@
     :parameters (?r - robot ?l - location ?p - pod)
     :precondition (and 
         (robot-at ?r ?l)
-        (contains-empty-pod ?l ?p)       ; Must be in room the contain free pod
+        (pod-at ?p ?l)
         (pod-empty ?p)                ; Pod must be empty
         (hands-empty ?r)                ; Must have free hands
     )
     :effect (and 
-        (not (contains-empty-pod ?l ?p))
+        (not (pod-at ?p ?l))
         (not (hands-empty ?r))
         (carrying-empty-pod ?r ?p)
     )
@@ -147,7 +148,7 @@
       :parameters (?r - robot ?l - location ?p - pod ?a - artifact ?at - artifact-type)
       :precondition (and 
           (robot-at ?r ?l)
-          (pod-at ?l ?p)
+          (pod-at ?p ?l)
           (pod-contains ?p ?a)
           (hands-empty ?r)
           (can-pickup ?r ?at)
@@ -156,7 +157,7 @@
       :effect (and 
           (not (hands-empty ?r))
           (carrying-full-pod ?r ?p)
-          (not (pod-at ?l ?p))
+          (not (pod-at ?p ?l))
       )
   )
   
@@ -174,7 +175,7 @@
     :effect (and 
         (not (carrying-empty-pod ?r ?p))
         (hands-empty ?r)
-        (pod-at ?l ?p)       ; Pod is now available in the room
+        (pod-at ?p ?l)       ; Pod is now available in the room
     )
   )
 
@@ -188,7 +189,7 @@
      :effect (and 
          (not (carrying-full-pod ?r ?p))
          (hands-empty ?r)
-         (pod-at ?l ?p)       ; Pod is now available in the room
+         (pod-at ?p ?l)       ; Pod is now available in the room
      )
  )
  

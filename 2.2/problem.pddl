@@ -79,7 +79,7 @@
 
     ;; Pods
     (pod-empty pod1) (pod-empty pod2)
-    (contains-empty-pod anti-vibration-pods-room pod1) (contains-empty-pod anti-vibration-pods-room pod2)
+    (pod-at pod1 anti-vibration-pods-room) (pod-at pod2 anti-vibration-pods-room)
 
     ;; ============================================================
     ;; ARTIFACTS BY ROOM (Position, Type, Features)
