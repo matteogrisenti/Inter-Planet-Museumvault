@@ -1,3 +1,5 @@
+ros2 run plansys2_terminal plansys2_terminal <<EOF
+
 set instance curator robot
 set instance technician robot
 set instance scientist robot
@@ -127,3 +129,6 @@ set goal (and (artifact-at mart-nord-core-drill stasis-lab) (cold mart-nord-core
 get plan
 
 run
+
+quit
+EOF

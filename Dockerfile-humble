@@ -34,6 +34,11 @@ RUN apt-get install -y vim gdb terminator
 
 RUN cd ~/plansys2_ws && source /opt/ros/${ROS_DISTRO}/setup.bash && colcon build --symlink-install
 
+# Missing part
+# RUN apt-get update && apt-get install -y \
+#     ros-humble-plansys2-* \
+#     && rm -rf /var/lib/apt/lists/*
+
 CMD /bin/bash
 
 # to build
