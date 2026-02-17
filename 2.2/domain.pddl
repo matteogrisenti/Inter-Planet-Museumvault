@@ -136,6 +136,7 @@
         :precondition (and 
             (robot-at ?r ?l)
             (pod-at ?p ?l)
+            (pod-empty ?p)
             (hands-empty-slot-1 ?r)                ; Must have free hands
         )
         :effect (and 
