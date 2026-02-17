@@ -1,0 +1,169 @@
+# PlanSys2 Terminal Commands for Museum Problem
+
+# This file contains all the commands to set up the problem in the PlanSys2 terminal.
+# After launching the system, open another terminal and run:
+# ros2 run plansys2_terminal plansys2_terminal
+# Then copy-paste these commands into the terminal.
+
+# ============================================================
+# INSTANCES (Objects)
+# ============================================================
+
+# Robots
+set instance curator robot
+set instance technician robot
+set instance scientist robot
+
+# Pods
+set instance pod1 pod
+set instance pod2 pod
+
+# Locations
+set instance entrance location
+set instance maintenance-tunnel location
+set instance hall-a location
+set instance hall-b location
+set instance cryo-chamber location
+set instance anti-vibration-pods-room location
+set instance stasis-lab location
+
+# Artifact Types
+set instance technological artifact-type
+set instance scientific artifact-type
+set instance top-secret artifact-type
+
+# Artifacts
+set instance mart-nord-core-drill artifact
+set instance mart-north-pole-ice-sample artifact
+set instance mart-mysterious-egg artifact
+set instance space-suit artifact
+set instance quantum-chip artifact
+set instance mart-laser-gun artifact
+
+# ============================================================
+# PREDICATES (Initial State)
+# ============================================================
+
+# --- CURATOR ---
+set predicate (robot-at curator entrance)
+set predicate (hands-empty-slot-1 curator)
+set predicate (can-access curator entrance)
+set predicate (can-access curator maintenance-tunnel)
+set predicate (can-access curator hall-a)
+set predicate (can-access curator hall-b)
+set predicate (can-access curator cryo-chamber)
+set predicate (can-access curator anti-vibration-pods-room)
+set predicate (can-pickup curator scientific)
+set predicate (can-pickup curator top-secret)
+set predicate (sealing-mode-off curator)
+
+# --- TECHNICIAN ---
+set predicate (robot-at technician entrance)
+set predicate (hands-empty-slot-1 technician)
+set predicate (hands-empty-slot-2 technician)
+set predicate (can-carry-two technician)
+set predicate (can-access technician entrance)
+set predicate (can-access technician maintenance-tunnel)
+set predicate (can-access technician hall-a)
+set predicate (can-access technician hall-b)
+set predicate (can-access technician cryo-chamber)
+set predicate (can-access technician anti-vibration-pods-room)
+set predicate (can-pickup technician technological)
+set predicate (sealing-mode-off technician)
+
+# --- SCIENTIST ---
+set predicate (robot-at scientist stasis-lab)
+set predicate (hands-empty-slot-1 scientist)
+set predicate (can-access scientist stasis-lab)
+set predicate (can-access scientist maintenance-tunnel)
+set predicate (can-pickup scientist scientific)
+set predicate (can-pickup scientist top-secret)
+set predicate (can-pickup scientist technological)
+set predicate (sealing-mode-off scientist)
+
+# --- WORLD TOPOLOGY ---
+# Connections (bidirectional)
+set predicate (connected entrance maintenance-tunnel)
+set predicate (connected maintenance-tunnel entrance)
+set predicate (connected maintenance-tunnel hall-a)
+set predicate (connected hall-a maintenance-tunnel)
+set predicate (connected maintenance-tunnel hall-b)
+set predicate (connected hall-b maintenance-tunnel)
+set predicate (connected maintenance-tunnel cryo-chamber)
+set predicate (connected cryo-chamber maintenance-tunnel)
+set predicate (connected maintenance-tunnel anti-vibration-pods-room)
+set predicate (connected anti-vibration-pods-room maintenance-tunnel)
+set predicate (connected maintenance-tunnel stasis-lab)
+set predicate (connected stasis-lab maintenance-tunnel)
+
+# Pressure
+set predicate (is-unpressurized maintenance-tunnel)
+set predicate (is-pressurized entrance)
+set predicate (is-pressurized hall-a)
+set predicate (is-pressurized hall-b)
+set predicate (is-pressurized cryo-chamber)
+set predicate (is-pressurized anti-vibration-pods-room)
+set predicate (is-pressurized stasis-lab)
+
+# Safety
+set predicate (is-safe entrance)
+set predicate (is-safe hall-a)
+set predicate (is-safe hall-b)
+set predicate (is-safe cryo-chamber)
+set predicate (is-safe anti-vibration-pods-room)
+set predicate (is-safe maintenance-tunnel)
+set predicate (is-safe stasis-lab)
+
+# Special room properties
+set predicate (is-chill-room cryo-chamber)
+
+# --- PODS ---
+set predicate (pod-empty pod1)
+set predicate (pod-empty pod2)
+set predicate (pod-at pod1 anti-vibration-pods-room)
+set predicate (pod-at pod2 anti-vibration-pods-room)
+
+# --- ARTIFACTS ---
+# Hall A artifacts
+set predicate (artifact-at mart-nord-core-drill hall-a)
+set predicate (is-type mart-nord-core-drill scientific)
+set predicate (warm mart-nord-core-drill)
+set predicate (no-fragile mart-nord-core-drill)
+
+set predicate (artifact-at mart-north-pole-ice-sample hall-a)
+set predicate (is-type mart-north-pole-ice-sample scientific)
+set predicate (warm mart-north-pole-ice-sample)
+set predicate (no-fragile mart-north-pole-ice-sample)
+
+set predicate (artifact-at mart-mysterious-egg hall-a)
+set predicate (is-type mart-mysterious-egg top-secret)
+set predicate (warm mart-mysterious-egg)
+set predicate (no-fragile mart-mysterious-egg)
+
+# Hall B artifacts
+set predicate (artifact-at space-suit hall-b)
+set predicate (is-type space-suit technological)
+set predicate (warm space-suit)
+set predicate (no-fragile space-suit)
+
+set predicate (artifact-at quantum-chip hall-b)
+set predicate (is-type quantum-chip technological)
+set predicate (warm quantum-chip)
+
+set predicate (artifact-at mart-laser-gun hall-b)
+set predicate (is-type mart-laser-gun top-secret)
+set predicate (warm mart-laser-gun)
+
+# ============================================================
+# GOAL
+# ============================================================
+set goal (and (artifact-at mart-nord-core-drill stasis-lab) (cold mart-nord-core-drill) (artifact-at space-suit stasis-lab) (artifact-at quantum-chip stasis-lab) (cold quantum-chip) (artifact-at mart-north-pole-ice-sample cryo-chamber) (artifact-at mart-mysterious-egg cryo-chamber) (artifact-at mart-laser-gun hall-a))
+
+# ============================================================
+# EXECUTION
+# ============================================================
+# Get the plan
+get plan
+
+# Run the plan
+run
