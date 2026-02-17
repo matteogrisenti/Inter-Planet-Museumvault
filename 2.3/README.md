@@ -1,0 +1,1 @@
+java -jar PANDA.jar -parser hddl domain.hddl problem.hddl

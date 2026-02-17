@@ -17,6 +17,16 @@ RUN planutils install -y prp
 # Modify the configuration file to enable hostfs, i.e. use the host file system
 RUN perl -pi.bak -e "s/mount hostfs = no/mount hostfs = yes/g" /etc/apptainer/apptainer.conf
 
+# Install Java ( for Panda ) and Configure Locales (Fixed syntax)
+RUN apt-get update && \
+    apt-get install -y openjdk-17-jre-headless locales && \
+    locale-gen en_US.UTF-8 && \
+    rm -rf /var/lib/apt/lists/*
+
+# Environment variables for UTF-8 support
+ENV LANG=en_US.UTF-8
+ENV LANGUAGE=en_US:en
+ENV LC_ALL=en_US.UTF-8
 
 CMD /bin/bash
 
