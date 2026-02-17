@@ -126,15 +126,6 @@
         :precondition ()
         :effect (sealing-mode ?r)
     )
-    (:action deactivate-seal
-        :parameters (?r - robot ?l - location)
-        :precondition (and 
-            (robot-at ?r ?l)
-            (is-pressurized ?l) ; Safety check: Cannot vent in a tunnel
-            (sealing-mode ?r)
-        )
-        :effect (not (sealing-mode ?r))
-    )
 
 
     ;; POD MANAGEMENT: EQUIPPING & UNEQUIPPING

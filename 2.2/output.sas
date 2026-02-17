@@ -4,7 +4,11 @@ end_version
 begin_metric
 0
 end_metric
+<<<<<<< HEAD
 62
+=======
+66
+>>>>>>> main
 begin_variable
 var0
 -1
@@ -177,6 +181,7 @@ end_variable
 begin_variable
 var13
 -1
+<<<<<<< HEAD
 8
 Atom artifact-at(space-suit, anti-vibration-pods-room)
 Atom artifact-at(space-suit, cryo-chamber)
@@ -185,11 +190,24 @@ Atom artifact-at(space-suit, hall-a)
 Atom artifact-at(space-suit, hall-b)
 Atom artifact-at(space-suit, maintenance-tunnel)
 Atom artifact-at(space-suit, stasis-lab)
+=======
+10
+Atom artifact-at(rusty-lightsaber, anti-vibration-pods-room)
+Atom artifact-at(rusty-lightsaber, cryo-chamber)
+Atom artifact-at(rusty-lightsaber, entrance)
+Atom artifact-at(rusty-lightsaber, hall-a)
+Atom artifact-at(rusty-lightsaber, hall-b)
+Atom artifact-at(rusty-lightsaber, maintenance-tunnel)
+Atom artifact-at(rusty-lightsaber, stasis-lab)
+Atom carrying-slot-1(technician, rusty-lightsaber)
+Atom carrying-slot-2(technician, rusty-lightsaber)
+>>>>>>> main
 <none of those>
 end_variable
 begin_variable
 var14
 -1
+<<<<<<< HEAD
 8
 Atom artifact-at(venus-rock-sample, anti-vibration-pods-room)
 Atom artifact-at(venus-rock-sample, cryo-chamber)
@@ -198,12 +216,25 @@ Atom artifact-at(venus-rock-sample, hall-a)
 Atom artifact-at(venus-rock-sample, hall-b)
 Atom artifact-at(venus-rock-sample, maintenance-tunnel)
 Atom artifact-at(venus-rock-sample, stasis-lab)
+=======
+10
+Atom artifact-at(space-suit, anti-vibration-pods-room)
+Atom artifact-at(space-suit, cryo-chamber)
+Atom artifact-at(space-suit, entrance)
+Atom artifact-at(space-suit, hall-a)
+Atom artifact-at(space-suit, hall-b)
+Atom artifact-at(space-suit, maintenance-tunnel)
+Atom artifact-at(space-suit, stasis-lab)
+Atom carrying-slot-1(technician, space-suit)
+Atom carrying-slot-2(technician, space-suit)
+>>>>>>> main
 <none of those>
 end_variable
 begin_variable
 var15
 -1
 8
+<<<<<<< HEAD
 Atom artifact-at(venus-sand-sample, anti-vibration-pods-room)
 Atom artifact-at(venus-sand-sample, cryo-chamber)
 Atom artifact-at(venus-sand-sample, entrance)
@@ -211,11 +242,21 @@ Atom artifact-at(venus-sand-sample, hall-a)
 Atom artifact-at(venus-sand-sample, hall-b)
 Atom artifact-at(venus-sand-sample, maintenance-tunnel)
 Atom artifact-at(venus-sand-sample, stasis-lab)
+=======
+Atom artifact-at(venus-rock-sample, anti-vibration-pods-room)
+Atom artifact-at(venus-rock-sample, cryo-chamber)
+Atom artifact-at(venus-rock-sample, entrance)
+Atom artifact-at(venus-rock-sample, hall-a)
+Atom artifact-at(venus-rock-sample, hall-b)
+Atom artifact-at(venus-rock-sample, maintenance-tunnel)
+Atom artifact-at(venus-rock-sample, stasis-lab)
+>>>>>>> main
 <none of those>
 end_variable
 begin_variable
 var16
 -1
+<<<<<<< HEAD
 12
 Atom carrying-pod-slot-1(curator, pod1)
 Atom carrying-pod-slot-1(curator, pod2)
@@ -229,11 +270,23 @@ Atom carrying-slot-1(curator, mart-west-core-drill)
 Atom carrying-slot-1(curator, venus-rock-sample)
 Atom carrying-slot-1(curator, venus-sand-sample)
 Atom hands-empty-slot-1(curator)
+=======
+8
+Atom artifact-at(venus-sand-sample, anti-vibration-pods-room)
+Atom artifact-at(venus-sand-sample, cryo-chamber)
+Atom artifact-at(venus-sand-sample, entrance)
+Atom artifact-at(venus-sand-sample, hall-a)
+Atom artifact-at(venus-sand-sample, hall-b)
+Atom artifact-at(venus-sand-sample, maintenance-tunnel)
+Atom artifact-at(venus-sand-sample, stasis-lab)
+<none of those>
+>>>>>>> main
 end_variable
 begin_variable
 var17
 -1
 12
+<<<<<<< HEAD
 Atom carrying-pod-slot-1(scientist, pod1)
 Atom carrying-pod-slot-1(scientist, pod2)
 Atom carrying-slot-1(scientist, asteroid-mg04tn-ice-sample)
@@ -246,10 +299,25 @@ Atom carrying-slot-1(scientist, mart-west-core-drill)
 Atom carrying-slot-1(scientist, venus-rock-sample)
 Atom carrying-slot-1(scientist, venus-sand-sample)
 Atom hands-empty-slot-1(scientist)
+=======
+Atom carrying-pod-slot-1(curator, pod1)
+Atom carrying-pod-slot-1(curator, pod2)
+Atom carrying-slot-1(curator, asteroid-mg04tn-ice-sample)
+Atom carrying-slot-1(curator, mart-east-core-drill)
+Atom carrying-slot-1(curator, mart-mysterious-egg)
+Atom carrying-slot-1(curator, mart-nord-core-drill)
+Atom carrying-slot-1(curator, mart-north-pole-ice-sample)
+Atom carrying-slot-1(curator, mart-sud-core-drill)
+Atom carrying-slot-1(curator, mart-west-core-drill)
+Atom carrying-slot-1(curator, venus-rock-sample)
+Atom carrying-slot-1(curator, venus-sand-sample)
+Atom hands-empty-slot-1(curator)
+>>>>>>> main
 end_variable
 begin_variable
 var18
 -1
+<<<<<<< HEAD
 9
 Atom carrying-pod-slot-1(technician, pod1)
 Atom pod-at(pod1, anti-vibration-pods-room)
@@ -260,10 +328,57 @@ Atom pod-at(pod1, hall-b)
 Atom pod-at(pod1, maintenance-tunnel)
 Atom pod-at(pod1, stasis-lab)
 <none of those>
+=======
+14
+Atom carrying-pod-slot-1(scientist, pod1)
+Atom carrying-pod-slot-1(scientist, pod2)
+Atom carrying-slot-1(scientist, asteroid-mg04tn-ice-sample)
+Atom carrying-slot-1(scientist, mart-east-core-drill)
+Atom carrying-slot-1(scientist, mart-mysterious-egg)
+Atom carrying-slot-1(scientist, mart-nord-core-drill)
+Atom carrying-slot-1(scientist, mart-north-pole-ice-sample)
+Atom carrying-slot-1(scientist, mart-sud-core-drill)
+Atom carrying-slot-1(scientist, mart-west-core-drill)
+Atom carrying-slot-1(scientist, rusty-lightsaber)
+Atom carrying-slot-1(scientist, space-suit)
+Atom carrying-slot-1(scientist, venus-rock-sample)
+Atom carrying-slot-1(scientist, venus-sand-sample)
+Atom hands-empty-slot-1(scientist)
+>>>>>>> main
 end_variable
 begin_variable
 var19
 -1
+9
+<<<<<<< HEAD
+Atom carrying-pod-slot-1(technician, pod2)
+Atom pod-at(pod2, anti-vibration-pods-room)
+Atom pod-at(pod2, cryo-chamber)
+Atom pod-at(pod2, entrance)
+Atom pod-at(pod2, hall-a)
+Atom pod-at(pod2, hall-b)
+Atom pod-at(pod2, maintenance-tunnel)
+Atom pod-at(pod2, stasis-lab)
+=======
+Atom carrying-pod-slot-1(technician, pod1)
+Atom pod-at(pod1, anti-vibration-pods-room)
+Atom pod-at(pod1, cryo-chamber)
+Atom pod-at(pod1, entrance)
+Atom pod-at(pod1, hall-a)
+Atom pod-at(pod1, hall-b)
+Atom pod-at(pod1, maintenance-tunnel)
+Atom pod-at(pod1, stasis-lab)
+>>>>>>> main
+<none of those>
+end_variable
+begin_variable
+var20
+-1
+<<<<<<< HEAD
+2
+Atom cold(asteroid-ad29tv-rock-sample)
+NegatedAtom cold(asteroid-ad29tv-rock-sample)
+=======
 9
 Atom carrying-pod-slot-1(technician, pod2)
 Atom pod-at(pod2, anti-vibration-pods-room)
@@ -274,137 +389,241 @@ Atom pod-at(pod2, hall-b)
 Atom pod-at(pod2, maintenance-tunnel)
 Atom pod-at(pod2, stasis-lab)
 <none of those>
-end_variable
-begin_variable
-var20
--1
-2
-Atom cold(asteroid-ad29tv-rock-sample)
-NegatedAtom cold(asteroid-ad29tv-rock-sample)
+>>>>>>> main
 end_variable
 begin_variable
 var21
 -1
 2
+<<<<<<< HEAD
 Atom cold(asteroid-mg04tn-ice-sample)
 NegatedAtom cold(asteroid-mg04tn-ice-sample)
+=======
+Atom cold(asteroid-ad29tv-rock-sample)
+NegatedAtom cold(asteroid-ad29tv-rock-sample)
+>>>>>>> main
 end_variable
 begin_variable
 var22
 -1
 2
+<<<<<<< HEAD
 Atom cold(mart-east-core-drill)
 NegatedAtom cold(mart-east-core-drill)
+=======
+Atom cold(asteroid-mg04tn-ice-sample)
+NegatedAtom cold(asteroid-mg04tn-ice-sample)
+>>>>>>> main
 end_variable
 begin_variable
 var23
 -1
 2
+<<<<<<< HEAD
 Atom cold(mart-laser-gun)
 NegatedAtom cold(mart-laser-gun)
+=======
+Atom cold(mart-east-core-drill)
+NegatedAtom cold(mart-east-core-drill)
+>>>>>>> main
 end_variable
 begin_variable
 var24
 -1
 2
+<<<<<<< HEAD
 Atom cold(mart-mysterious-egg)
 NegatedAtom cold(mart-mysterious-egg)
+=======
+Atom cold(mart-laser-gun)
+NegatedAtom cold(mart-laser-gun)
+>>>>>>> main
 end_variable
 begin_variable
 var25
 -1
 2
+<<<<<<< HEAD
 Atom cold(mart-nord-core-drill)
 NegatedAtom cold(mart-nord-core-drill)
+=======
+Atom cold(mart-mysterious-egg)
+NegatedAtom cold(mart-mysterious-egg)
+>>>>>>> main
 end_variable
 begin_variable
 var26
 -1
 2
+<<<<<<< HEAD
 Atom cold(mart-north-pole-ice-sample)
 NegatedAtom cold(mart-north-pole-ice-sample)
+=======
+Atom cold(mart-nord-core-drill)
+NegatedAtom cold(mart-nord-core-drill)
+>>>>>>> main
 end_variable
 begin_variable
 var27
 -1
 2
+<<<<<<< HEAD
 Atom cold(mart-pink-hat)
 NegatedAtom cold(mart-pink-hat)
+=======
+Atom cold(mart-north-pole-ice-sample)
+NegatedAtom cold(mart-north-pole-ice-sample)
+>>>>>>> main
 end_variable
 begin_variable
 var28
 -1
 2
+<<<<<<< HEAD
 Atom cold(mart-sand-sample)
 NegatedAtom cold(mart-sand-sample)
+=======
+Atom cold(mart-pink-hat)
+NegatedAtom cold(mart-pink-hat)
+>>>>>>> main
 end_variable
 begin_variable
 var29
 -1
 2
+<<<<<<< HEAD
 Atom cold(mart-sud-core-drill)
 NegatedAtom cold(mart-sud-core-drill)
+=======
+Atom cold(mart-sand-sample)
+NegatedAtom cold(mart-sand-sample)
+>>>>>>> main
 end_variable
 begin_variable
 var30
 -1
 2
+<<<<<<< HEAD
 Atom cold(mart-west-core-drill)
 NegatedAtom cold(mart-west-core-drill)
+=======
+Atom cold(mart-sud-core-drill)
+NegatedAtom cold(mart-sud-core-drill)
+>>>>>>> main
 end_variable
 begin_variable
 var31
 -1
 2
+<<<<<<< HEAD
 Atom cold(quantum-chip)
 NegatedAtom cold(quantum-chip)
+=======
+Atom cold(mart-west-core-drill)
+NegatedAtom cold(mart-west-core-drill)
+>>>>>>> main
 end_variable
 begin_variable
 var32
 -1
 2
+<<<<<<< HEAD
 Atom cold(rover-wheel)
 NegatedAtom cold(rover-wheel)
+=======
+Atom cold(quantum-chip)
+NegatedAtom cold(quantum-chip)
+>>>>>>> main
 end_variable
 begin_variable
 var33
 -1
 2
+<<<<<<< HEAD
 Atom cold(space-suit)
 NegatedAtom cold(space-suit)
+=======
+Atom cold(rover-wheel)
+NegatedAtom cold(rover-wheel)
+>>>>>>> main
 end_variable
 begin_variable
 var34
 -1
 2
+<<<<<<< HEAD
 Atom cold(venus-rock-sample)
 NegatedAtom cold(venus-rock-sample)
+=======
+Atom cold(rusty-lightsaber)
+NegatedAtom cold(rusty-lightsaber)
+>>>>>>> main
 end_variable
 begin_variable
 var35
 -1
 2
+<<<<<<< HEAD
 Atom cold(venus-sand-sample)
 NegatedAtom cold(venus-sand-sample)
+=======
+Atom cold(space-suit)
+NegatedAtom cold(space-suit)
+>>>>>>> main
 end_variable
 begin_variable
 var36
 -1
 2
+<<<<<<< HEAD
+Atom hands-empty-slot-1(technician)
+NegatedAtom hands-empty-slot-1(technician)
+=======
+Atom cold(venus-rock-sample)
+NegatedAtom cold(venus-rock-sample)
+>>>>>>> main
+end_variable
+begin_variable
+var37
+-1
+2
+<<<<<<< HEAD
+Atom is-safe(hall-b)
+NegatedAtom is-safe(hall-b)
+=======
+Atom cold(venus-sand-sample)
+NegatedAtom cold(venus-sand-sample)
+>>>>>>> main
+end_variable
+begin_variable
+var38
+-1
+<<<<<<< HEAD
+17
+=======
+2
 Atom hands-empty-slot-1(technician)
 NegatedAtom hands-empty-slot-1(technician)
 end_variable
 begin_variable
-var37
+var39
+-1
+2
+Atom hands-empty-slot-2(technician)
+NegatedAtom hands-empty-slot-2(technician)
+end_variable
+begin_variable
+var40
 -1
 2
 Atom is-safe(hall-b)
 NegatedAtom is-safe(hall-b)
 end_variable
 begin_variable
-var38
+var41
 -1
-17
+18
+>>>>>>> main
 Atom pod-contains(pod1, asteroid-ad29tv-rock-sample)
 Atom pod-contains(pod1, asteroid-mg04tn-ice-sample)
 Atom pod-contains(pod1, mart-east-core-drill)
@@ -418,15 +637,22 @@ Atom pod-contains(pod1, mart-sud-core-drill)
 Atom pod-contains(pod1, mart-west-core-drill)
 Atom pod-contains(pod1, quantum-chip)
 Atom pod-contains(pod1, rover-wheel)
+Atom pod-contains(pod1, rusty-lightsaber)
 Atom pod-contains(pod1, space-suit)
 Atom pod-contains(pod1, venus-rock-sample)
 Atom pod-contains(pod1, venus-sand-sample)
 Atom pod-empty(pod1)
 end_variable
 begin_variable
+<<<<<<< HEAD
 var39
 -1
 17
+=======
+var42
+-1
+18
+>>>>>>> main
 Atom pod-contains(pod2, asteroid-ad29tv-rock-sample)
 Atom pod-contains(pod2, asteroid-mg04tn-ice-sample)
 Atom pod-contains(pod2, mart-east-core-drill)
@@ -440,13 +666,18 @@ Atom pod-contains(pod2, mart-sud-core-drill)
 Atom pod-contains(pod2, mart-west-core-drill)
 Atom pod-contains(pod2, quantum-chip)
 Atom pod-contains(pod2, rover-wheel)
+Atom pod-contains(pod2, rusty-lightsaber)
 Atom pod-contains(pod2, space-suit)
 Atom pod-contains(pod2, venus-rock-sample)
 Atom pod-contains(pod2, venus-sand-sample)
 Atom pod-empty(pod2)
 end_variable
 begin_variable
+<<<<<<< HEAD
 var40
+=======
+var43
+>>>>>>> main
 -1
 6
 Atom robot-at(curator, anti-vibration-pods-room)
@@ -457,14 +688,22 @@ Atom robot-at(curator, hall-b)
 Atom robot-at(curator, maintenance-tunnel)
 end_variable
 begin_variable
+<<<<<<< HEAD
 var41
+=======
+var44
+>>>>>>> main
 -1
 2
 Atom robot-at(scientist, maintenance-tunnel)
 Atom robot-at(scientist, stasis-lab)
 end_variable
 begin_variable
+<<<<<<< HEAD
 var42
+=======
+var45
+>>>>>>> main
 -1
 6
 Atom robot-at(technician, anti-vibration-pods-room)
@@ -475,139 +714,226 @@ Atom robot-at(technician, hall-b)
 Atom robot-at(technician, maintenance-tunnel)
 end_variable
 begin_variable
+<<<<<<< HEAD
 var43
+=======
+var46
+>>>>>>> main
 -1
 2
 Atom sealing-mode(curator)
 NegatedAtom sealing-mode(curator)
 end_variable
 begin_variable
+<<<<<<< HEAD
 var44
+=======
+var47
+>>>>>>> main
 -1
 2
 Atom sealing-mode(scientist)
 NegatedAtom sealing-mode(scientist)
 end_variable
 begin_variable
+<<<<<<< HEAD
 var45
+=======
+var48
+>>>>>>> main
 -1
 2
 Atom sealing-mode(technician)
 NegatedAtom sealing-mode(technician)
 end_variable
 begin_variable
+<<<<<<< HEAD
 var46
+=======
+var49
+>>>>>>> main
 -1
 2
 Atom warm(asteroid-ad29tv-rock-sample)
 NegatedAtom warm(asteroid-ad29tv-rock-sample)
 end_variable
 begin_variable
+<<<<<<< HEAD
 var47
+=======
+var50
+>>>>>>> main
 -1
 2
 Atom warm(asteroid-mg04tn-ice-sample)
 NegatedAtom warm(asteroid-mg04tn-ice-sample)
 end_variable
 begin_variable
+<<<<<<< HEAD
 var48
+=======
+var51
+>>>>>>> main
 -1
 2
 Atom warm(mart-east-core-drill)
 NegatedAtom warm(mart-east-core-drill)
 end_variable
 begin_variable
+<<<<<<< HEAD
 var49
+=======
+var52
+>>>>>>> main
 -1
 2
 Atom warm(mart-laser-gun)
 NegatedAtom warm(mart-laser-gun)
 end_variable
 begin_variable
+<<<<<<< HEAD
 var50
+=======
+var53
+>>>>>>> main
 -1
 2
 Atom warm(mart-mysterious-egg)
 NegatedAtom warm(mart-mysterious-egg)
 end_variable
 begin_variable
+<<<<<<< HEAD
 var51
+=======
+var54
+>>>>>>> main
 -1
 2
 Atom warm(mart-nord-core-drill)
 NegatedAtom warm(mart-nord-core-drill)
 end_variable
 begin_variable
+<<<<<<< HEAD
 var52
+=======
+var55
+>>>>>>> main
 -1
 2
 Atom warm(mart-north-pole-ice-sample)
 NegatedAtom warm(mart-north-pole-ice-sample)
 end_variable
 begin_variable
+<<<<<<< HEAD
 var53
+=======
+var56
+>>>>>>> main
 -1
 2
 Atom warm(mart-pink-hat)
 NegatedAtom warm(mart-pink-hat)
 end_variable
 begin_variable
+<<<<<<< HEAD
 var54
+=======
+var57
+>>>>>>> main
 -1
 2
 Atom warm(mart-sand-sample)
 NegatedAtom warm(mart-sand-sample)
 end_variable
 begin_variable
+<<<<<<< HEAD
 var55
+=======
+var58
+>>>>>>> main
 -1
 2
 Atom warm(mart-sud-core-drill)
 NegatedAtom warm(mart-sud-core-drill)
 end_variable
 begin_variable
+<<<<<<< HEAD
 var56
+=======
+var59
+>>>>>>> main
 -1
 2
 Atom warm(mart-west-core-drill)
 NegatedAtom warm(mart-west-core-drill)
 end_variable
 begin_variable
+<<<<<<< HEAD
 var57
+=======
+var60
+>>>>>>> main
 -1
 2
 Atom warm(quantum-chip)
 NegatedAtom warm(quantum-chip)
 end_variable
 begin_variable
+<<<<<<< HEAD
 var58
+=======
+var61
+>>>>>>> main
 -1
 2
 Atom warm(rover-wheel)
 NegatedAtom warm(rover-wheel)
 end_variable
 begin_variable
+<<<<<<< HEAD
 var59
+=======
+var62
+-1
+2
+Atom warm(rusty-lightsaber)
+NegatedAtom warm(rusty-lightsaber)
+end_variable
+begin_variable
+var63
+>>>>>>> main
 -1
 2
 Atom warm(space-suit)
 NegatedAtom warm(space-suit)
 end_variable
 begin_variable
+<<<<<<< HEAD
 var60
+=======
+var64
+>>>>>>> main
 -1
 2
 Atom warm(venus-rock-sample)
 NegatedAtom warm(venus-rock-sample)
 end_variable
 begin_variable
+<<<<<<< HEAD
 var61
+=======
+var65
+>>>>>>> main
 -1
 2
 Atom warm(venus-sand-sample)
 NegatedAtom warm(venus-sand-sample)
 end_variable
+<<<<<<< HEAD
 26
+=======
+28
+>>>>>>> main
 begin_mutex_group
 9
 0 0
@@ -617,8 +943,13 @@ begin_mutex_group
 0 4
 0 5
 0 6
+<<<<<<< HEAD
 38 0
 39 0
+=======
+41 0
+42 0
+>>>>>>> main
 end_mutex_group
 begin_mutex_group
 11
@@ -629,10 +960,17 @@ begin_mutex_group
 1 4
 1 5
 1 6
+<<<<<<< HEAD
 16 2
 17 2
 38 1
 39 1
+=======
+17 2
+18 2
+41 1
+42 1
+>>>>>>> main
 end_mutex_group
 begin_mutex_group
 11
@@ -643,10 +981,17 @@ begin_mutex_group
 2 4
 2 5
 2 6
+<<<<<<< HEAD
 16 3
 17 3
 38 2
 39 2
+=======
+17 3
+18 3
+41 2
+42 2
+>>>>>>> main
 end_mutex_group
 begin_mutex_group
 9
@@ -657,8 +1002,13 @@ begin_mutex_group
 3 4
 3 5
 3 6
+<<<<<<< HEAD
 38 3
 39 3
+=======
+41 3
+42 3
+>>>>>>> main
 end_mutex_group
 begin_mutex_group
 11
@@ -669,10 +1019,17 @@ begin_mutex_group
 4 4
 4 5
 4 6
+<<<<<<< HEAD
 16 4
 17 4
 38 4
 39 4
+=======
+17 4
+18 4
+41 4
+42 4
+>>>>>>> main
 end_mutex_group
 begin_mutex_group
 11
@@ -683,10 +1040,17 @@ begin_mutex_group
 5 4
 5 5
 5 6
+<<<<<<< HEAD
 16 5
 17 5
 38 5
 39 5
+=======
+17 5
+18 5
+41 5
+42 5
+>>>>>>> main
 end_mutex_group
 begin_mutex_group
 11
@@ -697,10 +1061,17 @@ begin_mutex_group
 6 4
 6 5
 6 6
+<<<<<<< HEAD
 16 6
 17 6
 38 6
 39 6
+=======
+17 6
+18 6
+41 6
+42 6
+>>>>>>> main
 end_mutex_group
 begin_mutex_group
 9
@@ -711,8 +1082,13 @@ begin_mutex_group
 7 4
 7 5
 7 6
+<<<<<<< HEAD
 38 7
 39 7
+=======
+41 7
+42 7
+>>>>>>> main
 end_mutex_group
 begin_mutex_group
 9
@@ -723,8 +1099,13 @@ begin_mutex_group
 8 4
 8 5
 8 6
+<<<<<<< HEAD
 38 8
 39 8
+=======
+41 8
+42 8
+>>>>>>> main
 end_mutex_group
 begin_mutex_group
 11
@@ -735,10 +1116,17 @@ begin_mutex_group
 9 4
 9 5
 9 6
+<<<<<<< HEAD
 16 7
 17 7
 38 9
 39 9
+=======
+17 7
+18 7
+41 9
+42 9
+>>>>>>> main
 end_mutex_group
 begin_mutex_group
 11
@@ -749,10 +1137,17 @@ begin_mutex_group
 10 4
 10 5
 10 6
+<<<<<<< HEAD
 16 8
 17 8
 38 10
 39 10
+=======
+17 8
+18 8
+41 10
+42 10
+>>>>>>> main
 end_mutex_group
 begin_mutex_group
 9
@@ -763,8 +1158,13 @@ begin_mutex_group
 11 4
 11 5
 11 6
+<<<<<<< HEAD
 38 11
 39 11
+=======
+41 11
+42 11
+>>>>>>> main
 end_mutex_group
 begin_mutex_group
 9
@@ -775,6 +1175,7 @@ begin_mutex_group
 12 4
 12 5
 12 6
+<<<<<<< HEAD
 38 12
 39 12
 end_mutex_group
@@ -858,6 +1259,68 @@ begin_mutex_group
 19 5
 19 6
 19 7
+=======
+41 12
+42 12
+end_mutex_group
+begin_mutex_group
+12
+13 0
+13 1
+13 2
+13 3
+13 4
+13 5
+13 6
+18 9
+13 7
+13 8
+41 13
+42 13
+end_mutex_group
+begin_mutex_group
+12
+14 0
+14 1
+14 2
+14 3
+14 4
+14 5
+14 6
+18 10
+14 7
+14 8
+41 14
+42 14
+end_mutex_group
+begin_mutex_group
+11
+15 0
+15 1
+15 2
+15 3
+15 4
+15 5
+15 6
+17 9
+18 11
+41 15
+42 15
+end_mutex_group
+begin_mutex_group
+11
+16 0
+16 1
+16 2
+16 3
+16 4
+16 5
+16 6
+17 10
+18 12
+41 16
+42 16
+>>>>>>> main
 end_mutex_group
 begin_mutex_group
 12
@@ -873,6 +1336,7 @@ begin_mutex_group
 17 9
 17 10
 17 11
+<<<<<<< HEAD
 end_mutex_group
 begin_mutex_group
 3
@@ -942,6 +1406,130 @@ begin_mutex_group
 42 3
 42 4
 42 5
+=======
+end_mutex_group
+begin_mutex_group
+10
+17 0
+18 0
+19 0
+19 1
+19 2
+19 3
+19 4
+19 5
+19 6
+19 7
+end_mutex_group
+begin_mutex_group
+10
+17 1
+18 1
+20 0
+20 1
+20 2
+20 3
+20 4
+20 5
+20 6
+20 7
+end_mutex_group
+begin_mutex_group
+14
+18 0
+18 1
+18 2
+18 3
+18 4
+18 5
+18 6
+18 7
+18 8
+18 9
+18 10
+18 11
+18 12
+18 13
+end_mutex_group
+begin_mutex_group
+5
+19 0
+20 0
+13 7
+14 7
+38 0
+end_mutex_group
+begin_mutex_group
+3
+13 8
+14 8
+39 0
+end_mutex_group
+begin_mutex_group
+18
+41 0
+41 1
+41 2
+41 3
+41 4
+41 5
+41 6
+41 7
+41 8
+41 9
+41 10
+41 11
+41 12
+41 13
+41 14
+41 15
+41 16
+41 17
+end_mutex_group
+begin_mutex_group
+18
+42 0
+42 1
+42 2
+42 3
+42 4
+42 5
+42 6
+42 7
+42 8
+42 9
+42 10
+42 11
+42 12
+42 13
+42 14
+42 15
+42 16
+42 17
+end_mutex_group
+begin_mutex_group
+6
+43 0
+43 1
+43 2
+43 3
+43 4
+43 5
+end_mutex_group
+begin_mutex_group
+2
+44 0
+44 1
+end_mutex_group
+begin_mutex_group
+6
+45 0
+45 1
+45 2
+45 3
+45 4
+45 5
+>>>>>>> main
 end_mutex_group
 begin_state
 4
@@ -960,8 +1548,15 @@ begin_state
 4
 4
 4
+<<<<<<< HEAD
 11
 11
+=======
+4
+11
+13
+1
+>>>>>>> main
 1
 1
 1
@@ -981,15 +1576,26 @@ begin_state
 1
 1
 0
+<<<<<<< HEAD
 1
 16
 16
+=======
+0
+1
+17
+17
+>>>>>>> main
 2
 1
 2
 1
 1
 1
+<<<<<<< HEAD
+=======
+0
+>>>>>>> main
 0
 0
 0
@@ -1008,7 +1614,11 @@ begin_state
 0
 end_state
 begin_goal
+<<<<<<< HEAD
 21
+=======
+23
+>>>>>>> main
 0 3
 1 1
 2 6
@@ -1023,6 +1633,7 @@ begin_goal
 11 6
 12 6
 13 6
+<<<<<<< HEAD
 14 3
 15 3
 22 0
@@ -1032,24 +1643,46 @@ begin_goal
 31 0
 end_goal
 944
+=======
+14 6
+15 3
+16 3
+23 0
+26 0
+30 0
+31 0
+32 0
+34 0
+end_goal
+1033
+>>>>>>> main
 begin_operator
 activate-seal curator
 0
 1
+<<<<<<< HEAD
 0 43 -1 0
+=======
+0 46 -1 0
+>>>>>>> main
 0
 end_operator
 begin_operator
 activate-seal scientist
 0
 1
+<<<<<<< HEAD
 0 44 -1 0
+=======
+0 47 -1 0
+>>>>>>> main
 0
 end_operator
 begin_operator
 activate-seal technician
 0
 1
+<<<<<<< HEAD
 0 45 -1 0
 0
 end_operator
@@ -1139,1242 +1772,2334 @@ deactivate-seal technician hall-b
 42 4
 1
 0 45 0 1
+=======
+0 48 -1 0
+>>>>>>> main
 0
 end_operator
 begin_operator
 drop-pod-slot-1 curator pod1 anti-vibration-pods-room
 1
+<<<<<<< HEAD
 40 0
 2
 0 16 0 11
 0 18 -1 1
+=======
+43 0
+2
+0 17 0 11
+0 19 -1 1
+>>>>>>> main
 0
 end_operator
 begin_operator
 drop-pod-slot-1 curator pod1 cryo-chamber
 1
+<<<<<<< HEAD
 40 1
 2
 0 16 0 11
 0 18 -1 2
+=======
+43 1
+2
+0 17 0 11
+0 19 -1 2
+>>>>>>> main
 0
 end_operator
 begin_operator
 drop-pod-slot-1 curator pod1 entrance
 1
+<<<<<<< HEAD
 40 2
 2
 0 16 0 11
 0 18 -1 3
+=======
+43 2
+2
+0 17 0 11
+0 19 -1 3
+>>>>>>> main
 0
 end_operator
 begin_operator
 drop-pod-slot-1 curator pod1 hall-a
 1
+<<<<<<< HEAD
 40 3
 2
 0 16 0 11
 0 18 -1 4
+=======
+43 3
+2
+0 17 0 11
+0 19 -1 4
+>>>>>>> main
 0
 end_operator
 begin_operator
 drop-pod-slot-1 curator pod1 hall-b
 1
+<<<<<<< HEAD
 40 4
 2
 0 16 0 11
 0 18 -1 5
+=======
+43 4
+2
+0 17 0 11
+0 19 -1 5
+>>>>>>> main
 0
 end_operator
 begin_operator
 drop-pod-slot-1 curator pod1 maintenance-tunnel
 1
+<<<<<<< HEAD
 40 5
 2
 0 16 0 11
 0 18 -1 6
+=======
+43 5
+2
+0 17 0 11
+0 19 -1 6
+>>>>>>> main
 0
 end_operator
 begin_operator
 drop-pod-slot-1 curator pod2 anti-vibration-pods-room
 1
+<<<<<<< HEAD
 40 0
 2
 0 16 1 11
 0 19 -1 1
+=======
+43 0
+2
+0 17 1 11
+0 20 -1 1
+>>>>>>> main
 0
 end_operator
 begin_operator
 drop-pod-slot-1 curator pod2 cryo-chamber
 1
+<<<<<<< HEAD
 40 1
 2
 0 16 1 11
 0 19 -1 2
+=======
+43 1
+2
+0 17 1 11
+0 20 -1 2
+>>>>>>> main
 0
 end_operator
 begin_operator
 drop-pod-slot-1 curator pod2 entrance
 1
+<<<<<<< HEAD
 40 2
 2
 0 16 1 11
 0 19 -1 3
+=======
+43 2
+2
+0 17 1 11
+0 20 -1 3
+>>>>>>> main
 0
 end_operator
 begin_operator
 drop-pod-slot-1 curator pod2 hall-a
 1
+<<<<<<< HEAD
 40 3
 2
 0 16 1 11
 0 19 -1 4
+=======
+43 3
+2
+0 17 1 11
+0 20 -1 4
+>>>>>>> main
 0
 end_operator
 begin_operator
 drop-pod-slot-1 curator pod2 hall-b
 1
+<<<<<<< HEAD
 40 4
 2
 0 16 1 11
 0 19 -1 5
+=======
+43 4
+2
+0 17 1 11
+0 20 -1 5
+>>>>>>> main
 0
 end_operator
 begin_operator
 drop-pod-slot-1 curator pod2 maintenance-tunnel
 1
+<<<<<<< HEAD
 40 5
 2
 0 16 1 11
 0 19 -1 6
+=======
+43 5
+2
+0 17 1 11
+0 20 -1 6
+>>>>>>> main
 0
 end_operator
 begin_operator
 drop-pod-slot-1 scientist pod1 maintenance-tunnel
 1
+<<<<<<< HEAD
 41 0
 2
 0 17 0 11
 0 18 -1 6
+=======
+44 0
+2
+0 18 0 13
+0 19 -1 6
+>>>>>>> main
 0
 end_operator
 begin_operator
 drop-pod-slot-1 scientist pod1 stasis-lab
 1
+<<<<<<< HEAD
 41 1
 2
 0 17 0 11
 0 18 -1 7
+=======
+44 1
+2
+0 18 0 13
+0 19 -1 7
+>>>>>>> main
 0
 end_operator
 begin_operator
 drop-pod-slot-1 scientist pod2 maintenance-tunnel
 1
+<<<<<<< HEAD
 41 0
 2
 0 17 1 11
 0 19 -1 6
+=======
+44 0
+2
+0 18 1 13
+0 20 -1 6
+>>>>>>> main
 0
 end_operator
 begin_operator
 drop-pod-slot-1 scientist pod2 stasis-lab
 1
+<<<<<<< HEAD
 41 1
 2
 0 17 1 11
 0 19 -1 7
+=======
+44 1
+2
+0 18 1 13
+0 20 -1 7
+>>>>>>> main
 0
 end_operator
 begin_operator
 drop-pod-slot-1 technician pod1 anti-vibration-pods-room
 1
+<<<<<<< HEAD
 42 0
 2
 0 18 0 1
 0 36 -1 0
+=======
+45 0
+2
+0 19 0 1
+0 38 -1 0
+>>>>>>> main
 0
 end_operator
 begin_operator
 drop-pod-slot-1 technician pod1 cryo-chamber
 1
+<<<<<<< HEAD
 42 1
 2
 0 18 0 2
 0 36 -1 0
+=======
+45 1
+2
+0 19 0 2
+0 38 -1 0
+>>>>>>> main
 0
 end_operator
 begin_operator
 drop-pod-slot-1 technician pod1 entrance
 1
+<<<<<<< HEAD
 42 2
 2
 0 18 0 3
 0 36 -1 0
+=======
+45 2
+2
+0 19 0 3
+0 38 -1 0
+>>>>>>> main
 0
 end_operator
 begin_operator
 drop-pod-slot-1 technician pod1 hall-a
 1
+<<<<<<< HEAD
 42 3
 2
 0 18 0 4
 0 36 -1 0
+=======
+45 3
+2
+0 19 0 4
+0 38 -1 0
+>>>>>>> main
 0
 end_operator
 begin_operator
 drop-pod-slot-1 technician pod1 hall-b
 1
+<<<<<<< HEAD
 42 4
 2
 0 18 0 5
 0 36 -1 0
+=======
+45 4
+2
+0 19 0 5
+0 38 -1 0
+>>>>>>> main
 0
 end_operator
 begin_operator
 drop-pod-slot-1 technician pod1 maintenance-tunnel
 1
+<<<<<<< HEAD
 42 5
 2
 0 18 0 6
 0 36 -1 0
+=======
+45 5
+2
+0 19 0 6
+0 38 -1 0
+>>>>>>> main
 0
 end_operator
 begin_operator
 drop-pod-slot-1 technician pod2 anti-vibration-pods-room
 1
+<<<<<<< HEAD
 42 0
 2
 0 19 0 1
 0 36 -1 0
+=======
+45 0
+2
+0 20 0 1
+0 38 -1 0
+>>>>>>> main
 0
 end_operator
 begin_operator
 drop-pod-slot-1 technician pod2 cryo-chamber
 1
+<<<<<<< HEAD
 42 1
 2
 0 19 0 2
 0 36 -1 0
+=======
+45 1
+2
+0 20 0 2
+0 38 -1 0
+>>>>>>> main
 0
 end_operator
 begin_operator
 drop-pod-slot-1 technician pod2 entrance
 1
+<<<<<<< HEAD
 42 2
 2
 0 19 0 3
 0 36 -1 0
+=======
+45 2
+2
+0 20 0 3
+0 38 -1 0
+>>>>>>> main
 0
 end_operator
 begin_operator
 drop-pod-slot-1 technician pod2 hall-a
 1
+<<<<<<< HEAD
 42 3
 2
 0 19 0 4
 0 36 -1 0
+=======
+45 3
+2
+0 20 0 4
+0 38 -1 0
+>>>>>>> main
 0
 end_operator
 begin_operator
 drop-pod-slot-1 technician pod2 hall-b
 1
+<<<<<<< HEAD
 42 4
 2
 0 19 0 5
 0 36 -1 0
+=======
+45 4
+2
+0 20 0 5
+0 38 -1 0
+>>>>>>> main
 0
 end_operator
 begin_operator
 drop-pod-slot-1 technician pod2 maintenance-tunnel
 1
+<<<<<<< HEAD
 42 5
 2
 0 19 0 6
 0 36 -1 0
+=======
+45 5
+2
+0 20 0 6
+0 38 -1 0
+>>>>>>> main
 0
 end_operator
 begin_operator
 move-to-pressurized-room curator maintenance-tunnel anti-vibration-pods-room
 0
 2
+<<<<<<< HEAD
 0 40 5 0
 0 43 -1 1
+=======
+0 43 5 0
+0 46 -1 1
+>>>>>>> main
 0
 end_operator
 begin_operator
 move-to-pressurized-room curator maintenance-tunnel cryo-chamber
 0
 2
+<<<<<<< HEAD
 0 40 5 1
 0 43 -1 1
+=======
+0 43 5 1
+0 46 -1 1
+>>>>>>> main
 0
 end_operator
 begin_operator
 move-to-pressurized-room curator maintenance-tunnel entrance
 0
 2
+<<<<<<< HEAD
 0 40 5 2
 0 43 -1 1
+=======
+0 43 5 2
+0 46 -1 1
+>>>>>>> main
 0
 end_operator
 begin_operator
 move-to-pressurized-room curator maintenance-tunnel hall-a
 0
 2
+<<<<<<< HEAD
 0 40 5 3
 0 43 -1 1
+=======
+0 43 5 3
+0 46 -1 1
+>>>>>>> main
 0
 end_operator
 begin_operator
 move-to-pressurized-room curator maintenance-tunnel hall-b
 1
+<<<<<<< HEAD
 37 0
 2
 0 40 5 4
 0 43 -1 1
+=======
+40 0
+2
+0 43 5 4
+0 46 -1 1
+>>>>>>> main
 0
 end_operator
 begin_operator
 move-to-pressurized-room scientist maintenance-tunnel stasis-lab
 0
 2
+<<<<<<< HEAD
 0 41 0 1
 0 44 -1 1
+=======
+0 44 0 1
+0 47 -1 1
+>>>>>>> main
 0
 end_operator
 begin_operator
 move-to-pressurized-room technician maintenance-tunnel anti-vibration-pods-room
 0
 2
+<<<<<<< HEAD
 0 42 5 0
 0 45 -1 1
+=======
+0 45 5 0
+0 48 -1 1
+>>>>>>> main
 0
 end_operator
 begin_operator
 move-to-pressurized-room technician maintenance-tunnel cryo-chamber
 0
 2
+<<<<<<< HEAD
 0 42 5 1
 0 45 -1 1
+=======
+0 45 5 1
+0 48 -1 1
+>>>>>>> main
 0
 end_operator
 begin_operator
 move-to-pressurized-room technician maintenance-tunnel entrance
 0
 2
+<<<<<<< HEAD
 0 42 5 2
 0 45 -1 1
+=======
+0 45 5 2
+0 48 -1 1
+>>>>>>> main
 0
 end_operator
 begin_operator
 move-to-pressurized-room technician maintenance-tunnel hall-a
 0
 2
+<<<<<<< HEAD
 0 42 5 3
 0 45 -1 1
+=======
+0 45 5 3
+0 48 -1 1
+>>>>>>> main
 0
 end_operator
 begin_operator
 move-to-pressurized-room technician maintenance-tunnel hall-b
 1
+<<<<<<< HEAD
 37 0
 2
 0 42 5 4
 0 45 -1 1
+=======
+40 0
+2
+0 45 5 4
+0 48 -1 1
+>>>>>>> main
 0
 end_operator
 begin_operator
 move-to-unpressurized-room curator anti-vibration-pods-room maintenance-tunnel
 1
+<<<<<<< HEAD
 43 0
 1
 0 40 0 5
+=======
+46 0
+1
+0 43 0 5
+>>>>>>> main
 0
 end_operator
 begin_operator
 move-to-unpressurized-room curator cryo-chamber maintenance-tunnel
 1
+<<<<<<< HEAD
 43 0
 1
 0 40 1 5
+=======
+46 0
+1
+0 43 1 5
+>>>>>>> main
 0
 end_operator
 begin_operator
 move-to-unpressurized-room curator entrance maintenance-tunnel
 1
+<<<<<<< HEAD
 43 0
 1
 0 40 2 5
+=======
+46 0
+1
+0 43 2 5
+>>>>>>> main
 0
 end_operator
 begin_operator
 move-to-unpressurized-room curator hall-a maintenance-tunnel
 1
+<<<<<<< HEAD
 43 0
 1
 0 40 3 5
+=======
+46 0
+1
+0 43 3 5
+>>>>>>> main
 0
 end_operator
 begin_operator
 move-to-unpressurized-room curator hall-b maintenance-tunnel
 1
+<<<<<<< HEAD
 43 0
 1
 0 40 4 5
+=======
+46 0
+1
+0 43 4 5
+>>>>>>> main
 0
 end_operator
 begin_operator
 move-to-unpressurized-room scientist stasis-lab maintenance-tunnel
 1
+<<<<<<< HEAD
 44 0
 1
 0 41 1 0
+=======
+47 0
+1
+0 44 1 0
+>>>>>>> main
 0
 end_operator
 begin_operator
 move-to-unpressurized-room technician anti-vibration-pods-room maintenance-tunnel
 1
+<<<<<<< HEAD
 45 0
 1
 0 42 0 5
+=======
+48 0
+1
+0 45 0 5
+>>>>>>> main
 0
 end_operator
 begin_operator
 move-to-unpressurized-room technician cryo-chamber maintenance-tunnel
 1
+<<<<<<< HEAD
 45 0
 1
 0 42 1 5
+=======
+48 0
+1
+0 45 1 5
+>>>>>>> main
 0
 end_operator
 begin_operator
 move-to-unpressurized-room technician entrance maintenance-tunnel
 1
+<<<<<<< HEAD
 45 0
 1
 0 42 2 5
+=======
+48 0
+1
+0 45 2 5
+>>>>>>> main
 0
 end_operator
 begin_operator
 move-to-unpressurized-room technician hall-a maintenance-tunnel
 1
+<<<<<<< HEAD
 45 0
 1
 0 42 3 5
+=======
+48 0
+1
+0 45 3 5
+>>>>>>> main
 0
 end_operator
 begin_operator
 move-to-unpressurized-room technician hall-b maintenance-tunnel
 1
+<<<<<<< HEAD
 45 0
 1
 0 42 4 5
+=======
+48 0
+1
+0 45 4 5
+>>>>>>> main
 0
 end_operator
 begin_operator
 pick-up-pod-slot-1 curator anti-vibration-pods-room pod1
 1
+<<<<<<< HEAD
 40 0
 2
 0 16 11 0
 0 18 1 8
+=======
+43 0
+2
+0 17 11 0
+0 19 1 8
+>>>>>>> main
 0
 end_operator
 begin_operator
 pick-up-pod-slot-1 curator anti-vibration-pods-room pod2
 1
+<<<<<<< HEAD
 40 0
 2
 0 16 11 1
 0 19 1 8
+=======
+43 0
+2
+0 17 11 1
+0 20 1 8
+>>>>>>> main
 0
 end_operator
 begin_operator
 pick-up-pod-slot-1 curator cryo-chamber pod1
 1
+<<<<<<< HEAD
 40 1
 2
 0 16 11 0
 0 18 2 8
+=======
+43 1
+2
+0 17 11 0
+0 19 2 8
+>>>>>>> main
 0
 end_operator
 begin_operator
 pick-up-pod-slot-1 curator cryo-chamber pod2
 1
+<<<<<<< HEAD
 40 1
 2
 0 16 11 1
 0 19 2 8
+=======
+43 1
+2
+0 17 11 1
+0 20 2 8
+>>>>>>> main
 0
 end_operator
 begin_operator
 pick-up-pod-slot-1 curator entrance pod1
 1
+<<<<<<< HEAD
 40 2
 2
 0 16 11 0
 0 18 3 8
+=======
+43 2
+2
+0 17 11 0
+0 19 3 8
+>>>>>>> main
 0
 end_operator
 begin_operator
 pick-up-pod-slot-1 curator entrance pod2
 1
+<<<<<<< HEAD
 40 2
 2
 0 16 11 1
 0 19 3 8
+=======
+43 2
+2
+0 17 11 1
+0 20 3 8
+>>>>>>> main
 0
 end_operator
 begin_operator
 pick-up-pod-slot-1 curator hall-a pod1
 1
+<<<<<<< HEAD
 40 3
 2
 0 16 11 0
 0 18 4 8
+=======
+43 3
+2
+0 17 11 0
+0 19 4 8
+>>>>>>> main
 0
 end_operator
 begin_operator
 pick-up-pod-slot-1 curator hall-a pod2
 1
+<<<<<<< HEAD
 40 3
 2
 0 16 11 1
 0 19 4 8
+=======
+43 3
+2
+0 17 11 1
+0 20 4 8
+>>>>>>> main
 0
 end_operator
 begin_operator
 pick-up-pod-slot-1 curator hall-b pod1
 1
+<<<<<<< HEAD
 40 4
 2
 0 16 11 0
 0 18 5 8
+=======
+43 4
+2
+0 17 11 0
+0 19 5 8
+>>>>>>> main
 0
 end_operator
 begin_operator
 pick-up-pod-slot-1 curator hall-b pod2
 1
+<<<<<<< HEAD
 40 4
 2
 0 16 11 1
 0 19 5 8
+=======
+43 4
+2
+0 17 11 1
+0 20 5 8
+>>>>>>> main
 0
 end_operator
 begin_operator
 pick-up-pod-slot-1 curator maintenance-tunnel pod1
 1
+<<<<<<< HEAD
 40 5
 2
 0 16 11 0
 0 18 6 8
+=======
+43 5
+2
+0 17 11 0
+0 19 6 8
+>>>>>>> main
 0
 end_operator
 begin_operator
 pick-up-pod-slot-1 curator maintenance-tunnel pod2
 1
+<<<<<<< HEAD
 40 5
 2
 0 16 11 1
 0 19 6 8
+=======
+43 5
+2
+0 17 11 1
+0 20 6 8
+>>>>>>> main
 0
 end_operator
 begin_operator
 pick-up-pod-slot-1 scientist maintenance-tunnel pod1
 1
+<<<<<<< HEAD
 41 0
 2
 0 17 11 0
 0 18 6 8
+=======
+44 0
+2
+0 18 13 0
+0 19 6 8
+>>>>>>> main
 0
 end_operator
 begin_operator
 pick-up-pod-slot-1 scientist maintenance-tunnel pod2
 1
+<<<<<<< HEAD
 41 0
 2
 0 17 11 1
 0 19 6 8
+=======
+44 0
+2
+0 18 13 1
+0 20 6 8
+>>>>>>> main
 0
 end_operator
 begin_operator
 pick-up-pod-slot-1 scientist stasis-lab pod1
 1
+<<<<<<< HEAD
 41 1
 2
 0 17 11 0
 0 18 7 8
+=======
+44 1
+2
+0 18 13 0
+0 19 7 8
+>>>>>>> main
 0
 end_operator
 begin_operator
 pick-up-pod-slot-1 scientist stasis-lab pod2
 1
+<<<<<<< HEAD
 41 1
 2
 0 17 11 1
 0 19 7 8
+=======
+44 1
+2
+0 18 13 1
+0 20 7 8
+>>>>>>> main
 0
 end_operator
 begin_operator
 pick-up-pod-slot-1 technician anti-vibration-pods-room pod1
 1
+<<<<<<< HEAD
 42 0
 2
 0 18 1 0
 0 36 0 1
+=======
+45 0
+2
+0 19 1 0
+0 38 0 1
+>>>>>>> main
 0
 end_operator
 begin_operator
 pick-up-pod-slot-1 technician anti-vibration-pods-room pod2
 1
+<<<<<<< HEAD
 42 0
 2
 0 19 1 0
 0 36 0 1
+=======
+45 0
+2
+0 20 1 0
+0 38 0 1
+>>>>>>> main
 0
 end_operator
 begin_operator
 pick-up-pod-slot-1 technician cryo-chamber pod1
 1
+<<<<<<< HEAD
 42 1
 2
 0 18 2 0
 0 36 0 1
+=======
+45 1
+2
+0 19 2 0
+0 38 0 1
+>>>>>>> main
 0
 end_operator
 begin_operator
 pick-up-pod-slot-1 technician cryo-chamber pod2
 1
+<<<<<<< HEAD
 42 1
 2
 0 19 2 0
 0 36 0 1
+=======
+45 1
+2
+0 20 2 0
+0 38 0 1
+>>>>>>> main
 0
 end_operator
 begin_operator
 pick-up-pod-slot-1 technician entrance pod1
 1
+<<<<<<< HEAD
 42 2
 2
 0 18 3 0
 0 36 0 1
+=======
+45 2
+2
+0 19 3 0
+0 38 0 1
+>>>>>>> main
 0
 end_operator
 begin_operator
 pick-up-pod-slot-1 technician entrance pod2
 1
+<<<<<<< HEAD
 42 2
 2
 0 19 3 0
 0 36 0 1
+=======
+45 2
+2
+0 20 3 0
+0 38 0 1
+>>>>>>> main
 0
 end_operator
 begin_operator
 pick-up-pod-slot-1 technician hall-a pod1
 1
+<<<<<<< HEAD
 42 3
 2
 0 18 4 0
 0 36 0 1
+=======
+45 3
+2
+0 19 4 0
+0 38 0 1
+>>>>>>> main
 0
 end_operator
 begin_operator
 pick-up-pod-slot-1 technician hall-a pod2
 1
+<<<<<<< HEAD
 42 3
 2
 0 19 4 0
 0 36 0 1
+=======
+45 3
+2
+0 20 4 0
+0 38 0 1
+>>>>>>> main
 0
 end_operator
 begin_operator
 pick-up-pod-slot-1 technician hall-b pod1
 1
+<<<<<<< HEAD
 42 4
 2
 0 18 5 0
 0 36 0 1
+=======
+45 4
+2
+0 19 5 0
+0 38 0 1
+>>>>>>> main
 0
 end_operator
 begin_operator
 pick-up-pod-slot-1 technician hall-b pod2
 1
+<<<<<<< HEAD
 42 4
 2
 0 19 5 0
 0 36 0 1
+=======
+45 4
+2
+0 20 5 0
+0 38 0 1
+>>>>>>> main
 0
 end_operator
 begin_operator
 pick-up-pod-slot-1 technician maintenance-tunnel pod1
 1
+<<<<<<< HEAD
 42 5
 2
 0 18 6 0
 0 36 0 1
+=======
+45 5
+2
+0 19 6 0
+0 38 0 1
+>>>>>>> main
 0
 end_operator
 begin_operator
 pick-up-pod-slot-1 technician maintenance-tunnel pod2
 1
+<<<<<<< HEAD
 42 5
 2
 0 19 6 0
 0 36 0 1
+=======
+45 5
+2
+0 20 6 0
+0 38 0 1
+>>>>>>> main
 0
 end_operator
 begin_operator
 pick-up-slot-1 asteroid-mg04tn-ice-sample scientific anti-vibration-pods-room curator
 1
+<<<<<<< HEAD
 40 0
 2
 0 1 0 7
 0 16 11 2
+=======
+43 0
+2
+0 1 0 7
+0 17 11 2
+>>>>>>> main
 0
 end_operator
 begin_operator
 pick-up-slot-1 asteroid-mg04tn-ice-sample scientific cryo-chamber curator
 1
+<<<<<<< HEAD
 40 1
 2
 0 1 1 7
 0 16 11 2
+=======
+43 1
+2
+0 1 1 7
+0 17 11 2
+>>>>>>> main
 0
 end_operator
 begin_operator
 pick-up-slot-1 asteroid-mg04tn-ice-sample scientific entrance curator
 1
+<<<<<<< HEAD
 40 2
 2
 0 1 2 7
 0 16 11 2
+=======
+43 2
+2
+0 1 2 7
+0 17 11 2
+>>>>>>> main
 0
 end_operator
 begin_operator
 pick-up-slot-1 asteroid-mg04tn-ice-sample scientific hall-a curator
 1
+<<<<<<< HEAD
 40 3
 2
 0 1 3 7
 0 16 11 2
+=======
+43 3
+2
+0 1 3 7
+0 17 11 2
+>>>>>>> main
 0
 end_operator
 begin_operator
 pick-up-slot-1 asteroid-mg04tn-ice-sample scientific hall-b curator
 1
+<<<<<<< HEAD
 40 4
 2
 0 1 4 7
 0 16 11 2
+=======
+43 4
+2
+0 1 4 7
+0 17 11 2
+>>>>>>> main
 0
 end_operator
 begin_operator
 pick-up-slot-1 asteroid-mg04tn-ice-sample scientific maintenance-tunnel curator
 1
+<<<<<<< HEAD
 40 5
 2
 0 1 5 7
 0 16 11 2
+=======
+43 5
+2
+0 1 5 7
+0 17 11 2
+>>>>>>> main
 0
 end_operator
 begin_operator
 pick-up-slot-1 asteroid-mg04tn-ice-sample scientific maintenance-tunnel scientist
 1
+<<<<<<< HEAD
 41 0
 2
 0 1 5 7
 0 17 11 2
+=======
+44 0
+2
+0 1 5 7
+0 18 13 2
+>>>>>>> main
 0
 end_operator
 begin_operator
 pick-up-slot-1 asteroid-mg04tn-ice-sample scientific stasis-lab scientist
 1
+<<<<<<< HEAD
 41 1
 2
 0 1 6 7
 0 17 11 2
+=======
+44 1
+2
+0 1 6 7
+0 18 13 2
+>>>>>>> main
 0
 end_operator
 begin_operator
 pick-up-slot-1 mart-east-core-drill scientific anti-vibration-pods-room curator
 1
+<<<<<<< HEAD
 40 0
 2
 0 2 0 7
 0 16 11 3
+=======
+43 0
+2
+0 2 0 7
+0 17 11 3
+>>>>>>> main
 0
 end_operator
 begin_operator
 pick-up-slot-1 mart-east-core-drill scientific cryo-chamber curator
 1
+<<<<<<< HEAD
 40 1
 2
 0 2 1 7
 0 16 11 3
+=======
+43 1
+2
+0 2 1 7
+0 17 11 3
+>>>>>>> main
 0
 end_operator
 begin_operator
 pick-up-slot-1 mart-east-core-drill scientific entrance curator
 1
+<<<<<<< HEAD
 40 2
 2
 0 2 2 7
 0 16 11 3
+=======
+43 2
+2
+0 2 2 7
+0 17 11 3
+>>>>>>> main
 0
 end_operator
 begin_operator
 pick-up-slot-1 mart-east-core-drill scientific hall-a curator
 1
+<<<<<<< HEAD
 40 3
 2
 0 2 3 7
 0 16 11 3
+=======
+43 3
+2
+0 2 3 7
+0 17 11 3
+>>>>>>> main
 0
 end_operator
 begin_operator
 pick-up-slot-1 mart-east-core-drill scientific hall-b curator
 1
+<<<<<<< HEAD
 40 4
 2
 0 2 4 7
 0 16 11 3
+=======
+43 4
+2
+0 2 4 7
+0 17 11 3
+>>>>>>> main
 0
 end_operator
 begin_operator
 pick-up-slot-1 mart-east-core-drill scientific maintenance-tunnel curator
 1
+<<<<<<< HEAD
 40 5
 2
 0 2 5 7
 0 16 11 3
+=======
+43 5
+2
+0 2 5 7
+0 17 11 3
+>>>>>>> main
 0
 end_operator
 begin_operator
 pick-up-slot-1 mart-east-core-drill scientific maintenance-tunnel scientist
 1
+<<<<<<< HEAD
 41 0
 2
 0 2 5 7
 0 17 11 3
+=======
+44 0
+2
+0 2 5 7
+0 18 13 3
+>>>>>>> main
 0
 end_operator
 begin_operator
 pick-up-slot-1 mart-east-core-drill scientific stasis-lab scientist
 1
+<<<<<<< HEAD
 41 1
 2
 0 2 6 7
 0 17 11 3
+=======
+44 1
+2
+0 2 6 7
+0 18 13 3
+>>>>>>> main
 0
 end_operator
 begin_operator
 pick-up-slot-1 mart-mysterious-egg top-secret anti-vibration-pods-room curator
 1
+<<<<<<< HEAD
 40 0
 2
 0 4 0 7
 0 16 11 4
+=======
+43 0
+2
+0 4 0 7
+0 17 11 4
+>>>>>>> main
 0
 end_operator
 begin_operator
 pick-up-slot-1 mart-mysterious-egg top-secret cryo-chamber curator
 1
+<<<<<<< HEAD
 40 1
 2
 0 4 1 7
 0 16 11 4
+=======
+43 1
+2
+0 4 1 7
+0 17 11 4
+>>>>>>> main
 0
 end_operator
 begin_operator
 pick-up-slot-1 mart-mysterious-egg top-secret entrance curator
 1
+<<<<<<< HEAD
 40 2
 2
 0 4 2 7
 0 16 11 4
+=======
+43 2
+2
+0 4 2 7
+0 17 11 4
+>>>>>>> main
 0
 end_operator
 begin_operator
 pick-up-slot-1 mart-mysterious-egg top-secret hall-a curator
 1
+<<<<<<< HEAD
 40 3
 2
 0 4 3 7
 0 16 11 4
+=======
+43 3
+2
+0 4 3 7
+0 17 11 4
+>>>>>>> main
 0
 end_operator
 begin_operator
 pick-up-slot-1 mart-mysterious-egg top-secret hall-b curator
 1
+<<<<<<< HEAD
 40 4
 2
 0 4 4 7
 0 16 11 4
+=======
+43 4
+2
+0 4 4 7
+0 17 11 4
+>>>>>>> main
 0
 end_operator
 begin_operator
 pick-up-slot-1 mart-mysterious-egg top-secret maintenance-tunnel curator
 1
+<<<<<<< HEAD
 40 5
 2
 0 4 5 7
 0 16 11 4
+=======
+43 5
+2
+0 4 5 7
+0 17 11 4
+>>>>>>> main
 0
 end_operator
 begin_operator
 pick-up-slot-1 mart-mysterious-egg top-secret maintenance-tunnel scientist
 1
+<<<<<<< HEAD
 41 0
 2
 0 4 5 7
 0 17 11 4
+=======
+44 0
+2
+0 4 5 7
+0 18 13 4
+>>>>>>> main
 0
 end_operator
 begin_operator
 pick-up-slot-1 mart-mysterious-egg top-secret stasis-lab scientist
 1
+<<<<<<< HEAD
 41 1
 2
 0 4 6 7
 0 17 11 4
+=======
+44 1
+2
+0 4 6 7
+0 18 13 4
+>>>>>>> main
 0
 end_operator
 begin_operator
 pick-up-slot-1 mart-nord-core-drill scientific anti-vibration-pods-room curator
 1
+<<<<<<< HEAD
 40 0
 2
 0 5 0 7
 0 16 11 5
+=======
+43 0
+2
+0 5 0 7
+0 17 11 5
+>>>>>>> main
 0
 end_operator
 begin_operator
 pick-up-slot-1 mart-nord-core-drill scientific cryo-chamber curator
 1
+<<<<<<< HEAD
 40 1
 2
 0 5 1 7
 0 16 11 5
+=======
+43 1
+2
+0 5 1 7
+0 17 11 5
+>>>>>>> main
 0
 end_operator
 begin_operator
 pick-up-slot-1 mart-nord-core-drill scientific entrance curator
 1
+<<<<<<< HEAD
 40 2
 2
 0 5 2 7
 0 16 11 5
+=======
+43 2
+2
+0 5 2 7
+0 17 11 5
+>>>>>>> main
 0
 end_operator
 begin_operator
 pick-up-slot-1 mart-nord-core-drill scientific hall-a curator
 1
+<<<<<<< HEAD
 40 3
 2
 0 5 3 7
 0 16 11 5
+=======
+43 3
+2
+0 5 3 7
+0 17 11 5
+>>>>>>> main
 0
 end_operator
 begin_operator
 pick-up-slot-1 mart-nord-core-drill scientific hall-b curator
 1
+<<<<<<< HEAD
 40 4
 2
 0 5 4 7
 0 16 11 5
+=======
+43 4
+2
+0 5 4 7
+0 17 11 5
+>>>>>>> main
 0
 end_operator
 begin_operator
 pick-up-slot-1 mart-nord-core-drill scientific maintenance-tunnel curator
 1
+<<<<<<< HEAD
 40 5
 2
 0 5 5 7
 0 16 11 5
+=======
+43 5
+2
+0 5 5 7
+0 17 11 5
+>>>>>>> main
 0
 end_operator
 begin_operator
 pick-up-slot-1 mart-nord-core-drill scientific maintenance-tunnel scientist
 1
+<<<<<<< HEAD
 41 0
 2
 0 5 5 7
 0 17 11 5
+=======
+44 0
+2
+0 5 5 7
+0 18 13 5
+>>>>>>> main
 0
 end_operator
 begin_operator
 pick-up-slot-1 mart-nord-core-drill scientific stasis-lab scientist
 1
+<<<<<<< HEAD
 41 1
 2
 0 5 6 7
 0 17 11 5
+=======
+44 1
+2
+0 5 6 7
+0 18 13 5
+>>>>>>> main
 0
 end_operator
 begin_operator
 pick-up-slot-1 mart-north-pole-ice-sample scientific anti-vibration-pods-room curator
 1
+<<<<<<< HEAD
 40 0
 2
 0 6 0 7
 0 16 11 6
+=======
+43 0
+2
+0 6 0 7
+0 17 11 6
+>>>>>>> main
 0
 end_operator
 begin_operator
 pick-up-slot-1 mart-north-pole-ice-sample scientific cryo-chamber curator
 1
+<<<<<<< HEAD
 40 1
 2
 0 6 1 7
 0 16 11 6
+=======
+43 1
+2
+0 6 1 7
+0 17 11 6
+>>>>>>> main
 0
 end_operator
 begin_operator
 pick-up-slot-1 mart-north-pole-ice-sample scientific entrance curator
 1
+<<<<<<< HEAD
 40 2
 2
 0 6 2 7
 0 16 11 6
+=======
+43 2
+2
+0 6 2 7
+0 17 11 6
+>>>>>>> main
 0
 end_operator
 begin_operator
 pick-up-slot-1 mart-north-pole-ice-sample scientific hall-a curator
 1
+<<<<<<< HEAD
 40 3
 2
 0 6 3 7
 0 16 11 6
+=======
+43 3
+2
+0 6 3 7
+0 17 11 6
+>>>>>>> main
 0
 end_operator
 begin_operator
 pick-up-slot-1 mart-north-pole-ice-sample scientific hall-b curator
 1
+<<<<<<< HEAD
 40 4
 2
 0 6 4 7
 0 16 11 6
+=======
+43 4
+2
+0 6 4 7
+0 17 11 6
+>>>>>>> main
 0
 end_operator
 begin_operator
 pick-up-slot-1 mart-north-pole-ice-sample scientific maintenance-tunnel curator
 1
+<<<<<<< HEAD
 40 5
 2
 0 6 5 7
 0 16 11 6
+=======
+43 5
+2
+0 6 5 7
+0 17 11 6
+>>>>>>> main
 0
 end_operator
 begin_operator
 pick-up-slot-1 mart-north-pole-ice-sample scientific maintenance-tunnel scientist
 1
+<<<<<<< HEAD
 41 0
 2
 0 6 5 7
 0 17 11 6
+=======
+44 0
+2
+0 6 5 7
+0 18 13 6
+>>>>>>> main
 0
 end_operator
 begin_operator
 pick-up-slot-1 mart-north-pole-ice-sample scientific stasis-lab scientist
 1
+<<<<<<< HEAD
 41 1
 2
 0 6 6 7
 0 17 11 6
+=======
+44 1
+2
+0 6 6 7
+0 18 13 6
+>>>>>>> main
 0
 end_operator
 begin_operator
 pick-up-slot-1 mart-sud-core-drill scientific anti-vibration-pods-room curator
 1
+<<<<<<< HEAD
 40 0
 2
 0 9 0 7
 0 16 11 7
+=======
+43 0
+2
+0 9 0 7
+0 17 11 7
+>>>>>>> main
 0
 end_operator
 begin_operator
 pick-up-slot-1 mart-sud-core-drill scientific cryo-chamber curator
 1
+<<<<<<< HEAD
 40 1
 2
 0 9 1 7
 0 16 11 7
+=======
+43 1
+2
+0 9 1 7
+0 17 11 7
+>>>>>>> main
 0
 end_operator
 begin_operator
 pick-up-slot-1 mart-sud-core-drill scientific entrance curator
 1
+<<<<<<< HEAD
 40 2
 2
 0 9 2 7
 0 16 11 7
+=======
+43 2
+2
+0 9 2 7
+0 17 11 7
+>>>>>>> main
 0
 end_operator
 begin_operator
 pick-up-slot-1 mart-sud-core-drill scientific hall-a curator
 1
+<<<<<<< HEAD
 40 3
 2
 0 9 3 7
 0 16 11 7
+=======
+43 3
+2
+0 9 3 7
+0 17 11 7
+>>>>>>> main
 0
 end_operator
 begin_operator
 pick-up-slot-1 mart-sud-core-drill scientific hall-b curator
 1
+<<<<<<< HEAD
 40 4
 2
 0 9 4 7
 0 16 11 7
+=======
+43 4
+2
+0 9 4 7
+0 17 11 7
+>>>>>>> main
 0
 end_operator
 begin_operator
 pick-up-slot-1 mart-sud-core-drill scientific maintenance-tunnel curator
 1
+<<<<<<< HEAD
 40 5
 2
 0 9 5 7
 0 16 11 7
+=======
+43 5
+2
+0 9 5 7
+0 17 11 7
+>>>>>>> main
 0
 end_operator
 begin_operator
 pick-up-slot-1 mart-sud-core-drill scientific maintenance-tunnel scientist
 1
+<<<<<<< HEAD
 41 0
 2
 0 9 5 7
 0 17 11 7
+=======
+44 0
+2
+0 9 5 7
+0 18 13 7
+>>>>>>> main
 0
 end_operator
 begin_operator
 pick-up-slot-1 mart-sud-core-drill scientific stasis-lab scientist
 1
+<<<<<<< HEAD
 41 1
 2
 0 9 6 7
 0 17 11 7
+=======
+44 1
+2
+0 9 6 7
+0 18 13 7
+>>>>>>> main
 0
 end_operator
 begin_operator
 pick-up-slot-1 mart-west-core-drill scientific anti-vibration-pods-room curator
 1
+<<<<<<< HEAD
 40 0
 2
 0 10 0 7
 0 16 11 8
+=======
+43 0
+2
+0 10 0 7
+0 17 11 8
+>>>>>>> main
 0
 end_operator
 begin_operator
 pick-up-slot-1 mart-west-core-drill scientific cryo-chamber curator
 1
+<<<<<<< HEAD
 40 1
 2
 0 10 1 7
 0 16 11 8
+=======
+43 1
+2
+0 10 1 7
+0 17 11 8
+>>>>>>> main
 0
 end_operator
 begin_operator
 pick-up-slot-1 mart-west-core-drill scientific entrance curator
 1
+<<<<<<< HEAD
 40 2
 2
 0 10 2 7
 0 16 11 8
+=======
+43 2
+2
+0 10 2 7
+0 17 11 8
+>>>>>>> main
 0
 end_operator
 begin_operator
 pick-up-slot-1 mart-west-core-drill scientific hall-a curator
 1
+<<<<<<< HEAD
 40 3
 2
 0 10 3 7
 0 16 11 8
+=======
+43 3
+2
+0 10 3 7
+0 17 11 8
+>>>>>>> main
 0
 end_operator
 begin_operator
 pick-up-slot-1 mart-west-core-drill scientific hall-b curator
 1
+<<<<<<< HEAD
 40 4
 2
 0 10 4 7
 0 16 11 8
+=======
+43 4
+2
+0 10 4 7
+0 17 11 8
+>>>>>>> main
 0
 end_operator
 begin_operator
 pick-up-slot-1 mart-west-core-drill scientific maintenance-tunnel curator
 1
+<<<<<<< HEAD
 40 5
 2
 0 10 5 7
 0 16 11 8
+=======
+43 5
+2
+0 10 5 7
+0 17 11 8
+>>>>>>> main
 0
 end_operator
 begin_operator
 pick-up-slot-1 mart-west-core-drill scientific maintenance-tunnel scientist
 1
+<<<<<<< HEAD
 41 0
 2
 0 10 5 7
 0 17 11 8
+=======
+44 0
+2
+0 10 5 7
+0 18 13 8
+>>>>>>> main
 0
 end_operator
 begin_operator
 pick-up-slot-1 mart-west-core-drill scientific stasis-lab scientist
 1
+<<<<<<< HEAD
 41 1
 2
 0 10 6 7
 0 17 11 8
+=======
+44 1
+2
+0 10 6 7
+0 18 13 8
+0
+end_operator
+begin_operator
+pick-up-slot-1 rusty-lightsaber technological anti-vibration-pods-room technician
+1
+45 0
+2
+0 13 0 7
+0 38 0 1
+0
+end_operator
+begin_operator
+pick-up-slot-1 rusty-lightsaber technological cryo-chamber technician
+1
+45 1
+2
+0 13 1 7
+0 38 0 1
+0
+end_operator
+begin_operator
+pick-up-slot-1 rusty-lightsaber technological entrance technician
+1
+45 2
+2
+0 13 2 7
+0 38 0 1
+0
+end_operator
+begin_operator
+pick-up-slot-1 rusty-lightsaber technological hall-a technician
+1
+45 3
+2
+0 13 3 7
+0 38 0 1
+0
+end_operator
+begin_operator
+pick-up-slot-1 rusty-lightsaber technological hall-b technician
+1
+45 4
+2
+0 13 4 7
+0 38 0 1
+0
+end_operator
+begin_operator
+pick-up-slot-1 rusty-lightsaber technological maintenance-tunnel scientist
+1
+44 0
+2
+0 13 5 9
+0 18 13 9
+0
+end_operator
+begin_operator
+pick-up-slot-1 rusty-lightsaber technological maintenance-tunnel technician
+1
+45 5
+2
+0 13 5 7
+0 38 0 1
+0
+end_operator
+begin_operator
+pick-up-slot-1 rusty-lightsaber technological stasis-lab scientist
+1
+44 1
+2
+0 13 6 9
+0 18 13 9
+0
+end_operator
+begin_operator
+pick-up-slot-1 space-suit technological anti-vibration-pods-room technician
+1
+45 0
+2
+0 14 0 7
+0 38 0 1
+0
+end_operator
+begin_operator
+pick-up-slot-1 space-suit technological cryo-chamber technician
+1
+45 1
+2
+0 14 1 7
+0 38 0 1
+0
+end_operator
+begin_operator
+pick-up-slot-1 space-suit technological entrance technician
+1
+45 2
+2
+0 14 2 7
+0 38 0 1
+0
+end_operator
+begin_operator
+pick-up-slot-1 space-suit technological hall-a technician
+1
+45 3
+2
+0 14 3 7
+0 38 0 1
+0
+end_operator
+begin_operator
+pick-up-slot-1 space-suit technological hall-b technician
+1
+45 4
+2
+0 14 4 7
+0 38 0 1
+0
+end_operator
+begin_operator
+pick-up-slot-1 space-suit technological maintenance-tunnel scientist
+1
+44 0
+2
+0 14 5 9
+0 18 13 10
+0
+end_operator
+begin_operator
+pick-up-slot-1 space-suit technological maintenance-tunnel technician
+1
+45 5
+2
+0 14 5 7
+0 38 0 1
+0
+end_operator
+begin_operator
+pick-up-slot-1 space-suit technological stasis-lab scientist
+1
+44 1
+2
+0 14 6 9
+0 18 13 10
+>>>>>>> main
 0
 end_operator
 begin_operator
 pick-up-slot-1 venus-rock-sample scientific anti-vibration-pods-room curator
 1
+<<<<<<< HEAD
 40 0
 2
 0 14 0 7
 0 16 11 9
+=======
+43 0
+2
+0 15 0 7
+0 17 11 9
+>>>>>>> main
 0
 end_operator
 begin_operator
 pick-up-slot-1 venus-rock-sample scientific cryo-chamber curator
 1
+<<<<<<< HEAD
 40 1
 2
 0 14 1 7
 0 16 11 9
+=======
+43 1
+2
+0 15 1 7
+0 17 11 9
+>>>>>>> main
 0
 end_operator
 begin_operator
 pick-up-slot-1 venus-rock-sample scientific entrance curator
 1
+<<<<<<< HEAD
 40 2
 2
 0 14 2 7
 0 16 11 9
+=======
+43 2
+2
+0 15 2 7
+0 17 11 9
+>>>>>>> main
 0
 end_operator
 begin_operator
 pick-up-slot-1 venus-rock-sample scientific hall-a curator
 1
+<<<<<<< HEAD
 40 3
 2
 0 14 3 7
 0 16 11 9
+=======
+43 3
+2
+0 15 3 7
+0 17 11 9
+>>>>>>> main
 0
 end_operator
 begin_operator
 pick-up-slot-1 venus-rock-sample scientific hall-b curator
 1
+<<<<<<< HEAD
 40 4
 2
 0 14 4 7
 0 16 11 9
+=======
+43 4
+2
+0 15 4 7
+0 17 11 9
+>>>>>>> main
 0
 end_operator
 begin_operator
 pick-up-slot-1 venus-rock-sample scientific maintenance-tunnel curator
 1
+<<<<<<< HEAD
 40 5
 2
 0 14 5 7
@@ -2469,2571 +4194,4984 @@ pick-up-slot-1 venus-sand-sample scientific stasis-lab scientist
 2
 0 15 6 7
 0 17 11 10
+=======
+43 5
+2
+0 15 5 7
+0 17 11 9
+0
+end_operator
+begin_operator
+pick-up-slot-1 venus-rock-sample scientific maintenance-tunnel scientist
+1
+44 0
+2
+0 15 5 7
+0 18 13 11
+0
+end_operator
+begin_operator
+pick-up-slot-1 venus-rock-sample scientific stasis-lab scientist
+1
+44 1
+2
+0 15 6 7
+0 18 13 11
+0
+end_operator
+begin_operator
+pick-up-slot-1 venus-sand-sample scientific anti-vibration-pods-room curator
+1
+43 0
+2
+0 16 0 7
+0 17 11 10
+0
+end_operator
+begin_operator
+pick-up-slot-1 venus-sand-sample scientific cryo-chamber curator
+1
+43 1
+2
+0 16 1 7
+0 17 11 10
+0
+end_operator
+begin_operator
+pick-up-slot-1 venus-sand-sample scientific entrance curator
+1
+43 2
+2
+0 16 2 7
+0 17 11 10
+0
+end_operator
+begin_operator
+pick-up-slot-1 venus-sand-sample scientific hall-a curator
+1
+43 3
+2
+0 16 3 7
+0 17 11 10
+0
+end_operator
+begin_operator
+pick-up-slot-1 venus-sand-sample scientific hall-b curator
+1
+43 4
+2
+0 16 4 7
+0 17 11 10
+0
+end_operator
+begin_operator
+pick-up-slot-1 venus-sand-sample scientific maintenance-tunnel curator
+1
+43 5
+2
+0 16 5 7
+0 17 11 10
+0
+end_operator
+begin_operator
+pick-up-slot-1 venus-sand-sample scientific maintenance-tunnel scientist
+1
+44 0
+2
+0 16 5 7
+0 18 13 12
+0
+end_operator
+begin_operator
+pick-up-slot-1 venus-sand-sample scientific stasis-lab scientist
+1
+44 1
+2
+0 16 6 7
+0 18 13 12
+0
+end_operator
+begin_operator
+pick-up-slot-2 rusty-lightsaber technological anti-vibration-pods-room technician
+1
+45 0
+2
+0 13 0 8
+0 39 0 1
+0
+end_operator
+begin_operator
+pick-up-slot-2 rusty-lightsaber technological cryo-chamber technician
+1
+45 1
+2
+0 13 1 8
+0 39 0 1
+0
+end_operator
+begin_operator
+pick-up-slot-2 rusty-lightsaber technological entrance technician
+1
+45 2
+2
+0 13 2 8
+0 39 0 1
+0
+end_operator
+begin_operator
+pick-up-slot-2 rusty-lightsaber technological hall-a technician
+1
+45 3
+2
+0 13 3 8
+0 39 0 1
+0
+end_operator
+begin_operator
+pick-up-slot-2 rusty-lightsaber technological hall-b technician
+1
+45 4
+2
+0 13 4 8
+0 39 0 1
+0
+end_operator
+begin_operator
+pick-up-slot-2 rusty-lightsaber technological maintenance-tunnel technician
+1
+45 5
+2
+0 13 5 8
+0 39 0 1
+0
+end_operator
+begin_operator
+pick-up-slot-2 space-suit technological anti-vibration-pods-room technician
+1
+45 0
+2
+0 14 0 8
+0 39 0 1
+0
+end_operator
+begin_operator
+pick-up-slot-2 space-suit technological cryo-chamber technician
+1
+45 1
+2
+0 14 1 8
+0 39 0 1
+0
+end_operator
+begin_operator
+pick-up-slot-2 space-suit technological entrance technician
+1
+45 2
+2
+0 14 2 8
+0 39 0 1
+0
+end_operator
+begin_operator
+pick-up-slot-2 space-suit technological hall-a technician
+1
+45 3
+2
+0 14 3 8
+0 39 0 1
+0
+end_operator
+begin_operator
+pick-up-slot-2 space-suit technological hall-b technician
+1
+45 4
+2
+0 14 4 8
+0 39 0 1
+0
+end_operator
+begin_operator
+pick-up-slot-2 space-suit technological maintenance-tunnel technician
+1
+45 5
+2
+0 14 5 8
+0 39 0 1
+>>>>>>> main
 0
 end_operator
 begin_operator
 put-in-pod asteroid-ad29tv-rock-sample scientific anti-vibration-pods-room curator pod1
 2
+<<<<<<< HEAD
 16 0
 40 0
 2
 0 0 0 7
 0 38 16 0
+=======
+17 0
+43 0
+2
+0 0 0 7
+0 41 17 0
+>>>>>>> main
 0
 end_operator
 begin_operator
 put-in-pod asteroid-ad29tv-rock-sample scientific anti-vibration-pods-room curator pod2
 2
+<<<<<<< HEAD
 16 1
 40 0
 2
 0 0 0 7
 0 39 16 0
+=======
+17 1
+43 0
+2
+0 0 0 7
+0 42 17 0
+>>>>>>> main
 0
 end_operator
 begin_operator
 put-in-pod asteroid-ad29tv-rock-sample scientific cryo-chamber curator pod1
 2
+<<<<<<< HEAD
 16 0
 40 1
 2
 0 0 1 7
 0 38 16 0
+=======
+17 0
+43 1
+2
+0 0 1 7
+0 41 17 0
+>>>>>>> main
 0
 end_operator
 begin_operator
 put-in-pod asteroid-ad29tv-rock-sample scientific cryo-chamber curator pod2
 2
+<<<<<<< HEAD
 16 1
 40 1
 2
 0 0 1 7
 0 39 16 0
+=======
+17 1
+43 1
+2
+0 0 1 7
+0 42 17 0
+>>>>>>> main
 0
 end_operator
 begin_operator
 put-in-pod asteroid-ad29tv-rock-sample scientific entrance curator pod1
 2
+<<<<<<< HEAD
 16 0
 40 2
 2
 0 0 2 7
 0 38 16 0
+=======
+17 0
+43 2
+2
+0 0 2 7
+0 41 17 0
+>>>>>>> main
 0
 end_operator
 begin_operator
 put-in-pod asteroid-ad29tv-rock-sample scientific entrance curator pod2
 2
+<<<<<<< HEAD
 16 1
 40 2
 2
 0 0 2 7
 0 39 16 0
+=======
+17 1
+43 2
+2
+0 0 2 7
+0 42 17 0
+>>>>>>> main
 0
 end_operator
 begin_operator
 put-in-pod asteroid-ad29tv-rock-sample scientific hall-a curator pod1
 2
+<<<<<<< HEAD
 16 0
 40 3
 2
 0 0 3 7
 0 38 16 0
+=======
+17 0
+43 3
+2
+0 0 3 7
+0 41 17 0
+>>>>>>> main
 0
 end_operator
 begin_operator
 put-in-pod asteroid-ad29tv-rock-sample scientific hall-a curator pod2
 2
+<<<<<<< HEAD
 16 1
 40 3
 2
 0 0 3 7
 0 39 16 0
+=======
+17 1
+43 3
+2
+0 0 3 7
+0 42 17 0
+>>>>>>> main
 0
 end_operator
 begin_operator
 put-in-pod asteroid-ad29tv-rock-sample scientific hall-b curator pod1
 2
+<<<<<<< HEAD
 16 0
 40 4
 2
 0 0 4 7
 0 38 16 0
+=======
+17 0
+43 4
+2
+0 0 4 7
+0 41 17 0
+>>>>>>> main
 0
 end_operator
 begin_operator
 put-in-pod asteroid-ad29tv-rock-sample scientific hall-b curator pod2
 2
+<<<<<<< HEAD
 16 1
 40 4
 2
 0 0 4 7
 0 39 16 0
+=======
+17 1
+43 4
+2
+0 0 4 7
+0 42 17 0
+>>>>>>> main
 0
 end_operator
 begin_operator
 put-in-pod asteroid-ad29tv-rock-sample scientific maintenance-tunnel curator pod1
 2
+<<<<<<< HEAD
 16 0
 40 5
 2
 0 0 5 7
 0 38 16 0
+=======
+17 0
+43 5
+2
+0 0 5 7
+0 41 17 0
+>>>>>>> main
 0
 end_operator
 begin_operator
 put-in-pod asteroid-ad29tv-rock-sample scientific maintenance-tunnel curator pod2
 2
+<<<<<<< HEAD
 16 1
 40 5
 2
 0 0 5 7
 0 39 16 0
+=======
+17 1
+43 5
+2
+0 0 5 7
+0 42 17 0
+>>>>>>> main
 0
 end_operator
 begin_operator
 put-in-pod asteroid-ad29tv-rock-sample scientific maintenance-tunnel scientist pod1
 2
+<<<<<<< HEAD
 17 0
 41 0
 2
 0 0 5 7
 0 38 16 0
+=======
+18 0
+44 0
+2
+0 0 5 7
+0 41 17 0
+>>>>>>> main
 0
 end_operator
 begin_operator
 put-in-pod asteroid-ad29tv-rock-sample scientific maintenance-tunnel scientist pod2
 2
+<<<<<<< HEAD
 17 1
 41 0
 2
 0 0 5 7
 0 39 16 0
+=======
+18 1
+44 0
+2
+0 0 5 7
+0 42 17 0
+>>>>>>> main
 0
 end_operator
 begin_operator
 put-in-pod asteroid-ad29tv-rock-sample scientific stasis-lab scientist pod1
 2
+<<<<<<< HEAD
 17 0
 41 1
 2
 0 0 6 7
 0 38 16 0
+=======
+18 0
+44 1
+2
+0 0 6 7
+0 41 17 0
+>>>>>>> main
 0
 end_operator
 begin_operator
 put-in-pod asteroid-ad29tv-rock-sample scientific stasis-lab scientist pod2
 2
+<<<<<<< HEAD
 17 1
 41 1
 2
 0 0 6 7
 0 39 16 0
+=======
+18 1
+44 1
+2
+0 0 6 7
+0 42 17 0
+>>>>>>> main
 0
 end_operator
 begin_operator
 put-in-pod asteroid-mg04tn-ice-sample scientific anti-vibration-pods-room curator pod1
 2
+<<<<<<< HEAD
 16 0
 40 0
 2
 0 1 0 7
 0 38 16 1
+=======
+17 0
+43 0
+2
+0 1 0 7
+0 41 17 1
+>>>>>>> main
 0
 end_operator
 begin_operator
 put-in-pod asteroid-mg04tn-ice-sample scientific anti-vibration-pods-room curator pod2
 2
+<<<<<<< HEAD
 16 1
 40 0
 2
 0 1 0 7
 0 39 16 1
+=======
+17 1
+43 0
+2
+0 1 0 7
+0 42 17 1
+>>>>>>> main
 0
 end_operator
 begin_operator
 put-in-pod asteroid-mg04tn-ice-sample scientific cryo-chamber curator pod1
 2
+<<<<<<< HEAD
 16 0
 40 1
 2
 0 1 1 7
 0 38 16 1
+=======
+17 0
+43 1
+2
+0 1 1 7
+0 41 17 1
+>>>>>>> main
 0
 end_operator
 begin_operator
 put-in-pod asteroid-mg04tn-ice-sample scientific cryo-chamber curator pod2
 2
+<<<<<<< HEAD
 16 1
 40 1
 2
 0 1 1 7
 0 39 16 1
+=======
+17 1
+43 1
+2
+0 1 1 7
+0 42 17 1
+>>>>>>> main
 0
 end_operator
 begin_operator
 put-in-pod asteroid-mg04tn-ice-sample scientific entrance curator pod1
 2
+<<<<<<< HEAD
 16 0
 40 2
 2
 0 1 2 7
 0 38 16 1
+=======
+17 0
+43 2
+2
+0 1 2 7
+0 41 17 1
+>>>>>>> main
 0
 end_operator
 begin_operator
 put-in-pod asteroid-mg04tn-ice-sample scientific entrance curator pod2
 2
+<<<<<<< HEAD
 16 1
 40 2
 2
 0 1 2 7
 0 39 16 1
+=======
+17 1
+43 2
+2
+0 1 2 7
+0 42 17 1
+>>>>>>> main
 0
 end_operator
 begin_operator
 put-in-pod asteroid-mg04tn-ice-sample scientific hall-a curator pod1
 2
+<<<<<<< HEAD
 16 0
 40 3
 2
 0 1 3 7
 0 38 16 1
+=======
+17 0
+43 3
+2
+0 1 3 7
+0 41 17 1
+>>>>>>> main
 0
 end_operator
 begin_operator
 put-in-pod asteroid-mg04tn-ice-sample scientific hall-a curator pod2
 2
+<<<<<<< HEAD
 16 1
 40 3
 2
 0 1 3 7
 0 39 16 1
+=======
+17 1
+43 3
+2
+0 1 3 7
+0 42 17 1
+>>>>>>> main
 0
 end_operator
 begin_operator
 put-in-pod asteroid-mg04tn-ice-sample scientific hall-b curator pod1
 2
+<<<<<<< HEAD
 16 0
 40 4
 2
 0 1 4 7
 0 38 16 1
+=======
+17 0
+43 4
+2
+0 1 4 7
+0 41 17 1
+>>>>>>> main
 0
 end_operator
 begin_operator
 put-in-pod asteroid-mg04tn-ice-sample scientific hall-b curator pod2
 2
+<<<<<<< HEAD
 16 1
 40 4
 2
 0 1 4 7
 0 39 16 1
+=======
+17 1
+43 4
+2
+0 1 4 7
+0 42 17 1
+>>>>>>> main
 0
 end_operator
 begin_operator
 put-in-pod asteroid-mg04tn-ice-sample scientific maintenance-tunnel curator pod1
 2
+<<<<<<< HEAD
 16 0
 40 5
 2
 0 1 5 7
 0 38 16 1
+=======
+17 0
+43 5
+2
+0 1 5 7
+0 41 17 1
+>>>>>>> main
 0
 end_operator
 begin_operator
 put-in-pod asteroid-mg04tn-ice-sample scientific maintenance-tunnel curator pod2
 2
+<<<<<<< HEAD
 16 1
 40 5
 2
 0 1 5 7
 0 39 16 1
+=======
+17 1
+43 5
+2
+0 1 5 7
+0 42 17 1
+>>>>>>> main
 0
 end_operator
 begin_operator
 put-in-pod asteroid-mg04tn-ice-sample scientific maintenance-tunnel scientist pod1
 2
+<<<<<<< HEAD
 17 0
 41 0
 2
 0 1 5 7
 0 38 16 1
+=======
+18 0
+44 0
+2
+0 1 5 7
+0 41 17 1
+>>>>>>> main
 0
 end_operator
 begin_operator
 put-in-pod asteroid-mg04tn-ice-sample scientific maintenance-tunnel scientist pod2
 2
+<<<<<<< HEAD
 17 1
 41 0
 2
 0 1 5 7
 0 39 16 1
+=======
+18 1
+44 0
+2
+0 1 5 7
+0 42 17 1
+>>>>>>> main
 0
 end_operator
 begin_operator
 put-in-pod asteroid-mg04tn-ice-sample scientific stasis-lab scientist pod1
 2
+<<<<<<< HEAD
 17 0
 41 1
 2
 0 1 6 7
 0 38 16 1
+=======
+18 0
+44 1
+2
+0 1 6 7
+0 41 17 1
+>>>>>>> main
 0
 end_operator
 begin_operator
 put-in-pod asteroid-mg04tn-ice-sample scientific stasis-lab scientist pod2
 2
+<<<<<<< HEAD
 17 1
 41 1
 2
 0 1 6 7
 0 39 16 1
+=======
+18 1
+44 1
+2
+0 1 6 7
+0 42 17 1
+>>>>>>> main
 0
 end_operator
 begin_operator
 put-in-pod mart-east-core-drill scientific anti-vibration-pods-room curator pod1
 2
+<<<<<<< HEAD
 16 0
 40 0
 2
 0 2 0 7
 0 38 16 2
+=======
+17 0
+43 0
+2
+0 2 0 7
+0 41 17 2
+>>>>>>> main
 0
 end_operator
 begin_operator
 put-in-pod mart-east-core-drill scientific anti-vibration-pods-room curator pod2
 2
+<<<<<<< HEAD
 16 1
 40 0
 2
 0 2 0 7
 0 39 16 2
+=======
+17 1
+43 0
+2
+0 2 0 7
+0 42 17 2
+>>>>>>> main
 0
 end_operator
 begin_operator
 put-in-pod mart-east-core-drill scientific cryo-chamber curator pod1
 2
+<<<<<<< HEAD
 16 0
 40 1
 2
 0 2 1 7
 0 38 16 2
+=======
+17 0
+43 1
+2
+0 2 1 7
+0 41 17 2
+>>>>>>> main
 0
 end_operator
 begin_operator
 put-in-pod mart-east-core-drill scientific cryo-chamber curator pod2
 2
+<<<<<<< HEAD
 16 1
 40 1
 2
 0 2 1 7
 0 39 16 2
+=======
+17 1
+43 1
+2
+0 2 1 7
+0 42 17 2
+>>>>>>> main
 0
 end_operator
 begin_operator
 put-in-pod mart-east-core-drill scientific entrance curator pod1
 2
+<<<<<<< HEAD
 16 0
 40 2
 2
 0 2 2 7
 0 38 16 2
+=======
+17 0
+43 2
+2
+0 2 2 7
+0 41 17 2
+>>>>>>> main
 0
 end_operator
 begin_operator
 put-in-pod mart-east-core-drill scientific entrance curator pod2
 2
+<<<<<<< HEAD
 16 1
 40 2
 2
 0 2 2 7
 0 39 16 2
+=======
+17 1
+43 2
+2
+0 2 2 7
+0 42 17 2
+>>>>>>> main
 0
 end_operator
 begin_operator
 put-in-pod mart-east-core-drill scientific hall-a curator pod1
 2
+<<<<<<< HEAD
 16 0
 40 3
 2
 0 2 3 7
 0 38 16 2
+=======
+17 0
+43 3
+2
+0 2 3 7
+0 41 17 2
+>>>>>>> main
 0
 end_operator
 begin_operator
 put-in-pod mart-east-core-drill scientific hall-a curator pod2
 2
+<<<<<<< HEAD
 16 1
 40 3
 2
 0 2 3 7
 0 39 16 2
+=======
+17 1
+43 3
+2
+0 2 3 7
+0 42 17 2
+>>>>>>> main
 0
 end_operator
 begin_operator
 put-in-pod mart-east-core-drill scientific hall-b curator pod1
 2
+<<<<<<< HEAD
 16 0
 40 4
 2
 0 2 4 7
 0 38 16 2
+=======
+17 0
+43 4
+2
+0 2 4 7
+0 41 17 2
+>>>>>>> main
 0
 end_operator
 begin_operator
 put-in-pod mart-east-core-drill scientific hall-b curator pod2
 2
+<<<<<<< HEAD
 16 1
 40 4
 2
 0 2 4 7
 0 39 16 2
+=======
+17 1
+43 4
+2
+0 2 4 7
+0 42 17 2
+>>>>>>> main
 0
 end_operator
 begin_operator
 put-in-pod mart-east-core-drill scientific maintenance-tunnel curator pod1
 2
+<<<<<<< HEAD
 16 0
 40 5
 2
 0 2 5 7
 0 38 16 2
+=======
+17 0
+43 5
+2
+0 2 5 7
+0 41 17 2
+>>>>>>> main
 0
 end_operator
 begin_operator
 put-in-pod mart-east-core-drill scientific maintenance-tunnel curator pod2
 2
+<<<<<<< HEAD
 16 1
 40 5
 2
 0 2 5 7
 0 39 16 2
+=======
+17 1
+43 5
+2
+0 2 5 7
+0 42 17 2
+>>>>>>> main
 0
 end_operator
 begin_operator
 put-in-pod mart-east-core-drill scientific maintenance-tunnel scientist pod1
 2
+<<<<<<< HEAD
 17 0
 41 0
 2
 0 2 5 7
 0 38 16 2
+=======
+18 0
+44 0
+2
+0 2 5 7
+0 41 17 2
+>>>>>>> main
 0
 end_operator
 begin_operator
 put-in-pod mart-east-core-drill scientific maintenance-tunnel scientist pod2
 2
+<<<<<<< HEAD
 17 1
 41 0
 2
 0 2 5 7
 0 39 16 2
+=======
+18 1
+44 0
+2
+0 2 5 7
+0 42 17 2
+>>>>>>> main
 0
 end_operator
 begin_operator
 put-in-pod mart-east-core-drill scientific stasis-lab scientist pod1
 2
+<<<<<<< HEAD
 17 0
 41 1
 2
 0 2 6 7
 0 38 16 2
+=======
+18 0
+44 1
+2
+0 2 6 7
+0 41 17 2
+>>>>>>> main
 0
 end_operator
 begin_operator
 put-in-pod mart-east-core-drill scientific stasis-lab scientist pod2
 2
+<<<<<<< HEAD
 17 1
 41 1
 2
 0 2 6 7
 0 39 16 2
+=======
+18 1
+44 1
+2
+0 2 6 7
+0 42 17 2
+>>>>>>> main
 0
 end_operator
 begin_operator
 put-in-pod mart-laser-gun top-secret anti-vibration-pods-room curator pod1
 2
+<<<<<<< HEAD
 16 0
 40 0
 2
 0 3 0 7
 0 38 16 3
+=======
+17 0
+43 0
+2
+0 3 0 7
+0 41 17 3
+>>>>>>> main
 0
 end_operator
 begin_operator
 put-in-pod mart-laser-gun top-secret anti-vibration-pods-room curator pod2
 2
+<<<<<<< HEAD
 16 1
 40 0
 2
 0 3 0 7
 0 39 16 3
+=======
+17 1
+43 0
+2
+0 3 0 7
+0 42 17 3
+>>>>>>> main
 0
 end_operator
 begin_operator
 put-in-pod mart-laser-gun top-secret cryo-chamber curator pod1
 2
+<<<<<<< HEAD
 16 0
 40 1
 2
 0 3 1 7
 0 38 16 3
+=======
+17 0
+43 1
+2
+0 3 1 7
+0 41 17 3
+>>>>>>> main
 0
 end_operator
 begin_operator
 put-in-pod mart-laser-gun top-secret cryo-chamber curator pod2
 2
+<<<<<<< HEAD
 16 1
 40 1
 2
 0 3 1 7
 0 39 16 3
+=======
+17 1
+43 1
+2
+0 3 1 7
+0 42 17 3
+>>>>>>> main
 0
 end_operator
 begin_operator
 put-in-pod mart-laser-gun top-secret entrance curator pod1
 2
+<<<<<<< HEAD
 16 0
 40 2
 2
 0 3 2 7
 0 38 16 3
+=======
+17 0
+43 2
+2
+0 3 2 7
+0 41 17 3
+>>>>>>> main
 0
 end_operator
 begin_operator
 put-in-pod mart-laser-gun top-secret entrance curator pod2
 2
+<<<<<<< HEAD
 16 1
 40 2
 2
 0 3 2 7
 0 39 16 3
+=======
+17 1
+43 2
+2
+0 3 2 7
+0 42 17 3
+>>>>>>> main
 0
 end_operator
 begin_operator
 put-in-pod mart-laser-gun top-secret hall-a curator pod1
 2
+<<<<<<< HEAD
 16 0
 40 3
 2
 0 3 3 7
 0 38 16 3
+=======
+17 0
+43 3
+2
+0 3 3 7
+0 41 17 3
+>>>>>>> main
 0
 end_operator
 begin_operator
 put-in-pod mart-laser-gun top-secret hall-a curator pod2
 2
+<<<<<<< HEAD
 16 1
 40 3
 2
 0 3 3 7
 0 39 16 3
+=======
+17 1
+43 3
+2
+0 3 3 7
+0 42 17 3
+>>>>>>> main
 0
 end_operator
 begin_operator
 put-in-pod mart-laser-gun top-secret hall-b curator pod1
 2
+<<<<<<< HEAD
 16 0
 40 4
 2
 0 3 4 7
 0 38 16 3
+=======
+17 0
+43 4
+2
+0 3 4 7
+0 41 17 3
+>>>>>>> main
 0
 end_operator
 begin_operator
 put-in-pod mart-laser-gun top-secret hall-b curator pod2
 2
+<<<<<<< HEAD
 16 1
 40 4
 2
 0 3 4 7
 0 39 16 3
+=======
+17 1
+43 4
+2
+0 3 4 7
+0 42 17 3
+>>>>>>> main
 0
 end_operator
 begin_operator
 put-in-pod mart-laser-gun top-secret maintenance-tunnel curator pod1
 2
+<<<<<<< HEAD
 16 0
 40 5
 2
 0 3 5 7
 0 38 16 3
+=======
+17 0
+43 5
+2
+0 3 5 7
+0 41 17 3
+>>>>>>> main
 0
 end_operator
 begin_operator
 put-in-pod mart-laser-gun top-secret maintenance-tunnel curator pod2
 2
+<<<<<<< HEAD
 16 1
 40 5
 2
 0 3 5 7
 0 39 16 3
+=======
+17 1
+43 5
+2
+0 3 5 7
+0 42 17 3
+>>>>>>> main
 0
 end_operator
 begin_operator
 put-in-pod mart-laser-gun top-secret maintenance-tunnel scientist pod1
 2
+<<<<<<< HEAD
 17 0
 41 0
 2
 0 3 5 7
 0 38 16 3
+=======
+18 0
+44 0
+2
+0 3 5 7
+0 41 17 3
+>>>>>>> main
 0
 end_operator
 begin_operator
 put-in-pod mart-laser-gun top-secret maintenance-tunnel scientist pod2
 2
+<<<<<<< HEAD
 17 1
 41 0
 2
 0 3 5 7
 0 39 16 3
+=======
+18 1
+44 0
+2
+0 3 5 7
+0 42 17 3
+>>>>>>> main
 0
 end_operator
 begin_operator
 put-in-pod mart-laser-gun top-secret stasis-lab scientist pod1
 2
+<<<<<<< HEAD
 17 0
 41 1
 2
 0 3 6 7
 0 38 16 3
+=======
+18 0
+44 1
+2
+0 3 6 7
+0 41 17 3
+>>>>>>> main
 0
 end_operator
 begin_operator
 put-in-pod mart-laser-gun top-secret stasis-lab scientist pod2
 2
+<<<<<<< HEAD
 17 1
 41 1
 2
 0 3 6 7
 0 39 16 3
+=======
+18 1
+44 1
+2
+0 3 6 7
+0 42 17 3
+>>>>>>> main
 0
 end_operator
 begin_operator
 put-in-pod mart-mysterious-egg top-secret anti-vibration-pods-room curator pod1
 2
+<<<<<<< HEAD
 16 0
 40 0
 2
 0 4 0 7
 0 38 16 4
+=======
+17 0
+43 0
+2
+0 4 0 7
+0 41 17 4
+>>>>>>> main
 0
 end_operator
 begin_operator
 put-in-pod mart-mysterious-egg top-secret anti-vibration-pods-room curator pod2
 2
+<<<<<<< HEAD
 16 1
 40 0
 2
 0 4 0 7
 0 39 16 4
+=======
+17 1
+43 0
+2
+0 4 0 7
+0 42 17 4
+>>>>>>> main
 0
 end_operator
 begin_operator
 put-in-pod mart-mysterious-egg top-secret cryo-chamber curator pod1
 2
+<<<<<<< HEAD
 16 0
 40 1
 2
 0 4 1 7
 0 38 16 4
+=======
+17 0
+43 1
+2
+0 4 1 7
+0 41 17 4
+>>>>>>> main
 0
 end_operator
 begin_operator
 put-in-pod mart-mysterious-egg top-secret cryo-chamber curator pod2
 2
+<<<<<<< HEAD
 16 1
 40 1
 2
 0 4 1 7
 0 39 16 4
+=======
+17 1
+43 1
+2
+0 4 1 7
+0 42 17 4
+>>>>>>> main
 0
 end_operator
 begin_operator
 put-in-pod mart-mysterious-egg top-secret entrance curator pod1
 2
+<<<<<<< HEAD
 16 0
 40 2
 2
 0 4 2 7
 0 38 16 4
+=======
+17 0
+43 2
+2
+0 4 2 7
+0 41 17 4
+>>>>>>> main
 0
 end_operator
 begin_operator
 put-in-pod mart-mysterious-egg top-secret entrance curator pod2
 2
+<<<<<<< HEAD
 16 1
 40 2
 2
 0 4 2 7
 0 39 16 4
+=======
+17 1
+43 2
+2
+0 4 2 7
+0 42 17 4
+>>>>>>> main
 0
 end_operator
 begin_operator
 put-in-pod mart-mysterious-egg top-secret hall-a curator pod1
 2
+<<<<<<< HEAD
 16 0
 40 3
 2
 0 4 3 7
 0 38 16 4
+=======
+17 0
+43 3
+2
+0 4 3 7
+0 41 17 4
+>>>>>>> main
 0
 end_operator
 begin_operator
 put-in-pod mart-mysterious-egg top-secret hall-a curator pod2
 2
+<<<<<<< HEAD
 16 1
 40 3
 2
 0 4 3 7
 0 39 16 4
+=======
+17 1
+43 3
+2
+0 4 3 7
+0 42 17 4
+>>>>>>> main
 0
 end_operator
 begin_operator
 put-in-pod mart-mysterious-egg top-secret hall-b curator pod1
 2
+<<<<<<< HEAD
 16 0
 40 4
 2
 0 4 4 7
 0 38 16 4
+=======
+17 0
+43 4
+2
+0 4 4 7
+0 41 17 4
+>>>>>>> main
 0
 end_operator
 begin_operator
 put-in-pod mart-mysterious-egg top-secret hall-b curator pod2
 2
+<<<<<<< HEAD
 16 1
 40 4
 2
 0 4 4 7
 0 39 16 4
+=======
+17 1
+43 4
+2
+0 4 4 7
+0 42 17 4
+>>>>>>> main
 0
 end_operator
 begin_operator
 put-in-pod mart-mysterious-egg top-secret maintenance-tunnel curator pod1
 2
+<<<<<<< HEAD
 16 0
 40 5
 2
 0 4 5 7
 0 38 16 4
+=======
+17 0
+43 5
+2
+0 4 5 7
+0 41 17 4
+>>>>>>> main
 0
 end_operator
 begin_operator
 put-in-pod mart-mysterious-egg top-secret maintenance-tunnel curator pod2
 2
+<<<<<<< HEAD
 16 1
 40 5
 2
 0 4 5 7
 0 39 16 4
+=======
+17 1
+43 5
+2
+0 4 5 7
+0 42 17 4
+>>>>>>> main
 0
 end_operator
 begin_operator
 put-in-pod mart-mysterious-egg top-secret maintenance-tunnel scientist pod1
 2
+<<<<<<< HEAD
 17 0
 41 0
 2
 0 4 5 7
 0 38 16 4
+=======
+18 0
+44 0
+2
+0 4 5 7
+0 41 17 4
+>>>>>>> main
 0
 end_operator
 begin_operator
 put-in-pod mart-mysterious-egg top-secret maintenance-tunnel scientist pod2
 2
+<<<<<<< HEAD
 17 1
 41 0
 2
 0 4 5 7
 0 39 16 4
+=======
+18 1
+44 0
+2
+0 4 5 7
+0 42 17 4
+>>>>>>> main
 0
 end_operator
 begin_operator
 put-in-pod mart-mysterious-egg top-secret stasis-lab scientist pod1
 2
+<<<<<<< HEAD
 17 0
 41 1
 2
 0 4 6 7
 0 38 16 4
+=======
+18 0
+44 1
+2
+0 4 6 7
+0 41 17 4
+>>>>>>> main
 0
 end_operator
 begin_operator
 put-in-pod mart-mysterious-egg top-secret stasis-lab scientist pod2
 2
+<<<<<<< HEAD
 17 1
 41 1
 2
 0 4 6 7
 0 39 16 4
+=======
+18 1
+44 1
+2
+0 4 6 7
+0 42 17 4
+>>>>>>> main
 0
 end_operator
 begin_operator
 put-in-pod mart-nord-core-drill scientific anti-vibration-pods-room curator pod1
 2
+<<<<<<< HEAD
 16 0
 40 0
 2
 0 5 0 7
 0 38 16 5
+=======
+17 0
+43 0
+2
+0 5 0 7
+0 41 17 5
+>>>>>>> main
 0
 end_operator
 begin_operator
 put-in-pod mart-nord-core-drill scientific anti-vibration-pods-room curator pod2
 2
+<<<<<<< HEAD
 16 1
 40 0
 2
 0 5 0 7
 0 39 16 5
+=======
+17 1
+43 0
+2
+0 5 0 7
+0 42 17 5
+>>>>>>> main
 0
 end_operator
 begin_operator
 put-in-pod mart-nord-core-drill scientific cryo-chamber curator pod1
 2
+<<<<<<< HEAD
 16 0
 40 1
 2
 0 5 1 7
 0 38 16 5
+=======
+17 0
+43 1
+2
+0 5 1 7
+0 41 17 5
+>>>>>>> main
 0
 end_operator
 begin_operator
 put-in-pod mart-nord-core-drill scientific cryo-chamber curator pod2
 2
+<<<<<<< HEAD
 16 1
 40 1
 2
 0 5 1 7
 0 39 16 5
+=======
+17 1
+43 1
+2
+0 5 1 7
+0 42 17 5
+>>>>>>> main
 0
 end_operator
 begin_operator
 put-in-pod mart-nord-core-drill scientific entrance curator pod1
 2
+<<<<<<< HEAD
 16 0
 40 2
 2
 0 5 2 7
 0 38 16 5
+=======
+17 0
+43 2
+2
+0 5 2 7
+0 41 17 5
+>>>>>>> main
 0
 end_operator
 begin_operator
 put-in-pod mart-nord-core-drill scientific entrance curator pod2
 2
+<<<<<<< HEAD
 16 1
 40 2
 2
 0 5 2 7
 0 39 16 5
+=======
+17 1
+43 2
+2
+0 5 2 7
+0 42 17 5
+>>>>>>> main
 0
 end_operator
 begin_operator
 put-in-pod mart-nord-core-drill scientific hall-a curator pod1
 2
+<<<<<<< HEAD
 16 0
 40 3
 2
 0 5 3 7
 0 38 16 5
+=======
+17 0
+43 3
+2
+0 5 3 7
+0 41 17 5
+>>>>>>> main
 0
 end_operator
 begin_operator
 put-in-pod mart-nord-core-drill scientific hall-a curator pod2
 2
+<<<<<<< HEAD
 16 1
 40 3
 2
 0 5 3 7
 0 39 16 5
+=======
+17 1
+43 3
+2
+0 5 3 7
+0 42 17 5
+>>>>>>> main
 0
 end_operator
 begin_operator
 put-in-pod mart-nord-core-drill scientific hall-b curator pod1
 2
+<<<<<<< HEAD
 16 0
 40 4
 2
 0 5 4 7
 0 38 16 5
+=======
+17 0
+43 4
+2
+0 5 4 7
+0 41 17 5
+>>>>>>> main
 0
 end_operator
 begin_operator
 put-in-pod mart-nord-core-drill scientific hall-b curator pod2
 2
+<<<<<<< HEAD
 16 1
 40 4
 2
 0 5 4 7
 0 39 16 5
+=======
+17 1
+43 4
+2
+0 5 4 7
+0 42 17 5
+>>>>>>> main
 0
 end_operator
 begin_operator
 put-in-pod mart-nord-core-drill scientific maintenance-tunnel curator pod1
 2
+<<<<<<< HEAD
 16 0
 40 5
 2
 0 5 5 7
 0 38 16 5
+=======
+17 0
+43 5
+2
+0 5 5 7
+0 41 17 5
+>>>>>>> main
 0
 end_operator
 begin_operator
 put-in-pod mart-nord-core-drill scientific maintenance-tunnel curator pod2
 2
+<<<<<<< HEAD
 16 1
 40 5
 2
 0 5 5 7
 0 39 16 5
+=======
+17 1
+43 5
+2
+0 5 5 7
+0 42 17 5
+>>>>>>> main
 0
 end_operator
 begin_operator
 put-in-pod mart-nord-core-drill scientific maintenance-tunnel scientist pod1
 2
+<<<<<<< HEAD
 17 0
 41 0
 2
 0 5 5 7
 0 38 16 5
+=======
+18 0
+44 0
+2
+0 5 5 7
+0 41 17 5
+>>>>>>> main
 0
 end_operator
 begin_operator
 put-in-pod mart-nord-core-drill scientific maintenance-tunnel scientist pod2
 2
+<<<<<<< HEAD
 17 1
 41 0
 2
 0 5 5 7
 0 39 16 5
+=======
+18 1
+44 0
+2
+0 5 5 7
+0 42 17 5
+>>>>>>> main
 0
 end_operator
 begin_operator
 put-in-pod mart-nord-core-drill scientific stasis-lab scientist pod1
 2
+<<<<<<< HEAD
 17 0
 41 1
 2
 0 5 6 7
 0 38 16 5
+=======
+18 0
+44 1
+2
+0 5 6 7
+0 41 17 5
+>>>>>>> main
 0
 end_operator
 begin_operator
 put-in-pod mart-nord-core-drill scientific stasis-lab scientist pod2
 2
+<<<<<<< HEAD
 17 1
 41 1
 2
 0 5 6 7
 0 39 16 5
+=======
+18 1
+44 1
+2
+0 5 6 7
+0 42 17 5
+>>>>>>> main
 0
 end_operator
 begin_operator
 put-in-pod mart-north-pole-ice-sample scientific anti-vibration-pods-room curator pod1
 2
+<<<<<<< HEAD
 16 0
 40 0
 2
 0 6 0 7
 0 38 16 6
+=======
+17 0
+43 0
+2
+0 6 0 7
+0 41 17 6
+>>>>>>> main
 0
 end_operator
 begin_operator
 put-in-pod mart-north-pole-ice-sample scientific anti-vibration-pods-room curator pod2
 2
+<<<<<<< HEAD
 16 1
 40 0
 2
 0 6 0 7
 0 39 16 6
+=======
+17 1
+43 0
+2
+0 6 0 7
+0 42 17 6
+>>>>>>> main
 0
 end_operator
 begin_operator
 put-in-pod mart-north-pole-ice-sample scientific cryo-chamber curator pod1
 2
+<<<<<<< HEAD
 16 0
 40 1
 2
 0 6 1 7
 0 38 16 6
+=======
+17 0
+43 1
+2
+0 6 1 7
+0 41 17 6
+>>>>>>> main
 0
 end_operator
 begin_operator
 put-in-pod mart-north-pole-ice-sample scientific cryo-chamber curator pod2
 2
+<<<<<<< HEAD
 16 1
 40 1
 2
 0 6 1 7
 0 39 16 6
+=======
+17 1
+43 1
+2
+0 6 1 7
+0 42 17 6
+>>>>>>> main
 0
 end_operator
 begin_operator
 put-in-pod mart-north-pole-ice-sample scientific entrance curator pod1
 2
+<<<<<<< HEAD
 16 0
 40 2
 2
 0 6 2 7
 0 38 16 6
+=======
+17 0
+43 2
+2
+0 6 2 7
+0 41 17 6
+>>>>>>> main
 0
 end_operator
 begin_operator
 put-in-pod mart-north-pole-ice-sample scientific entrance curator pod2
 2
+<<<<<<< HEAD
 16 1
 40 2
 2
 0 6 2 7
 0 39 16 6
+=======
+17 1
+43 2
+2
+0 6 2 7
+0 42 17 6
+>>>>>>> main
 0
 end_operator
 begin_operator
 put-in-pod mart-north-pole-ice-sample scientific hall-a curator pod1
 2
+<<<<<<< HEAD
 16 0
 40 3
 2
 0 6 3 7
 0 38 16 6
+=======
+17 0
+43 3
+2
+0 6 3 7
+0 41 17 6
+>>>>>>> main
 0
 end_operator
 begin_operator
 put-in-pod mart-north-pole-ice-sample scientific hall-a curator pod2
 2
+<<<<<<< HEAD
 16 1
 40 3
 2
 0 6 3 7
 0 39 16 6
+=======
+17 1
+43 3
+2
+0 6 3 7
+0 42 17 6
+>>>>>>> main
 0
 end_operator
 begin_operator
 put-in-pod mart-north-pole-ice-sample scientific hall-b curator pod1
 2
+<<<<<<< HEAD
 16 0
 40 4
 2
 0 6 4 7
 0 38 16 6
+=======
+17 0
+43 4
+2
+0 6 4 7
+0 41 17 6
+>>>>>>> main
 0
 end_operator
 begin_operator
 put-in-pod mart-north-pole-ice-sample scientific hall-b curator pod2
 2
+<<<<<<< HEAD
 16 1
 40 4
 2
 0 6 4 7
 0 39 16 6
+=======
+17 1
+43 4
+2
+0 6 4 7
+0 42 17 6
+>>>>>>> main
 0
 end_operator
 begin_operator
 put-in-pod mart-north-pole-ice-sample scientific maintenance-tunnel curator pod1
 2
+<<<<<<< HEAD
 16 0
 40 5
 2
 0 6 5 7
 0 38 16 6
+=======
+17 0
+43 5
+2
+0 6 5 7
+0 41 17 6
+>>>>>>> main
 0
 end_operator
 begin_operator
 put-in-pod mart-north-pole-ice-sample scientific maintenance-tunnel curator pod2
 2
+<<<<<<< HEAD
 16 1
 40 5
 2
 0 6 5 7
 0 39 16 6
+=======
+17 1
+43 5
+2
+0 6 5 7
+0 42 17 6
+>>>>>>> main
 0
 end_operator
 begin_operator
 put-in-pod mart-north-pole-ice-sample scientific maintenance-tunnel scientist pod1
 2
+<<<<<<< HEAD
 17 0
 41 0
 2
 0 6 5 7
 0 38 16 6
+=======
+18 0
+44 0
+2
+0 6 5 7
+0 41 17 6
+>>>>>>> main
 0
 end_operator
 begin_operator
 put-in-pod mart-north-pole-ice-sample scientific maintenance-tunnel scientist pod2
 2
+<<<<<<< HEAD
 17 1
 41 0
 2
 0 6 5 7
 0 39 16 6
+=======
+18 1
+44 0
+2
+0 6 5 7
+0 42 17 6
+>>>>>>> main
 0
 end_operator
 begin_operator
 put-in-pod mart-north-pole-ice-sample scientific stasis-lab scientist pod1
 2
+<<<<<<< HEAD
 17 0
 41 1
 2
 0 6 6 7
 0 38 16 6
+=======
+18 0
+44 1
+2
+0 6 6 7
+0 41 17 6
+>>>>>>> main
 0
 end_operator
 begin_operator
 put-in-pod mart-north-pole-ice-sample scientific stasis-lab scientist pod2
 2
+<<<<<<< HEAD
 17 1
 41 1
 2
 0 6 6 7
 0 39 16 6
+=======
+18 1
+44 1
+2
+0 6 6 7
+0 42 17 6
+>>>>>>> main
 0
 end_operator
 begin_operator
 put-in-pod mart-pink-hat top-secret anti-vibration-pods-room curator pod1
 2
+<<<<<<< HEAD
 16 0
 40 0
 2
 0 7 0 7
 0 38 16 7
+=======
+17 0
+43 0
+2
+0 7 0 7
+0 41 17 7
+>>>>>>> main
 0
 end_operator
 begin_operator
 put-in-pod mart-pink-hat top-secret anti-vibration-pods-room curator pod2
 2
+<<<<<<< HEAD
 16 1
 40 0
 2
 0 7 0 7
 0 39 16 7
+=======
+17 1
+43 0
+2
+0 7 0 7
+0 42 17 7
+>>>>>>> main
 0
 end_operator
 begin_operator
 put-in-pod mart-pink-hat top-secret cryo-chamber curator pod1
 2
+<<<<<<< HEAD
 16 0
 40 1
 2
 0 7 1 7
 0 38 16 7
+=======
+17 0
+43 1
+2
+0 7 1 7
+0 41 17 7
+>>>>>>> main
 0
 end_operator
 begin_operator
 put-in-pod mart-pink-hat top-secret cryo-chamber curator pod2
 2
+<<<<<<< HEAD
 16 1
 40 1
 2
 0 7 1 7
 0 39 16 7
+=======
+17 1
+43 1
+2
+0 7 1 7
+0 42 17 7
+>>>>>>> main
 0
 end_operator
 begin_operator
 put-in-pod mart-pink-hat top-secret entrance curator pod1
 2
+<<<<<<< HEAD
 16 0
 40 2
 2
 0 7 2 7
 0 38 16 7
+=======
+17 0
+43 2
+2
+0 7 2 7
+0 41 17 7
+>>>>>>> main
 0
 end_operator
 begin_operator
 put-in-pod mart-pink-hat top-secret entrance curator pod2
 2
+<<<<<<< HEAD
 16 1
 40 2
 2
 0 7 2 7
 0 39 16 7
+=======
+17 1
+43 2
+2
+0 7 2 7
+0 42 17 7
+>>>>>>> main
 0
 end_operator
 begin_operator
 put-in-pod mart-pink-hat top-secret hall-a curator pod1
 2
+<<<<<<< HEAD
 16 0
 40 3
 2
 0 7 3 7
 0 38 16 7
+=======
+17 0
+43 3
+2
+0 7 3 7
+0 41 17 7
+>>>>>>> main
 0
 end_operator
 begin_operator
 put-in-pod mart-pink-hat top-secret hall-a curator pod2
 2
+<<<<<<< HEAD
 16 1
 40 3
 2
 0 7 3 7
 0 39 16 7
+=======
+17 1
+43 3
+2
+0 7 3 7
+0 42 17 7
+>>>>>>> main
 0
 end_operator
 begin_operator
 put-in-pod mart-pink-hat top-secret hall-b curator pod1
 2
+<<<<<<< HEAD
 16 0
 40 4
 2
 0 7 4 7
 0 38 16 7
+=======
+17 0
+43 4
+2
+0 7 4 7
+0 41 17 7
+>>>>>>> main
 0
 end_operator
 begin_operator
 put-in-pod mart-pink-hat top-secret hall-b curator pod2
 2
+<<<<<<< HEAD
 16 1
 40 4
 2
 0 7 4 7
 0 39 16 7
+=======
+17 1
+43 4
+2
+0 7 4 7
+0 42 17 7
+>>>>>>> main
 0
 end_operator
 begin_operator
 put-in-pod mart-pink-hat top-secret maintenance-tunnel curator pod1
 2
+<<<<<<< HEAD
 16 0
 40 5
 2
 0 7 5 7
 0 38 16 7
+=======
+17 0
+43 5
+2
+0 7 5 7
+0 41 17 7
+>>>>>>> main
 0
 end_operator
 begin_operator
 put-in-pod mart-pink-hat top-secret maintenance-tunnel curator pod2
 2
+<<<<<<< HEAD
 16 1
 40 5
 2
 0 7 5 7
 0 39 16 7
+=======
+17 1
+43 5
+2
+0 7 5 7
+0 42 17 7
+>>>>>>> main
 0
 end_operator
 begin_operator
 put-in-pod mart-pink-hat top-secret maintenance-tunnel scientist pod1
 2
+<<<<<<< HEAD
 17 0
 41 0
 2
 0 7 5 7
 0 38 16 7
+=======
+18 0
+44 0
+2
+0 7 5 7
+0 41 17 7
+>>>>>>> main
 0
 end_operator
 begin_operator
 put-in-pod mart-pink-hat top-secret maintenance-tunnel scientist pod2
 2
+<<<<<<< HEAD
 17 1
 41 0
 2
 0 7 5 7
 0 39 16 7
+=======
+18 1
+44 0
+2
+0 7 5 7
+0 42 17 7
+>>>>>>> main
 0
 end_operator
 begin_operator
 put-in-pod mart-pink-hat top-secret stasis-lab scientist pod1
 2
+<<<<<<< HEAD
 17 0
 41 1
 2
 0 7 6 7
 0 38 16 7
+=======
+18 0
+44 1
+2
+0 7 6 7
+0 41 17 7
+>>>>>>> main
 0
 end_operator
 begin_operator
 put-in-pod mart-pink-hat top-secret stasis-lab scientist pod2
 2
+<<<<<<< HEAD
 17 1
 41 1
 2
 0 7 6 7
 0 39 16 7
+=======
+18 1
+44 1
+2
+0 7 6 7
+0 42 17 7
+>>>>>>> main
 0
 end_operator
 begin_operator
 put-in-pod mart-sand-sample scientific anti-vibration-pods-room curator pod1
 2
+<<<<<<< HEAD
 16 0
 40 0
 2
 0 8 0 7
 0 38 16 8
+=======
+17 0
+43 0
+2
+0 8 0 7
+0 41 17 8
+>>>>>>> main
 0
 end_operator
 begin_operator
 put-in-pod mart-sand-sample scientific anti-vibration-pods-room curator pod2
 2
+<<<<<<< HEAD
 16 1
 40 0
 2
 0 8 0 7
 0 39 16 8
+=======
+17 1
+43 0
+2
+0 8 0 7
+0 42 17 8
+>>>>>>> main
 0
 end_operator
 begin_operator
 put-in-pod mart-sand-sample scientific cryo-chamber curator pod1
 2
+<<<<<<< HEAD
 16 0
 40 1
 2
 0 8 1 7
 0 38 16 8
+=======
+17 0
+43 1
+2
+0 8 1 7
+0 41 17 8
+>>>>>>> main
 0
 end_operator
 begin_operator
 put-in-pod mart-sand-sample scientific cryo-chamber curator pod2
 2
+<<<<<<< HEAD
 16 1
 40 1
 2
 0 8 1 7
 0 39 16 8
+=======
+17 1
+43 1
+2
+0 8 1 7
+0 42 17 8
+>>>>>>> main
 0
 end_operator
 begin_operator
 put-in-pod mart-sand-sample scientific entrance curator pod1
 2
+<<<<<<< HEAD
 16 0
 40 2
 2
 0 8 2 7
 0 38 16 8
+=======
+17 0
+43 2
+2
+0 8 2 7
+0 41 17 8
+>>>>>>> main
 0
 end_operator
 begin_operator
 put-in-pod mart-sand-sample scientific entrance curator pod2
 2
+<<<<<<< HEAD
 16 1
 40 2
 2
 0 8 2 7
 0 39 16 8
+=======
+17 1
+43 2
+2
+0 8 2 7
+0 42 17 8
+>>>>>>> main
 0
 end_operator
 begin_operator
 put-in-pod mart-sand-sample scientific hall-a curator pod1
 2
+<<<<<<< HEAD
 16 0
 40 3
 2
 0 8 3 7
 0 38 16 8
+=======
+17 0
+43 3
+2
+0 8 3 7
+0 41 17 8
+>>>>>>> main
 0
 end_operator
 begin_operator
 put-in-pod mart-sand-sample scientific hall-a curator pod2
 2
+<<<<<<< HEAD
 16 1
 40 3
 2
 0 8 3 7
 0 39 16 8
+=======
+17 1
+43 3
+2
+0 8 3 7
+0 42 17 8
+>>>>>>> main
 0
 end_operator
 begin_operator
 put-in-pod mart-sand-sample scientific hall-b curator pod1
 2
+<<<<<<< HEAD
 16 0
 40 4
 2
 0 8 4 7
 0 38 16 8
+=======
+17 0
+43 4
+2
+0 8 4 7
+0 41 17 8
+>>>>>>> main
 0
 end_operator
 begin_operator
 put-in-pod mart-sand-sample scientific hall-b curator pod2
 2
+<<<<<<< HEAD
 16 1
 40 4
 2
 0 8 4 7
 0 39 16 8
+=======
+17 1
+43 4
+2
+0 8 4 7
+0 42 17 8
+>>>>>>> main
 0
 end_operator
 begin_operator
 put-in-pod mart-sand-sample scientific maintenance-tunnel curator pod1
 2
+<<<<<<< HEAD
 16 0
 40 5
 2
 0 8 5 7
 0 38 16 8
+=======
+17 0
+43 5
+2
+0 8 5 7
+0 41 17 8
+>>>>>>> main
 0
 end_operator
 begin_operator
 put-in-pod mart-sand-sample scientific maintenance-tunnel curator pod2
 2
+<<<<<<< HEAD
 16 1
 40 5
 2
 0 8 5 7
 0 39 16 8
+=======
+17 1
+43 5
+2
+0 8 5 7
+0 42 17 8
+>>>>>>> main
 0
 end_operator
 begin_operator
 put-in-pod mart-sand-sample scientific maintenance-tunnel scientist pod1
 2
+<<<<<<< HEAD
 17 0
 41 0
 2
 0 8 5 7
 0 38 16 8
+=======
+18 0
+44 0
+2
+0 8 5 7
+0 41 17 8
+>>>>>>> main
 0
 end_operator
 begin_operator
 put-in-pod mart-sand-sample scientific maintenance-tunnel scientist pod2
 2
+<<<<<<< HEAD
 17 1
 41 0
 2
 0 8 5 7
 0 39 16 8
+=======
+18 1
+44 0
+2
+0 8 5 7
+0 42 17 8
+>>>>>>> main
 0
 end_operator
 begin_operator
 put-in-pod mart-sand-sample scientific stasis-lab scientist pod1
 2
+<<<<<<< HEAD
 17 0
 41 1
 2
 0 8 6 7
 0 38 16 8
+=======
+18 0
+44 1
+2
+0 8 6 7
+0 41 17 8
+>>>>>>> main
 0
 end_operator
 begin_operator
 put-in-pod mart-sand-sample scientific stasis-lab scientist pod2
 2
+<<<<<<< HEAD
 17 1
 41 1
 2
 0 8 6 7
 0 39 16 8
+=======
+18 1
+44 1
+2
+0 8 6 7
+0 42 17 8
+>>>>>>> main
 0
 end_operator
 begin_operator
 put-in-pod mart-sud-core-drill scientific anti-vibration-pods-room curator pod1
 2
+<<<<<<< HEAD
 16 0
 40 0
 2
 0 9 0 7
 0 38 16 9
+=======
+17 0
+43 0
+2
+0 9 0 7
+0 41 17 9
+>>>>>>> main
 0
 end_operator
 begin_operator
 put-in-pod mart-sud-core-drill scientific anti-vibration-pods-room curator pod2
 2
+<<<<<<< HEAD
 16 1
 40 0
 2
 0 9 0 7
 0 39 16 9
+=======
+17 1
+43 0
+2
+0 9 0 7
+0 42 17 9
+>>>>>>> main
 0
 end_operator
 begin_operator
 put-in-pod mart-sud-core-drill scientific cryo-chamber curator pod1
 2
+<<<<<<< HEAD
 16 0
 40 1
 2
 0 9 1 7
 0 38 16 9
+=======
+17 0
+43 1
+2
+0 9 1 7
+0 41 17 9
+>>>>>>> main
 0
 end_operator
 begin_operator
 put-in-pod mart-sud-core-drill scientific cryo-chamber curator pod2
 2
+<<<<<<< HEAD
 16 1
 40 1
 2
 0 9 1 7
 0 39 16 9
+=======
+17 1
+43 1
+2
+0 9 1 7
+0 42 17 9
+>>>>>>> main
 0
 end_operator
 begin_operator
 put-in-pod mart-sud-core-drill scientific entrance curator pod1
 2
+<<<<<<< HEAD
 16 0
 40 2
 2
 0 9 2 7
 0 38 16 9
+=======
+17 0
+43 2
+2
+0 9 2 7
+0 41 17 9
+>>>>>>> main
 0
 end_operator
 begin_operator
 put-in-pod mart-sud-core-drill scientific entrance curator pod2
 2
+<<<<<<< HEAD
 16 1
 40 2
 2
 0 9 2 7
 0 39 16 9
+=======
+17 1
+43 2
+2
+0 9 2 7
+0 42 17 9
+>>>>>>> main
 0
 end_operator
 begin_operator
 put-in-pod mart-sud-core-drill scientific hall-a curator pod1
 2
+<<<<<<< HEAD
 16 0
 40 3
 2
 0 9 3 7
 0 38 16 9
+=======
+17 0
+43 3
+2
+0 9 3 7
+0 41 17 9
+>>>>>>> main
 0
 end_operator
 begin_operator
 put-in-pod mart-sud-core-drill scientific hall-a curator pod2
 2
+<<<<<<< HEAD
 16 1
 40 3
 2
 0 9 3 7
 0 39 16 9
+=======
+17 1
+43 3
+2
+0 9 3 7
+0 42 17 9
+>>>>>>> main
 0
 end_operator
 begin_operator
 put-in-pod mart-sud-core-drill scientific hall-b curator pod1
 2
+<<<<<<< HEAD
 16 0
 40 4
 2
 0 9 4 7
 0 38 16 9
+=======
+17 0
+43 4
+2
+0 9 4 7
+0 41 17 9
+>>>>>>> main
 0
 end_operator
 begin_operator
 put-in-pod mart-sud-core-drill scientific hall-b curator pod2
 2
+<<<<<<< HEAD
 16 1
 40 4
 2
 0 9 4 7
 0 39 16 9
+=======
+17 1
+43 4
+2
+0 9 4 7
+0 42 17 9
+>>>>>>> main
 0
 end_operator
 begin_operator
 put-in-pod mart-sud-core-drill scientific maintenance-tunnel curator pod1
 2
+<<<<<<< HEAD
 16 0
 40 5
 2
 0 9 5 7
 0 38 16 9
+=======
+17 0
+43 5
+2
+0 9 5 7
+0 41 17 9
+>>>>>>> main
 0
 end_operator
 begin_operator
 put-in-pod mart-sud-core-drill scientific maintenance-tunnel curator pod2
 2
+<<<<<<< HEAD
 16 1
 40 5
 2
 0 9 5 7
 0 39 16 9
+=======
+17 1
+43 5
+2
+0 9 5 7
+0 42 17 9
+>>>>>>> main
 0
 end_operator
 begin_operator
 put-in-pod mart-sud-core-drill scientific maintenance-tunnel scientist pod1
 2
+<<<<<<< HEAD
 17 0
 41 0
 2
 0 9 5 7
 0 38 16 9
+=======
+18 0
+44 0
+2
+0 9 5 7
+0 41 17 9
+>>>>>>> main
 0
 end_operator
 begin_operator
 put-in-pod mart-sud-core-drill scientific maintenance-tunnel scientist pod2
 2
+<<<<<<< HEAD
 17 1
 41 0
 2
 0 9 5 7
 0 39 16 9
+=======
+18 1
+44 0
+2
+0 9 5 7
+0 42 17 9
+>>>>>>> main
 0
 end_operator
 begin_operator
 put-in-pod mart-sud-core-drill scientific stasis-lab scientist pod1
 2
+<<<<<<< HEAD
 17 0
 41 1
 2
 0 9 6 7
 0 38 16 9
+=======
+18 0
+44 1
+2
+0 9 6 7
+0 41 17 9
+>>>>>>> main
 0
 end_operator
 begin_operator
 put-in-pod mart-sud-core-drill scientific stasis-lab scientist pod2
 2
+<<<<<<< HEAD
 17 1
 41 1
 2
 0 9 6 7
 0 39 16 9
+=======
+18 1
+44 1
+2
+0 9 6 7
+0 42 17 9
+>>>>>>> main
 0
 end_operator
 begin_operator
 put-in-pod mart-west-core-drill scientific anti-vibration-pods-room curator pod1
 2
+<<<<<<< HEAD
 16 0
 40 0
 2
 0 10 0 7
 0 38 16 10
+=======
+17 0
+43 0
+2
+0 10 0 7
+0 41 17 10
+>>>>>>> main
 0
 end_operator
 begin_operator
 put-in-pod mart-west-core-drill scientific anti-vibration-pods-room curator pod2
 2
+<<<<<<< HEAD
 16 1
 40 0
 2
 0 10 0 7
 0 39 16 10
+=======
+17 1
+43 0
+2
+0 10 0 7
+0 42 17 10
+>>>>>>> main
 0
 end_operator
 begin_operator
 put-in-pod mart-west-core-drill scientific cryo-chamber curator pod1
 2
+<<<<<<< HEAD
 16 0
 40 1
 2
 0 10 1 7
 0 38 16 10
+=======
+17 0
+43 1
+2
+0 10 1 7
+0 41 17 10
+>>>>>>> main
 0
 end_operator
 begin_operator
 put-in-pod mart-west-core-drill scientific cryo-chamber curator pod2
 2
+<<<<<<< HEAD
 16 1
 40 1
 2
 0 10 1 7
 0 39 16 10
+=======
+17 1
+43 1
+2
+0 10 1 7
+0 42 17 10
+>>>>>>> main
 0
 end_operator
 begin_operator
 put-in-pod mart-west-core-drill scientific entrance curator pod1
 2
+<<<<<<< HEAD
 16 0
 40 2
 2
 0 10 2 7
 0 38 16 10
+=======
+17 0
+43 2
+2
+0 10 2 7
+0 41 17 10
+>>>>>>> main
 0
 end_operator
 begin_operator
 put-in-pod mart-west-core-drill scientific entrance curator pod2
 2
+<<<<<<< HEAD
 16 1
 40 2
 2
 0 10 2 7
 0 39 16 10
+=======
+17 1
+43 2
+2
+0 10 2 7
+0 42 17 10
+>>>>>>> main
 0
 end_operator
 begin_operator
 put-in-pod mart-west-core-drill scientific hall-a curator pod1
 2
+<<<<<<< HEAD
 16 0
 40 3
 2
 0 10 3 7
 0 38 16 10
+=======
+17 0
+43 3
+2
+0 10 3 7
+0 41 17 10
+>>>>>>> main
 0
 end_operator
 begin_operator
 put-in-pod mart-west-core-drill scientific hall-a curator pod2
 2
+<<<<<<< HEAD
 16 1
 40 3
 2
 0 10 3 7
 0 39 16 10
+=======
+17 1
+43 3
+2
+0 10 3 7
+0 42 17 10
+>>>>>>> main
 0
 end_operator
 begin_operator
 put-in-pod mart-west-core-drill scientific hall-b curator pod1
 2
+<<<<<<< HEAD
 16 0
 40 4
 2
 0 10 4 7
 0 38 16 10
+=======
+17 0
+43 4
+2
+0 10 4 7
+0 41 17 10
+>>>>>>> main
 0
 end_operator
 begin_operator
 put-in-pod mart-west-core-drill scientific hall-b curator pod2
 2
+<<<<<<< HEAD
 16 1
 40 4
 2
 0 10 4 7
 0 39 16 10
+=======
+17 1
+43 4
+2
+0 10 4 7
+0 42 17 10
+>>>>>>> main
 0
 end_operator
 begin_operator
 put-in-pod mart-west-core-drill scientific maintenance-tunnel curator pod1
 2
+<<<<<<< HEAD
 16 0
 40 5
 2
 0 10 5 7
 0 38 16 10
+=======
+17 0
+43 5
+2
+0 10 5 7
+0 41 17 10
+>>>>>>> main
 0
 end_operator
 begin_operator
 put-in-pod mart-west-core-drill scientific maintenance-tunnel curator pod2
 2
+<<<<<<< HEAD
 16 1
 40 5
 2
 0 10 5 7
 0 39 16 10
+=======
+17 1
+43 5
+2
+0 10 5 7
+0 42 17 10
+>>>>>>> main
 0
 end_operator
 begin_operator
 put-in-pod mart-west-core-drill scientific maintenance-tunnel scientist pod1
 2
+<<<<<<< HEAD
 17 0
 41 0
 2
 0 10 5 7
 0 38 16 10
+=======
+18 0
+44 0
+2
+0 10 5 7
+0 41 17 10
+>>>>>>> main
 0
 end_operator
 begin_operator
 put-in-pod mart-west-core-drill scientific maintenance-tunnel scientist pod2
 2
+<<<<<<< HEAD
 17 1
 41 0
 2
 0 10 5 7
 0 39 16 10
+=======
+18 1
+44 0
+2
+0 10 5 7
+0 42 17 10
+>>>>>>> main
 0
 end_operator
 begin_operator
 put-in-pod mart-west-core-drill scientific stasis-lab scientist pod1
 2
+<<<<<<< HEAD
 17 0
 41 1
 2
 0 10 6 7
 0 38 16 10
+=======
+18 0
+44 1
+2
+0 10 6 7
+0 41 17 10
+>>>>>>> main
 0
 end_operator
 begin_operator
 put-in-pod mart-west-core-drill scientific stasis-lab scientist pod2
 2
+<<<<<<< HEAD
 17 1
 41 1
 2
 0 10 6 7
 0 39 16 10
+=======
+18 1
+44 1
+2
+0 10 6 7
+0 42 17 10
+>>>>>>> main
 0
 end_operator
 begin_operator
 put-in-pod quantum-chip technological anti-vibration-pods-room technician pod1
 2
+<<<<<<< HEAD
 18 0
 42 0
 2
 0 11 0 7
 0 38 16 11
+=======
+19 0
+45 0
+2
+0 11 0 7
+0 41 17 11
+>>>>>>> main
 0
 end_operator
 begin_operator
 put-in-pod quantum-chip technological anti-vibration-pods-room technician pod2
 2
+<<<<<<< HEAD
 19 0
 42 0
 2
 0 11 0 7
 0 39 16 11
+=======
+20 0
+45 0
+2
+0 11 0 7
+0 42 17 11
+>>>>>>> main
 0
 end_operator
 begin_operator
 put-in-pod quantum-chip technological cryo-chamber technician pod1
 2
+<<<<<<< HEAD
 18 0
 42 1
 2
 0 11 1 7
 0 38 16 11
+=======
+19 0
+45 1
+2
+0 11 1 7
+0 41 17 11
+>>>>>>> main
 0
 end_operator
 begin_operator
 put-in-pod quantum-chip technological cryo-chamber technician pod2
 2
+<<<<<<< HEAD
 19 0
 42 1
 2
 0 11 1 7
 0 39 16 11
+=======
+20 0
+45 1
+2
+0 11 1 7
+0 42 17 11
+>>>>>>> main
 0
 end_operator
 begin_operator
 put-in-pod quantum-chip technological entrance technician pod1
 2
+<<<<<<< HEAD
 18 0
 42 2
 2
 0 11 2 7
 0 38 16 11
+=======
+19 0
+45 2
+2
+0 11 2 7
+0 41 17 11
+>>>>>>> main
 0
 end_operator
 begin_operator
 put-in-pod quantum-chip technological entrance technician pod2
 2
+<<<<<<< HEAD
 19 0
 42 2
 2
 0 11 2 7
 0 39 16 11
+=======
+20 0
+45 2
+2
+0 11 2 7
+0 42 17 11
+>>>>>>> main
 0
 end_operator
 begin_operator
 put-in-pod quantum-chip technological hall-a technician pod1
 2
+<<<<<<< HEAD
 18 0
 42 3
 2
 0 11 3 7
 0 38 16 11
+=======
+19 0
+45 3
+2
+0 11 3 7
+0 41 17 11
+>>>>>>> main
 0
 end_operator
 begin_operator
 put-in-pod quantum-chip technological hall-a technician pod2
 2
+<<<<<<< HEAD
 19 0
 42 3
 2
 0 11 3 7
 0 39 16 11
+=======
+20 0
+45 3
+2
+0 11 3 7
+0 42 17 11
+>>>>>>> main
 0
 end_operator
 begin_operator
 put-in-pod quantum-chip technological hall-b technician pod1
 2
+<<<<<<< HEAD
 18 0
 42 4
 2
 0 11 4 7
 0 38 16 11
+=======
+19 0
+45 4
+2
+0 11 4 7
+0 41 17 11
+>>>>>>> main
 0
 end_operator
 begin_operator
 put-in-pod quantum-chip technological hall-b technician pod2
 2
+<<<<<<< HEAD
 19 0
 42 4
 2
 0 11 4 7
 0 39 16 11
+=======
+20 0
+45 4
+2
+0 11 4 7
+0 42 17 11
+>>>>>>> main
 0
 end_operator
 begin_operator
 put-in-pod quantum-chip technological maintenance-tunnel scientist pod1
 2
+<<<<<<< HEAD
 17 0
 41 0
 2
 0 11 5 7
 0 38 16 11
+=======
+18 0
+44 0
+2
+0 11 5 7
+0 41 17 11
+>>>>>>> main
 0
 end_operator
 begin_operator
 put-in-pod quantum-chip technological maintenance-tunnel scientist pod2
 2
+<<<<<<< HEAD
 17 1
 41 0
 2
 0 11 5 7
 0 39 16 11
+=======
+18 1
+44 0
+2
+0 11 5 7
+0 42 17 11
+>>>>>>> main
 0
 end_operator
 begin_operator
 put-in-pod quantum-chip technological maintenance-tunnel technician pod1
 2
+<<<<<<< HEAD
 18 0
 42 5
 2
 0 11 5 7
 0 38 16 11
+=======
+19 0
+45 5
+2
+0 11 5 7
+0 41 17 11
+>>>>>>> main
 0
 end_operator
 begin_operator
 put-in-pod quantum-chip technological maintenance-tunnel technician pod2
 2
+<<<<<<< HEAD
 19 0
 42 5
 2
 0 11 5 7
 0 39 16 11
+=======
+20 0
+45 5
+2
+0 11 5 7
+0 42 17 11
+>>>>>>> main
 0
 end_operator
 begin_operator
 put-in-pod quantum-chip technological stasis-lab scientist pod1
 2
+<<<<<<< HEAD
 17 0
 41 1
 2
 0 11 6 7
 0 38 16 11
+=======
+18 0
+44 1
+2
+0 11 6 7
+0 41 17 11
+>>>>>>> main
 0
 end_operator
 begin_operator
 put-in-pod quantum-chip technological stasis-lab scientist pod2
 2
+<<<<<<< HEAD
 17 1
 41 1
 2
 0 11 6 7
 0 39 16 11
+=======
+18 1
+44 1
+2
+0 11 6 7
+0 42 17 11
+>>>>>>> main
 0
 end_operator
 begin_operator
 put-in-pod rover-wheel technological anti-vibration-pods-room technician pod1
 2
+<<<<<<< HEAD
 18 0
 42 0
 2
 0 12 0 7
 0 38 16 12
+=======
+19 0
+45 0
+2
+0 12 0 7
+0 41 17 12
+>>>>>>> main
 0
 end_operator
 begin_operator
 put-in-pod rover-wheel technological anti-vibration-pods-room technician pod2
 2
+<<<<<<< HEAD
 19 0
 42 0
 2
 0 12 0 7
 0 39 16 12
+=======
+20 0
+45 0
+2
+0 12 0 7
+0 42 17 12
+>>>>>>> main
 0
 end_operator
 begin_operator
 put-in-pod rover-wheel technological cryo-chamber technician pod1
 2
+<<<<<<< HEAD
 18 0
 42 1
 2
 0 12 1 7
 0 38 16 12
+=======
+19 0
+45 1
+2
+0 12 1 7
+0 41 17 12
+>>>>>>> main
 0
 end_operator
 begin_operator
 put-in-pod rover-wheel technological cryo-chamber technician pod2
 2
+<<<<<<< HEAD
 19 0
 42 1
 2
 0 12 1 7
 0 39 16 12
+=======
+20 0
+45 1
+2
+0 12 1 7
+0 42 17 12
+>>>>>>> main
 0
 end_operator
 begin_operator
 put-in-pod rover-wheel technological entrance technician pod1
 2
+<<<<<<< HEAD
 18 0
 42 2
 2
 0 12 2 7
 0 38 16 12
+=======
+19 0
+45 2
+2
+0 12 2 7
+0 41 17 12
+>>>>>>> main
 0
 end_operator
 begin_operator
 put-in-pod rover-wheel technological entrance technician pod2
 2
+<<<<<<< HEAD
 19 0
 42 2
 2
 0 12 2 7
 0 39 16 12
+=======
+20 0
+45 2
+2
+0 12 2 7
+0 42 17 12
+>>>>>>> main
 0
 end_operator
 begin_operator
 put-in-pod rover-wheel technological hall-a technician pod1
 2
+<<<<<<< HEAD
 18 0
 42 3
 2
 0 12 3 7
 0 38 16 12
+=======
+19 0
+45 3
+2
+0 12 3 7
+0 41 17 12
+>>>>>>> main
 0
 end_operator
 begin_operator
 put-in-pod rover-wheel technological hall-a technician pod2
 2
+<<<<<<< HEAD
 19 0
 42 3
 2
 0 12 3 7
 0 39 16 12
+=======
+20 0
+45 3
+2
+0 12 3 7
+0 42 17 12
+>>>>>>> main
 0
 end_operator
 begin_operator
 put-in-pod rover-wheel technological hall-b technician pod1
 2
+<<<<<<< HEAD
 18 0
 42 4
 2
 0 12 4 7
 0 38 16 12
+=======
+19 0
+45 4
+2
+0 12 4 7
+0 41 17 12
+>>>>>>> main
 0
 end_operator
 begin_operator
 put-in-pod rover-wheel technological hall-b technician pod2
 2
+<<<<<<< HEAD
 19 0
 42 4
 2
 0 12 4 7
 0 39 16 12
+=======
+20 0
+45 4
+2
+0 12 4 7
+0 42 17 12
+>>>>>>> main
 0
 end_operator
 begin_operator
 put-in-pod rover-wheel technological maintenance-tunnel scientist pod1
 2
+<<<<<<< HEAD
 17 0
 41 0
 2
 0 12 5 7
 0 38 16 12
+=======
+18 0
+44 0
+2
+0 12 5 7
+0 41 17 12
+>>>>>>> main
 0
 end_operator
 begin_operator
 put-in-pod rover-wheel technological maintenance-tunnel scientist pod2
 2
+<<<<<<< HEAD
 17 1
 41 0
 2
 0 12 5 7
 0 39 16 12
+=======
+18 1
+44 0
+2
+0 12 5 7
+0 42 17 12
+>>>>>>> main
 0
 end_operator
 begin_operator
 put-in-pod rover-wheel technological maintenance-tunnel technician pod1
 2
+<<<<<<< HEAD
 18 0
 42 5
 2
 0 12 5 7
 0 38 16 12
+=======
+19 0
+45 5
+2
+0 12 5 7
+0 41 17 12
+>>>>>>> main
 0
 end_operator
 begin_operator
 put-in-pod rover-wheel technological maintenance-tunnel technician pod2
 2
+<<<<<<< HEAD
 19 0
 42 5
 2
 0 12 5 7
 0 39 16 12
+=======
+20 0
+45 5
+2
+0 12 5 7
+0 42 17 12
+>>>>>>> main
 0
 end_operator
 begin_operator
 put-in-pod rover-wheel technological stasis-lab scientist pod1
 2
+<<<<<<< HEAD
 17 0
 41 1
 2
 0 12 6 7
 0 38 16 12
+=======
+18 0
+44 1
+2
+0 12 6 7
+0 41 17 12
+>>>>>>> main
 0
 end_operator
 begin_operator
 put-in-pod rover-wheel technological stasis-lab scientist pod2
 2
+<<<<<<< HEAD
 17 1
 41 1
 2
 0 12 6 7
 0 39 16 12
+=======
+18 1
+44 1
+2
+0 12 6 7
+0 42 17 12
+0
+end_operator
+begin_operator
+put-in-pod rusty-lightsaber technological anti-vibration-pods-room technician pod1
+2
+19 0
+45 0
+2
+0 13 0 9
+0 41 17 13
+0
+end_operator
+begin_operator
+put-in-pod rusty-lightsaber technological anti-vibration-pods-room technician pod2
+2
+20 0
+45 0
+2
+0 13 0 9
+0 42 17 13
+0
+end_operator
+begin_operator
+put-in-pod rusty-lightsaber technological cryo-chamber technician pod1
+2
+19 0
+45 1
+2
+0 13 1 9
+0 41 17 13
+0
+end_operator
+begin_operator
+put-in-pod rusty-lightsaber technological cryo-chamber technician pod2
+2
+20 0
+45 1
+2
+0 13 1 9
+0 42 17 13
+0
+end_operator
+begin_operator
+put-in-pod rusty-lightsaber technological entrance technician pod1
+2
+19 0
+45 2
+2
+0 13 2 9
+0 41 17 13
+0
+end_operator
+begin_operator
+put-in-pod rusty-lightsaber technological entrance technician pod2
+2
+20 0
+45 2
+2
+0 13 2 9
+0 42 17 13
+0
+end_operator
+begin_operator
+put-in-pod rusty-lightsaber technological hall-a technician pod1
+2
+19 0
+45 3
+2
+0 13 3 9
+0 41 17 13
+0
+end_operator
+begin_operator
+put-in-pod rusty-lightsaber technological hall-a technician pod2
+2
+20 0
+45 3
+2
+0 13 3 9
+0 42 17 13
+0
+end_operator
+begin_operator
+put-in-pod rusty-lightsaber technological hall-b technician pod1
+2
+19 0
+45 4
+2
+0 13 4 9
+0 41 17 13
+0
+end_operator
+begin_operator
+put-in-pod rusty-lightsaber technological hall-b technician pod2
+2
+20 0
+45 4
+2
+0 13 4 9
+0 42 17 13
+0
+end_operator
+begin_operator
+put-in-pod rusty-lightsaber technological maintenance-tunnel scientist pod1
+2
+18 0
+44 0
+2
+0 13 5 9
+0 41 17 13
+0
+end_operator
+begin_operator
+put-in-pod rusty-lightsaber technological maintenance-tunnel scientist pod2
+2
+18 1
+44 0
+2
+0 13 5 9
+0 42 17 13
+0
+end_operator
+begin_operator
+put-in-pod rusty-lightsaber technological maintenance-tunnel technician pod1
+2
+19 0
+45 5
+2
+0 13 5 9
+0 41 17 13
+0
+end_operator
+begin_operator
+put-in-pod rusty-lightsaber technological maintenance-tunnel technician pod2
+2
+20 0
+45 5
+2
+0 13 5 9
+0 42 17 13
+0
+end_operator
+begin_operator
+put-in-pod rusty-lightsaber technological stasis-lab scientist pod1
+2
+18 0
+44 1
+2
+0 13 6 9
+0 41 17 13
+0
+end_operator
+begin_operator
+put-in-pod rusty-lightsaber technological stasis-lab scientist pod2
+2
+18 1
+44 1
+2
+0 13 6 9
+0 42 17 13
+>>>>>>> main
 0
 end_operator
 begin_operator
 put-in-pod space-suit technological anti-vibration-pods-room technician pod1
 2
+<<<<<<< HEAD
 18 0
 42 0
 2
 0 13 0 7
 0 38 16 13
+=======
+19 0
+45 0
+2
+0 14 0 9
+0 41 17 14
+>>>>>>> main
 0
 end_operator
 begin_operator
 put-in-pod space-suit technological anti-vibration-pods-room technician pod2
 2
+<<<<<<< HEAD
 19 0
 42 0
 2
 0 13 0 7
 0 39 16 13
+=======
+20 0
+45 0
+2
+0 14 0 9
+0 42 17 14
+>>>>>>> main
 0
 end_operator
 begin_operator
 put-in-pod space-suit technological cryo-chamber technician pod1
 2
+<<<<<<< HEAD
 18 0
 42 1
 2
 0 13 1 7
 0 38 16 13
+=======
+19 0
+45 1
+2
+0 14 1 9
+0 41 17 14
+>>>>>>> main
 0
 end_operator
 begin_operator
 put-in-pod space-suit technological cryo-chamber technician pod2
 2
+<<<<<<< HEAD
 19 0
 42 1
 2
 0 13 1 7
 0 39 16 13
+=======
+20 0
+45 1
+2
+0 14 1 9
+0 42 17 14
+>>>>>>> main
 0
 end_operator
 begin_operator
 put-in-pod space-suit technological entrance technician pod1
 2
+<<<<<<< HEAD
 18 0
 42 2
 2
 0 13 2 7
 0 38 16 13
+=======
+19 0
+45 2
+2
+0 14 2 9
+0 41 17 14
+>>>>>>> main
 0
 end_operator
 begin_operator
 put-in-pod space-suit technological entrance technician pod2
 2
+<<<<<<< HEAD
 19 0
 42 2
 2
 0 13 2 7
 0 39 16 13
+=======
+20 0
+45 2
+2
+0 14 2 9
+0 42 17 14
+>>>>>>> main
 0
 end_operator
 begin_operator
 put-in-pod space-suit technological hall-a technician pod1
 2
+<<<<<<< HEAD
 18 0
 42 3
 2
 0 13 3 7
 0 38 16 13
+=======
+19 0
+45 3
+2
+0 14 3 9
+0 41 17 14
+>>>>>>> main
 0
 end_operator
 begin_operator
 put-in-pod space-suit technological hall-a technician pod2
 2
+<<<<<<< HEAD
 19 0
 42 3
 2
 0 13 3 7
 0 39 16 13
+=======
+20 0
+45 3
+2
+0 14 3 9
+0 42 17 14
+>>>>>>> main
 0
 end_operator
 begin_operator
 put-in-pod space-suit technological hall-b technician pod1
 2
+<<<<<<< HEAD
 18 0
 42 4
 2
 0 13 4 7
 0 38 16 13
+=======
+19 0
+45 4
+2
+0 14 4 9
+0 41 17 14
+>>>>>>> main
 0
 end_operator
 begin_operator
 put-in-pod space-suit technological hall-b technician pod2
 2
+<<<<<<< HEAD
 19 0
 42 4
 2
 0 13 4 7
 0 39 16 13
+=======
+20 0
+45 4
+2
+0 14 4 9
+0 42 17 14
+>>>>>>> main
 0
 end_operator
 begin_operator
 put-in-pod space-suit technological maintenance-tunnel scientist pod1
 2
+<<<<<<< HEAD
 17 0
 41 0
 2
 0 13 5 7
 0 38 16 13
+=======
+18 0
+44 0
+2
+0 14 5 9
+0 41 17 14
+>>>>>>> main
 0
 end_operator
 begin_operator
 put-in-pod space-suit technological maintenance-tunnel scientist pod2
 2
+<<<<<<< HEAD
 17 1
 41 0
 2
 0 13 5 7
 0 39 16 13
+=======
+18 1
+44 0
+2
+0 14 5 9
+0 42 17 14
+>>>>>>> main
 0
 end_operator
 begin_operator
 put-in-pod space-suit technological maintenance-tunnel technician pod1
 2
+<<<<<<< HEAD
 18 0
 42 5
 2
 0 13 5 7
 0 38 16 13
+=======
+19 0
+45 5
+2
+0 14 5 9
+0 41 17 14
+>>>>>>> main
 0
 end_operator
 begin_operator
 put-in-pod space-suit technological maintenance-tunnel technician pod2
 2
+<<<<<<< HEAD
 19 0
 42 5
 2
 0 13 5 7
 0 39 16 13
+=======
+20 0
+45 5
+2
+0 14 5 9
+0 42 17 14
+>>>>>>> main
 0
 end_operator
 begin_operator
 put-in-pod space-suit technological stasis-lab scientist pod1
 2
+<<<<<<< HEAD
 17 0
 41 1
 2
 0 13 6 7
 0 38 16 13
+=======
+18 0
+44 1
+2
+0 14 6 9
+0 41 17 14
+>>>>>>> main
 0
 end_operator
 begin_operator
 put-in-pod space-suit technological stasis-lab scientist pod2
 2
+<<<<<<< HEAD
 17 1
 41 1
 2
 0 13 6 7
 0 39 16 13
+=======
+18 1
+44 1
+2
+0 14 6 9
+0 42 17 14
+>>>>>>> main
 0
 end_operator
 begin_operator
 put-in-pod venus-rock-sample scientific anti-vibration-pods-room curator pod1
 2
+<<<<<<< HEAD
 16 0
 40 0
 2
 0 14 0 7
 0 38 16 14
+=======
+17 0
+43 0
+2
+0 15 0 7
+0 41 17 15
+>>>>>>> main
 0
 end_operator
 begin_operator
 put-in-pod venus-rock-sample scientific anti-vibration-pods-room curator pod2
 2
+<<<<<<< HEAD
 16 1
 40 0
 2
 0 14 0 7
 0 39 16 14
+=======
+17 1
+43 0
+2
+0 15 0 7
+0 42 17 15
+>>>>>>> main
 0
 end_operator
 begin_operator
 put-in-pod venus-rock-sample scientific cryo-chamber curator pod1
 2
+<<<<<<< HEAD
 16 0
 40 1
 2
 0 14 1 7
 0 38 16 14
+=======
+17 0
+43 1
+2
+0 15 1 7
+0 41 17 15
+>>>>>>> main
 0
 end_operator
 begin_operator
 put-in-pod venus-rock-sample scientific cryo-chamber curator pod2
 2
+<<<<<<< HEAD
 16 1
 40 1
 2
 0 14 1 7
 0 39 16 14
+=======
+17 1
+43 1
+2
+0 15 1 7
+0 42 17 15
+>>>>>>> main
 0
 end_operator
 begin_operator
 put-in-pod venus-rock-sample scientific entrance curator pod1
 2
+<<<<<<< HEAD
 16 0
 40 2
 2
 0 14 2 7
 0 38 16 14
+=======
+17 0
+43 2
+2
+0 15 2 7
+0 41 17 15
+>>>>>>> main
 0
 end_operator
 begin_operator
 put-in-pod venus-rock-sample scientific entrance curator pod2
 2
+<<<<<<< HEAD
 16 1
 40 2
 2
 0 14 2 7
 0 39 16 14
+=======
+17 1
+43 2
+2
+0 15 2 7
+0 42 17 15
+>>>>>>> main
 0
 end_operator
 begin_operator
 put-in-pod venus-rock-sample scientific hall-a curator pod1
 2
+<<<<<<< HEAD
 16 0
 40 3
 2
 0 14 3 7
 0 38 16 14
+=======
+17 0
+43 3
+2
+0 15 3 7
+0 41 17 15
+>>>>>>> main
 0
 end_operator
 begin_operator
 put-in-pod venus-rock-sample scientific hall-a curator pod2
 2
+<<<<<<< HEAD
 16 1
 40 3
 2
 0 14 3 7
 0 39 16 14
+=======
+17 1
+43 3
+2
+0 15 3 7
+0 42 17 15
+>>>>>>> main
 0
 end_operator
 begin_operator
 put-in-pod venus-rock-sample scientific hall-b curator pod1
 2
+<<<<<<< HEAD
 16 0
 40 4
 2
 0 14 4 7
 0 38 16 14
+=======
+17 0
+43 4
+2
+0 15 4 7
+0 41 17 15
+>>>>>>> main
 0
 end_operator
 begin_operator
 put-in-pod venus-rock-sample scientific hall-b curator pod2
 2
+<<<<<<< HEAD
 16 1
 40 4
 2
 0 14 4 7
 0 39 16 14
+=======
+17 1
+43 4
+2
+0 15 4 7
+0 42 17 15
+>>>>>>> main
 0
 end_operator
 begin_operator
 put-in-pod venus-rock-sample scientific maintenance-tunnel curator pod1
 2
+<<<<<<< HEAD
 16 0
 40 5
 2
 0 14 5 7
 0 38 16 14
+=======
+17 0
+43 5
+2
+0 15 5 7
+0 41 17 15
+>>>>>>> main
 0
 end_operator
 begin_operator
 put-in-pod venus-rock-sample scientific maintenance-tunnel curator pod2
 2
+<<<<<<< HEAD
 16 1
 40 5
 2
 0 14 5 7
 0 39 16 14
+=======
+17 1
+43 5
+2
+0 15 5 7
+0 42 17 15
+>>>>>>> main
 0
 end_operator
 begin_operator
 put-in-pod venus-rock-sample scientific maintenance-tunnel scientist pod1
 2
+<<<<<<< HEAD
 17 0
 41 0
 2
 0 14 5 7
 0 38 16 14
+=======
+18 0
+44 0
+2
+0 15 5 7
+0 41 17 15
+>>>>>>> main
 0
 end_operator
 begin_operator
 put-in-pod venus-rock-sample scientific maintenance-tunnel scientist pod2
 2
+<<<<<<< HEAD
 17 1
 41 0
 2
 0 14 5 7
 0 39 16 14
+=======
+18 1
+44 0
+2
+0 15 5 7
+0 42 17 15
+>>>>>>> main
 0
 end_operator
 begin_operator
 put-in-pod venus-rock-sample scientific stasis-lab scientist pod1
 2
+<<<<<<< HEAD
 17 0
 41 1
 2
 0 14 6 7
 0 38 16 14
+=======
+18 0
+44 1
+2
+0 15 6 7
+0 41 17 15
+>>>>>>> main
 0
 end_operator
 begin_operator
 put-in-pod venus-rock-sample scientific stasis-lab scientist pod2
 2
+<<<<<<< HEAD
 17 1
 41 1
 2
 0 14 6 7
 0 39 16 14
+=======
+18 1
+44 1
+2
+0 15 6 7
+0 42 17 15
+>>>>>>> main
 0
 end_operator
 begin_operator
 put-in-pod venus-sand-sample scientific anti-vibration-pods-room curator pod1
 2
+<<<<<<< HEAD
 16 0
 40 0
 2
 0 15 0 7
 0 38 16 15
+=======
+17 0
+43 0
+2
+0 16 0 7
+0 41 17 16
+>>>>>>> main
 0
 end_operator
 begin_operator
 put-in-pod venus-sand-sample scientific anti-vibration-pods-room curator pod2
 2
+<<<<<<< HEAD
 16 1
 40 0
 2
 0 15 0 7
 0 39 16 15
+=======
+17 1
+43 0
+2
+0 16 0 7
+0 42 17 16
+>>>>>>> main
 0
 end_operator
 begin_operator
 put-in-pod venus-sand-sample scientific cryo-chamber curator pod1
 2
+<<<<<<< HEAD
 16 0
 40 1
 2
 0 15 1 7
 0 38 16 15
+=======
+17 0
+43 1
+2
+0 16 1 7
+0 41 17 16
+>>>>>>> main
 0
 end_operator
 begin_operator
 put-in-pod venus-sand-sample scientific cryo-chamber curator pod2
 2
+<<<<<<< HEAD
 16 1
 40 1
 2
 0 15 1 7
 0 39 16 15
+=======
+17 1
+43 1
+2
+0 16 1 7
+0 42 17 16
+>>>>>>> main
 0
 end_operator
 begin_operator
 put-in-pod venus-sand-sample scientific entrance curator pod1
 2
+<<<<<<< HEAD
 16 0
 40 2
 2
 0 15 2 7
 0 38 16 15
+=======
+17 0
+43 2
+2
+0 16 2 7
+0 41 17 16
+>>>>>>> main
 0
 end_operator
 begin_operator
 put-in-pod venus-sand-sample scientific entrance curator pod2
 2
+<<<<<<< HEAD
 16 1
 40 2
 2
 0 15 2 7
 0 39 16 15
+=======
+17 1
+43 2
+2
+0 16 2 7
+0 42 17 16
+>>>>>>> main
 0
 end_operator
 begin_operator
 put-in-pod venus-sand-sample scientific hall-a curator pod1
 2
+<<<<<<< HEAD
 16 0
 40 3
 2
 0 15 3 7
 0 38 16 15
+=======
+17 0
+43 3
+2
+0 16 3 7
+0 41 17 16
+>>>>>>> main
 0
 end_operator
 begin_operator
 put-in-pod venus-sand-sample scientific hall-a curator pod2
 2
+<<<<<<< HEAD
 16 1
 40 3
 2
 0 15 3 7
 0 39 16 15
+=======
+17 1
+43 3
+2
+0 16 3 7
+0 42 17 16
+>>>>>>> main
 0
 end_operator
 begin_operator
 put-in-pod venus-sand-sample scientific hall-b curator pod1
 2
+<<<<<<< HEAD
 16 0
 40 4
 2
 0 15 4 7
 0 38 16 15
+=======
+17 0
+43 4
+2
+0 16 4 7
+0 41 17 16
+>>>>>>> main
 0
 end_operator
 begin_operator
 put-in-pod venus-sand-sample scientific hall-b curator pod2
 2
+<<<<<<< HEAD
 16 1
 40 4
 2
 0 15 4 7
 0 39 16 15
+=======
+17 1
+43 4
+2
+0 16 4 7
+0 42 17 16
+>>>>>>> main
 0
 end_operator
 begin_operator
 put-in-pod venus-sand-sample scientific maintenance-tunnel curator pod1
 2
+<<<<<<< HEAD
 16 0
 40 5
 2
 0 15 5 7
 0 38 16 15
+=======
+17 0
+43 5
+2
+0 16 5 7
+0 41 17 16
+>>>>>>> main
 0
 end_operator
 begin_operator
 put-in-pod venus-sand-sample scientific maintenance-tunnel curator pod2
 2
+<<<<<<< HEAD
 16 1
 40 5
 2
 0 15 5 7
 0 39 16 15
+=======
+17 1
+43 5
+2
+0 16 5 7
+0 42 17 16
+>>>>>>> main
 0
 end_operator
 begin_operator
 put-in-pod venus-sand-sample scientific maintenance-tunnel scientist pod1
 2
+<<<<<<< HEAD
 17 0
 41 0
 2
 0 15 5 7
 0 38 16 15
+=======
+18 0
+44 0
+2
+0 16 5 7
+0 41 17 16
+>>>>>>> main
 0
 end_operator
 begin_operator
 put-in-pod venus-sand-sample scientific maintenance-tunnel scientist pod2
 2
+<<<<<<< HEAD
 17 1
 41 0
 2
 0 15 5 7
 0 39 16 15
+=======
+18 1
+44 0
+2
+0 16 5 7
+0 42 17 16
+>>>>>>> main
 0
 end_operator
 begin_operator
 put-in-pod venus-sand-sample scientific stasis-lab scientist pod1
 2
+<<<<<<< HEAD
 17 0
 41 1
 2
 0 15 6 7
 0 38 16 15
+=======
+18 0
+44 1
+2
+0 16 6 7
+0 41 17 16
+>>>>>>> main
 0
 end_operator
 begin_operator
 put-in-pod venus-sand-sample scientific stasis-lab scientist pod2
 2
+<<<<<<< HEAD
 17 1
 41 1
 2
 0 15 6 7
 0 39 16 15
+=======
+18 1
+44 1
+2
+0 16 6 7
+0 42 17 16
+>>>>>>> main
 0
 end_operator
 begin_operator
 release-artifact-cryo-from-pod-slot-1 curator asteroid-ad29tv-rock-sample cryo-chamber pod1
 2
+<<<<<<< HEAD
 16 0
 40 1
 4
@@ -5896,111 +10034,1148 @@ release-artifact-cryo-slot-1 curator venus-sand-sample cryo-chamber
 0 16 10 11
 0 35 -1 0
 0 61 -1 1
+=======
+17 0
+43 1
+4
+0 0 -1 1
+0 21 -1 0
+0 41 0 17
+0 49 -1 1
+0
+end_operator
+begin_operator
+release-artifact-cryo-from-pod-slot-1 curator asteroid-ad29tv-rock-sample cryo-chamber pod2
+2
+17 1
+43 1
+4
+0 0 -1 1
+0 21 -1 0
+0 42 0 17
+0 49 -1 1
+0
+end_operator
+begin_operator
+release-artifact-cryo-from-pod-slot-1 curator asteroid-mg04tn-ice-sample cryo-chamber pod1
+2
+17 0
+43 1
+4
+0 1 -1 1
+0 22 -1 0
+0 41 1 17
+0 50 -1 1
+0
+end_operator
+begin_operator
+release-artifact-cryo-from-pod-slot-1 curator asteroid-mg04tn-ice-sample cryo-chamber pod2
+2
+17 1
+43 1
+4
+0 1 -1 1
+0 22 -1 0
+0 42 1 17
+0 50 -1 1
+0
+end_operator
+begin_operator
+release-artifact-cryo-from-pod-slot-1 curator mart-east-core-drill cryo-chamber pod1
+2
+17 0
+43 1
+4
+0 2 -1 1
+0 23 -1 0
+0 41 2 17
+0 51 -1 1
+0
+end_operator
+begin_operator
+release-artifact-cryo-from-pod-slot-1 curator mart-east-core-drill cryo-chamber pod2
+2
+17 1
+43 1
+4
+0 2 -1 1
+0 23 -1 0
+0 42 2 17
+0 51 -1 1
+0
+end_operator
+begin_operator
+release-artifact-cryo-from-pod-slot-1 curator mart-laser-gun cryo-chamber pod1
+2
+17 0
+43 1
+4
+0 3 -1 1
+0 24 -1 0
+0 41 3 17
+0 52 -1 1
+0
+end_operator
+begin_operator
+release-artifact-cryo-from-pod-slot-1 curator mart-laser-gun cryo-chamber pod2
+2
+17 1
+43 1
+4
+0 3 -1 1
+0 24 -1 0
+0 42 3 17
+0 52 -1 1
+0
+end_operator
+begin_operator
+release-artifact-cryo-from-pod-slot-1 curator mart-mysterious-egg cryo-chamber pod1
+2
+17 0
+43 1
+4
+0 4 -1 1
+0 25 -1 0
+0 41 4 17
+0 53 -1 1
+0
+end_operator
+begin_operator
+release-artifact-cryo-from-pod-slot-1 curator mart-mysterious-egg cryo-chamber pod2
+2
+17 1
+43 1
+4
+0 4 -1 1
+0 25 -1 0
+0 42 4 17
+0 53 -1 1
+0
+end_operator
+begin_operator
+release-artifact-cryo-from-pod-slot-1 curator mart-nord-core-drill cryo-chamber pod1
+2
+17 0
+43 1
+4
+0 5 -1 1
+0 26 -1 0
+0 41 5 17
+0 54 -1 1
+0
+end_operator
+begin_operator
+release-artifact-cryo-from-pod-slot-1 curator mart-nord-core-drill cryo-chamber pod2
+2
+17 1
+43 1
+4
+0 5 -1 1
+0 26 -1 0
+0 42 5 17
+0 54 -1 1
+0
+end_operator
+begin_operator
+release-artifact-cryo-from-pod-slot-1 curator mart-north-pole-ice-sample cryo-chamber pod1
+2
+17 0
+43 1
+4
+0 6 -1 1
+0 27 -1 0
+0 41 6 17
+0 55 -1 1
+0
+end_operator
+begin_operator
+release-artifact-cryo-from-pod-slot-1 curator mart-north-pole-ice-sample cryo-chamber pod2
+2
+17 1
+43 1
+4
+0 6 -1 1
+0 27 -1 0
+0 42 6 17
+0 55 -1 1
+0
+end_operator
+begin_operator
+release-artifact-cryo-from-pod-slot-1 curator mart-pink-hat cryo-chamber pod1
+2
+17 0
+43 1
+4
+0 7 -1 1
+0 28 -1 0
+0 41 7 17
+0 56 -1 1
+0
+end_operator
+begin_operator
+release-artifact-cryo-from-pod-slot-1 curator mart-pink-hat cryo-chamber pod2
+2
+17 1
+43 1
+4
+0 7 -1 1
+0 28 -1 0
+0 42 7 17
+0 56 -1 1
+0
+end_operator
+begin_operator
+release-artifact-cryo-from-pod-slot-1 curator mart-sand-sample cryo-chamber pod1
+2
+17 0
+43 1
+4
+0 8 -1 1
+0 29 -1 0
+0 41 8 17
+0 57 -1 1
+0
+end_operator
+begin_operator
+release-artifact-cryo-from-pod-slot-1 curator mart-sand-sample cryo-chamber pod2
+2
+17 1
+43 1
+4
+0 8 -1 1
+0 29 -1 0
+0 42 8 17
+0 57 -1 1
+0
+end_operator
+begin_operator
+release-artifact-cryo-from-pod-slot-1 curator mart-sud-core-drill cryo-chamber pod1
+2
+17 0
+43 1
+4
+0 9 -1 1
+0 30 -1 0
+0 41 9 17
+0 58 -1 1
+0
+end_operator
+begin_operator
+release-artifact-cryo-from-pod-slot-1 curator mart-sud-core-drill cryo-chamber pod2
+2
+17 1
+43 1
+4
+0 9 -1 1
+0 30 -1 0
+0 42 9 17
+0 58 -1 1
+0
+end_operator
+begin_operator
+release-artifact-cryo-from-pod-slot-1 curator mart-west-core-drill cryo-chamber pod1
+2
+17 0
+43 1
+4
+0 10 -1 1
+0 31 -1 0
+0 41 10 17
+0 59 -1 1
+0
+end_operator
+begin_operator
+release-artifact-cryo-from-pod-slot-1 curator mart-west-core-drill cryo-chamber pod2
+2
+17 1
+43 1
+4
+0 10 -1 1
+0 31 -1 0
+0 42 10 17
+0 59 -1 1
+0
+end_operator
+begin_operator
+release-artifact-cryo-from-pod-slot-1 curator quantum-chip cryo-chamber pod1
+2
+17 0
+43 1
+4
+0 11 -1 1
+0 32 -1 0
+0 41 11 17
+0 60 -1 1
+0
+end_operator
+begin_operator
+release-artifact-cryo-from-pod-slot-1 curator quantum-chip cryo-chamber pod2
+2
+17 1
+43 1
+4
+0 11 -1 1
+0 32 -1 0
+0 42 11 17
+0 60 -1 1
+0
+end_operator
+begin_operator
+release-artifact-cryo-from-pod-slot-1 curator rover-wheel cryo-chamber pod1
+2
+17 0
+43 1
+4
+0 12 -1 1
+0 33 -1 0
+0 41 12 17
+0 61 -1 1
+0
+end_operator
+begin_operator
+release-artifact-cryo-from-pod-slot-1 curator rover-wheel cryo-chamber pod2
+2
+17 1
+43 1
+4
+0 12 -1 1
+0 33 -1 0
+0 42 12 17
+0 61 -1 1
+0
+end_operator
+begin_operator
+release-artifact-cryo-from-pod-slot-1 curator rusty-lightsaber cryo-chamber pod1
+2
+17 0
+43 1
+4
+0 13 -1 1
+0 34 -1 0
+0 41 13 17
+0 62 -1 1
+0
+end_operator
+begin_operator
+release-artifact-cryo-from-pod-slot-1 curator rusty-lightsaber cryo-chamber pod2
+2
+17 1
+43 1
+4
+0 13 -1 1
+0 34 -1 0
+0 42 13 17
+0 62 -1 1
+0
+end_operator
+begin_operator
+release-artifact-cryo-from-pod-slot-1 curator space-suit cryo-chamber pod1
+2
+17 0
+43 1
+4
+0 14 -1 1
+0 35 -1 0
+0 41 14 17
+0 63 -1 1
+0
+end_operator
+begin_operator
+release-artifact-cryo-from-pod-slot-1 curator space-suit cryo-chamber pod2
+2
+17 1
+43 1
+4
+0 14 -1 1
+0 35 -1 0
+0 42 14 17
+0 63 -1 1
+0
+end_operator
+begin_operator
+release-artifact-cryo-from-pod-slot-1 curator venus-rock-sample cryo-chamber pod1
+2
+17 0
+43 1
+4
+0 15 -1 1
+0 36 -1 0
+0 41 15 17
+0 64 -1 1
+0
+end_operator
+begin_operator
+release-artifact-cryo-from-pod-slot-1 curator venus-rock-sample cryo-chamber pod2
+2
+17 1
+43 1
+4
+0 15 -1 1
+0 36 -1 0
+0 42 15 17
+0 64 -1 1
+0
+end_operator
+begin_operator
+release-artifact-cryo-from-pod-slot-1 curator venus-sand-sample cryo-chamber pod1
+2
+17 0
+43 1
+4
+0 16 -1 1
+0 37 -1 0
+0 41 16 17
+0 65 -1 1
+0
+end_operator
+begin_operator
+release-artifact-cryo-from-pod-slot-1 curator venus-sand-sample cryo-chamber pod2
+2
+17 1
+43 1
+4
+0 16 -1 1
+0 37 -1 0
+0 42 16 17
+0 65 -1 1
+0
+end_operator
+begin_operator
+release-artifact-cryo-from-pod-slot-1 technician asteroid-ad29tv-rock-sample cryo-chamber pod1
+2
+19 0
+45 1
+4
+0 0 -1 1
+0 21 -1 0
+0 41 0 17
+0 49 -1 1
+0
+end_operator
+begin_operator
+release-artifact-cryo-from-pod-slot-1 technician asteroid-ad29tv-rock-sample cryo-chamber pod2
+2
+20 0
+45 1
+4
+0 0 -1 1
+0 21 -1 0
+0 42 0 17
+0 49 -1 1
+0
+end_operator
+begin_operator
+release-artifact-cryo-from-pod-slot-1 technician asteroid-mg04tn-ice-sample cryo-chamber pod1
+2
+19 0
+45 1
+4
+0 1 -1 1
+0 22 -1 0
+0 41 1 17
+0 50 -1 1
+0
+end_operator
+begin_operator
+release-artifact-cryo-from-pod-slot-1 technician asteroid-mg04tn-ice-sample cryo-chamber pod2
+2
+20 0
+45 1
+4
+0 1 -1 1
+0 22 -1 0
+0 42 1 17
+0 50 -1 1
+0
+end_operator
+begin_operator
+release-artifact-cryo-from-pod-slot-1 technician mart-east-core-drill cryo-chamber pod1
+2
+19 0
+45 1
+4
+0 2 -1 1
+0 23 -1 0
+0 41 2 17
+0 51 -1 1
+0
+end_operator
+begin_operator
+release-artifact-cryo-from-pod-slot-1 technician mart-east-core-drill cryo-chamber pod2
+2
+20 0
+45 1
+4
+0 2 -1 1
+0 23 -1 0
+0 42 2 17
+0 51 -1 1
+0
+end_operator
+begin_operator
+release-artifact-cryo-from-pod-slot-1 technician mart-laser-gun cryo-chamber pod1
+2
+19 0
+45 1
+4
+0 3 -1 1
+0 24 -1 0
+0 41 3 17
+0 52 -1 1
+0
+end_operator
+begin_operator
+release-artifact-cryo-from-pod-slot-1 technician mart-laser-gun cryo-chamber pod2
+2
+20 0
+45 1
+4
+0 3 -1 1
+0 24 -1 0
+0 42 3 17
+0 52 -1 1
+0
+end_operator
+begin_operator
+release-artifact-cryo-from-pod-slot-1 technician mart-mysterious-egg cryo-chamber pod1
+2
+19 0
+45 1
+4
+0 4 -1 1
+0 25 -1 0
+0 41 4 17
+0 53 -1 1
+0
+end_operator
+begin_operator
+release-artifact-cryo-from-pod-slot-1 technician mart-mysterious-egg cryo-chamber pod2
+2
+20 0
+45 1
+4
+0 4 -1 1
+0 25 -1 0
+0 42 4 17
+0 53 -1 1
+0
+end_operator
+begin_operator
+release-artifact-cryo-from-pod-slot-1 technician mart-nord-core-drill cryo-chamber pod1
+2
+19 0
+45 1
+4
+0 5 -1 1
+0 26 -1 0
+0 41 5 17
+0 54 -1 1
+0
+end_operator
+begin_operator
+release-artifact-cryo-from-pod-slot-1 technician mart-nord-core-drill cryo-chamber pod2
+2
+20 0
+45 1
+4
+0 5 -1 1
+0 26 -1 0
+0 42 5 17
+0 54 -1 1
+0
+end_operator
+begin_operator
+release-artifact-cryo-from-pod-slot-1 technician mart-north-pole-ice-sample cryo-chamber pod1
+2
+19 0
+45 1
+4
+0 6 -1 1
+0 27 -1 0
+0 41 6 17
+0 55 -1 1
+0
+end_operator
+begin_operator
+release-artifact-cryo-from-pod-slot-1 technician mart-north-pole-ice-sample cryo-chamber pod2
+2
+20 0
+45 1
+4
+0 6 -1 1
+0 27 -1 0
+0 42 6 17
+0 55 -1 1
+0
+end_operator
+begin_operator
+release-artifact-cryo-from-pod-slot-1 technician mart-pink-hat cryo-chamber pod1
+2
+19 0
+45 1
+4
+0 7 -1 1
+0 28 -1 0
+0 41 7 17
+0 56 -1 1
+0
+end_operator
+begin_operator
+release-artifact-cryo-from-pod-slot-1 technician mart-pink-hat cryo-chamber pod2
+2
+20 0
+45 1
+4
+0 7 -1 1
+0 28 -1 0
+0 42 7 17
+0 56 -1 1
+0
+end_operator
+begin_operator
+release-artifact-cryo-from-pod-slot-1 technician mart-sand-sample cryo-chamber pod1
+2
+19 0
+45 1
+4
+0 8 -1 1
+0 29 -1 0
+0 41 8 17
+0 57 -1 1
+0
+end_operator
+begin_operator
+release-artifact-cryo-from-pod-slot-1 technician mart-sand-sample cryo-chamber pod2
+2
+20 0
+45 1
+4
+0 8 -1 1
+0 29 -1 0
+0 42 8 17
+0 57 -1 1
+0
+end_operator
+begin_operator
+release-artifact-cryo-from-pod-slot-1 technician mart-sud-core-drill cryo-chamber pod1
+2
+19 0
+45 1
+4
+0 9 -1 1
+0 30 -1 0
+0 41 9 17
+0 58 -1 1
+0
+end_operator
+begin_operator
+release-artifact-cryo-from-pod-slot-1 technician mart-sud-core-drill cryo-chamber pod2
+2
+20 0
+45 1
+4
+0 9 -1 1
+0 30 -1 0
+0 42 9 17
+0 58 -1 1
+0
+end_operator
+begin_operator
+release-artifact-cryo-from-pod-slot-1 technician mart-west-core-drill cryo-chamber pod1
+2
+19 0
+45 1
+4
+0 10 -1 1
+0 31 -1 0
+0 41 10 17
+0 59 -1 1
+0
+end_operator
+begin_operator
+release-artifact-cryo-from-pod-slot-1 technician mart-west-core-drill cryo-chamber pod2
+2
+20 0
+45 1
+4
+0 10 -1 1
+0 31 -1 0
+0 42 10 17
+0 59 -1 1
+0
+end_operator
+begin_operator
+release-artifact-cryo-from-pod-slot-1 technician quantum-chip cryo-chamber pod1
+2
+19 0
+45 1
+4
+0 11 -1 1
+0 32 -1 0
+0 41 11 17
+0 60 -1 1
+0
+end_operator
+begin_operator
+release-artifact-cryo-from-pod-slot-1 technician quantum-chip cryo-chamber pod2
+2
+20 0
+45 1
+4
+0 11 -1 1
+0 32 -1 0
+0 42 11 17
+0 60 -1 1
+0
+end_operator
+begin_operator
+release-artifact-cryo-from-pod-slot-1 technician rover-wheel cryo-chamber pod1
+2
+19 0
+45 1
+4
+0 12 -1 1
+0 33 -1 0
+0 41 12 17
+0 61 -1 1
+0
+end_operator
+begin_operator
+release-artifact-cryo-from-pod-slot-1 technician rover-wheel cryo-chamber pod2
+2
+20 0
+45 1
+4
+0 12 -1 1
+0 33 -1 0
+0 42 12 17
+0 61 -1 1
+0
+end_operator
+begin_operator
+release-artifact-cryo-from-pod-slot-1 technician rusty-lightsaber cryo-chamber pod1
+2
+19 0
+45 1
+4
+0 13 -1 1
+0 34 -1 0
+0 41 13 17
+0 62 -1 1
+0
+end_operator
+begin_operator
+release-artifact-cryo-from-pod-slot-1 technician rusty-lightsaber cryo-chamber pod2
+2
+20 0
+45 1
+4
+0 13 -1 1
+0 34 -1 0
+0 42 13 17
+0 62 -1 1
+0
+end_operator
+begin_operator
+release-artifact-cryo-from-pod-slot-1 technician space-suit cryo-chamber pod1
+2
+19 0
+45 1
+4
+0 14 -1 1
+0 35 -1 0
+0 41 14 17
+0 63 -1 1
+0
+end_operator
+begin_operator
+release-artifact-cryo-from-pod-slot-1 technician space-suit cryo-chamber pod2
+2
+20 0
+45 1
+4
+0 14 -1 1
+0 35 -1 0
+0 42 14 17
+0 63 -1 1
+0
+end_operator
+begin_operator
+release-artifact-cryo-from-pod-slot-1 technician venus-rock-sample cryo-chamber pod1
+2
+19 0
+45 1
+4
+0 15 -1 1
+0 36 -1 0
+0 41 15 17
+0 64 -1 1
+0
+end_operator
+begin_operator
+release-artifact-cryo-from-pod-slot-1 technician venus-rock-sample cryo-chamber pod2
+2
+20 0
+45 1
+4
+0 15 -1 1
+0 36 -1 0
+0 42 15 17
+0 64 -1 1
+0
+end_operator
+begin_operator
+release-artifact-cryo-from-pod-slot-1 technician venus-sand-sample cryo-chamber pod1
+2
+19 0
+45 1
+4
+0 16 -1 1
+0 37 -1 0
+0 41 16 17
+0 65 -1 1
+0
+end_operator
+begin_operator
+release-artifact-cryo-from-pod-slot-1 technician venus-sand-sample cryo-chamber pod2
+2
+20 0
+45 1
+4
+0 16 -1 1
+0 37 -1 0
+0 42 16 17
+0 65 -1 1
+0
+end_operator
+begin_operator
+release-artifact-cryo-slot-1 curator asteroid-mg04tn-ice-sample cryo-chamber
+1
+43 1
+4
+0 1 -1 1
+0 17 2 11
+0 22 -1 0
+0 50 -1 1
+0
+end_operator
+begin_operator
+release-artifact-cryo-slot-1 curator mart-east-core-drill cryo-chamber
+1
+43 1
+4
+0 2 -1 1
+0 17 3 11
+0 23 -1 0
+0 51 -1 1
+0
+end_operator
+begin_operator
+release-artifact-cryo-slot-1 curator mart-mysterious-egg cryo-chamber
+1
+43 1
+4
+0 4 -1 1
+0 17 4 11
+0 25 -1 0
+0 53 -1 1
+0
+end_operator
+begin_operator
+release-artifact-cryo-slot-1 curator mart-nord-core-drill cryo-chamber
+1
+43 1
+4
+0 5 -1 1
+0 17 5 11
+0 26 -1 0
+0 54 -1 1
+0
+end_operator
+begin_operator
+release-artifact-cryo-slot-1 curator mart-north-pole-ice-sample cryo-chamber
+1
+43 1
+4
+0 6 -1 1
+0 17 6 11
+0 27 -1 0
+0 55 -1 1
+0
+end_operator
+begin_operator
+release-artifact-cryo-slot-1 curator mart-sud-core-drill cryo-chamber
+1
+43 1
+4
+0 9 -1 1
+0 17 7 11
+0 30 -1 0
+0 58 -1 1
+0
+end_operator
+begin_operator
+release-artifact-cryo-slot-1 curator mart-west-core-drill cryo-chamber
+1
+43 1
+4
+0 10 -1 1
+0 17 8 11
+0 31 -1 0
+0 59 -1 1
+0
+end_operator
+begin_operator
+release-artifact-cryo-slot-1 curator venus-rock-sample cryo-chamber
+1
+43 1
+4
+0 15 -1 1
+0 17 9 11
+0 36 -1 0
+0 64 -1 1
+0
+end_operator
+begin_operator
+release-artifact-cryo-slot-1 curator venus-sand-sample cryo-chamber
+1
+43 1
+4
+0 16 -1 1
+0 17 10 11
+0 37 -1 0
+0 65 -1 1
+0
+end_operator
+begin_operator
+release-artifact-cryo-slot-1 technician rusty-lightsaber cryo-chamber
+1
+45 1
+4
+0 13 7 1
+0 34 -1 0
+0 38 -1 0
+0 62 -1 1
+0
+end_operator
+begin_operator
+release-artifact-cryo-slot-1 technician space-suit cryo-chamber
+1
+45 1
+4
+0 14 7 1
+0 35 -1 0
+0 38 -1 0
+0 63 -1 1
+0
+end_operator
+begin_operator
+release-artifact-cryo-slot-2 technician rusty-lightsaber cryo-chamber
+1
+45 1
+4
+0 13 8 1
+0 34 -1 0
+0 39 -1 0
+0 62 -1 1
+0
+end_operator
+begin_operator
+release-artifact-cryo-slot-2 technician space-suit cryo-chamber
+1
+45 1
+4
+0 14 8 1
+0 35 -1 0
+0 39 -1 0
+0 63 -1 1
+>>>>>>> main
 0
 end_operator
 begin_operator
 release-artifact-from-pod-slot-1 curator asteroid-ad29tv-rock-sample anti-vibration-pods-room pod1
 2
+<<<<<<< HEAD
 16 0
 40 0
 2
 0 0 -1 0
 0 38 0 16
+=======
+17 0
+43 0
+2
+0 0 -1 0
+0 41 0 17
+>>>>>>> main
 0
 end_operator
 begin_operator
 release-artifact-from-pod-slot-1 curator asteroid-ad29tv-rock-sample anti-vibration-pods-room pod2
 2
+<<<<<<< HEAD
 16 1
 40 0
 2
 0 0 -1 0
 0 39 0 16
+=======
+17 1
+43 0
+2
+0 0 -1 0
+0 42 0 17
+>>>>>>> main
 0
 end_operator
 begin_operator
 release-artifact-from-pod-slot-1 curator asteroid-ad29tv-rock-sample entrance pod1
 2
+<<<<<<< HEAD
 16 0
 40 2
 2
 0 0 -1 2
 0 38 0 16
+=======
+17 0
+43 2
+2
+0 0 -1 2
+0 41 0 17
+>>>>>>> main
 0
 end_operator
 begin_operator
 release-artifact-from-pod-slot-1 curator asteroid-ad29tv-rock-sample entrance pod2
 2
+<<<<<<< HEAD
 16 1
 40 2
 2
 0 0 -1 2
 0 39 0 16
+=======
+17 1
+43 2
+2
+0 0 -1 2
+0 42 0 17
+>>>>>>> main
 0
 end_operator
 begin_operator
 release-artifact-from-pod-slot-1 curator asteroid-ad29tv-rock-sample hall-a pod1
 2
+<<<<<<< HEAD
 16 0
 40 3
 2
 0 0 -1 3
 0 38 0 16
+=======
+17 0
+43 3
+2
+0 0 -1 3
+0 41 0 17
+>>>>>>> main
 0
 end_operator
 begin_operator
 release-artifact-from-pod-slot-1 curator asteroid-ad29tv-rock-sample hall-a pod2
 2
+<<<<<<< HEAD
 16 1
 40 3
 2
 0 0 -1 3
 0 39 0 16
+=======
+17 1
+43 3
+2
+0 0 -1 3
+0 42 0 17
+>>>>>>> main
 0
 end_operator
 begin_operator
 release-artifact-from-pod-slot-1 curator asteroid-ad29tv-rock-sample hall-b pod1
 2
+<<<<<<< HEAD
 16 0
 40 4
 2
 0 0 -1 4
 0 38 0 16
+=======
+17 0
+43 4
+2
+0 0 -1 4
+0 41 0 17
+>>>>>>> main
 0
 end_operator
 begin_operator
 release-artifact-from-pod-slot-1 curator asteroid-ad29tv-rock-sample hall-b pod2
 2
+<<<<<<< HEAD
 16 1
 40 4
 2
 0 0 -1 4
 0 39 0 16
+=======
+17 1
+43 4
+2
+0 0 -1 4
+0 42 0 17
+>>>>>>> main
 0
 end_operator
 begin_operator
 release-artifact-from-pod-slot-1 curator asteroid-ad29tv-rock-sample maintenance-tunnel pod1
 2
+<<<<<<< HEAD
 16 0
 40 5
 2
 0 0 -1 5
 0 38 0 16
+=======
+17 0
+43 5
+2
+0 0 -1 5
+0 41 0 17
+>>>>>>> main
 0
 end_operator
 begin_operator
 release-artifact-from-pod-slot-1 curator asteroid-ad29tv-rock-sample maintenance-tunnel pod2
 2
+<<<<<<< HEAD
 16 1
 40 5
 2
 0 0 -1 5
 0 39 0 16
+=======
+17 1
+43 5
+2
+0 0 -1 5
+0 42 0 17
+>>>>>>> main
 0
 end_operator
 begin_operator
 release-artifact-from-pod-slot-1 curator asteroid-mg04tn-ice-sample anti-vibration-pods-room pod1
 2
+<<<<<<< HEAD
 16 0
 40 0
 2
@@ -10168,175 +15343,4929 @@ release-artifact-slot-1 scientist mart-east-core-drill maintenance-tunnel
 2
 0 2 -1 5
 0 17 3 11
+=======
+17 0
+43 0
+2
+0 1 -1 0
+0 41 1 17
 0
 end_operator
 begin_operator
-release-artifact-slot-1 scientist mart-east-core-drill stasis-lab
-1
-41 1
+release-artifact-from-pod-slot-1 curator asteroid-mg04tn-ice-sample anti-vibration-pods-room pod2
+2
+17 1
+43 0
+2
+0 1 -1 0
+0 42 1 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 curator asteroid-mg04tn-ice-sample entrance pod1
+2
+17 0
+43 2
+2
+0 1 -1 2
+0 41 1 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 curator asteroid-mg04tn-ice-sample entrance pod2
+2
+17 1
+43 2
+2
+0 1 -1 2
+0 42 1 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 curator asteroid-mg04tn-ice-sample hall-a pod1
+2
+17 0
+43 3
+2
+0 1 -1 3
+0 41 1 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 curator asteroid-mg04tn-ice-sample hall-a pod2
+2
+17 1
+43 3
+2
+0 1 -1 3
+0 42 1 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 curator asteroid-mg04tn-ice-sample hall-b pod1
+2
+17 0
+43 4
+2
+0 1 -1 4
+0 41 1 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 curator asteroid-mg04tn-ice-sample hall-b pod2
+2
+17 1
+43 4
+2
+0 1 -1 4
+0 42 1 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 curator asteroid-mg04tn-ice-sample maintenance-tunnel pod1
+2
+17 0
+43 5
+2
+0 1 -1 5
+0 41 1 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 curator asteroid-mg04tn-ice-sample maintenance-tunnel pod2
+2
+17 1
+43 5
+2
+0 1 -1 5
+0 42 1 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 curator mart-east-core-drill anti-vibration-pods-room pod1
+2
+17 0
+43 0
+2
+0 2 -1 0
+0 41 2 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 curator mart-east-core-drill anti-vibration-pods-room pod2
+2
+17 1
+43 0
+2
+0 2 -1 0
+0 42 2 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 curator mart-east-core-drill entrance pod1
+2
+17 0
+43 2
+2
+0 2 -1 2
+0 41 2 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 curator mart-east-core-drill entrance pod2
+2
+17 1
+43 2
+2
+0 2 -1 2
+0 42 2 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 curator mart-east-core-drill hall-a pod1
+2
+17 0
+43 3
+2
+0 2 -1 3
+0 41 2 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 curator mart-east-core-drill hall-a pod2
+2
+17 1
+43 3
+2
+0 2 -1 3
+0 42 2 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 curator mart-east-core-drill hall-b pod1
+2
+17 0
+43 4
+2
+0 2 -1 4
+0 41 2 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 curator mart-east-core-drill hall-b pod2
+2
+17 1
+43 4
+2
+0 2 -1 4
+0 42 2 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 curator mart-east-core-drill maintenance-tunnel pod1
+2
+17 0
+43 5
+2
+0 2 -1 5
+0 41 2 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 curator mart-east-core-drill maintenance-tunnel pod2
+2
+17 1
+43 5
+2
+0 2 -1 5
+0 42 2 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 curator mart-laser-gun anti-vibration-pods-room pod1
+2
+17 0
+43 0
+2
+0 3 -1 0
+0 41 3 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 curator mart-laser-gun anti-vibration-pods-room pod2
+2
+17 1
+43 0
+2
+0 3 -1 0
+0 42 3 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 curator mart-laser-gun entrance pod1
+2
+17 0
+43 2
+2
+0 3 -1 2
+0 41 3 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 curator mart-laser-gun entrance pod2
+2
+17 1
+43 2
+2
+0 3 -1 2
+0 42 3 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 curator mart-laser-gun hall-a pod1
+2
+17 0
+43 3
+2
+0 3 -1 3
+0 41 3 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 curator mart-laser-gun hall-a pod2
+2
+17 1
+43 3
+2
+0 3 -1 3
+0 42 3 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 curator mart-laser-gun hall-b pod1
+2
+17 0
+43 4
+2
+0 3 -1 4
+0 41 3 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 curator mart-laser-gun hall-b pod2
+2
+17 1
+43 4
+2
+0 3 -1 4
+0 42 3 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 curator mart-laser-gun maintenance-tunnel pod1
+2
+17 0
+43 5
+2
+0 3 -1 5
+0 41 3 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 curator mart-laser-gun maintenance-tunnel pod2
+2
+17 1
+43 5
+2
+0 3 -1 5
+0 42 3 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 curator mart-mysterious-egg anti-vibration-pods-room pod1
+2
+17 0
+43 0
+2
+0 4 -1 0
+0 41 4 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 curator mart-mysterious-egg anti-vibration-pods-room pod2
+2
+17 1
+43 0
+2
+0 4 -1 0
+0 42 4 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 curator mart-mysterious-egg entrance pod1
+2
+17 0
+43 2
+2
+0 4 -1 2
+0 41 4 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 curator mart-mysterious-egg entrance pod2
+2
+17 1
+43 2
+2
+0 4 -1 2
+0 42 4 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 curator mart-mysterious-egg hall-a pod1
+2
+17 0
+43 3
+2
+0 4 -1 3
+0 41 4 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 curator mart-mysterious-egg hall-a pod2
+2
+17 1
+43 3
+2
+0 4 -1 3
+0 42 4 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 curator mart-mysterious-egg hall-b pod1
+2
+17 0
+43 4
+2
+0 4 -1 4
+0 41 4 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 curator mart-mysterious-egg hall-b pod2
+2
+17 1
+43 4
+2
+0 4 -1 4
+0 42 4 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 curator mart-mysterious-egg maintenance-tunnel pod1
+2
+17 0
+43 5
+2
+0 4 -1 5
+0 41 4 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 curator mart-mysterious-egg maintenance-tunnel pod2
+2
+17 1
+43 5
+2
+0 4 -1 5
+0 42 4 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 curator mart-nord-core-drill anti-vibration-pods-room pod1
+2
+17 0
+43 0
+2
+0 5 -1 0
+0 41 5 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 curator mart-nord-core-drill anti-vibration-pods-room pod2
+2
+17 1
+43 0
+2
+0 5 -1 0
+0 42 5 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 curator mart-nord-core-drill entrance pod1
+2
+17 0
+43 2
+2
+0 5 -1 2
+0 41 5 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 curator mart-nord-core-drill entrance pod2
+2
+17 1
+43 2
+2
+0 5 -1 2
+0 42 5 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 curator mart-nord-core-drill hall-a pod1
+2
+17 0
+43 3
+2
+0 5 -1 3
+0 41 5 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 curator mart-nord-core-drill hall-a pod2
+2
+17 1
+43 3
+2
+0 5 -1 3
+0 42 5 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 curator mart-nord-core-drill hall-b pod1
+2
+17 0
+43 4
+2
+0 5 -1 4
+0 41 5 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 curator mart-nord-core-drill hall-b pod2
+2
+17 1
+43 4
+2
+0 5 -1 4
+0 42 5 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 curator mart-nord-core-drill maintenance-tunnel pod1
+2
+17 0
+43 5
+2
+0 5 -1 5
+0 41 5 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 curator mart-nord-core-drill maintenance-tunnel pod2
+2
+17 1
+43 5
+2
+0 5 -1 5
+0 42 5 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 curator mart-north-pole-ice-sample anti-vibration-pods-room pod1
+2
+17 0
+43 0
+2
+0 6 -1 0
+0 41 6 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 curator mart-north-pole-ice-sample anti-vibration-pods-room pod2
+2
+17 1
+43 0
+2
+0 6 -1 0
+0 42 6 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 curator mart-north-pole-ice-sample entrance pod1
+2
+17 0
+43 2
+2
+0 6 -1 2
+0 41 6 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 curator mart-north-pole-ice-sample entrance pod2
+2
+17 1
+43 2
+2
+0 6 -1 2
+0 42 6 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 curator mart-north-pole-ice-sample hall-a pod1
+2
+17 0
+43 3
+2
+0 6 -1 3
+0 41 6 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 curator mart-north-pole-ice-sample hall-a pod2
+2
+17 1
+43 3
+2
+0 6 -1 3
+0 42 6 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 curator mart-north-pole-ice-sample hall-b pod1
+2
+17 0
+43 4
+2
+0 6 -1 4
+0 41 6 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 curator mart-north-pole-ice-sample hall-b pod2
+2
+17 1
+43 4
+2
+0 6 -1 4
+0 42 6 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 curator mart-north-pole-ice-sample maintenance-tunnel pod1
+2
+17 0
+43 5
+2
+0 6 -1 5
+0 41 6 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 curator mart-north-pole-ice-sample maintenance-tunnel pod2
+2
+17 1
+43 5
+2
+0 6 -1 5
+0 42 6 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 curator mart-pink-hat anti-vibration-pods-room pod1
+2
+17 0
+43 0
+2
+0 7 -1 0
+0 41 7 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 curator mart-pink-hat anti-vibration-pods-room pod2
+2
+17 1
+43 0
+2
+0 7 -1 0
+0 42 7 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 curator mart-pink-hat entrance pod1
+2
+17 0
+43 2
+2
+0 7 -1 2
+0 41 7 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 curator mart-pink-hat entrance pod2
+2
+17 1
+43 2
+2
+0 7 -1 2
+0 42 7 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 curator mart-pink-hat hall-a pod1
+2
+17 0
+43 3
+2
+0 7 -1 3
+0 41 7 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 curator mart-pink-hat hall-a pod2
+2
+17 1
+43 3
+2
+0 7 -1 3
+0 42 7 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 curator mart-pink-hat hall-b pod1
+2
+17 0
+43 4
+2
+0 7 -1 4
+0 41 7 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 curator mart-pink-hat hall-b pod2
+2
+17 1
+43 4
+2
+0 7 -1 4
+0 42 7 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 curator mart-pink-hat maintenance-tunnel pod1
+2
+17 0
+43 5
+2
+0 7 -1 5
+0 41 7 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 curator mart-pink-hat maintenance-tunnel pod2
+2
+17 1
+43 5
+2
+0 7 -1 5
+0 42 7 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 curator mart-sand-sample anti-vibration-pods-room pod1
+2
+17 0
+43 0
+2
+0 8 -1 0
+0 41 8 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 curator mart-sand-sample anti-vibration-pods-room pod2
+2
+17 1
+43 0
+2
+0 8 -1 0
+0 42 8 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 curator mart-sand-sample entrance pod1
+2
+17 0
+43 2
+2
+0 8 -1 2
+0 41 8 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 curator mart-sand-sample entrance pod2
+2
+17 1
+43 2
+2
+0 8 -1 2
+0 42 8 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 curator mart-sand-sample hall-a pod1
+2
+17 0
+43 3
+2
+0 8 -1 3
+0 41 8 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 curator mart-sand-sample hall-a pod2
+2
+17 1
+43 3
+2
+0 8 -1 3
+0 42 8 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 curator mart-sand-sample hall-b pod1
+2
+17 0
+43 4
+2
+0 8 -1 4
+0 41 8 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 curator mart-sand-sample hall-b pod2
+2
+17 1
+43 4
+2
+0 8 -1 4
+0 42 8 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 curator mart-sand-sample maintenance-tunnel pod1
+2
+17 0
+43 5
+2
+0 8 -1 5
+0 41 8 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 curator mart-sand-sample maintenance-tunnel pod2
+2
+17 1
+43 5
+2
+0 8 -1 5
+0 42 8 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 curator mart-sud-core-drill anti-vibration-pods-room pod1
+2
+17 0
+43 0
+2
+0 9 -1 0
+0 41 9 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 curator mart-sud-core-drill anti-vibration-pods-room pod2
+2
+17 1
+43 0
+2
+0 9 -1 0
+0 42 9 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 curator mart-sud-core-drill entrance pod1
+2
+17 0
+43 2
+2
+0 9 -1 2
+0 41 9 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 curator mart-sud-core-drill entrance pod2
+2
+17 1
+43 2
+2
+0 9 -1 2
+0 42 9 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 curator mart-sud-core-drill hall-a pod1
+2
+17 0
+43 3
+2
+0 9 -1 3
+0 41 9 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 curator mart-sud-core-drill hall-a pod2
+2
+17 1
+43 3
+2
+0 9 -1 3
+0 42 9 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 curator mart-sud-core-drill hall-b pod1
+2
+17 0
+43 4
+2
+0 9 -1 4
+0 41 9 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 curator mart-sud-core-drill hall-b pod2
+2
+17 1
+43 4
+2
+0 9 -1 4
+0 42 9 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 curator mart-sud-core-drill maintenance-tunnel pod1
+2
+17 0
+43 5
+2
+0 9 -1 5
+0 41 9 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 curator mart-sud-core-drill maintenance-tunnel pod2
+2
+17 1
+43 5
+2
+0 9 -1 5
+0 42 9 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 curator mart-west-core-drill anti-vibration-pods-room pod1
+2
+17 0
+43 0
+2
+0 10 -1 0
+0 41 10 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 curator mart-west-core-drill anti-vibration-pods-room pod2
+2
+17 1
+43 0
+2
+0 10 -1 0
+0 42 10 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 curator mart-west-core-drill entrance pod1
+2
+17 0
+43 2
+2
+0 10 -1 2
+0 41 10 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 curator mart-west-core-drill entrance pod2
+2
+17 1
+43 2
+2
+0 10 -1 2
+0 42 10 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 curator mart-west-core-drill hall-a pod1
+2
+17 0
+43 3
+2
+0 10 -1 3
+0 41 10 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 curator mart-west-core-drill hall-a pod2
+2
+17 1
+43 3
+2
+0 10 -1 3
+0 42 10 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 curator mart-west-core-drill hall-b pod1
+2
+17 0
+43 4
+2
+0 10 -1 4
+0 41 10 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 curator mart-west-core-drill hall-b pod2
+2
+17 1
+43 4
+2
+0 10 -1 4
+0 42 10 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 curator mart-west-core-drill maintenance-tunnel pod1
+2
+17 0
+43 5
+2
+0 10 -1 5
+0 41 10 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 curator mart-west-core-drill maintenance-tunnel pod2
+2
+17 1
+43 5
+2
+0 10 -1 5
+0 42 10 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 curator quantum-chip anti-vibration-pods-room pod1
+2
+17 0
+43 0
+2
+0 11 -1 0
+0 41 11 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 curator quantum-chip anti-vibration-pods-room pod2
+2
+17 1
+43 0
+2
+0 11 -1 0
+0 42 11 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 curator quantum-chip entrance pod1
+2
+17 0
+43 2
+2
+0 11 -1 2
+0 41 11 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 curator quantum-chip entrance pod2
+2
+17 1
+43 2
+2
+0 11 -1 2
+0 42 11 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 curator quantum-chip hall-a pod1
+2
+17 0
+43 3
+2
+0 11 -1 3
+0 41 11 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 curator quantum-chip hall-a pod2
+2
+17 1
+43 3
+2
+0 11 -1 3
+0 42 11 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 curator quantum-chip hall-b pod1
+2
+17 0
+43 4
+2
+0 11 -1 4
+0 41 11 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 curator quantum-chip hall-b pod2
+2
+17 1
+43 4
+2
+0 11 -1 4
+0 42 11 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 curator quantum-chip maintenance-tunnel pod1
+2
+17 0
+43 5
+2
+0 11 -1 5
+0 41 11 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 curator quantum-chip maintenance-tunnel pod2
+2
+17 1
+43 5
+2
+0 11 -1 5
+0 42 11 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 curator rover-wheel anti-vibration-pods-room pod1
+2
+17 0
+43 0
+2
+0 12 -1 0
+0 41 12 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 curator rover-wheel anti-vibration-pods-room pod2
+2
+17 1
+43 0
+2
+0 12 -1 0
+0 42 12 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 curator rover-wheel entrance pod1
+2
+17 0
+43 2
+2
+0 12 -1 2
+0 41 12 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 curator rover-wheel entrance pod2
+2
+17 1
+43 2
+2
+0 12 -1 2
+0 42 12 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 curator rover-wheel hall-a pod1
+2
+17 0
+43 3
+2
+0 12 -1 3
+0 41 12 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 curator rover-wheel hall-a pod2
+2
+17 1
+43 3
+2
+0 12 -1 3
+0 42 12 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 curator rover-wheel hall-b pod1
+2
+17 0
+43 4
+2
+0 12 -1 4
+0 41 12 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 curator rover-wheel hall-b pod2
+2
+17 1
+43 4
+2
+0 12 -1 4
+0 42 12 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 curator rover-wheel maintenance-tunnel pod1
+2
+17 0
+43 5
+2
+0 12 -1 5
+0 41 12 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 curator rover-wheel maintenance-tunnel pod2
+2
+17 1
+43 5
+2
+0 12 -1 5
+0 42 12 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 curator rusty-lightsaber anti-vibration-pods-room pod1
+2
+17 0
+43 0
+2
+0 13 -1 0
+0 41 13 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 curator rusty-lightsaber anti-vibration-pods-room pod2
+2
+17 1
+43 0
+2
+0 13 -1 0
+0 42 13 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 curator rusty-lightsaber entrance pod1
+2
+17 0
+43 2
+2
+0 13 -1 2
+0 41 13 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 curator rusty-lightsaber entrance pod2
+2
+17 1
+43 2
+2
+0 13 -1 2
+0 42 13 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 curator rusty-lightsaber hall-a pod1
+2
+17 0
+43 3
+2
+0 13 -1 3
+0 41 13 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 curator rusty-lightsaber hall-a pod2
+2
+17 1
+43 3
+2
+0 13 -1 3
+0 42 13 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 curator rusty-lightsaber hall-b pod1
+2
+17 0
+43 4
+2
+0 13 -1 4
+0 41 13 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 curator rusty-lightsaber hall-b pod2
+2
+17 1
+43 4
+2
+0 13 -1 4
+0 42 13 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 curator rusty-lightsaber maintenance-tunnel pod1
+2
+17 0
+43 5
+2
+0 13 -1 5
+0 41 13 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 curator rusty-lightsaber maintenance-tunnel pod2
+2
+17 1
+43 5
+2
+0 13 -1 5
+0 42 13 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 curator space-suit anti-vibration-pods-room pod1
+2
+17 0
+43 0
+2
+0 14 -1 0
+0 41 14 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 curator space-suit anti-vibration-pods-room pod2
+2
+17 1
+43 0
+2
+0 14 -1 0
+0 42 14 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 curator space-suit entrance pod1
+2
+17 0
+43 2
+2
+0 14 -1 2
+0 41 14 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 curator space-suit entrance pod2
+2
+17 1
+43 2
+2
+0 14 -1 2
+0 42 14 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 curator space-suit hall-a pod1
+2
+17 0
+43 3
+2
+0 14 -1 3
+0 41 14 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 curator space-suit hall-a pod2
+2
+17 1
+43 3
+2
+0 14 -1 3
+0 42 14 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 curator space-suit hall-b pod1
+2
+17 0
+43 4
+2
+0 14 -1 4
+0 41 14 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 curator space-suit hall-b pod2
+2
+17 1
+43 4
+2
+0 14 -1 4
+0 42 14 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 curator space-suit maintenance-tunnel pod1
+2
+17 0
+43 5
+2
+0 14 -1 5
+0 41 14 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 curator space-suit maintenance-tunnel pod2
+2
+17 1
+43 5
+2
+0 14 -1 5
+0 42 14 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 curator venus-rock-sample anti-vibration-pods-room pod1
+2
+17 0
+43 0
+2
+0 15 -1 0
+0 41 15 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 curator venus-rock-sample anti-vibration-pods-room pod2
+2
+17 1
+43 0
+2
+0 15 -1 0
+0 42 15 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 curator venus-rock-sample entrance pod1
+2
+17 0
+43 2
+2
+0 15 -1 2
+0 41 15 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 curator venus-rock-sample entrance pod2
+2
+17 1
+43 2
+2
+0 15 -1 2
+0 42 15 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 curator venus-rock-sample hall-a pod1
+2
+17 0
+43 3
+2
+0 15 -1 3
+0 41 15 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 curator venus-rock-sample hall-a pod2
+2
+17 1
+43 3
+2
+0 15 -1 3
+0 42 15 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 curator venus-rock-sample hall-b pod1
+2
+17 0
+43 4
+2
+0 15 -1 4
+0 41 15 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 curator venus-rock-sample hall-b pod2
+2
+17 1
+43 4
+2
+0 15 -1 4
+0 42 15 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 curator venus-rock-sample maintenance-tunnel pod1
+2
+17 0
+43 5
+2
+0 15 -1 5
+0 41 15 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 curator venus-rock-sample maintenance-tunnel pod2
+2
+17 1
+43 5
+2
+0 15 -1 5
+0 42 15 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 curator venus-sand-sample anti-vibration-pods-room pod1
+2
+17 0
+43 0
+2
+0 16 -1 0
+0 41 16 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 curator venus-sand-sample anti-vibration-pods-room pod2
+2
+17 1
+43 0
+2
+0 16 -1 0
+0 42 16 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 curator venus-sand-sample entrance pod1
+2
+17 0
+43 2
+2
+0 16 -1 2
+0 41 16 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 curator venus-sand-sample entrance pod2
+2
+17 1
+43 2
+2
+0 16 -1 2
+0 42 16 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 curator venus-sand-sample hall-a pod1
+2
+17 0
+43 3
+2
+0 16 -1 3
+0 41 16 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 curator venus-sand-sample hall-a pod2
+2
+17 1
+43 3
+2
+0 16 -1 3
+0 42 16 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 curator venus-sand-sample hall-b pod1
+2
+17 0
+43 4
+2
+0 16 -1 4
+0 41 16 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 curator venus-sand-sample hall-b pod2
+2
+17 1
+43 4
+2
+0 16 -1 4
+0 42 16 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 curator venus-sand-sample maintenance-tunnel pod1
+2
+17 0
+43 5
+2
+0 16 -1 5
+0 41 16 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 curator venus-sand-sample maintenance-tunnel pod2
+2
+17 1
+43 5
+2
+0 16 -1 5
+0 42 16 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 scientist asteroid-ad29tv-rock-sample maintenance-tunnel pod1
+2
+18 0
+44 0
+2
+0 0 -1 5
+0 41 0 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 scientist asteroid-ad29tv-rock-sample maintenance-tunnel pod2
+2
+18 1
+44 0
+2
+0 0 -1 5
+0 42 0 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 scientist asteroid-ad29tv-rock-sample stasis-lab pod1
+2
+18 0
+44 1
+2
+0 0 -1 6
+0 41 0 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 scientist asteroid-ad29tv-rock-sample stasis-lab pod2
+2
+18 1
+44 1
+2
+0 0 -1 6
+0 42 0 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 scientist asteroid-mg04tn-ice-sample maintenance-tunnel pod1
+2
+18 0
+44 0
+2
+0 1 -1 5
+0 41 1 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 scientist asteroid-mg04tn-ice-sample maintenance-tunnel pod2
+2
+18 1
+44 0
+2
+0 1 -1 5
+0 42 1 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 scientist asteroid-mg04tn-ice-sample stasis-lab pod1
+2
+18 0
+44 1
+2
+0 1 -1 6
+0 41 1 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 scientist asteroid-mg04tn-ice-sample stasis-lab pod2
+2
+18 1
+44 1
+2
+0 1 -1 6
+0 42 1 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 scientist mart-east-core-drill maintenance-tunnel pod1
+2
+18 0
+44 0
+2
+0 2 -1 5
+0 41 2 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 scientist mart-east-core-drill maintenance-tunnel pod2
+2
+18 1
+44 0
+2
+0 2 -1 5
+0 42 2 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 scientist mart-east-core-drill stasis-lab pod1
+2
+18 0
+44 1
 2
 0 2 -1 6
+0 41 2 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 scientist mart-east-core-drill stasis-lab pod2
+2
+18 1
+44 1
+2
+0 2 -1 6
+0 42 2 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 scientist mart-laser-gun maintenance-tunnel pod1
+2
+18 0
+44 0
+2
+0 3 -1 5
+0 41 3 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 scientist mart-laser-gun maintenance-tunnel pod2
+2
+18 1
+44 0
+2
+0 3 -1 5
+0 42 3 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 scientist mart-laser-gun stasis-lab pod1
+2
+18 0
+44 1
+2
+0 3 -1 6
+0 41 3 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 scientist mart-laser-gun stasis-lab pod2
+2
+18 1
+44 1
+2
+0 3 -1 6
+0 42 3 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 scientist mart-mysterious-egg maintenance-tunnel pod1
+2
+18 0
+44 0
+2
+0 4 -1 5
+0 41 4 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 scientist mart-mysterious-egg maintenance-tunnel pod2
+2
+18 1
+44 0
+2
+0 4 -1 5
+0 42 4 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 scientist mart-mysterious-egg stasis-lab pod1
+2
+18 0
+44 1
+2
+0 4 -1 6
+0 41 4 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 scientist mart-mysterious-egg stasis-lab pod2
+2
+18 1
+44 1
+2
+0 4 -1 6
+0 42 4 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 scientist mart-nord-core-drill maintenance-tunnel pod1
+2
+18 0
+44 0
+2
+0 5 -1 5
+0 41 5 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 scientist mart-nord-core-drill maintenance-tunnel pod2
+2
+18 1
+44 0
+2
+0 5 -1 5
+0 42 5 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 scientist mart-nord-core-drill stasis-lab pod1
+2
+18 0
+44 1
+2
+0 5 -1 6
+0 41 5 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 scientist mart-nord-core-drill stasis-lab pod2
+2
+18 1
+44 1
+2
+0 5 -1 6
+0 42 5 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 scientist mart-north-pole-ice-sample maintenance-tunnel pod1
+2
+18 0
+44 0
+2
+0 6 -1 5
+0 41 6 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 scientist mart-north-pole-ice-sample maintenance-tunnel pod2
+2
+18 1
+44 0
+2
+0 6 -1 5
+0 42 6 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 scientist mart-north-pole-ice-sample stasis-lab pod1
+2
+18 0
+44 1
+2
+0 6 -1 6
+0 41 6 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 scientist mart-north-pole-ice-sample stasis-lab pod2
+2
+18 1
+44 1
+2
+0 6 -1 6
+0 42 6 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 scientist mart-pink-hat maintenance-tunnel pod1
+2
+18 0
+44 0
+2
+0 7 -1 5
+0 41 7 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 scientist mart-pink-hat maintenance-tunnel pod2
+2
+18 1
+44 0
+2
+0 7 -1 5
+0 42 7 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 scientist mart-pink-hat stasis-lab pod1
+2
+18 0
+44 1
+2
+0 7 -1 6
+0 41 7 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 scientist mart-pink-hat stasis-lab pod2
+2
+18 1
+44 1
+2
+0 7 -1 6
+0 42 7 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 scientist mart-sand-sample maintenance-tunnel pod1
+2
+18 0
+44 0
+2
+0 8 -1 5
+0 41 8 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 scientist mart-sand-sample maintenance-tunnel pod2
+2
+18 1
+44 0
+2
+0 8 -1 5
+0 42 8 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 scientist mart-sand-sample stasis-lab pod1
+2
+18 0
+44 1
+2
+0 8 -1 6
+0 41 8 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 scientist mart-sand-sample stasis-lab pod2
+2
+18 1
+44 1
+2
+0 8 -1 6
+0 42 8 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 scientist mart-sud-core-drill maintenance-tunnel pod1
+2
+18 0
+44 0
+2
+0 9 -1 5
+0 41 9 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 scientist mart-sud-core-drill maintenance-tunnel pod2
+2
+18 1
+44 0
+2
+0 9 -1 5
+0 42 9 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 scientist mart-sud-core-drill stasis-lab pod1
+2
+18 0
+44 1
+2
+0 9 -1 6
+0 41 9 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 scientist mart-sud-core-drill stasis-lab pod2
+2
+18 1
+44 1
+2
+0 9 -1 6
+0 42 9 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 scientist mart-west-core-drill maintenance-tunnel pod1
+2
+18 0
+44 0
+2
+0 10 -1 5
+0 41 10 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 scientist mart-west-core-drill maintenance-tunnel pod2
+2
+18 1
+44 0
+2
+0 10 -1 5
+0 42 10 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 scientist mart-west-core-drill stasis-lab pod1
+2
+18 0
+44 1
+2
+0 10 -1 6
+0 41 10 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 scientist mart-west-core-drill stasis-lab pod2
+2
+18 1
+44 1
+2
+0 10 -1 6
+0 42 10 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 scientist quantum-chip maintenance-tunnel pod1
+2
+18 0
+44 0
+2
+0 11 -1 5
+0 41 11 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 scientist quantum-chip maintenance-tunnel pod2
+2
+18 1
+44 0
+2
+0 11 -1 5
+0 42 11 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 scientist quantum-chip stasis-lab pod1
+2
+18 0
+44 1
+2
+0 11 -1 6
+0 41 11 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 scientist quantum-chip stasis-lab pod2
+2
+18 1
+44 1
+2
+0 11 -1 6
+0 42 11 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 scientist rover-wheel maintenance-tunnel pod1
+2
+18 0
+44 0
+2
+0 12 -1 5
+0 41 12 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 scientist rover-wheel maintenance-tunnel pod2
+2
+18 1
+44 0
+2
+0 12 -1 5
+0 42 12 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 scientist rover-wheel stasis-lab pod1
+2
+18 0
+44 1
+2
+0 12 -1 6
+0 41 12 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 scientist rover-wheel stasis-lab pod2
+2
+18 1
+44 1
+2
+0 12 -1 6
+0 42 12 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 scientist rusty-lightsaber maintenance-tunnel pod1
+2
+18 0
+44 0
+2
+0 13 -1 5
+0 41 13 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 scientist rusty-lightsaber maintenance-tunnel pod2
+2
+18 1
+44 0
+2
+0 13 -1 5
+0 42 13 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 scientist rusty-lightsaber stasis-lab pod1
+2
+18 0
+44 1
+2
+0 13 -1 6
+0 41 13 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 scientist rusty-lightsaber stasis-lab pod2
+2
+18 1
+44 1
+2
+0 13 -1 6
+0 42 13 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 scientist space-suit maintenance-tunnel pod1
+2
+18 0
+44 0
+2
+0 14 -1 5
+0 41 14 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 scientist space-suit maintenance-tunnel pod2
+2
+18 1
+44 0
+2
+0 14 -1 5
+0 42 14 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 scientist space-suit stasis-lab pod1
+2
+18 0
+44 1
+2
+0 14 -1 6
+0 41 14 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 scientist space-suit stasis-lab pod2
+2
+18 1
+44 1
+2
+0 14 -1 6
+0 42 14 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 scientist venus-rock-sample maintenance-tunnel pod1
+2
+18 0
+44 0
+2
+0 15 -1 5
+0 41 15 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 scientist venus-rock-sample maintenance-tunnel pod2
+2
+18 1
+44 0
+2
+0 15 -1 5
+0 42 15 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 scientist venus-rock-sample stasis-lab pod1
+2
+18 0
+44 1
+2
+0 15 -1 6
+0 41 15 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 scientist venus-rock-sample stasis-lab pod2
+2
+18 1
+44 1
+2
+0 15 -1 6
+0 42 15 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 scientist venus-sand-sample maintenance-tunnel pod1
+2
+18 0
+44 0
+2
+0 16 -1 5
+0 41 16 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 scientist venus-sand-sample maintenance-tunnel pod2
+2
+18 1
+44 0
+2
+0 16 -1 5
+0 42 16 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 scientist venus-sand-sample stasis-lab pod1
+2
+18 0
+44 1
+2
+0 16 -1 6
+0 41 16 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 scientist venus-sand-sample stasis-lab pod2
+2
+18 1
+44 1
+2
+0 16 -1 6
+0 42 16 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 technician asteroid-ad29tv-rock-sample anti-vibration-pods-room pod1
+2
+19 0
+45 0
+2
+0 0 -1 0
+0 41 0 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 technician asteroid-ad29tv-rock-sample anti-vibration-pods-room pod2
+2
+20 0
+45 0
+2
+0 0 -1 0
+0 42 0 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 technician asteroid-ad29tv-rock-sample entrance pod1
+2
+19 0
+45 2
+2
+0 0 -1 2
+0 41 0 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 technician asteroid-ad29tv-rock-sample entrance pod2
+2
+20 0
+45 2
+2
+0 0 -1 2
+0 42 0 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 technician asteroid-ad29tv-rock-sample hall-a pod1
+2
+19 0
+45 3
+2
+0 0 -1 3
+0 41 0 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 technician asteroid-ad29tv-rock-sample hall-a pod2
+2
+20 0
+45 3
+2
+0 0 -1 3
+0 42 0 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 technician asteroid-ad29tv-rock-sample hall-b pod1
+2
+19 0
+45 4
+2
+0 0 -1 4
+0 41 0 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 technician asteroid-ad29tv-rock-sample hall-b pod2
+2
+20 0
+45 4
+2
+0 0 -1 4
+0 42 0 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 technician asteroid-ad29tv-rock-sample maintenance-tunnel pod1
+2
+19 0
+45 5
+2
+0 0 -1 5
+0 41 0 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 technician asteroid-ad29tv-rock-sample maintenance-tunnel pod2
+2
+20 0
+45 5
+2
+0 0 -1 5
+0 42 0 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 technician asteroid-mg04tn-ice-sample anti-vibration-pods-room pod1
+2
+19 0
+45 0
+2
+0 1 -1 0
+0 41 1 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 technician asteroid-mg04tn-ice-sample anti-vibration-pods-room pod2
+2
+20 0
+45 0
+2
+0 1 -1 0
+0 42 1 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 technician asteroid-mg04tn-ice-sample entrance pod1
+2
+19 0
+45 2
+2
+0 1 -1 2
+0 41 1 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 technician asteroid-mg04tn-ice-sample entrance pod2
+2
+20 0
+45 2
+2
+0 1 -1 2
+0 42 1 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 technician asteroid-mg04tn-ice-sample hall-a pod1
+2
+19 0
+45 3
+2
+0 1 -1 3
+0 41 1 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 technician asteroid-mg04tn-ice-sample hall-a pod2
+2
+20 0
+45 3
+2
+0 1 -1 3
+0 42 1 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 technician asteroid-mg04tn-ice-sample hall-b pod1
+2
+19 0
+45 4
+2
+0 1 -1 4
+0 41 1 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 technician asteroid-mg04tn-ice-sample hall-b pod2
+2
+20 0
+45 4
+2
+0 1 -1 4
+0 42 1 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 technician asteroid-mg04tn-ice-sample maintenance-tunnel pod1
+2
+19 0
+45 5
+2
+0 1 -1 5
+0 41 1 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 technician asteroid-mg04tn-ice-sample maintenance-tunnel pod2
+2
+20 0
+45 5
+2
+0 1 -1 5
+0 42 1 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 technician mart-east-core-drill anti-vibration-pods-room pod1
+2
+19 0
+45 0
+2
+0 2 -1 0
+0 41 2 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 technician mart-east-core-drill anti-vibration-pods-room pod2
+2
+20 0
+45 0
+2
+0 2 -1 0
+0 42 2 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 technician mart-east-core-drill entrance pod1
+2
+19 0
+45 2
+2
+0 2 -1 2
+0 41 2 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 technician mart-east-core-drill entrance pod2
+2
+20 0
+45 2
+2
+0 2 -1 2
+0 42 2 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 technician mart-east-core-drill hall-a pod1
+2
+19 0
+45 3
+2
+0 2 -1 3
+0 41 2 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 technician mart-east-core-drill hall-a pod2
+2
+20 0
+45 3
+2
+0 2 -1 3
+0 42 2 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 technician mart-east-core-drill hall-b pod1
+2
+19 0
+45 4
+2
+0 2 -1 4
+0 41 2 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 technician mart-east-core-drill hall-b pod2
+2
+20 0
+45 4
+2
+0 2 -1 4
+0 42 2 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 technician mart-east-core-drill maintenance-tunnel pod1
+2
+19 0
+45 5
+2
+0 2 -1 5
+0 41 2 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 technician mart-east-core-drill maintenance-tunnel pod2
+2
+20 0
+45 5
+2
+0 2 -1 5
+0 42 2 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 technician mart-laser-gun anti-vibration-pods-room pod1
+2
+19 0
+45 0
+2
+0 3 -1 0
+0 41 3 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 technician mart-laser-gun anti-vibration-pods-room pod2
+2
+20 0
+45 0
+2
+0 3 -1 0
+0 42 3 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 technician mart-laser-gun entrance pod1
+2
+19 0
+45 2
+2
+0 3 -1 2
+0 41 3 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 technician mart-laser-gun entrance pod2
+2
+20 0
+45 2
+2
+0 3 -1 2
+0 42 3 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 technician mart-laser-gun hall-a pod1
+2
+19 0
+45 3
+2
+0 3 -1 3
+0 41 3 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 technician mart-laser-gun hall-a pod2
+2
+20 0
+45 3
+2
+0 3 -1 3
+0 42 3 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 technician mart-laser-gun hall-b pod1
+2
+19 0
+45 4
+2
+0 3 -1 4
+0 41 3 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 technician mart-laser-gun hall-b pod2
+2
+20 0
+45 4
+2
+0 3 -1 4
+0 42 3 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 technician mart-laser-gun maintenance-tunnel pod1
+2
+19 0
+45 5
+2
+0 3 -1 5
+0 41 3 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 technician mart-laser-gun maintenance-tunnel pod2
+2
+20 0
+45 5
+2
+0 3 -1 5
+0 42 3 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 technician mart-mysterious-egg anti-vibration-pods-room pod1
+2
+19 0
+45 0
+2
+0 4 -1 0
+0 41 4 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 technician mart-mysterious-egg anti-vibration-pods-room pod2
+2
+20 0
+45 0
+2
+0 4 -1 0
+0 42 4 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 technician mart-mysterious-egg entrance pod1
+2
+19 0
+45 2
+2
+0 4 -1 2
+0 41 4 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 technician mart-mysterious-egg entrance pod2
+2
+20 0
+45 2
+2
+0 4 -1 2
+0 42 4 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 technician mart-mysterious-egg hall-a pod1
+2
+19 0
+45 3
+2
+0 4 -1 3
+0 41 4 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 technician mart-mysterious-egg hall-a pod2
+2
+20 0
+45 3
+2
+0 4 -1 3
+0 42 4 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 technician mart-mysterious-egg hall-b pod1
+2
+19 0
+45 4
+2
+0 4 -1 4
+0 41 4 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 technician mart-mysterious-egg hall-b pod2
+2
+20 0
+45 4
+2
+0 4 -1 4
+0 42 4 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 technician mart-mysterious-egg maintenance-tunnel pod1
+2
+19 0
+45 5
+2
+0 4 -1 5
+0 41 4 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 technician mart-mysterious-egg maintenance-tunnel pod2
+2
+20 0
+45 5
+2
+0 4 -1 5
+0 42 4 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 technician mart-nord-core-drill anti-vibration-pods-room pod1
+2
+19 0
+45 0
+2
+0 5 -1 0
+0 41 5 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 technician mart-nord-core-drill anti-vibration-pods-room pod2
+2
+20 0
+45 0
+2
+0 5 -1 0
+0 42 5 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 technician mart-nord-core-drill entrance pod1
+2
+19 0
+45 2
+2
+0 5 -1 2
+0 41 5 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 technician mart-nord-core-drill entrance pod2
+2
+20 0
+45 2
+2
+0 5 -1 2
+0 42 5 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 technician mart-nord-core-drill hall-a pod1
+2
+19 0
+45 3
+2
+0 5 -1 3
+0 41 5 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 technician mart-nord-core-drill hall-a pod2
+2
+20 0
+45 3
+2
+0 5 -1 3
+0 42 5 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 technician mart-nord-core-drill hall-b pod1
+2
+19 0
+45 4
+2
+0 5 -1 4
+0 41 5 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 technician mart-nord-core-drill hall-b pod2
+2
+20 0
+45 4
+2
+0 5 -1 4
+0 42 5 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 technician mart-nord-core-drill maintenance-tunnel pod1
+2
+19 0
+45 5
+2
+0 5 -1 5
+0 41 5 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 technician mart-nord-core-drill maintenance-tunnel pod2
+2
+20 0
+45 5
+2
+0 5 -1 5
+0 42 5 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 technician mart-north-pole-ice-sample anti-vibration-pods-room pod1
+2
+19 0
+45 0
+2
+0 6 -1 0
+0 41 6 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 technician mart-north-pole-ice-sample anti-vibration-pods-room pod2
+2
+20 0
+45 0
+2
+0 6 -1 0
+0 42 6 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 technician mart-north-pole-ice-sample entrance pod1
+2
+19 0
+45 2
+2
+0 6 -1 2
+0 41 6 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 technician mart-north-pole-ice-sample entrance pod2
+2
+20 0
+45 2
+2
+0 6 -1 2
+0 42 6 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 technician mart-north-pole-ice-sample hall-a pod1
+2
+19 0
+45 3
+2
+0 6 -1 3
+0 41 6 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 technician mart-north-pole-ice-sample hall-a pod2
+2
+20 0
+45 3
+2
+0 6 -1 3
+0 42 6 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 technician mart-north-pole-ice-sample hall-b pod1
+2
+19 0
+45 4
+2
+0 6 -1 4
+0 41 6 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 technician mart-north-pole-ice-sample hall-b pod2
+2
+20 0
+45 4
+2
+0 6 -1 4
+0 42 6 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 technician mart-north-pole-ice-sample maintenance-tunnel pod1
+2
+19 0
+45 5
+2
+0 6 -1 5
+0 41 6 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 technician mart-north-pole-ice-sample maintenance-tunnel pod2
+2
+20 0
+45 5
+2
+0 6 -1 5
+0 42 6 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 technician mart-pink-hat anti-vibration-pods-room pod1
+2
+19 0
+45 0
+2
+0 7 -1 0
+0 41 7 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 technician mart-pink-hat anti-vibration-pods-room pod2
+2
+20 0
+45 0
+2
+0 7 -1 0
+0 42 7 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 technician mart-pink-hat entrance pod1
+2
+19 0
+45 2
+2
+0 7 -1 2
+0 41 7 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 technician mart-pink-hat entrance pod2
+2
+20 0
+45 2
+2
+0 7 -1 2
+0 42 7 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 technician mart-pink-hat hall-a pod1
+2
+19 0
+45 3
+2
+0 7 -1 3
+0 41 7 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 technician mart-pink-hat hall-a pod2
+2
+20 0
+45 3
+2
+0 7 -1 3
+0 42 7 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 technician mart-pink-hat hall-b pod1
+2
+19 0
+45 4
+2
+0 7 -1 4
+0 41 7 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 technician mart-pink-hat hall-b pod2
+2
+20 0
+45 4
+2
+0 7 -1 4
+0 42 7 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 technician mart-pink-hat maintenance-tunnel pod1
+2
+19 0
+45 5
+2
+0 7 -1 5
+0 41 7 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 technician mart-pink-hat maintenance-tunnel pod2
+2
+20 0
+45 5
+2
+0 7 -1 5
+0 42 7 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 technician mart-sand-sample anti-vibration-pods-room pod1
+2
+19 0
+45 0
+2
+0 8 -1 0
+0 41 8 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 technician mart-sand-sample anti-vibration-pods-room pod2
+2
+20 0
+45 0
+2
+0 8 -1 0
+0 42 8 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 technician mart-sand-sample entrance pod1
+2
+19 0
+45 2
+2
+0 8 -1 2
+0 41 8 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 technician mart-sand-sample entrance pod2
+2
+20 0
+45 2
+2
+0 8 -1 2
+0 42 8 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 technician mart-sand-sample hall-a pod1
+2
+19 0
+45 3
+2
+0 8 -1 3
+0 41 8 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 technician mart-sand-sample hall-a pod2
+2
+20 0
+45 3
+2
+0 8 -1 3
+0 42 8 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 technician mart-sand-sample hall-b pod1
+2
+19 0
+45 4
+2
+0 8 -1 4
+0 41 8 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 technician mart-sand-sample hall-b pod2
+2
+20 0
+45 4
+2
+0 8 -1 4
+0 42 8 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 technician mart-sand-sample maintenance-tunnel pod1
+2
+19 0
+45 5
+2
+0 8 -1 5
+0 41 8 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 technician mart-sand-sample maintenance-tunnel pod2
+2
+20 0
+45 5
+2
+0 8 -1 5
+0 42 8 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 technician mart-sud-core-drill anti-vibration-pods-room pod1
+2
+19 0
+45 0
+2
+0 9 -1 0
+0 41 9 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 technician mart-sud-core-drill anti-vibration-pods-room pod2
+2
+20 0
+45 0
+2
+0 9 -1 0
+0 42 9 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 technician mart-sud-core-drill entrance pod1
+2
+19 0
+45 2
+2
+0 9 -1 2
+0 41 9 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 technician mart-sud-core-drill entrance pod2
+2
+20 0
+45 2
+2
+0 9 -1 2
+0 42 9 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 technician mart-sud-core-drill hall-a pod1
+2
+19 0
+45 3
+2
+0 9 -1 3
+0 41 9 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 technician mart-sud-core-drill hall-a pod2
+2
+20 0
+45 3
+2
+0 9 -1 3
+0 42 9 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 technician mart-sud-core-drill hall-b pod1
+2
+19 0
+45 4
+2
+0 9 -1 4
+0 41 9 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 technician mart-sud-core-drill hall-b pod2
+2
+20 0
+45 4
+2
+0 9 -1 4
+0 42 9 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 technician mart-sud-core-drill maintenance-tunnel pod1
+2
+19 0
+45 5
+2
+0 9 -1 5
+0 41 9 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 technician mart-sud-core-drill maintenance-tunnel pod2
+2
+20 0
+45 5
+2
+0 9 -1 5
+0 42 9 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 technician mart-west-core-drill anti-vibration-pods-room pod1
+2
+19 0
+45 0
+2
+0 10 -1 0
+0 41 10 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 technician mart-west-core-drill anti-vibration-pods-room pod2
+2
+20 0
+45 0
+2
+0 10 -1 0
+0 42 10 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 technician mart-west-core-drill entrance pod1
+2
+19 0
+45 2
+2
+0 10 -1 2
+0 41 10 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 technician mart-west-core-drill entrance pod2
+2
+20 0
+45 2
+2
+0 10 -1 2
+0 42 10 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 technician mart-west-core-drill hall-a pod1
+2
+19 0
+45 3
+2
+0 10 -1 3
+0 41 10 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 technician mart-west-core-drill hall-a pod2
+2
+20 0
+45 3
+2
+0 10 -1 3
+0 42 10 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 technician mart-west-core-drill hall-b pod1
+2
+19 0
+45 4
+2
+0 10 -1 4
+0 41 10 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 technician mart-west-core-drill hall-b pod2
+2
+20 0
+45 4
+2
+0 10 -1 4
+0 42 10 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 technician mart-west-core-drill maintenance-tunnel pod1
+2
+19 0
+45 5
+2
+0 10 -1 5
+0 41 10 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 technician mart-west-core-drill maintenance-tunnel pod2
+2
+20 0
+45 5
+2
+0 10 -1 5
+0 42 10 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 technician quantum-chip anti-vibration-pods-room pod1
+2
+19 0
+45 0
+2
+0 11 -1 0
+0 41 11 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 technician quantum-chip anti-vibration-pods-room pod2
+2
+20 0
+45 0
+2
+0 11 -1 0
+0 42 11 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 technician quantum-chip entrance pod1
+2
+19 0
+45 2
+2
+0 11 -1 2
+0 41 11 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 technician quantum-chip entrance pod2
+2
+20 0
+45 2
+2
+0 11 -1 2
+0 42 11 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 technician quantum-chip hall-a pod1
+2
+19 0
+45 3
+2
+0 11 -1 3
+0 41 11 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 technician quantum-chip hall-a pod2
+2
+20 0
+45 3
+2
+0 11 -1 3
+0 42 11 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 technician quantum-chip hall-b pod1
+2
+19 0
+45 4
+2
+0 11 -1 4
+0 41 11 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 technician quantum-chip hall-b pod2
+2
+20 0
+45 4
+2
+0 11 -1 4
+0 42 11 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 technician quantum-chip maintenance-tunnel pod1
+2
+19 0
+45 5
+2
+0 11 -1 5
+0 41 11 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 technician quantum-chip maintenance-tunnel pod2
+2
+20 0
+45 5
+2
+0 11 -1 5
+0 42 11 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 technician rover-wheel anti-vibration-pods-room pod1
+2
+19 0
+45 0
+2
+0 12 -1 0
+0 41 12 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 technician rover-wheel anti-vibration-pods-room pod2
+2
+20 0
+45 0
+2
+0 12 -1 0
+0 42 12 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 technician rover-wheel entrance pod1
+2
+19 0
+45 2
+2
+0 12 -1 2
+0 41 12 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 technician rover-wheel entrance pod2
+2
+20 0
+45 2
+2
+0 12 -1 2
+0 42 12 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 technician rover-wheel hall-a pod1
+2
+19 0
+45 3
+2
+0 12 -1 3
+0 41 12 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 technician rover-wheel hall-a pod2
+2
+20 0
+45 3
+2
+0 12 -1 3
+0 42 12 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 technician rover-wheel hall-b pod1
+2
+19 0
+45 4
+2
+0 12 -1 4
+0 41 12 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 technician rover-wheel hall-b pod2
+2
+20 0
+45 4
+2
+0 12 -1 4
+0 42 12 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 technician rover-wheel maintenance-tunnel pod1
+2
+19 0
+45 5
+2
+0 12 -1 5
+0 41 12 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 technician rover-wheel maintenance-tunnel pod2
+2
+20 0
+45 5
+2
+0 12 -1 5
+0 42 12 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 technician rusty-lightsaber anti-vibration-pods-room pod1
+2
+19 0
+45 0
+2
+0 13 -1 0
+0 41 13 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 technician rusty-lightsaber anti-vibration-pods-room pod2
+2
+20 0
+45 0
+2
+0 13 -1 0
+0 42 13 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 technician rusty-lightsaber entrance pod1
+2
+19 0
+45 2
+2
+0 13 -1 2
+0 41 13 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 technician rusty-lightsaber entrance pod2
+2
+20 0
+45 2
+2
+0 13 -1 2
+0 42 13 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 technician rusty-lightsaber hall-a pod1
+2
+19 0
+45 3
+2
+0 13 -1 3
+0 41 13 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 technician rusty-lightsaber hall-a pod2
+2
+20 0
+45 3
+2
+0 13 -1 3
+0 42 13 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 technician rusty-lightsaber hall-b pod1
+2
+19 0
+45 4
+2
+0 13 -1 4
+0 41 13 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 technician rusty-lightsaber hall-b pod2
+2
+20 0
+45 4
+2
+0 13 -1 4
+0 42 13 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 technician rusty-lightsaber maintenance-tunnel pod1
+2
+19 0
+45 5
+2
+0 13 -1 5
+0 41 13 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 technician rusty-lightsaber maintenance-tunnel pod2
+2
+20 0
+45 5
+2
+0 13 -1 5
+0 42 13 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 technician space-suit anti-vibration-pods-room pod1
+2
+19 0
+45 0
+2
+0 14 -1 0
+0 41 14 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 technician space-suit anti-vibration-pods-room pod2
+2
+20 0
+45 0
+2
+0 14 -1 0
+0 42 14 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 technician space-suit entrance pod1
+2
+19 0
+45 2
+2
+0 14 -1 2
+0 41 14 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 technician space-suit entrance pod2
+2
+20 0
+45 2
+2
+0 14 -1 2
+0 42 14 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 technician space-suit hall-a pod1
+2
+19 0
+45 3
+2
+0 14 -1 3
+0 41 14 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 technician space-suit hall-a pod2
+2
+20 0
+45 3
+2
+0 14 -1 3
+0 42 14 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 technician space-suit hall-b pod1
+2
+19 0
+45 4
+2
+0 14 -1 4
+0 41 14 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 technician space-suit hall-b pod2
+2
+20 0
+45 4
+2
+0 14 -1 4
+0 42 14 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 technician space-suit maintenance-tunnel pod1
+2
+19 0
+45 5
+2
+0 14 -1 5
+0 41 14 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 technician space-suit maintenance-tunnel pod2
+2
+20 0
+45 5
+2
+0 14 -1 5
+0 42 14 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 technician venus-rock-sample anti-vibration-pods-room pod1
+2
+19 0
+45 0
+2
+0 15 -1 0
+0 41 15 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 technician venus-rock-sample anti-vibration-pods-room pod2
+2
+20 0
+45 0
+2
+0 15 -1 0
+0 42 15 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 technician venus-rock-sample entrance pod1
+2
+19 0
+45 2
+2
+0 15 -1 2
+0 41 15 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 technician venus-rock-sample entrance pod2
+2
+20 0
+45 2
+2
+0 15 -1 2
+0 42 15 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 technician venus-rock-sample hall-a pod1
+2
+19 0
+45 3
+2
+0 15 -1 3
+0 41 15 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 technician venus-rock-sample hall-a pod2
+2
+20 0
+45 3
+2
+0 15 -1 3
+0 42 15 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 technician venus-rock-sample hall-b pod1
+2
+19 0
+45 4
+2
+0 15 -1 4
+0 41 15 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 technician venus-rock-sample hall-b pod2
+2
+20 0
+45 4
+2
+0 15 -1 4
+0 42 15 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 technician venus-rock-sample maintenance-tunnel pod1
+2
+19 0
+45 5
+2
+0 15 -1 5
+0 41 15 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 technician venus-rock-sample maintenance-tunnel pod2
+2
+20 0
+45 5
+2
+0 15 -1 5
+0 42 15 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 technician venus-sand-sample anti-vibration-pods-room pod1
+2
+19 0
+45 0
+2
+0 16 -1 0
+0 41 16 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 technician venus-sand-sample anti-vibration-pods-room pod2
+2
+20 0
+45 0
+2
+0 16 -1 0
+0 42 16 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 technician venus-sand-sample entrance pod1
+2
+19 0
+45 2
+2
+0 16 -1 2
+0 41 16 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 technician venus-sand-sample entrance pod2
+2
+20 0
+45 2
+2
+0 16 -1 2
+0 42 16 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 technician venus-sand-sample hall-a pod1
+2
+19 0
+45 3
+2
+0 16 -1 3
+0 41 16 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 technician venus-sand-sample hall-a pod2
+2
+20 0
+45 3
+2
+0 16 -1 3
+0 42 16 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 technician venus-sand-sample hall-b pod1
+2
+19 0
+45 4
+2
+0 16 -1 4
+0 41 16 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 technician venus-sand-sample hall-b pod2
+2
+20 0
+45 4
+2
+0 16 -1 4
+0 42 16 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 technician venus-sand-sample maintenance-tunnel pod1
+2
+19 0
+45 5
+2
+0 16 -1 5
+0 41 16 17
+0
+end_operator
+begin_operator
+release-artifact-from-pod-slot-1 technician venus-sand-sample maintenance-tunnel pod2
+2
+20 0
+45 5
+2
+0 16 -1 5
+0 42 16 17
+0
+end_operator
+begin_operator
+release-artifact-slot-1 curator asteroid-mg04tn-ice-sample anti-vibration-pods-room
+1
+43 0
+2
+0 1 -1 0
+0 17 2 11
+0
+end_operator
+begin_operator
+release-artifact-slot-1 curator asteroid-mg04tn-ice-sample entrance
+1
+43 2
+2
+0 1 -1 2
+0 17 2 11
+0
+end_operator
+begin_operator
+release-artifact-slot-1 curator asteroid-mg04tn-ice-sample hall-a
+1
+43 3
+2
+0 1 -1 3
+0 17 2 11
+0
+end_operator
+begin_operator
+release-artifact-slot-1 curator asteroid-mg04tn-ice-sample hall-b
+1
+43 4
+2
+0 1 -1 4
+0 17 2 11
+0
+end_operator
+begin_operator
+release-artifact-slot-1 curator asteroid-mg04tn-ice-sample maintenance-tunnel
+1
+43 5
+2
+0 1 -1 5
+0 17 2 11
+0
+end_operator
+begin_operator
+release-artifact-slot-1 curator mart-east-core-drill anti-vibration-pods-room
+1
+43 0
+2
+0 2 -1 0
 0 17 3 11
 0
 end_operator
 begin_operator
-release-artifact-slot-1 scientist mart-mysterious-egg maintenance-tunnel
+release-artifact-slot-1 curator mart-east-core-drill entrance
 1
-41 0
+43 2
+2
+0 2 -1 2
+0 17 3 11
+0
+end_operator
+begin_operator
+release-artifact-slot-1 curator mart-east-core-drill hall-a
+1
+43 3
+2
+0 2 -1 3
+0 17 3 11
+0
+end_operator
+begin_operator
+release-artifact-slot-1 curator mart-east-core-drill hall-b
+1
+43 4
+2
+0 2 -1 4
+0 17 3 11
+0
+end_operator
+begin_operator
+release-artifact-slot-1 curator mart-east-core-drill maintenance-tunnel
+1
+43 5
+2
+0 2 -1 5
+0 17 3 11
+0
+end_operator
+begin_operator
+release-artifact-slot-1 curator mart-mysterious-egg anti-vibration-pods-room
+1
+43 0
+2
+0 4 -1 0
+0 17 4 11
+0
+end_operator
+begin_operator
+release-artifact-slot-1 curator mart-mysterious-egg entrance
+1
+43 2
+2
+0 4 -1 2
+0 17 4 11
+0
+end_operator
+begin_operator
+release-artifact-slot-1 curator mart-mysterious-egg hall-a
+1
+43 3
+2
+0 4 -1 3
+0 17 4 11
+0
+end_operator
+begin_operator
+release-artifact-slot-1 curator mart-mysterious-egg hall-b
+1
+43 4
+2
+0 4 -1 4
+0 17 4 11
+0
+end_operator
+begin_operator
+release-artifact-slot-1 curator mart-mysterious-egg maintenance-tunnel
+1
+43 5
 2
 0 4 -1 5
 0 17 4 11
 0
 end_operator
 begin_operator
-release-artifact-slot-1 scientist mart-mysterious-egg stasis-lab
+release-artifact-slot-1 curator mart-nord-core-drill anti-vibration-pods-room
 1
-41 1
+43 0
 2
-0 4 -1 6
-0 17 4 11
+0 5 -1 0
+0 17 5 11
 0
 end_operator
 begin_operator
-release-artifact-slot-1 scientist mart-nord-core-drill maintenance-tunnel
+release-artifact-slot-1 curator mart-nord-core-drill entrance
 1
-41 0
+43 2
+2
+0 5 -1 2
+0 17 5 11
+0
+end_operator
+begin_operator
+release-artifact-slot-1 curator mart-nord-core-drill hall-a
+1
+43 3
+2
+0 5 -1 3
+0 17 5 11
+0
+end_operator
+begin_operator
+release-artifact-slot-1 curator mart-nord-core-drill hall-b
+1
+43 4
+2
+0 5 -1 4
+0 17 5 11
+0
+end_operator
+begin_operator
+release-artifact-slot-1 curator mart-nord-core-drill maintenance-tunnel
+1
+43 5
 2
 0 5 -1 5
 0 17 5 11
 0
 end_operator
 begin_operator
-release-artifact-slot-1 scientist mart-nord-core-drill stasis-lab
+release-artifact-slot-1 curator mart-north-pole-ice-sample anti-vibration-pods-room
 1
-41 1
+43 0
 2
-0 5 -1 6
-0 17 5 11
+0 6 -1 0
+0 17 6 11
 0
 end_operator
 begin_operator
-release-artifact-slot-1 scientist mart-north-pole-ice-sample maintenance-tunnel
+release-artifact-slot-1 curator mart-north-pole-ice-sample entrance
 1
-41 0
+43 2
+2
+0 6 -1 2
+0 17 6 11
+0
+end_operator
+begin_operator
+release-artifact-slot-1 curator mart-north-pole-ice-sample hall-a
+1
+43 3
+2
+0 6 -1 3
+0 17 6 11
+0
+end_operator
+begin_operator
+release-artifact-slot-1 curator mart-north-pole-ice-sample hall-b
+1
+43 4
+2
+0 6 -1 4
+0 17 6 11
+0
+end_operator
+begin_operator
+release-artifact-slot-1 curator mart-north-pole-ice-sample maintenance-tunnel
+1
+43 5
 2
 0 6 -1 5
 0 17 6 11
 0
 end_operator
 begin_operator
-release-artifact-slot-1 scientist mart-north-pole-ice-sample stasis-lab
+release-artifact-slot-1 curator mart-sud-core-drill anti-vibration-pods-room
 1
-41 1
+43 0
 2
-0 6 -1 6
-0 17 6 11
+0 9 -1 0
+0 17 7 11
 0
 end_operator
 begin_operator
-release-artifact-slot-1 scientist mart-sud-core-drill maintenance-tunnel
+release-artifact-slot-1 curator mart-sud-core-drill entrance
 1
-41 0
+43 2
+2
+0 9 -1 2
+0 17 7 11
+0
+end_operator
+begin_operator
+release-artifact-slot-1 curator mart-sud-core-drill hall-a
+1
+43 3
+2
+0 9 -1 3
+0 17 7 11
+0
+end_operator
+begin_operator
+release-artifact-slot-1 curator mart-sud-core-drill hall-b
+1
+43 4
+2
+0 9 -1 4
+0 17 7 11
+0
+end_operator
+begin_operator
+release-artifact-slot-1 curator mart-sud-core-drill maintenance-tunnel
+1
+43 5
 2
 0 9 -1 5
 0 17 7 11
 0
 end_operator
 begin_operator
-release-artifact-slot-1 scientist mart-sud-core-drill stasis-lab
+release-artifact-slot-1 curator mart-west-core-drill anti-vibration-pods-room
 1
-41 1
+43 0
 2
-0 9 -1 6
-0 17 7 11
+0 10 -1 0
+0 17 8 11
 0
 end_operator
 begin_operator
-release-artifact-slot-1 scientist mart-west-core-drill maintenance-tunnel
+release-artifact-slot-1 curator mart-west-core-drill entrance
 1
-41 0
+43 2
+2
+0 10 -1 2
+0 17 8 11
+0
+end_operator
+begin_operator
+release-artifact-slot-1 curator mart-west-core-drill hall-a
+1
+43 3
+2
+0 10 -1 3
+0 17 8 11
+0
+end_operator
+begin_operator
+release-artifact-slot-1 curator mart-west-core-drill hall-b
+1
+43 4
+2
+0 10 -1 4
+0 17 8 11
+0
+end_operator
+begin_operator
+release-artifact-slot-1 curator mart-west-core-drill maintenance-tunnel
+1
+43 5
 2
 0 10 -1 5
 0 17 8 11
 0
 end_operator
 begin_operator
+release-artifact-slot-1 curator venus-rock-sample anti-vibration-pods-room
+1
+43 0
+2
+0 15 -1 0
+0 17 9 11
+0
+end_operator
+begin_operator
+release-artifact-slot-1 curator venus-rock-sample entrance
+1
+43 2
+2
+0 15 -1 2
+0 17 9 11
+0
+end_operator
+begin_operator
+release-artifact-slot-1 curator venus-rock-sample hall-a
+1
+43 3
+2
+0 15 -1 3
+0 17 9 11
+0
+end_operator
+begin_operator
+release-artifact-slot-1 curator venus-rock-sample hall-b
+1
+43 4
+2
+0 15 -1 4
+0 17 9 11
+0
+end_operator
+begin_operator
+release-artifact-slot-1 curator venus-rock-sample maintenance-tunnel
+1
+43 5
+2
+0 15 -1 5
+0 17 9 11
+0
+end_operator
+begin_operator
+release-artifact-slot-1 curator venus-sand-sample anti-vibration-pods-room
+1
+43 0
+2
+0 16 -1 0
+0 17 10 11
+0
+end_operator
+begin_operator
+release-artifact-slot-1 curator venus-sand-sample entrance
+1
+43 2
+2
+0 16 -1 2
+0 17 10 11
+0
+end_operator
+begin_operator
+release-artifact-slot-1 curator venus-sand-sample hall-a
+1
+43 3
+2
+0 16 -1 3
+0 17 10 11
+0
+end_operator
+begin_operator
+release-artifact-slot-1 curator venus-sand-sample hall-b
+1
+43 4
+2
+0 16 -1 4
+0 17 10 11
+0
+end_operator
+begin_operator
+release-artifact-slot-1 curator venus-sand-sample maintenance-tunnel
+1
+43 5
+2
+0 16 -1 5
+0 17 10 11
+0
+end_operator
+begin_operator
+release-artifact-slot-1 scientist asteroid-mg04tn-ice-sample maintenance-tunnel
+1
+44 0
+2
+0 1 -1 5
+0 18 2 13
+0
+end_operator
+begin_operator
+release-artifact-slot-1 scientist asteroid-mg04tn-ice-sample stasis-lab
+1
+44 1
+2
+0 1 -1 6
+0 18 2 13
+0
+end_operator
+begin_operator
+release-artifact-slot-1 scientist mart-east-core-drill maintenance-tunnel
+1
+44 0
+2
+0 2 -1 5
+0 18 3 13
+>>>>>>> main
+0
+end_operator
+begin_operator
+release-artifact-slot-1 scientist mart-east-core-drill stasis-lab
+1
+<<<<<<< HEAD
+41 1
+2
+0 2 -1 6
+0 17 3 11
+=======
+44 1
+2
+0 2 -1 6
+0 18 3 13
+>>>>>>> main
+0
+end_operator
+begin_operator
+release-artifact-slot-1 scientist mart-mysterious-egg maintenance-tunnel
+1
+<<<<<<< HEAD
+41 0
+2
+0 4 -1 5
+0 17 4 11
+=======
+44 0
+2
+0 4 -1 5
+0 18 4 13
+>>>>>>> main
+0
+end_operator
+begin_operator
+release-artifact-slot-1 scientist mart-mysterious-egg stasis-lab
+1
+<<<<<<< HEAD
+41 1
+2
+0 4 -1 6
+0 17 4 11
+=======
+44 1
+2
+0 4 -1 6
+0 18 4 13
+>>>>>>> main
+0
+end_operator
+begin_operator
+release-artifact-slot-1 scientist mart-nord-core-drill maintenance-tunnel
+1
+<<<<<<< HEAD
+41 0
+2
+0 5 -1 5
+0 17 5 11
+=======
+44 0
+2
+0 5 -1 5
+0 18 5 13
+>>>>>>> main
+0
+end_operator
+begin_operator
+release-artifact-slot-1 scientist mart-nord-core-drill stasis-lab
+1
+<<<<<<< HEAD
+41 1
+2
+0 5 -1 6
+0 17 5 11
+=======
+44 1
+2
+0 5 -1 6
+0 18 5 13
+>>>>>>> main
+0
+end_operator
+begin_operator
+release-artifact-slot-1 scientist mart-north-pole-ice-sample maintenance-tunnel
+1
+<<<<<<< HEAD
+41 0
+2
+0 6 -1 5
+0 17 6 11
+=======
+44 0
+2
+0 6 -1 5
+0 18 6 13
+>>>>>>> main
+0
+end_operator
+begin_operator
+release-artifact-slot-1 scientist mart-north-pole-ice-sample stasis-lab
+1
+<<<<<<< HEAD
+41 1
+2
+0 6 -1 6
+0 17 6 11
+=======
+44 1
+2
+0 6 -1 6
+0 18 6 13
+>>>>>>> main
+0
+end_operator
+begin_operator
+release-artifact-slot-1 scientist mart-sud-core-drill maintenance-tunnel
+1
+<<<<<<< HEAD
+41 0
+2
+0 9 -1 5
+0 17 7 11
+=======
+44 0
+2
+0 9 -1 5
+0 18 7 13
+>>>>>>> main
+0
+end_operator
+begin_operator
+release-artifact-slot-1 scientist mart-sud-core-drill stasis-lab
+1
+<<<<<<< HEAD
+41 1
+2
+0 9 -1 6
+0 17 7 11
+=======
+44 1
+2
+0 9 -1 6
+0 18 7 13
+>>>>>>> main
+0
+end_operator
+begin_operator
+release-artifact-slot-1 scientist mart-west-core-drill maintenance-tunnel
+1
+<<<<<<< HEAD
+41 0
+2
+0 10 -1 5
+0 17 8 11
+=======
+44 0
+2
+0 10 -1 5
+0 18 8 13
+>>>>>>> main
+0
+end_operator
+begin_operator
 release-artifact-slot-1 scientist mart-west-core-drill stasis-lab
 1
+<<<<<<< HEAD
 41 1
 2
 0 10 -1 6
 0 17 8 11
+=======
+44 1
+2
+0 10 -1 6
+0 18 8 13
+0
+end_operator
+begin_operator
+release-artifact-slot-1 scientist rusty-lightsaber maintenance-tunnel
+1
+44 0
+2
+0 13 -1 5
+0 18 9 13
+0
+end_operator
+begin_operator
+release-artifact-slot-1 scientist rusty-lightsaber stasis-lab
+1
+44 1
+2
+0 13 -1 6
+0 18 9 13
+0
+end_operator
+begin_operator
+release-artifact-slot-1 scientist space-suit maintenance-tunnel
+1
+44 0
+2
+0 14 -1 5
+0 18 10 13
+0
+end_operator
+begin_operator
+release-artifact-slot-1 scientist space-suit stasis-lab
+1
+44 1
+2
+0 14 -1 6
+0 18 10 13
+>>>>>>> main
 0
 end_operator
 begin_operator
 release-artifact-slot-1 scientist venus-rock-sample maintenance-tunnel
 1
+<<<<<<< HEAD
 41 0
 2
 0 14 -1 5
 0 17 9 11
+=======
+44 0
+2
+0 15 -1 5
+0 18 11 13
+>>>>>>> main
 0
 end_operator
 begin_operator
 release-artifact-slot-1 scientist venus-rock-sample stasis-lab
 1
+<<<<<<< HEAD
 41 1
 2
 0 14 -1 6
 0 17 9 11
+=======
+44 1
+2
+0 15 -1 6
+0 18 11 13
+>>>>>>> main
 0
 end_operator
 begin_operator
 release-artifact-slot-1 scientist venus-sand-sample maintenance-tunnel
 1
+<<<<<<< HEAD
 41 0
 2
 0 15 -1 5
 0 17 10 11
+=======
+44 0
+2
+0 16 -1 5
+0 18 12 13
+>>>>>>> main
 0
 end_operator
 begin_operator
 release-artifact-slot-1 scientist venus-sand-sample stasis-lab
 1
+<<<<<<< HEAD
 41 1
 2
 0 15 -1 6
 0 17 10 11
+=======
+44 1
+2
+0 16 -1 6
+0 18 12 13
+0
+end_operator
+begin_operator
+release-artifact-slot-1 technician rusty-lightsaber anti-vibration-pods-room
+1
+45 0
+2
+0 13 7 0
+0 38 -1 0
+0
+end_operator
+begin_operator
+release-artifact-slot-1 technician rusty-lightsaber entrance
+1
+45 2
+2
+0 13 7 2
+0 38 -1 0
+0
+end_operator
+begin_operator
+release-artifact-slot-1 technician rusty-lightsaber hall-a
+1
+45 3
+2
+0 13 7 3
+0 38 -1 0
+0
+end_operator
+begin_operator
+release-artifact-slot-1 technician rusty-lightsaber hall-b
+1
+45 4
+2
+0 13 7 4
+0 38 -1 0
+0
+end_operator
+begin_operator
+release-artifact-slot-1 technician rusty-lightsaber maintenance-tunnel
+1
+45 5
+2
+0 13 7 5
+0 38 -1 0
+0
+end_operator
+begin_operator
+release-artifact-slot-1 technician space-suit anti-vibration-pods-room
+1
+45 0
+2
+0 14 7 0
+0 38 -1 0
+0
+end_operator
+begin_operator
+release-artifact-slot-1 technician space-suit entrance
+1
+45 2
+2
+0 14 7 2
+0 38 -1 0
+0
+end_operator
+begin_operator
+release-artifact-slot-1 technician space-suit hall-a
+1
+45 3
+2
+0 14 7 3
+0 38 -1 0
+0
+end_operator
+begin_operator
+release-artifact-slot-1 technician space-suit hall-b
+1
+45 4
+2
+0 14 7 4
+0 38 -1 0
+0
+end_operator
+begin_operator
+release-artifact-slot-1 technician space-suit maintenance-tunnel
+1
+45 5
+2
+0 14 7 5
+0 38 -1 0
+0
+end_operator
+begin_operator
+release-artifact-slot-2 technician rusty-lightsaber anti-vibration-pods-room
+1
+45 0
+2
+0 13 8 0
+0 39 -1 0
+0
+end_operator
+begin_operator
+release-artifact-slot-2 technician rusty-lightsaber entrance
+1
+45 2
+2
+0 13 8 2
+0 39 -1 0
+0
+end_operator
+begin_operator
+release-artifact-slot-2 technician rusty-lightsaber hall-a
+1
+45 3
+2
+0 13 8 3
+0 39 -1 0
+0
+end_operator
+begin_operator
+release-artifact-slot-2 technician rusty-lightsaber hall-b
+1
+45 4
+2
+0 13 8 4
+0 39 -1 0
+0
+end_operator
+begin_operator
+release-artifact-slot-2 technician rusty-lightsaber maintenance-tunnel
+1
+45 5
+2
+0 13 8 5
+0 39 -1 0
+0
+end_operator
+begin_operator
+release-artifact-slot-2 technician space-suit anti-vibration-pods-room
+1
+45 0
+2
+0 14 8 0
+0 39 -1 0
+0
+end_operator
+begin_operator
+release-artifact-slot-2 technician space-suit entrance
+1
+45 2
+2
+0 14 8 2
+0 39 -1 0
+0
+end_operator
+begin_operator
+release-artifact-slot-2 technician space-suit hall-a
+1
+45 3
+2
+0 14 8 3
+0 39 -1 0
+0
+end_operator
+begin_operator
+release-artifact-slot-2 technician space-suit hall-b
+1
+45 4
+2
+0 14 8 4
+0 39 -1 0
+0
+end_operator
+begin_operator
+release-artifact-slot-2 technician space-suit maintenance-tunnel
+1
+45 5
+2
+0 14 8 5
+0 39 -1 0
+>>>>>>> main
 0
 end_operator
 begin_operator
 try-to-enter-seismic-room_DETDUP_0 curator hall-b maintenance-tunnel
 0
 3
+<<<<<<< HEAD
 0 37 -1 0
 0 40 5 4
 0 43 -1 1
+=======
+0 40 -1 0
+0 43 5 4
+0 46 -1 1
+>>>>>>> main
 0
 end_operator
 begin_operator
 try-to-enter-seismic-room_DETDUP_0 technician hall-b maintenance-tunnel
 0
 3
+<<<<<<< HEAD
 0 37 -1 0
 0 42 5 4
 0 45 -1 1
+=======
+0 40 -1 0
+0 45 5 4
+0 48 -1 1
+>>>>>>> main
 0
 end_operator
 begin_operator
 try-to-enter-seismic-room_DETDUP_1 curator hall-b maintenance-tunnel
 1
+<<<<<<< HEAD
 40 5
 1
 0 37 -1 1
+=======
+43 5
+1
+0 40 -1 1
+>>>>>>> main
 0
 end_operator
 begin_operator
 try-to-enter-seismic-room_DETDUP_1 technician hall-b maintenance-tunnel
 1
+<<<<<<< HEAD
 42 5
 1
 0 37 -1 1
+=======
+45 5
+1
+0 40 -1 1
+>>>>>>> main
 0
 end_operator
 0

@@ -21,7 +21,7 @@
     mart-east-core-drill mart-west-core-drill - artifact
     mart-sand-sample mart-north-pole-ice-sample - artifact
     mart-mysterious-egg mart-laser-gun mart-pink-hat - artifact
-    rover-wheel space-suit quantum-chip - artifact
+    rover-wheel space-suit quantum-chip rusty-lightsaber - artifact
     asteroid-MG04TN-ice-sample asteroid-AD29TV-rock-sample - artifact
     venus-sand-sample venus-rock-sample - artifact
   )
@@ -32,16 +32,16 @@
     ;; ============================================================
     
     ;; Curator
-    (sealing-mode-on curator)
-    (robot-at curator entrance) (hands-empty curator)
+    (robot-at curator entrance) (hands-empty-slot-1 curator)
     (can-access curator entrance) (can-access curator maintenance-tunnel) 
     (can-access curator hall-a) (can-access curator hall-b) 
     (can-access curator cryo-chamber) (can-access curator anti-vibration-pods-room)
     (can-pickup curator scientific) (can-pickup curator top-secret)
+    (sealing-mode-off curator)
 
     ;; Technician
-    (sealing-mode-on technician)
-    (robot-at technician entrance) (hands-empty technician) (can-carry-two technician) (second-slot-empty technician)
+    (sealing-mode-off technician)
+    (robot-at technician entrance) (hands-empty-slot-1 technician) (can-carry-two technician) (hands-empty-slot-2 technician)
     
     (can-access technician entrance) (can-access technician maintenance-tunnel) 
     (can-access technician hall-a) (can-access technician hall-b) 
@@ -49,8 +49,8 @@
     (can-pickup technician technological)
 
     ;; Scientist
-    (sealing-mode-on scientist)
-    (robot-at scientist stasis-lab) (hands-empty scientist)
+    (sealing-mode-off scientist)
+    (robot-at scientist stasis-lab) (hands-empty-slot-1 scientist)
     (can-access scientist stasis-lab) (can-access scientist maintenance-tunnel)
     (can-pickup scientist scientific) (can-pickup scientist top-secret) (can-pickup scientist technological)
     
@@ -106,7 +106,7 @@
 
     ;; Pods
     (pod-empty pod1) (pod-empty pod2)
-    (contains-empty-pod anti-vibration-pods-room pod1) (contains-empty-pod anti-vibration-pods-room pod2)
+    (pod-at pod1 anti-vibration-pods-room) (pod-at pod2 anti-vibration-pods-room)
 
     ;; ============================================================
     ;; ARTIFACTS BY ROOM (Position, Type, Features)
@@ -127,16 +127,17 @@
     ;; --- HALL B ---
     ;; Mission Gear
     ; (artifact-at rover-wheel hall-b) (is-type rover-wheel technological) (warm rover-wheel) (no-fragile rover-wheel)
-    ; (artifact-at space-suit hall-b) (is-type space-suit technological) (warm space-suit) (no-fragile space-suit)
-    (artifact-at quantum-chip hall-b) (is-type quantum-chip technological) (warm quantum-chip) (fragile quantum-chip)
+    (artifact-at space-suit hall-b) (is-type space-suit technological) (warm space-suit) (no-fragile space-suit)
+    (artifact-at quantum-chip hall-b) (is-type quantum-chip technological) (warm quantum-chip)
+    ; (artifact-at rusty-lightsaber hall-b) (is-type rusty-lightsaber technological) (warm rusty-lightsaber) (no-fragile rusty-lightsaber)
 
     ;; Hall B: Samples & Civilization Artifacts
-    (artifact-at mart-sand-sample hall-b) (is-type mart-sand-sample scientific) (warm mart-sand-sample) (fragile mart-sand-sample)
-    ; (artifact-at mart-laser-gun hall-b) (is-type mart-laser-gun top-secret) (warm mart-laser-gun) (fragile mart-laser-gun)
-    ; (artifact-at mart-pink-hat hall-b) (is-type mart-pink-hat top-secret) (warm mart-pink-hat) (fragile mart-pink-hat)
-    ; (artifact-at asteroid-AD29TV-rock-sample hall-b) (is-type asteroid-AD29TV-rock-sample scientific) (warm asteroid-AD29TV-rock-sample) (fragile asteroid-AD29TV-rock-sample)
+    ; (artifact-at mart-sand-sample hall-b) (is-type mart-sand-sample scientific) (warm mart-sand-sample)
+    (artifact-at mart-laser-gun hall-b) (is-type mart-laser-gun top-secret) (warm mart-laser-gun)
+    ; (artifact-at mart-pink-hat hall-b) (is-type mart-pink-hat top-secret) (warm mart-pink-hat)
+    ; (artifact-at asteroid-AD29TV-rock-sample hall-b) (is-type asteroid-AD29TV-rock-sample scientific) (warm asteroid-AD29TV-rock-sample)
     ; (artifact-at venus-sand-sample hall-b) (is-type venus-sand-sample scientific) (warm venus-sand-sample) (no-fragile venus-sand-sample)
-    (artifact-at venus-rock-sample hall-b) (is-type venus-rock-sample scientific) (warm venus-rock-sample) (no-fragile venus-rock-sample)
+    ; (artifact-at venus-rock-sample hall-b) (is-type venus-rock-sample scientific) (warm venus-rock-sample) (no-fragile venus-rock-sample)
   )
 
   ;; ============================================================
@@ -149,19 +150,20 @@
     ; (artifact-at mart-east-core-drill stasis-lab) (cold mart-east-core-drill)
     ; (artifact-at mart-west-core-drill stasis-lab) (cold mart-west-core-drill)
     ; (artifact-at rover-wheel stasis-lab)
-    ; (artifact-at space-suit stasis-lab)
+    (artifact-at space-suit stasis-lab)
     (artifact-at quantum-chip stasis-lab) (cold quantum-chip)
+    ; (artifact-at rusty-lightsaber stasis-lab) (cold rusty-lightsaber)
 
     (artifact-at mart-north-pole-ice-sample cryo-chamber)
     (artifact-at mart-mysterious-egg cryo-chamber)    
     ; (artifact-at asteroid-MG04TN-ice-sample cryo-chamber)
 
-    (artifact-at mart-sand-sample hall-a)
-    ; (artifact-at mart-laser-gun hall-a)
+    ; (artifact-at mart-sand-sample hall-a)
+    (artifact-at mart-laser-gun hall-a)
     ; (artifact-at mart-pink-hat hall-a)  
     ; (artifact-at asteroid-AD29TV-rock-sample hall-a)  
     ; (artifact-at venus-sand-sample hall-a)
-    (artifact-at venus-rock-sample hall-a)
+    ; (artifact-at venus-rock-sample hall-a)
     )   
   )
 )

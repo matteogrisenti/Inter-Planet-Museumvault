@@ -261,21 +261,6 @@
   )
 
   ;; ! B. Cooling artifact in the Cryo-Chamber (Temperature Effect)
-  ; This works both if robots carries just and objects but also if the object is in the pod (instead of realeasing it and then cooling it -> in the end it should have the same effect/time cost)
-;   (:durative-action cool-artifact-in-cryo
-;     :parameters (?r - robot ?a - artifact ?l - location)
-;     :duration (= ?duration 2)
-;     :condition (and 
-;         (at start (warm ?a))                      ; Artifact must be warm at the start
-;         (over all (artifact-at ?a ?l))              ; Artifact must be inside the Cryo-Chamber for the whole time of the action
-;         (at start (robot-at ?r ?l))                 ; Robot must be at the location for the entire duration
-;         (over all (is-chill-room ?l))               ; Location must be a chill room for the entire duration
-;     )
-;     :effect (and 
-;         (at start (not (warm ?a)))                  ; Artifact is no longer warm at the start
-;         (at end (cold ?a))                          ; Artifact is cold at the end
-;     )
-;   )
 
   (:durative-action cool-artifact-while-carrying
     :parameters (?r - robot ?a - artifact ?l - location)
