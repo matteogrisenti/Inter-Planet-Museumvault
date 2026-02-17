@@ -2,7 +2,7 @@ run scirpts to open first and second terminal with docker
 
 then for each terminal:
 
-cd plansys2_ws
+cd ~/plansys2_ws
 colcon build --symlink-install
 source /opt/ros/humble/setup.bash
 source install/setup.bash

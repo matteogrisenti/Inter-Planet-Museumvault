@@ -1,0 +1,21 @@
+[0.065s] Invoking command in '/plansys2_ws/build/plansys2_simple_example': /usr/bin/cmake /plansys2_ws/plansys2_simple_example -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/plansys2_ws/install/plansys2_simple_example
+[0.177s] [31mCMake Error at CMakeLists.txt:5 (find_package):
+[0.177s]   By not providing "Findament_cmake.cmake" in CMAKE_MODULE_PATH this project
+[0.178s]   has asked CMake to find a package configuration file provided by
+[0.180s]   "ament_cmake", but CMake did not find one.
+[0.181s] 
+[0.181s]   Could not find a package configuration file provided by "ament_cmake" with
+[0.181s]   any of the following names:
+[0.181s] 
+[0.181s]     ament_cmakeConfig.cmake
+[0.181s]     ament_cmake-config.cmake
+[0.181s] 
+[0.181s]   Add the installation prefix of "ament_cmake" to CMAKE_PREFIX_PATH or set
+[0.182s]   "ament_cmake_DIR" to a directory containing one of the above files.  If
+[0.182s]   "ament_cmake" provides a separate development package or SDK, be sure it
+[0.182s]   has been installed.
+[0.182s] 
+[0.182s] [0m
+[0.183s] -- Configuring incomplete, errors occurred!
+[0.183s] See also "/plansys2_ws/build/plansys2_simple_example/CMakeFiles/CMakeOutput.log".
+[0.186s] Invoked command in '/plansys2_ws/build/plansys2_simple_example' returned '1': /usr/bin/cmake /plansys2_ws/plansys2_simple_example -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/plansys2_ws/install/plansys2_simple_example

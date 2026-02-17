@@ -1,0 +1,33 @@
+[0.197s] Invoking command in '/plansys2_ws/build/museum': /usr/bin/cmake /plansys2_ws/museum -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/plansys2_ws/install/museum
+[1.724s] -- The C compiler identification is GNU 11.4.0
+[2.856s] -- The CXX compiler identification is GNU 11.4.0
+[3.004s] -- Detecting C compiler ABI info
+[4.972s] -- Detecting C compiler ABI info - done
+[5.068s] -- Check for working C compiler: /usr/bin/cc - skipped
+[5.071s] -- Detecting C compile features
+[5.083s] -- Detecting C compile features - done
+[5.098s] -- Detecting CXX compiler ABI info
+[6.694s] -- Detecting CXX compiler ABI info - done
+[6.805s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[6.805s] -- Detecting CXX compile features
+[6.807s] -- Detecting CXX compile features - done
+[6.893s] [31mCMake Error at CMakeLists.txt:5 (find_package):
+[6.894s]   By not providing "Findament_cmake.cmake" in CMAKE_MODULE_PATH this project
+[6.896s]   has asked CMake to find a package configuration file provided by
+[6.901s]   "ament_cmake", but CMake did not find one.
+[6.907s] 
+[6.908s]   Could not find a package configuration file provided by "ament_cmake" with
+[6.909s]   any of the following names:
+[6.909s] 
+[6.910s]     ament_cmakeConfig.cmake
+[6.924s]     ament_cmake-config.cmake
+[6.937s] 
+[6.946s]   Add the installation prefix of "ament_cmake" to CMAKE_PREFIX_PATH or set
+[6.947s]   "ament_cmake_DIR" to a directory containing one of the above files.  If
+[6.947s]   "ament_cmake" provides a separate development package or SDK, be sure it
+[6.947s]   has been installed.
+[6.948s] 
+[6.948s] [0m
+[7.182s] -- Configuring incomplete, errors occurred!
+[7.183s] See also "/plansys2_ws/build/museum/CMakeFiles/CMakeOutput.log".
+[7.253s] Invoked command in '/plansys2_ws/build/museum' returned '1': /usr/bin/cmake /plansys2_ws/museum -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/plansys2_ws/install/museum

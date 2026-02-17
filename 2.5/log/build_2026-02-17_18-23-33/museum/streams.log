@@ -1,0 +1,21 @@
+[0.056s] Invoking command in '/plansys2_ws/build/museum': /usr/bin/cmake /plansys2_ws/museum -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/plansys2_ws/install/museum
+[0.176s] [31mCMake Error at CMakeLists.txt:5 (find_package):
+[0.179s]   By not providing "Findament_cmake.cmake" in CMAKE_MODULE_PATH this project
+[0.179s]   has asked CMake to find a package configuration file provided by
+[0.179s]   "ament_cmake", but CMake did not find one.
+[0.180s] 
+[0.180s]   Could not find a package configuration file provided by "ament_cmake" with
+[0.180s]   any of the following names:
+[0.181s] 
+[0.181s]     ament_cmakeConfig.cmake
+[0.182s]     ament_cmake-config.cmake
+[0.182s] 
+[0.182s]   Add the installation prefix of "ament_cmake" to CMAKE_PREFIX_PATH or set
+[0.182s]   "ament_cmake_DIR" to a directory containing one of the above files.  If
+[0.182s]   "ament_cmake" provides a separate development package or SDK, be sure it
+[0.183s]   has been installed.
+[0.183s] 
+[0.189s] [0m
+[0.189s] -- Configuring incomplete, errors occurred!
+[0.189s] See also "/plansys2_ws/build/museum/CMakeFiles/CMakeOutput.log".
+[0.200s] Invoked command in '/plansys2_ws/build/museum' returned '1': /usr/bin/cmake /plansys2_ws/museum -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/plansys2_ws/install/museum

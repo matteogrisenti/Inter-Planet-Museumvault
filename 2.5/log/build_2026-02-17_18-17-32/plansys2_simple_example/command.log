@@ -1,0 +1,2 @@
+Invoking command in '/plansys2_ws/build/plansys2_simple_example': /usr/bin/cmake /plansys2_ws/plansys2_simple_example -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/plansys2_ws/install/plansys2_simple_example
+Invoked command in '/plansys2_ws/build/plansys2_simple_example' returned '1': /usr/bin/cmake /plansys2_ws/plansys2_simple_example -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/plansys2_ws/install/plansys2_simple_example

@@ -1,0 +1,33 @@
+[0.214s] Invoking command in '/plansys2_ws/build/plansys2_simple_example': /usr/bin/cmake /plansys2_ws/plansys2_simple_example -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/plansys2_ws/install/plansys2_simple_example
+[1.705s] -- The C compiler identification is GNU 11.4.0
+[2.766s] -- The CXX compiler identification is GNU 11.4.0
+[2.918s] -- Detecting C compiler ABI info
+[4.945s] -- Detecting C compiler ABI info - done
+[5.031s] -- Check for working C compiler: /usr/bin/cc - skipped
+[5.034s] -- Detecting C compile features
+[5.045s] -- Detecting C compile features - done
+[5.065s] -- Detecting CXX compiler ABI info
+[6.645s] -- Detecting CXX compiler ABI info - done
+[6.757s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[6.758s] -- Detecting CXX compile features
+[6.793s] -- Detecting CXX compile features - done
+[6.905s] [31mCMake Error at CMakeLists.txt:5 (find_package):
+[6.905s]   By not providing "Findament_cmake.cmake" in CMAKE_MODULE_PATH this project
+[6.926s]   has asked CMake to find a package configuration file provided by
+[6.930s]   "ament_cmake", but CMake did not find one.
+[6.939s] 
+[6.940s]   Could not find a package configuration file provided by "ament_cmake" with
+[6.940s]   any of the following names:
+[6.941s] 
+[6.968s]     ament_cmakeConfig.cmake
+[7.049s]     ament_cmake-config.cmake
+[7.070s] 
+[7.079s]   Add the installation prefix of "ament_cmake" to CMAKE_PREFIX_PATH or set
+[7.090s]   "ament_cmake_DIR" to a directory containing one of the above files.  If
+[7.100s]   "ament_cmake" provides a separate development package or SDK, be sure it
+[7.124s]   has been installed.
+[7.127s] 
+[7.135s] [0m
+[7.157s] -- Configuring incomplete, errors occurred!
+[7.163s] See also "/plansys2_ws/build/plansys2_simple_example/CMakeFiles/CMakeOutput.log".
+[7.231s] Invoked command in '/plansys2_ws/build/plansys2_simple_example' returned '1': /usr/bin/cmake /plansys2_ws/plansys2_simple_example -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/plansys2_ws/install/plansys2_simple_example

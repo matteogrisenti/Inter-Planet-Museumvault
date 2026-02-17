@@ -24,7 +24,7 @@ set predicate (connected chargingroom kitchen)
 set predicate (connected kitchen chargingroom)
 
 set predicate (charging_point_at chargingroom)
-set predicate (battery_full leia)
+set predicate (battery_low leia)
 set predicate (robot_at leia entrance)
 
 set goal (and(robot_at leia bathroom))
