@@ -42,7 +42,7 @@ def generate_launch_description():
             'launch',
             'plansys2_bringup_launch_monolithic.py')),
         launch_arguments={
-          'model_file': example_dir + '/pddl/domain.pddl',
+          'model_file': example_dir + '/pddl/domain.pddl', # <----
           'namespace': namespace
           }.items())
 
@@ -54,22 +54,16 @@ def generate_launch_description():
         namespace=namespace,
         output='screen',
         parameters=[])
-
-    charge_cmd = Node(
+    
+    activate_seal = Node(
         package='museum',
-        executable='charge_action_node',
-        name='charge_action_node',
+        executable='activate_sealing_mode_node',
+        name='activate_sealing_mode_node',
         namespace=namespace,
         output='screen',
         parameters=[])
 
-    ask_charge_cmd = Node(
-        package='museum',
-        executable='ask_charge_action_node',
-        name='ask_charge_action_node',
-        namespace=namespace,
-        output='screen',
-        parameters=[])   # Create the launch description and populate
+    
     ld = LaunchDescription()
 
     # Set environment variables
@@ -79,8 +73,8 @@ def generate_launch_description():
     # Declare the launch options
     ld.add_action(plansys2_cmd)
 
+    # Actions
     ld.add_action(move_cmd)
-    ld.add_action(charge_cmd)
-    ld.add_action(ask_charge_cmd)
+    ld.add_action(activate_seal)
 
     return ld

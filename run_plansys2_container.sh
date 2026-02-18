@@ -6,7 +6,7 @@ LOCAL_PATH="/Users/dev/Desktop/Automated Planning/project/project/Inter-Planet-M
 # 2. Avvio del container
 # Mappiamo la tua cartella direttamente dentro la cartella 'src' del workspace nel docker
 docker run --platform linux/amd64 \
-    -v "$LOCAL_PATH:/plansys2_ws" \
+    -v "$LOCAL_PATH:/root/plansys2_ws/src" \
     --network=host \
     --name plansys2_cont \
     --privileged \

@@ -1,2 +1,0 @@
-Invoking command in '/plansys2_ws/build/museum': /usr/bin/cmake /plansys2_ws/museum -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/plansys2_ws/install/museum
-Invoked command in '/plansys2_ws/build/museum' returned '1': /usr/bin/cmake /plansys2_ws/museum -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/plansys2_ws/install/museum

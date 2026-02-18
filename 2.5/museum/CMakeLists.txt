@@ -17,21 +17,16 @@ set(dependencies
     plansys2_executor
 )
 
-add_executable(move_action_node src/move_action_node.cpp)
+add_executable(move_action_node src/move_to_unpressurized.cpp)
 ament_target_dependencies(move_action_node ${dependencies})
-
-add_executable(charge_action_node src/charge_action_node.cpp)
-ament_target_dependencies(charge_action_node ${dependencies})
-
-add_executable(ask_charge_action_node src/ask_charge_action_node.cpp)
-ament_target_dependencies(ask_charge_action_node ${dependencies})
+add_executable(activate_sealing_mode_node src/activate_seal.cpp)
+ament_target_dependencies(activate_sealing_mode_node ${dependencies})
 
 install(DIRECTORY launch pddl DESTINATION share/${PROJECT_NAME})
 
 install(TARGETS
   move_action_node
-  charge_action_node
-  ask_charge_action_node
+  activate_sealing_mode_node
   ARCHIVE DESTINATION lib
   LIBRARY DESTINATION lib
   RUNTIME DESTINATION lib/${PROJECT_NAME}
