@@ -79,52 +79,58 @@
     ;; METODI (Decomposizioni Gerarchiche con PRECONDIZIONI BLINDATE)
     ;; ========================
 
-    ;; --- METODO MASTER (Un solo robot fa tutto) ---
-    (:method m_deliver_task
-        :parameters (?r - robot ?a - artifact ?at - artifact-type ?target_loc - location ?start_loc - location ?artifact_loc - location)
-        :task (deliver ?a ?at ?target_loc)
-        :precondition (and 
-            (artifact-at ?a ?artifact_loc)
+    ;; CASO 1: Consegna Diretta
+    (:method m_deliver_direct
+        :parameters (?a - artifact ?at - artifact-type ?target - location 
+                     ?r - robot ?curr_loc - location ?r_loc - location) ;; <--- AGGIUNTO ?r_loc
+        
+        :task (deliver ?a ?at ?target) ;; <--- CORRETTO: 3 parametri
+        
+        :precondition (and
+            (artifact-at ?a ?curr_loc)
+            (robot-at ?r ?r_loc)       ;; <--- CORRETTO: Dove si trova il robot ora?
             (is-type ?a ?at)
             (can-pickup ?r ?at)
-            ;; BLOCCO 1: Il robot ha il permesso di entrare?
-            (can-access ?r ?artifact_loc)
-            (can-access ?r ?target_loc)
+            (can-access ?r ?curr_loc)
+            (can-access ?r ?target)
         )
         :subtasks (and
-            (task0 (prepare_robot ?r ?start_loc ?artifact_loc))
-            (task1 (load_artifact ?r ?a ?at ?artifact_loc))
-            (task2 (transport_to_target ?r ?a ?at ?artifact_loc ?target_loc))
+            ;; Il robot parte da ?r_loc e va a ?curr_loc
+            (t0 (prepare_robot ?r ?r_loc ?curr_loc)) 
+            (t1 (load_artifact ?r ?a ?at ?curr_loc))
+            (t2 (transport_to_target ?r ?a ?at ?curr_loc ?target))
         )
-        :ordering (and (task0 < task1) (task1 < task2))
+        :ordering (and (t0 < t1) (t1 < t2))
     )
-    
-    ;; --- METODO STAFFETTA (Relay tra due robot) ---
-    (:method m_deliver_relay
-        :parameters (?r_deliver - robot ?a - artifact ?at - artifact-type ?target_loc - location
-                     ?r_fetch - robot ?fetch_start - location ?deliver_start - location 
-                     ?artifact_loc - location ?handoff_loc - location)
-        :task (deliver ?a ?at ?target_loc)
-        :precondition (and 
-            (artifact-at ?a ?artifact_loc)
+
+    ;; CASO 2: Consegna Parziale (Staffetta Dinamica)
+    (:method m_deliver_transfer
+        :parameters (?a - artifact ?at - artifact-type ?target - location 
+                     ?r - robot ?curr_loc - location ?handoff - location ?r_loc - location)
+        
+        :task (deliver ?a ?at ?target) ;; <--- CORRETTO: 3 parametri
+        
+        :precondition (and
+            (artifact-at ?a ?curr_loc)
+            (robot-at ?r ?r_loc)       ;; <--- CORRETTO: Dove si trova il robot ora?
             (is-type ?a ?at)
-            ;; BLOCCO 2: Verifiche incrociate sui permessi
-            (can-pickup ?r_fetch ?at)
-            (can-pickup ?r_deliver ?at)
-            (can-access ?r_fetch ?artifact_loc)
-            (can-access ?r_fetch ?handoff_loc)
-            (can-access ?r_deliver ?handoff_loc)
-            (can-access ?r_deliver ?target_loc)
+            (can-pickup ?r ?at)
+            (can-access ?r ?curr_loc)
+            
+            (not (can-access ?r ?target)) ;; Non arrivo alla fine
+            (can-access ?r ?handoff)      ;; Ma arrivo qui
+            (connected ?curr_loc ?handoff)
         )
         :subtasks (and
-            (task0 (prepare_robot ?r_fetch ?fetch_start ?artifact_loc))
-            (task1 (load_artifact ?r_fetch ?a ?at ?artifact_loc))
-            (task2 (transport_to_target ?r_fetch ?a ?at ?artifact_loc ?handoff_loc))
-            (task3 (prepare_robot ?r_deliver ?deliver_start ?handoff_loc))
-            (task4 (load_artifact ?r_deliver ?a ?at ?handoff_loc))
-            (task5 (transport_to_target ?r_deliver ?a ?at ?handoff_loc ?target_loc))
+            ;; 1. Porto l'oggetto al punto di scambio
+            (t0 (prepare_robot ?r ?r_loc ?curr_loc))
+            (t1 (load_artifact ?r ?a ?at ?curr_loc))
+            (t2 (transport_to_target ?r ?a ?at ?curr_loc ?handoff)) 
+            
+            ;; 2. RICORSIONE: Rilancio il task con i 3 parametri corretti
+            (t3 (deliver ?a ?at ?target)) 
         )
-        :ordering (and (task0 < task1) (task1 < task2) (task2 < task3) (task3 < task4) (task4 < task5))
+        :ordering (and (t0 < t1) (t1 < t2) (t2 < t3))
     )
 
 

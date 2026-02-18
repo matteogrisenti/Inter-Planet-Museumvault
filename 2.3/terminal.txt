@@ -1,23 +1,23 @@
-Tasks 582 - 74
-Domain is acyclic: true
-Domain is mostly acyclic: true
+Tasks 660 - 74
+Domain is acyclic: false
+Domain is mostly acyclic: false
 Domain is regular: false
 Domain is tail recursive: true
 Domain is totally ordered: true
 Domain has last task in all methods: true
-Time remaining for planner 9223372036854770989ms
+Time remaining for planner 9223372036854770749ms
 Reducing flat domain ... done.
- - Reduced number of operators from 610 to 582
- - Reduced number of state-bits from 83 to 75
+ - Reduced number of operators from 703 to 660
+ - Reduced number of state-bits from 83 to 78
 Generating Relaxed Composition Model ...
 Calculating top down reachability ...
- - Found 802 SCCs with up to 1 tasks.
- - Reachability calculated in 6 ms.
- - model has 2038 operators
- - model has 1459 state features
- - operators' mean count of (pre, add, del) = (6.01, 1.14, 0.14)
- - effects' mean achiever count: 1.14
- - effects' mean consumer count: 6.01
+ - Found 830 SCCs with up to 1 tasks.
+ - Reachability calculated in 9 ms.
+ - model has 2198 operators
+ - model has 1568 state features
+ - operators' mean count of (pre, add, del) = (6.38, 1.13, 0.14)
+ - effects' mean achiever count: 1.13
+ - effects' mean consumer count: 6.38
 
 Searching with
  - Priority Queue search routine
@@ -27,17 +27,24 @@ Searching with
  - time limit for search is 2147483647 sec
 
 Starting priority queue search
-Found solution 1 length 113
-Number of nodes in final fringe: 354
-Generated search nodes (total): 2764
-Search time: 390 ms
+nodes/sec: 5400 - generated nodes: 5411 - fringe size: 1806 - current modification depth: 36 - g(s)+h(s)= 72
+nodes/sec: 5865 - generated nodes: 11795 - fringe size: 5820 - current modification depth: 49 - g(s)+h(s)= 71
+nodes/sec: 6122 - generated nodes: 18440 - fringe size: 10625 - current modification depth: 41 - g(s)+h(s)= 74
+nodes/sec: 6319 - generated nodes: 25403 - fringe size: 14948 - current modification depth: 49 - g(s)+h(s)= 75
+nodes/sec: 6289 - generated nodes: 31577 - fringe size: 18559 - current modification depth: 46 - g(s)+h(s)= 74
+nodes/sec: 6359 - generated nodes: 38295 - fringe size: 22137 - current modification depth: 46 - g(s)+h(s)= 75
+nodes/sec: 6421 - generated nodes: 45107 - fringe size: 26251 - current modification depth: 56 - g(s)+h(s)= 77
+nodes/sec: 6475 - generated nodes: 51974 - fringe size: 29853 - current modification depth: 52 - g(s)+h(s)= 76
+Found solution 1 length 115
+Number of nodes in final fringe: 32277
+Generated search nodes (total): 56692
+Search time: 8652 ms
 
 Found a solution:
 __top_6 @ __artificialTopCompilation__top_6
-m_deliver_relay[?handoff_loc=maintenance-tunnel,?target=stasis-lab,?at=scientific,?r_fetch=curator,?artifact_loc=hall-a,?a=mart-nord-core-drill,?r_deliver=scientist] @ deliver[mart-nord-core-drill,scientific,stasis-lab]
-SHOP_methodm_deliver_relay_1_precondition[maintenance-tunnel,scientific,curator,mart-nord-core-drill,hall-a,stasis-lab,scientist]
-m_deliver_relay_m_deliver_relay_2[?r_fetch=curator,?fetch_start=entrance,?artifact_loc=hall-a] @ prepare_robot_m_deliver_relay_2[curator,hall-a]
-m_prep_fetch_pod[?start_loc=entrance,?p=pod1,?pod_loc=anti-vibration-pods-room,?r=curator,?artifact_loc=hall-a] @ prepare_robot[curator,entrance,hall-a]
+m_deliver_transfer[?curr_loc=hall-a,?target=stasis-lab,?at=scientific,?r=curator,?handoff=maintenance-tunnel,?r_loc=entrance,?a=mart-nord-core-drill] @ deliver[mart-nord-core-drill,scientific,stasis-lab]
+SHOP_methodm_deliver_transfer_1_precondition[mart-nord-core-drill,scientific,hall-a,stasis-lab,curator,maintenance-tunnel,entrance]
+m_prep_fetch_pod[?start_loc=entrance,?pod_loc=anti-vibration-pods-room,?p=pod1,?r=curator,?artifact_loc=hall-a] @ prepare_robot[curator,entrance,hall-a]
 SHOP_methodm_prep_fetch_pod_3_precondition[curator,entrance,pod1,anti-vibration-pods-room]      
 SHOP_methodm_get_to_transit_20_precondition[entrance,maintenance-tunnel,anti-vibration-pods-room]
 SHOP_methodm_step_unpressurized_22_precondition[maintenance-tunnel]
@@ -71,11 +78,12 @@ SHOP_methodm_get_to_direct_19_precondition[cryo-chamber,maintenance-tunnel]
 SHOP_methodm_step_unpressurized_22_precondition[maintenance-tunnel]
 activate-seal[curator]
 move-to-unpressurized-room[curator,cryo-chamber,maintenance-tunnel]
-m_unload_pod_drop_std[?p=pod1,?a=mart-nord-core-drill,?r=curator,?loc=maintenance-tunnel] @ unload_artifact[curator,mart-nord-core-drill,maintenance-tunnel]
+m_unload_pod_drop_std[?a=mart-nord-core-drill,?r=curator,?loc=maintenance-tunnel,?p=pod1] @ unload_artifact[curator,mart-nord-core-drill,maintenance-tunnel]
 SHOP_methodm_unload_pod_drop_std_15_precondition[maintenance-tunnel]
 release-artifact-from-pod-slot-1[curator,mart-nord-core-drill,maintenance-tunnel,pod1]
 drop-pod-slot-1[curator,pod1,maintenance-tunnel]
-m_deliver_relay_m_deliver_relay_5[?handoff_loc=maintenance-tunnel,?r_deliver=scientist,?deliver_start=stasis-lab] @ prepare_robot_m_deliver_relay_5[scientist,maintenance-tunnel]
+m_deliver_direct[?r_loc=stasis-lab,?target=stasis-lab,?r=scientist,?curr_loc=maintenance-tunnel,?at=scientific,?a=mart-nord-core-drill] @ deliver[mart-nord-core-drill,scientific,stasis-lab]   
+SHOP_methodm_deliver_direct_0_precondition[stasis-lab,scientist,maintenance-tunnel,mart-nord-core-drill,scientific,stasis-lab]
 m_prep_direct[?artifact_loc=maintenance-tunnel,?start_loc=stasis-lab,?r=scientist] @ prepare_robot[scientist,stasis-lab,maintenance-tunnel]
 SHOP_methodm_prep_direct_2_precondition[scientist,stasis-lab]
 SHOP_methodm_get_to_direct_19_precondition[stasis-lab,maintenance-tunnel]
@@ -90,10 +98,9 @@ move-to-pressurized-room[scientist,maintenance-tunnel,stasis-lab]
 m_unload_s1_std[?a=mart-nord-core-drill,?r=scientist,?loc=stasis-lab] @ unload_artifact[scientist,mart-nord-core-drill,stasis-lab]
 SHOP_methodm_unload_s1_std_10_precondition[stasis-lab]
 release-artifact-slot-1[scientist,mart-nord-core-drill,stasis-lab]
-m_deliver_relay[?handoff_loc=maintenance-tunnel,?target=stasis-lab,?at=technological,?r_fetch=technician,?artifact_loc=hall-b,?a=rover-wheel,?r_deliver=scientist] @ deliver[rover-wheel,technological,stasis-lab]
-SHOP_methodm_deliver_relay_1_precondition[maintenance-tunnel,technological,technician,rover-wheel,hall-b,stasis-lab,scientist]
-m_deliver_relay_m_deliver_relay_2[?r_fetch=technician,?fetch_start=entrance,?artifact_loc=hall-b] @ prepare_robot_m_deliver_relay_2[technician,hall-b]
-m_prep_fetch_pod[?start_loc=entrance,?p=pod1,?pod_loc=maintenance-tunnel,?r=technician,?artifact_loc=hall-b] @ prepare_robot[technician,entrance,hall-b]
+m_deliver_transfer[?curr_loc=hall-b,?target=stasis-lab,?at=technological,?r=technician,?handoff=maintenance-tunnel,?r_loc=entrance,?a=rover-wheel] @ deliver[rover-wheel,technological,stasis-lab]
+SHOP_methodm_deliver_transfer_1_precondition[rover-wheel,technological,hall-b,stasis-lab,technician,maintenance-tunnel,entrance]
+m_prep_fetch_pod[?start_loc=entrance,?pod_loc=maintenance-tunnel,?p=pod1,?r=technician,?artifact_loc=hall-b] @ prepare_robot[technician,entrance,hall-b]
 SHOP_methodm_prep_fetch_pod_3_precondition[technician,entrance,pod1,maintenance-tunnel]
 SHOP_methodm_get_to_direct_19_precondition[entrance,maintenance-tunnel]
 SHOP_methodm_step_unpressurized_22_precondition[maintenance-tunnel]
@@ -110,12 +117,13 @@ SHOP_methodm_get_to_direct_19_precondition[hall-b,maintenance-tunnel]
 SHOP_methodm_step_unpressurized_22_precondition[maintenance-tunnel]
 activate-seal[technician]
 move-to-unpressurized-room[technician,hall-b,maintenance-tunnel]
-m_unload_pod_drop_std[?p=pod1,?a=rover-wheel,?r=technician,?loc=maintenance-tunnel] @ unload_artifact[technician,rover-wheel,maintenance-tunnel]
+m_unload_pod_drop_std[?a=rover-wheel,?r=technician,?loc=maintenance-tunnel,?p=pod1] @ unload_artifact[technician,rover-wheel,maintenance-tunnel]
 SHOP_methodm_unload_pod_drop_std_15_precondition[maintenance-tunnel]
 release-artifact-from-pod-slot-1[technician,rover-wheel,maintenance-tunnel,pod1]
 drop-pod-slot-1[technician,pod1,maintenance-tunnel]
-m_deliver_relay_m_deliver_relay_5[?handoff_loc=maintenance-tunnel,?r_deliver=scientist,?deliver_start=stasis-lab] @ prepare_robot_m_deliver_relay_5[scientist,maintenance-tunnel]
-m_prep_fetch_pod[?start_loc=stasis-lab,?p=pod1,?pod_loc=maintenance-tunnel,?r=scientist,?artifact_loc=maintenance-tunnel] @ prepare_robot[scientist,stasis-lab,maintenance-tunnel]
+m_deliver_direct[?r_loc=stasis-lab,?target=stasis-lab,?r=scientist,?curr_loc=maintenance-tunnel,?at=technological,?a=rover-wheel] @ deliver[rover-wheel,technological,stasis-lab]
+SHOP_methodm_deliver_direct_0_precondition[stasis-lab,scientist,maintenance-tunnel,rover-wheel,technological,stasis-lab]
+m_prep_fetch_pod[?start_loc=stasis-lab,?pod_loc=maintenance-tunnel,?p=pod1,?r=scientist,?artifact_loc=maintenance-tunnel] @ prepare_robot[scientist,stasis-lab,maintenance-tunnel]
 SHOP_methodm_prep_fetch_pod_3_precondition[scientist,stasis-lab,pod1,maintenance-tunnel]        
 SHOP_methodm_get_to_direct_19_precondition[stasis-lab,maintenance-tunnel]
 SHOP_methodm_step_unpressurized_22_precondition[maintenance-tunnel]
@@ -129,25 +137,18 @@ put-in-pod[rover-wheel,technological,maintenance-tunnel,scientist,pod1]
 SHOP_methodm_get_to_direct_19_precondition[maintenance-tunnel,stasis-lab]
 SHOP_methodm_step_pressurized_21_precondition[stasis-lab]
 move-to-pressurized-room[scientist,maintenance-tunnel,stasis-lab]
-m_unload_pod_keep_std[?a=rover-wheel,?r=scientist,?loc=stasis-lab,?p=pod1] @ unload_artifact[scientist,rover-wheel,stasis-lab]
+m_unload_pod_keep_std[?a=rover-wheel,?r=scientist,?p=pod1,?loc=stasis-lab] @ unload_artifact[scientist,rover-wheel,stasis-lab]
 SHOP_methodm_unload_pod_keep_std_14_precondition[stasis-lab]
 release-artifact-from-pod-slot-1[scientist,rover-wheel,stasis-lab,pod1]
-m_deliver_task[?start_loc=maintenance-tunnel,?target=cryo-chamber,?at=scientific,?artifact_loc=hall-a,?r=curator,?a=mart-north-pole-ice-sample] @ deliver[mart-north-pole-ice-sample,scientific,cryo-chamber]
-SHOP_methodm_deliver_task_0_precondition[mart-north-pole-ice-sample,hall-a,curator,scientific,cryo-chamber]
-m_prep_fetch_pod[?start_loc=maintenance-tunnel,?p=pod2,?pod_loc=anti-vibration-pods-room,?r=curator,?artifact_loc=hall-a] @ prepare_robot[curator,maintenance-tunnel,hall-a]
-SHOP_methodm_prep_fetch_pod_3_precondition[curator,maintenance-tunnel,pod2,anti-vibration-pods-room]
-SHOP_methodm_get_to_direct_19_precondition[maintenance-tunnel,anti-vibration-pods-room]
-SHOP_methodm_step_pressurized_21_precondition[anti-vibration-pods-room]
-move-to-pressurized-room[curator,maintenance-tunnel,anti-vibration-pods-room]
-pick-up-pod-slot-1[curator,anti-vibration-pods-room,pod2]
-SHOP_methodm_get_to_transit_20_precondition[anti-vibration-pods-room,maintenance-tunnel,hall-a] 
-SHOP_methodm_step_unpressurized_22_precondition[maintenance-tunnel]
-activate-seal[curator]
-move-to-unpressurized-room[curator,anti-vibration-pods-room,maintenance-tunnel]
+m_deliver_direct[?r_loc=maintenance-tunnel,?target=cryo-chamber,?r=curator,?curr_loc=hall-a,?at=scientific,?a=mart-north-pole-ice-sample] @ deliver[mart-north-pole-ice-sample,scientific,cryo-chamber]
+SHOP_methodm_deliver_direct_0_precondition[maintenance-tunnel,curator,hall-a,mart-north-pole-ice-sample,scientific,cryo-chamber]
+m_prep_direct[?artifact_loc=hall-a,?start_loc=maintenance-tunnel,?r=curator] @ prepare_robot[curator,maintenance-tunnel,hall-a]
+SHOP_methodm_prep_direct_2_precondition[curator,maintenance-tunnel]
+SHOP_methodm_get_to_direct_19_precondition[maintenance-tunnel,hall-a]
 SHOP_methodm_step_pressurized_21_precondition[hall-a]
 move-to-pressurized-room[curator,maintenance-tunnel,hall-a]
-m_load_into_pod[?loc=hall-a,?r=curator,?at=scientific,?p=pod2,?a=mart-north-pole-ice-sample] @ load_artifact[curator,mart-north-pole-ice-sample,scientific,hall-a]
-put-in-pod[mart-north-pole-ice-sample,scientific,hall-a,curator,pod2]
+m_load_slot_1[?at=scientific,?a=mart-north-pole-ice-sample,?loc=hall-a,?r=curator] @ load_artifact[curator,mart-north-pole-ice-sample,scientific,hall-a]
+pick-up-slot-1[mart-north-pole-ice-sample,scientific,hall-a,curator]
 m_transport_direct[?curr_loc=hall-a,?a=mart-north-pole-ice-sample,?r=curator,?target_loc=cryo-chamber,?at=scientific] @ transport_to_target[curator,mart-north-pole-ice-sample,scientific,hall-a,cryo-chamber]
 SHOP_methodm_get_to_transit_20_precondition[hall-a,maintenance-tunnel,cryo-chamber]
 SHOP_methodm_step_unpressurized_22_precondition[maintenance-tunnel]
@@ -155,17 +156,24 @@ activate-seal[curator]
 move-to-unpressurized-room[curator,hall-a,maintenance-tunnel]
 SHOP_methodm_step_pressurized_21_precondition[cryo-chamber]
 move-to-pressurized-room[curator,maintenance-tunnel,cryo-chamber]
-m_unload_pod_keep_cryo[?a=mart-north-pole-ice-sample,?r=curator,?loc=cryo-chamber,?p=pod2] @ unload_artifact[curator,mart-north-pole-ice-sample,cryo-chamber]
-SHOP_methodm_unload_pod_keep_cryo_16_precondition[cryo-chamber]
-release-artifact-cryo-from-pod-slot-1[curator,mart-north-pole-ice-sample,cryo-chamber,pod2]     
-m_deliver_task[?start_loc=cryo-chamber,?target=hall-a,?at=scientific,?artifact_loc=hall-b,?r=curator,?a=mart-sand-sample] @ deliver[mart-sand-sample,scientific,hall-a]
-SHOP_methodm_deliver_task_0_precondition[mart-sand-sample,hall-b,curator,scientific,hall-a]     
-m_prep_direct[?artifact_loc=hall-b,?start_loc=cryo-chamber,?r=curator] @ prepare_robot[curator,cryo-chamber,hall-b]
-SHOP_methodm_prep_direct_2_precondition[curator,cryo-chamber]
-SHOP_methodm_get_to_transit_20_precondition[cryo-chamber,maintenance-tunnel,hall-b]
+m_unload_s1_cryo[?a=mart-north-pole-ice-sample,?r=curator,?loc=cryo-chamber] @ unload_artifact[curator,mart-north-pole-ice-sample,cryo-chamber]
+SHOP_methodm_unload_s1_cryo_11_precondition[cryo-chamber]
+release-artifact-cryo-slot-1[curator,mart-north-pole-ice-sample,cryo-chamber]
+m_deliver_direct[?r_loc=cryo-chamber,?target=hall-a,?r=curator,?curr_loc=hall-b,?at=scientific,?a=mart-sand-sample] @ deliver[mart-sand-sample,scientific,hall-a]
+SHOP_methodm_deliver_direct_0_precondition[cryo-chamber,curator,hall-b,mart-sand-sample,scientific,hall-a]
+m_prep_fetch_pod[?start_loc=cryo-chamber,?pod_loc=anti-vibration-pods-room,?p=pod2,?r=curator,?artifact_loc=hall-b] @ prepare_robot[curator,cryo-chamber,hall-b]
+SHOP_methodm_prep_fetch_pod_3_precondition[curator,cryo-chamber,pod2,anti-vibration-pods-room]  
+SHOP_methodm_get_to_transit_20_precondition[cryo-chamber,maintenance-tunnel,anti-vibration-pods-room]
 SHOP_methodm_step_unpressurized_22_precondition[maintenance-tunnel]
 activate-seal[curator]
 move-to-unpressurized-room[curator,cryo-chamber,maintenance-tunnel]
+SHOP_methodm_step_pressurized_21_precondition[anti-vibration-pods-room]
+move-to-pressurized-room[curator,maintenance-tunnel,anti-vibration-pods-room]
+pick-up-pod-slot-1[curator,anti-vibration-pods-room,pod2]
+SHOP_methodm_get_to_transit_20_precondition[anti-vibration-pods-room,maintenance-tunnel,hall-b] 
+SHOP_methodm_step_unpressurized_22_precondition[maintenance-tunnel]
+activate-seal[curator]
+move-to-unpressurized-room[curator,anti-vibration-pods-room,maintenance-tunnel]
 SHOP_methodm_step_seismic_23_precondition[hall-b]
 wait-seismic-room-safe[curator,hall-b,maintenance-tunnel]
 m_load_into_pod[?loc=hall-b,?r=curator,?at=scientific,?p=pod2,?a=mart-sand-sample] @ load_artifact[curator,mart-sand-sample,scientific,hall-b]
@@ -177,78 +185,78 @@ activate-seal[curator]
 move-to-unpressurized-room[curator,hall-b,maintenance-tunnel]
 SHOP_methodm_step_pressurized_21_precondition[hall-a]
 move-to-pressurized-room[curator,maintenance-tunnel,hall-a]
-m_unload_pod_keep_std[?a=mart-sand-sample,?r=curator,?loc=hall-a,?p=pod2] @ unload_artifact[curator,mart-sand-sample,hall-a]
+m_unload_pod_keep_std[?a=mart-sand-sample,?r=curator,?p=pod2,?loc=hall-a] @ unload_artifact[curator,mart-sand-sample,hall-a]
 SHOP_methodm_unload_pod_keep_std_14_precondition[hall-a]
 release-artifact-from-pod-slot-1[curator,mart-sand-sample,hall-a,pod2]
-It contains 147 modifications, including 113 actions.
+It contains 147 modifications, including 115 actions.
 Panda says: SOLUTION
 ============ global ============
 randomseed     = 42
-peak memory    = 472190504
+peak memory    = 772382896
 planner result = SOLUTION
 ============ properties ============
-acyclic                  = true
-mostly acyclic           = true
+acyclic                  = false
+mostly acyclic           = false
 regular                  = false
 tail recursive           = true
 totally ordered          = true
 last task in all methods = true
 ============ problem ============
 number of constants                  = 0
-number of predicates                 = 78
-number of actions                    = 802
-number of abstract actions           = 220
-number of primitive actions          = 582
-number of methods                    = 1456
-number of primitive shop actions     = 372
-number of primitive non-shop actions = 210
+number of predicates                 = 81
+number of actions                    = 830
+number of abstract actions           = 170
+number of primitive actions          = 660
+number of methods                    = 1538
+number of primitive shop actions     = 446
+number of primitive non-shop actions = 214
 size of largest method               = 16
-average method size                  = 7
+average method size                  = 8
 ============ progression ============
 status                 = solved
 aStar                  = 1
 heuristic              = hhRelataxedComposition-with-hFF-EQ
-numSearchNodes         = 2764
-numPrimTasks           = 113
+numSearchNodes         = 56692
+numPrimTasks           = 115
 numShopTasks           = 0
-numDecompositions      = 34
+numDecompositions      = 32
 findShortestPlan       = 0
-foundShortestPlanAfter = 379
-foundFirstPlanAfter    = 380
+foundShortestPlanAfter = 8646
+foundFirstPlanAfter    = 8646
 foundPlans             = 1
 
 ----------------- TIMINGS -----------------
 ============ total ============
-total = 5324
+total = 13823
 ============ parsing ============
-total                         = 1983
-file parser                   = 1607
-sort expansion                = 121
-closed world assumption       = 76
+total                         = 1958
+file parser                   = 1639
+sort expansion                = 124
+closed world assumption       = 61
 inherit preconditions         = 0
-shop methods                  = 37
-eliminate identical variables = 78
+shop methods                  = 33
+eliminate identical variables = 46
 strip domain of hybridity     = 3
-flatten formula               = 60
+flatten formula               = 50
 ============ preprocessing ============
-total                                      = 2627
-compile negative preconditions             = 19
+total                                      = 2842
+compile negative preconditions             = 17
 compile unit methods                       = 0
-split parameter                            = 20
-expand choiceless abstract tasks           = 618
+split parameter                            = 17
+expand choiceless abstract tasks           = 755
 compile methods with identical tasks       = 0
-removing unnecessary predicates            = 522
-lifted reachabiltiy analysis               = 41
-grounded planning graph analysis           = 399
-grounded task decomposition graph analysis = 819
-grounding                                  = 142
-create artificial top task                 = 3
+removing unnecessary predicates            = 702
+lifted reachabiltiy analysis               = 37
+grounded planning graph analysis           = 420
+grounded task decomposition graph analysis = 723
+grounding                                  = 147
+create artificial top task                 = 4
 ============ progression ============
-searchTime = 380
+searchTime = 8646
 
-#1 "30 problem:05:number of primitive actions"="582";"30 problem:01:number of constants"="0";"30 problem:04:number of abstract actions"="220";"02 properties:04:tail recursive"="true";"30 progression:04:numSearchNodes"="2764";"30 progression:06:numPrimTasks"="113";"00 global:80:peak memory"="472190504";"30 progression:93:foundFirstPlanAfter"="380";"02 properties:02:mostly acyclic"="true";"30 problem:06:number of methods"="1456";"30 problem:07:number of primitive shop actions"="372";"02 properties:05:totally ordered"="true";"02 properties:06:last task in all methods"="true";"30 problem:03:number of actions"="802";"30 problem:08:number of primitive non-shop actions"="210";"30 problem:02:number of predicates"="78";"30 progression:01:status"="solved";"30 progression:03:heuristic"="hhRelataxedComposition-with-hFF-EQ";"30 problem:10:average method size"="7";"02 properties:03:regular"="false";"30 problem:09:size of largest method"="16";"30 progression:08:numDecompositions"="34";"00 global:90:planner result"="SOLUTION";"02 properties:01:acyclic"="true";"30 progression:02:aStar"="1";"30 progression:92:foundShortestPlanAfter"="379";"00 global:02:randomseed"="42";"30 progression:07:numShopTasks"="0";"30 progression:91:findShortestPlan"="0";"30 progression:94:foundPlans"="1";"01 parsing:01:file parser"="1607";"01 parsing:08:flatten formula"="60";"02 preprocessing:07:compile methods with identical tasks"="0";"01 parsing:07:strip domain of hybridity"="3";"02 preprocessing:08:removing unnecessary predicates"="522";"01 parsing:03:closed world assumption"="76";"02 preprocessing:11:lifted reachabiltiy analysis"="41";"01 parsing:02:sort expansion"="121";"01 parsing:00:total"="1983";"30 progression:01:searchTime"="380";"01 parsing:04:inherit preconditions"="0";"02 preprocessing:01:compile negative preconditions"="19";"00 total:00:total"="5324";"02 preprocessing:12:grounded planning graph analysis"="399";"02 preprocessing:02:compile unit methods"="0";"02 preprocessing:23:grounded task decomposition graph analysis"="819";"02 preprocessing:04:split parameter"="20";"01 parsing:05:shop methods"="37";"01 parsing:06:eliminate identical variables"="78";"02 preprocessing:05:expand choiceless abstract tasks"="618";"02 preprocessing:00:total"="2627";"02 preprocessing:99:create artificial top task"="3";"02 preprocessing:84:grounding"="142"
+#1 "30 problem:05:number of primitive actions"="660";"30 problem:01:number of constants"="0";"30 problem:04:number of abstract actions"="170";"02 properties:04:tail recursive"="true";"30 progression:04:numSearchNodes"="56692";"30 progression:06:numPrimTasks"="115";"00 global:80:peak memory"="772382896";"30 progression:93:foundFirstPlanAfter"="8646";"02 properties:02:mostly acyclic"="false";"30 problem:06:number of methods"="1538";"30 problem:07:number of primitive shop actions"="446";"02 properties:05:totally ordered"="true";"02 properties:06:last task in all methods"="true";"30 problem:03:number of actions"="830";"30 problem:08:number of primitive non-shop actions"="214";"30 problem:02:number of predicates"="81";"30 progression:01:status"="solved";"30 progression:03:heuristic"="hhRelataxedComposition-with-hFF-EQ";"30 problem:10:average method size"="8";"02 properties:03:regular"="false";"30 problem:09:size of largest method"="16";"30 progression:08:numDecompositions"="32";"00 global:90:planner result"="SOLUTION";"02 properties:01:acyclic"="false";"30 progression:02:aStar"="1";"30 progression:92:foundShortestPlanAfter"="8646";"00 global:02:randomseed"="42";"30 progression:07:numShopTasks"="0";"30 progression:91:findShortestPlan"="0";"30 progression:94:foundPlans"="1";"01 parsing:01:file parser"="1639";"01 parsing:08:flatten formula"="50";"02 preprocessing:07:compile methods with identical tasks"="0";"01 parsing:07:strip domain of hybridity"="3";"02 preprocessing:08:removing unnecessary predicates"="702";"01 parsing:03:closed world assumption"="61";"02 preprocessing:11:lifted reachabiltiy analysis"="37";"01 parsing:02:sort expansion"="124";"01 parsing:00:total"="1958";"30 progression:01:searchTime"="8646";"01 parsing:04:inherit preconditions"="0";"02 preprocessing:01:compile negative preconditions"="17";"00 total:00:total"="13823";"02 preprocessing:12:grounded planning graph analysis"="420";"02 preprocessing:02:compile unit methods"="0";"02 preprocessing:23:grounded task decomposition graph analysis"="723";"02 preprocessing:04:split parameter"="17";"01 parsing:05:shop methods"="33";"01 parsing:06:eliminate identical variables"="46";"02 preprocessing:05:expand choiceless abstract tasks"="755";"02 preprocessing:00:total"="2842";"02 preprocessing:99:create artificial top task"="4";"02 preprocessing:84:grounding"="147"
 SOLUTION SEQUENCE
-0: SHOP_methodm_deliver_relay_1_precondition(maintenance-tunnel,scientific,curator,mart-nord-core-drill,hall-a,stasis-lab,scientist)
+0: SHOP_methodm_deliver_transfer_1_precondition(mart-nord-core-drill,scientific,hall-a,stasis-lab,curator,maintenance-tunnel,entrance)
 1: SHOP_methodm_prep_fetch_pod_3_precondition(curator,entrance,pod1,anti-vibration-pods-room)   
 2: SHOP_methodm_get_to_transit_20_precondition(entrance,maintenance-tunnel,anti-vibration-pods-room)
 3: SHOP_methodm_step_unpressurized_22_precondition(maintenance-tunnel)
@@ -281,83 +289,85 @@ SOLUTION SEQUENCE
 30: SHOP_methodm_unload_pod_drop_std_15_precondition(maintenance-tunnel)
 31: release-artifact-from-pod-slot-1(curator,mart-nord-core-drill,maintenance-tunnel,pod1)      
 32: drop-pod-slot-1(curator,pod1,maintenance-tunnel)
-33: SHOP_methodm_prep_direct_2_precondition(scientist,stasis-lab)
-34: SHOP_methodm_get_to_direct_19_precondition(stasis-lab,maintenance-tunnel)
-35: SHOP_methodm_step_unpressurized_22_precondition(maintenance-tunnel)
-36: activate-seal(scientist)
-37: move-to-unpressurized-room(scientist,stasis-lab,maintenance-tunnel)
-38: pick-up-slot-1(mart-nord-core-drill,scientific,maintenance-tunnel,scientist)
-39: SHOP_methodm_get_to_direct_19_precondition(maintenance-tunnel,stasis-lab)
-40: SHOP_methodm_step_pressurized_21_precondition(stasis-lab)
-41: move-to-pressurized-room(scientist,maintenance-tunnel,stasis-lab)
-42: SHOP_methodm_unload_s1_std_10_precondition(stasis-lab)
-43: release-artifact-slot-1(scientist,mart-nord-core-drill,stasis-lab)
-44: SHOP_methodm_deliver_relay_1_precondition(maintenance-tunnel,technological,technician,rover-wheel,hall-b,stasis-lab,scientist)
-45: SHOP_methodm_prep_fetch_pod_3_precondition(technician,entrance,pod1,maintenance-tunnel)     
-46: SHOP_methodm_get_to_direct_19_precondition(entrance,maintenance-tunnel)
-47: SHOP_methodm_step_unpressurized_22_precondition(maintenance-tunnel)
-48: activate-seal(technician)
-49: move-to-unpressurized-room(technician,entrance,maintenance-tunnel)
-50: pick-up-pod-slot-1(technician,maintenance-tunnel,pod1)
-51: SHOP_methodm_get_to_direct_19_precondition(maintenance-tunnel,hall-b)
-52: SHOP_methodm_step_seismic_23_precondition(hall-b)
-53: wait-seismic-room-safe(technician,hall-b,maintenance-tunnel)
-54: put-in-pod(rover-wheel,technological,hall-b,technician,pod1)
-55: SHOP_methodm_get_to_direct_19_precondition(hall-b,maintenance-tunnel)
-56: SHOP_methodm_step_unpressurized_22_precondition(maintenance-tunnel)
-57: activate-seal(technician)
-58: move-to-unpressurized-room(technician,hall-b,maintenance-tunnel)
-59: SHOP_methodm_unload_pod_drop_std_15_precondition(maintenance-tunnel)
-60: release-artifact-from-pod-slot-1(technician,rover-wheel,maintenance-tunnel,pod1)
-61: drop-pod-slot-1(technician,pod1,maintenance-tunnel)
-62: SHOP_methodm_prep_fetch_pod_3_precondition(scientist,stasis-lab,pod1,maintenance-tunnel)    
-63: SHOP_methodm_get_to_direct_19_precondition(stasis-lab,maintenance-tunnel)
-64: SHOP_methodm_step_unpressurized_22_precondition(maintenance-tunnel)
-65: activate-seal(scientist)
-66: move-to-unpressurized-room(scientist,stasis-lab,maintenance-tunnel)
-67: pick-up-pod-slot-1(scientist,maintenance-tunnel,pod1)
-68: stay-at(scientist,maintenance-tunnel)
-69: put-in-pod(rover-wheel,technological,maintenance-tunnel,scientist,pod1)
-70: SHOP_methodm_get_to_direct_19_precondition(maintenance-tunnel,stasis-lab)
-71: SHOP_methodm_step_pressurized_21_precondition(stasis-lab)
-72: move-to-pressurized-room(scientist,maintenance-tunnel,stasis-lab)
-73: SHOP_methodm_unload_pod_keep_std_14_precondition(stasis-lab)
-74: release-artifact-from-pod-slot-1(scientist,rover-wheel,stasis-lab,pod1)
-75: SHOP_methodm_deliver_task_0_precondition(mart-north-pole-ice-sample,hall-a,curator,scientific,cryo-chamber)
-76: SHOP_methodm_prep_fetch_pod_3_precondition(curator,maintenance-tunnel,pod2,anti-vibration-pods-room)
-77: SHOP_methodm_get_to_direct_19_precondition(maintenance-tunnel,anti-vibration-pods-room)     
-78: SHOP_methodm_step_pressurized_21_precondition(anti-vibration-pods-room)
-79: move-to-pressurized-room(curator,maintenance-tunnel,anti-vibration-pods-room)
-80: pick-up-pod-slot-1(curator,anti-vibration-pods-room,pod2)
-81: SHOP_methodm_get_to_transit_20_precondition(anti-vibration-pods-room,maintenance-tunnel,hall-a)
-82: SHOP_methodm_step_unpressurized_22_precondition(maintenance-tunnel)
-83: activate-seal(curator)
-84: move-to-unpressurized-room(curator,anti-vibration-pods-room,maintenance-tunnel)
-85: SHOP_methodm_step_pressurized_21_precondition(hall-a)
-86: move-to-pressurized-room(curator,maintenance-tunnel,hall-a)
-87: put-in-pod(mart-north-pole-ice-sample,scientific,hall-a,curator,pod2)
-88: SHOP_methodm_get_to_transit_20_precondition(hall-a,maintenance-tunnel,cryo-chamber)
-89: SHOP_methodm_step_unpressurized_22_precondition(maintenance-tunnel)
-90: activate-seal(curator)
-91: move-to-unpressurized-room(curator,hall-a,maintenance-tunnel)
-92: SHOP_methodm_step_pressurized_21_precondition(cryo-chamber)
-93: move-to-pressurized-room(curator,maintenance-tunnel,cryo-chamber)
-94: SHOP_methodm_unload_pod_keep_cryo_16_precondition(cryo-chamber)
-95: release-artifact-cryo-from-pod-slot-1(curator,mart-north-pole-ice-sample,cryo-chamber,pod2) 
-96: SHOP_methodm_deliver_task_0_precondition(mart-sand-sample,hall-b,curator,scientific,hall-a) 
-97: SHOP_methodm_prep_direct_2_precondition(curator,cryo-chamber)
-98: SHOP_methodm_get_to_transit_20_precondition(cryo-chamber,maintenance-tunnel,hall-b)
-99: SHOP_methodm_step_unpressurized_22_precondition(maintenance-tunnel)
-100: activate-seal(curator)
-101: move-to-unpressurized-room(curator,cryo-chamber,maintenance-tunnel)
-102: SHOP_methodm_step_seismic_23_precondition(hall-b)
-103: wait-seismic-room-safe(curator,hall-b,maintenance-tunnel)
-104: put-in-pod(mart-sand-sample,scientific,hall-b,curator,pod2)
-105: SHOP_methodm_get_to_transit_20_precondition(hall-b,maintenance-tunnel,hall-a)
-106: SHOP_methodm_step_unpressurized_22_precondition(maintenance-tunnel)
-107: activate-seal(curator)
-108: move-to-unpressurized-room(curator,hall-b,maintenance-tunnel)
-109: SHOP_methodm_step_pressurized_21_precondition(hall-a)
-110: move-to-pressurized-room(curator,maintenance-tunnel,hall-a)
-111: SHOP_methodm_unload_pod_keep_std_14_precondition(hall-a)
-112: release-artifact-from-pod-slot-1(curator,mart-sand-sample,hall-a,pod2)
+33: SHOP_methodm_deliver_direct_0_precondition(stasis-lab,scientist,maintenance-tunnel,mart-nord-core-drill,scientific,stasis-lab)
+34: SHOP_methodm_prep_direct_2_precondition(scientist,stasis-lab)
+35: SHOP_methodm_get_to_direct_19_precondition(stasis-lab,maintenance-tunnel)
+36: SHOP_methodm_step_unpressurized_22_precondition(maintenance-tunnel)
+37: activate-seal(scientist)
+38: move-to-unpressurized-room(scientist,stasis-lab,maintenance-tunnel)
+39: pick-up-slot-1(mart-nord-core-drill,scientific,maintenance-tunnel,scientist)
+40: SHOP_methodm_get_to_direct_19_precondition(maintenance-tunnel,stasis-lab)
+41: SHOP_methodm_step_pressurized_21_precondition(stasis-lab)
+42: move-to-pressurized-room(scientist,maintenance-tunnel,stasis-lab)
+43: SHOP_methodm_unload_s1_std_10_precondition(stasis-lab)
+44: release-artifact-slot-1(scientist,mart-nord-core-drill,stasis-lab)
+45: SHOP_methodm_deliver_transfer_1_precondition(rover-wheel,technological,hall-b,stasis-lab,technician,maintenance-tunnel,entrance)
+46: SHOP_methodm_prep_fetch_pod_3_precondition(technician,entrance,pod1,maintenance-tunnel)     
+47: SHOP_methodm_get_to_direct_19_precondition(entrance,maintenance-tunnel)
+48: SHOP_methodm_step_unpressurized_22_precondition(maintenance-tunnel)
+49: activate-seal(technician)
+50: move-to-unpressurized-room(technician,entrance,maintenance-tunnel)
+51: pick-up-pod-slot-1(technician,maintenance-tunnel,pod1)
+52: SHOP_methodm_get_to_direct_19_precondition(maintenance-tunnel,hall-b)
+53: SHOP_methodm_step_seismic_23_precondition(hall-b)
+54: wait-seismic-room-safe(technician,hall-b,maintenance-tunnel)
+55: put-in-pod(rover-wheel,technological,hall-b,technician,pod1)
+56: SHOP_methodm_get_to_direct_19_precondition(hall-b,maintenance-tunnel)
+57: SHOP_methodm_step_unpressurized_22_precondition(maintenance-tunnel)
+58: activate-seal(technician)
+59: move-to-unpressurized-room(technician,hall-b,maintenance-tunnel)
+60: SHOP_methodm_unload_pod_drop_std_15_precondition(maintenance-tunnel)
+61: release-artifact-from-pod-slot-1(technician,rover-wheel,maintenance-tunnel,pod1)
+62: drop-pod-slot-1(technician,pod1,maintenance-tunnel)
+63: SHOP_methodm_deliver_direct_0_precondition(stasis-lab,scientist,maintenance-tunnel,rover-wheel,technological,stasis-lab)
+64: SHOP_methodm_prep_fetch_pod_3_precondition(scientist,stasis-lab,pod1,maintenance-tunnel)    
+65: SHOP_methodm_get_to_direct_19_precondition(stasis-lab,maintenance-tunnel)
+66: SHOP_methodm_step_unpressurized_22_precondition(maintenance-tunnel)
+67: activate-seal(scientist)
+68: move-to-unpressurized-room(scientist,stasis-lab,maintenance-tunnel)
+69: pick-up-pod-slot-1(scientist,maintenance-tunnel,pod1)
+70: stay-at(scientist,maintenance-tunnel)
+71: put-in-pod(rover-wheel,technological,maintenance-tunnel,scientist,pod1)
+72: SHOP_methodm_get_to_direct_19_precondition(maintenance-tunnel,stasis-lab)
+73: SHOP_methodm_step_pressurized_21_precondition(stasis-lab)
+74: move-to-pressurized-room(scientist,maintenance-tunnel,stasis-lab)
+75: SHOP_methodm_unload_pod_keep_std_14_precondition(stasis-lab)
+76: release-artifact-from-pod-slot-1(scientist,rover-wheel,stasis-lab,pod1)
+77: SHOP_methodm_deliver_direct_0_precondition(maintenance-tunnel,curator,hall-a,mart-north-pole-ice-sample,scientific,cryo-chamber)
+78: SHOP_methodm_prep_direct_2_precondition(curator,maintenance-tunnel)
+79: SHOP_methodm_get_to_direct_19_precondition(maintenance-tunnel,hall-a)
+80: SHOP_methodm_step_pressurized_21_precondition(hall-a)
+81: move-to-pressurized-room(curator,maintenance-tunnel,hall-a)
+82: pick-up-slot-1(mart-north-pole-ice-sample,scientific,hall-a,curator)
+83: SHOP_methodm_get_to_transit_20_precondition(hall-a,maintenance-tunnel,cryo-chamber)
+84: SHOP_methodm_step_unpressurized_22_precondition(maintenance-tunnel)
+85: activate-seal(curator)
+86: move-to-unpressurized-room(curator,hall-a,maintenance-tunnel)
+87: SHOP_methodm_step_pressurized_21_precondition(cryo-chamber)
+88: move-to-pressurized-room(curator,maintenance-tunnel,cryo-chamber)
+89: SHOP_methodm_unload_s1_cryo_11_precondition(cryo-chamber)
+90: release-artifact-cryo-slot-1(curator,mart-north-pole-ice-sample,cryo-chamber)
+91: SHOP_methodm_deliver_direct_0_precondition(cryo-chamber,curator,hall-b,mart-sand-sample,scientific,hall-a)
+92: SHOP_methodm_prep_fetch_pod_3_precondition(curator,cryo-chamber,pod2,anti-vibration-pods-room)
+93: SHOP_methodm_get_to_transit_20_precondition(cryo-chamber,maintenance-tunnel,anti-vibration-pods-room)
+94: SHOP_methodm_step_unpressurized_22_precondition(maintenance-tunnel)
+95: activate-seal(curator)
+96: move-to-unpressurized-room(curator,cryo-chamber,maintenance-tunnel)
+97: SHOP_methodm_step_pressurized_21_precondition(anti-vibration-pods-room)
+98: move-to-pressurized-room(curator,maintenance-tunnel,anti-vibration-pods-room)
+99: pick-up-pod-slot-1(curator,anti-vibration-pods-room,pod2)
+100: SHOP_methodm_get_to_transit_20_precondition(anti-vibration-pods-room,maintenance-tunnel,hall-b)
+101: SHOP_methodm_step_unpressurized_22_precondition(maintenance-tunnel)
+102: activate-seal(curator)
+103: move-to-unpressurized-room(curator,anti-vibration-pods-room,maintenance-tunnel)
+104: SHOP_methodm_step_seismic_23_precondition(hall-b)
+105: wait-seismic-room-safe(curator,hall-b,maintenance-tunnel)
+106: put-in-pod(mart-sand-sample,scientific,hall-b,curator,pod2)
+107: SHOP_methodm_get_to_transit_20_precondition(hall-b,maintenance-tunnel,hall-a)
+108: SHOP_methodm_step_unpressurized_22_precondition(maintenance-tunnel)
+109: activate-seal(curator)
+110: move-to-unpressurized-room(curator,hall-b,maintenance-tunnel)
+111: SHOP_methodm_step_pressurized_21_precondition(hall-a)
+112: move-to-pressurized-room(curator,maintenance-tunnel,hall-a)
+113: SHOP_methodm_unload_pod_keep_std_14_precondition(hall-a)
+114: release-artifact-from-pod-slot-1(curator,mart-sand-sample,hall-a,pod2)
