@@ -13,22 +13,9 @@
     technological scientific top-secret - artifact-type
 
     mart-nord-core-drill - artifact
-
+    rover-wheel - artifact
     mart-north-pole-ice-sample - artifact
-    mart-mysterious-egg - artifact
-    asteroid-MG04TN-ice-sample - artifact
-
-    ; rover-wheel - artifact
-    ; space-suit - artifact
-    ; quantum-chip - artifact
-    ; rusty-lightsaber - artifact
-
     mart-sand-sample - artifact
-    mart-laser-gun - artifact
-    mart-pink-hat - artifact
-    asteroid-AD29TV-rock-sample - artifact
-    venus-sand-sample - artifact
-    venus-rock-sample - artifact
   )
 
   ;; ==========================================
@@ -38,28 +25,11 @@
     :parameters ()
     :subtasks (and
       (t1 (deliver mart-nord-core-drill scientific stasis-lab))
-
-      (t5 (deliver mart-north-pole-ice-sample scientific cryo-chamber))
-      (t6 (deliver mart-mysterious-egg top-secret cryo-chamber))    
-      (t7 (deliver asteroid-MG04TN-ice-sample scientific cryo-chamber))
-
-      ; (t8 (deliver rover-wheel technological stasis-lab))
-      ; (t9 (deliver space-suit technological stasis-lab))
-      ; (t10 (deliver quantum-chip technological stasis-lab))
-      ; (t11 (deliver rusty-lightsaber technological stasis-lab))
-      
+      (t5 (deliver rover-wheel technological stasis-lab))
+      (t9 (deliver mart-north-pole-ice-sample scientific cryo-chamber))
       (t12 (deliver mart-sand-sample scientific hall-a))
-      (t13 (deliver mart-laser-gun top-secret hall-a))
-      (t14 (deliver mart-pink-hat top-secret hall-a))  
-      (t15 (deliver asteroid-AD29TV-rock-sample scientific hall-a))  
-      (t16 (deliver venus-sand-sample scientific hall-a))
-      (t17 (deliver venus-rock-sample scientific hall-a))
     )
-    :ordering (and (t1 < t5) 
-      (t5 < t6)   (t6 < t7) (t7 < t8) (t8 < t12)
-      ; (t8 < t9)   (t9 < t10)  (t10 < t11) (t11 < t12) 
-      (t12 < t13) (t13 < t14) (t14 < t15) (t15 < t16) (t16 < t17)
-    )
+    :ordering (and (t1 < t5) (t5 < t9) (t9 < t12))
   )
 
   ;; ==========================================
@@ -121,25 +91,11 @@
     (pod-at pod1 anti-vibration-pods-room ) (pod-at pod2 anti-vibration-pods-room)
 
     ;; --- Artefatto ---
-    ;; Hall A
     (artifact-at mart-nord-core-drill hall-a) (is-type mart-nord-core-drill scientific) (warm mart-nord-core-drill) (no-fragile mart-nord-core-drill)
-    
+    (artifact-at rover-wheel hall-b) (is-type rover-wheel technological) (warm rover-wheel) (fragile rover-wheel)
     (artifact-at mart-north-pole-ice-sample hall-a) (is-type mart-north-pole-ice-sample scientific) (warm mart-north-pole-ice-sample) (no-fragile mart-north-pole-ice-sample)
-    (artifact-at mart-mysterious-egg hall-a) (is-type mart-mysterious-egg top-secret) (warm mart-mysterious-egg) (no-fragile mart-mysterious-egg)
-    (artifact-at asteroid-MG04TN-ice-sample hall-a) (is-type asteroid-MG04TN-ice-sample scientific) (warm asteroid-MG04TN-ice-sample) (no-fragile asteroid-MG04TN-ice-sample)
-
-    ;; Hall B
-    ; (artifact-at rover-wheel hall-b) (is-type rover-wheel technological) (warm rover-wheel) (fragile rover-wheel)
-    ; (artifact-at space-suit hall-b) (is-type space-suit technological) (warm space-suit) (no-fragile space-suit)
-    ; (artifact-at quantum-chip hall-b) (is-type quantum-chip technological) (warm quantum-chip) (fragile quantum-chip)
-    ; (artifact-at rusty-lightsaber hall-b) (is-type rusty-lightsaber technological) (warm rusty-lightsaber) (no-fragile rusty-lightsaber)
-    
     (artifact-at mart-sand-sample hall-b) (is-type mart-sand-sample scientific) (warm mart-sand-sample) (fragile mart-sand-sample)
-    (artifact-at mart-laser-gun hall-b) (is-type mart-laser-gun top-secret) (warm mart-laser-gun) (fragile mart-laser-gun)
-    (artifact-at mart-pink-hat hall-b) (is-type mart-pink-hat top-secret) (warm mart-pink-hat) (fragile mart-pink-hat)
-    (artifact-at asteroid-AD29TV-rock-sample hall-b) (is-type asteroid-AD29TV-rock-sample scientific) (warm asteroid-AD29TV-rock-sample) (fragile asteroid-AD29TV-rock-sample)
-    (artifact-at venus-sand-sample hall-b) (is-type venus-sand-sample scientific) (warm venus-sand-sample) (no-fragile venus-sand-sample)
-    (artifact-at venus-rock-sample hall-b) (is-type venus-rock-sample scientific) (warm venus-rock-sample) (no-fragile venus-rock-sample)
+
     
   )
 
@@ -148,21 +104,8 @@
   ;; ==========================================
   (:goal (and
     (artifact-at mart-nord-core-drill stasis-lab) (cold mart-nord-core-drill)
-
+    (artifact-at rover-wheel stasis-lab)
     (artifact-at mart-north-pole-ice-sample cryo-chamber)
-    (artifact-at mart-mysterious-egg cryo-chamber)    
-    (artifact-at asteroid-MG04TN-ice-sample cryo-chamber)
-
-    ; (artifact-at rover-wheel stasis-lab)
-    ; (artifact-at space-suit stasis-lab)
-    ; (artifact-at quantum-chip stasis-lab) (cold quantum-chip)
-    ; (artifact-at rusty-lightsaber stasis-lab) (cold rusty-lightsaber)
-    
     (artifact-at mart-sand-sample hall-a)
-    (artifact-at mart-laser-gun hall-a)
-    (artifact-at mart-pink-hat hall-a)  
-    (artifact-at asteroid-AD29TV-rock-sample hall-a)  
-    (artifact-at venus-sand-sample hall-a)
-    (artifact-at venus-rock-sample hall-a)
   ))
 )

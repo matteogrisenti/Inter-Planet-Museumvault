@@ -1,0 +1,747 @@
+(define (domain multi-robot-hierarchical)
+    (:requirements :strips :typing :hierarchy)
+
+    ;; =======================================================================
+    ;; 1. TIPI E PREDICATI
+    ;; =======================================================================
+    (:types
+        robot             ; Gli agenti operativi (Curator, Technician, Scientist)
+        pod               ; Contenitori speciali anti-vibrazione per oggetti fragili
+        location          ; Nodi della mappa (stanze, corridoi, tunnel)
+        artifact          ; Gli oggetti fisici da recuperare e trasportare
+        artifact-type     ; Classificazione (scientific, technological, top-secret)
+    )
+
+    (:predicates
+        ;; Stato del Robot
+        (robot-at ?r - robot ?l - location)
+        (sealing-mode ?r - robot)
+        
+        ;; Gestione Inventario (Slot 1: Mani o Pod / Slot 2: Solo per Technician)
+        (hands-empty-slot-1 ?r - robot)
+        (carrying-slot-1 ?r - robot ?a - artifact)
+        (carrying-pod-slot-1 ?r - robot ?p - pod)
+        
+        (hands-empty-slot-2 ?r - robot)
+        (carrying-slot-2 ?r - robot ?a - artifact)             
+
+        ;; Competenze e Permessi (Capabilities)
+        (can-access ?r - robot ?l - location)
+        (can-pickup ?r - robot ?at - artifact-type)
+        (can-carry-two ?r - robot)
+        
+        ;; Topologia della Mappa e Proprietà Stanze
+        (connected ?l1 ?l2 - location)
+        (is-pressurized ?l - location)
+        (is-unpressurized ?l - location)
+        (is-safe ?l - location)
+        (is-seismic ?l - location)
+        (is-standard-room ?l - location)
+        (is-chill-room ?l - location)
+
+        ;; Stato degli Artefatti
+        (artifact-at ?a - artifact ?l - location)
+        (is-type ?a - artifact ?t - artifact-type)
+        (fragile ?a - artifact)
+        (no-fragile ?a - artifact)
+        (warm ?a - artifact)
+        (cold ?a - artifact)
+        
+        ;; Stato dei Pod
+        (pod-empty ?p - pod)
+        (pod-contains ?p - pod ?a - artifact)
+        (pod-at ?p - pod ?l - location)
+    )
+
+    ;; =======================================================================
+    ;; 2. TASKS (Obiettivi Astratti)
+    ;; =======================================================================
+    
+    ;; --- MACRO-TASK RICORSIVO ---
+    ;; Svuota o gestisce tutti gli artefatti di un'intera stanza in automatico
+    (:task process-room
+        :parameters (?room - location)
+    )
+
+    ;; --- TASK PRINCIPALE DI CONSEGNA ---
+    ;; Agnostico: non specifica chi lo farà né da dove parte.
+    (:task deliver
+        :parameters (?a - artifact ?at - artifact-type ?target - location)
+    )
+    ;; --- TASK CONSEGNA DOPPIA ---
+    (:task deliver_two
+        :parameters (?a1 - artifact ?at1 - artifact-type ?target1 - location
+                     ?a2 - artifact ?at2 - artifact-type ?target2 - location)
+    )
+
+    ;; --- SOTTO-TASKS STRUTTURALI DELLA CONSEGNA ---
+    ;; Nota: il task prepare_robot NON ha più ?start_loc. I parametri vengono spinti in basso (Push-Down)
+    (:task prepare_robot
+        :parameters (?r - robot ?artifact_loc - location)
+    )
+    (:task load_artifact
+        :parameters (?r - robot ?a - artifact ?at - artifact-type ?loc - location)
+    )
+    (:task transport_to_target
+        :parameters (?r - robot ?a - artifact ?at - artifact-type ?curr_loc - location ?target_loc - location)
+    )
+    (:task unload_artifact
+        :parameters (?r - robot ?a - artifact ?loc - location)
+    )
+
+    ;; --- SOTTO-TASKS DI NAVIGAZIONE ---
+    (:task get_to
+        :parameters (?r - robot ?from - location ?to - location)
+    )
+    (:task step
+        :parameters (?r - robot ?from - location ?to - location)
+    )
+
+    ;; =======================================================================
+    ;; 3. METODI GERARCHICI (Decomposizione Logica)
+    ;; =======================================================================
+
+    ;; -----------------------------------------------------------------------
+    ;; A. METODI RICORSIVI (Svuotamento Stanze)
+    ;; -----------------------------------------------------------------------
+    
+    ;; PASSO RICORSIVO: Trova un oggetto, innesca la consegna, poi richiama se stesso
+    (:method m_process_room_step
+        :parameters (?room - location ?a - artifact ?at - artifact-type ?target - location)
+        :task (process-room ?room)
+        :subtasks (and
+            (task_v (verify-artifact-at ?a ?room)) ;; GUARDIA: Prendi solo oggetti che sono DAVVERO qui
+            (task0 (deliver ?a ?at ?target))       ;; Innesca l'IA per trovare il robot migliore
+            (task1 (process-room ?room))           ;; Loop!
+        )
+        :ordering (and (task_v < task0) (task0 < task1))
+    )
+
+    ;; PASSO RICORSIVO DOPPIO: Gestisce due oggetti contemporaneamente
+    (:method m_process_room_step_two
+        :parameters (?room - location ?a1 - artifact ?at1 - artifact-type ?target1 - location
+                     ?a2 - artifact ?at2 - artifact-type ?target2 - location)
+        :task (process-room ?room)
+        :subtasks (and
+            (task_v1 (verify-artifact-at ?a1 ?room)) 
+            (task_v2 (verify-artifact-at ?a2 ?room))
+            ;; HDDL eviterà di prendere lo stesso oggetto due volte, perché il primo 
+            ;; "load" cancellerebbe l'oggetto, facendo fallire il secondo "load" in automatico!
+            
+            (task0 (deliver_two ?a1 ?at1 ?target1 ?a2 ?at2 ?target2))
+            (task1 (process-room ?room))
+        )
+        :ordering (and (task_v1 < task_v2) (task_v2 < task0) (task0 < task1))
+    )
+
+    ;; CONDIZIONE DI USCITA: Quando la stanza non ha più oggetti richiesti dal Goal
+    (:method m_process_room_done
+        :parameters (?room - location)
+        :task (process-room ?room)
+        :subtasks ()  ;; Nessuna sotto-task, interrompe il loop.
+    )
+
+    ;; -----------------------------------------------------------------------
+    ;; B. METODI DI CONSEGNA (Deliver)
+    ;; -----------------------------------------------------------------------
+
+    ;; METODO MASTER: Un solo robot esegue l'intera missione
+    (:method m_deliver_task
+        :parameters (?r - robot ?a - artifact ?at - artifact-type ?target_loc - location ?artifact_loc - location)
+        :task (deliver ?a ?at ?target_loc)
+        :subtasks (and
+            ;; --- GUARDIE SEMANTICHE ---
+            (task_v1 (verify-artifact-at ?a ?artifact_loc))  ;; Ancora la posizione dell'artefatto alla realtà
+            (task_v2 (verify-can-pickup ?r ?at))             ;; Controlla SUBITO se il robot ha i permessi (Taglia i rami morti)
+            
+            ;; --- ESECUZIONE ---
+            (task0 (prepare_robot ?r ?artifact_loc))
+            (task1 (load_artifact ?r ?a ?at ?artifact_loc))
+            (task2 (transport_to_target ?r ?a ?at ?artifact_loc ?target_loc))
+        )
+        :ordering (and (task_v1 < task_v2) (task_v2 < task0) (task0 < task1) (task1 < task2))
+    )
+    
+    ;; METODO STAFFETTA: Collaborazione tra due robot (Handoff nel tunnel)
+    (:method m_deliver_relay
+        :parameters (?r_deliver - robot ?a - artifact ?at - artifact-type ?target_loc - location
+                     ?r_fetch - robot ?artifact_loc - location ?handoff_loc - location)
+        :task (deliver ?a ?at ?target_loc)
+        :subtasks (and
+            ;; --- GUARDIE SEMANTICHE ---
+            (task_v1 (verify-artifact-at ?a ?artifact_loc))
+            (task_v2 (verify-can-pickup ?r_fetch ?at))       ;; Il primo robot sa raccoglierlo?
+            (task_v3 (verify-can-pickup ?r_deliver ?at))     ;; Il secondo robot sa raccoglierlo?
+
+            ;; FASE 1: Il Robot 1 (Recupero e trasporto allo scambio)
+            (task0 (prepare_robot ?r_fetch ?artifact_loc))
+            (task1 (load_artifact ?r_fetch ?a ?at ?artifact_loc))
+            (task2 (transport_to_target ?r_fetch ?a ?at ?artifact_loc ?handoff_loc))
+
+            ;; FASE 2: Il Robot 2 (Presa allo scambio e Consegna finale)
+            (task3 (prepare_robot ?r_deliver ?handoff_loc))
+            (task4 (load_artifact ?r_deliver ?a ?at ?handoff_loc))
+            (task5 (transport_to_target ?r_deliver ?a ?at ?handoff_loc ?target_loc))
+        )
+        :ordering (and
+            (task_v1 < task_v2) (task_v2 < task_v3) (task_v3 < task0)
+            (task0 < task1) (task1 < task2) 
+            (task2 < task3) 
+            (task3 < task4) (task4 < task5)
+        )
+    )
+
+    ;; -----------------------------------------------------------------------
+    ;; METODI DI CONSEGNA DOPPIA (Deliver Two)
+    ;; -----------------------------------------------------------------------
+
+    ;; METODO CONSEGNA DOPPIA DIRETTA: Un solo robot con due slot fa tutto
+    (:method m_deliver_two_task
+        :parameters (?r - robot ?a1 - artifact ?at1 - artifact-type ?target1 - location 
+                     ?a2 - artifact ?at2 - artifact-type ?target2 - location ?artifact_loc - location)
+        :task (deliver_two ?a1 ?at1 ?target1 ?a2 ?at2 ?target2)
+        :subtasks (and
+            (task_v1 (verify-artifact-at ?a1 ?artifact_loc))
+            (task_v2 (verify-artifact-at ?a2 ?artifact_loc))
+            (task_v3 (verify-can-carry-two ?r))
+            (task_v4 (verify-can-pickup ?r ?at1))
+            (task_v5 (verify-can-pickup ?r ?at2))
+            
+            ;; Preparazione e Carico Multiplo (Usa sia Slot 1 che Slot 2)
+            (task0 (prepare_robot ?r ?artifact_loc))
+            (task1 (load_artifact ?r ?a1 ?at1 ?artifact_loc))
+            (task2 (load_artifact ?r ?a2 ?at2 ?artifact_loc))
+            
+            ;; Viaggio verso il primo target, poi dal primo target al secondo
+            (task3 (transport_to_target ?r ?a1 ?at1 ?artifact_loc ?target1))
+            (task4 (transport_to_target ?r ?a2 ?at2 ?target1 ?target2))
+        )
+        :ordering (and 
+            (task_v1 < task_v2) (task_v2 < task_v3) (task_v3 < task_v4) (task_v4 < task_v5) (task_v5 < task0)
+            (task0 < task1) (task1 < task2) (task2 < task3) (task3 < task4)
+        )
+    )
+
+    ;; METODO CONSEGNA DOPPIA STAFFETTA: Il Technician porta 2 oggetti al tunnel, lo Scientist fa due viaggi
+    (:method m_deliver_two_relay
+        :parameters (?r_fetch - robot ?a1 - artifact ?at1 - artifact-type ?target1 - location
+                     ?a2 - artifact ?at2 - artifact-type ?target2 - location 
+                     ?r_deliver - robot ?artifact_loc - location ?handoff_loc - location)
+        :task (deliver_two ?a1 ?at1 ?target1 ?a2 ?at2 ?target2)
+        :subtasks (and
+            (task_v1 (verify-artifact-at ?a1 ?artifact_loc))
+            (task_v2 (verify-artifact-at ?a2 ?artifact_loc))
+            (task_v3 (verify-can-carry-two ?r_fetch))
+            (task_v4 (verify-can-pickup ?r_fetch ?at1))
+            (task_v5 (verify-can-pickup ?r_fetch ?at2))
+            (task_v6 (verify-can-pickup ?r_deliver ?at1))
+            (task_v7 (verify-can-pickup ?r_deliver ?at2))
+
+            ;; Fase 1: Fetcher trasporta entrambi allo scambio
+            (task0 (prepare_robot ?r_fetch ?artifact_loc))
+            (task1 (load_artifact ?r_fetch ?a1 ?at1 ?artifact_loc))
+            (task2 (load_artifact ?r_fetch ?a2 ?at2 ?artifact_loc))
+            (task3 (get_to ?r_fetch ?artifact_loc ?handoff_loc))
+            (task4 (unload_artifact ?r_fetch ?a1 ?handoff_loc))
+            (task5 (unload_artifact ?r_fetch ?a2 ?handoff_loc))
+            
+            ;; Fase 2: Deliverer consegna il primo...
+            (task6 (prepare_robot ?r_deliver ?handoff_loc))
+            (task7 (load_artifact ?r_deliver ?a1 ?at1 ?handoff_loc))
+            (task8 (transport_to_target ?r_deliver ?a1 ?at1 ?handoff_loc ?target1))
+            
+            ;; Fase 3: ...poi torna indietro al tunnel per prendere il secondo!
+            (task9 (get_to ?r_deliver ?target1 ?handoff_loc))
+            (task10 (load_artifact ?r_deliver ?a2 ?at2 ?handoff_loc))
+            (task11 (transport_to_target ?r_deliver ?a2 ?at2 ?handoff_loc ?target2))
+        )
+        :ordering (and
+            (task_v1 < task_v2) (task_v2 < task_v3) (task_v3 < task_v4) (task_v4 < task_v5) (task_v5 < task_v6) (task_v6 < task_v7) (task_v7 < task0)
+            (task0 < task1) (task1 < task2) (task2 < task3) (task3 < task4) (task4 < task5)
+            (task5 < task6) (task6 < task7) (task7 < task8) (task8 < task9) (task9 < task10) (task10 < task11)
+        )
+    )
+
+    ;; -----------------------------------------------------------------------
+    ;; C. FASE 1: PREPARAZIONE DEL ROBOT
+    ;; -----------------------------------------------------------------------
+    
+    ;; Ramo A: Viaggio diretto (ha già le mani pronte o ha già un pod)
+    (:method m_prep_direct
+        :parameters (?r - robot ?artifact_loc - location ?start_loc - location)
+        :task (prepare_robot ?r ?artifact_loc)
+        :subtasks (and
+            (task_v (verify-robot-at ?r ?start_loc)) ;; GUARDIA: Trova dove si trova DAVVERO il robot
+            (task0 (get_to ?r ?start_loc ?artifact_loc))
+        )
+        :ordering (and (task_v < task0))
+    )
+
+    ;; Ramo B: Viaggio per recuperare un pod vuoto
+    (:method m_prep_fetch_pod
+        :parameters (?r - robot ?artifact_loc - location ?start_loc - location ?pod_loc - location ?p - pod)
+        :task (prepare_robot ?r ?artifact_loc)
+        :subtasks (and
+            (task_v1 (verify-robot-at ?r ?start_loc))
+            (task_v2 (verify-pod-empty-at ?p ?pod_loc)) ;; GUARDIA: Cerca stanze dove c'è DAVVERO un pod vuoto
+            (task0 (get_to ?r ?start_loc ?pod_loc))
+            (task1 (pick-up-pod-slot-1 ?r ?pod_loc ?p))
+            (task2 (get_to ?r ?pod_loc ?artifact_loc))
+        )
+        :ordering (and (task_v1 < task_v2) (task_v2 < task0) (task0 < task1) (task1 < task2))
+    )
+
+    ;; Ramo C: Deve liberarsi del pod che ha in mano prima di raccogliere l'oggetto
+    (:method m_prep_drop_pod_first
+        :parameters (?r - robot ?artifact_loc - location ?start_loc - location ?p - pod)
+        :task (prepare_robot ?r ?artifact_loc)
+        :subtasks (and
+            (task_v1 (verify-robot-at ?r ?start_loc))
+            (task_v2 (verify-carrying-pod ?r ?p)) ;; GUARDIA: Verifica che abbia DAVVERO un pod in mano
+            (task0 (drop-pod-slot-1 ?r ?p ?start_loc))
+            (task1 (get_to ?r ?start_loc ?artifact_loc))
+        )
+        :ordering (and (task_v1 < task_v2) (task_v2 < task0) (task0 < task1))
+    )
+
+    ;; -----------------------------------------------------------------------
+    ;; D. FASE 2: CARICAMENTO
+    ;; -----------------------------------------------------------------------
+
+    (:method m_load_into_pod
+        :parameters (?r - robot ?a - artifact ?at - artifact-type ?loc - location ?p - pod)
+        :task (load_artifact ?r ?a ?at ?loc)
+        :subtasks (task0 (put-in-pod ?a ?at ?loc ?r ?p))
+    )
+    (:method m_load_slot_1
+        :parameters (?r - robot ?a - artifact ?at - artifact-type ?loc - location)
+        :task (load_artifact ?r ?a ?at ?loc)
+        :subtasks (task0 (pick-up-slot-1 ?a ?at ?loc ?r))
+    )
+    (:method m_load_slot_2
+        :parameters (?r - robot ?a - artifact ?at - artifact-type ?loc - location)
+        :task (load_artifact ?r ?a ?at ?loc)
+        :subtasks (task0 (pick-up-slot-2 ?a ?at ?loc ?r))
+    )
+
+    ;; -----------------------------------------------------------------------
+    ;; E. FASE 3: TRASPORTO (E RAFFREDDAMENTO)
+    ;; -----------------------------------------------------------------------
+
+    ;; Percorso Diretto
+    (:method m_transport_direct
+        :parameters (?r - robot ?a - artifact ?at - artifact-type ?curr_loc - location ?target_loc - location)
+        :task (transport_to_target ?r ?a ?at ?curr_loc ?target_loc)
+        :subtasks (and
+            (task0 (get_to ?r ?curr_loc ?target_loc))
+            (task1 (unload_artifact ?r ?a ?target_loc))
+        )
+        :ordering (and (task0 < task1))
+    )
+
+    ;; Percorso con sosta in cella frigorifera
+    (:method m_transport_chill
+        :parameters (?r - robot ?a - artifact ?at - artifact-type ?curr_loc - location ?target_loc - location ?cryo_loc - location)
+        :task (transport_to_target ?r ?a ?at ?curr_loc ?target_loc)
+        :subtasks (and
+            (task_v (verify-chill-room ?cryo_loc)) ;; GUARDIA: Evita che provi a raffreddare gli oggetti in mensa!
+            (task0 (get_to ?r ?curr_loc ?cryo_loc))
+            (task1 (unload_artifact ?r ?a ?cryo_loc))     
+            (task2 (load_artifact ?r ?a ?at ?cryo_loc))   
+            (task3 (get_to ?r ?cryo_loc ?target_loc))
+            (task4 (unload_artifact ?r ?a ?target_loc))   
+        )
+        :ordering (and (task_v < task0) (task0 < task1) (task1 < task2) (task2 < task3) (task3 < task4))
+    )
+
+    ;; -----------------------------------------------------------------------
+    ;; F. FASE 4: RILASCIO
+    ;; -----------------------------------------------------------------------
+
+    ;; Mano 1 Standard e Cryo
+    (:method m_unload_s1_std
+        :parameters (?r - robot ?a - artifact ?loc - location)
+        :task (unload_artifact ?r ?a ?loc)
+        :subtasks (task0 (release-artifact-slot-1 ?r ?a ?loc))
+    )
+    (:method m_unload_s1_cryo
+        :parameters (?r - robot ?a - artifact ?loc - location)
+        :task (unload_artifact ?r ?a ?loc)
+        :subtasks (task0 (release-artifact-cryo-slot-1 ?r ?a ?loc))
+    )
+
+    ;; Mano 2 Standard e Cryo
+    (:method m_unload_s2_std
+        :parameters (?r - robot ?a - artifact ?loc - location)
+        :task (unload_artifact ?r ?a ?loc)
+        :subtasks (task0 (release-artifact-slot-2 ?r ?a ?loc))
+    )
+    (:method m_unload_s2_cryo
+        :parameters (?r - robot ?a - artifact ?loc - location)
+        :task (unload_artifact ?r ?a ?loc)
+        :subtasks (task0 (release-artifact-cryo-slot-2 ?r ?a ?loc))
+    )
+    
+    ;; Rilascio dal Pod in stanza normale (Con o Senza rilascio a terra del Pod)
+    (:method m_unload_pod_keep_std
+        :parameters (?r - robot ?a - artifact ?loc - location ?p - pod)
+        :task (unload_artifact ?r ?a ?loc)
+        :subtasks (task0 (release-artifact-from-pod-slot-1 ?r ?a ?loc ?p))
+    )
+    (:method m_unload_pod_drop_std
+        :parameters (?r - robot ?a - artifact ?loc - location ?p - pod)
+        :task (unload_artifact ?r ?a ?loc)
+        :subtasks (and 
+            (task0 (release-artifact-from-pod-slot-1 ?r ?a ?loc ?p))
+            (task1 (drop-pod-slot-1 ?r ?p ?loc))
+        )
+        :ordering (and (task0 < task1))
+    )
+
+    ;; Rilascio dal Pod in stanza Cryo (Con o Senza rilascio a terra del Pod)
+    (:method m_unload_pod_keep_cryo
+        :parameters (?r - robot ?a - artifact ?loc - location ?p - pod)
+        :task (unload_artifact ?r ?a ?loc)
+        :subtasks (task0 (release-artifact-cryo-from-pod-slot-1 ?r ?a ?loc ?p))
+    )
+    (:method m_unload_pod_drop_cryo
+        :parameters (?r - robot ?a - artifact ?loc - location ?p - pod)
+        :task (unload_artifact ?r ?a ?loc)
+        :subtasks (and 
+            (task0 (release-artifact-cryo-from-pod-slot-1 ?r ?a ?loc ?p))
+            (task1 (drop-pod-slot-1 ?r ?p ?loc))
+        )
+        :ordering (and (task0 < task1))
+    )
+
+    ;; -----------------------------------------------------------------------
+    ;; G. METODI DI NAVIGAZIONE E MOVIMENTO
+    ;; -----------------------------------------------------------------------
+
+    (:method m_get_to_stay
+        :parameters (?r - robot ?l - location)
+        :task (get_to ?r ?l ?l)
+        :subtasks (task0 (stay-at ?r ?l))
+    )
+
+    (:method m_get_to_direct
+        :parameters (?r - robot ?from - location ?to - location)
+        :task (get_to ?r ?from ?to)
+        :subtasks (task0 (step ?r ?from ?to))
+    )
+
+    (:method m_get_to_transit
+        :parameters (?r - robot ?from - location ?mid - location ?to - location)
+        :task (get_to ?r ?from ?to)
+        :subtasks (and 
+            (task_v (verify-connected ?from ?mid)) ;; GUARDIA: Non inventarti vie che non esistono!
+            (task0 (step ?r ?from ?mid))
+            (task1 (step ?r ?mid ?to))
+        )
+        :ordering (and (task_v < task0) (task0 < task1))
+    )
+
+    (:method m_step_pressurized
+        :parameters (?r - robot ?from - location ?to - location)
+        :task (step ?r ?from ?to)
+        :subtasks (task0 (move-to-pressurized-room ?r ?from ?to))
+    )
+
+    (:method m_step_unpressurized
+        :parameters (?r - robot ?from - location ?to - location)
+        :task (step ?r ?from ?to)
+        :subtasks (and 
+            (task0 (activate-seal ?r))
+            (task1 (move-to-unpressurized-room ?r ?from ?to))
+        )
+        :ordering (and (task0 < task1))
+    )
+
+    (:method m_step_seismic
+        :parameters (?r - robot ?from - location ?to - location)
+        :task (step ?r ?from ?to)
+        :subtasks (task0 (wait-seismic-room-safe ?r ?to ?from))
+    )
+
+    ;; =======================================================================
+    ;; 4. AZIONI PRIMITIVE (Comandi base, non manipolabili dai metodi)
+    ;; =======================================================================
+
+    (:action stay-at
+        :parameters (?r - robot ?l - location)
+        :precondition (robot-at ?r ?l)
+        :effect ()
+    )
+
+    (:action wait-seismic-room-safe
+        :parameters (?r - robot ?to ?from - location)
+        :precondition (and 
+            (robot-at ?r ?from) 
+            (connected ?from ?to) 
+            (is-seismic ?to)
+            (can-access ?r ?to)
+        )
+        :effect (and 
+            (not (robot-at ?r ?from)) 
+            (robot-at ?r ?to)
+            (not (sealing-mode ?r))    
+        )
+    )
+
+    (:action move-to-pressurized-room
+        :parameters (?r - robot ?from ?to - location)
+        :precondition (and 
+            (robot-at ?r ?from)
+            (connected ?from ?to)
+            (is-pressurized ?to)
+            (is-safe ?to)
+            (can-access ?r ?to)
+        )
+        :effect (and 
+            (not (robot-at ?r ?from)) 
+            (robot-at ?r ?to)
+            (not (sealing-mode ?r))
+        )
+    )
+
+    (:action move-to-unpressurized-room
+        :parameters (?r - robot ?from ?to - location)
+        :precondition (and 
+            (robot-at ?r ?from)
+            (connected ?from ?to)
+            (is-unpressurized ?to)
+            (sealing-mode ?r)  
+            (can-access ?r ?to)
+        )
+        :effect (and (not (robot-at ?r ?from)) (robot-at ?r ?to))
+    )
+
+    (:action activate-seal
+        :parameters (?r - robot)
+        :precondition ()
+        :effect (sealing-mode ?r)
+    )
+
+    (:action pick-up-pod-slot-1
+        :parameters (?r - robot ?l - location ?p - pod)
+        :precondition (and 
+            (robot-at ?r ?l)
+            (pod-at ?p ?l)
+            (pod-empty ?p)
+            (hands-empty-slot-1 ?r)           
+        )
+        :effect (and 
+            (not (pod-at ?p ?l))
+            (not (hands-empty-slot-1 ?r))
+            (carrying-pod-slot-1 ?r ?p)
+        )
+    )
+
+    (:action drop-pod-slot-1
+        :parameters (?r - robot ?p - pod ?l - location)
+        :precondition (and 
+            (carrying-pod-slot-1 ?r ?p)
+            (robot-at ?r ?l)
+        )
+        :effect (and 
+            (not (carrying-pod-slot-1 ?r ?p))
+            (hands-empty-slot-1 ?r)
+            (pod-at ?p ?l)
+        )
+    )
+
+    (:action pick-up-slot-1
+        :parameters (?a - artifact ?at - artifact-type ?l - location ?r - robot)
+        :precondition (and 
+            (robot-at ?r ?l)
+            (artifact-at ?a ?l)              
+            (hands-empty-slot-1 ?r)
+            (no-fragile ?a)
+            (can-pickup ?r ?at)
+            (is-type ?a ?at)
+        )
+        :effect (and 
+            (not (hands-empty-slot-1 ?r)) 
+            (carrying-slot-1 ?r ?a)            
+            (not (artifact-at ?a ?l))
+        )
+    )
+
+    (:action pick-up-slot-2
+        :parameters (?a - artifact ?at - artifact-type ?l - location ?r - robot)
+        :precondition (and 
+            (robot-at ?r ?l)
+            (can-carry-two ?r)
+            (artifact-at ?a ?l)
+            (hands-empty-slot-2 ?r)
+            (no-fragile ?a)
+            (can-pickup ?r ?at)
+            (is-type ?a ?at)
+        )
+        :effect (and 
+            (not (hands-empty-slot-2 ?r)) 
+            (carrying-slot-2 ?r ?a)            
+            (not (artifact-at ?a ?l))
+        )
+    )
+
+    (:action put-in-pod
+        :parameters (?a - artifact ?at - artifact-type ?l - location ?r - robot ?p - pod)
+        :precondition (and 
+            (robot-at ?r ?l)
+            (artifact-at ?a ?l)
+            (carrying-pod-slot-1 ?r ?p)
+            (pod-empty ?p)
+            (can-pickup ?r ?at)
+            (is-type ?a ?at)
+        )
+        :effect (and 
+            (not (artifact-at ?a ?l))
+            (not (pod-empty ?p))
+            (pod-contains ?p ?a)
+        )
+    )
+
+    (:action release-artifact-slot-1
+        :parameters (?r - robot ?a - artifact ?l - location)
+        :precondition (and 
+            (robot-at ?r ?l) 
+            (carrying-slot-1 ?r ?a)
+            (is-standard-room ?l)
+        )
+        :effect (and 
+            (not (carrying-slot-1 ?r ?a)) 
+            (hands-empty-slot-1 ?r) 
+            (artifact-at ?a ?l)
+        )
+    )
+
+    (:action release-artifact-slot-2
+        :parameters (?r - robot ?a - artifact ?l - location)
+        :precondition (and 
+            (robot-at ?r ?l) 
+            (can-carry-two ?r)
+            (carrying-slot-2 ?r ?a)
+            (is-standard-room ?l)
+        )
+        :effect (and 
+            (not (carrying-slot-2 ?r ?a)) 
+            (hands-empty-slot-2 ?r) 
+            (artifact-at ?a ?l)
+        )
+    )
+
+    (:action release-artifact-from-pod-slot-1
+        :parameters (?r - robot ?a - artifact ?l - location ?p - pod)
+        :precondition (and
+            (robot-at ?r ?l)
+            (carrying-pod-slot-1 ?r ?p)  
+            (pod-contains ?p ?a)       
+            (is-standard-room ?l)
+        )
+        :effect (and
+            (not (pod-contains ?p ?a))
+            (artifact-at ?a ?l)
+            (pod-empty ?p)
+        )
+    )
+
+    (:action release-artifact-cryo-slot-1
+        :parameters (?r - robot ?a - artifact ?l - location)
+        :precondition (and 
+            (robot-at ?r ?l) 
+            (carrying-slot-1 ?r ?a)
+            (is-chill-room ?l)
+        )
+        :effect (and 
+            (not (carrying-slot-1 ?r ?a)) 
+            (hands-empty-slot-1 ?r) 
+            (artifact-at ?a ?l)
+            (not (warm ?a)) (cold ?a)
+        )
+    )
+
+    (:action release-artifact-cryo-slot-2
+        :parameters (?r - robot ?a - artifact ?l - location)
+        :precondition (and 
+            (robot-at ?r ?l) 
+            (can-carry-two ?r)
+            (carrying-slot-2 ?r ?a)
+            (is-chill-room ?l)
+        )
+        :effect (and 
+            (not (carrying-slot-2 ?r ?a)) 
+            (hands-empty-slot-2 ?r) 
+            (artifact-at ?a ?l)
+            (not (warm ?a)) (cold ?a)
+        )
+    )
+
+    (:action release-artifact-cryo-from-pod-slot-1
+        :parameters (?r - robot ?a - artifact ?l - location ?p - pod)
+        :precondition (and 
+            (robot-at ?r ?l)
+            (carrying-pod-slot-1 ?r ?p)
+            (pod-contains ?p ?a)
+            (is-chill-room ?l)
+        )
+        :effect (and 
+            (artifact-at ?a ?l)
+            (not (pod-contains ?p ?a))
+            (pod-empty ?p)
+            (not (warm ?a)) (cold ?a)
+        )
+    )
+
+    ;; =======================================================================
+    ;; 5. GUARDIE SEMANTICHE (Dummy Actions per ottimizzare PANDA)
+    ;; =======================================================================
+
+    (:action verify-robot-at
+        :parameters (?r - robot ?l - location)
+        :precondition (robot-at ?r ?l)
+        :effect ()
+    )
+    
+    (:action verify-artifact-at
+        :parameters (?a - artifact ?l - location)
+        :precondition (artifact-at ?a ?l)
+        :effect ()
+    )
+    
+    (:action verify-pod-empty-at
+        :parameters (?p - pod ?l - location)
+        :precondition (and (pod-at ?p ?l) (pod-empty ?p))
+        :effect ()
+    )
+    
+    (:action verify-carrying-pod
+        :parameters (?r - robot ?p - pod)
+        :precondition (carrying-pod-slot-1 ?r ?p)
+        :effect ()
+    )
+    
+    (:action verify-can-pickup
+        :parameters (?r - robot ?at - artifact-type)
+        :precondition (can-pickup ?r ?at)
+        :effect ()
+    )
+
+    (:action verify-chill-room
+        :parameters (?l - location)
+        :precondition (is-chill-room ?l)
+        :effect ()
+    )
+
+    (:action verify-connected
+        :parameters (?l1 - location ?l2 - location)
+        :precondition (connected ?l1 ?l2)
+        :effect ()
+    )
+
+    (:action verify-can-carry-two
+        :parameters (?r - robot)
+        :precondition (can-carry-two ?r)
+        :effect ()
+    )
+)

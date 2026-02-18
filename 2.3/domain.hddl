@@ -51,12 +51,10 @@
     ;; TASKS (Abstract Goals)
     ;; ========================
     
-    ;; 1. Il Task di altissimo livello (quello chiamato nel problem file)
     (:task deliver
         :parameters (?a - artifact ?at - artifact-type ?target - location)
     )
 
-    ;; 2. Sotto-task strutturali per scomporre il Deliver
     (:task prepare_robot
         :parameters (?r - robot ?start_loc - location ?artifact_loc - location)
     )
@@ -70,7 +68,6 @@
         :parameters (?r - robot ?a - artifact ?loc - location)
     )
 
-    ;; 3. Sotto-task di Navigazione
     (:task get_to
         :parameters (?r - robot ?from - location ?to - location)
     )
@@ -79,83 +76,92 @@
     )
 
     ;; ========================
-    ;; METODI (Decomposizioni Gerarchiche)
+    ;; METODI (Decomposizioni Gerarchiche con PRECONDIZIONI BLINDATE)
     ;; ========================
 
-    ;; --- IL METODO MASTER ---
-    ;; Questo metodo scompone logicamente la consegna in 3 fasi: Preparazione, Carico, Trasporto.
     ;; --- METODO MASTER (Un solo robot fa tutto) ---
     (:method m_deliver_task
         :parameters (?r - robot ?a - artifact ?at - artifact-type ?target_loc - location ?start_loc - location ?artifact_loc - location)
-        :task (deliver ?a ?at ?target_loc) ;; <-- Rimosso ?r da qui
+        :task (deliver ?a ?at ?target_loc)
+        :precondition (and 
+            (artifact-at ?a ?artifact_loc)
+            (is-type ?a ?at)
+            (can-pickup ?r ?at)
+            ;; BLOCCO 1: Il robot ha il permesso di entrare?
+            (can-access ?r ?artifact_loc)
+            (can-access ?r ?target_loc)
+        )
         :subtasks (and
             (task0 (prepare_robot ?r ?start_loc ?artifact_loc))
             (task1 (load_artifact ?r ?a ?at ?artifact_loc))
             (task2 (transport_to_target ?r ?a ?at ?artifact_loc ?target_loc))
         )
-        :ordering (and 
-            (task0 < task1) 
-            (task1 < task2)
-        )
+        :ordering (and (task0 < task1) (task1 < task2))
     )
     
     ;; --- METODO STAFFETTA (Relay tra due robot) ---
-    ;; Se il robot assegnato non può fare tutto il tragitto, un altro robot fa la prima parte.
     (:method m_deliver_relay
         :parameters (?r_deliver - robot ?a - artifact ?at - artifact-type ?target_loc - location
                      ?r_fetch - robot ?fetch_start - location ?deliver_start - location 
                      ?artifact_loc - location ?handoff_loc - location)
-        :task (deliver ?a ?at ?target_loc) ;; <-- Rimossi i robot da qui
+        :task (deliver ?a ?at ?target_loc)
+        :precondition (and 
+            (artifact-at ?a ?artifact_loc)
+            (is-type ?a ?at)
+            ;; BLOCCO 2: Verifiche incrociate sui permessi
+            (can-pickup ?r_fetch ?at)
+            (can-pickup ?r_deliver ?at)
+            (can-access ?r_fetch ?artifact_loc)
+            (can-access ?r_fetch ?handoff_loc)
+            (can-access ?r_deliver ?handoff_loc)
+            (can-access ?r_deliver ?target_loc)
+        )
         :subtasks (and
-            ;; FASE 1: Il Robot 1 (Recupero e trasporto allo scambio)
             (task0 (prepare_robot ?r_fetch ?fetch_start ?artifact_loc))
             (task1 (load_artifact ?r_fetch ?a ?at ?artifact_loc))
             (task2 (transport_to_target ?r_fetch ?a ?at ?artifact_loc ?handoff_loc))
-
-            ;; FASE 2: Il Robot 2 (Presa allo scambio e Consegna finale)
             (task3 (prepare_robot ?r_deliver ?deliver_start ?handoff_loc))
             (task4 (load_artifact ?r_deliver ?a ?at ?handoff_loc))
             (task5 (transport_to_target ?r_deliver ?a ?at ?handoff_loc ?target_loc))
         )
-        :ordering (and
-            (task0 < task1) (task1 < task2) 
-            (task2 < task3) 
-            (task3 < task4) (task4 < task5)
-        )
+        :ordering (and (task0 < task1) (task1 < task2) (task2 < task3) (task3 < task4) (task4 < task5))
     )
 
 
     ;; --- FASE 1: PREPARAZIONE DEL ROBOT ---
-    ;; Come fa il robot a raggiungere l'artefatto preparandosi in modo adeguato?
     
-    ;; Ramo A: Va diretto. Usato se non serve il pod, oppure se il robot HA GIÀ un pod 
-    ;; dalla missione precedente e vuole riutilizzarlo.
     (:method m_prep_direct
         :parameters (?r - robot ?start_loc - location ?artifact_loc - location)
         :task (prepare_robot ?r ?start_loc ?artifact_loc)
+        :precondition (robot-at ?r ?start_loc)
         :subtasks (task0 (get_to ?r ?start_loc ?artifact_loc))
     )
 
-    ;; Ramo B: Va a prendere un pod. Usato se l'artefatto è fragile ma il robot ha le mani libere.
     (:method m_prep_fetch_pod
         :parameters (?r - robot ?start_loc - location ?artifact_loc - location ?pod_loc - location ?p - pod)
         :task (prepare_robot ?r ?start_loc ?artifact_loc)
+        :precondition (and
+            (robot-at ?r ?start_loc)
+            (pod-at ?p ?pod_loc)
+            (pod-empty ?p)
+            ;; BLOCCO 3: Il robot può raggiungere il pod?
+            (can-access ?r ?pod_loc)
+        )
         :subtasks (and
             (task0 (get_to ?r ?start_loc ?pod_loc))
             (task1 (pick-up-pod-slot-1 ?r ?pod_loc ?p))
             (task2 (get_to ?r ?pod_loc ?artifact_loc))
         )
-        :ordering (and 
-            (task0 < task1) 
-            (task1 < task2)
-        )
+        :ordering (and (task0 < task1) (task1 < task2))
     )
 
-    ;; Ramo C: Deve liberarsi del pod. Usato se il robot si è portato dietro un pod vuoto
-    ;; ma ora deve caricare un oggetto resistente nello Slot 1. Lo lascia cadere prima di partire.
     (:method m_prep_drop_pod_first
         :parameters (?r - robot ?start_loc - location ?artifact_loc - location ?p - pod)
         :task (prepare_robot ?r ?start_loc ?artifact_loc)
+        :precondition (and
+            (robot-at ?r ?start_loc)
+            (carrying-pod-slot-1 ?r ?p)
+        )
         :subtasks (and
             (task0 (drop-pod-slot-1 ?r ?p ?start_loc))
             (task1 (get_to ?r ?start_loc ?artifact_loc))
@@ -164,7 +170,6 @@
     )
 
     ;; --- FASE 2: CARICAMENTO ---
-    ;; Una volta arrivato, come raccoglie l'oggetto? Il planner sceglie il metodo che non viola le precondizioni.
 
     (:method m_load_into_pod
         :parameters (?r - robot ?a - artifact ?at - artifact-type ?loc - location ?p - pod)
@@ -185,9 +190,7 @@
     )
 
     ;; --- FASE 3: TRASPORTO (E RAFFREDDAMENTO) ---
-    ;; Include sia il viaggio verso la destinazione, sia l'eventuale deviazione per la Cryo-Chamber.
 
-    ;; Percorso Diretto
     (:method m_transport_direct
         :parameters (?r - robot ?a - artifact ?at - artifact-type ?curr_loc - location ?target_loc - location)
         :task (transport_to_target ?r ?a ?at ?curr_loc ?target_loc)
@@ -198,65 +201,63 @@
         :ordering (and (task0 < task1))
     )
 
-    ;; Percorso con sosta per raffreddare l'oggetto. 
-    ;; Nota l'eleganza: riutilizza unload e load per il raffreddamento!
     (:method m_transport_chill
         :parameters (?r - robot ?a - artifact ?at - artifact-type ?curr_loc - location ?target_loc - location ?cryo_loc - location)
         :task (transport_to_target ?r ?a ?at ?curr_loc ?target_loc)
+        :precondition (and
+            (is-chill-room ?cryo_loc)
+            ;; BLOCCO 4: Il robot può entrare nel frigo?
+            (can-access ?r ?cryo_loc)
+        )
         :subtasks (and
             (task0 (get_to ?r ?curr_loc ?cryo_loc))
-            (task1 (unload_artifact ?r ?a ?cryo_loc))     ;; Rilasciarlo in cryo cambia lo stato in (cold)
-            (task2 (load_artifact ?r ?a ?at ?cryo_loc))   ;; Il planner ricarica in automatico nello stesso slot/pod
+            (task1 (unload_artifact ?r ?a ?cryo_loc))
+            (task2 (load_artifact ?r ?a ?at ?cryo_loc))
             (task3 (get_to ?r ?cryo_loc ?target_loc))
-            (task4 (unload_artifact ?r ?a ?target_loc))   ;; Scarico finale
+            (task4 (unload_artifact ?r ?a ?target_loc))
         )
-        :ordering (and 
-            (task0 < task1) 
-            (task1 < task2) 
-            (task2 < task3) 
-            (task3 < task4)
-        )
+        :ordering (and (task0 < task1) (task1 < task2) (task2 < task3) (task3 < task4))
     )
 
-    ;; --- FASE 4: RILASCIO ---
-    ;; In base a dove ha messo l'oggetto e in che stanza si trova, esegue l'azione primitiva corrispondente.
-    ;; NOTA: In nessuno di questi metodi il robot butta via il pod. Lo svuota soltanto.
+    ;; --- FASE 4: RILASCIO (Vincoli sui tipi di stanza) ---
 
-    ;; Mano 1
     (:method m_unload_s1_std
         :parameters (?r - robot ?a - artifact ?loc - location)
         :task (unload_artifact ?r ?a ?loc)
+        :precondition (is-standard-room ?loc) ;; Solo in stanze normali
         :subtasks (task0 (release-artifact-slot-1 ?r ?a ?loc))
     )
     (:method m_unload_s1_cryo
         :parameters (?r - robot ?a - artifact ?loc - location)
         :task (unload_artifact ?r ?a ?loc)
+        :precondition (is-chill-room ?loc) ;; Solo nel frigo
         :subtasks (task0 (release-artifact-cryo-slot-1 ?r ?a ?loc))
     )
 
-    ;; Mano 2
     (:method m_unload_s2_std
         :parameters (?r - robot ?a - artifact ?loc - location)
         :task (unload_artifact ?r ?a ?loc)
+        :precondition (is-standard-room ?loc)
         :subtasks (task0 (release-artifact-slot-2 ?r ?a ?loc))
     )
     (:method m_unload_s2_cryo
         :parameters (?r - robot ?a - artifact ?loc - location)
         :task (unload_artifact ?r ?a ?loc)
+        :precondition (is-chill-room ?loc)
         :subtasks (task0 (release-artifact-cryo-slot-2 ?r ?a ?loc))
     )
     
-    ;; Pod - Opzione 1: Svuota il pod e LO TIENE IN MANO
     (:method m_unload_pod_keep_std
         :parameters (?r - robot ?a - artifact ?loc - location ?p - pod)
         :task (unload_artifact ?r ?a ?loc)
+        :precondition (is-standard-room ?loc)
         :subtasks (task0 (release-artifact-from-pod-slot-1 ?r ?a ?loc ?p))
     )
 
-    ;; Pod - Opzione 2: Svuota il pod e LO LASCIA A TERRA (Passaggio di testimone!)
     (:method m_unload_pod_drop_std
         :parameters (?r - robot ?a - artifact ?loc - location ?p - pod)
         :task (unload_artifact ?r ?a ?loc)
+        :precondition (is-standard-room ?loc)
         :subtasks (and 
             (task0 (release-artifact-from-pod-slot-1 ?r ?a ?loc ?p))
             (task1 (drop-pod-slot-1 ?r ?p ?loc))
@@ -264,16 +265,17 @@
         :ordering (and (task0 < task1))
     )
 
-    ;; Stessa doppia opzione per lo scarico nella Cryo-Chamber
     (:method m_unload_pod_keep_cryo
         :parameters (?r - robot ?a - artifact ?loc - location ?p - pod)
         :task (unload_artifact ?r ?a ?loc)
+        :precondition (is-chill-room ?loc)
         :subtasks (task0 (release-artifact-cryo-from-pod-slot-1 ?r ?a ?loc ?p))
     )
 
     (:method m_unload_pod_drop_cryo
         :parameters (?r - robot ?a - artifact ?loc - location ?p - pod)
         :task (unload_artifact ?r ?a ?loc)
+        :precondition (is-chill-room ?loc)
         :subtasks (and 
             (task0 (release-artifact-cryo-from-pod-slot-1 ?r ?a ?loc ?p))
             (task1 (drop-pod-slot-1 ?r ?p ?loc))
@@ -281,31 +283,27 @@
         :ordering (and (task0 < task1))
     )
 
-    
-
-
     ;; ========================
-    ;; METODI DI NAVIGAZIONE (Ricerca Percorsi)
+    ;; METODI DI NAVIGAZIONE (Anti-Teletrasporto)
     ;; ========================
 
-    ;; Caso 1: È già arrivato
     (:method m_get_to_stay
         :parameters (?r - robot ?l - location)
         :task (get_to ?r ?l ?l)
         :subtasks (task0 (stay-at ?r ?l))
     )
 
-    ;; Caso 2: Movimento adiacente (1 step)
     (:method m_get_to_direct
         :parameters (?r - robot ?from - location ?to - location)
         :task (get_to ?r ?from ?to)
+        :precondition (connected ?from ?to) ;; BLOCCO 5: Muri fisici
         :subtasks (task0 (step ?r ?from ?to))
     )
 
-    ;; Caso 3: Attraversamento tunnel (2 step)
     (:method m_get_to_transit
         :parameters (?r - robot ?from - location ?mid - location ?to - location)
         :task (get_to ?r ?from ?to)
+        :precondition (and (connected ?from ?mid) (connected ?mid ?to)) ;; Verifica connessioni
         :subtasks (and 
             (task0 (step ?r ?from ?mid))
             (task1 (step ?r ?mid ?to))
@@ -314,18 +312,20 @@
     )
 
     ;; ========================
-    ;; METODI STEP (Tipi di Stanze)
+    ;; METODI STEP (Precondizioni sulla topologia della stanza)
     ;; ========================
 
     (:method m_step_pressurized
         :parameters (?r - robot ?from - location ?to - location)
         :task (step ?r ?from ?to)
+        :precondition (is-pressurized ?to)
         :subtasks (task0 (move-to-pressurized-room ?r ?from ?to))
     )
 
     (:method m_step_unpressurized
         :parameters (?r - robot ?from - location ?to - location)
         :task (step ?r ?from ?to)
+        :precondition (is-unpressurized ?to)
         :subtasks (and 
             (task0 (activate-seal ?r))
             (task1 (move-to-unpressurized-room ?r ?from ?to))
@@ -336,14 +336,16 @@
     (:method m_step_seismic
         :parameters (?r - robot ?from - location ?to - location)
         :task (step ?r ?from ?to)
+        :precondition (is-seismic ?to)
         :subtasks (task0 (wait-seismic-room-safe ?r ?to ?from))
     )
 
-
     ;; ========================
-    ;; AZIONI PRIMITIVE (Foglie dell'Albero)
+    ;; AZIONI PRIMITIVE (Invariate)
     ;; ========================
-
+    ;; Le azioni primitive sono le stesse di prima, poiché le precondizioni
+    ;; sono state spostate "in alto" nei metodi per prevenire l'espansione.
+    
     (:action stay-at
         :parameters (?r - robot ?l - location)
         :precondition (robot-at ?r ?l)
