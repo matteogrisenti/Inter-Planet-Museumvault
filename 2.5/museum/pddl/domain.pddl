@@ -34,7 +34,29 @@
     (pod_at ?p - pod ?l - location)
     (pod_empty ?p - pod)
     (pod_contains ?p - pod ?a - artifact)
+    (is_seismic ?l - location)
+    (can_fly ?r - robot)
   )
+
+  (:durative-action fly_into_seismic_room   ; for drone case
+        :parameters (?r - robot ?to ?from - location)
+        :duration (= ?duration 10)
+        :condition (and 
+            (at start (sealing_mode_on ?r))
+            (at start (robot_at ?r ?from))
+            (at start (connected ?from ?to))
+            (at start (is_seismic ?to))
+            (at start (can_access ?r ?to))
+            (at start (can_fly ?r))
+        )
+        :effect (and 
+            (at start (not (robot_at ?r ?from)))
+            (at end (not (sealing_mode_on ?r)))
+            (at end (robot_at ?r ?to))
+            (at end (sealing_mode_off ?r))
+        )
+    )
+  
 
   (:durative-action move_to_pressurized_room
     :parameters (?r - robot ?from ?to - location)

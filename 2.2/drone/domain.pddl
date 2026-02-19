@@ -40,7 +40,6 @@
         (is-unpressurized ?l - location)
         (is-safe ?l - location)                         ; Room status (safe to enter)
         (is-seismic ?l - location)                      ; Triggers safety checks
-        (is-standard-room ?l - location)                ; Normal storage/drop rooms
         (is-chill-room ?l - location)                   ; Rooms that cool artifacts (Cryo-Chamber)
 
         ;; --- ARTIFACT & POD STATUS ---
@@ -242,7 +241,6 @@
         :precondition (and 
             (robot-at ?r ?l) 
             (carrying-slot-1 ?r ?a)
-            (is-standard-room ?l)
         )
         :effect (and 
             (not (carrying-slot-1 ?r ?a)) 
@@ -257,7 +255,6 @@
             (robot-at ?r ?l) 
             (can-carry-two ?r)
             (carrying-slot-2 ?r ?a)
-            (is-standard-room ?l)
         )
         :effect (and 
             (not (carrying-slot-2 ?r ?a)) 
@@ -274,7 +271,6 @@
             (robot-at ?r ?l)
             (carrying-pod-slot-1 ?r ?p)  
             (pod-contains ?p ?a)       
-            (is-standard-room ?l)
         )
         :effect (and
             (not (pod-contains ?p ?a))  ; Pod is now empty
