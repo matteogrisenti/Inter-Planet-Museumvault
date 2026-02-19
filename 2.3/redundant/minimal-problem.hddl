@@ -7,10 +7,10 @@
     technological scientific top-secret - artifact-type
     
     ;; Artifact Batch 1) in Hall A that need to be bring in the Stasis Lab
-    mart-nord-core-drill mart-sud-core-drill - artifact
+    ; mart-nord-core-drill mart-sud-core-drill - artifact
     ; mart-east-core-drill mart-west-core-drill - artifact
     ;; Artifact Batch 2) in Hall A that need to be bring in the Cryo Chamber
-    mart-north-pole-ice-sample mart-mysterious-egg - artifact
+    ; mart-north-pole-ice-sample mart-mysterious-egg - artifact
     ; asteroid-MG04TN-ice-sample - artifact
 
     ;; Artifact Batch 3) in Hall B ( all thecnological ) that need to be bring in the stasis lab
@@ -25,7 +25,7 @@
   (:htn
     :parameters ()
     :ordered-subtasks (and
-      (t1 (process-room hall-a))
+      ; (t1 (process-room hall-a))
       (t2 (process-room hall-b))
     )
   )
@@ -41,6 +41,7 @@
     (can-pickup curator scientific) (can-pickup curator top-secret)
 
     ;; Technician
+    (can-carry-two technician)
     ;; access permissions
     (can-access technician entrance) (can-access technician maintenance-tunnel) 
     (can-access technician hall-a) (can-access technician hall-b) 
@@ -58,13 +59,13 @@
     
     ;; --- Artifact Initial State ---
     ;; Artifact Batch 1) in Hall A that need to be bring in the Stasis Lab
-    (artifact-at mart-nord-core-drill hall-a) (is-type mart-nord-core-drill scientific) (assigned-target mart-nord-core-drill stasis-lab)
-    (artifact-at mart-sud-core-drill hall-a) (is-type mart-sud-core-drill scientific) (assigned-target mart-sud-core-drill stasis-lab)
+    ; (artifact-at mart-nord-core-drill hall-a) (is-type mart-nord-core-drill scientific) (assigned-target mart-nord-core-drill stasis-lab)
+    ; (artifact-at mart-sud-core-drill hall-a) (is-type mart-sud-core-drill scientific) (assigned-target mart-sud-core-drill stasis-lab)
     ; (artifact-at mart-east-core-drill hall-a) (is-type mart-east-core-drill scientific) (assigned-target mart-east-core-drill stasis-lab)
     ; (artifact-at mart-west-core-drill hall-a) (is-type mart-west-core-drill scientific) (assigned-target mart-west-core-drill stasis-lab)
     ;; Artifact Batch 2) in Hall A that need to be bring in the Cryo Chamber
-    (artifact-at mart-north-pole-ice-sample hall-a) (is-type mart-north-pole-ice-sample scientific) (assigned-target mart-north-pole-ice-sample cryo-chamber)
-    (artifact-at mart-mysterious-egg hall-a) (is-type mart-mysterious-egg top-secret) (assigned-target mart-mysterious-egg cryo-chamber)
+    ; (artifact-at mart-north-pole-ice-sample hall-a) (is-type mart-north-pole-ice-sample scientific) (assigned-target mart-north-pole-ice-sample cryo-chamber)
+    ; (artifact-at mart-mysterious-egg hall-a) (is-type mart-mysterious-egg top-secret) (assigned-target mart-mysterious-egg cryo-chamber)
     ; (artifact-at asteroid-MG04TN-ice-sample hall-a) (is-type asteroid-MG04TN-ice-sample scientific) (assigned-target asteroid-MG04TN-ice-sample cryo-chamber)
 
     ;; Artifact Batch 3) in Hall B ( all thecnological ) that need to be bring in the stasis lab
@@ -83,13 +84,13 @@
   ;; --- SEZIONE GOAL (La tua intuizione) ---java -jar PANDA.jar -help -searchAlgorithm
   ;; Forza il planner a verificare che a fine piano questa condizione sia vera.
   (:goal (and
-    (artifact-at mart-nord-core-drill stasis-lab) 
-    (artifact-at mart-sud-core-drill stasis-lab)
+    ; (artifact-at mart-nord-core-drill stasis-lab) 
+    ; (artifact-at mart-sud-core-drill stasis-lab)
     ; (artifact-at mart-east-core-drill stasis-lab) 
     ; (artifact-at mart-west-core-drill stasis-lab)
 
-    (artifact-at mart-north-pole-ice-sample cryo-chamber) 
-    (artifact-at mart-mysterious-egg cryo-chamber)    
+    ; (artifact-at mart-north-pole-ice-sample cryo-chamber) 
+    ; (artifact-at mart-mysterious-egg cryo-chamber)    
     ; (artifact-at asteroid-MG04TN-ice-sample cryo-chamber)
 
     (artifact-at rover-wheel stasis-lab) (artifact-at space-suit stasis-lab)

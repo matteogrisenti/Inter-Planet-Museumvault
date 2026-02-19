@@ -53,5 +53,16 @@ java -jar PANDA.jar -parser hddl -searchAlgorithm depth-astar -heuristic tdg-c d
 Aspettativa: Un'ottima via di mezzo. Meno RAM saturata rispetto all'A* classico (Exp 1), ma produce piani più intelligenti ed efficienti rispetto alla semplice DFS (Exp 4).
 
 
-
+GREDY 
 java -jar PANDA.jar -parser hddl -searchAlgorithm greedy -heuristic tdg-m domain.hddl minimal-problem.hddl raw_plan.dot
+
+A* 
+java -jar PANDA.jar -parser hddl -searchAlgorithm astar -heuristic tdg-m domain.hddl minimal-problem.hddl raw_plan.dot
+
+
+java -jar PANDA.jar -parser hddl -searchAlgorithm astar -heuristic tdg-c domain.hddl minimal-problem.hddl raw_plan.dot
+
+java -jar PANDA.jar -parser hddl -searchAlgorithm greedy -heuristic relax domain.hddl minimal-problem.hddl raw_plan.dot
+
+
+java -jar PANDA.jar -parser hddl -searchAlgorithm astar -heuristic number-of-plan-steps domain.hddl minimal-problem.hddl raw_plan.dot

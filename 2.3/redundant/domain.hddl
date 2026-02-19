@@ -10,6 +10,9 @@
         (can-access ?r - robot ?l - location)
         (can-pickup ?r - robot ?at - artifact-type)
         
+        ;; NUOVO: Definisce chi può portare due oggetti contemporaneamente
+        (can-carry-two ?r - robot)
+        
         (artifact-at ?a - artifact ?l - location)
         (is-type ?a - artifact ?t - artifact-type)
         (assigned-target ?a - artifact ?target - location)
@@ -19,95 +22,165 @@
     ;; ABSTRACT TASKS
     ;; ========================
 
-    (:task process-room
-        :parameters (?room - location)
-    )
+    (:task process-room :parameters (?room - location))
+    (:task deliver :parameters (?a - artifact ?at - artifact-type ?target - location))
     
-    (:task deliver
-        :parameters (?a - artifact ?at - artifact-type ?target - location)
+    ;; Gestisce la spedizione doppia
+    (:task double_deliver 
+        :parameters (?a1 - artifact ?at1 - artifact-type ?target1 - location
+                     ?a2 - artifact ?at2 - artifact-type ?target2 - location)
     )
 
     ;; ========================
-    ;; METHODS
+    ;; METHODS: PROCESS ROOM
     ;; ========================
 
-    ;; --- CASO RICORSIVO ---
-    ;; Seleziona un artefatto che si trova nella stanza e che DEVE essere spostato.
-    (:method m_process_room_next
+    ;; --- CASO RICORSIVO DOPPIO (Priorità Alta) ---
+    ;; Prova a trovare due oggetti nella stanza. (Importante: va messo prima del singolo)
+    (:method m_process_room_double
+        :parameters (?room - location 
+                     ?a1 - artifact ?at1 - artifact-type ?target1 - location
+                     ?a2 - artifact ?at2 - artifact-type ?target2 - location)
+        :task (process-room ?room)
+        :precondition (and
+            ;; Oggetto 1
+            (artifact-at ?a1 ?room) (is-type ?a1 ?at1)
+            (assigned-target ?a1 ?target1) (not (artifact-at ?a1 ?target1))
+            
+            ;; Oggetto 2
+            (artifact-at ?a2 ?room) (is-type ?a2 ?at2)
+            (assigned-target ?a2 ?target2) (not (artifact-at ?a2 ?target2))
+
+            ;; Devono essere due oggetti fisicamente diversi
+            (not (= ?a1 ?a2)) 
+        )
+        :ordered-subtasks (and
+            (t1 (double_deliver ?a1 ?at1 ?target1 ?a2 ?at2 ?target2))
+            (t2 (process-room ?room)) ;; Continua a svuotare la stanza
+        )
+    )
+
+    ;; --- CASO RICORSIVO SINGOLO (Fallback) ---
+    ;; Si attiva SOLO se rimane un solo oggetto o se nessun robot può farne due.
+    (:method m_process_room_single
         :parameters (?room - location ?a - artifact ?at - artifact-type ?target - location)
         :task (process-room ?room)
         :precondition (and
-            (artifact-at ?a ?room)
-            (is-type ?a ?at)
-            (assigned-target ?a ?target)
-            (not (artifact-at ?a ?target)) 
+            (artifact-at ?a ?room) (is-type ?a ?at)
+            (assigned-target ?a ?target) (not (artifact-at ?a ?target)) 
         )
         :ordered-subtasks (and
             (t1 (deliver ?a ?at ?target))
-            (t2 (process-room ?room)) ;; Ricorsione 
+            (t2 (process-room ?room)) 
         )
     )
 
     ;; --- CASO BASE (TERMINAZIONE) ---
-    ;; Si attiva solo quando NON esistono più artefatti in questa stanza che devono essere spostati.
     (:method m_process_room_done
         :parameters (?room - location)
         :task (process-room ?room)
         :precondition (not (exists (?a - artifact) (artifact-at ?a ?room)))
-        :ordered-subtasks () ;; Zero sub-tasks: termina la ricorsione 
+        :ordered-subtasks () 
     )
 
-    ;; --- IL METODO MANCANTE ---
-    ;; Questo serve a "trovare" un robot (?r) e la posizione attuale dell'artefatto (?curr_loc)
-    ;; per poi passare tutti i dati corretti all'azione primitiva.
+    ;; ========================
+    ;; METHODS: DOUBLE DELIVER
+    ;; ========================
+
+    ;; --- DOPPIO DIRETTO ---
+    ;; Entrambi gli oggetti vanno nella STESSA stanza e il robot può arrivarci
+    (:method m_double_deliver_direct
+        :parameters (?a1 - artifact ?at1 - artifact-type ?target1 - location
+                     ?a2 - artifact ?at2 - artifact-type ?target2 - location
+                     ?r - robot ?curr_loc - location)
+        :task (double_deliver ?a1 ?at1 ?target1 ?a2 ?at2 ?target2)
+        :precondition (and
+            (= ?target1 ?target2) ;; Condizione rigida: stesse destinazioni
+            (artifact-at ?a1 ?curr_loc) (artifact-at ?a2 ?curr_loc)
+            
+            (can-carry-two ?r)
+            (can-pickup ?r ?at1) (can-pickup ?r ?at2)
+            (can-access ?r ?curr_loc) (can-access ?r ?target1)
+        )
+        :ordered-subtasks (and
+            (t1 (double_delivery ?r ?a1 ?a2 ?curr_loc ?target1 ?at1 ?at2))
+        )
+    )
+
+    ;; --- DOPPIO RELAY (Split in Azioni Primitive) ---
+    (:method m_double_deliver_relay
+        :parameters (?a1 - artifact ?at1 - artifact-type ?target1 - location
+                     ?a2 - artifact ?at2 - artifact-type ?target2 - location
+                     ?r1 - robot ?r2 - robot ?r3 - robot 
+                     ?curr_loc - location ?mid_loc - location)
+        :task (double_deliver ?a1 ?at1 ?target1 ?a2 ?at2 ?target2)
+        :precondition (and
+            (artifact-at ?a1 ?curr_loc) (artifact-at ?a2 ?curr_loc)
+            
+            ;; 1. R1 prende due oggetti e li porta al punto di scambio
+            (can-carry-two ?r1)
+            (can-pickup ?r1 ?at1) (can-pickup ?r1 ?at2)
+            (can-access ?r1 ?curr_loc) (can-access ?r1 ?mid_loc)
+            (not (= ?curr_loc ?mid_loc))
+
+            ;; 2. R2 porta l'oggetto 1 dal punto di scambio alla fine
+            (not (= ?r1 ?r2)) ;; R2 deve essere diverso da R1
+            (can-pickup ?r2 ?at1)
+            (can-access ?r2 ?mid_loc) (can-access ?r2 ?target1)
+
+            ;; 3. R3 porta l'oggetto 2 dal punto di scambio alla fine
+            (not (= ?r1 ?r3)) ;; R3 deve essere diverso da R1 (ma può essere uguale a R2)
+            (can-pickup ?r3 ?at2)
+            (can-access ?r3 ?mid_loc) (can-access ?r3 ?target2)
+            
+            ;; Si attiva se le destinazioni sono diverse O se R1 non arriva alla fine
+            (or (not (= ?target1 ?target2))
+                (not (can-access ?r1 ?target1))
+                (not (can-access ?r1 ?target2)))
+        )
+        :ordered-subtasks (and
+            ;; Azione primitiva 1: R1 esegue il doppio carico fino al Tunnel
+            (t1 (double_delivery ?r1 ?a1 ?a2 ?curr_loc ?mid_loc ?at1 ?at2)) 
+            ;; Azione primitiva 2: R2 conclude per il primo oggetto
+            (t2 (delivery ?r2 ?a1 ?mid_loc ?target1 ?at1))
+            ;; Azione primitiva 3: R3 conclude per il secondo oggetto
+            (t3 (delivery ?r3 ?a2 ?mid_loc ?target2 ?at2))
+        )
+    )
+
+    ;; ========================
+    ;; METHODS: SINGLE DELIVER
+    ;; ========================
+
     (:method m_deliver_direct
         :parameters (?a - artifact ?at - artifact-type ?target - location ?r - robot ?curr_loc - location)
         :task (deliver ?a ?at ?target)
         :precondition (and
             (artifact-at ?a ?curr_loc)
-
             (can-pickup ?r ?at)
-            (can-access ?r ?curr_loc)
-            (can-access ?r ?target)
+            (can-access ?r ?curr_loc) (can-access ?r ?target)
         )
-        :ordered-subtasks (and
-            ;; Passiamo tutti i 5 parametri necessari all'azione
-            (t1 (delivery ?r ?a ?curr_loc ?target ?at)) 
-        )
+        :ordered-subtasks (and (t1 (delivery ?r ?a ?curr_loc ?target ?at)))
     )
 
     (:method m_deliver_relay
         :parameters (?a - artifact ?at - artifact-type ?target - location 
-                     ?r1 - robot 
-                     ?r2 - robot 
-                     ?curr_loc - location ?mid_loc - location)
+                     ?r1 - robot ?r2 - robot ?curr_loc - location ?mid_loc - location)
         :task (deliver ?a ?at ?target)
         :precondition (and
             (artifact-at ?a ?curr_loc)
             
-            ;; R1 prende e porta a metà
-            (can-pickup ?r1 ?at)           
-            (can-access ?r1 ?curr_loc)     
-            (can-access ?r1 ?mid_loc)      
-            (not (= ?curr_loc ?mid_loc)) ;; R1 deve muoverlo
+            (can-pickup ?r1 ?at) (can-access ?r1 ?curr_loc) (can-access ?r1 ?mid_loc)      
+            (not (= ?curr_loc ?mid_loc)) 
 
-            ;; R2 prende e porta alla fine
-            (can-pickup ?r2 ?at)
-            (can-access ?r2 ?mid_loc)      
-            (can-access ?r2 ?target)       
-            (not (= ?mid_loc ?target)) ;; R2 deve muoverlo
+            (can-pickup ?r2 ?at) (can-access ?r2 ?mid_loc) (can-access ?r2 ?target)       
+            (not (= ?mid_loc ?target)) 
 
-            ;; Usa staffetta solo se R1 non può arrivare dritto
             (not (can-access ?r1 ?target))
         )
         :ordered-subtasks (and
             (t1 (delivery ?r1 ?a ?curr_loc ?mid_loc ?at)) 
             (t2 (delivery ?r2 ?a ?mid_loc ?target ?at)) 
-
-            ; This solution will give to the planner to decide the root 
-            ; give more power decision to the solver, but if the solver is not 
-            ; optimal it bring to sub optimal solution
-            ;; (t2 (deliver ?a ?at ?target))
         )
     )
 
@@ -116,12 +189,33 @@
     ;; ========================
 
     (:action delivery
-        ;; Ho aggiunto ?at nei parametri per poterlo usare in (can-pickup)
         :parameters (?r - robot ?a - artifact ?from - location ?to - location ?at - artifact-type)
-        :precondition ( )
+        ;; IMPORTANTE: Ripristinate le precondizioni, altrimenti Panda tagliava i parametri!
+        :precondition (and 
+            (artifact-at ?a ?from) (is-type ?a ?at)
+            (can-pickup ?r ?at) (can-access ?r ?from) (can-access ?r ?to)
+        )
         :effect (and
             (not (artifact-at ?a ?from))
             (artifact-at ?a ?to)
+        )
+    )
+
+    ;; NUOVA AZIONE: Movimento fisico di due oggetti
+    (:action double_delivery
+        :parameters (?r - robot ?a1 - artifact ?a2 - artifact ?from - location ?to - location ?at1 - artifact-type ?at2 - artifact-type)
+        :precondition (and 
+            (artifact-at ?a1 ?from) (artifact-at ?a2 ?from)
+            (not (= ?a1 ?a2)) ;; Controllo di sicurezza
+            (can-carry-two ?r)
+            (can-pickup ?r ?at1) (can-pickup ?r ?at2)
+            (can-access ?r ?from) (can-access ?r ?to)
+        )
+        :effect (and
+            (not (artifact-at ?a1 ?from))
+            (not (artifact-at ?a2 ?from))
+            (artifact-at ?a1 ?to)
+            (artifact-at ?a2 ?to)
         )
     )
 )
