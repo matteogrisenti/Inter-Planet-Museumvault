@@ -3,7 +3,7 @@
 
   (:objects
     ;; --- Robots ---
-    curator technician scientist - robot
+    curator technician scientist drone - robot
 
     ;; --- Pods ---
     pod1 pod2 - pod
@@ -34,7 +34,7 @@
     ;; Curator
     (robot_at curator entrance) (hands_empty_slot_1 curator)
     (can_access curator entrance) (can_access curator maintenance_tunnel) 
-    (can_access curator hall_a) (can_access curator hall_b) 
+    (can_access curator hall_a) ; no hall b
     (can_access curator cryo_chamber) (can_access curator anti_vibration_pods_room)
     (can_pickup curator scientific) (can_pickup curator top_secret)
     (sealing_mode_off curator)
@@ -44,7 +44,7 @@
     (robot_at technician entrance) (hands_empty_slot_1 technician) (can_carry_two technician) (hands_empty_slot_2 technician)
     
     (can_access technician entrance) (can_access technician maintenance_tunnel) 
-    (can_access technician hall_a) (can_access technician hall_b) 
+    (can_access technician hall_a) ; no hall b
     (can_access technician cryo_chamber) (can_access technician anti_vibration_pods_room)
     (can_pickup technician technological)
 
@@ -53,6 +53,12 @@
     (robot_at scientist stasis_lab) (hands_empty_slot_1 scientist)
     (can_access scientist stasis_lab) (can_access scientist maintenance_tunnel)
     (can_pickup scientist scientific) (can_pickup scientist top_secret) (can_pickup scientist technological)
+
+    ;; Drone
+    (robot_at drone entrance) (hands_empty_slot_1 drone) (sealing_mode_off drone)
+    (can_access drone entrance) (can_access drone maintenance_tunnel) (can_access drone hall_b) (can_access drone anti_vibration_pods_room)
+    (can_pickup drone scientific) (can_pickup drone top_secret) (can_pickup drone technological)
+    (can_fly drone)
     
     ;; ============================================================
     ;; WORLD TOPOLOGY & PROPERTIES
@@ -78,31 +84,10 @@
     ;; ============================================================
     ;; SEISMIC ACTIVITY (TIMED INITIAL LITERALS)
     ;; ============================================================
-    ;; Hall B starts as safe.
-    (is_safe hall_b)
-    
-    ;; First Earthquake window
-    (at 10 (not (is_safe hall_b)))
-    (at 31 (is_safe hall_b))
-
-    ;; Second Earthquake window
-    (at 52 (not (is_safe hall_b)))
-    (at 67 (is_safe hall_b))
-
-    ;; Third Earthquake window
-    (at 81 (not (is_safe hall_b)))
-    (at 94 (is_safe hall_b))
-
-    ; Fourth Earthquake window
-    (at 109 (not (is_safe hall_b)))
-    (at 120 (is_safe hall_b))
-
-    ; Fifth Earthquake window
-    (at 158 (not (is_safe hall_b)))
-    (at 169 (is_safe hall_b))
 
     ;; Special Room Properties
     (is_chill_room cryo_chamber)
+    (is_seismic hall_b)
 
     ;; Pods
     (pod_empty pod1) (pod_empty pod2)
@@ -150,11 +135,11 @@
     ; (artifact_at mart_east_core_drill stasis_lab) (cold mart_east_core_drill)
     ; (artifact_at mart_west_core_drill stasis_lab) (cold mart_west_core_drill)
     ; (artifact_at rover_wheel stasis_lab)
-    (artifact_at space_suit stasis_lab)
-    (artifact_at quantum_chip stasis_lab) (cold quantum_chip)
+    ; (artifact_at space_suit stasis_lab)
+    ; (artifact_at quantum_chip stasis_lab) (cold quantum_chip)
     ; (artifact_at rusty_lightsaber stasis_lab) (cold rusty_lightsaber)
 
-    (artifact_at mart_north_pole_ice_sample cryo_chamber)
+    ; (artifact_at mart_north_pole_ice_sample cryo_chamber)
     (artifact_at mart_mysterious_egg cryo_chamber)    
     ; (artifact_at asteroid_MG04TN_ice_sample cryo_chamber)
 
@@ -164,6 +149,8 @@
     ; (artifact_at asteroid_AD29TV_rock_sample hall_a)  
     ; (artifact_at venus_sand_sample hall_a)
     ; (artifact_at venus_rock_sample hall_a)
+
+    (robot_at drone entrance)
     )   
   )
 )
