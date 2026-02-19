@@ -184,6 +184,30 @@
         )
     )
 
+    ; (:method m_deliver_relay
+    ;     :parameters (?a - artifact ?at - artifact-type ?target - location 
+    ;                  ?r1 - robot  
+    ;                  ?curr_loc - location ?mid_loc - location)
+    ;     :task (deliver ?a ?at ?target)
+    ;     :precondition (and
+    ;         (artifact-at ?a ?curr_loc)
+            
+    ;         ;; R1 prende e porta a metà
+    ;         (can-pickup ?r1 ?at)           
+    ;         (can-access ?r1 ?curr_loc)     
+    ;         (can-access ?r1 ?mid_loc)      
+    ;         (not (= ?curr_loc ?mid_loc)) ;; R1 deve muoverlo
+    ;         (not (= ?mid_loc ?target)) ;; R2 deve muoverlo
+
+    ;         ;; Usa staffetta solo se R1 non può arrivare dritto
+    ;         (not (can-access ?r1 ?target))
+    ;     )
+    ;     :ordered-subtasks (and
+    ;         (t1 (delivery ?r1 ?a ?curr_loc ?mid_loc ?at)) 
+    ;         (t2 (deliver ?a ?at ?target))
+    ;     )
+    ; )
+
     ;; ========================
     ;; ACTIONS (Primitive)
     ;; ========================

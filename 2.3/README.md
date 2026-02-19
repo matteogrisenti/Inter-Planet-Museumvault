@@ -66,3 +66,6 @@ java -jar PANDA.jar -parser hddl -searchAlgorithm greedy -heuristic relax domain
 
 
 java -jar PANDA.jar -parser hddl -searchAlgorithm astar -heuristic number-of-plan-steps domain.hddl minimal-problem.hddl raw_plan.dot
+
+
+java -jar PANDA.jar -parser hddl -searchAlgorithm greedy -heuristic random-heuristic domain.hddl minimal-problem.hddl raw_plan.dot
