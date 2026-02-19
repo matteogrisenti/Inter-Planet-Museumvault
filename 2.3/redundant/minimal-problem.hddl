@@ -6,7 +6,11 @@
     entrance maintenance-tunnel hall-a hall-b cryo-chamber anti-vibration-pods-room stasis-lab - location
     technological scientific top-secret - artifact-type
     
-    core-drill - artifact
+    mart-nord-core-drill mart-sud-core-drill mart-east-core-drill mart-west-core-drill - artifact
+    ; mart-north-pole-ice-sample mart-mysterious-egg asteroid-MG04TN-ice-sample - artifact
+    ; rover-wheel space-suit quantum-chip rusty-lightsaber - artifact
+    ; mart-sand-sample mart-laser-gun mart-pink-hat asteroid-AD29TV-rock-sample - artifact
+    ; venus-sand-sample venus-rock-sample - artifact
   )
 
   ;; 1. Usiamo la sintassi standard :ordered-subtasks
@@ -33,12 +37,41 @@
     (can-pickup scientist scientific) (can-pickup scientist top-secret) (can-pickup scientist technological)
 
     ;; --- Artifact Initial State ---
-    (artifact-at core-drill hall-a)   (is-type core-drill scientific)   (assigned-target core-drill stasis-lab)
+    (artifact-at mart-nord-core-drill hall-a) (is-type mart-nord-core-drill scientific) (assigned-target mart-nord-core-drill stasis-lab)
+    (artifact-at mart-sud-core-drill hall-a) (is-type mart-sud-core-drill scientific) (assigned-target mart-sud-core-drill stasis-lab)
+    (artifact-at mart-east-core-drill hall-a) (is-type mart-east-core-drill scientific) (assigned-target mart-east-core-drill stasis-lab)
+    (artifact-at mart-west-core-drill hall-a) (is-type mart-west-core-drill scientific) (assigned-target mart-west-core-drill stasis-lab)
+    
+    ; (artifact-at mart-north-pole-ice-sample hall-a) (is-type mart-north-pole-ice-sample scientific) (assigned-target mart-north-pole-ice-sample cryo-chamber)
+    ; (artifact-at mart-mysterious-egg hall-a) (is-type mart-mysterious-egg top-secret) (assigned-target mart-mysterious-egg cryo-chamber)
+    ; (artifact-at asteroid-MG04TN-ice-sample hall-a) (is-type asteroid-MG04TN-ice-sample scientific) (assigned-target asteroid-MG04TN-ice-sample cryo-chamber)
+
+    ; (artifact-at rover-wheel hall-b) (is-type rover-wheel technological) (assigned-target rover-wheel stasis-lab)
+    ; (artifact-at space-suit hall-b) (is-type space-suit technological) (assigned-target space-suit stasis-lab)
+    ; (artifact-at quantum-chip hall-b) (is-type quantum-chip technological) (assigned-target quantum-chip stasis-lab)
+    ; (artifact-at rusty-lightsaber hall-b) (is-type rusty-lightsaber technological) (assigned-target rusty-lightsaber stasis-lab)
+    
+    ; (artifact-at mart-sand-sample hall-b) (is-type mart-sand-sample scientific) (assigned-target mart-sand-sample hall-a)
+    ; (artifact-at mart-laser-gun hall-b) (is-type mart-laser-gun top-secret) (assigned-target mart-laser-gun hall-a)
+    ; (artifact-at mart-pink-hat hall-b) (is-type mart-pink-hat top-secret) (assigned-target mart-pink-hat hall-a)
+    ; (artifact-at asteroid-AD29TV-rock-sample hall-b) (is-type asteroid-AD29TV-rock-sample scientific) (assigned-target asteroid-AD29TV-rock-sample hall-a)
+    ; (artifact-at venus-sand-sample hall-b) (is-type venus-sand-sample scientific) (assigned-target venus-sand-sample hall-a)
+    ; (artifact-at venus-rock-sample hall-b) (is-type venus-rock-sample scientific) (assigned-target venus-rock-sample hall-a)
   )
 
   ;; --- SEZIONE GOAL (La tua intuizione) ---
   ;; Forza il planner a verificare che a fine piano questa condizione sia vera.
   (:goal (and
-    (artifact-at core-drill stasis-lab)
+    (artifact-at mart-nord-core-drill stasis-lab) (artifact-at mart-sud-core-drill stasis-lab)
+    (artifact-at mart-east-core-drill stasis-lab) (artifact-at mart-west-core-drill stasis-lab)
+    ; (artifact-at rover-wheel stasis-lab) (artifact-at space-suit stasis-lab)
+    ; (artifact-at quantum-chip stasis-lab) (artifact-at rusty-lightsaber stasis-lab)
+
+    ; (artifact-at mart-north-pole-ice-sample cryo-chamber) (artifact-at mart-mysterious-egg cryo-chamber)    
+    ; (artifact-at asteroid-MG04TN-ice-sample cryo-chamber)
+
+    ; (artifact-at mart-sand-sample hall-a) (artifact-at mart-laser-gun hall-a)
+    ; (artifact-at mart-pink-hat hall-a) (artifact-at asteroid-AD29TV-rock-sample hall-a)  
+    ; (artifact-at venus-sand-sample hall-a) (artifact-at venus-rock-sample hall-a)
   ))
 )

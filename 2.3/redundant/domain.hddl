@@ -53,8 +53,7 @@
     (:method m_process_room_done
         :parameters (?room - location)
         :task (process-room ?room)
-        :precondition (not (exists (?a - artifact ?target - location) 
-            (and (artifact-at ?a ?room) (assigned-target ?a ?target) (not (artifact-at ?a ?target)))))
+        :precondition (not (exists (?a - artifact) (artifact-at ?a ?room)))
         :ordered-subtasks () ;; Zero sub-tasks: termina la ricorsione 
     )
 
