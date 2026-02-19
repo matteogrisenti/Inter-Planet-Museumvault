@@ -1,5 +1,5 @@
 (define (domain multi-robot-hierarchical)
-    (:requirements :strips :typing :hierarchy :method-preconditions)
+    (:requirements :strips :typing :hierarchy :method-preconditions :equality)
 
     (:types
         robot pod location artifact artifact-type - object
@@ -31,7 +31,9 @@
     ;; METHODS
     ;; ========================
 
-    (:method m_recursive_process_room
+    ;; --- CASO RICORSIVO ---
+    ;; Seleziona un artefatto che si trova nella stanza e che DEVE essere spostato.
+    (:method m_process_room_next
         :parameters (?room - location ?a - artifact ?at - artifact-type ?target - location)
         :task (process-room ?room)
         :precondition (and
@@ -42,14 +44,18 @@
         )
         :ordered-subtasks (and
             (t1 (deliver ?a ?at ?target))
-            (t2 (process-room ?room))
+            (t2 (process-room ?room)) ;; Ricorsione 
         )
     )
 
+    ;; --- CASO BASE (TERMINAZIONE) ---
+    ;; Si attiva solo quando NON esistono più artefatti in questa stanza che devono essere spostati.
     (:method m_process_room_done
         :parameters (?room - location)
         :task (process-room ?room)
-        :ordered-subtasks () 
+        :precondition (not (exists (?a - artifact ?target - location) 
+            (and (artifact-at ?a ?room) (assigned-target ?a ?target) (not (artifact-at ?a ?target)))))
+        :ordered-subtasks () ;; Zero sub-tasks: termina la ricorsione 
     )
 
     ;; --- IL METODO MANCANTE ---
