@@ -78,7 +78,8 @@
 
     (:method m_deliver_relay
         :parameters (?a - artifact ?at - artifact-type ?target - location 
-                     ?r1 - robot ?r2 - robot 
+                     ?r1 - robot 
+                     ?r2 - robot 
                      ?curr_loc - location ?mid_loc - location)
         :task (deliver ?a ?at ?target)
         :precondition (and
@@ -91,9 +92,9 @@
             (not (= ?curr_loc ?mid_loc)) ;; R1 deve muoverlo
 
             ;; R2 prende e porta alla fine
-            ; (can-pickup ?r2 ?at)
-            ; (can-access ?r2 ?mid_loc)      
-            ; (can-access ?r2 ?target)       
+            (can-pickup ?r2 ?at)
+            (can-access ?r2 ?mid_loc)      
+            (can-access ?r2 ?target)       
             (not (= ?mid_loc ?target)) ;; R2 deve muoverlo
 
             ;; Usa staffetta solo se R1 non può arrivare dritto
@@ -101,8 +102,12 @@
         )
         :ordered-subtasks (and
             (t1 (delivery ?r1 ?a ?curr_loc ?mid_loc ?at)) 
-            ;; (t2 (delivery ?r2 ?a ?mid_loc ?target ?at)) 
-            (t2 (deliver ?a ?at ?target))
+            (t2 (delivery ?r2 ?a ?mid_loc ?target ?at)) 
+
+            ; This solution will give to the planner to decide the root 
+            ; give more power decision to the solver, but if the solver is not 
+            ; optimal it bring to sub optimal solution
+            ;; (t2 (deliver ?a ?at ?target))
         )
     )
 

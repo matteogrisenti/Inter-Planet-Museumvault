@@ -1,0 +1,113 @@
+digraph somePlan{
+	rankdir="LR";subgraph cluster_initG{
+	rank=min;
+style=invis
+	PS0[height=10,label="init",shape=box];
+}
+subgraph cluster_goalG{
+	rank=max;
+style=invis
+	PS1[height=10,label="goal",shape=box];
+}
+subgraph cluster_inner{
+style=invis
+subgraph cluster_mainPlan{
+style=invis
+	PS6[label="SHOP_methodm_process_room_next_0_precondition[rover-wheel,hall-b,technological,stasis-lab]()",shape=box];
+	PS9[label="SHOP_methodm_process_room_next_0_precondition[quantum-chip,hall-b,technological,stasis-lab]()",shape=box];
+	PS12[label="SHOP_methodm_process_room_next_0_precondition[space-suit,hall-b,technological,stasis-lab]()",shape=box];
+	PS14[label="SHOP_methodm_deliver_relay_3_precondition[maintenance-tunnel,technological,stasis-lab,rover-wheel,scientist,hall-b,technician]()",shape=box];
+	PS15[label="delivery[scientist,rover-wheel,maintenance-tunnel,stasis-lab,technological]()",shape=box];
+	PS16[label="delivery[technician,rover-wheel,hall-b,maintenance-tunnel,technological]()",shape=box];
+	PS17[label="SHOP_methodm_deliver_relay_3_precondition[maintenance-tunnel,technological,stasis-lab,quantum-chip,scientist,hall-b,technician]()",shape=box];
+	PS18[label="delivery[scientist,quantum-chip,maintenance-tunnel,stasis-lab,technological]()",shape=box];
+	PS19[label="delivery[technician,quantum-chip,hall-b,maintenance-tunnel,technological]()",shape=box];
+	PS20[label="SHOP_methodm_deliver_relay_3_precondition[maintenance-tunnel,technological,stasis-lab,space-suit,scientist,hall-b,technician]()",shape=box];
+	PS21[label="delivery[scientist,space-suit,maintenance-tunnel,stasis-lab,technological]()",shape=box];
+	PS22[label="delivery[technician,space-suit,hall-b,maintenance-tunnel,technological]()",shape=box];
+	PS24[label="SHOP_methodm_process_room_next_0_precondition[mart-mysterious-egg,hall-a,top-secret,cryo-chamber]()",shape=box];
+	PS26[label="delivery[curator,mart-mysterious-egg,hall-a,cryo-chamber,top-secret]()",shape=box];
+	PS27[label="SHOP_methodm_deliver_direct_2_precondition[cryo-chamber,mart-mysterious-egg,curator,hall-a,top-secret]()",shape=box];
+	PS29[label="SHOP_methodm_process_room_next_0_precondition[mart-sud-core-drill,hall-a,scientific,stasis-lab]()",shape=box];
+	PS31[label="SHOP_methodm_deliver_relay_3_precondition[maintenance-tunnel,scientific,stasis-lab,mart-sud-core-drill,scientist,hall-a,curator]()",shape=box];
+	PS32[label="delivery[scientist,mart-sud-core-drill,maintenance-tunnel,stasis-lab,scientific]()",shape=box];
+	PS33[label="delivery[curator,mart-sud-core-drill,hall-a,maintenance-tunnel,scientific]()",shape=box];
+	PS35[label="SHOP_methodm_process_room_next_0_precondition[mart-north-pole-ice-sample,hall-a,scientific,cryo-chamber]()",shape=box];
+	PS37[label="delivery[curator,mart-north-pole-ice-sample,hall-a,cryo-chamber,scientific]()",shape=box];
+	PS38[label="SHOP_methodm_deliver_direct_2_precondition[cryo-chamber,mart-north-pole-ice-sample,curator,hall-a,scientific]()",shape=box];
+	PS40[label="SHOP_methodm_process_room_next_0_precondition[mart-nord-core-drill,hall-a,scientific,stasis-lab]()",shape=box];
+	PS42[label="SHOP_methodm_deliver_relay_3_precondition[maintenance-tunnel,scientific,stasis-lab,mart-nord-core-drill,scientist,hall-a,curator]()",shape=box];
+	PS43[label="delivery[scientist,mart-nord-core-drill,maintenance-tunnel,stasis-lab,scientific]()",shape=box];
+	PS44[label="delivery[curator,mart-nord-core-drill,hall-a,maintenance-tunnel,scientific]()",shape=box];
+	PS45[label="SHOP_methodm_process_room_done_1_precondition[hall-b,mart-mysterious-egg,rover-wheel,mart-sud-core-drill,mart-north-pole-ice-sample,mart-nord-core-drill,space-suit,quantum-chip]()",shape=box];
+	PS46[label="SHOP_methodm_process_room_done_1_precondition[hall-a,mart-mysterious-egg,rover-wheel,mart-sud-core-drill,mart-north-pole-ice-sample,mart-nord-core-drill,space-suit,quantum-chip]()",shape=box];
+
+	PS45 -> PS1[style="dotted"];
+	PS6 -> PS14[style="dotted"];
+	PS46 -> PS6[style="dotted"];
+	PS15 -> PS9[style="dotted"];
+	PS9 -> PS17[style="dotted"];
+	PS18 -> PS12[style="dotted"];
+	PS12 -> PS20[style="dotted"];
+	PS14 -> PS16[style="dotted"];
+	PS16 -> PS15[style="dotted"];
+	PS17 -> PS19[style="dotted"];
+	PS19 -> PS18[style="dotted"];
+	PS20 -> PS22[style="dotted"];
+	PS22 -> PS21[style="dotted"];
+	PS21 -> PS45[style="dotted"];
+	PS24 -> PS27[style="dotted"];
+	PS27 -> PS26[style="dotted"];
+	PS26 -> PS29[style="dotted"];
+	PS29 -> PS31[style="dotted"];
+	PS31 -> PS33[style="dotted"];
+	PS33 -> PS32[style="dotted"];
+	PS32 -> PS35[style="dotted"];
+	PS35 -> PS38[style="dotted"];
+	PS38 -> PS37[style="dotted"];
+	PS37 -> PS40[style="dotted"];
+	PS40 -> PS42[style="dotted"];
+	PS42 -> PS44[style="dotted"];
+	PS44 -> PS43[style="dotted"];
+	PS43 -> PS46[style="dotted"];
+
+	PS0 -> PS6[label="+artifact-at[rover-wheel,hall-b]()"];
+	PS0 -> PS6[label="-artifact-at[rover-wheel,stasis-lab]()"];
+	PS0 -> PS9[label="+artifact-at[quantum-chip,hall-b]()"];
+	PS0 -> PS9[label="-artifact-at[quantum-chip,stasis-lab]()"];
+	PS0 -> PS12[label="+artifact-at[space-suit,hall-b]()"];
+	PS0 -> PS12[label="-artifact-at[space-suit,stasis-lab]()"];
+	PS0 -> PS14[label="+artifact-at[rover-wheel,hall-b]()"];
+	PS0 -> PS17[label="+artifact-at[quantum-chip,hall-b]()"];
+	PS0 -> PS20[label="+artifact-at[space-suit,hall-b]()"];
+	PS0 -> PS24[label="+artifact-at[mart-mysterious-egg,hall-a]()"];
+	PS0 -> PS24[label="-artifact-at[mart-mysterious-egg,cryo-chamber]()"];
+	PS0 -> PS27[label="+artifact-at[mart-mysterious-egg,hall-a]()"];
+	PS0 -> PS29[label="+artifact-at[mart-sud-core-drill,hall-a]()"];
+	PS0 -> PS29[label="-artifact-at[mart-sud-core-drill,stasis-lab]()"];
+	PS0 -> PS31[label="+artifact-at[mart-sud-core-drill,hall-a]()"];
+	PS0 -> PS35[label="+artifact-at[mart-north-pole-ice-sample,hall-a]()"];
+	PS0 -> PS35[label="-artifact-at[mart-north-pole-ice-sample,cryo-chamber]()"];
+	PS0 -> PS38[label="+artifact-at[mart-north-pole-ice-sample,hall-a]()"];
+	PS0 -> PS40[label="+artifact-at[mart-nord-core-drill,hall-a]()"];
+	PS0 -> PS40[label="-artifact-at[mart-nord-core-drill,stasis-lab]()"];
+	PS0 -> PS42[label="+artifact-at[mart-nord-core-drill,hall-a]()"];
+	PS15 -> PS1[label="+artifact-at[rover-wheel,stasis-lab]()"];
+	PS21 -> PS1[label="+artifact-at[space-suit,stasis-lab]()"];
+	PS18 -> PS1[label="+artifact-at[quantum-chip,stasis-lab]()"];
+	PS16 -> PS45[label="-artifact-at[rover-wheel,hall-b]()"];
+	PS22 -> PS45[label="-artifact-at[space-suit,hall-b]()"];
+	PS19 -> PS45[label="-artifact-at[quantum-chip,hall-b]()"];
+	PS43 -> PS1[label="+artifact-at[mart-nord-core-drill,stasis-lab]()"];
+	PS32 -> PS1[label="+artifact-at[mart-sud-core-drill,stasis-lab]()"];
+	PS37 -> PS1[label="+artifact-at[mart-north-pole-ice-sample,cryo-chamber]()"];
+	PS26 -> PS1[label="+artifact-at[mart-mysterious-egg,cryo-chamber]()"];
+	PS26 -> PS46[label="-artifact-at[mart-mysterious-egg,hall-a]()"];
+	PS33 -> PS46[label="-artifact-at[mart-sud-core-drill,hall-a]()"];
+	PS37 -> PS46[label="-artifact-at[mart-north-pole-ice-sample,hall-a]()"];
+	PS44 -> PS46[label="-artifact-at[mart-nord-core-drill,hall-a]()"];
+
+}
+
+}
+}
