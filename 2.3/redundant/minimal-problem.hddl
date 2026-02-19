@@ -14,7 +14,7 @@
   (:htn
     :parameters ()
     :ordered-subtasks (and
-      (t1 (deliver core-drill scientific stasis-lab))
+      (t1 (process-room hall-a))
     )
   )
 
@@ -33,9 +33,7 @@
     (can-pickup scientist scientific) (can-pickup scientist top-secret) (can-pickup scientist technological)
 
     ;; --- Artifact Initial State ---
-    (artifact-at core-drill hall-a)   (is-type core-drill scientific)
-    
-
+    (artifact-at core-drill hall-a)   (is-type core-drill scientific)   (assigned-target core-drill stasis-lab)
   )
 
   ;; --- SEZIONE GOAL (La tua intuizione) ---

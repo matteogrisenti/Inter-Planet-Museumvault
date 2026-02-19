@@ -31,7 +31,7 @@
     ;; METHODS
     ;; ========================
 
-    (:method m_process_room_next
+    (:method m_recursive_process_room
         :parameters (?room - location ?a - artifact ?at - artifact-type ?target - location)
         :task (process-room ?room)
         :precondition (and
@@ -60,7 +60,7 @@
         :task (deliver ?a ?at ?target)
         :precondition (and
             (artifact-at ?a ?curr_loc)
-            
+
             (can-pickup ?r ?at)
             (can-access ?r ?curr_loc)
             (can-access ?r ?target)
@@ -86,9 +86,9 @@
             (not (= ?curr_loc ?mid_loc)) ;; R1 deve muoverlo
 
             ;; R2 prende e porta alla fine
-            (can-pickup ?r2 ?at)
-            (can-access ?r2 ?mid_loc)      
-            (can-access ?r2 ?target)       
+            ; (can-pickup ?r2 ?at)
+            ; (can-access ?r2 ?mid_loc)      
+            ; (can-access ?r2 ?target)       
             (not (= ?mid_loc ?target)) ;; R2 deve muoverlo
 
             ;; Usa staffetta solo se R1 non può arrivare dritto
@@ -96,7 +96,8 @@
         )
         :ordered-subtasks (and
             (t1 (delivery ?r1 ?a ?curr_loc ?mid_loc ?at)) 
-            (t2 (delivery ?r2 ?a ?mid_loc ?target ?at)) 
+            ;; (t2 (delivery ?r2 ?a ?mid_loc ?target ?at)) 
+            (t2 (deliver ?a ?at ?target))
         )
     )
 
