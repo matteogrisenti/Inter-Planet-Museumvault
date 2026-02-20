@@ -62,11 +62,43 @@ def generate_launch_description():
         namespace=namespace,
         output='screen',
         parameters=[])
+    
+    move_to_pressurized_room2 = Node(
+        package='museum',
+        executable='move_to_pressurized_room',
+        name='move_to_pressurized_room2',
+        namespace=namespace,
+        output='screen',
+        parameters=[])
+    
+    move_to_pressurized_room3 = Node(
+        package='museum',
+        executable='move_to_pressurized_room',
+        name='move_to_pressurized_room3',
+        namespace=namespace,
+        output='screen',
+        parameters=[])
 
     move_to_unpressurized_room = Node(
         package='museum',
         executable='move_to_unpressurized_room',
         name='move_to_unpressurized_room',
+        namespace=namespace,
+        output='screen',
+        parameters=[])
+    
+    move_to_unpressurized_room2 = Node(
+        package='museum',
+        executable='move_to_unpressurized_room',
+        name='move_to_unpressurized_room2',
+        namespace=namespace,
+        output='screen',
+        parameters=[])
+    
+    move_to_unpressurized_room3 = Node(
+        package='museum',
+        executable='move_to_unpressurized_room',
+        name='move_to_unpressurized_room3',
         namespace=namespace,
         output='screen',
         parameters=[])
@@ -78,6 +110,22 @@ def generate_launch_description():
         namespace=namespace,
         output='screen',
         parameters=[])
+    
+    activate_seal2 = Node(
+        package='museum',
+        executable='activate_seal',
+        name='activate_seal2',
+        namespace=namespace,
+        output='screen',
+        parameters=[])
+    
+    activate_seal3 = Node(
+        package='museum',
+        executable='activate_seal',
+        name='activate_seal3',
+        namespace=namespace,
+        output='screen',
+        parameters=[])
 
     pick_up_empty_pod_slot_1 = Node(
         package='museum',
@@ -86,11 +134,43 @@ def generate_launch_description():
         namespace=namespace,
         output='screen',
         parameters=[])
+    
+    pick_up_empty_pod_slot_12 = Node(
+        package='museum',
+        executable='pick_up_empty_pod_slot_1',
+        name='pick_up_empty_pod_slot_12',
+        namespace=namespace,
+        output='screen',
+        parameters=[])
+    
+    pick_up_empty_pod_slot_13 = Node(
+        package='museum',
+        executable='pick_up_empty_pod_slot_1',
+        name='pick_up_empty_pod_slot_13',
+        namespace=namespace,
+        output='screen',
+        parameters=[])
 
     pick_up_full_pod_slot_1 = Node(
         package='museum',
         executable='pick_up_full_pod_slot_1',
         name='pick_up_full_pod_slot_1',
+        namespace=namespace,
+        output='screen',
+        parameters=[])
+    
+    pick_up_full_pod_slot_12 = Node(
+        package='museum',
+        executable='pick_up_full_pod_slot_1',
+        name='pick_up_full_pod_slot_12',
+        namespace=namespace,
+        output='screen',
+        parameters=[])
+    
+    pick_up_full_pod_slot_13 = Node(
+        package='museum',
+        executable='pick_up_full_pod_slot_1',
+        name='pick_up_full_pod_slot_13',
         namespace=namespace,
         output='screen',
         parameters=[])
@@ -180,10 +260,19 @@ def generate_launch_description():
     # Actions
     ld.add_action(fly_into_seismic_room)
     ld.add_action(move_to_pressurized_room)
+    ld.add_action(move_to_pressurized_room2)
+    ld.add_action(move_to_pressurized_room3)
     ld.add_action(move_to_unpressurized_room)
+    ld.add_action(move_to_unpressurized_room2)
+    ld.add_action(move_to_unpressurized_room3)
     ld.add_action(activate_seal)
+    ld.add_action(activate_seal2)
+    ld.add_action(activate_seal3)
     ld.add_action(pick_up_empty_pod_slot_1)
+    ld.add_action(pick_up_empty_pod_slot_12)
+    ld.add_action(pick_up_empty_pod_slot_13)
     ld.add_action(pick_up_full_pod_slot_1)
+    ld.add_action(pick_up_full_pod_slot_12)
     ld.add_action(drop_pod_slot_1)
     ld.add_action(pick_up_slot_1)
     ld.add_action(put_in_pod_slot_1)

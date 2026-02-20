@@ -108,8 +108,8 @@
     :condition (and 
         (at start (hands_empty_slot_1 ?r))
         (at start (pod_at ?p ?l))
-        (over all (pod_empty ?p))
-        (over all (robot_at ?r ?l))
+        (at start (pod_empty ?p))           ; <--- it was over all
+        (at start (robot_at ?r ?l))         ; <--- it was over all
     )
     :effect (and 
         (at start (not (pod_at ?p ?l)))
@@ -236,9 +236,9 @@
      :duration (= ?duration 14)
      :condition (and 
          (at start (warm ?a))
-         (at start (is_chill_room ?l))
-         (over all (carrying_pod_slot_1 ?r ?p))
-         (over all (robot_at ?r ?l))
+         (at start (is_chill_room ?l))                  
+         (over all (carrying_pod_slot_1 ?r ?p))         ; <---
+         (over all (robot_at ?r ?l))                    ; <---
      )
      :effect (and 
          (at start (not (warm ?a)))
