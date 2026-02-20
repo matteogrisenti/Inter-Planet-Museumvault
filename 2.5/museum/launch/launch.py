@@ -47,18 +47,122 @@ def generate_launch_description():
           }.items())
 
     # Specify the actions
-    move_cmd = Node(
+    fly_into_seismic_room = Node(
         package='museum',
-        executable='move_action_node',
-        name='move_action_node',
+        executable='fly_into_seismic_room',
+        name='fly_into_seismic_room',
+        namespace=namespace,
+        output='screen',
+        parameters=[])
+    
+    move_to_pressurized_room = Node(
+        package='museum',
+        executable='move_to_pressurized_room',
+        name='move_to_pressurized_room',
+        namespace=namespace,
+        output='screen',
+        parameters=[])
+
+    move_to_unpressurized_room = Node(
+        package='museum',
+        executable='move_to_unpressurized_room',
+        name='move_to_unpressurized_room',
         namespace=namespace,
         output='screen',
         parameters=[])
     
     activate_seal = Node(
         package='museum',
-        executable='activate_sealing_mode_node',
-        name='activate_sealing_mode_node',
+        executable='activate_seal',
+        name='activate_seal',
+        namespace=namespace,
+        output='screen',
+        parameters=[])
+
+    pick_up_empty_pod_slot_1 = Node(
+        package='museum',
+        executable='pick_up_empty_pod_slot_1',
+        name='pick_up_empty_pod_slot_1',
+        namespace=namespace,
+        output='screen',
+        parameters=[])
+
+    pick_up_full_pod_slot_1 = Node(
+        package='museum',
+        executable='pick_up_full_pod_slot_1',
+        name='pick_up_full_pod_slot_1',
+        namespace=namespace,
+        output='screen',
+        parameters=[])
+
+    drop_pod_slot_1 = Node(
+        package='museum',
+        executable='drop_pod_slot_1',
+        name='drop_pod_slot_1',
+        namespace=namespace,
+        output='screen',
+        parameters=[])
+
+    pick_up_slot_1 = Node(
+        package='museum',
+        executable='pick_up_slot_1',
+        name='pick_up_slot_1',
+        namespace=namespace,
+        output='screen',
+        parameters=[])
+
+    put_in_pod_slot_1 = Node(
+        package='museum',
+        executable='put_in_pod_slot_1',
+        name='put_in_pod_slot_1',
+        namespace=namespace,
+        output='screen',
+        parameters=[])
+
+    release_artifact_slot_1 = Node(
+        package='museum',
+        executable='release_artifact_slot_1',
+        name='release_artifact_slot_1',
+        namespace=namespace,
+        output='screen',
+        parameters=[])
+
+    release_artifact_from_pod_slot_1 = Node(
+        package='museum',
+        executable='release_artifact_from_pod_slot_1',
+        name='release_artifact_from_pod_slot_1',
+        namespace=namespace,
+        output='screen',
+        parameters=[])
+
+    cool_artifact_while_carrying_slot_1 = Node(
+        package='museum',
+        executable='cool_artifact_while_carrying_slot_1',
+        name='cool_artifact_while_carrying_slot_1',
+        namespace=namespace,
+        output='screen',
+        parameters=[])
+
+    cool_artifact_while_carrying_in_pod_slot_1 = Node(
+        package='museum',
+        executable='cool_artifact_while_carrying_in_pod_slot_1',
+        name='cool_artifact_while_carrying_in_pod_slot_1',
+        namespace=namespace,
+        output='screen',
+        parameters=[])
+
+    pick_up_slot_2 = Node(
+        package='museum',
+        executable='pick_up_slot_2',
+        name='pick_up_slot_2',
+        namespace=namespace,
+        output='screen',
+        parameters=[])
+
+    release_artifact_slot_2 = Node(
+        package='museum',
+        executable='release_artifact_slot_2',
+        name='release_artifact_slot_2',
         namespace=namespace,
         output='screen',
         parameters=[])
@@ -74,7 +178,20 @@ def generate_launch_description():
     ld.add_action(plansys2_cmd)
 
     # Actions
-    ld.add_action(move_cmd)
+    ld.add_action(fly_into_seismic_room)
+    ld.add_action(move_to_pressurized_room)
+    ld.add_action(move_to_unpressurized_room)
     ld.add_action(activate_seal)
+    ld.add_action(pick_up_empty_pod_slot_1)
+    ld.add_action(pick_up_full_pod_slot_1)
+    ld.add_action(drop_pod_slot_1)
+    ld.add_action(pick_up_slot_1)
+    ld.add_action(put_in_pod_slot_1)
+    ld.add_action(release_artifact_slot_1)
+    ld.add_action(release_artifact_from_pod_slot_1)
+    ld.add_action(cool_artifact_while_carrying_slot_1)
+    ld.add_action(cool_artifact_while_carrying_in_pod_slot_1)
+    ld.add_action(pick_up_slot_2)
+    ld.add_action(release_artifact_slot_2)
 
     return ld

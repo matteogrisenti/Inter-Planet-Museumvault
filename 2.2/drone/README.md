@@ -1,3 +1,3 @@
 # Command
 
-downward domain.pddl problem.pddl --alias lama-first 
+downward --alias lama-first domain.pddl problem.pddl

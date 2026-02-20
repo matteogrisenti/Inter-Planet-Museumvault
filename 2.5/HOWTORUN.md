@@ -1,18 +1,23 @@
-run scirpts to open first and second terminal with docker
+Docker:
+docker build --platform linux/amd64 --rm  --tag plansys2 . --file Dokerfile-humble
 
-then for each terminal:
+# se non c'è ros
 
-cd ~/plansys2_ws
-rosdep install --from-paths src/museum --ignore-src -r -y
 colcon build --symlink-install
+source /opt/ros/$ROS_DISTRO/setup.bash
+
+# se mancano dependences
+rosdep update
+rosdep install --from-paths src --ignore-src -r -y
+colcon build --symlink-install
+
+source /opt/ros/humble/setup.bash
 source install/setup.bash
 
-# For museum_plansys2
-
-cd src/museum
+# For museum
 
 ## Terminal 1
-cd launch
+cd src/museum/launch
 ros2 launch museum launch.py
 
 (se da problemi al launch) rm -rf build/ install/ log/ src/build/ src/install/ src/log/
@@ -21,8 +26,9 @@ e poi ricompila  colcon build --symlink-install
 # Terminal 2
 cd root/plansys2_ws
 source /opt/ros/$ROS_DISTRO/setup.bash
+source install/setup.bash
 cd src/museum
-bash commands_easy.sh
+bash commands.sh
 
 
 ----------

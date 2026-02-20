@@ -6,13 +6,13 @@
 
 using namespace std::chrono_literals;
 
-// PDDL duration = 2 → period = 2 * 100ms = 200ms
+// PDDL duration = 1 → period = 1 * 100ms = 100ms
 
-class ActivateSeal : public plansys2::ActionExecutorClient
+class ReleaseArtifactSlot1 : public plansys2::ActionExecutorClient
 {
 public:
-  ActivateSeal()
-  : plansys2::ActionExecutorClient("activate_seal", 200ms)
+  ReleaseArtifactSlot1()
+  : plansys2::ActionExecutorClient("release_artifact_slot_1", 100ms)
   {
     progress_ = 0.0;
   }
@@ -22,15 +22,15 @@ private:
   {
     if (progress_ < 1.0) {
       progress_ += 0.5;
-      send_feedback(progress_, "Activate seal running");
+      send_feedback(progress_, "Release artifact slot 1 running");
     } else {
-      finish(true, 1.0, "Activate seal completed");
+      finish(true, 1.0, "Release artifact slot 1 completed");
       progress_ = 0.0;
       std::cout << std::endl;
     }
 
     std::cout << "\r\e[K" << std::flush;
-    std::cout << "Activating ... [" << std::min(100.0, progress_ * 100.0) << "%]  " << std::flush;
+    std::cout << "Releasing ... [" << std::min(100.0, progress_ * 100.0) << "%]  " << std::flush;
   }
 
   float progress_;
@@ -39,9 +39,9 @@ private:
 int main(int argc, char ** argv)
 {
   rclcpp::init(argc, argv);
-  auto node = std::make_shared<ActivateSeal>();
+  auto node = std::make_shared<ReleaseArtifactSlot1>();
 
-  node->set_parameter(rclcpp::Parameter("action_name", "activate_seal"));
+  node->set_parameter(rclcpp::Parameter("action_name", "release_artifact_slot_1"));
   node->trigger_transition(lifecycle_msgs::msg::Transition::TRANSITION_CONFIGURE);
 
   rclcpp::spin(node->get_node_base_interface());

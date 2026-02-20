@@ -3,7 +3,7 @@
 
   (:objects
     ;; --- Robots ---
-    curator technician scientist drone - robot
+    curator scientist drone - robot
 
     ;; --- Pods ---
     pod1 pod2 - pod
@@ -36,25 +36,17 @@
     (can_access curator entrance) (can_access curator maintenance_tunnel) 
     (can_access curator hall_a) ; no hall b
     (can_access curator cryo_chamber) (can_access curator anti_vibration_pods_room)
-    (can_pickup curator scientific) (can_pickup curator top_secret)
+    (can_pickup curator top_secret) (can_pickup curator technological)
     (sealing_mode_off curator)
-
-    ;; Technician
-    (sealing_mode_off technician)
-    (robot_at technician entrance) (hands_empty_slot_1 technician) (can_carry_two technician) (hands_empty_slot_2 technician)
-    
-    (can_access technician entrance) (can_access technician maintenance_tunnel) 
-    (can_access technician hall_a) ; no hall b
-    (can_access technician cryo_chamber) (can_access technician anti_vibration_pods_room)
-    (can_pickup technician technological)
 
     ;; Scientist
     (sealing_mode_off scientist)
     (robot_at scientist stasis_lab) (hands_empty_slot_1 scientist)
-    (can_access scientist stasis_lab) (can_access scientist maintenance_tunnel)
-    (can_pickup scientist scientific) (can_pickup scientist top_secret) (can_pickup scientist technological)
+    (can_access scientist stasis_lab) (can_access scientist maintenance_tunnel) (can_access scientist cryo_chamber) 
+    (can_pickup scientist scientific)
 
     ;; Drone
+    (can_carry_two drone) (hands_empty_slot_2 drone)
     (robot_at drone entrance) (hands_empty_slot_1 drone) (sealing_mode_off drone)
     (can_access drone entrance) (can_access drone maintenance_tunnel) (can_access drone hall_b) (can_access drone anti_vibration_pods_room)
     (can_pickup drone scientific) (can_pickup drone top_secret) (can_pickup drone technological)
@@ -100,25 +92,25 @@
     ;; --- HALL A ---
     ;; Martian Core Drills
     (artifact_at mart_nord_core_drill hall_b) (is_type mart_nord_core_drill scientific) (warm mart_nord_core_drill) (no_fragile mart_nord_core_drill)
-    ; (artifact_at mart_sud_core_drill hall_b) (is_type mart_sud_core_drill scientific) (warm mart_sud_core_drill) (no_fragile mart_sud_core_drill)
-    ; (artifact_at mart_east_core_drill hall_b) (is_type mart_east_core_drill scientific) (warm mart_east_core_drill) (no_fragile mart_east_core_drill)
-    ; (artifact_at mart_west_core_drill hall_b) (is_type mart_west_core_drill scientific) (warm mart_west_core_drill) (no_fragile mart_west_core_drill)
+    (artifact_at mart_sud_core_drill hall_b) (is_type mart_sud_core_drill scientific) (warm mart_sud_core_drill) (no_fragile mart_sud_core_drill)
+    (artifact_at mart_east_core_drill hall_b) (is_type mart_east_core_drill scientific) (warm mart_east_core_drill) (no_fragile mart_east_core_drill)
+    (artifact_at mart_west_core_drill hall_b) (is_type mart_west_core_drill scientific) (warm mart_west_core_drill) (no_fragile mart_west_core_drill)
 
     ;; Hall A: Samples & Mysterious Egg
-    ; (artifact_at mart_north_pole_ice_sample hall_b) (is_type mart_north_pole_ice_sample scientific) (warm mart_north_pole_ice_sample) (no_fragile mart_north_pole_ice_sample)
+    (artifact_at mart_north_pole_ice_sample hall_b) (is_type mart_north_pole_ice_sample scientific) (warm mart_north_pole_ice_sample) (no_fragile mart_north_pole_ice_sample)
     (artifact_at mart_mysterious_egg hall_a) (is_type mart_mysterious_egg top_secret) (warm mart_mysterious_egg) (no_fragile mart_mysterious_egg)
     ; (artifact_at asteroid_MG04TN_ice_sample hall_b) (is_type asteroid_MG04TN_ice_sample scientific) (warm asteroid_MG04TN_ice_sample) (no_fragile asteroid_MG04TN_ice_sample)
 
     ;; ___ HALL B ___
     ;; Mission Gear
     ; (artifact_at rover_wheel hall_a) (is_type rover_wheel technological) (warm rover_wheel)
-    (artifact_at space_suit hall_a) (is_type space_suit technological) (warm space_suit)
-    (artifact_at quantum_chip hall_b) (is_type quantum_chip technological) (warm quantum_chip)
+    ; (artifact_at space_suit hall_a) (is_type space_suit technological) (warm space_suit)
+    ; (artifact_at quantum_chip hall_b) (is_type quantum_chip technological) (warm quantum_chip)
 
     ;; Hall B: Samples & Civilization Artifacts
-    (artifact_at mart_sand_sample hall_b) (is_type mart_sand_sample scientific) (warm mart_sand_sample)
-    ; (artifact_at mart_laser_gun hall_b) (is_type mart_laser_gun top_secret) (warm mart_laser_gun) 
-    ; (artifact_at mart_pink_hat hall_b) (is_type mart_pink_hat top_secret) (warm mart_pink_hat) 
+    ; (artifact_at mart_sand_sample hall_b) (is_type mart_sand_sample scientific) (warm mart_sand_sample)
+    (artifact_at mart_laser_gun hall_b) (is_type mart_laser_gun top_secret) (warm mart_laser_gun) 
+    (artifact_at mart_pink_hat hall_b) (is_type mart_pink_hat top_secret) (warm mart_pink_hat) 
     ; (artifact_at asteroid_AD29TV_rock_sample hall_b) (is_type asteroid_AD29TV_rock_sample scientific) (warm asteroid_AD29TV_rock_sample) 
     ; (artifact_at venus_sand_sample hall_b) (is_type venus_sand_sample scientific) (warm venus_sand_sample) (no_fragile venus_sand_sample)
     ; (artifact_at venus_rock_sample hall_b) (is_type venus_rock_sample scientific) (warm venus_rock_sample) (no_fragile venus_rock_sample)
@@ -130,20 +122,20 @@
   (:goal (and
     ;; Final Locations
     (artifact_at mart_nord_core_drill stasis_lab) (cold mart_nord_core_drill)
-    ; (artifact_at mart_sud_core_drill stasis_lab) (cold mart_sud_core_drill)
-    ; (artifact_at mart_east_core_drill stasis_lab) (cold mart_east_core_drill)
-    ; (artifact_at mart_west_core_drill stasis_lab) (cold mart_west_core_drill)
+    (artifact_at mart_sud_core_drill stasis_lab) (cold mart_sud_core_drill)
+    (artifact_at mart_east_core_drill stasis_lab) (cold mart_east_core_drill)
+    (artifact_at mart_west_core_drill stasis_lab) (cold mart_west_core_drill)
     ; (artifact_at rover_wheel stasis_lab)
-    (artifact_at space_suit stasis_lab)
-    (artifact_at quantum_chip stasis_lab) (cold quantum_chip)
+    ; (artifact_at space_suit stasis_lab)
+    ; (artifact_at quantum_chip stasis_lab) (cold quantum_chip)
 
-    ; (artifact_at mart_north_pole_ice_sample cryo_chamber)
+    (artifact_at mart_north_pole_ice_sample cryo_chamber)
     (artifact_at mart_mysterious_egg cryo_chamber)    
     ; (artifact_at asteroid_MG04TN_ice_sample cryo_chamber)
 
-    (artifact_at mart_sand_sample hall_a)
-    ; (artifact_at mart_laser_gun hall_a)
-    ; (artifact_at mart_pink_hat hall_a)  
+    ; (artifact_at mart_sand_sample hall_a)
+    (artifact_at mart_laser_gun hall_a)
+    (artifact_at mart_pink_hat hall_a)  
     ; (artifact_at asteroid_AD29TV_rock_sample hall_a)  
     ; (artifact_at venus_sand_sample hall_a)
     ; (artifact_at venus_rock_sample hall_a)
