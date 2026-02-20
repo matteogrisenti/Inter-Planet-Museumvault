@@ -1,0 +1,89 @@
+digraph HierarchicalPlan {
+    rankdir=TB;
+    nodesep=0.6;  // Aumenta lo spazio orizzontale tra i nodi
+    ranksep=0.8;  // Aumenta lo spazio verticale tra i livelli
+    splines=polyline;
+
+    // --- Definizione Stili Globali ---
+    // Font decisamente più grande (16) e margini molto abbondanti
+    node [fontname="Helvetica", fontsize=16, margin="0.35,0.25", penwidth=1.5];
+    edge [arrowsize=1.0, color="#555555", penwidth=1.2];
+
+    // =======================================================
+    // TASK 2: SCIENTIST (Maintenance -> Stasis)
+    // =======================================================
+    t2 [label="Task:\ndelivery(scientist,\nquantum-chip, maint-tunnel,\nstasis-lab)", shape=box, style=filled, fillcolor="#d9ead3"];
+    m_del_2 [label="Method:\nm_delivery_direct", shape=ellipse, style=filled, fillcolor="#fff2cc"];
+    t2 -> m_del_2;
+
+    t2_1 [label="Task:\nprepare_robot(scientist,\nstasis-lab, maint-tunnel)", shape=box, style=filled, fillcolor="#d9ead3"];
+    t2_2 [label="Task:\nload_artifact(scientist,\nquantum-chip, maint-tunnel)", shape=box, style=filled, fillcolor="#d9ead3"];
+    t2_3 [label="Task:\ntransport_to_target(scientist,\nquantum-chip, maint-tunnel,\nstasis-lab)", shape=box, style=filled, fillcolor="#d9ead3"];
+    
+    m_del_2 -> t2_1;
+    m_del_2 -> t2_2;
+    m_del_2 -> t2_3;
+
+    // --- T2.1 Prepare Robot ---
+    m_prep_2 [label="Method:\nm_prep_fetch_pod", shape=ellipse, style=filled, fillcolor="#fff2cc"];
+    t2_1 -> m_prep_2;
+
+    t2_1_1 [label="Task:\nget_to(scientist,\nstasis-lab, maint-tunnel)", shape=box, style=filled, fillcolor="#d9ead3"];
+    a2_1_2 [label="Action:\npick-up-pod-slot-1(scientist,\nmaint-tunnel, pod1)", shape=box, style=filled, fillcolor="#c9daf8"];
+    t2_1_3 [label="Task:\nget_to(scientist,\nmaint-tunnel, maint-tunnel)", shape=box, style=filled, fillcolor="#d9ead3"];
+    
+    m_prep_2 -> t2_1_1;
+    m_prep_2 -> a2_1_2;
+    m_prep_2 -> t2_1_3;
+
+    // Espansione T2.1.1 (get_to stasis -> maint-tunnel)
+    m_get_5 [label="Method:\nm_get_to_direct", shape=ellipse, style=filled, fillcolor="#fff2cc"];
+    t2_1_1 -> m_get_5;
+    t2_1_1_1 [label="Task:\nstep(scientist,\nstasis-lab, maint-tunnel)", shape=box, style=filled, fillcolor="#d9ead3"];
+    m_get_5 -> t2_1_1_1;
+
+    m_step_u5 [label="Method:\nm_step_unpressurized", shape=ellipse, style=filled, fillcolor="#fff2cc"];
+    t2_1_1_1 -> m_step_u5;
+    a2_1_1_1_1 [label="Action:\nactivate-seal(scientist)", shape=box, style=filled, fillcolor="#c9daf8"];
+    a2_1_1_1_2 [label="Action:\nmove-unpressurized(scientist,\nstasis-lab, maint-tunnel)", shape=box, style=filled, fillcolor="#c9daf8"];
+    m_step_u5 -> a2_1_1_1_1;
+    m_step_u5 -> a2_1_1_1_2;
+
+    // Espansione T2.1.3 (get_to maint-tunnel -> maint-tunnel)
+    m_get_stay [label="Method:\nm_get_to_stay", shape=ellipse, style=filled, fillcolor="#fff2cc"];
+    t2_1_3 -> m_get_stay;
+    a2_1_3_1 [label="Action:\nstay-at(scientist,\nmaint-tunnel)", shape=box, style=filled, fillcolor="#c9daf8"];
+    m_get_stay -> a2_1_3_1;
+
+    // --- T2.2 Load Artifact ---
+    m_load_3 [label="Method:\nm_load_into_pod", shape=ellipse, style=filled, fillcolor="#fff2cc"];
+    t2_2 -> m_load_3;
+    a2_2_1 [label="Action:\nput-in-pod(quantum-chip,\ntechnological, maint-tunnel,\nscientist, pod1)", shape=box, style=filled, fillcolor="#c9daf8"];
+    m_load_3 -> a2_2_1;
+
+    // --- T2.3 Transport to Target ---
+    m_trans_2 [label="Method:\nm_transport_direct", shape=ellipse, style=filled, fillcolor="#fff2cc"];
+    t2_3 -> m_trans_2;
+    t2_3_1 [label="Task:\nget_to(scientist,\nmaint-tunnel, stasis-lab)", shape=box, style=filled, fillcolor="#d9ead3"];
+    t2_3_2 [label="Task:\nunload_artifact(scientist,\nquantum-chip, stasis-lab)", shape=box, style=filled, fillcolor="#d9ead3"];
+    m_trans_2 -> t2_3_1;
+    m_trans_2 -> t2_3_2;
+
+    // Espansione T2.3.1 (get_to maint-tunnel -> stasis-lab)
+    m_get_6 [label="Method:\nm_get_to_direct", shape=ellipse, style=filled, fillcolor="#fff2cc"];
+    t2_3_1 -> m_get_6;
+    t2_3_1_1 [label="Task:\nstep(scientist,\nmaint-tunnel, stasis-lab)", shape=box, style=filled, fillcolor="#d9ead3"];
+    m_get_6 -> t2_3_1_1;
+
+    m_step_p3 [label="Method:\nm_step_pressurized", shape=ellipse, style=filled, fillcolor="#fff2cc"];
+    t2_3_1_1 -> m_step_p3;
+    a2_3_1_1_1 [label="Action:\nmove-pressurized(scientist,\nmaint-tunnel, stasis-lab)", shape=box, style=filled, fillcolor="#c9daf8"];
+    m_step_p3 -> a2_3_1_1_1;
+
+    // Espansione T2.3.2 (unload_artifact stasis-lab)
+    m_unload_3 [label="Method:\nm_unload_pod_keep_std", shape=ellipse, style=filled, fillcolor="#fff2cc"];
+    t2_3_2 -> m_unload_3;
+    a2_3_2_1 [label="Action:\nrelease-artifact-from-pod-slot-1\n(scientist, quantum-chip,\nstasis-lab, pod1)", shape=box, style=filled, fillcolor="#c9daf8"];
+    m_unload_3 -> a2_3_2_1;
+
+}

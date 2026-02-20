@@ -51,8 +51,8 @@
     ;; TASKS (Abstract Goals)
     ;; ========================
     
-    (:task deliver
-        :parameters (?a - artifact ?at - artifact-type ?target - location)
+    (:task delivery
+        :parameters (?r - robot ?a - artifact ?from - location ?to - location ?at - artifact-type)
     )
 
     (:task prepare_robot
@@ -76,62 +76,31 @@
     )
 
     ;; ========================
-    ;; METODI (Decomposizioni Gerarchiche con PRECONDIZIONI BLINDATE)
+    ;; METODI TOP-LEVEL (Interfaccia)
     ;; ========================
 
-    ;; CASO 1: Consegna Diretta
-    (:method m_deliver_direct
-        :parameters (?a - artifact ?at - artifact-type ?target - location 
-                     ?r - robot ?curr_loc - location ?r_loc - location) ;; <--- AGGIUNTO ?r_loc
+    ;; L'Alto Livello ci garantisce che questo frammento di viaggio è sicuro e diretto.
+    (:method m_delivery_direct
+        :parameters (?r - robot ?a - artifact ?from - location ?to - location ?at - artifact-type 
+                     ?r_loc - location) 
         
-        :task (deliver ?a ?at ?target) ;; <--- CORRETTO: 3 parametri
+        :task (delivery ?r ?a ?from ?to ?at) 
         
         :precondition (and
-            (artifact-at ?a ?curr_loc)
-            (robot-at ?r ?r_loc)       ;; <--- CORRETTO: Dove si trova il robot ora?
-            (is-type ?a ?at)
-            (can-pickup ?r ?at)
-            (can-access ?r ?curr_loc)
-            (can-access ?r ?target)
+            (artifact-at ?a ?from)
+            (robot-at ?r ?r_loc)       
         )
         :subtasks (and
-            ;; Il robot parte da ?r_loc e va a ?curr_loc
-            (t0 (prepare_robot ?r ?r_loc ?curr_loc)) 
-            (t1 (load_artifact ?r ?a ?at ?curr_loc))
-            (t2 (transport_to_target ?r ?a ?at ?curr_loc ?target))
+            (t0 (prepare_robot ?r ?r_loc ?from)) 
+            (t1 (load_artifact ?r ?a ?at ?from))
+            (t2 (transport_to_target ?r ?a ?at ?from ?to))
         )
         :ordering (and (t0 < t1) (t1 < t2))
     )
 
-    ;; CASO 2: Consegna Parziale (Staffetta Dinamica)
-    (:method m_deliver_transfer
-        :parameters (?a - artifact ?at - artifact-type ?target - location 
-                     ?r - robot ?curr_loc - location ?handoff - location ?r_loc - location)
-        
-        :task (deliver ?a ?at ?target) ;; <--- CORRETTO: 3 parametri
-        
-        :precondition (and
-            (artifact-at ?a ?curr_loc)
-            (robot-at ?r ?r_loc)       ;; <--- CORRETTO: Dove si trova il robot ora?
-            (is-type ?a ?at)
-            (can-pickup ?r ?at)
-            (can-access ?r ?curr_loc)
-            
-            (not (can-access ?r ?target)) ;; Non arrivo alla fine
-            (can-access ?r ?handoff)      ;; Ma arrivo qui
-            (connected ?curr_loc ?handoff)
-        )
-        :subtasks (and
-            ;; 1. Porto l'oggetto al punto di scambio
-            (t0 (prepare_robot ?r ?r_loc ?curr_loc))
-            (t1 (load_artifact ?r ?a ?at ?curr_loc))
-            (t2 (transport_to_target ?r ?a ?at ?curr_loc ?handoff)) 
-            
-            ;; 2. RICORSIONE: Rilancio il task con i 3 parametri corretti
-            (t3 (deliver ?a ?at ?target)) 
-        )
-        :ordering (and (t0 < t1) (t1 < t2) (t2 < t3))
-    )
+    ;; ========================
+    ;; METODI SOTTOSTANTI E AZIONI (Perfettamente Invariati)
+    ;; ========================
 
 
     ;; --- FASE 1: PREPARAZIONE DEL ROBOT ---
@@ -150,7 +119,6 @@
             (robot-at ?r ?start_loc)
             (pod-at ?p ?pod_loc)
             (pod-empty ?p)
-            ;; BLOCCO 3: Il robot può raggiungere il pod?
             (can-access ?r ?pod_loc)
         )
         :subtasks (and
@@ -302,7 +270,7 @@
     (:method m_get_to_direct
         :parameters (?r - robot ?from - location ?to - location)
         :task (get_to ?r ?from ?to)
-        :precondition (connected ?from ?to) ;; BLOCCO 5: Muri fisici
+        :precondition (connected ?from ?to) 
         :subtasks (task0 (step ?r ?from ?to))
     )
 

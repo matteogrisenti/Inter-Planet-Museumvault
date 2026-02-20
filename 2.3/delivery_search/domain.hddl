@@ -15,6 +15,7 @@
         
         (artifact-at ?a - artifact ?l - location)
         (is-type ?a - artifact ?t - artifact-type)
+        
         (assigned-target ?a - artifact ?target - location)
     )
 
@@ -23,6 +24,7 @@
     ;; ========================
 
     (:task process-room :parameters (?room - location))
+
     (:task deliver :parameters (?a - artifact ?at - artifact-type ?target - location))
     
     ;; Gestisce la spedizione doppia

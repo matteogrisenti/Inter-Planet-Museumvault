@@ -1,0 +1,101 @@
+digraph HTN_Staffetta_Parte2 {
+    // Impostazioni originali
+    size="8.3,11.7";
+    margin=0.2;
+    ratio=compress;
+    rankdir=TD;
+    nodesep=0.15;
+    ranksep=0.3;
+    splines=polyline;
+
+    // --- Definizione Stili Globali ---
+    node [fontname="Helvetica", fontsize=9, margin="0.05,0.05"];
+    edge [arrowsize=0.6, color="#555555"];
+
+    // =======================================================
+    //OOT TASK & METHOD
+    // =======================================================
+    t1 [label="Task:\ndelivery(technician,\nquantum-chip, hall-b,\nmaintenance-tunnel)", shape=box, style=filled, fillcolor="#d9ead3"];
+    m_del_1 [label="Method:\nm_delivery_direct", shape=ellipse, style=filled, fillcolor="#fff2cc"];
+    t1 -> m_del_1;
+
+    // =======================================================
+    // ROOT TASK & METHOD (Mantenuti per contesto)
+    // =======================================================
+    t1_1 [label="Task:\nprepare_robot(technician,\nentrance, hall-b)", shape=box, style=filled, fillcolor="#d9ead3"];
+    t1_2 [label="Task:\nload_artifact(technician,\nquantum-chip, hall-b)", shape=box, style=filled, fillcolor="#d9ead3"];
+    t1_3 [label="Task:\ntransport_to_target(technician,\nquantum-chip, hall-b,\nmaintenance-tunnel)", shape=box, style=filled, fillcolor="#d9ead3"];
+    
+    m_del_1 -> t1_1;
+    m_del_1 -> t1_2;
+    m_del_1 -> t1_3;
+
+    // --- T1.3 Transport to Target ---
+    m_trans_1 [label="Method:\nm_transport_chill", shape=ellipse, style=filled, fillcolor="#fff2cc"];
+    t1_3 -> m_trans_1;
+
+    t1_3_1 [label="Task:\nget_to(technician,\nhall-b, cryo-chamber)", shape=box, style=filled, fillcolor="#d9ead3"];
+    t1_3_2 [label="Task:\nunload_artifact(technician,\nquantum-chip, cryo-chamber)", shape=box, style=filled, fillcolor="#d9ead3"];
+    t1_3_3 [label="Task:\nload_artifact(technician,\nquantum-chip, cryo-chamber)", shape=box, style=filled, fillcolor="#d9ead3"];
+    t1_3_4 [label="Task:\nget_to(technician,\ncryo-chamber, maint-tunnel)", shape=box, style=filled, fillcolor="#d9ead3"];
+    t1_3_5 [label="Task:\nunload_artifact(technician,\nquantum-chip, maint-tunnel)", shape=box, style=filled, fillcolor="#d9ead3"];
+    
+    m_trans_1 -> t1_3_1;
+    m_trans_1 -> t1_3_2;
+    m_trans_1 -> t1_3_3;
+    m_trans_1 -> t1_3_4;
+    m_trans_1 -> t1_3_5;
+
+    // Espansione T1.3.1 (get_to hall-b -> cryo-chamber)
+    m_get_3 [label="Method:\nm_get_to_transit", shape=ellipse, style=filled, fillcolor="#fff2cc"];
+    t1_3_1 -> m_get_3;
+    t1_3_1_1 [label="Task:\nstep(technician,\nhall-b, maint-tunnel)", shape=box, style=filled, fillcolor="#d9ead3"];
+    t1_3_1_2 [label="Task:\nstep(technician,\nmaint-tunnel, cryo-chamber)", shape=box, style=filled, fillcolor="#d9ead3"];
+    m_get_3 -> t1_3_1_1;
+    m_get_3 -> t1_3_1_2;
+
+    m_step_u3 [label="Method:\nm_step_unpressurized", shape=ellipse, style=filled, fillcolor="#fff2cc"];
+    t1_3_1_1 -> m_step_u3;
+    a1_3_1_1_1 [label="Action:\nactivate-seal(technician)", shape=box, style=filled, fillcolor="#c9daf8"];
+    a1_3_1_1_2 [label="Action:\nmove-unpressurized(technician,\nhall-b, maint-tunnel)", shape=box, style=filled, fillcolor="#c9daf8"];
+    m_step_u3 -> a1_3_1_1_1;
+    m_step_u3 -> a1_3_1_1_2;
+
+    m_step_p2 [label="Method:\nm_step_pressurized", shape=ellipse, style=filled, fillcolor="#fff2cc"];
+    t1_3_1_2 -> m_step_p2;
+    a1_3_1_2_1 [label="Action:\nmove-pressurized(technician,\nmaint-tunnel, cryo-chamber)", shape=box, style=filled, fillcolor="#c9daf8"];
+    m_step_p2 -> a1_3_1_2_1;
+
+    // Espansione T1.3.2 (unload_artifact cryo)
+    m_unload_1 [label="Method:\nm_unload_pod_keep_cryo", shape=ellipse, style=filled, fillcolor="#fff2cc"];
+    t1_3_2 -> m_unload_1;
+    a1_3_2_1 [label="Action:\nrelease-artifact-cryo-from-pod-slot-1\n(technician, quantum-chip,\ncryo-chamber, pod1)", shape=box, style=filled, fillcolor="#c9daf8"];
+    m_unload_1 -> a1_3_2_1;
+
+    // Espansione T1.3.3 (load_artifact cryo)
+    m_load_2 [label="Method:\nm_load_into_pod", shape=ellipse, style=filled, fillcolor="#fff2cc"];
+    t1_3_3 -> m_load_2;
+    a1_3_3_1 [label="Action:\nput-in-pod(quantum-chip,\ntechnological, cryo-chamber,\ntechnician, pod1)", shape=box, style=filled, fillcolor="#c9daf8"];
+    m_load_2 -> a1_3_3_1;
+
+    // Espansione T1.3.4 (get_to cryo -> maint-tunnel)
+    m_get_4 [label="Method:\nm_get_to_direct", shape=ellipse, style=filled, fillcolor="#fff2cc"];
+    t1_3_4 -> m_get_4;
+    t1_3_4_1 [label="Task:\nstep(technician,\ncryo-chamber, maint-tunnel)", shape=box, style=filled, fillcolor="#d9ead3"];
+    m_get_4 -> t1_3_4_1;
+
+    m_step_u4 [label="Method:\nm_step_unpressurized", shape=ellipse, style=filled, fillcolor="#fff2cc"];
+    t1_3_4_1 -> m_step_u4;
+    a1_3_4_1_1 [label="Action:\nactivate-seal(technician)", shape=box, style=filled, fillcolor="#c9daf8"];
+    a1_3_4_1_2 [label="Action:\nmove-unpressurized(technician,\ncryo-chamber, maint-tunnel)", shape=box, style=filled, fillcolor="#c9daf8"];
+    m_step_u4 -> a1_3_4_1_1;
+    m_step_u4 -> a1_3_4_1_2;
+
+    // Espansione T1.3.5 (unload_artifact maint-tunnel + drop pod)
+    m_unload_2 [label="Method:\nm_unload_pod_drop_std", shape=ellipse, style=filled, fillcolor="#fff2cc"];
+    t1_3_5 -> m_unload_2;
+    a1_3_5_1 [label="Action:\nrelease-artifact-from-pod-slot-1\n(technician, quantum-chip,\nmaint-tunnel, pod1)", shape=box, style=filled, fillcolor="#c9daf8"];
+    a1_3_5_2 [label="Action:\ndrop-pod-slot-1(technician,\npod1, maint-tunnel)", shape=box, style=filled, fillcolor="#c9daf8"];
+    m_unload_2 -> a1_3_5_1;
+    m_unload_2 -> a1_3_5_2;
+}

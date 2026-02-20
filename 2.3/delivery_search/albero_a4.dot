@@ -1,5 +1,5 @@
 digraph HierarchicalPlan {
-  rankdir="TB"; size="8.3,11.7!"; ratio="compress"; nodesep=0.15; ranksep=0.3;
+  rankdir="TB"; size="8.3,11.7!"; ratio="compress"; nodesep=0.15; ranksep=0.3; margin=0.0
   node [fontname="Helvetica", fontsize=9, style="filled", margin="0.05,0.02", width=0.8];
   edge [color="#555555", penwidth=1.0, arrowsize=0.6];
 

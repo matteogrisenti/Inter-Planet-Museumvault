@@ -1,0 +1,164 @@
+digraph somePlan{
+	rankdir="LR";subgraph cluster_initG{
+	rank=min;
+style=invis
+	PS0[height=10,label="init",shape=box];
+}
+subgraph cluster_goalG{
+	rank=max;
+style=invis
+	PS1[height=10,label="goal",shape=box];
+}
+subgraph cluster_inner{
+style=invis
+subgraph cluster_mainPlan{
+style=invis
+	PS7[label="SHOP_methodm_delivery_direct_0_precondition[quantum-chip,maintenance-tunnel,scientist,stasis-lab]()",shape=box];
+	PS9[label="SHOP_methodm_get_to_direct_18_precondition[maintenance-tunnel,stasis-lab]()",shape=box];
+	PS10[label="move-to-pressurized-room[scientist,maintenance-tunnel,stasis-lab]()",shape=box];
+	PS11[label="SHOP_methodm_step_pressurized_20_precondition[stasis-lab]()",shape=box];
+	PS12[label="put-in-pod[quantum-chip,technological,maintenance-tunnel,scientist,pod1]()",shape=box];
+	PS13[label="SHOP_methodm_prep_fetch_pod_2_precondition[scientist,stasis-lab,pod1,maintenance-tunnel]()",shape=box];
+	PS14[label="pick-up-pod-slot-1[scientist,maintenance-tunnel,pod1]()",shape=box];
+	PS16[label="SHOP_methodm_get_to_direct_18_precondition[stasis-lab,maintenance-tunnel]()",shape=box];
+	PS17[label="move-to-unpressurized-room[scientist,stasis-lab,maintenance-tunnel]()",shape=box];
+	PS18[label="activate-seal[scientist]()",shape=box];
+	PS19[label="SHOP_methodm_step_unpressurized_21_precondition[maintenance-tunnel]()",shape=box];
+	PS20[label="stay-at[scientist,maintenance-tunnel]()",shape=box];
+	PS21[label="release-artifact-from-pod-slot-1[scientist,quantum-chip,stasis-lab,pod1]()",shape=box];
+	PS22[label="SHOP_methodm_unload_pod_keep_std_13_precondition[stasis-lab]()",shape=box];
+	PS25[label="SHOP_methodm_delivery_direct_0_precondition[quantum-chip,hall-b,technician,entrance]()",shape=box];
+	PS28[label="SHOP_methodm_transport_chill_8_precondition[cryo-chamber,technician]()",shape=box];
+	PS31[label="SHOP_methodm_get_to_transit_19_precondition[hall-b,maintenance-tunnel,cryo-chamber]()",shape=box];
+	PS32[label="SHOP_methodm_get_to_direct_18_precondition[cryo-chamber,maintenance-tunnel]()",shape=box];
+	PS33[label="move-to-pressurized-room[technician,maintenance-tunnel,cryo-chamber]()",shape=box];
+	PS34[label="SHOP_methodm_step_pressurized_20_precondition[cryo-chamber]()",shape=box];
+	PS35[label="move-to-unpressurized-room[technician,hall-b,maintenance-tunnel]()",shape=box];
+	PS36[label="activate-seal[technician]()",shape=box];
+	PS37[label="SHOP_methodm_step_unpressurized_21_precondition[maintenance-tunnel]()",shape=box];
+	PS38[label="move-to-unpressurized-room[technician,cryo-chamber,maintenance-tunnel]()",shape=box];
+	PS39[label="activate-seal[technician]()",shape=box];
+	PS40[label="SHOP_methodm_step_unpressurized_21_precondition[maintenance-tunnel]()",shape=box];
+	PS41[label="release-artifact-from-pod-slot-1[technician,quantum-chip,maintenance-tunnel,pod1]()",shape=box];
+	PS42[label="SHOP_methodm_unload_pod_drop_std_14_precondition[maintenance-tunnel]()",shape=box];
+	PS43[label="drop-pod-slot-1[technician,pod1,maintenance-tunnel]()",shape=box];
+	PS44[label="put-in-pod[quantum-chip,technological,hall-b,technician,pod1]()",shape=box];
+	PS45[label="put-in-pod[quantum-chip,technological,cryo-chamber,technician,pod1]()",shape=box];
+	PS46[label="release-artifact-cryo-from-pod-slot-1[technician,quantum-chip,cryo-chamber,pod1]()",shape=box];
+	PS47[label="SHOP_methodm_unload_pod_keep_cryo_15_precondition[cryo-chamber]()",shape=box];
+	PS48[label="SHOP_methodm_prep_fetch_pod_2_precondition[technician,entrance,pod1,anti-vibration-pods-room]()",shape=box];
+	PS49[label="pick-up-pod-slot-1[technician,anti-vibration-pods-room,pod1]()",shape=box];
+	PS50[label="SHOP_methodm_get_to_transit_19_precondition[entrance,maintenance-tunnel,anti-vibration-pods-room]()",shape=box];
+	PS51[label="SHOP_methodm_get_to_transit_19_precondition[anti-vibration-pods-room,maintenance-tunnel,hall-b]()",shape=box];
+	PS52[label="move-to-pressurized-room[technician,maintenance-tunnel,anti-vibration-pods-room]()",shape=box];
+	PS53[label="SHOP_methodm_step_pressurized_20_precondition[anti-vibration-pods-room]()",shape=box];
+	PS54[label="move-to-unpressurized-room[technician,entrance,maintenance-tunnel]()",shape=box];
+	PS55[label="activate-seal[technician]()",shape=box];
+	PS56[label="SHOP_methodm_step_unpressurized_21_precondition[maintenance-tunnel]()",shape=box];
+	PS57[label="wait-seismic-room-safe[technician,hall-b,maintenance-tunnel]()",shape=box];
+	PS58[label="SHOP_methodm_step_seismic_22_precondition[hall-b]()",shape=box];
+	PS59[label="move-to-unpressurized-room[technician,anti-vibration-pods-room,maintenance-tunnel]()",shape=box];
+	PS60[label="activate-seal[technician]()",shape=box];
+	PS61[label="SHOP_methodm_step_unpressurized_21_precondition[maintenance-tunnel]()",shape=box];
+
+	PS21 -> PS1[style="dotted"];
+	PS7 -> PS13[style="dotted"];
+	PS43 -> PS7[style="dotted"];
+	PS9 -> PS11[style="dotted"];
+	PS12 -> PS9[style="dotted"];
+	PS11 -> PS10[style="dotted"];
+	PS10 -> PS22[style="dotted"];
+	PS20 -> PS12[style="dotted"];
+	PS13 -> PS16[style="dotted"];
+	PS14 -> PS20[style="dotted"];
+	PS16 -> PS19[style="dotted"];
+	PS19 -> PS18[style="dotted"];
+	PS22 -> PS21[style="dotted"];
+	PS25 -> PS48[style="dotted"];
+	PS28 -> PS31[style="dotted"];
+	PS44 -> PS28[style="dotted"];
+	PS31 -> PS37[style="dotted"];
+	PS32 -> PS40[style="dotted"];
+	PS45 -> PS32[style="dotted"];
+	PS34 -> PS33[style="dotted"];
+	PS33 -> PS47[style="dotted"];
+	PS35 -> PS34[style="dotted"];
+	PS37 -> PS36[style="dotted"];
+	PS38 -> PS42[style="dotted"];
+	PS40 -> PS39[style="dotted"];
+	PS42 -> PS41[style="dotted"];
+	PS41 -> PS43[style="dotted"];
+	PS47 -> PS46[style="dotted"];
+	PS48 -> PS50[style="dotted"];
+	PS49 -> PS51[style="dotted"];
+	PS50 -> PS56[style="dotted"];
+	PS51 -> PS61[style="dotted"];
+	PS53 -> PS52[style="dotted"];
+	PS54 -> PS53[style="dotted"];
+	PS56 -> PS55[style="dotted"];
+	PS58 -> PS57[style="dotted"];
+	PS59 -> PS58[style="dotted"];
+	PS61 -> PS60[style="dotted"];
+
+	PS0 -> PS7[label="+robot-at[scientist,stasis-lab]()"];
+	PS14 -> PS12[label="+carrying-pod-slot-1[scientist,pod1]()"];
+	PS0 -> PS13[label="+robot-at[scientist,stasis-lab]()"];
+	PS17 -> PS14[label="+robot-at[scientist,maintenance-tunnel]()"];
+	PS0 -> PS14[label="+hands-empty-slot-1[scientist]()"];
+	PS0 -> PS17[label="+robot-at[scientist,stasis-lab]()"];
+	PS18 -> PS17[label="+sealing-mode[scientist]()"];
+	PS17 -> PS10[label="+robot-at[scientist,maintenance-tunnel]()"];
+	PS17 -> PS12[label="+robot-at[scientist,maintenance-tunnel]()"];
+	PS17 -> PS20[label="+robot-at[scientist,maintenance-tunnel]()"];
+	PS14 -> PS21[label="+carrying-pod-slot-1[scientist,pod1]()"];
+	PS10 -> PS21[label="+robot-at[scientist,stasis-lab]()"];
+	PS41 -> PS7[label="+artifact-at[quantum-chip,maintenance-tunnel]()"];
+	PS41 -> PS12[label="+artifact-at[quantum-chip,maintenance-tunnel]()"];
+	PS43 -> PS13[label="+pod-at[pod1,maintenance-tunnel]()"];
+	PS43 -> PS14[label="+pod-at[pod1,maintenance-tunnel]()"];
+	PS0 -> PS25[label="+artifact-at[quantum-chip,hall-b]()"];
+	PS0 -> PS25[label="+robot-at[technician,entrance]()"];
+	PS0 -> PS44[label="+artifact-at[quantum-chip,hall-b]()"];
+	PS0 -> PS44[label="+pod-empty[pod1]()"];
+	PS45 -> PS41[label="+pod-contains[pod1,quantum-chip]()"];
+	PS12 -> PS21[label="+pod-contains[pod1,quantum-chip]()"];
+	PS33 -> PS38[label="+robot-at[technician,cryo-chamber]()"];
+	PS33 -> PS45[label="+robot-at[technician,cryo-chamber]()"];
+	PS46 -> PS1[label="+cold[quantum-chip]()"];
+	PS46 -> PS45[label="+artifact-at[quantum-chip,cryo-chamber]()"];
+	PS44 -> PS46[label="+pod-contains[pod1,quantum-chip]()"];
+	PS46 -> PS45[label="+pod-empty[pod1]()"];
+	PS41 -> PS12[label="+pod-empty[pod1]()"];
+	PS41 -> PS13[label="+pod-empty[pod1]()"];
+	PS41 -> PS14[label="+pod-empty[pod1]()"];
+	PS33 -> PS46[label="+robot-at[technician,cryo-chamber]()"];
+	PS57 -> PS35[label="+robot-at[technician,hall-b]()"];
+	PS49 -> PS41[label="+carrying-pod-slot-1[technician,pod1]()"];
+	PS49 -> PS43[label="+carrying-pod-slot-1[technician,pod1]()"];
+	PS57 -> PS44[label="+robot-at[technician,hall-b]()"];
+	PS49 -> PS44[label="+carrying-pod-slot-1[technician,pod1]()"];
+	PS49 -> PS45[label="+carrying-pod-slot-1[technician,pod1]()"];
+	PS49 -> PS46[label="+carrying-pod-slot-1[technician,pod1]()"];
+	PS0 -> PS48[label="+robot-at[technician,entrance]()"];
+	PS0 -> PS48[label="+pod-at[pod1,anti-vibration-pods-room]()"];
+	PS0 -> PS48[label="+pod-empty[pod1]()"];
+	PS52 -> PS49[label="+robot-at[technician,anti-vibration-pods-room]()"];
+	PS0 -> PS49[label="+pod-at[pod1,anti-vibration-pods-room]()"];
+	PS0 -> PS49[label="+pod-empty[pod1]()"];
+	PS0 -> PS49[label="+hands-empty-slot-1[technician]()"];
+	PS54 -> PS52[label="+robot-at[technician,maintenance-tunnel]()"];
+	PS0 -> PS54[label="+robot-at[technician,entrance]()"];
+	PS55 -> PS54[label="+sealing-mode[technician]()"];
+	PS52 -> PS59[label="+robot-at[technician,anti-vibration-pods-room]()"];
+	PS59 -> PS57[label="+robot-at[technician,maintenance-tunnel]()"];
+	PS60 -> PS59[label="+sealing-mode[technician]()"];
+	PS35 -> PS33[label="+robot-at[technician,maintenance-tunnel]()"];
+	PS36 -> PS35[label="+sealing-mode[technician]()"];
+	PS39 -> PS38[label="+sealing-mode[technician]()"];
+	PS38 -> PS41[label="+robot-at[technician,maintenance-tunnel]()"];
+	PS38 -> PS43[label="+robot-at[technician,maintenance-tunnel]()"];
+
+}
+
+}
+}
