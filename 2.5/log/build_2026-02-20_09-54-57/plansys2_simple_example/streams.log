@@ -1,0 +1,108 @@
+[0.230s] Invoking command in '/root/plansys2_ws/src/build/plansys2_simple_example': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake /root/plansys2_ws/src/plansys2_simple_example -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/root/plansys2_ws/src/install/plansys2_simple_example
+[1.009s] -- Found ament_cmake: 1.3.12 (/opt/ros/humble/share/ament_cmake/cmake)
+[2.995s] -- Found Python3: /usr/bin/python3 (found version "3.10.12") found components: Interpreter 
+[3.878s] -- Override CMake install command with custom implementation using symlinks instead of copying resources
+[4.323s] -- Found rclcpp: 16.0.17 (/opt/ros/humble/share/rclcpp/cmake)
+[4.686s] -- Found rosidl_generator_c: 3.1.8 (/opt/ros/humble/share/rosidl_generator_c/cmake)
+[4.717s] -- Found rosidl_adapter: 3.1.8 (/opt/ros/humble/share/rosidl_adapter/cmake)
+[4.768s] -- Found rosidl_generator_cpp: 3.1.8 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)
+[4.854s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[4.936s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[5.201s] -- Found rmw_implementation_cmake: 6.1.2 (/opt/ros/humble/share/rmw_implementation_cmake/cmake)
+[5.219s] -- Found rmw_fastrtps_cpp: 6.2.9 (/opt/ros/humble/share/rmw_fastrtps_cpp/cmake)
+[7.529s] -- Found OpenSSL: /usr/lib/x86_64-linux-gnu/libcrypto.so (found version "3.0.2")  
+[7.555s] -- Found FastRTPS: /opt/ros/humble/include  
+[7.674s] -- Using RMW implementation 'rmw_fastrtps_cpp' as default
+[7.941s] -- Looking for pthread.h
+[11.508s] -- Looking for pthread.h - found
+[11.517s] -- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+[13.153s] -- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success
+[13.172s] -- Found Threads: TRUE  
+[13.423s] -- Found rclcpp_action: 16.0.17 (/opt/ros/humble/share/rclcpp_action/cmake)
+[13.635s] -- Found plansys2_msgs: 2.0.9 (/opt/ros/humble/share/plansys2_msgs/cmake)
+[13.707s] -- Found plansys2_executor: 2.0.9 (/opt/ros/humble/share/plansys2_executor/cmake)
+[14.254s] -- Found ament_lint_auto: 0.12.14 (/opt/ros/humble/share/ament_lint_auto/cmake)
+[14.876s] -- Added test 'copyright' to check source files copyright and LICENSE
+[14.926s] -- Added test 'cppcheck' to perform static code analysis on C / C++ code
+[14.927s] -- Configured cppcheck include dirs: 
+[14.928s] -- Configured cppcheck exclude dirs and/or files: 
+[14.958s] -- Added test 'cpplint' to check C / C++ code against the Google style
+[14.958s] -- Configured cpplint exclude dirs and/or files: 
+[14.961s] -- Added test 'flake8' to check Python code syntax and style conventions
+[14.970s] -- Added test 'lint_cmake' to check CMake code style
+[14.986s] -- Added test 'pep257' to check Python code against some of the docstring style conventions in PEP 257
+[15.012s] -- Added test 'uncrustify' to check C / C++ code style
+[15.013s] -- Configured uncrustify additional arguments: 
+[15.015s] -- Added test 'xmllint' to check XML markup files
+[15.041s] -- Configuring done
+[15.305s] -- Generating done
+[15.411s] -- Build files have been written to: /root/plansys2_ws/src/build/plansys2_simple_example
+[15.564s] Invoked command in '/root/plansys2_ws/src/build/plansys2_simple_example' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake /root/plansys2_ws/src/plansys2_simple_example -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/root/plansys2_ws/src/install/plansys2_simple_example
+[15.680s] Invoking command in '/root/plansys2_ws/src/build/plansys2_simple_example': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /root/plansys2_ws/src/build/plansys2_simple_example -- -j8 -l8
+[16.622s] [ 16%] [32mBuilding CXX object CMakeFiles/charge_action_node.dir/src/charge_action_node.cpp.o[0m
+[16.644s] [ 33%] [32mBuilding CXX object CMakeFiles/move_action_node.dir/src/move_action_node.cpp.o[0m
+[336.313s] [ 50%] [32m[1mLinking CXX executable move_action_node[0m
+[338.043s] [ 66%] [32m[1mLinking CXX executable charge_action_node[0m
+[342.903s] [ 66%] Built target charge_action_node
+[342.988s] [ 66%] Built target move_action_node
+[344.327s] [ 83%] [32mBuilding CXX object CMakeFiles/ask_charge_action_node.dir/src/ask_charge_action_node.cpp.o[0m
+[369.200s] [100%] [32m[1mLinking CXX executable ask_charge_action_node[0m
+[370.301s] [100%] Built target ask_charge_action_node
+[370.526s] Invoked command in '/root/plansys2_ws/src/build/plansys2_simple_example' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /root/plansys2_ws/src/build/plansys2_simple_example -- -j8 -l8
+[370.754s] Invoking command in '/root/plansys2_ws/src/build/plansys2_simple_example': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --install /root/plansys2_ws/src/build/plansys2_simple_example
+[370.914s] -- Install configuration: ""
+[370.932s] -- Execute custom install script
+[370.972s] [33mCMake Warning (dev) at ament_cmake_symlink_install/ament_cmake_symlink_install.cmake:62 (file):
+[370.975s]   Policy CMP0009 is not set: FILE GLOB_RECURSE calls should not follow
+[370.979s]   symlinks by default.  Run "cmake --help-policy CMP0009" for policy details.
+[370.981s]   Use the cmake_policy command to set the policy and suppress this warning.
+[370.985s] Call Stack (most recent call first):
+[370.994s]   ament_cmake_symlink_install/ament_cmake_symlink_install.cmake:314 (ament_cmake_symlink_install_directory)
+[371.018s]   cmake_install.cmake:46 (include)
+[371.030s] This warning is for project developers.  Use -Wno-dev to suppress it.
+[371.034s] [0m
+[371.035s] -- Symlinking: /root/plansys2_ws/src/install/plansys2_simple_example/share/plansys2_simple_example/launch/build/.built_by
+[371.120s] -- Symlinking: /root/plansys2_ws/src/install/plansys2_simple_example/share/plansys2_simple_example/launch/build/COLCON_IGNORE
+[371.212s] -- Symlinking: /root/plansys2_ws/src/install/plansys2_simple_example/share/plansys2_simple_example/launch/install/.colcon_install_layout
+[371.288s] -- Symlinking: /root/plansys2_ws/src/install/plansys2_simple_example/share/plansys2_simple_example/launch/install/COLCON_IGNORE
+[371.374s] -- Symlinking: /root/plansys2_ws/src/install/plansys2_simple_example/share/plansys2_simple_example/launch/install/_local_setup_util_ps1.py
+[371.488s] -- Symlinking: /root/plansys2_ws/src/install/plansys2_simple_example/share/plansys2_simple_example/launch/install/_local_setup_util_sh.py
+[371.593s] -- Symlinking: /root/plansys2_ws/src/install/plansys2_simple_example/share/plansys2_simple_example/launch/install/local_setup.bash
+[371.663s] -- Symlinking: /root/plansys2_ws/src/install/plansys2_simple_example/share/plansys2_simple_example/launch/install/local_setup.ps1
+[371.777s] -- Symlinking: /root/plansys2_ws/src/install/plansys2_simple_example/share/plansys2_simple_example/launch/install/local_setup.sh
+[371.865s] -- Symlinking: /root/plansys2_ws/src/install/plansys2_simple_example/share/plansys2_simple_example/launch/install/local_setup.zsh
+[371.971s] -- Symlinking: /root/plansys2_ws/src/install/plansys2_simple_example/share/plansys2_simple_example/launch/install/setup.bash
+[372.097s] -- Symlinking: /root/plansys2_ws/src/install/plansys2_simple_example/share/plansys2_simple_example/launch/install/setup.ps1
+[372.230s] -- Symlinking: /root/plansys2_ws/src/install/plansys2_simple_example/share/plansys2_simple_example/launch/install/setup.sh
+[372.350s] -- Symlinking: /root/plansys2_ws/src/install/plansys2_simple_example/share/plansys2_simple_example/launch/install/setup.zsh
+[372.441s] -- Symlinking: /root/plansys2_ws/src/install/plansys2_simple_example/share/plansys2_simple_example/launch/log/COLCON_IGNORE
+[372.543s] -- Symlinking: /root/plansys2_ws/src/install/plansys2_simple_example/share/plansys2_simple_example/launch/log/build_2026-02-17_14-07-25/events.log
+[372.640s] -- Symlinking: /root/plansys2_ws/src/install/plansys2_simple_example/share/plansys2_simple_example/launch/log/build_2026-02-17_14-07-25/logger_all.log
+[372.732s] -- Symlinking: /root/plansys2_ws/src/install/plansys2_simple_example/share/plansys2_simple_example/launch/log/build_2026-02-17_17-33-54/events.log
+[372.856s] -- Symlinking: /root/plansys2_ws/src/install/plansys2_simple_example/share/plansys2_simple_example/launch/log/build_2026-02-17_17-33-54/logger_all.log
+[373.022s] -- Symlinking: /root/plansys2_ws/src/install/plansys2_simple_example/share/plansys2_simple_example/launch/log/latest/events.log
+[373.162s] -- Symlinking: /root/plansys2_ws/src/install/plansys2_simple_example/share/plansys2_simple_example/launch/log/latest/logger_all.log
+[373.367s] -- Symlinking: /root/plansys2_ws/src/install/plansys2_simple_example/share/plansys2_simple_example/launch/log/latest_build/events.log
+[373.562s] -- Symlinking: /root/plansys2_ws/src/install/plansys2_simple_example/share/plansys2_simple_example/launch/log/latest_build/logger_all.log
+[373.673s] -- Symlinking: /root/plansys2_ws/src/install/plansys2_simple_example/share/plansys2_simple_example/launch/plansys2_simple_example_launch.py
+[373.796s] -- Symlinking: /root/plansys2_ws/src/install/plansys2_simple_example/share/plansys2_simple_example/pddl/simple_example.pddl
+[373.905s] -- Symlinking: /root/plansys2_ws/src/install/plansys2_simple_example/lib/plansys2_simple_example/move_action_node
+[374.090s] -- Symlinking: /root/plansys2_ws/src/install/plansys2_simple_example/lib/plansys2_simple_example/charge_action_node
+[374.248s] -- Symlinking: /root/plansys2_ws/src/install/plansys2_simple_example/lib/plansys2_simple_example/ask_charge_action_node
+[374.410s] -- Symlinking: /root/plansys2_ws/src/install/plansys2_simple_example/share/ament_index/resource_index/package_run_dependencies/plansys2_simple_example
+[374.724s] -- Symlinking: /root/plansys2_ws/src/install/plansys2_simple_example/share/ament_index/resource_index/parent_prefix_path/plansys2_simple_example
+[374.823s] -- Symlinking: /root/plansys2_ws/src/install/plansys2_simple_example/share/plansys2_simple_example/environment/ament_prefix_path.sh
+[374.966s] -- Symlinking: /root/plansys2_ws/src/install/plansys2_simple_example/share/plansys2_simple_example/environment/ament_prefix_path.dsv
+[375.100s] -- Symlinking: /root/plansys2_ws/src/install/plansys2_simple_example/share/plansys2_simple_example/environment/path.sh
+[375.233s] -- Symlinking: /root/plansys2_ws/src/install/plansys2_simple_example/share/plansys2_simple_example/environment/path.dsv
+[375.372s] -- Symlinking: /root/plansys2_ws/src/install/plansys2_simple_example/share/plansys2_simple_example/local_setup.bash
+[375.492s] -- Symlinking: /root/plansys2_ws/src/install/plansys2_simple_example/share/plansys2_simple_example/local_setup.sh
+[375.653s] -- Symlinking: /root/plansys2_ws/src/install/plansys2_simple_example/share/plansys2_simple_example/local_setup.zsh
+[375.735s] -- Symlinking: /root/plansys2_ws/src/install/plansys2_simple_example/share/plansys2_simple_example/local_setup.dsv
+[375.838s] -- Symlinking: /root/plansys2_ws/src/install/plansys2_simple_example/share/plansys2_simple_example/package.dsv
+[375.958s] -- Symlinking: /root/plansys2_ws/src/install/plansys2_simple_example/share/ament_index/resource_index/packages/plansys2_simple_example
+[376.076s] -- Symlinking: /root/plansys2_ws/src/install/plansys2_simple_example/share/plansys2_simple_example/cmake/ament_cmake_export_dependencies-extras.cmake
+[376.185s] -- Symlinking: /root/plansys2_ws/src/install/plansys2_simple_example/share/plansys2_simple_example/cmake/plansys2_simple_exampleConfig.cmake
+[376.344s] -- Symlinking: /root/plansys2_ws/src/install/plansys2_simple_example/share/plansys2_simple_example/cmake/plansys2_simple_exampleConfig-version.cmake
+[376.424s] -- Symlinking: /root/plansys2_ws/src/install/plansys2_simple_example/share/plansys2_simple_example/package.xml
+[376.611s] Invoked command in '/root/plansys2_ws/src/build/plansys2_simple_example' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --install /root/plansys2_ws/src/build/plansys2_simple_example

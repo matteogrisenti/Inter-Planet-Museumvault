@@ -6,13 +6,12 @@
 
 using namespace std::chrono_literals;
 
-// PDDL duration = 12 → period = 12 * 100ms = 1200ms
 
 class CoolArtifactWhileCarryingSlot1 : public plansys2::ActionExecutorClient
 {
 public:
   CoolArtifactWhileCarryingSlot1()
-  : plansys2::ActionExecutorClient("cool_artifact_while_carrying_slot_1", 1200ms)
+  : plansys2::ActionExecutorClient("cool_artifact_while_carrying_slot_1", 200ms)
   {
     progress_ = 0.0;
   }

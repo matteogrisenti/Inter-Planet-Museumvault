@@ -1,0 +1,8 @@
+source;share/plansys2_simple_example/hook/cmake_prefix_path.ps1
+source;share/plansys2_simple_example/hook/cmake_prefix_path.dsv
+source;share/plansys2_simple_example/hook/cmake_prefix_path.sh
+source;share/plansys2_simple_example/local_setup.bash
+source;share/plansys2_simple_example/local_setup.dsv
+source;share/plansys2_simple_example/local_setup.ps1
+source;share/plansys2_simple_example/local_setup.sh
+source;share/plansys2_simple_example/local_setup.zsh

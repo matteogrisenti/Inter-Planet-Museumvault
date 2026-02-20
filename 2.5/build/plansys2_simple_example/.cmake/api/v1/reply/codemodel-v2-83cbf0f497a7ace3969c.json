@@ -1,0 +1,97 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-.-ad3ccc8ec510c0eb921b.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.12"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4
+					]
+				}
+			],
+			"name" : "",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "plansys2_simple_example",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "ask_charge_action_node::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-ask_charge_action_node-5b7d25532b022864000b.json",
+					"name" : "ask_charge_action_node",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "charge_action_node::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-charge_action_node-91d8d2cda187fa3f8386.json",
+					"name" : "charge_action_node",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "move_action_node::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-move_action_node-8dfcc0f7f1ce2add796c.json",
+					"name" : "move_action_node",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "plansys2_simple_example_uninstall::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-plansys2_simple_example_uninstall-f2aeb303030ee8de1844.json",
+					"name" : "plansys2_simple_example_uninstall",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "uninstall::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-uninstall-8dc672bb0158241a967e.json",
+					"name" : "uninstall",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/root/plansys2_ws/src/build/plansys2_simple_example",
+		"source" : "/root/plansys2_ws/src/plansys2_simple_example"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 3
+	}
+}

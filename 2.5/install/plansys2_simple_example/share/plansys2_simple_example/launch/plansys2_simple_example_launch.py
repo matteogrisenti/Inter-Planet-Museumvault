@@ -1,0 +1,1 @@
+/root/plansys2_ws/src/plansys2_simple_example/launch/plansys2_simple_example_launch.py

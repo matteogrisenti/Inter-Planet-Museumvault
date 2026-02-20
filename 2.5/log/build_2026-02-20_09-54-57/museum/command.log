@@ -1,0 +1,6 @@
+Invoking command in '/root/plansys2_ws/src/build/museum': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake /root/plansys2_ws/src/museum -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/root/plansys2_ws/src/install/museum
+Invoked command in '/root/plansys2_ws/src/build/museum' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake /root/plansys2_ws/src/museum -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/root/plansys2_ws/src/install/museum
+Invoking command in '/root/plansys2_ws/src/build/museum': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /root/plansys2_ws/src/build/museum -- -j8 -l8
+Invoked command in '/root/plansys2_ws/src/build/museum' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /root/plansys2_ws/src/build/museum -- -j8 -l8
+Invoking command in '/root/plansys2_ws/src/build/museum': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --install /root/plansys2_ws/src/build/museum
+Invoked command in '/root/plansys2_ws/src/build/museum' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --install /root/plansys2_ws/src/build/museum

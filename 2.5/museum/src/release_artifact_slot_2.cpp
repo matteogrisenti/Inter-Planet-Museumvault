@@ -6,7 +6,6 @@
 
 using namespace std::chrono_literals;
 
-// PDDL duration = 2 → period = 2 * 100ms = 200ms
 
 class ReleaseArtifactSlot2 : public plansys2::ActionExecutorClient
 {

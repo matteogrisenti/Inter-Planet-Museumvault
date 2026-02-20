@@ -93,8 +93,8 @@
     ;; Martian Core Drills
     (artifact_at mart_nord_core_drill hall_b) (is_type mart_nord_core_drill scientific) (warm mart_nord_core_drill) (no_fragile mart_nord_core_drill)
     (artifact_at mart_sud_core_drill hall_b) (is_type mart_sud_core_drill scientific) (warm mart_sud_core_drill) (no_fragile mart_sud_core_drill)
-    (artifact_at mart_east_core_drill hall_b) (is_type mart_east_core_drill scientific) (warm mart_east_core_drill) (no_fragile mart_east_core_drill)
-    (artifact_at mart_west_core_drill hall_b) (is_type mart_west_core_drill scientific) (warm mart_west_core_drill) (no_fragile mart_west_core_drill)
+    ; (artifact_at mart_east_core_drill hall_b) (is_type mart_east_core_drill scientific) (warm mart_east_core_drill) (no_fragile mart_east_core_drill)
+    ; (artifact_at mart_west_core_drill hall_b) (is_type mart_west_core_drill scientific) (warm mart_west_core_drill) (no_fragile mart_west_core_drill)
 
     ;; Hall A: Samples & Mysterious Egg
     (artifact_at mart_north_pole_ice_sample hall_b) (is_type mart_north_pole_ice_sample scientific) (warm mart_north_pole_ice_sample) (no_fragile mart_north_pole_ice_sample)
@@ -108,9 +108,9 @@
     ; (artifact_at quantum_chip hall_b) (is_type quantum_chip technological) (warm quantum_chip)
 
     ;; Hall B: Samples & Civilization Artifacts
-    ; (artifact_at mart_sand_sample hall_b) (is_type mart_sand_sample scientific) (warm mart_sand_sample)
+    (artifact_at mart_sand_sample hall_b) (is_type mart_sand_sample scientific) (warm mart_sand_sample)
     (artifact_at mart_laser_gun hall_b) (is_type mart_laser_gun top_secret) (warm mart_laser_gun) 
-    (artifact_at mart_pink_hat hall_b) (is_type mart_pink_hat top_secret) (warm mart_pink_hat) 
+    ; (artifact_at mart_pink_hat hall_b) (is_type mart_pink_hat top_secret) (warm mart_pink_hat) 
     ; (artifact_at asteroid_AD29TV_rock_sample hall_b) (is_type asteroid_AD29TV_rock_sample scientific) (warm asteroid_AD29TV_rock_sample) 
     ; (artifact_at venus_sand_sample hall_b) (is_type venus_sand_sample scientific) (warm venus_sand_sample) (no_fragile venus_sand_sample)
     ; (artifact_at venus_rock_sample hall_b) (is_type venus_rock_sample scientific) (warm venus_rock_sample) (no_fragile venus_rock_sample)
@@ -123,8 +123,8 @@
     ;; Final Locations
     (artifact_at mart_nord_core_drill stasis_lab) (cold mart_nord_core_drill)
     (artifact_at mart_sud_core_drill stasis_lab) (cold mart_sud_core_drill)
-    (artifact_at mart_east_core_drill stasis_lab) (cold mart_east_core_drill)
-    (artifact_at mart_west_core_drill stasis_lab) (cold mart_west_core_drill)
+    ; (artifact_at mart_east_core_drill stasis_lab) (cold mart_east_core_drill)
+    ; (artifact_at mart_west_core_drill stasis_lab) (cold mart_west_core_drill)
     ; (artifact_at rover_wheel stasis_lab)
     ; (artifact_at space_suit stasis_lab)
     ; (artifact_at quantum_chip stasis_lab) (cold quantum_chip)
@@ -133,9 +133,9 @@
     (artifact_at mart_mysterious_egg cryo_chamber)    
     ; (artifact_at asteroid_MG04TN_ice_sample cryo_chamber)
 
-    ; (artifact_at mart_sand_sample hall_a)
+    (artifact_at mart_sand_sample hall_a)
     (artifact_at mart_laser_gun hall_a)
-    (artifact_at mart_pink_hat hall_a)  
+    ; (artifact_at mart_pink_hat hall_a)  
     ; (artifact_at asteroid_AD29TV_rock_sample hall_a)  
     ; (artifact_at venus_sand_sample hall_a)
     ; (artifact_at venus_rock_sample hall_a)

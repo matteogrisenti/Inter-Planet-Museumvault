@@ -1,0 +1,1 @@
+/root/plansys2_ws/src/build/plansys2_simple_example/ament_cmake_environment_hooks/local_setup.sh

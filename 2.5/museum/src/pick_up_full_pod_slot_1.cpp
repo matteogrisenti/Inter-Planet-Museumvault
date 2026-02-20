@@ -6,13 +6,12 @@
 
 using namespace std::chrono_literals;
 
-// PDDL duration = 4 → period = 4 * 100ms = 400ms
 
 class PickUpFullPodSlot1 : public plansys2::ActionExecutorClient
 {
 public:
   PickUpFullPodSlot1()
-  : plansys2::ActionExecutorClient("pick_up_full_pod_slot_1", 400ms)
+  : plansys2::ActionExecutorClient("pick_up_full_pod_slot_1", 200ms)
   {
     progress_ = 0.0;
   }

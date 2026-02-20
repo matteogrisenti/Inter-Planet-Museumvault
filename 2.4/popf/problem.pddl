@@ -80,26 +80,6 @@
     ;; ============================================================
     ;; Hall B starts as safe.
     (is_safe hall_b)
-    
-    ;; First Earthquake window
-    (at 10 (not (is_safe hall_b)))
-    (at 31 (is_safe hall_b))
-
-    ;; Second Earthquake window
-    (at 52 (not (is_safe hall_b)))
-    (at 67 (is_safe hall_b))
-
-    ;; Third Earthquake window
-    (at 81 (not (is_safe hall_b)))
-    (at 94 (is_safe hall_b))
-
-    ; Fourth Earthquake window
-    (at 109 (not (is_safe hall_b)))
-    (at 120 (is_safe hall_b))
-
-    ; Fifth Earthquake window
-    (at 158 (not (is_safe hall_b)))
-    (at 169 (is_safe hall_b))
 
     ;; Special Room Properties
     (is_chill_room cryo_chamber)
@@ -115,7 +95,7 @@
     ;; --- HALL A ---
     ;; Martian Core Drills
     (artifact_at mart_nord_core_drill hall_a) (is_type mart_nord_core_drill scientific) (warm mart_nord_core_drill) (no_fragile mart_nord_core_drill)
-    ; (artifact_at mart_sud_core_drill hall_a) (is_type mart_sud_core_drill scientific) (warm mart_sud_core_drill) (no_fragile mart_sud_core_drill)
+    (artifact_at mart_sud_core_drill hall_a) (is_type mart_sud_core_drill scientific) (warm mart_sud_core_drill) (no_fragile mart_sud_core_drill)
     ; (artifact_at mart_east_core_drill hall_a) (is_type mart_east_core_drill scientific) (warm mart_east_core_drill) (no_fragile mart_east_core_drill)
     ; (artifact_at mart_west_core_drill hall_a) (is_type mart_west_core_drill scientific) (warm mart_west_core_drill) (no_fragile mart_west_core_drill)
     
@@ -127,8 +107,8 @@
     ;; --- HALL B ---
     ;; Mission Gear
     ; (artifact_at rover_wheel hall_b) (is_type rover_wheel technological) (warm rover_wheel) (no_fragile rover_wheel)
-    (artifact_at space_suit hall_b) (is_type space_suit technological) (warm space_suit) (no_fragile space_suit)
-    (artifact_at quantum_chip hall_b) (is_type quantum_chip technological) (warm quantum_chip)
+    ; (artifact_at space_suit hall_b) (is_type space_suit technological) (warm space_suit) (no_fragile space_suit)
+    ; (artifact_at quantum_chip hall_b) (is_type quantum_chip technological) (warm quantum_chip)
     ; (artifact_at rusty_lightsaber hall_b) (is_type rusty_lightsaber technological) (warm rusty_lightsaber) (no_fragile rusty_lightsaber)
 
     ;; Hall B: Samples & Civilization Artifacts
@@ -146,13 +126,12 @@
   (:goal (and
     ;; Final Locations
     (artifact_at mart_nord_core_drill stasis_lab) (cold mart_nord_core_drill)
-    ; (artifact_at mart_sud_core_drill stasis_lab) (cold mart_sud_core_drill)
+    (artifact_at mart_sud_core_drill stasis_lab) (cold mart_sud_core_drill)
     ; (artifact_at mart_east_core_drill stasis_lab) (cold mart_east_core_drill)
     ; (artifact_at mart_west_core_drill stasis_lab) (cold mart_west_core_drill)
     ; (artifact_at rover_wheel stasis_lab)
-    (artifact_at space_suit stasis_lab)
-    (artifact_at quantum_chip stasis_lab) (cold quantum_chip)
-    ; (artifact_at rusty_lightsaber stasis_lab) (cold rusty_lightsaber)
+    ; (artifact_at space_suit stasis_lab)
+    ; (artifact_at quantum_chip stasis_lab) (cold quantum_chip)
 
     (artifact_at mart_north_pole_ice_sample cryo_chamber)
     (artifact_at mart_mysterious_egg cryo_chamber)    
@@ -160,10 +139,6 @@
 
     ; (artifact_at mart_sand_sample hall_a)
     (artifact_at mart_laser_gun hall_a)
-    ; (artifact_at mart_pink_hat hall_a)  
-    ; (artifact_at asteroid_AD29TV_rock_sample hall_a)  
-    ; (artifact_at venus_sand_sample hall_a)
-    ; (artifact_at venus_rock_sample hall_a)
     )   
   )
 )

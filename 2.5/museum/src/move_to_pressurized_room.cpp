@@ -6,13 +6,12 @@
 
 using namespace std::chrono_literals;
 
-// PDDL duration = 10 → period = 10 * 100ms = 1000ms
 
 class MoveToPressurizedRoom : public plansys2::ActionExecutorClient
 {
 public:
   MoveToPressurizedRoom()
-  : plansys2::ActionExecutorClient("move_to_pressurized_room", 1000ms)
+  : plansys2::ActionExecutorClient("move_to_pressurized_room", 200ms)
   {
     progress_ = 0.0;
   }
