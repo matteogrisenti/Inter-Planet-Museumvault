@@ -1,44 +1,27 @@
-# Inter Planet Museumvault - Automated Planning
+# 🪐 Interplanetary Museum Vault (IMV) - Planning Project
 
-This project is the implementation of the final evaluation assignment for the university course **Automated Planning**. It requires dealing with different planning solutions to gain hands-on experience with the theoretical topics covered during the lessons.
+Welcome to the **Automated Planning Theory and Practice** project repository! This project models a series of planning scenarios based on the "Interplanetary Museum Vault" assignment.
 
-## Setup - Docker Image
+## 📜 Scenario Overview
+On Mars’ largest research outpost, a subterranean structure called the **Interplanetary Museum Vault (IMV)** stores fragile artifacts from various space missions. Due to a sudden streak of micro-quakes, pressure fluctuations threaten several high-value items. Autonomous robotic curators are deployed to execute stabilization and relocation tasks while avoiding unstable corridors and using limited cryogenic and anti-vibration resources.
 
-Follow the steps below to build and run the project environment.
+### 🏛️ Zones
+*   **Cryo-Chamber**: Maintains sub-zero temperatures (for temperature-sensitive artifacts).
+*   **Anti-Vibration Pods**: Dampen vibrations, crucial for transport (only 2 available).
+*   **Artifact Halls ($\alpha$ and $\beta$)**: Display areas. Hall $\beta$ is unstable during seismic activity.
+*   **Maintenance Tunnel**: A low-pressure area where robots must activate sealing mode.
+*   **Stasis-Lab**: Final safe destination for artifacts.
 
-**Prerequisites**: 
-Ensure you have **Docker Desktop** installed and running on your machine.
+## 📂 Project Structure
 
-**1. Build the Image**:
-Open the terminal inside this project folder and run the following build command:
+Please refer to the detailed `README.md` inside each folder for specific information about the problem variations and execution instructions.
 
-```bash
-docker build --rm --tag myplanutils .
-```
-*Note: This process may take a significant amount of time (up to 30-45 minutes).*
+*   [**Folder 2.1**](./2.1/) - Problem 1: Base formulation with a single generic robotic curator.
+*   [**Folder 2.2**](./2.2/) - Problem 2: Multi-robot specialized capabilities (Admin, Technician, Scientist) and Drones.
+*   [**Folder 2.3**](./2.3/) - Problem 3: Hierarchical Task Networks (HTN) formulation.
+*   [**Folder 2.4**](./2.4/) - Problem 4: Durative Actions and Time-based constraints (TILs).
+*   [**Folder 2.5**](./2.5/) - Problem 5: ROS2 PlanSys2 Execution in a simulated robotic environment.
+*   [**Visualization Tool**](./visualization_tool/) - Tools to visualize the generated plans.
 
-**2. Run the Image**: 
-To run the container, execute this script:
-
-```bash
-docker run -v "/$(pwd):/computer" -it --privileged --rm myplanutils bash
-```
-
-or 
-
-(if first time do also ```chmod +x run_container.sh```):
-
-```bash
-./run_container.sh
-```
-
-
-**3. Activate Planutils**: 
-
-navigate to the repository folder inside the container, then:
-
-```bash
-bash setup.sh
-```
-
-This will install prp planner (answer ```Y``` to the question about installing it) and it will activate the planutils environment (i.e. ```planutils activate```) for you.
+---
+*Developed for the Automated Planning Theory and Practice course by Marco Roveri.*

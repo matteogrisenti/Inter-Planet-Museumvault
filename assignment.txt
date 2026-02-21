@@ -1,0 +1,221 @@
+Assignment for the course
+Automated Planning Theory and Practice
+Academic Year 2025-2026
+Marco Roveri
+marco.roveri@unitn.it
+1 Introduction
+The aim of this assignment is twofold. First to model
+planning problems in PDDL/HDDL to then invoke a state
+of the art planner as those provided by planutils [5]
+or manually compiled (e.g., fast downward [2], or
+optic [1]). Second, to see how a temporal planning model
+could be integrated within a robotic setting leveraging
+the PlanSys2 [4] infrastructure discussed in the lectures
+and available at https://github.com/PlanSys2/
+ros2_planning_system.
+This assignment can be performed alone or in group of at
+most two students.
+Figure 1: Automated Planning and Scheduling - Assign-
+ment 2025-2026
+This year, I propose two scenarios. The first is inspired
+by the space domain. The second is free choice, namely the
+student is asked to propose a scenario that is not related to
+the space domain. The student is free to choose the sce-
+nario, and she/he must provide a brief description of the
+scenario, the initial state, the goal, and the actions that can
+be performed. The student must also provide a brief justifi-
+cation of the choice of the scenario.
+2 Autonomous Preservation Robots
+in an Interplanetary Museum Vault
+scenario
+On Mars’ largest research outpost, a subterranean structure
+— The Interplanetary Museum Vault (IMV) — stores frag-
+ile artifacts from various space missions, asteroid excava-
+tions, and ancient Martian geology samples.
+Due to a sudden micro-quakes streak, pressure fluctu-
+ations threaten several high-value items. The autonomous
+robotic curators must execute a series of stabilization and
+relocation tasks while avoiding unstable corridors and us-
+ing limited cryogenic and anti-vibration resources.
+The vault is divided into zones:
+• Cryo-Chamber: Maintains sub-zero temperatures
+for temperature-sensitive artifacts.
+• Anti-Vibration Pods : Specialized zones that
+dampen vibrations, crucial for transporting delicate
+items (only 2 pods available).
+• Artifact Halls: Two main halls (α and β) where arti-
+facts are displayed. Hall β is unstable during certain
+periods due to seismic activity, while Hall α remains
+stable.
+• Maintenance Tunnel: A low-pressure area requiring
+the robotic curators to activate their sealing mode for
+safe passage.
+• Stasis-Lab: The final safe destination for all artifacts,
+equipped with advanced preservation technology.
+The robotic curators have the folloowing goals:
+• Retrieve Artifacts from Artifact Hall β (only accessi-
+ble outside seismic windows).
+• Place retrieved artifacts into an Anti-Vibration Pod
+before transporting them.
+• Transfer artifacts Artifact Hall α to the Cryo-
+Chamber, ensuring their temperature never rises
+above a threshold (requires cooling them).
+• Relocate the Martian Core Samples from the Cryo-
+Chamber to the Stasis-Lab.
+The robotic curators must navigate the vault, managing
+their resources and ensuring the safety of all artifacts while
+adapting to the dynamic environment caused by seismic ac-
+tivity.
+2.1 The Problems
+The assignment is structured in 5 sub problems to be solved
+in sequence where the second builds on the first, both the
+third and the fourth build on the second, the fifth builds on
+the fourth.
+2.1.1 Problem 1
+Initial condition
+1
+• Initially all the artifacts are positioned in the rooms
+as discussed above.
+• There is a single robotic curator to move artifacts, ini-
+tially located at the entrance of the vault.
+• The robotic curator can move between the different
+locations (rooms) of the vault, and can carry one arti-
+fact at a time.
+There are no particular restrictions on the number of ar-
+tifacts available, and constraints. The problem considers
+several design modeling choices left unspecified and that
+each student shall consider and specify in her/his solution.
+Goal The goal should be that the artifacts are moved to
+their respective destinations, following the constraints dis-
+cussed above.
+2.1.2 Problem 2
+We leverage the scenario in Section 2.1.1 with the following
+extensions, where we will have to consider an alternative
+way of moving artifacts (e.g., robotic curators with different
+capabilities or drones), and the fact that the robotic agents
+are allowed to have maximum capacity.
+It might be the case additional actions, or modifications
+of the previously defined actions are needed to model load-
+ing/unloading/moving of the artifacts on the robotic curator
+(one can either keep previous actions and add new ones to
+e.g., consider the capacity of the robotic curator, and the
+kind of robotic curator).
+The initial condition and the goal are the same as the
+problem discussed in Section 2.1.1.
+2.1.3 Problem 3
+We leverage the scenario in Section 2.1.2, but in this case
+we need to address the problem with hierarchical task net-
+works (HTN). To this extent, it is suggested to keep the
+same actions as per the solution proposed for Problem 2.1.2,
+the same initial condition and the same goal (encoded as an
+HTN). However, here the candidate shall introduce:tasks
+and :methods following approaches similar to those dis-
+cussed in the Lab session on HTN.
+2.1.4 Problem 4
+We leverage the scenario in Section 2.1.2 with the following
+extensions.
+• Convert the domain defined in Section 2.1.2 to use
+durative actions. Choose arbitrary (but reasonable
+durations) for the different actions.
+• Consider the possibility to have actions to be exe-
+cuted in parallel when this would be possible in re-
+ality. For example, a robotic curator cannot pick up
+several artifacts at the same time, or pick up an arti-
+fact and if it is a drone fly to a destination at the same
+time.
+The initial condition and the goal are the same as the
+problem discussed in Section 2.1.2.
+2.1.5 Problem 5
+The final problem consists in implementing within the
+PlanSys2 the last problem resulting as outcome of Sec-
+tion 2.1.4 using fake actions as discussed in the tutorials of
+PlanSys2 available at [3]. To facilitate the executions, if
+needed the candidate can enforce that no actions execute in
+parallel.
+3 Free choice scenario
+For the free choice scenario, the student is asked to propose
+a scenario different from the one proposed in the space do-
+main. The student is free to choose the scenario, and she/he
+must provide a brief description of the scenario, the initial
+state, the goal, and the actions that can be performed. The
+student must also provide a brief justification of the choice
+of the scenario. The scenario must be complex enough to
+require the use of HTN, and must follow the same structure
+of the space scenario (i.e. it must be composed of steps that
+build on each other), and in the last step it must be shown a
+simple deployment in PlanSys2.
+4 Deliverables
+The deliverable shall consist of a unique archive containing
+at least the following contents:
+• The PDDL/HDDL files (domain and problems) for
+each of the problems discussed in Sections 2.1.1,
+2.1.2, 2.1.3, and 2.1.4 and similar contents for the
+free choice scenario, possibly organized in folders.
+All the PDDL/HDDL files shall be valid ones, and
+shall be parsable correctly by at least one planner (it
+shall be specified which one, and discussed why the
+planner has been chosen). The options used to run
+the chosen planner shall be specified.
+• A folder containing all the code to execute the
+PlanSys2 problem as discussed in Section 2.1.5 or
+of the equivalent for the free choice scenario.
+• A professional report in PDF describing: (i) a brief
+description summarizing the understanding of the
+problems for the health care scenario, or for the free
+choice scenario a description of the scenario, the ini-
+tial state, the goal, and the actions that can be per-
+formed, and a brief justification of the choice of
+the scenario with assumptions if any; (ii) the ap-
+proach followed, justifying and documenting all the
+design choices (e.g., predicates, actions, ...); (iii) pos-
+sible additional assumptions (for the part left under-
+specifed), and in case of deviation from the specifi-
+cation in this document a clear justification. Finally,
+the document shall include evidence of the attempts
+to solve the PDDL problems formulated, and run-
+ning the final version within PlanSys2 (in form of
+screenshots and/or output generated by the planner).
+– The report shall also discuss the content of the
+archive and how it has been organized.
+– The report shall also contain a critical discus-
+sion of the results obtained.
+2
+– It would be appreciated experimenting with
+different solvers and/or options (e.g., different
+heuristics), discuss possible differences in the
+generated solutions, and also some scalabil-
+ity analysis (e.g., considering different initial
+states, size of the problem, number of agents,
+number of locations).
+The submission shall be performed only through the
+web form available at the following URL:
+Submission Form
+https://forms.gle/u94MEuBb1wiBqdke7
+References
+[1] J. Benton, Amanda Jane Coles, and Andrew Coles.
+Temporal planning with preferences and time-
+dependent continuous costs. In Lee McCluskey,
+Brian Charles Williams, Jos ´e Reinaldo Silva, and Blai
+Bonet, editors, Proceedings of the Twenty-Second
+International Conference on Automated Planning
+and Scheduling, ICAPS 2012, Atibaia, S ˜ao Paulo,
+Brazil, June 25-19, 2012 . AAAI, 2012. URL
+http://www.aaai.org/ocs/index.php/
+ICAPS/ICAPS12/paper/view/4699. (page 1)
+[2] Malte Helmert. The fast downward planning system. J.
+Artif. Intell. Res., 26:191–246, 2006. (page 1)
+[3] Francisco Mart ´ın and colleagues. PlanSys2 Tu-
+torials, 2022. https://plansys2.github.io/
+tutorials/index.html. (page 2)
+[4] Francisco Mart ´ın, Jonatan Gin ´es, Francisco J.
+Rodr´ıguez, and Vicente Matell ´an. PlanSys2: A
+Planning System Framework for ROS2. In IEEE/RSJ
+International Conference on Intelligent Robots
+and Systems, IROS 2021, Prague, Czech Republic,
+September 27 - October 1, 2021 . IEEE, 2021. (page 1)
+[5] Cristian Muise and other contributors. PLANU -
+TILS , 2021. General library for setting up
+linux-based environments for developing, running,
+and evaluating planners. https://github.com/
+AI-Planning/planutils. (page 1)
+3
