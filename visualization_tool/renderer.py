@@ -101,7 +101,7 @@ class StateParser:
                 get_drone(args[0])['holding'] = args[1]
 
             # --- ARTIFACTS ---
-            elif pred == 'artifact-at':
+            elif pred in ('artifact-at', 'artifact_at'):
                 art_type = None
                 art_color = '#FF6B6B'  # Default warm red
                 
@@ -117,13 +117,13 @@ class StateParser:
                     'type': art_type,
                     'color': art_color
                 }
-            elif pred == 'cold':
+            elif pred in ('cold', ):
                 if args[0] in state['artifacts']:
                     state['artifacts'][args[0]]['temp'] = 'cold'
                     # Update color if we have metadata
                     if artifact_metadata and args[0] in artifact_metadata:
                         state['artifacts'][args[0]]['color'] = artifact_metadata[args[0]].get('display_color')
-            elif pred == 'warm':
+            elif pred in ('warm', ):
                 if args[0] in state['artifacts']:
                     state['artifacts'][args[0]]['temp'] = 'warm'
                     if artifact_metadata and args[0] in artifact_metadata:
