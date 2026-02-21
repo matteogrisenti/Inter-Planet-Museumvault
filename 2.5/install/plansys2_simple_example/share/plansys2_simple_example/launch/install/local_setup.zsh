@@ -1,1 +1,0 @@
-/root/plansys2_ws/src/plansys2_simple_example/launch/install/local_setup.zsh

@@ -1,1 +1,0 @@
-/root/plansys2_ws/src/plansys2_simple_example/pddl/simple_example.pddl
