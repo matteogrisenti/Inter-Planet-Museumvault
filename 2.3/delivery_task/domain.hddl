@@ -1,548 +1,616 @@
+;; ============================================================================
+;; DOMAIN: multi-robot-hierarchical
+;; DESCRIPTION:
+;; A Hierarchical Task Network (HTN) domain for managing a multi-agent robotic 
+;; system in a hazardous environment (e.g., an Interplanetary Museum Vault).
+;; The domain handles complex logistics, including inventory constraints (multi-slot), 
+;; environmental hazards (seismic/unpressurized zones), and specific artifact 
+;; requirements (fragility needing pods, and thermal stabilization needing cryo-rooms).
+;; ============================================================================
+
 (define (domain multi-robot-hierarchical)
-    (:requirements :strips :typing :hierarchy)
+    (:requirements :strips :typing :hierarchy)
 
-    ;; ========================
-    ;; TIPI E PREDICATI
-    ;; ========================
-    (:types
-        robot             ; Gli agenti (Curator, Technician, Scientist)
-        pod               ; Contenitori anti-vibrazione per oggetti fragili
-        location          ; Stanze e tunnel
-        artifact          ; Gli artefatti da recuperare
-        artifact-type     ; Categorie degli artefatti
-    )
+    ;; ========================
+    ;; TYPES & PREDICATES
+    ;; ========================
+    (:types
+        robot             ; Agents: Curator, Technician, Scientist
+        pod               ; Anti-vibration containers
+        location          ; Nodes in the topological graph
+        artifact          ; The target items to be transported
+        artifact-type     ; Categories governing pick-up permissions
+    )
 
-    (:predicates
-        (robot-at ?r - robot ?l - location)
-        (sealing-mode ?r - robot)
-        
-        (hands-empty-slot-1 ?r - robot)
-        (carrying-slot-1 ?r - robot ?a - artifact)
-        (carrying-pod-slot-1 ?r - robot ?p - pod)
-        
-        (hands-empty-slot-2 ?r - robot)
-        (carrying-slot-2 ?r - robot ?a - artifact)             
+    (:predicates
+        ;; --- Robot Physical & System State ---
+        (robot-at ?r - robot ?l - location)
+        (sealing-mode ?r - robot) ; Indicates if the robot's vacuum seal is active
+        
+        ;; --- Primary Inventory (Slot 1: Used for pods or single artifacts) ---
+        (hands-empty-slot-1 ?r - robot)
+        (carrying-slot-1 ?r - robot ?a - artifact)
+        (carrying-pod-slot-1 ?r - robot ?p - pod)
+        
+        ;; --- Secondary Inventory (Slot 2: Exclusively for high-capacity robots) ---
+        (hands-empty-slot-2 ?r - robot)
+        (carrying-slot-2 ?r - robot ?a - artifact)             
 
-        (can-access ?r - robot ?l - location)
-        (can-pickup ?r - robot ?at - artifact-type)
-        (can-carry-two ?r - robot)
-        
-        (connected ?l1 ?l2 - location)
-        (is-pressurized ?l - location)
-        (is-unpressurized ?l - location)
-        (is-safe ?l - location)
-        (is-seismic ?l - location)
-        (is-standard-room ?l - location)
-        (is-chill-room ?l - location)
+        ;; --- Robot Capabilities & Clearances ---
+        (can-access ?r - robot ?l - location)       ; Spatial clearance
+        (can-pickup ?r - robot ?at - artifact-type) ; Manipulation permission
+        (can-carry-two ?r - robot)                  ; High-payload capacity flag (e.g., Technician)
+        
+        ;; --- Environment & Topology ---
+        (connected ?l1 ?l2 - location)
+        (is-pressurized ?l - location)
+        (is-unpressurized ?l - location) ; Requires sealing-mode active
+        (is-safe ?l - location)
+        (is-seismic ?l - location)       ; Hazardous area requiring safety checks
+        (is-standard-room ?l - location)
+        (is-chill-room ?l - location)    ; Required destination/waypoint for warm artifacts
 
-        (artifact-at ?a - artifact ?l - location)
-        (is-type ?a - artifact ?t - artifact-type)
-        (fragile ?a - artifact)
-        (no-fragile ?a - artifact)
-        (warm ?a - artifact)
-        (cold ?a - artifact)
-        
-        (pod-empty ?p - pod)
-        (pod-contains ?p - pod ?a - artifact)
-        (pod-at ?p - pod ?l - location)
-    )
+        ;; --- Artifact Properties & State ---
+        (artifact-at ?a - artifact ?l - location)
+        (is-type ?a - artifact ?t - artifact-type)
+        (fragile ?a - artifact)          ; Must be transported inside a pod
+        (no-fragile ?a - artifact)       ; Can be handled directly
+        (warm ?a - artifact)             ; Needs to be cooled
+        (cold ?a - artifact)             ; Cooled state achieved
+        
+        ;; --- Pod State ---
+        (pod-empty ?p - pod)
+        (pod-contains ?p - pod ?a - artifact)
+        (pod-at ?p - pod ?l - location)
+    )
 
-    ;; ========================
-    ;; TASKS (Abstract Goals)
-    ;; ========================
-    
-    (:task delivery
-        :parameters (?r - robot ?a - artifact ?from - location ?to - location ?at - artifact-type)
-    )
+    ;; ========================
+    ;; TASKS 
+    ;; ========================
+    ;; These abstract tasks define the high-level operational pipeline. They do not 
+    ;; modify the state directly but are decomposed into primitive actions by the methods.
+    
+    ;; Master task: Coordinates the entire transport process of an artifact.
+    (:task delivery
+        :parameters (?r - robot ?a - artifact ?from - location ?to - location ?at - artifact-type)
+    )
 
-    (:task prepare_robot
-        :parameters (?r - robot ?start_loc - location ?artifact_loc - location)
-    )
-    (:task load_artifact
-        :parameters (?r - robot ?a - artifact ?at - artifact-type ?loc - location)
-    )
-    (:task transport_to_target
-        :parameters (?r - robot ?a - artifact ?at - artifact-type ?curr_loc - location ?target_loc - location)
-    )
-    (:task unload_artifact
-        :parameters (?r - robot ?a - artifact ?loc - location)
-    )
+    ;; Subtask 1: Ensures the robot is at the right place, with the right equipment (e.g., a pod).
+    (:task prepare_robot
+        :parameters (?r - robot ?start_loc - location ?artifact_loc - location)
+    )
+    ;; Subtask 2: Handles the physics of picking up the item or placing it in a pod.
+    (:task load_artifact
+        :parameters (?r - robot ?a - artifact ?at - artifact-type ?loc - location)
+    )
+    ;; Subtask 3: Navigates to the destination, routing through cryo-chambers if needed.
+    (:task transport_to_target
+        :parameters (?r - robot ?a - artifact ?at - artifact-type ?curr_loc - location ?target_loc - location)
+    )
+    ;; Subtask 4: Drops the artifact and manages post-delivery pod logistics.
+    (:task unload_artifact
+        :parameters (?r - robot ?a - artifact ?loc - location)
+    )
 
-    (:task get_to
-        :parameters (?r - robot ?from - location ?to - location)
-    )
-    (:task step
-        :parameters (?r - robot ?from - location ?to - location)
-    )
+    ;; Motion Subtasks: Abstract pathfinding and edge-traversal.
+    (:task get_to
+        :parameters (?r - robot ?from - location ?to - location)
+    )
+    (:task step
+        :parameters (?r - robot ?from - location ?to - location)
+    )
 
-    ;; ========================
-    ;; METODI TOP-LEVEL (Interfaccia)
-    ;; ========================
+    ;; ========================
+    ;; METODS TOP-LEVEL 
+    ;; ========================
 
-    ;; L'Alto Livello ci garantisce che questo frammento di viaggio è sicuro e diretto.
-    (:method m_delivery_direct
-        :parameters (?r - robot ?a - artifact ?from - location ?to - location ?at - artifact-type 
-                     ?r_loc - location) 
-        
-        :task (delivery ?r ?a ?from ?to ?at) 
-        
-        :precondition (and
-            (artifact-at ?a ?from)
-            (robot-at ?r ?r_loc)       
-        )
-        :subtasks (and
-            (t0 (prepare_robot ?r ?r_loc ?from)) 
-            (t1 (load_artifact ?r ?a ?at ?from))
-            (t2 (transport_to_target ?r ?a ?at ?from ?to))
-        )
-        :ordering (and (t0 < t1) (t1 < t2))
-    )
+    ;; The High Level guarantees this travel fragment is safe and direct.
+    ;; This method breaks down the 'delivery' task into a strict pipeline: 
+    ;; Prepare -> Load -> Transport.
+    (:method m_delivery_direct
+        :parameters (?r - robot ?a - artifact ?from - location ?to - location ?at - artifact-type 
+                     ?r_loc - location) 
+        
+        :task (delivery ?r ?a ?from ?to ?at) 
+        
+        :precondition (and
+            (artifact-at ?a ?from)
+            (robot-at ?r ?r_loc)       
+        )
+        :subtasks (and
+            (t0 (prepare_robot ?r ?r_loc ?from)) 
+            (t1 (load_artifact ?r ?a ?at ?from))
+            (t2 (transport_to_target ?r ?a ?at ?from ?to))
+        )
+        :ordering (and (t0 < t1) (t1 < t2))
+    )
 
-    ;; ========================
-    ;; METODI SOTTOSTANTI E AZIONI (Perfettamente Invariati)
-    ;; ========================
+    ;; ========================
+    ;; OTHER METODS
+    ;; ========================
 
+    ;; --- PHASE 1: Robot Preparation ---
+    
+    ;; Method: Direct approach when no pod is required or the robot is unencumbered.
+    (:method m_prep_direct
+        :parameters (?r - robot ?start_loc - location ?artifact_loc - location)
+        :task (prepare_robot ?r ?start_loc ?artifact_loc)
+        :precondition (robot-at ?r ?start_loc)
+        :subtasks (task0 (get_to ?r ?start_loc ?artifact_loc))
+    )
 
-    ;; --- FASE 1: PREPARAZIONE DEL ROBOT ---
-    
-    (:method m_prep_direct
-        :parameters (?r - robot ?start_loc - location ?artifact_loc - location)
-        :task (prepare_robot ?r ?start_loc ?artifact_loc)
-        :precondition (robot-at ?r ?start_loc)
-        :subtasks (task0 (get_to ?r ?start_loc ?artifact_loc))
-    )
+    ;; Method: Fetch a pod before retrieving the artifact (for fragile items).
+    (:method m_prep_fetch_pod
+        :parameters (?r - robot ?start_loc - location ?artifact_loc - location ?pod_loc - location ?p - pod)
+        :task (prepare_robot ?r ?start_loc ?artifact_loc)
+        :precondition (and
+            (robot-at ?r ?start_loc)
+            (pod-at ?p ?pod_loc)
+            (pod-empty ?p)
+            (can-access ?r ?pod_loc)
+        )
+        :subtasks (and
+            (task0 (get_to ?r ?start_loc ?pod_loc))
+            (task1 (pick-up-pod-slot-1 ?r ?pod_loc ?p))
+            (task2 (get_to ?r ?pod_loc ?artifact_loc))
+        )
+        :ordering (and (task0 < task1) (task1 < task2))
+    )
 
-    (:method m_prep_fetch_pod
-        :parameters (?r - robot ?start_loc - location ?artifact_loc - location ?pod_loc - location ?p - pod)
-        :task (prepare_robot ?r ?start_loc ?artifact_loc)
-        :precondition (and
-            (robot-at ?r ?start_loc)
-            (pod-at ?p ?pod_loc)
-            (pod-empty ?p)
-            (can-access ?r ?pod_loc)
-        )
-        :subtasks (and
-            (task0 (get_to ?r ?start_loc ?pod_loc))
-            (task1 (pick-up-pod-slot-1 ?r ?pod_loc ?p))
-            (task2 (get_to ?r ?pod_loc ?artifact_loc))
-        )
-        :ordering (and (task0 < task1) (task1 < task2))
-    )
+    ;; Method: Drop an existing pod to free up slot-1 before fetching a non-fragile item.
+    (:method m_prep_drop_pod_first
+        :parameters (?r - robot ?start_loc - location ?artifact_loc - location ?p - pod)
+        :task (prepare_robot ?r ?start_loc ?artifact_loc)
+        :precondition (and
+            (robot-at ?r ?start_loc)
+            (carrying-pod-slot-1 ?r ?p)
+        )
+        :subtasks (and
+            (task0 (drop-pod-slot-1 ?r ?p ?start_loc))
+            (task1 (get_to ?r ?start_loc ?artifact_loc))
+        )
+        :ordering (and (task0 < task1))
+    )
 
-    (:method m_prep_drop_pod_first
-        :parameters (?r - robot ?start_loc - location ?artifact_loc - location ?p - pod)
-        :task (prepare_robot ?r ?start_loc ?artifact_loc)
-        :precondition (and
-            (robot-at ?r ?start_loc)
-            (carrying-pod-slot-1 ?r ?p)
-        )
-        :subtasks (and
-            (task0 (drop-pod-slot-1 ?r ?p ?start_loc))
-            (task1 (get_to ?r ?start_loc ?artifact_loc))
-        )
-        :ordering (and (task0 < task1))
-    )
+    ;; --- PHASE 2: Artifact Loading ---
 
-    ;; --- FASE 2: CARICAMENTO ---
+    ;; Method: Loads a fragile artifact into a carried pod.
+    (:method m_load_into_pod
+        :parameters (?r - robot ?a - artifact ?at - artifact-type ?loc - location ?p - pod)
+        :task (load_artifact ?r ?a ?at ?loc)
+        :subtasks (task0 (put-in-pod ?a ?at ?loc ?r ?p))
+    )
+    
+    ;; Method: Picks up an artifact using the primary inventory slot.
+    (:method m_load_slot_1
+        :parameters (?r - robot ?a - artifact ?at - artifact-type ?loc - location)
+        :task (load_artifact ?r ?a ?at ?loc)
+        :subtasks (task0 (pick-up-slot-1 ?a ?at ?loc ?r))
+    )
+    
+    ;; Method: Picks up an artifact using the secondary inventory slot (requires can-carry-two).
+    (:method m_load_slot_2
+        :parameters (?r - robot ?a - artifact ?at - artifact-type ?loc - location)
+        :task (load_artifact ?r ?a ?at ?loc)
+        :subtasks (task0 (pick-up-slot-2 ?a ?at ?loc ?r))
+    )
 
-    (:method m_load_into_pod
-        :parameters (?r - robot ?a - artifact ?at - artifact-type ?loc - location ?p - pod)
-        :task (load_artifact ?r ?a ?at ?loc)
-        :subtasks (task0 (put-in-pod ?a ?at ?loc ?r ?p))
-    )
-    
-    (:method m_load_slot_1
-        :parameters (?r - robot ?a - artifact ?at - artifact-type ?loc - location)
-        :task (load_artifact ?r ?a ?at ?loc)
-        :subtasks (task0 (pick-up-slot-1 ?a ?at ?loc ?r))
-    )
-    
-    (:method m_load_slot_2
-        :parameters (?r - robot ?a - artifact ?at - artifact-type ?loc - location)
-        :task (load_artifact ?r ?a ?at ?loc)
-        :subtasks (task0 (pick-up-slot-2 ?a ?at ?loc ?r))
-    )
+    ;; --- PHASE 3: Transport & Cooling ---
 
-    ;; --- FASE 3: TRASPORTO (E RAFFREDDAMENTO) ---
+    ;; Method: Standard direct transport from current location to target.
+    (:method m_transport_direct
+        :parameters (?r - robot ?a - artifact ?at - artifact-type ?curr_loc - location ?target_loc - location)
+        :task (transport_to_target ?r ?a ?at ?curr_loc ?target_loc)
+        :subtasks (and
+            (task0 (get_to ?r ?curr_loc ?target_loc))
+            (task1 (unload_artifact ?r ?a ?target_loc))
+        )
+        :ordering (and (task0 < task1))
+    )
 
-    (:method m_transport_direct
-        :parameters (?r - robot ?a - artifact ?at - artifact-type ?curr_loc - location ?target_loc - location)
-        :task (transport_to_target ?r ?a ?at ?curr_loc ?target_loc)
-        :subtasks (and
-            (task0 (get_to ?r ?curr_loc ?target_loc))
-            (task1 (unload_artifact ?r ?a ?target_loc))
-        )
-        :ordering (and (task0 < task1))
-    )
+    ;; Method: Interrupted transport. Routes the robot to a cryo-chamber to chill a warm artifact.
+    (:method m_transport_chill
+        :parameters (?r - robot ?a - artifact ?at - artifact-type ?curr_loc - location ?target_loc - location ?cryo_loc - location)
+        :task (transport_to_target ?r ?a ?at ?curr_loc ?target_loc)
+        :precondition (and
+            (is-chill-room ?cryo_loc)
+            ;; BLOCCO 4: Can the robot enter the fridge?
+            (can-access ?r ?cryo_loc)
+        )
+        :subtasks (and
+            (task0 (get_to ?r ?curr_loc ?cryo_loc))        ; Travel to Cryo
+            (task1 (unload_artifact ?r ?a ?cryo_loc))      ; Drop to cool
+            (task2 (load_artifact ?r ?a ?at ?cryo_loc))    ; Pick back up
+            (task3 (get_to ?r ?cryo_loc ?target_loc))      ; Continue to final target
+            (task4 (unload_artifact ?r ?a ?target_loc))    ; Final drop
+        )
+        :ordering (and (task0 < task1) (task1 < task2) (task2 < task3) (task3 < task4))
+    )
 
-    (:method m_transport_chill
-        :parameters (?r - robot ?a - artifact ?at - artifact-type ?curr_loc - location ?target_loc - location ?cryo_loc - location)
-        :task (transport_to_target ?r ?a ?at ?curr_loc ?target_loc)
-        :precondition (and
-            (is-chill-room ?cryo_loc)
-            ;; BLOCCO 4: Il robot può entrare nel frigo?
-            (can-access ?r ?cryo_loc)
-        )
-        :subtasks (and
-            (task0 (get_to ?r ?curr_loc ?cryo_loc))
-            (task1 (unload_artifact ?r ?a ?cryo_loc))
-            (task2 (load_artifact ?r ?a ?at ?cryo_loc))
-            (task3 (get_to ?r ?cryo_loc ?target_loc))
-            (task4 (unload_artifact ?r ?a ?target_loc))
-        )
-        :ordering (and (task0 < task1) (task1 < task2) (task2 < task3) (task3 < task4))
-    )
+    ;; --- Phase 4: Unload Methods & Room Type Constraints ---
+    ;; These methods map the generic 'unload_artifact' task to highly specific 
+    ;; primitive actions depending on the inventory slot, room type, and pod presence.
 
-    ;; --- FASE 4: RILASCIO (Vincoli sui tipi di stanza) ---
+    ;; Unload from Slot-1 in a Standard Room
+    (:method m_unload_s1_std
+        :parameters (?r - robot ?a - artifact ?loc - location)
+        :task (unload_artifact ?r ?a ?loc)
+        :precondition (is-standard-room ?loc) ;; Solo in stanze normali (Standard rooms only)
+        :subtasks (task0 (release-artifact-slot-1 ?r ?a ?loc))
+    )
+    ;; Unload from Slot-1 in a Cryo Room (triggers chilling effect)
+    (:method m_unload_s1_cryo
+        :parameters (?r - robot ?a - artifact ?loc - location)
+        :task (unload_artifact ?r ?a ?loc)
+        :precondition (is-chill-room ?loc) ;; Solo nel frigo (Cryo room only)
+        :subtasks (task0 (release-artifact-cryo-slot-1 ?r ?a ?loc))
+    )
 
-    (:method m_unload_s1_std
-        :parameters (?r - robot ?a - artifact ?loc - location)
-        :task (unload_artifact ?r ?a ?loc)
-        :precondition (is-standard-room ?loc) ;; Solo in stanze normali
-        :subtasks (task0 (release-artifact-slot-1 ?r ?a ?loc))
-    )
-    (:method m_unload_s1_cryo
-        :parameters (?r - robot ?a - artifact ?loc - location)
-        :task (unload_artifact ?r ?a ?loc)
-        :precondition (is-chill-room ?loc) ;; Solo nel frigo
-        :subtasks (task0 (release-artifact-cryo-slot-1 ?r ?a ?loc))
-    )
+    ;; Unload from Slot-2 in a Standard Room
+    (:method m_unload_s2_std
+        :parameters (?r - robot ?a - artifact ?loc - location)
+        :task (unload_artifact ?r ?a ?loc)
+        :precondition (is-standard-room ?loc)
+        :subtasks (task0 (release-artifact-slot-2 ?r ?a ?loc))
+    )
+    ;; Unload from Slot-2 in a Cryo Room (triggers chilling effect)
+    (:method m_unload_s2_cryo
+        :parameters (?r - robot ?a - artifact ?loc - location)
+        :task (unload_artifact ?r ?a ?loc)
+        :precondition (is-chill-room ?loc)
+        :subtasks (task0 (release-artifact-cryo-slot-2 ?r ?a ?loc))
+    )
+    
+    ;; Unload an artifact from a Pod (Slot-1) in a Standard Room, keeping the pod equipped
+    (:method m_unload_pod_keep_std
+        :parameters (?r - robot ?a - artifact ?loc - location ?p - pod)
+        :task (unload_artifact ?r ?a ?loc)
+        :precondition (is-standard-room ?loc)
+        :subtasks (task0 (release-artifact-from-pod-slot-1 ?r ?a ?loc ?p))
+    )
 
-    (:method m_unload_s2_std
-        :parameters (?r - robot ?a - artifact ?loc - location)
-        :task (unload_artifact ?r ?a ?loc)
-        :precondition (is-standard-room ?loc)
-        :subtasks (task0 (release-artifact-slot-2 ?r ?a ?loc))
-    )
-    (:method m_unload_s2_cryo
-        :parameters (?r - robot ?a - artifact ?loc - location)
-        :task (unload_artifact ?r ?a ?loc)
-        :precondition (is-chill-room ?loc)
-        :subtasks (task0 (release-artifact-cryo-slot-2 ?r ?a ?loc))
-    )
-    
-    (:method m_unload_pod_keep_std
-        :parameters (?r - robot ?a - artifact ?loc - location ?p - pod)
-        :task (unload_artifact ?r ?a ?loc)
-        :precondition (is-standard-room ?loc)
-        :subtasks (task0 (release-artifact-from-pod-slot-1 ?r ?a ?loc ?p))
-    )
+    ;; Unload an artifact from a Pod (Slot-1) in a Standard Room, then drop the empty pod
+    (:method m_unload_pod_drop_std
+        :parameters (?r - robot ?a - artifact ?loc - location ?p - pod)
+        :task (unload_artifact ?r ?a ?loc)
+        :precondition (is-standard-room ?loc)
+        :subtasks (and 
+            (task0 (release-artifact-from-pod-slot-1 ?r ?a ?loc ?p))
+            (task1 (drop-pod-slot-1 ?r ?p ?loc))
+        )
+        :ordering (and (task0 < task1))
+    )
 
-    (:method m_unload_pod_drop_std
-        :parameters (?r - robot ?a - artifact ?loc - location ?p - pod)
-        :task (unload_artifact ?r ?a ?loc)
-        :precondition (is-standard-room ?loc)
-        :subtasks (and 
-            (task0 (release-artifact-from-pod-slot-1 ?r ?a ?loc ?p))
-            (task1 (drop-pod-slot-1 ?r ?p ?loc))
-        )
-        :ordering (and (task0 < task1))
-    )
+    ;; Unload an artifact from a Pod (Slot-1) in a Cryo Room, keeping the pod equipped
+    (:method m_unload_pod_keep_cryo
+        :parameters (?r - robot ?a - artifact ?loc - location ?p - pod)
+        :task (unload_artifact ?r ?a ?loc)
+        :precondition (is-chill-room ?loc)
+        :subtasks (task0 (release-artifact-cryo-from-pod-slot-1 ?r ?a ?loc ?p))
+    )
 
-    (:method m_unload_pod_keep_cryo
-        :parameters (?r - robot ?a - artifact ?loc - location ?p - pod)
-        :task (unload_artifact ?r ?a ?loc)
-        :precondition (is-chill-room ?loc)
-        :subtasks (task0 (release-artifact-cryo-from-pod-slot-1 ?r ?a ?loc ?p))
-    )
+    ;; Unload an artifact from a Pod (Slot-1) in a Cryo Room, then drop the empty pod
+    (:method m_unload_pod_drop_cryo
+        :parameters (?r - robot ?a - artifact ?loc - location ?p - pod)
+        :task (unload_artifact ?r ?a ?loc)
+        :precondition (is-chill-room ?loc)
+        :subtasks (and 
+            (task0 (release-artifact-cryo-from-pod-slot-1 ?r ?a ?loc ?p))
+            (task1 (drop-pod-slot-1 ?r ?p ?loc))
+        )
+        :ordering (and (task0 < task1))
+    )
 
-    (:method m_unload_pod_drop_cryo
-        :parameters (?r - robot ?a - artifact ?loc - location ?p - pod)
-        :task (unload_artifact ?r ?a ?loc)
-        :precondition (is-chill-room ?loc)
-        :subtasks (and 
-            (task0 (release-artifact-cryo-from-pod-slot-1 ?r ?a ?loc ?p))
-            (task1 (drop-pod-slot-1 ?r ?p ?loc))
-        )
-        :ordering (and (task0 < task1))
-    )
+    ;; ========================
+    ;; Navigation & Pathfinding Metods
+    ;; ========================
+    ;; Recursively/Iteratively resolves multi-node paths without teleportation.
 
-    ;; ========================
-    ;; METODI DI NAVIGAZIONE (Anti-Teletrasporto)
-    ;; ========================
+    ;; Base case: The robot is already at the target destination.
+    (:method m_get_to_stay
+        :parameters (?r - robot ?l - location)
+        :task (get_to ?r ?l ?l)
+        :subtasks (task0 (stay-at ?r ?l))
+    )
 
-    (:method m_get_to_stay
-        :parameters (?r - robot ?l - location)
-        :task (get_to ?r ?l ?l)
-        :subtasks (task0 (stay-at ?r ?l))
-    )
+    ;; Base case: The target is immediately adjacent to the current node.
+    (:method m_get_to_direct
+        :parameters (?r - robot ?from - location ?to - location)
+        :task (get_to ?r ?from ?to)
+        :precondition (connected ?from ?to) 
+        :subtasks (task0 (step ?r ?from ?to))
+    )
 
-    (:method m_get_to_direct
-        :parameters (?r - robot ?from - location ?to - location)
-        :task (get_to ?r ?from ?to)
-        :precondition (connected ?from ?to) 
-        :subtasks (task0 (step ?r ?from ?to))
-    )
+    ;; Recursive case: Resolves paths via an intermediate node.
+    (:method m_get_to_transit
+        :parameters (?r - robot ?from - location ?mid - location ?to - location)
+        :task (get_to ?r ?from ?to)
+        :precondition (and (connected ?from ?mid) (connected ?mid ?to)) ;; Verifica connessioni (Verify connections)
+        :subtasks (and 
+            (task0 (step ?r ?from ?mid))
+            (task1 (step ?r ?mid ?to))
+        )
+        :ordering (and (task0 < task1))
+    )
 
-    (:method m_get_to_transit
-        :parameters (?r - robot ?from - location ?mid - location ?to - location)
-        :task (get_to ?r ?from ?to)
-        :precondition (and (connected ?from ?mid) (connected ?mid ?to)) ;; Verifica connessioni
-        :subtasks (and 
-            (task0 (step ?r ?from ?mid))
-            (task1 (step ?r ?mid ?to))
-        )
-        :ordering (and (task0 < task1))
-    )
+    ;; ========================
+    ;; METODI STEP
+    ;; ========================
+    ;; Resolves the environmental requirements for entering adjacent rooms.
 
-    ;; ========================
-    ;; METODI STEP (Precondizioni sulla topologia della stanza)
-    ;; ========================
+    ;; Enter a pressurized room (standard movement).
+    (:method m_step_pressurized
+        :parameters (?r - robot ?from - location ?to - location)
+        :task (step ?r ?from ?to)
+        :precondition (is-pressurized ?to)
+        :subtasks (task0 (move-to-pressurized-room ?r ?from ?to))
+    )
 
-    (:method m_step_pressurized
-        :parameters (?r - robot ?from - location ?to - location)
-        :task (step ?r ?from ?to)
-        :precondition (is-pressurized ?to)
-        :subtasks (task0 (move-to-pressurized-room ?r ?from ?to))
-    )
+    ;; Enter an unpressurized room (forces sealing mode activation).
+    (:method m_step_unpressurized
+        :parameters (?r - robot ?from - location ?to - location)
+        :task (step ?r ?from ?to)
+        :precondition (is-unpressurized ?to)
+        :subtasks (and 
+            (task0 (activate-seal ?r))
+            (task1 (move-to-unpressurized-room ?r ?from ?to))
+        )
+        :ordering (and (task0 < task1))
+    )
 
-    (:method m_step_unpressurized
-        :parameters (?r - robot ?from - location ?to - location)
-        :task (step ?r ?from ?to)
-        :precondition (is-unpressurized ?to)
-        :subtasks (and 
-            (task0 (activate-seal ?r))
-            (task1 (move-to-unpressurized-room ?r ?from ?to))
-        )
-        :ordering (and (task0 < task1))
-    )
+    ;; Enter a seismically active room (requires waiting/checking for safety).
+    (:method m_step_seismic
+        :parameters (?r - robot ?from - location ?to - location)
+        :task (step ?r ?from ?to)
+        :precondition (is-seismic ?to)
+        :subtasks (task0 (wait-seismic-room-safe ?r ?to ?from))
+    )
 
-    (:method m_step_seismic
-        :parameters (?r - robot ?from - location ?to - location)
-        :task (step ?r ?from ?to)
-        :precondition (is-seismic ?to)
-        :subtasks (task0 (wait-seismic-room-safe ?r ?to ?from))
-    )
+    ;; ========================
+    ;; Primitive Actions - State Transformers
+    ;; ========================
+    ;; Primitive actions remain unchanged as preconditions were hoisted up 
+    ;; into the methods to prune the search space effectively.
+    
+    ;; No-op action when already at the correct location.
+    (:action stay-at
+        :parameters (?r - robot ?l - location)
+        :precondition (robot-at ?r ?l)
+        :effect ()
+    )
 
-    ;; ========================
-    ;; AZIONI PRIMITIVE (Invariate)
-    ;; ========================
-    ;; Le azioni primitive sono le stesse di prima, poiché le precondizioni
-    ;; sono state spostate "in alto" nei metodi per prevenire l'espansione.
-    
-    (:action stay-at
-        :parameters (?r - robot ?l - location)
-        :precondition (robot-at ?r ?l)
-        :effect ()
-    )
+    ;; Move action specifically tailored for entering seismic/hazardous rooms safely.
+    (:action wait-seismic-room-safe
+        :parameters (?r - robot ?to ?from - location)
+        :precondition (and 
+            (robot-at ?r ?from) 
+            (connected ?from ?to) 
+            (is-seismic ?to)
+            (can-access ?r ?to)
+        )
+        :effect (and 
+            (not (robot-at ?r ?from)) 
+            (robot-at ?r ?to)
+            (not (sealing-mode ?r)) ; Re-entering standard atmosphere implicitly turns off seal
+        )
+    )
 
-    (:action wait-seismic-room-safe
-        :parameters (?r - robot ?to ?from - location)
-        :precondition (and 
-            (robot-at ?r ?from) 
-            (connected ?from ?to) 
-            (is-seismic ?to)
-            (can-access ?r ?to)
-        )
-        :effect (and 
-            (not (robot-at ?r ?from)) 
-            (robot-at ?r ?to)
-            (not (sealing-mode ?r))    
-        )
-    )
+    ;; Standard movement into safe, pressurized zones.
+    (:action move-to-pressurized-room
+        :parameters (?r - robot ?from ?to - location)
+        :precondition (and 
+            (robot-at ?r ?from)
+            (connected ?from ?to)
+            (is-pressurized ?to)
+            (is-safe ?to)
+            (can-access ?r ?to)
+        )
+        :effect (and 
+            (not (robot-at ?r ?from)) 
+            (robot-at ?r ?to)
+            (not (sealing-mode ?r)) ; Safety override to disable vacuum seal
+        )
+    )
 
-    (:action move-to-pressurized-room
-        :parameters (?r - robot ?from ?to - location)
-        :precondition (and 
-            (robot-at ?r ?from)
-            (connected ?from ?to)
-            (is-pressurized ?to)
-            (is-safe ?to)
-            (can-access ?r ?to)
-        )
-        :effect (and 
-            (not (robot-at ?r ?from)) 
-            (robot-at ?r ?to)
-            (not (sealing-mode ?r))
-        )
-    )
+    ;; Movement into vacuum/tunnel environments (requires seal).
+    (:action move-to-unpressurized-room
+        :parameters (?r - robot ?from ?to - location)
+        :precondition (and 
+            (robot-at ?r ?from)
+            (connected ?from ?to)
+            (is-unpressurized ?to)
+            (sealing-mode ?r)       ; Constraint: robot must be sealed
+            (can-access ?r ?to)
+        )
+        :effect (and (not (robot-at ?r ?from)) (robot-at ?r ?to))
+    )
 
-    (:action move-to-unpressurized-room
-        :parameters (?r - robot ?from ?to - location)
-        :precondition (and 
-            (robot-at ?r ?from)
-            (connected ?from ?to)
-            (is-unpressurized ?to)
-            (sealing-mode ?r)  
-            (can-access ?r ?to)
-        )
-        :effect (and (not (robot-at ?r ?from)) (robot-at ?r ?to))
-    )
+    ;; Engages environmental protection for unpressurized travel.
+    (:action activate-seal
+        :parameters (?r - robot)
+        :precondition ()
+        :effect (sealing-mode ?r)
+    )
 
-    (:action activate-seal
-        :parameters (?r - robot)
-        :precondition ()
-        :effect (sealing-mode ?r)
-    )
+    ;; Picks up an empty pod, occupying primary slot 1.
+    (:action pick-up-pod-slot-1
+        :parameters (?r - robot ?l - location ?p - pod)
+        :precondition (and 
+            (robot-at ?r ?l)
+            (pod-at ?p ?l)
+            (pod-empty ?p)
+            (hands-empty-slot-1 ?r)           
+        )
+        :effect (and 
+            (not (pod-at ?p ?l))
+            (not (hands-empty-slot-1 ?r))
+            (carrying-pod-slot-1 ?r ?p)
+        )
+    )
 
-    (:action pick-up-pod-slot-1
-        :parameters (?r - robot ?l - location ?p - pod)
-        :precondition (and 
-            (robot-at ?r ?l)
-            (pod-at ?p ?l)
-            (pod-empty ?p)
-            (hands-empty-slot-1 ?r)           
-        )
-        :effect (and 
-            (not (pod-at ?p ?l))
-            (not (hands-empty-slot-1 ?r))
-            (carrying-pod-slot-1 ?r ?p)
-        )
-    )
+    ;; Discards a carried empty pod into the environment.
+    (:action drop-pod-slot-1
+        :parameters (?r - robot ?p - pod ?l - location)
+        :precondition (and 
+            (carrying-pod-slot-1 ?r ?p)
+            (robot-at ?r ?l)
+        )
+        :effect (and 
+            (not (carrying-pod-slot-1 ?r ?p))
+            (hands-empty-slot-1 ?r)
+            (pod-at ?p ?l)
+        )
+    )
 
-    (:action drop-pod-slot-1
-        :parameters (?r - robot ?p - pod ?l - location)
-        :precondition (and 
-            (carrying-pod-slot-1 ?r ?p)
-            (robot-at ?r ?l)
-        )
-        :effect (and 
-            (not (carrying-pod-slot-1 ?r ?p))
-            (hands-empty-slot-1 ?r)
-            (pod-at ?p ?l)
-        )
-    )
+    ;; Directly picks up a non-fragile artifact using slot 1.
+    (:action pick-up-slot-1
+        :parameters (?a - artifact ?at - artifact-type ?l - location ?r - robot)
+        :precondition (and 
+            (robot-at ?r ?l)
+            (artifact-at ?a ?l)              
+            (hands-empty-slot-1 ?r)
+            (no-fragile ?a)
+            (can-pickup ?r ?at)
+            (is-type ?a ?at)
+        )
+        :effect (and 
+            (not (hands-empty-slot-1 ?r)) 
+            (carrying-slot-1 ?r ?a)            
+            (not (artifact-at ?a ?l))
+        )
+    )
 
-    (:action pick-up-slot-1
-        :parameters (?a - artifact ?at - artifact-type ?l - location ?r - robot)
-        :precondition (and 
-            (robot-at ?r ?l)
-            (artifact-at ?a ?l)              
-            (hands-empty-slot-1 ?r)
-            (no-fragile ?a)
-            (can-pickup ?r ?at)
-            (is-type ?a ?at)
-        )
-        :effect (and 
-            (not (hands-empty-slot-1 ?r)) 
-            (carrying-slot-1 ?r ?a)            
-            (not (artifact-at ?a ?l))
-        )
-    )
+    ;; Picks up a second artifact using slot 2 (for multi-capacity robots).
+    (:action pick-up-slot-2
+        :parameters (?a - artifact ?at - artifact-type ?l - location ?r - robot)
+        :precondition (and 
+            (robot-at ?r ?l)
+            (can-carry-two ?r)
+            (artifact-at ?a ?l)
+            (hands-empty-slot-2 ?r)
+            (no-fragile ?a)
+            (can-pickup ?r ?at)
+            (is-type ?a ?at)
+        )
+        :effect (and 
+            (not (hands-empty-slot-2 ?r)) 
+            (carrying-slot-2 ?r ?a)            
+            (not (artifact-at ?a ?l))
+        )
+    )
 
-    (:action pick-up-slot-2
-        :parameters (?a - artifact ?at - artifact-type ?l - location ?r - robot)
-        :precondition (and 
-            (robot-at ?r ?l)
-            (can-carry-two ?r)
-            (artifact-at ?a ?l)
-            (hands-empty-slot-2 ?r)
-            (no-fragile ?a)
-            (can-pickup ?r ?at)
-            (is-type ?a ?at)
-        )
-        :effect (and 
-            (not (hands-empty-slot-2 ?r)) 
-            (carrying-slot-2 ?r ?a)            
-            (not (artifact-at ?a ?l))
-        )
-    )
+    ;; Encapsulates a fragile artifact into an actively carried pod.
+    (:action put-in-pod
+        :parameters (?a - artifact ?at - artifact-type ?l - location ?r - robot ?p - pod)
+        :precondition (and 
+            (robot-at ?r ?l)
+            (artifact-at ?a ?l)
+            (carrying-pod-slot-1 ?r ?p)
+            (pod-empty ?p)
+            (can-pickup ?r ?at)
+            (is-type ?a ?at)
+        )
+        :effect (and 
+            (not (artifact-at ?a ?l))
+            (not (pod-empty ?p))
+            (pod-contains ?p ?a)
+        )
+    )
 
-    (:action put-in-pod
-        :parameters (?a - artifact ?at - artifact-type ?l - location ?r - robot ?p - pod)
-        :precondition (and 
-            (robot-at ?r ?l)
-            (artifact-at ?a ?l)
-            (carrying-pod-slot-1 ?r ?p)
-            (pod-empty ?p)
-            (can-pickup ?r ?at)
-            (is-type ?a ?at)
-        )
-        :effect (and 
-            (not (artifact-at ?a ?l))
-            (not (pod-empty ?p))
-            (pod-contains ?p ?a)
-        )
-    )
+    ;; Standard release of an artifact from slot 1.
+    (:action release-artifact-slot-1
+        :parameters (?r - robot ?a - artifact ?l - location)
+        :precondition (and 
+            (robot-at ?r ?l) 
+            (carrying-slot-1 ?r ?a)
+            (is-standard-room ?l)
+        )
+        :effect (and 
+            (not (carrying-slot-1 ?r ?a)) 
+            (hands-empty-slot-1 ?r) 
+            (artifact-at ?a ?l)
+        )
+    )
 
-    (:action release-artifact-slot-1
-        :parameters (?r - robot ?a - artifact ?l - location)
-        :precondition (and 
-            (robot-at ?r ?l) 
-            (carrying-slot-1 ?r ?a)
-            (is-standard-room ?l)
-        )
-        :effect (and 
-            (not (carrying-slot-1 ?r ?a)) 
-            (hands-empty-slot-1 ?r) 
-            (artifact-at ?a ?l)
-        )
-    )
+    ;; Standard release of an artifact from slot 2.
+    (:action release-artifact-slot-2
+        :parameters (?r - robot ?a - artifact ?l - location)
+        :precondition (and 
+            (robot-at ?r ?l) 
+            (can-carry-two ?r)
+            (carrying-slot-2 ?r ?a)
+            (is-standard-room ?l)
+        )
+        :effect (and 
+            (not (carrying-slot-2 ?r ?a)) 
+            (hands-empty-slot-2 ?r) 
+            (artifact-at ?a ?l)
+        )
+    )
 
-    (:action release-artifact-slot-2
-        :parameters (?r - robot ?a - artifact ?l - location)
-        :precondition (and 
-            (robot-at ?r ?l) 
-            (can-carry-two ?r)
-            (carrying-slot-2 ?r ?a)
-            (is-standard-room ?l)
-        )
-        :effect (and 
-            (not (carrying-slot-2 ?r ?a)) 
-            (hands-empty-slot-2 ?r) 
-            (artifact-at ?a ?l)
-        )
-    )
+    ;; Extracts an artifact from a pod in a standard room (leaves pod equipped).
+    (:action release-artifact-from-pod-slot-1
+        :parameters (?r - robot ?a - artifact ?l - location ?p - pod)
+        :precondition (and
+            (robot-at ?r ?l)
+            (carrying-pod-slot-1 ?r ?p)  
+            (pod-contains ?p ?a)       
+            (is-standard-room ?l)
+        )
+        :effect (and
+            (not (pod-contains ?p ?a))
+            (artifact-at ?a ?l)
+            (pod-empty ?p)
+        )
+    )
 
-    (:action release-artifact-from-pod-slot-1
-        :parameters (?r - robot ?a - artifact ?l - location ?p - pod)
-        :precondition (and
-            (robot-at ?r ?l)
-            (carrying-pod-slot-1 ?r ?p)  
-            (pod-contains ?p ?a)       
-            (is-standard-room ?l)
-        )
-        :effect (and
-            (not (pod-contains ?p ?a))
-            (artifact-at ?a ?l)
-            (pod-empty ?p)
-        )
-    )
+    ;; Releases artifact from slot 1 in a cryo chamber, fulfilling thermal requirements.
+    (:action release-artifact-cryo-slot-1
+        :parameters (?r - robot ?a - artifact ?l - location)
+        :precondition (and 
+            (robot-at ?r ?l) 
+            (carrying-slot-1 ?r ?a)
+            (is-chill-room ?l)
+        )
+        :effect (and 
+            (not (carrying-slot-1 ?r ?a)) 
+            (hands-empty-slot-1 ?r) 
+            (artifact-at ?a ?l)
+            (not (warm ?a)) (cold ?a) ; State transition: Artifact is now chilled
+        )
+    )
 
-    (:action release-artifact-cryo-slot-1
-        :parameters (?r - robot ?a - artifact ?l - location)
-        :precondition (and 
-            (robot-at ?r ?l) 
-            (carrying-slot-1 ?r ?a)
-            (is-chill-room ?l)
-        )
-        :effect (and 
-            (not (carrying-slot-1 ?r ?a)) 
-            (hands-empty-slot-1 ?r) 
-            (artifact-at ?a ?l)
-            (not (warm ?a)) (cold ?a)
-        )
-    )
+    ;; Releases artifact from slot 2 in a cryo chamber, fulfilling thermal requirements.
+    (:action release-artifact-cryo-slot-2
+        :parameters (?r - robot ?a - artifact ?l - location)
+        :precondition (and 
+            (robot-at ?r ?l) 
+            (can-carry-two ?r)
+            (carrying-slot-2 ?r ?a)
+            (is-chill-room ?l)
+        )
+        :effect (and 
+            (not (carrying-slot-2 ?r ?a)) 
+            (hands-empty-slot-2 ?r) 
+            (artifact-at ?a ?l)
+            (not (warm ?a)) (cold ?a) ; State transition: Artifact is now chilled
+        )
+    )
 
-    (:action release-artifact-cryo-slot-2
-        :parameters (?r - robot ?a - artifact ?l - location)
-        :precondition (and 
-            (robot-at ?r ?l) 
-            (can-carry-two ?r)
-            (carrying-slot-2 ?r ?a)
-            (is-chill-room ?l)
-        )
-        :effect (and 
-            (not (carrying-slot-2 ?r ?a)) 
-            (hands-empty-slot-2 ?r) 
-            (artifact-at ?a ?l)
-            (not (warm ?a)) (cold ?a)
-        )
-    )
-
-    (:action release-artifact-cryo-from-pod-slot-1
-        :parameters (?r - robot ?a - artifact ?l - location ?p - pod)
-        :precondition (and 
-            (robot-at ?r ?l)
-            (carrying-pod-slot-1 ?r ?p)
-            (pod-contains ?p ?a)
-            (is-chill-room ?l)
-        )
-        :effect (and 
-            (artifact-at ?a ?l)
-            (not (pod-contains ?p ?a))
-            (pod-empty ?p)
-            (not (warm ?a)) (cold ?a)
-        )
-    )
+    ;; Extracts a fragile artifact from a pod directly into a cryo chamber to cool it.
+    (:action release-artifact-cryo-from-pod-slot-1
+        :parameters (?r - robot ?a - artifact ?l - location ?p - pod)
+        :precondition (and 
+            (robot-at ?r ?l)
+            (carrying-pod-slot-1 ?r ?p)
+            (pod-contains ?p ?a)
+            (is-chill-room ?l)
+        )
+        :effect (and 
+            (artifact-at ?a ?l)
+            (not (pod-contains ?p ?a))
+            (pod-empty ?p)
+            (not (warm ?a)) (cold ?a) ; State transition: Fragile artifact is now chilled
+        )
+    )
 )
