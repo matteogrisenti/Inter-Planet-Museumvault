@@ -1,0 +1,249 @@
+================================================================================
+ALBERO DI DECOMPOSIZIONE HTN - ESECUZIONE STAFFETTA
+================================================================================
+
+Task 1: Trasporto di Quantum-Chip da Hall-B a Maintenance-Tunnel (Technician)
+--------------------------------------------------------------------------------
+t1 (delivery technician quantum-chip hall-b maintenance-tunnel technological)
+  |-- method: m_delivery_direct
+      |
+      |-- t1.1 prepare_robot(technician, entrance, hall-b)
+      |   |-- method: m_prep_fetch_pod
+      |       |-- t1.1.1 get_to(technician, entrance, anti-vibration-pods-room)
+      |       |   |-- method: m_get_to_transit
+      |       |       |-- t1.1.1.1 step(technician, entrance, maintenance-tunnel)
+      |       |       |   |-- method: m_step_unpressurized
+      |       |       |       |--> a1.1.1.1.1 activate-seal(technician)
+      |       |       |       |--> a1.1.1.1.2 move-to-unpressurized-room(technician, entrance, maintenance-tunnel)
+      |       |       |-- t1.1.1.2 step(technician, maintenance-tunnel, anti-vibration-pods-room)
+      |       |           |-- method: m_step_pressurized
+      |       |               |--> a1.1.1.2.1 move-to-pressurized-room(technician, maintenance-tunnel, anti-vibration-pods-room)
+      |       |
+      |       |--> a1.1.2 pick-up-pod-slot-1(technician, anti-vibration-pods-room, pod1)
+      |       |
+      |       |-- t1.1.3 get_to(technician, anti-vibration-pods-room, hall-b)
+      |           |-- method: m_get_to_transit
+      |               |-- t1.1.3.1 step(technician, anti-vibration-pods-room, maintenance-tunnel)
+      |               |   |-- method: m_step_unpressurized
+      |               |       |--> a1.1.3.1.1 activate-seal(technician)
+      |               |       |--> a1.1.3.1.2 move-to-unpressurized-room(technician, anti-vibration-pods-room, maintenance-tunnel)
+      |               |-- t1.1.3.2 step(technician, maintenance-tunnel, hall-b)
+      |                   |-- method: m_step_seismic
+      |                       |--> a1.1.3.2.1 wait-seismic-room-safe(technician, hall-b, maintenance-tunnel)
+      |
+      |-- t1.2 load_artifact(technician, quantum-chip, technological, hall-b)
+      |   |-- method: m_load_into_pod
+      |       |--> a1.2.1 put-in-pod(quantum-chip, technological, hall-b, technician, pod1)
+      |
+      |-- t1.3 transport_to_target(technician, quantum-chip, technological, hall-b, maintenance-tunnel)
+          |-- method: m_transport_chill
+              |-- t1.3.1 get_to(technician, hall-b, cryo-chamber)
+              |   |-- method: m_get_to_transit
+              |       |-- t1.3.1.1 step(technician, hall-b, maintenance-tunnel)
+              |       |   |-- method: m_step_unpressurized
+              |       |       |--> a1.3.1.1.1 activate-seal(technician)
+              |       |       |--> a1.3.1.1.2 move-to-unpressurized-room(technician, hall-b, maintenance-tunnel)
+              |       |-- t1.3.1.2 step(technician, maintenance-tunnel, cryo-chamber)
+              |           |-- method: m_step_pressurized
+              |               |--> a1.3.1.2.1 move-to-pressurized-room(technician, maintenance-tunnel, cryo-chamber)
+              |
+              |-- t1.3.2 unload_artifact(technician, quantum-chip, cryo-chamber)
+              |   |-- method: m_unload_pod_keep_cryo
+              |       |--> a1.3.2.1 release-artifact-cryo-from-pod-slot-1(technician, quantum-chip, cryo-chamber, pod1)
+              |
+              |-- t1.3.3 load_artifact(technician, quantum-chip, technological, cryo-chamber)
+              |   |-- method: m_load_into_pod
+              |       |--> a1.3.3.1 put-in-pod(quantum-chip, technological, cryo-chamber, technician, pod1)
+              |
+              |-- t1.3.4 get_to(technician, cryo-chamber, maintenance-tunnel)
+              |   |-- method: m_get_to_direct
+              |       |-- t1.3.4.1 step(technician, cryo-chamber, maintenance-tunnel)
+              |           |-- method: m_step_unpressurized
+              |               |--> a1.3.4.1.1 activate-seal(technician)
+              |               |--> a1.3.4.1.2 move-to-unpressurized-room(technician, cryo-chamber, maintenance-tunnel)
+              |
+              |-- t1.3.5 unload_artifact(technician, quantum-chip, maintenance-tunnel)
+                  |-- method: m_unload_pod_drop_std
+                      |--> a1.3.5.1 release-artifact-from-pod-slot-1(technician, quantum-chip, maintenance-tunnel, pod1)
+                      |--> a1.3.5.2 drop-pod-slot-1(technician, pod1, maintenance-tunnel)
+
+
+Task 2: Trasporto di Quantum-Chip da Maintenance-Tunnel a Stasis-Lab (Scientist)
+--------------------------------------------------------------------------------
+t2 (delivery scientist quantum-chip maintenance-tunnel stasis-lab technological)
+  |-- method: m_delivery_direct
+      |
+      |-- t2.1 prepare_robot(scientist, stasis-lab, maintenance-tunnel)
+      |   |-- method: m_prep_fetch_pod
+      |       |-- t2.1.1 get_to(scientist, stasis-lab, maintenance-tunnel)
+      |       |   |-- method: m_get_to_direct
+      |       |       |-- t2.1.1.1 step(scientist, stasis-lab, maintenance-tunnel)
+      |       |           |-- method: m_step_unpressurized
+      |       |               |--> a2.1.1.1.1 activate-seal(scientist)
+      |       |               |--> a2.1.1.1.2 move-to-unpressurized-room(scientist, stasis-lab, maintenance-tunnel)
+      |       |
+      |       |--> a2.1.2 pick-up-pod-slot-1(scientist, maintenance-tunnel, pod1)
+      |       |
+      |       |-- t2.1.3 get_to(scientist, maintenance-tunnel, maintenance-tunnel)
+      |           |-- method: m_get_to_stay
+      |               |--> a2.1.3.1 stay-at(scientist, maintenance-tunnel)
+      |
+      |-- t2.2 load_artifact(scientist, quantum-chip, technological, maintenance-tunnel)
+      |   |-- method: m_load_into_pod
+      |       |--> a2.2.1 put-in-pod(quantum-chip, technological, maintenance-tunnel, scientist, pod1)
+      |
+      |-- t2.3 transport_to_target(scientist, quantum-chip, technological, maintenance-tunnel, stasis-lab)
+          |-- method: m_transport_direct
+              |-- t2.3.1 get_to(scientist, maintenance-tunnel, stasis-lab)
+              |   |-- method: m_get_to_direct
+              |       |-- t2.3.1.1 step(scientist, maintenance-tunnel, stasis-lab)
+              |           |-- method: m_step_pressurized
+              |               |--> a2.3.1.1.1 move-to-pressurized-room(scientist, maintenance-tunnel, stasis-lab)
+              |
+              |-- t2.3.2 unload_artifact(scientist, quantum-chip, stasis-lab)
+                  |-- method: m_unload_pod_keep_std
+                      |--> a2.3.2.1 release-artifact-from-pod-slot-1(scientist, quantum-chip, stasis-lab, pod1)
+
+
+Task 3: Trasporto di Space-Suit da Hall-B a Maintenance-Tunnel (Technician)
+--------------------------------------------------------------------------------
+t3 (delivery technician space-suit hall-b maintenance-tunnel technological)
+  |-- method: m_delivery_direct
+      |
+      |-- t3.1 prepare_robot(technician, maintenance-tunnel, hall-b)
+      |   |-- method: m_prep_fetch_pod
+      |       |-- t3.1.1 get_to(technician, maintenance-tunnel, anti-vibration-pods-room)
+      |       |   |-- method: m_get_to_direct
+      |       |       |-- t3.1.1.1 step(technician, maintenance-tunnel, anti-vibration-pods-room)
+      |       |           |-- method: m_step_pressurized
+      |       |               |--> a3.1.1.1.1 move-to-pressurized-room(technician, maintenance-tunnel, anti-vibration-pods-room)
+      |       |
+      |       |--> a3.1.2 pick-up-pod-slot-1(technician, anti-vibration-pods-room, pod2)
+      |       |
+      |       |-- t3.1.3 get_to(technician, anti-vibration-pods-room, hall-b)
+      |           |-- method: m_get_to_transit
+      |               |-- t3.1.3.1 step(technician, anti-vibration-pods-room, maintenance-tunnel)
+      |               |   |-- method: m_step_unpressurized
+      |               |       |--> a3.1.3.1.1 activate-seal(technician)
+      |               |       |--> a3.1.3.1.2 move-to-unpressurized-room(technician, anti-vibration-pods-room, maintenance-tunnel)
+      |               |-- t3.1.3.2 step(technician, maintenance-tunnel, hall-b)
+      |                   |-- method: m_step_seismic
+      |                       |--> a3.1.3.2.1 wait-seismic-room-safe(technician, hall-b, maintenance-tunnel)
+      |
+      |-- t3.2 load_artifact(technician, space-suit, technological, hall-b)
+      |   |-- method: m_load_slot_2
+      |       |--> a3.2.1 pick-up-slot-2(space-suit, technological, hall-b, technician)
+      |
+      |-- t3.3 transport_to_target(technician, space-suit, technological, hall-b, maintenance-tunnel)
+          |-- method: m_transport_direct
+              |-- t3.3.1 get_to(technician, hall-b, maintenance-tunnel)
+              |   |-- method: m_get_to_direct
+              |       |-- t3.3.1.1 step(technician, hall-b, maintenance-tunnel)
+              |           |-- method: m_step_unpressurized
+              |               |--> a3.3.1.1.1 activate-seal(technician)
+              |               |--> a3.3.1.1.2 move-to-unpressurized-room(technician, hall-b, maintenance-tunnel)
+              |
+              |-- t3.3.2 unload_artifact(technician, space-suit, maintenance-tunnel)
+                  |-- method: m_unload_s2_std
+                      |--> a3.3.2.1 release-artifact-slot-2(technician, space-suit, maintenance-tunnel)
+
+
+Task 4: Trasporto di Space-Suit da Maintenance-Tunnel a Stasis-Lab (Scientist)
+--------------------------------------------------------------------------------
+t4 (delivery scientist space-suit maintenance-tunnel stasis-lab technological)
+  |-- method: m_delivery_direct
+      |
+      |-- t4.1 prepare_robot(scientist, stasis-lab, maintenance-tunnel)
+      |   |-- method: m_prep_drop_pod_first
+      |       |--> a4.1.1 drop-pod-slot-1(scientist, pod1, stasis-lab)
+      |       |
+      |       |-- t4.1.2 get_to(scientist, stasis-lab, maintenance-tunnel)
+      |           |-- method: m_get_to_direct
+      |               |-- t4.1.2.1 step(scientist, stasis-lab, maintenance-tunnel)
+      |                   |-- method: m_step_unpressurized
+      |                       |--> a4.1.2.1.1 activate-seal(scientist)
+      |                       |--> a4.1.2.1.2 move-to-unpressurized-room(scientist, stasis-lab, maintenance-tunnel)
+      |
+      |-- t4.2 load_artifact(scientist, space-suit, technological, maintenance-tunnel)
+      |   |-- method: m_load_slot_1
+      |       |--> a4.2.1 pick-up-slot-1(space-suit, technological, maintenance-tunnel, scientist)
+      |
+      |-- t4.3 transport_to_target(scientist, space-suit, technological, maintenance-tunnel, stasis-lab)
+          |-- method: m_transport_direct
+              |-- t4.3.1 get_to(scientist, maintenance-tunnel, stasis-lab)
+              |   |-- method: m_get_to_direct
+              |       |-- t4.3.1.1 step(scientist, maintenance-tunnel, stasis-lab)
+              |           |-- method: m_step_pressurized
+              |               |--> a4.3.1.1.1 move-to-pressurized-room(scientist, maintenance-tunnel, stasis-lab)
+              |
+              |-- t4.3.2 unload_artifact(scientist, space-suit, stasis-lab)
+                  |-- method: m_unload_s1_std
+                      |--> a4.3.2.1 release-artifact-slot-1(scientist, space-suit, stasis-lab)
+
+
+Task 5: Trasporto di Rover-Wheel da Hall-B a Maintenance-Tunnel (Technician)
+--------------------------------------------------------------------------------
+t5 (delivery technician rover-wheel hall-b maintenance-tunnel technological)
+  |-- method: m_delivery_direct
+      |
+      |-- t5.1 prepare_robot(technician, maintenance-tunnel, hall-b)
+      |   |-- method: m_prep_direct
+      |       |-- t5.1.1 get_to(technician, maintenance-tunnel, hall-b)
+      |           |-- method: m_get_to_direct
+      |               |-- t5.1.1.1 step(technician, maintenance-tunnel, hall-b)
+      |                   |-- method: m_step_seismic
+      |                       |--> a5.1.1.1.1 wait-seismic-room-safe(technician, hall-b, maintenance-tunnel)
+      |
+      |-- t5.2 load_artifact(technician, rover-wheel, technological, hall-b)
+      |   |-- method: m_load_into_pod
+      |       |--> a5.2.1 put-in-pod(rover-wheel, technological, hall-b, technician, pod2)
+      |
+      |-- t5.3 transport_to_target(technician, rover-wheel, technological, hall-b, maintenance-tunnel)
+          |-- method: m_transport_direct
+              |-- t5.3.1 get_to(technician, hall-b, maintenance-tunnel)
+              |   |-- method: m_get_to_direct
+              |       |-- t5.3.1.1 step(technician, hall-b, maintenance-tunnel)
+              |           |-- method: m_step_unpressurized
+              |               |--> a5.3.1.1.1 activate-seal(technician)
+              |               |--> a5.3.1.1.2 move-to-unpressurized-room(technician, hall-b, maintenance-tunnel)
+              |
+              |-- t5.3.2 unload_artifact(technician, rover-wheel, maintenance-tunnel)
+                  |-- method: m_unload_pod_keep_std
+                      |--> a5.3.2.1 release-artifact-from-pod-slot-1(technician, rover-wheel, maintenance-tunnel, pod2)
+
+
+Task 6: Trasporto di Rover-Wheel da Maintenance-Tunnel a Stasis-Lab (Scientist)
+--------------------------------------------------------------------------------
+t6 (delivery scientist rover-wheel maintenance-tunnel stasis-lab technological)
+  |-- method: m_delivery_direct
+      |
+      |-- t6.1 prepare_robot(scientist, stasis-lab, maintenance-tunnel)
+      |   |-- method: m_prep_fetch_pod
+      |       |-- t6.1.1 get_to(scientist, stasis-lab, stasis-lab)
+      |       |   |-- method: m_get_to_stay
+      |       |       |--> a6.1.1.1 stay-at(scientist, stasis-lab)
+      |       |
+      |       |--> a6.1.2 pick-up-pod-slot-1(scientist, stasis-lab, pod1)
+      |       |
+      |       |-- t6.1.3 get_to(scientist, stasis-lab, maintenance-tunnel)
+      |           |-- method: m_get_to_direct
+      |               |-- t6.1.3.1 step(scientist, stasis-lab, maintenance-tunnel)
+      |                   |-- method: m_step_unpressurized
+      |                       |--> a6.1.3.1.1 activate-seal(scientist)
+      |                       |--> a6.1.3.1.2 move-to-unpressurized-room(scientist, stasis-lab, maintenance-tunnel)
+      |
+      |-- t6.2 load_artifact(scientist, rover-wheel, technological, maintenance-tunnel)
+      |   |-- method: m_load_into_pod
+      |       |--> a6.2.1 put-in-pod(rover-wheel, technological, maintenance-tunnel, scientist, pod1)
+      |
+      |-- t6.3 transport_to_target(scientist, rover-wheel, technological, maintenance-tunnel, stasis-lab)
+          |-- method: m_transport_direct
+              |-- t6.3.1 get_to(scientist, maintenance-tunnel, stasis-lab)
+              |   |-- method: m_get_to_direct
+              |       |-- t6.3.1.1 step(scientist, maintenance-tunnel, stasis-lab)
+              |           |-- method: m_step_pressurized
+              |               |--> a6.3.1.1.1 move-to-pressurized-room(scientist, maintenance-tunnel, stasis-lab)
+              |
+              |-- t6.3.2 unload_artifact(scientist, rover-wheel, stasis-lab)
+                  |-- method: m_unload_pod_keep_std
+                      |--> a6.3.2.1 release-artifact-from-pod-slot-1(scientist, rover-wheel, stasis-lab, pod1)

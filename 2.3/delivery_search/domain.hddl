@@ -1,0 +1,303 @@
+;; ============================================================================
+;; DOMAIN: multi-robot-hierarchical
+;; DESCRIPTION: 
+;; Hierarchical domain (HTN) for coordinating multiple robots in delivery tasks. 
+;; Supports single transport, double transport (two artifacts simultaneously), 
+;; and relay mechanisms when a robot does not have direct access to the final 
+;; destination.
+;; ============================================================================
+
+(define (domain hierarchical-delivery-search)
+    (:requirements :strips :typing :hierarchy :method-preconditions :equality)
+
+    ;; ========================
+    ;; TYPES
+    ;; ========================
+    ;; Definition of the basic entities of the domain.
+    (:types
+        robot pod location artifact artifact-type - object
+    )
+
+    ;; ========================
+    ;; PREDICATES
+    ;; ========================
+    ;; Representation of the world state, including topology, robot capabilities, 
+    ;; and object locations.
+    (:predicates
+        ;; Position and accessibility
+        (robot-at ?r - robot ?l - location)
+        (can-access ?r - robot ?l - location)
+        
+        ;; Lifting capacity by artifact type
+        (can-pickup ?r - robot ?at - artifact-type)
+        
+        ;; Defines who can carry two objects simultaneously
+        (can-carry-two ?r - robot)
+        
+        ;; State and classification of artifacts
+        (artifact-at ?a - artifact ?l - location)
+        (is-type ?a - artifact ?t - artifact-type)
+        
+        ;; Dynamically assigned delivery targets to drive the search
+        (assigned-target ?a - artifact ?target - location)
+    )
+
+    
+
+    ;; ========================
+    ;; ABSTRACT TASKS
+    ;; ========================
+    ;; High-level interfaces for the hierarchical planner.
+
+    ;; Main task: processes an entire room until it is empty
+    (:task process-room :parameters (?room - location))
+
+    ;; Single delivery task: delivery of a single artifact.
+    (:task deliver :parameters (?a - artifact ?at - artifact-type ?target - location))
+    
+    ;; Handles double delivery
+    ;; Optimized task: moves two artifacts in parallel.
+    (:task double_deliver 
+        :parameters (?a1 - artifact ?at1 - artifact-type ?target1 - location
+                     ?a2 - artifact ?at2 - artifact-type ?target2 - location)
+    )
+
+    
+
+    ;; ========================
+    ;; METHODS: PROCESS ROOM
+    ;; ========================
+
+    ;; Methods to decompose the iterative task of emptying a room.
+
+    ;; --- DOUBLE RECURSIVE CASE ---
+    ;; Tries to find two objects in the room. 
+    ;; Tries to assign two undelivered artifacts to process them together.
+    (:method m_process_room_double
+        :parameters (?room - location 
+                     ?a1 - artifact ?at1 - artifact-type ?target1 - location
+                     ?a2 - artifact ?at2 - artifact-type ?target2 - location)
+        :task (process-room ?room)
+        :precondition (and
+            ;; Object 1: must be in the room and not already at destination
+            (artifact-at ?a1 ?room) (is-type ?a1 ?at1)
+            (assigned-target ?a1 ?target1) (not (artifact-at ?a1 ?target1))
+            
+            ;; Object 2: must be in the room and not already at destination
+            (artifact-at ?a2 ?room) (is-type ?a2 ?at2)
+            (assigned-target ?a2 ?target2) (not (artifact-at ?a2 ?target2))
+
+            ;; Must be two physically distinct objects to avoid duplication
+            (not (= ?a1 ?a2)) 
+        )
+        :ordered-subtasks (and
+            ;; Executes the double transport
+            (t1 (double_deliver ?a1 ?at1 ?target1 ?a2 ?at2 ?target2))
+            (t2 (process-room ?room)) ;; Continues to empty the room (Recursion)
+        )
+    )
+
+    ;; --- SINGLE RECURSIVE CASE ---
+    ;; Decomposes the cleaning by handling one object at a time.
+    (:method m_process_room_single
+        :parameters (?room - location ?a - artifact ?at - artifact-type ?target - location)
+        :task (process-room ?room)
+        :precondition (and
+            (artifact-at ?a ?room) (is-type ?a ?at)
+            (assigned-target ?a ?target) (not (artifact-at ?a ?target)) 
+        )
+        :ordered-subtasks (and
+            (t1 (deliver ?a ?at ?target))
+            (t2 (process-room ?room)) 
+        )
+    )
+
+    ;; --- BASE CASE (TERMINATION) ---
+    ;; Recursion exit condition: there are no more artifacts in the room.
+    (:method m_process_room_done
+        :parameters (?room - location)
+        :task (process-room ?room)
+        :precondition (not (exists (?a - artifact) (artifact-at ?a ?room)))
+        :ordered-subtasks () ;; No residual operation
+    )
+
+    ;; ========================
+    ;; METHODS: DOUBLE DELIVER
+    ;; ========================
+    ;; Decomposition for the logistical management of two objects simultaneously.
+
+    ;; --- DIRECT DOUBLE ---
+    ;; Both objects go to the SAME room and the robot can get there
+    ;; without the need to exchange with other robots (single-hop).
+    (:method m_double_deliver_direct
+        :parameters (?a1 - artifact ?at1 - artifact-type ?target1 - location
+                     ?a2 - artifact ?at2 - artifact-type ?target2 - location
+                     ?r - robot ?curr_loc - location)
+        :task (double_deliver ?a1 ?at1 ?target1 ?a2 ?at2 ?target2)
+        :precondition (and
+            (= ?target1 ?target2) ;; Strict condition: same destinations
+            (artifact-at ?a1 ?curr_loc) (artifact-at ?a2 ?curr_loc)
+            
+            (can-carry-two ?r)
+            (can-pickup ?r ?at1) (can-pickup ?r ?at2)
+            (can-access ?r ?curr_loc) (can-access ?r ?target1)
+        )
+        :ordered-subtasks (and
+            (t1 (double_delivery ?r ?a1 ?a2 ?curr_loc ?target1 ?at1 ?at2))
+        )
+    )
+
+    ;; --- DOUBLE RELAY (Split into Primitive Actions) ---
+    ;; Used when the first robot cannot complete the delivery
+    ;; or the two artifacts have different destinations (multi-hop / multi-target).
+    (:method m_double_deliver_relay
+        :parameters (?a1 - artifact ?at1 - artifact-type ?target1 - location
+                     ?a2 - artifact ?at2 - artifact-type ?target2 - location
+                     ?r1 - robot ?r2 - robot ?r3 - robot 
+                     ?curr_loc - location ?mid_loc - location)
+        :task (double_deliver ?a1 ?at1 ?target1 ?a2 ?at2 ?target2)
+        :precondition (and
+            (artifact-at ?a1 ?curr_loc) (artifact-at ?a2 ?curr_loc)
+            
+            ;; 1. R1 takes two objects and brings them to the exchange point (mid_loc)
+            (can-carry-two ?r1)
+            (can-pickup ?r1 ?at1) (can-pickup ?r1 ?at2)
+            (can-access ?r1 ?curr_loc) (can-access ?r1 ?mid_loc)
+            (not (= ?curr_loc ?mid_loc))
+
+            ;; 2. R2 brings object 1 from the exchange point to the end
+            (not (= ?r1 ?r2)) ;; R2 must be different from R1
+            (can-pickup ?r2 ?at1)
+            (can-access ?r2 ?mid_loc) (can-access ?r2 ?target1)
+
+            ;; 3. R3 brings object 2 from the exchange point to the end
+            (not (= ?r1 ?r3)) ;; R3 must be different from R1 (but can be equal to R2)
+            (can-pickup ?r3 ?at2)
+            (can-access ?r3 ?mid_loc) (can-access ?r3 ?target2)
+            
+            ;; Triggers if destinations are different OR if R1 cannot reach the end
+            (or (not (= ?target1 ?target2))
+                (not (can-access ?r1 ?target1))
+                (not (can-access ?r1 ?target2)))
+        )
+        :ordered-subtasks (and
+            ;; Primitive action 1: R1 performs the double load up to the Tunnel (mid_loc)
+            (t1 (double_delivery ?r1 ?a1 ?a2 ?curr_loc ?mid_loc ?at1 ?at2)) 
+            ;; Primitive action 2: R2 finishes for the first object
+            (t2 (delivery ?r2 ?a1 ?mid_loc ?target1 ?at1))
+            ;; Primitive action 3: R3 finishes for the second object
+            (t3 (delivery ?r3 ?a2 ?mid_loc ?target2 ?at2))
+        )
+    )
+
+    ;; ========================
+    ;; METHODS: SINGLE DELIVER
+    ;; ========================
+    ;; Decomposition for the logistical management of a single object.
+
+    ;; --- SINGLE DIRECT DELIVERY ---
+    ;; A robot takes the artifact and brings it directly to the goal.
+    (:method m_deliver_direct
+        :parameters (?a - artifact ?at - artifact-type ?target - location ?r - robot ?curr_loc - location)
+        :task (deliver ?a ?at ?target)
+        :precondition (and
+            (artifact-at ?a ?curr_loc)
+            (can-pickup ?r ?at)
+            (can-access ?r ?curr_loc) (can-access ?r ?target)
+        )
+        :ordered-subtasks (and (t1 (delivery ?r ?a ?curr_loc ?target ?at)))
+    )
+
+    ;; --- SINGLE RELAY DELIVERY ---
+    ;; Uses two robots in relay if the first does not have access to the final destination.
+    (:method m_deliver_relay
+        :parameters (?a - artifact ?at - artifact-type ?target - location 
+                     ?r1 - robot ?r2 - robot ?curr_loc - location ?mid_loc - location)
+        :task (deliver ?a ?at ?target)
+        :precondition (and
+            (artifact-at ?a ?curr_loc)
+            
+            ;; Setup R1: Origin -> Intermediate point
+            (can-pickup ?r1 ?at) (can-access ?r1 ?curr_loc) (can-access ?r1 ?mid_loc)      
+            (not (= ?curr_loc ?mid_loc)) 
+
+            ;; Setup R2: Intermediate point -> Destination
+            (can-pickup ?r2 ?at) (can-access ?r2 ?mid_loc) (can-access ?r2 ?target)       
+            (not (= ?mid_loc ?target)) 
+
+            ;; Prevents cycles or inefficiencies: triggers only if R1 is blocked
+            (not (can-access ?r1 ?target))
+        )
+        :ordered-subtasks (and
+            (t1 (delivery ?r1 ?a ?curr_loc ?mid_loc ?at)) 
+            (t2 (delivery ?r2 ?a ?mid_loc ?target ?at)) 
+        )
+    )
+
+    ;; --- OLD RELAY (Commented) ---
+    ; (:method m_deliver_relay
+    ;     :parameters (?a - artifact ?at - artifact-type ?target - location 
+    ;                  ?r1 - robot  
+    ;                  ?curr_loc - location ?mid_loc - location)
+    ;     :task (deliver ?a ?at ?target)
+    ;     :precondition (and
+    ;         (artifact-at ?a ?curr_loc)
+            
+    ;         ;; R1 picks up and carries halfway
+    ;         (can-pickup ?r1 ?at)           
+    ;         (can-access ?r1 ?curr_loc)     
+    ;         (can-access ?r1 ?mid_loc)      
+    ;         (not (= ?curr_loc ?mid_loc)) ;; R1 must move it
+    ;         (not (= ?mid_loc ?target)) ;; R2 must move it
+
+    ;         ;; Uses relay only if R1 cannot go straight
+    ;         (not (can-access ?r1 ?target))
+    ;     )
+    ;     :ordered-subtasks (and
+    ;         (t1 (delivery ?r1 ?a ?curr_loc ?mid_loc ?at)) 
+    ;         (t2 (deliver ?a ?at ?target))
+    ;     )
+    ; )
+
+    ;; ========================
+    ;; ACTIONS (Primitive)
+    ;; ========================
+    ;; Basic STRIPS operators that modify the state of the world.
+
+    ;; Primitive action to move and deliver a single object.
+    (:action delivery
+        :parameters (?r - robot ?a - artifact ?from - location ?to - location ?at - artifact-type)
+        ;; IMPORTANT: Preconditions restored, otherwise Panda would cut the parameters!
+        :precondition (and 
+            (artifact-at ?a ?from) (is-type ?a ?at)
+            (can-pickup ?r ?at) (can-access ?r ?from) (can-access ?r ?to)
+        )
+        :effect (and
+            ;; The artifact disappears from the origin and appears at the goal
+            (not (artifact-at ?a ?from))
+            (artifact-at ?a ?to)
+        )
+    )
+
+    ;; NEW ACTION: Physical movement of two objects
+    ;; Optimized primitive action that executes the movement of two artifacts simultaneously.
+    (:action double_delivery
+        :parameters (?r - robot ?a1 - artifact ?a2 - artifact ?from - location ?to - location ?at1 - artifact-type ?at2 - artifact-type)
+        :precondition (and 
+            ;; Both must be at the start
+            (artifact-at ?a1 ?from) (artifact-at ?a2 ?from)
+            (not (= ?a1 ?a2)) ;; Safety check on identity
+            (can-carry-two ?r)
+            (can-pickup ?r ?at1) (can-pickup ?r ?at2)
+            (can-access ?r ?from) (can-access ?r ?to)
+        )
+        :effect (and
+            ;; Removes artifacts from the origin node
+            (not (artifact-at ?a1 ?from))
+            (not (artifact-at ?a2 ?from))
+            ;; Applies the arrival in the destination node
+            (artifact-at ?a1 ?to)
+            (artifact-at ?a2 ?to)
+        )
+    )
+)

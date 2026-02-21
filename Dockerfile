@@ -17,6 +17,19 @@ RUN planutils install -y prp
 # Modify the configuration file to enable hostfs, i.e. use the host file system
 RUN perl -pi.bak -e "s/mount hostfs = no/mount hostfs = yes/g" /etc/apptainer/apptainer.conf
 
+# Install Java 8 (Required for PANDA Planner) and Configure Locales
+RUN apt-get update && \
+    apt-get install -y openjdk-8-jre-headless locales && \
+    locale-gen en_US.UTF-8 && \
+    rm -rf /var/lib/apt/lists/*
+
+# Set Java 8 as the default Java environment
+RUN update-alternatives --set java /usr/lib/jvm/java-8-openjdk-amd64/jre/bin/java || true
+
+# Environment variables for UTF-8 support
+ENV LANG=en_US.UTF-8
+ENV LANGUAGE=en_US:en
+ENV LC_ALL=en_US.UTF-8
 
 CMD /bin/bash
 

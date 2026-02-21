@@ -1,0 +1,628 @@
+root@e56cbe8bb401:/computer/2.3# java -jar PANDA.jar -parser hddl -searchAlgorithm astar -heuristic tdg-m domain.hddl minimal-problem.hddl raw_plan.dot
+PANDA - Planning and Acting in a Network Decomposition Architecture
+Believe us: It's great, it's fantastic!
+
+PANDA Copyright (C) 2014-2018 Gregor Behnke, Pascal Bercher, Thomas Geier, Kadir
+Dede, Daniel Höller, Kristof Mickeleit, Matthias Englert
+This program comes with ABSOLUTELY NO WARRANTY
+This is free software, and you are welcome to redistribute it under certain
+conditions; run PANDA with -license for details.
+
+Main Developers:
+- Gregor Behnke, http://www.uni-ulm.de/in/ki/behnke
+- Daniel Höller, http://www.uni-ulm.de/in/ki/hoeller
+
+With many thanks to various further contributors.
+Run PANDA with the command line argument -contributors for an extensive list.
+
+Run it with -help for more information like available options.
+
+
+PANDA was called with: "-parser hddl -searchAlgorithm astar -heuristic tdg-m domain.hddl minimal-problem.hddl raw_plan.dot"
+
+
+Planner Configuration
+=====================
+Domain: domain.hddl
+Problem: minimal-problem.hddl
+Output: raw_plan.dot
+
+Planning Configuration
+======================
+        printGeneralInformation : true
+        printAdditionalData     : true
+        random seed             : 42
+        time limit (in seconds) : none
+
+        external programs:
+
+
+        Parsing Configuration
+        ---------------------
+        Parser                : HDDL Parser (Daniel's format)
+        Expand Sort Hierarchy : true
+        ClosedWordAssumption  : true
+        CompileSHOPMethods    : true
+        Eliminate Equality    : true
+        Strip Hybridity       : true
+        Reduce General Tasks  : true
+
+        Preprocessing Configuration
+        ---------------------------
+        Compile negative preconditions    : true
+        Compile unit methods              : false
+        Compile order in methods          : false
+        Compile initial plan              : true
+        Ensure Methods Have Last Task     : false
+        Split independent parameters      : true
+        Remove unnecessary predicates     : true
+        Expand choiceless abstract tasks  : true
+        Domain Cleanup                    : true
+        Convert to SAS+                   : false
+        Grounded Reachability Analysis    : Planning Graph (mutex-free)
+        Grounded Task Decomposition Graph : Two Way TDG
+        Iterate reachability analysis     : true
+        Ground domain                     : true
+        Iterate reachability analysis     : true
+        Stop directly after grounding     : false
+
+        Plan-based Search Configuration
+        -------------------------------
+        Node limit           : none
+        Search Algorithm     : A*-Action
+        Heuristic            : tdg-m(recompute=never)
+        Flaw selector        : lcfr
+        Pruning              : off
+        Efficient search     : true
+        Continue on solution : false
+        Print search info    : true
+
+        Post-processing Configuration
+        -----------------------------
+        search status
+        search result
+        timings
+        statistics
+#0 "00 global:01:problem"="minimal-problem.hddl";"00 global:00:domain"="domain.hddl"
+Parsing domain ... done
+Preparing internal domain representation ... done.
+Initial domain
+        number of abstract tasks = 7
+        number of tasks = 41
+        number of decomposition methods = 23
+        number of predicates = 26
+        number of sorts = 6
+        number of tasks in largest method = 6
+        number of primitive SHOP tasks = 18
+        number of epsilon methods = 0
+        number of primitive tasks = 34
+        number of constants = 24
+Compiling negative preconditions ... done.
+        number of abstract tasks = 7
+        number of tasks = 41
+        number of decomposition methods = 23
+        number of predicates = 52
+        number of sorts = 6
+        number of tasks in largest method = 6
+        number of primitive SHOP tasks = 18
+        number of epsilon methods = 0
+        number of primitive tasks = 34
+        number of constants = 24
+Compiling split parameters ... done.
+        number of abstract tasks = 7
+        number of tasks = 41
+        number of decomposition methods = 23
+        number of predicates = 52
+        number of sorts = 6
+        number of tasks in largest method = 6
+        number of primitive SHOP tasks = 18
+        number of epsilon methods = 0
+        number of primitive tasks = 34
+        number of constants = 24
+Lifted reachability analysis and domain cleanup ... done.
+        number of abstract tasks = 7
+        number of tasks = 41
+        number of decomposition methods = 23
+        number of predicates = 24
+        number of sorts = 6
+        number of tasks in largest method = 6
+        number of primitive SHOP tasks = 18
+        number of epsilon methods = 0
+        number of primitive tasks = 34
+        number of constants = 24
+Grounded planning graph ... done in 113ms.
+        Number of Grounded Actions 397
+        Number of Grounded Literals 142
+        number of abstract tasks = 7
+        number of tasks = 41
+        number of decomposition methods = 23
+        number of predicates = 24
+        number of sorts = 6
+        number of tasks in largest method = 6
+        number of primitive SHOP tasks = 18
+        number of epsilon methods = 0
+        number of primitive tasks = 34
+        number of constants = 24
+Two Way TDG ... done.
+        number of abstract tasks = 7
+        number of tasks = 41
+        number of decomposition methods = 23
+        number of predicates = 24
+        number of sorts = 6
+        number of tasks in largest method = 6
+        number of primitive SHOP tasks = 18
+        number of epsilon methods = 0
+        number of primitive tasks = 34
+        number of constants = 24
+Grounding ... done.
+        number of abstract tasks = 90
+        number of tasks = 381
+        number of decomposition methods = 265
+        number of predicates = 142
+        number of sorts = 0
+        number of tasks in largest method = 6
+        number of primitive SHOP tasks = 191
+        number of epsilon methods = 0
+        number of primitive tasks = 291
+        number of constants = 0
+Removing unnecessary predicates ... done.
+        number of abstract tasks = 90
+        number of tasks = 381
+        number of decomposition methods = 265
+        number of predicates = 57
+        number of sorts = 0
+        number of tasks in largest method = 6
+        number of primitive SHOP tasks = 191
+        number of epsilon methods = 0
+        number of primitive tasks = 291
+        number of constants = 0
+Omitting lifted reachability analysis ...
+Grounded planning graph ... done in 28ms.
+        Number of Grounded Actions 291
+        Number of Grounded Literals 57
+        number of abstract tasks = 90
+        number of tasks = 381
+        number of decomposition methods = 265
+        number of predicates = 57
+        number of sorts = 0
+        number of tasks in largest method = 6
+        number of primitive SHOP tasks = 191
+        number of epsilon methods = 0
+        number of primitive tasks = 291
+        number of constants = 0
+Two Way TDG ... done.
+        number of abstract tasks = 90
+        number of tasks = 381
+        number of decomposition methods = 265
+        number of predicates = 57
+        number of sorts = 0
+        number of tasks in largest method = 6
+        number of primitive SHOP tasks = 191
+        number of epsilon methods = 0
+        number of primitive tasks = 291
+        number of constants = 0
+Compiling expand choiceless abstract tasks ... done.
+        number of abstract tasks = 43
+        number of tasks = 334
+        number of decomposition methods = 218
+        number of predicates = 57
+        number of sorts = 0
+        number of tasks in largest method = 14
+        number of primitive SHOP tasks = 191
+        number of epsilon methods = 0
+        number of primitive tasks = 291
+        number of constants = 0
+Compiling initial plan ... done.
+        number of abstract tasks = 44
+        number of tasks = 335
+        number of decomposition methods = 219
+        number of predicates = 57
+        number of sorts = 0
+        number of tasks in largest method = 14
+        number of primitive SHOP tasks = 191
+        number of epsilon methods = 0
+        number of primitive tasks = 291
+        number of constants = 0
+Removing unnecessary predicates ... done.
+        number of abstract tasks = 44
+        number of tasks = 335
+        number of decomposition methods = 219
+        number of predicates = 57
+        number of sorts = 0
+        number of tasks in largest method = 14
+        number of primitive SHOP tasks = 191
+        number of epsilon methods = 0
+        number of primitive tasks = 291
+        number of constants = 0
+Omitting lifted reachability analysis ...
+Grounded planning graph ... done in 11ms.
+        Number of Grounded Actions 291
+        Number of Grounded Literals 57
+        number of abstract tasks = 44
+        number of tasks = 335
+        number of decomposition methods = 219
+        number of predicates = 57
+        number of sorts = 0
+        number of tasks in largest method = 14
+        number of primitive SHOP tasks = 191
+        number of epsilon methods = 0
+        number of primitive tasks = 291
+        number of constants = 0
+Two Way TDG ... done.
+        number of abstract tasks = 44
+        number of tasks = 335
+        number of decomposition methods = 219
+        number of predicates = 57
+        number of sorts = 0
+        number of tasks in largest method = 14
+        number of primitive SHOP tasks = 191
+        number of epsilon methods = 0
+        number of primitive tasks = 291
+        number of constants = 0
+Compiling expand choiceless abstract tasks ... done.
+        number of abstract tasks = 43
+        number of tasks = 334
+        number of decomposition methods = 218
+        number of predicates = 57
+        number of sorts = 0
+        number of tasks in largest method = 14
+        number of primitive SHOP tasks = 191
+        number of epsilon methods = 0
+        number of primitive tasks = 291
+        number of constants = 0
+Compiling initial plan ... done.
+        number of abstract tasks = 44
+        number of tasks = 335
+        number of decomposition methods = 219
+        number of predicates = 57
+        number of sorts = 0
+        number of tasks in largest method = 14
+        number of primitive SHOP tasks = 191
+        number of epsilon methods = 0
+        number of primitive tasks = 291
+        number of constants = 0
+Removing unnecessary predicates ... done.
+        number of abstract tasks = 44
+        number of tasks = 335
+        number of decomposition methods = 219
+        number of predicates = 57
+        number of sorts = 0
+        number of tasks in largest method = 14
+        number of primitive SHOP tasks = 191
+        number of epsilon methods = 0
+        number of primitive tasks = 291
+        number of constants = 0
+Tasks 291 - 63
+Domain is acyclic: true
+Domain is mostly acyclic: true
+Domain is regular: false
+Domain is tail recursive: true
+Domain is totally ordered: true
+Domain has last task in all methods: true
+Time remaining for planner 9223372036854773033ms
+Found new lowest heuristic value: 112.0 @ plan #0
+Found new lowest heuristic value: 111.0 @ plan #1
+Plans Expanded: 386 node/sec avg: 1413 recent: 1155 Queue size 166 Recently lowest Heuristic 111.0 Recently highest Heuristic 132.0 time limit 2147483647000ms current 3422
+Plans Expanded: 2233 node/sec avg: 3678 recent: 5529 Queue size 1125 Recently lowest Heuristic 116.0 Recently highest Heuristic 133.0 time limit 2147483647000ms current 3756
+Plans Expanded: 4594 node/sec avg: 4882 recent: 7068 Queue size 1835 Recently lowest Heuristic 121.0 Recently highest Heuristic 136.0 time limit 2147483647000ms current 4090
+Plans Expanded: 6418 node/sec avg: 5033 recent: 5461 Queue size 2235 Recently lowest Heuristic 123.0 Recently highest Heuristic 138.0 time limit 2147483647000ms current 4424
+Plans Expanded: 9473 node/sec avg: 5887 recent: 9146 Queue size 2680 Recently lowest Heuristic 118.0 Recently highest Heuristic 139.0 time limit 2147483647000ms current 4758
+Plans Expanded: 11940 node/sec avg: 6145 recent: 7386 Queue size 2937 Recently lowest Heuristic 120.0 Recently highest Heuristic 140.0 time limit 2147483647000ms current 5092
+Plans Expanded: 15725 node/sec avg: 6906 recent: 11332 Queue size 3178 Recently lowest Heuristic 120.0 Recently highest Heuristic 141.0 time limit 2147483647000ms current 5426
+Plans Expanded: 19633 node/sec avg: 7519 recent: 11700 Queue size 3359 Recently lowest Heuristic 123.0 Recently highest Heuristic 142.0 time limit 2147483647000ms current 5760
+Plans Expanded: 23474 node/sec avg: 7970 recent: 11500 Queue size 3512 Recently lowest Heuristic 121.0 Recently highest Heuristic 143.0 time limit 2147483647000ms current 6094
+Plans Expanded: 27122 node/sec avg: 8271 recent: 10922 Queue size 3584 Recently lowest Heuristic 125.0 Recently highest Heuristic 144.0 time limit 2147483647000ms current 6428
+Plans Expanded: 28171 node/sec avg: 7760 recent: 2988 Queue size 3797 Recently lowest Heuristic 117.0 Recently highest Heuristic 144.0 time limit 2147483647000ms current 6779
+Plans Expanded: 29165 node/sec avg: 7357 recent: 2976 Queue size 4093 Recently lowest Heuristic 118.0 Recently highest Heuristic 128.0 time limit 2147483647000ms current 7113
+Plans Expanded: 30130 node/sec avg: 7005 recent: 2863 Queue size 4394 Recently lowest Heuristic 119.0 Recently highest Heuristic 128.0 time limit 2147483647000ms current 7450
+Plans Expanded: 31047 node/sec avg: 6695 recent: 2729 Queue size 4702 Recently lowest Heuristic 118.0 Recently highest Heuristic 129.0 time limit 2147483647000ms current 7786
+Plans Expanded: 32064 node/sec avg: 6448 recent: 3035 Queue size 4950 Recently lowest Heuristic 120.0 Recently highest Heuristic 129.0 time limit 2147483647000ms current 8121
+Plans Expanded: 32980 node/sec avg: 6215 recent: 2742 Queue size 5202 Recently lowest Heuristic 120.0 Recently highest Heuristic 129.0 time limit 2147483647000ms current 8455
+Plans Expanded: 33917 node/sec avg: 6013 recent: 2805 Queue size 5477 Recently lowest Heuristic 120.0 Recently highest Heuristic 130.0 time limit 2147483647000ms current 8789
+Plans Expanded: 34816 node/sec avg: 5827 recent: 2691 Queue size 5641 Recently lowest Heuristic 121.0 Recently highest Heuristic 130.0 time limit 2147483647000ms current 9123
+Plans Expanded: 35679 node/sec avg: 5653 recent: 2560 Queue size 5917 Recently lowest Heuristic 121.0 Recently highest Heuristic 130.0 time limit 2147483647000ms current 9460
+Plans Expanded: 36585 node/sec avg: 5505 recent: 2712 Queue size 6157 Recently lowest Heuristic 121.0 Recently highest Heuristic 131.0 time limit 2147483647000ms current 9794
+Plans Expanded: 37526 node/sec avg: 5376 recent: 2817 Queue size 6306 Recently lowest Heuristic 123.0 Recently highest Heuristic 132.0 time limit 2147483647000ms current 10128
+Plans Expanded: 38057 node/sec avg: 5200 recent: 1566 Queue size 6469 Recently lowest Heuristic 123.0 Recently highest Heuristic 132.0 time limit 2147483647000ms current 10467
+Plans Expanded: 38937 node/sec avg: 5088 recent: 2634 Queue size 6674 Recently lowest Heuristic 124.0 Recently highest Heuristic 132.0 time limit 2147483647000ms current 10801
+Plans Expanded: 40059 node/sec avg: 5016 recent: 3359 Queue size 6896 Recently lowest Heuristic 124.0 Recently highest Heuristic 133.0 time limit 2147483647000ms current 11135
+Plans Expanded: 40895 node/sec avg: 4913 recent: 2480 Queue size 7162 Recently lowest Heuristic 124.0 Recently highest Heuristic 133.0 time limit 2147483647000ms current 11472
+Plans Expanded: 41979 node/sec avg: 4846 recent: 3207 Queue size 7225 Recently lowest Heuristic 124.0 Recently highest Heuristic 134.0 time limit 2147483647000ms current 11810
+Plans Expanded: 42859 node/sec avg: 4763 recent: 2619 Queue size 7242 Recently lowest Heuristic 119.0 Recently highest Heuristic 136.0 time limit 2147483647000ms current 12146
+Plans Expanded: 43715 node/sec avg: 4683 recent: 2547 Queue size 7488 Recently lowest Heuristic 120.0 Recently highest Heuristic 130.0 time limit 2147483647000ms current 12482
+Plans Expanded: 44646 node/sec avg: 4618 recent: 2787 Queue size 7790 Recently lowest Heuristic 120.0 Recently highest Heuristic 130.0 time limit 2147483647000ms current 12816
+Plans Expanded: 45568 node/sec avg: 4555 recent: 2744 Queue size 8108 Recently lowest Heuristic 120.0 Recently highest Heuristic 131.0 time limit 2147483647000ms current 13152
+Plans Expanded: 46542 node/sec avg: 4502 recent: 2916 Queue size 8336 Recently lowest Heuristic 121.0 Recently highest Heuristic 131.0 time limit 2147483647000ms current 13486
+Plans Expanded: 47461 node/sec avg: 4446 recent: 2735 Queue size 8589 Recently lowest Heuristic 122.0 Recently highest Heuristic 131.0 time limit 2147483647000ms current 13822
+Plans Expanded: 48441 node/sec avg: 4399 recent: 2908 Queue size 8899 Recently lowest Heuristic 122.0 Recently highest Heuristic 131.0 time limit 2147483647000ms current 14159
+Plans Expanded: 49315 node/sec avg: 4347 recent: 2616 Queue size 9046 Recently lowest Heuristic 123.0 Recently highest Heuristic 132.0 time limit 2147483647000ms current 14493
+Plans Expanded: 50164 node/sec avg: 4294 recent: 2526 Queue size 9298 Recently lowest Heuristic 123.0 Recently highest Heuristic 132.0 time limit 2147483647000ms current 14829
+Plans Expanded: 50991 node/sec avg: 4244 recent: 2476 Queue size 9587 Recently lowest Heuristic 123.0 Recently highest Heuristic 133.0 time limit 2147483647000ms current 15163
+Plans Expanded: 51993 node/sec avg: 4209 recent: 2973 Queue size 9708 Recently lowest Heuristic 125.0 Recently highest Heuristic 133.0 time limit 2147483647000ms current 15500
+Plans Expanded: 52872 node/sec avg: 4166 recent: 2600 Queue size 9948 Recently lowest Heuristic 125.0 Recently highest Heuristic 134.0 time limit 2147483647000ms current 15838
+Plans Expanded: 53728 node/sec avg: 4125 recent: 2562 Queue size 10145 Recently lowest Heuristic 126.0 Recently highest Heuristic 134.0 time limit 2147483647000ms current 16172
+Plans Expanded: 54765 node/sec avg: 4046 recent: 2029 Queue size 10341 Recently lowest Heuristic 126.0 Recently highest Heuristic 135.0 time limit 2147483647000ms current 16683
+Plans Expanded: 55603 node/sec avg: 4008 recent: 2471 Queue size 10592 Recently lowest Heuristic 126.0 Recently highest Heuristic 135.0 time limit 2147483647000ms current 17022
+Plans Expanded: 56808 node/sec avg: 3998 recent: 3607 Queue size 10502 Recently lowest Heuristic 126.0 Recently highest Heuristic 136.0 time limit 2147483647000ms current 17356
+Plans Expanded: 57814 node/sec avg: 3975 recent: 2994 Queue size 10307 Recently lowest Heuristic 129.0 Recently highest Heuristic 137.0 time limit 2147483647000ms current 17692
+Plans Expanded: 58698 node/sec avg: 3945 recent: 2646 Queue size 10590 Recently lowest Heuristic 117.0 Recently highest Heuristic 138.0 time limit 2147483647000ms current 18026
+Plans Expanded: 59573 node/sec avg: 3916 recent: 2619 Queue size 10880 Recently lowest Heuristic 118.0 Recently highest Heuristic 128.0 time limit 2147483647000ms current 18360
+Plans Expanded: 60498 node/sec avg: 3890 recent: 2736 Queue size 11181 Recently lowest Heuristic 118.0 Recently highest Heuristic 129.0 time limit 2147483647000ms current 18698
+Plans Expanded: 61348 node/sec avg: 3862 recent: 2544 Queue size 11439 Recently lowest Heuristic 118.0 Recently highest Heuristic 129.0 time limit 2147483647000ms current 19032
+Plans Expanded: 62229 node/sec avg: 3837 recent: 2629 Queue size 11693 Recently lowest Heuristic 120.0 Recently highest Heuristic 129.0 time limit 2147483647000ms current 19367
+Plans Expanded: 63149 node/sec avg: 3814 recent: 2729 Queue size 11935 Recently lowest Heuristic 120.0 Recently highest Heuristic 129.0 time limit 2147483647000ms current 19704
+Plans Expanded: 64118 node/sec avg: 3796 recent: 2901 Queue size 12223 Recently lowest Heuristic 120.0 Recently highest Heuristic 130.0 time limit 2147483647000ms current 20038
+Plans Expanded: 64954 node/sec avg: 3770 recent: 2480 Queue size 12453 Recently lowest Heuristic 121.0 Recently highest Heuristic 130.0 time limit 2147483647000ms current 20375
+Plans Expanded: 65887 node/sec avg: 3752 recent: 2793 Queue size 12676 Recently lowest Heuristic 121.0 Recently highest Heuristic 130.0 time limit 2147483647000ms current 20709
+Plans Expanded: 66807 node/sec avg: 3732 recent: 2721 Queue size 12899 Recently lowest Heuristic 121.0 Recently highest Heuristic 131.0 time limit 2147483647000ms current 21047
+Plans Expanded: 67626 node/sec avg: 3708 recent: 2437 Queue size 13085 Recently lowest Heuristic 123.0 Recently highest Heuristic 132.0 time limit 2147483647000ms current 21383
+Plans Expanded: 68509 node/sec avg: 3688 recent: 2612 Queue size 13326 Recently lowest Heuristic 123.0 Recently highest Heuristic 132.0 time limit 2147483647000ms current 21721
+Plans Expanded: 69530 node/sec avg: 3677 recent: 3056 Queue size 13542 Recently lowest Heuristic 124.0 Recently highest Heuristic 133.0 time limit 2147483647000ms current 22055
+Plans Expanded: 70310 node/sec avg: 3654 recent: 2335 Queue size 13775 Recently lowest Heuristic 124.0 Recently highest Heuristic 133.0 time limit 2147483647000ms current 22389
+Plans Expanded: 71354 node/sec avg: 3644 recent: 3097 Queue size 13862 Recently lowest Heuristic 124.0 Recently highest Heuristic 134.0 time limit 2147483647000ms current 22726
+Plans Expanded: 72179 node/sec avg: 3624 recent: 2440 Queue size 14082 Recently lowest Heuristic 119.0 Recently highest Heuristic 135.0 time limit 2147483647000ms current 23064
+Plans Expanded: 73059 node/sec avg: 3608 recent: 2634 Queue size 14343 Recently lowest Heuristic 121.0 Recently highest Heuristic 130.0 time limit 2147483647000ms current 23398
+Plans Expanded: 73832 node/sec avg: 3587 recent: 2314 Queue size 14617 Recently lowest Heuristic 120.0 Recently highest Heuristic 130.0 time limit 2147483647000ms current 23732
+Plans Expanded: 74733 node/sec avg: 3572 recent: 2689 Queue size 14905 Recently lowest Heuristic 120.0 Recently highest Heuristic 131.0 time limit 2147483647000ms current 24067
+Plans Expanded: 75635 node/sec avg: 3558 recent: 2660 Queue size 15189 Recently lowest Heuristic 121.0 Recently highest Heuristic 131.0 time limit 2147483647000ms current 24406
+Plans Expanded: 76494 node/sec avg: 3542 recent: 2571 Queue size 15397 Recently lowest Heuristic 122.0 Recently highest Heuristic 131.0 time limit 2147483647000ms current 24740
+Plans Expanded: 77406 node/sec avg: 3530 recent: 2730 Queue size 15676 Recently lowest Heuristic 122.0 Recently highest Heuristic 131.0 time limit 2147483647000ms current 25074
+Plans Expanded: 78271 node/sec avg: 3516 recent: 2582 Queue size 15896 Recently lowest Heuristic 122.0 Recently highest Heuristic 132.0 time limit 2147483647000ms current 25409
+Plans Expanded: 79107 node/sec avg: 3500 recent: 2480 Queue size 16123 Recently lowest Heuristic 123.0 Recently highest Heuristic 132.0 time limit 2147483647000ms current 25746
+Plans Expanded: 80021 node/sec avg: 3489 recent: 2736 Queue size 16383 Recently lowest Heuristic 123.0 Recently highest Heuristic 132.0 time limit 2147483647000ms current 26080
+Plans Expanded: 80914 node/sec avg: 3477 recent: 2657 Queue size 16561 Recently lowest Heuristic 124.0 Recently highest Heuristic 133.0 time limit 2147483647000ms current 26416
+Plans Expanded: 81794 node/sec avg: 3465 recent: 2603 Queue size 16782 Recently lowest Heuristic 125.0 Recently highest Heuristic 134.0 time limit 2147483647000ms current 26754
+Plans Expanded: 82651 node/sec avg: 3452 recent: 2558 Queue size 17016 Recently lowest Heuristic 126.0 Recently highest Heuristic 134.0 time limit 2147483647000ms current 27089
+Plans Expanded: 82984 node/sec avg: 3407 recent: 810 Queue size 17115 Recently lowest Heuristic 126.0 Recently highest Heuristic 134.0 time limit 2147483647000ms current 27500
+Plans Expanded: 84041 node/sec avg: 3404 recent: 3164 Queue size 17094 Recently lowest Heuristic 126.0 Recently highest Heuristic 135.0 time limit 2147483647000ms current 27834
+Plans Expanded: 84866 node/sec avg: 3392 recent: 2470 Queue size 17322 Recently lowest Heuristic 126.0 Recently highest Heuristic 135.0 time limit 2147483647000ms current 28168
+Plans Expanded: 86035 node/sec avg: 3393 recent: 3500 Queue size 17215 Recently lowest Heuristic 126.0 Recently highest Heuristic 136.0 time limit 2147483647000ms current 28502
+Plans Expanded: 86936 node/sec avg: 3384 recent: 2689 Queue size 17472 Recently lowest Heuristic 117.0 Recently highest Heuristic 137.0 time limit 2147483647000ms current 28837
+Plans Expanded: 87852 node/sec avg: 3376 recent: 2742 Queue size 17753 Recently lowest Heuristic 118.0 Recently highest Heuristic 128.0 time limit 2147483647000ms current 29171
+Plans Expanded: 88796 node/sec avg: 3369 recent: 2826 Queue size 18054 Recently lowest Heuristic 119.0 Recently highest Heuristic 129.0 time limit 2147483647000ms current 29505
+Plans Expanded: 89749 node/sec avg: 3362 recent: 2853 Queue size 18326 Recently lowest Heuristic 118.0 Recently highest Heuristic 129.0 time limit 2147483647000ms current 29839
+Plans Expanded: 90725 node/sec avg: 3356 recent: 2887 Queue size 18584 Recently lowest Heuristic 120.0 Recently highest Heuristic 129.0 time limit 2147483647000ms current 30177
+Plans Expanded: 91645 node/sec avg: 3349 recent: 2754 Queue size 18857 Recently lowest Heuristic 120.0 Recently highest Heuristic 129.0 time limit 2147483647000ms current 30511
+Plans Expanded: 92642 node/sec avg: 3344 recent: 2958 Queue size 19113 Recently lowest Heuristic 120.0 Recently highest Heuristic 130.0 time limit 2147483647000ms current 30848
+Plans Expanded: 93527 node/sec avg: 3336 recent: 2633 Queue size 19294 Recently lowest Heuristic 121.0 Recently highest Heuristic 130.0 time limit 2147483647000ms current 31184
+Plans Expanded: 94325 node/sec avg: 3324 recent: 2389 Queue size 19575 Recently lowest Heuristic 121.0 Recently highest Heuristic 130.0 time limit 2147483647000ms current 31518
+Plans Expanded: 95274 node/sec avg: 3319 recent: 2832 Queue size 19776 Recently lowest Heuristic 121.0 Recently highest Heuristic 131.0 time limit 2147483647000ms current 31853
+Plans Expanded: 96145 node/sec avg: 3311 recent: 2607 Queue size 19938 Recently lowest Heuristic 123.0 Recently highest Heuristic 132.0 time limit 2147483647000ms current 32187
+Plans Expanded: 96854 node/sec avg: 3297 recent: 2122 Queue size 20113 Recently lowest Heuristic 123.0 Recently highest Heuristic 132.0 time limit 2147483647000ms current 32521
+Plans Expanded: 97853 node/sec avg: 3294 recent: 2991 Queue size 20384 Recently lowest Heuristic 124.0 Recently highest Heuristic 132.0 time limit 2147483647000ms current 32855
+Plans Expanded: 98849 node/sec avg: 3290 recent: 2955 Queue size 20593 Recently lowest Heuristic 124.0 Recently highest Heuristic 133.0 time limit 2147483647000ms current 33192
+Plans Expanded: 99608 node/sec avg: 3279 recent: 2272 Queue size 20851 Recently lowest Heuristic 124.0 Recently highest Heuristic 133.0 time limit 2147483647000ms current 33526
+Plans Expanded: 100825 node/sec avg: 3283 recent: 3643 Queue size 20694 Recently lowest Heuristic 127.0 Recently highest Heuristic 135.0 time limit 2147483647000ms current 33860
+Plans Expanded: 101580 node/sec avg: 3272 recent: 2260 Queue size 20906 Recently lowest Heuristic 119.0 Recently highest Heuristic 136.0 time limit 2147483647000ms current 34194
+Plans Expanded: 102456 node/sec avg: 3265 recent: 2622 Queue size 21156 Recently lowest Heuristic 121.0 Recently highest Heuristic 130.0 time limit 2147483647000ms current 34528
+Plans Expanded: 103395 node/sec avg: 3260 recent: 2811 Queue size 21457 Recently lowest Heuristic 120.0 Recently highest Heuristic 130.0 time limit 2147483647000ms current 34862
+Plans Expanded: 104303 node/sec avg: 3254 recent: 2718 Queue size 21769 Recently lowest Heuristic 120.0 Recently highest Heuristic 131.0 time limit 2147483647000ms current 35196
+Plans Expanded: 105266 node/sec avg: 3249 recent: 2743 Queue size 21987 Recently lowest Heuristic 122.0 Recently highest Heuristic 131.0 time limit 2147483647000ms current 35547
+Plans Expanded: 106160 node/sec avg: 3243 recent: 2668 Queue size 22243 Recently lowest Heuristic 122.0 Recently highest Heuristic 131.0 time limit 2147483647000ms current 35882
+Plans Expanded: 107139 node/sec avg: 3240 recent: 2931 Queue size 22555 Recently lowest Heuristic 122.0 Recently highest Heuristic 131.0 time limit 2147483647000ms current 36216
+Plans Expanded: 108060 node/sec avg: 3234 recent: 2732 Queue size 22702 Recently lowest Heuristic 123.0 Recently highest Heuristic 132.0 time limit 2147483647000ms current 36553
+Plans Expanded: 108246 node/sec avg: 3202 recent: 465 Queue size 22746 Recently lowest Heuristic 123.0 Recently highest Heuristic 132.0 time limit 2147483647000ms current 36953
+Plans Expanded: 109074 node/sec avg: 3194 recent: 2456 Queue size 23017 Recently lowest Heuristic 123.0 Recently highest Heuristic 132.0 time limit 2147483647000ms current 37290
+Plans Expanded: 109943 node/sec avg: 3189 recent: 2601 Queue size 23255 Recently lowest Heuristic 123.0 Recently highest Heuristic 133.0 time limit 2147483647000ms current 37624
+Plans Expanded: 110860 node/sec avg: 3184 recent: 2745 Queue size 23413 Recently lowest Heuristic 125.0 Recently highest Heuristic 133.0 time limit 2147483647000ms current 37958
+Plans Expanded: 111603 node/sec avg: 3175 recent: 2211 Queue size 23599 Recently lowest Heuristic 125.0 Recently highest Heuristic 134.0 time limit 2147483647000ms current 38294
+Plans Expanded: 112544 node/sec avg: 3172 recent: 2817 Queue size 23828 Recently lowest Heuristic 126.0 Recently highest Heuristic 134.0 time limit 2147483647000ms current 38628
+Plans Expanded: 113555 node/sec avg: 3170 recent: 2991 Queue size 24033 Recently lowest Heuristic 126.0 Recently highest Heuristic 135.0 time limit 2147483647000ms current 38966
+Plans Expanded: 114332 node/sec avg: 3162 recent: 2326 Queue size 24285 Recently lowest Heuristic 126.0 Recently highest Heuristic 135.0 time limit 2147483647000ms current 39300
+Plans Expanded: 115557 node/sec avg: 3166 recent: 3624 Queue size 24146 Recently lowest Heuristic 126.0 Recently highest Heuristic 136.0 time limit 2147483647000ms current 39638
+Plans Expanded: 116840 node/sec avg: 3172 recent: 3795 Queue size 23607 Recently lowest Heuristic 129.0 Recently highest Heuristic 137.0 time limit 2147483647000ms current 39976
+Plans Expanded: 117990 node/sec avg: 3175 recent: 3443 Queue size 23423 Recently lowest Heuristic 117.0 Recently highest Heuristic 138.0 time limit 2147483647000ms current 40310
+Plans Expanded: 118981 node/sec avg: 3173 recent: 2958 Queue size 23713 Recently lowest Heuristic 118.0 Recently highest Heuristic 128.0 time limit 2147483647000ms current 40645
+Plans Expanded: 119990 node/sec avg: 3171 recent: 2994 Queue size 24048 Recently lowest Heuristic 118.0 Recently highest Heuristic 129.0 time limit 2147483647000ms current 40982
+Plans Expanded: 120912 node/sec avg: 3167 recent: 2735 Queue size 24300 Recently lowest Heuristic 118.0 Recently highest Heuristic 129.0 time limit 2147483647000ms current 41319
+Plans Expanded: 121920 node/sec avg: 3166 recent: 2973 Queue size 24553 Recently lowest Heuristic 120.0 Recently highest Heuristic 129.0 time limit 2147483647000ms current 41658
+Plans Expanded: 122873 node/sec avg: 3163 recent: 2853 Queue size 24852 Recently lowest Heuristic 120.0 Recently highest Heuristic 129.0 time limit 2147483647000ms current 41992
+Plans Expanded: 123763 node/sec avg: 3159 recent: 2664 Queue size 25069 Recently lowest Heuristic 120.0 Recently highest Heuristic 130.0 time limit 2147483647000ms current 42326
+Plans Expanded: 124636 node/sec avg: 3154 recent: 2613 Queue size 25251 Recently lowest Heuristic 121.0 Recently highest Heuristic 130.0 time limit 2147483647000ms current 42660
+Plans Expanded: 125485 node/sec avg: 3149 recent: 2526 Queue size 25542 Recently lowest Heuristic 121.0 Recently highest Heuristic 130.0 time limit 2147483647000ms current 42996
+Plans Expanded: 126429 node/sec avg: 3146 recent: 2826 Queue size 25739 Recently lowest Heuristic 121.0 Recently highest Heuristic 131.0 time limit 2147483647000ms current 43330
+Plans Expanded: 127334 node/sec avg: 3142 recent: 2685 Queue size 25918 Recently lowest Heuristic 123.0 Recently highest Heuristic 132.0 time limit 2147483647000ms current 43667
+Plans Expanded: 128141 node/sec avg: 3136 recent: 2387 Queue size 26125 Recently lowest Heuristic 123.0 Recently highest Heuristic 132.0 time limit 2147483647000ms current 44005
+Plans Expanded: 129212 node/sec avg: 3136 recent: 3159 Queue size 26407 Recently lowest Heuristic 124.0 Recently highest Heuristic 132.0 time limit 2147483647000ms current 44344
+Plans Expanded: 130132 node/sec avg: 3133 recent: 2746 Queue size 26604 Recently lowest Heuristic 124.0 Recently highest Heuristic 133.0 time limit 2147483647000ms current 44679
+Plans Expanded: 131124 node/sec avg: 3131 recent: 2926 Queue size 26724 Recently lowest Heuristic 124.0 Recently highest Heuristic 134.0 time limit 2147483647000ms current 45018
+Plans Expanded: 132132 node/sec avg: 3130 recent: 3000 Queue size 26706 Recently lowest Heuristic 127.0 Recently highest Heuristic 135.0 time limit 2147483647000ms current 45354
+Plans Expanded: 132982 node/sec avg: 3125 recent: 2529 Queue size 26952 Recently lowest Heuristic 119.0 Recently highest Heuristic 136.0 time limit 2147483647000ms current 45690
+Plans Expanded: 133908 node/sec avg: 3123 recent: 2755 Queue size 27232 Recently lowest Heuristic 120.0 Recently highest Heuristic 130.0 time limit 2147483647000ms current 46026
+Plans Expanded: 134841 node/sec avg: 3120 recent: 2752 Queue size 27549 Recently lowest Heuristic 120.0 Recently highest Heuristic 131.0 time limit 2147483647000ms current 46365
+Plans Expanded: 135807 node/sec avg: 3118 recent: 2849 Queue size 27806 Recently lowest Heuristic 120.0 Recently highest Heuristic 131.0 time limit 2147483647000ms current 46704
+Plans Expanded: 136732 node/sec avg: 3115 recent: 2752 Queue size 28046 Recently lowest Heuristic 122.0 Recently highest Heuristic 131.0 time limit 2147483647000ms current 47040
+Plans Expanded: 137686 node/sec avg: 3113 recent: 2856 Queue size 28335 Recently lowest Heuristic 122.0 Recently highest Heuristic 131.0 time limit 2147483647000ms current 47374
+Plans Expanded: 138674 node/sec avg: 3112 recent: 2958 Queue size 28578 Recently lowest Heuristic 122.0 Recently highest Heuristic 132.0 time limit 2147483647000ms current 47708
+Plans Expanded: 139497 node/sec avg: 3107 recent: 2449 Queue size 28747 Recently lowest Heuristic 123.0 Recently highest Heuristic 132.0 time limit 2147483647000ms current 48044
+Plans Expanded: 140310 node/sec avg: 3102 recent: 2434 Queue size 29028 Recently lowest Heuristic 123.0 Recently highest Heuristic 132.0 time limit 2147483647000ms current 48378
+Plans Expanded: 141256 node/sec avg: 3100 recent: 2832 Queue size 29235 Recently lowest Heuristic 123.0 Recently highest Heuristic 133.0 time limit 2147483647000ms current 48712
+Plans Expanded: 142141 node/sec avg: 3096 recent: 2649 Queue size 29393 Recently lowest Heuristic 125.0 Recently highest Heuristic 134.0 time limit 2147483647000ms current 49046
+Plans Expanded: 142802 node/sec avg: 3088 recent: 1973 Queue size 29571 Recently lowest Heuristic 125.0 Recently highest Heuristic 134.0 time limit 2147483647000ms current 49381
+Plans Expanded: 143745 node/sec avg: 3086 recent: 2798 Queue size 29805 Recently lowest Heuristic 126.0 Recently highest Heuristic 134.0 time limit 2147483647000ms current 49718
+Plans Expanded: 144765 node/sec avg: 3086 recent: 3044 Queue size 30023 Recently lowest Heuristic 126.0 Recently highest Heuristic 135.0 time limit 2147483647000ms current 50053
+Plans Expanded: 145382 node/sec avg: 3050 recent: 810 Queue size 30204 Recently lowest Heuristic 126.0 Recently highest Heuristic 135.0 time limit 2147483647000ms current 50814
+Plans Expanded: 146584 node/sec avg: 3053 recent: 3588 Queue size 30090 Recently lowest Heuristic 126.0 Recently highest Heuristic 136.0 time limit 2147483647000ms current 51149
+Plans Expanded: 147555 node/sec avg: 3052 recent: 2889 Queue size 29886 Recently lowest Heuristic 129.0 Recently highest Heuristic 137.0 time limit 2147483647000ms current 51485
+Found solution at depth 159 with 105 actions and heuristic [D@281e67dc
+Panda says: SOLUTION
+============ global ============
+randomseed     = 42
+peak memory    = 1692520840
+planner result = SOLUTION
+============ solution ============
+number of primitive plan steps = 105
+============ properties ============
+acyclic                  = true
+mostly acyclic           = true
+regular                  = false
+tail recursive           = true
+totally ordered          = true
+last task in all methods = true
+============ search nodes ============
+total    = 177705
+expanded = 148983
+============ search plans ============
+number of plansteps-mean = 77.96329872541571
+============ tdg heuristic ============
+executed decompositions  = 61934
+executed add causal link = 115771
+only one decomposition   = 1
+TDG computed heuristic   = 61933
+============ problem ============
+number of constants                  = 0
+number of predicates                 = 57
+number of actions                    = 335
+number of abstract actions           = 44
+number of primitive actions          = 291
+number of methods                    = 219
+number of primitive shop actions     = 191
+number of primitive non-shop actions = 100
+size of largest method               = 14
+average method size                  = 6
+
+----------------- TIMINGS -----------------
+============ total ============
+total = 51693
+============ parsing ============
+total                         = 1653
+file parser                   = 1279
+sort expansion                = 159
+closed world assumption       = 74
+inherit preconditions         = 0
+shop methods                  = 41
+eliminate identical variables = 28
+strip domain of hybridity     = 3
+flatten formula               = 69
+============ preprocessing ============
+total                                      = 1035
+compile negative preconditions             = 17
+compile unit methods                       = 0
+split parameter                            = 19
+expand choiceless abstract tasks           = 178
+compile methods with identical tasks       = 0
+removing unnecessary predicates            = 84
+lifted reachabiltiy analysis               = 37
+grounded planning graph analysis           = 298
+grounded task decomposition graph analysis = 262
+grounding                                  = 119
+create artificial top task                 = 1
+============ heuristics preparation ============
+total = 6
+============ search preparation ============
+compute efficient representation = 158
+============ search ============
+total             = 48513
+flaw estimation   = 4922
+flaw computation  = 2922
+flaw selector     = 27
+compute heuristic = 67
+compute filter    = 15
+
+#1 "30 problem:05:number of primitive actions"="291";"21 tdg heuristic:20:only one decomposition"="1";"10 search nodes:01:expanded"="148983";"30 problem:01:number of constants"="0";"30 problem:04:number of abstract actions"="44";"21 tdg heuristic:10:executed decompositions"="61934";"02 properties:04:tail recursive"="true";"00 global:80:peak memory"="1692520840";"02 properties:02:mostly acyclic"="true";"30 problem:06:number of methods"="219";"30 problem:07:number of primitive shop actions"="191";"01 solution:01:number of primitive plan steps"="105";"02 properties:05:totally ordered"="true";"10 search nodes:00:total"="177705";"21 tdg heuristic:12:executed add causal link"="115771";"02 properties:06:last task in all methods"="true";"30 problem:03:number of actions"="335";"30 problem:08:number of primitive non-shop actions"="100";"30 problem:02:number of predicates"="57";"30 problem:10:average method size"="6";"02 properties:03:regular"="false";"30 problem:09:size of largest method"="14";"00 global:90:planner result"="SOLUTION";"02 properties:01:acyclic"="true";"20 search plans:01:number of plansteps-mean"="77.96329872541571";"21 tdg heuristic:21:TDG computed heuristic"="61933";"00 global:02:randomseed"="42";"01 parsing:01:file parser"="1279";"01 parsing:08:flatten formula"="69";"02 preprocessing:07:compile methods with identical tasks"="0";"01 parsing:07:strip domain of hybridity"="3";"02 preprocessing:08:removing unnecessary predicates"="84";"01 parsing:03:closed world assumption"="74";"02 preprocessing:11:lifted reachabiltiy analysis"="37";"01 parsing:02:sort expansion"="159";"20 search:40:compute heuristic"="67";"01 parsing:00:total"="1653";"20 search:10:flaw selector"="27";"01 parsing:04:inherit preconditions"="0";"20 search:50:compute filter"="15";"02 preprocessing:01:compile negative preconditions"="17";"20 search:00:total"="48513";"00 total:00:total"="51693";"02 preprocessing:12:grounded planning graph analysis"="298";"02 preprocessing:02:compile unit methods"="0";"02 preprocessing:23:grounded task decomposition graph analysis"="262";"20 search:01:flaw estimation"="4922";"02 preprocessing:04:split parameter"="19";"01 parsing:05:shop methods"="41";"20 search:02:flaw computation"="2922";"10 search preparation:01:compute efficient representation"="158";"01 parsing:06:eliminate identical variables"="28";"02 preprocessing:05:expand choiceless abstract tasks"="178";"03 heuristics preparation:00:total"="6";"02 preprocessing:00:total"="1035";"02 preprocessing:99:create artificial top task"="1";"02 preprocessing:84:grounding"="119"
+SOLUTION SEQUENCE
+0: SHOP_methodm_delivery_direct_0_precondition(quantum-chip,hall-b,technician,entrance)
+1: SHOP_methodm_prep_fetch_pod_2_precondition(technician,entrance,pod1,anti-vibration-pods-room)
+2: SHOP_methodm_get_to_transit_19_precondition(entrance,maintenance-tunnel,anti-vibration-pods-room)
+3: SHOP_methodm_step_unpressurized_21_precondition(maintenance-tunnel)
+4: activate-seal(technician)
+5: move-to-unpressurized-room(technician,entrance,maintenance-tunnel)
+6: SHOP_methodm_step_pressurized_20_precondition(anti-vibration-pods-room)
+7: move-to-pressurized-room(technician,maintenance-tunnel,anti-vibration-pods-room)
+8: pick-up-pod-slot-1(technician,anti-vibration-pods-room,pod1)
+9: SHOP_methodm_get_to_transit_19_precondition(anti-vibration-pods-room,maintenance-tunnel,hall-b)
+10: SHOP_methodm_step_unpressurized_21_precondition(maintenance-tunnel)
+11: activate-seal(technician)
+12: move-to-unpressurized-room(technician,anti-vibration-pods-room,maintenance-tunnel)
+13: SHOP_methodm_step_seismic_22_precondition(hall-b)
+14: wait-seismic-room-safe(technician,hall-b,maintenance-tunnel)
+15: put-in-pod(quantum-chip,technological,hall-b,technician,pod1)
+16: SHOP_methodm_transport_chill_8_precondition(cryo-chamber,technician)
+17: SHOP_methodm_get_to_transit_19_precondition(hall-b,maintenance-tunnel,cryo-chamber)
+18: SHOP_methodm_step_unpressurized_21_precondition(maintenance-tunnel)
+19: activate-seal(technician)
+20: move-to-unpressurized-room(technician,hall-b,maintenance-tunnel)
+21: SHOP_methodm_step_pressurized_20_precondition(cryo-chamber)
+22: move-to-pressurized-room(technician,maintenance-tunnel,cryo-chamber)
+23: SHOP_methodm_unload_pod_keep_cryo_15_precondition(cryo-chamber)
+24: release-artifact-cryo-from-pod-slot-1(technician,quantum-chip,cryo-chamber,pod1)
+25: put-in-pod(quantum-chip,technological,cryo-chamber,technician,pod1)
+26: SHOP_methodm_get_to_direct_18_precondition(cryo-chamber,maintenance-tunnel)
+27: SHOP_methodm_step_unpressurized_21_precondition(maintenance-tunnel)
+28: activate-seal(technician)
+29: move-to-unpressurized-room(technician,cryo-chamber,maintenance-tunnel)
+30: SHOP_methodm_unload_pod_drop_std_14_precondition(maintenance-tunnel)
+31: release-artifact-from-pod-slot-1(technician,quantum-chip,maintenance-tunnel,pod1)
+32: drop-pod-slot-1(technician,pod1,maintenance-tunnel)
+33: SHOP_methodm_delivery_direct_0_precondition(quantum-chip,maintenance-tunnel,scientist,stasis-lab)
+34: SHOP_methodm_prep_fetch_pod_2_precondition(scientist,stasis-lab,pod1,maintenance-tunnel)    
+35: SHOP_methodm_get_to_direct_18_precondition(stasis-lab,maintenance-tunnel)
+36: SHOP_methodm_step_unpressurized_21_precondition(maintenance-tunnel)
+37: activate-seal(scientist)
+38: move-to-unpressurized-room(scientist,stasis-lab,maintenance-tunnel)
+39: pick-up-pod-slot-1(scientist,maintenance-tunnel,pod1)
+40: stay-at(scientist,maintenance-tunnel)
+41: put-in-pod(quantum-chip,technological,maintenance-tunnel,scientist,pod1)
+42: SHOP_methodm_get_to_direct_18_precondition(maintenance-tunnel,stasis-lab)
+43: SHOP_methodm_step_pressurized_20_precondition(stasis-lab)
+44: move-to-pressurized-room(scientist,maintenance-tunnel,stasis-lab)
+45: SHOP_methodm_unload_pod_keep_std_13_precondition(stasis-lab)
+46: release-artifact-from-pod-slot-1(scientist,quantum-chip,stasis-lab,pod1)
+47: SHOP_methodm_delivery_direct_0_precondition(space-suit,hall-b,technician,maintenance-tunnel)
+48: SHOP_methodm_prep_fetch_pod_2_precondition(technician,maintenance-tunnel,pod2,anti-vibration-pods-room)
+49: SHOP_methodm_get_to_direct_18_precondition(maintenance-tunnel,anti-vibration-pods-room)     
+50: SHOP_methodm_step_pressurized_20_precondition(anti-vibration-pods-room)
+51: move-to-pressurized-room(technician,maintenance-tunnel,anti-vibration-pods-room)
+52: pick-up-pod-slot-1(technician,anti-vibration-pods-room,pod2)
+53: SHOP_methodm_get_to_transit_19_precondition(anti-vibration-pods-room,maintenance-tunnel,hall-b)
+54: SHOP_methodm_step_unpressurized_21_precondition(maintenance-tunnel)
+55: activate-seal(technician)
+56: move-to-unpressurized-room(technician,anti-vibration-pods-room,maintenance-tunnel)
+57: SHOP_methodm_step_seismic_22_precondition(hall-b)
+58: wait-seismic-room-safe(technician,hall-b,maintenance-tunnel)
+59: pick-up-slot-2(space-suit,technological,hall-b,technician)
+60: SHOP_methodm_get_to_direct_18_precondition(hall-b,maintenance-tunnel)
+61: SHOP_methodm_step_unpressurized_21_precondition(maintenance-tunnel)
+62: activate-seal(technician)
+63: move-to-unpressurized-room(technician,hall-b,maintenance-tunnel)
+64: SHOP_methodm_unload_s2_std_11_precondition(maintenance-tunnel)
+65: release-artifact-slot-2(technician,space-suit,maintenance-tunnel)
+66: SHOP_methodm_delivery_direct_0_precondition(space-suit,maintenance-tunnel,scientist,stasis-lab)
+67: SHOP_methodm_prep_drop_pod_first_3_precondition(scientist,stasis-lab,pod1)
+68: drop-pod-slot-1(scientist,pod1,stasis-lab)
+69: SHOP_methodm_get_to_direct_18_precondition(stasis-lab,maintenance-tunnel)
+70: SHOP_methodm_step_unpressurized_21_precondition(maintenance-tunnel)
+71: activate-seal(scientist)
+72: move-to-unpressurized-room(scientist,stasis-lab,maintenance-tunnel)
+73: pick-up-slot-1(space-suit,technological,maintenance-tunnel,scientist)
+74: SHOP_methodm_get_to_direct_18_precondition(maintenance-tunnel,stasis-lab)
+75: SHOP_methodm_step_pressurized_20_precondition(stasis-lab)
+76: move-to-pressurized-room(scientist,maintenance-tunnel,stasis-lab)
+77: SHOP_methodm_unload_s1_std_9_precondition(stasis-lab)
+78: release-artifact-slot-1(scientist,space-suit,stasis-lab)
+79: SHOP_methodm_delivery_direct_0_precondition(rover-wheel,hall-b,technician,maintenance-tunnel)
+80: SHOP_methodm_prep_direct_1_precondition(technician,maintenance-tunnel)
+81: SHOP_methodm_get_to_direct_18_precondition(maintenance-tunnel,hall-b)
+82: SHOP_methodm_step_seismic_22_precondition(hall-b)
+83: wait-seismic-room-safe(technician,hall-b,maintenance-tunnel)
+84: put-in-pod(rover-wheel,technological,hall-b,technician,pod2)
+85: SHOP_methodm_get_to_direct_18_precondition(hall-b,maintenance-tunnel)
+86: SHOP_methodm_step_unpressurized_21_precondition(maintenance-tunnel)
+87: activate-seal(technician)
+88: move-to-unpressurized-room(technician,hall-b,maintenance-tunnel)
+89: SHOP_methodm_unload_pod_keep_std_13_precondition(maintenance-tunnel)
+90: release-artifact-from-pod-slot-1(technician,rover-wheel,maintenance-tunnel,pod2)
+91: SHOP_methodm_delivery_direct_0_precondition(rover-wheel,maintenance-tunnel,scientist,stasis-lab)
+92: SHOP_methodm_prep_fetch_pod_2_precondition(scientist,stasis-lab,pod1,stasis-lab)
+93: stay-at(scientist,stasis-lab)
+94: pick-up-pod-slot-1(scientist,stasis-lab,pod1)
+95: SHOP_methodm_get_to_direct_18_precondition(stasis-lab,maintenance-tunnel)
+96: SHOP_methodm_step_unpressurized_21_precondition(maintenance-tunnel)
+97: activate-seal(scientist)
+98: move-to-unpressurized-room(scientist,stasis-lab,maintenance-tunnel)
+99: put-in-pod(rover-wheel,technological,maintenance-tunnel,scientist,pod1)
+100: SHOP_methodm_get_to_direct_18_precondition(maintenance-tunnel,stasis-lab)
+101: SHOP_methodm_step_pressurized_20_precondition(stasis-lab)
+102: move-to-pressurized-room(scientist,maintenance-tunnel,stasis-lab)
+103: SHOP_methodm_unload_pod_keep_std_13_precondition(stasis-lab)
+104: release-artifact-from-pod-slot-1(scientist,rover-wheel,stasis-lab,pod1)

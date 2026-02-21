@@ -1,0 +1,143 @@
+;; ============================================================================
+;; PROBLEM: ultra-minimal-problem
+;; DESCRIPTION:
+;; This file defines a specific scenario (problem instance) for the 
+;; hierarchical hierarchical-delivery-search. It sets up the environment topology, 
+;; the available robots with their specific capabilities and access rights, 
+;; and the initial/target locations for multiple batches of artifacts.
+;; ============================================================================
+
+(define (problem ultra-minimal-problem)
+  (:domain hierarchical-delivery-search)
+
+  ;; ========================
+  ;; OBJECTS
+  ;; ========================
+  ;; Instantiation of all entities present in the simulated environment.
+  (:objects
+    ;; Agents
+    curator technician scientist - robot
+    
+    ;; Topology (Rooms and connection nodes)
+    entrance maintenance-tunnel hall-a hall-b cryo-chamber anti-vibration-pods-room stasis-lab - location
+    
+    ;; Artifact categories mapped to lifting permissions
+    technological scientific top-secret - artifact-type
+    
+    ;; --- Artifact Instances ---
+    ;; Artifact Batch 1) in Hall A that need to be bring in the Stasis Lab
+    mart-nord-core-drill mart-sud-core-drill - artifact
+    ; mart-east-core-drill mart-west-core-drill - artifact
+    
+    ;; Artifact Batch 2) in Hall A that need to be bring in the Cryo Chamber
+    mart-north-pole-ice-sample mart-mysterious-egg - artifact
+    ; asteroid-MG04TN-ice-sample - artifact
+
+    ;; Artifact Batch 3) in Hall B ( all thecnological ) that need to be bring in the stasis lab
+    rover-wheel space-suit - artifact
+    quantum-chip - artifact
+    ; rusty-lightsaber - artifact
+    
+    ;; Artifact Batch 4) in Hall B ( scientific / top-secret ) that need to be bring in the Hall A
+    mart-sand-sample mart-laser-gun - artifact
+    ; mart-pink-hat asteroid-AD29TV-rock-sample - artifact
+  )
+
+  ;; ========================
+  ;; HTN TASK NETWORK (Root)
+  ;; ========================
+  ;; The initial high-level tasks that kick off the hierarchical decomposition.
+  ;; The planner is instructed to process (empty) Hall A first, then Hall B.
+  (:htn
+    :parameters ()
+    :ordered-subtasks (and
+      (t1 (process-room hall-a))
+      (t2 (process-room hall-b))
+    )
+  )
+
+  ;; ========================
+  ;; INITIAL STATE
+  ;; ========================
+  ;; Defines the starting conditions: robot capabilities, access rights, 
+  ;; and the initial placement of artifacts along with their required destinations.
+  (:init
+    ;; --- Robot Profiles ---
+    
+    ;; Curator
+    ;; access permissions: Broad access to most rooms.
+    (can-access curator entrance) (can-access curator maintenance-tunnel) 
+    (can-access curator hall-a) (can-access curator hall-b) 
+    (can-access curator cryo-chamber) (can-access curator anti-vibration-pods-room)
+    ;; pickup permission: Limited to specific artifact types.
+    (can-pickup curator scientific) (can-pickup curator top-secret)
+
+    ;; Technician
+    ;; Special ability: can transport two items simultaneously.
+    (can-carry-two technician)
+    ;; access permissions: Broad access to most rooms.
+    (can-access technician entrance) (can-access technician maintenance-tunnel) 
+    (can-access technician hall-a) (can-access technician hall-b) 
+    (can-access technician cryo-chamber) (can-access technician anti-vibration-pods-room)
+    ;; pickup permission: Can only handle technological items.
+    (can-pickup technician technological)
+
+    ;; Scientist
+    ;; access permissions: Highly restricted, relies on the tunnel to receive items.
+    (can-access scientist stasis-lab) (can-access scientist maintenance-tunnel)
+    ;; pickup permission: Can handle all item types.
+    (can-pickup scientist scientific) (can-pickup scientist top-secret) 
+    (can-pickup scientist technological)
+
+    
+    ;; --- Artifact Initial State & Targets ---
+    
+    ;; Artifact Batch 1) in Hall A that need to be bring in the Stasis Lab
+    (artifact-at mart-nord-core-drill hall-a) (is-type mart-nord-core-drill scientific) (assigned-target mart-nord-core-drill stasis-lab)
+    (artifact-at mart-sud-core-drill hall-a) (is-type mart-sud-core-drill scientific) (assigned-target mart-sud-core-drill stasis-lab)
+    ; (artifact-at mart-east-core-drill hall-a) (is-type mart-east-core-drill scientific) (assigned-target mart-east-core-drill stasis-lab)
+    ; (artifact-at mart-west-core-drill hall-a) (is-type mart-west-core-drill scientific) (assigned-target mart-west-core-drill stasis-lab)
+    
+    ;; Artifact Batch 2) in Hall A that need to be bring in the Cryo Chamber
+    (artifact-at mart-north-pole-ice-sample hall-a) (is-type mart-north-pole-ice-sample scientific) (assigned-target mart-north-pole-ice-sample cryo-chamber)
+    (artifact-at mart-mysterious-egg hall-a) (is-type mart-mysterious-egg top-secret) (assigned-target mart-mysterious-egg cryo-chamber)
+    ; (artifact-at asteroid-MG04TN-ice-sample hall-a) (is-type asteroid-MG04TN-ice-sample scientific) (assigned-target asteroid-MG04TN-ice-sample cryo-chamber)
+
+    ;; Artifact Batch 3) in Hall B ( all thecnological ) that need to be bring in the stasis lab
+    (artifact-at rover-wheel hall-b) (is-type rover-wheel technological) (assigned-target rover-wheel stasis-lab)
+    (artifact-at space-suit hall-b) (is-type space-suit technological) (assigned-target space-suit stasis-lab)
+    (artifact-at quantum-chip hall-b) (is-type quantum-chip technological) (assigned-target quantum-chip stasis-lab)
+    ; (artifact-at rusty-lightsaber hall-b) (is-type rusty-lightsaber technological) (assigned-target rusty-lightsaber stasis-lab)
+    
+    ;; Artifact Batch 4) in Hall B ( scientific / top-secret ) that need to be bring in the Hall A
+    (artifact-at mart-sand-sample hall-b) (is-type mart-sand-sample scientific) (assigned-target mart-sand-sample hall-a)
+    (artifact-at mart-laser-gun hall-b) (is-type mart-laser-gun top-secret) (assigned-target mart-laser-gun hall-a)
+    ; (artifact-at mart-pink-hat hall-b) (is-type mart-pink-hat top-secret) (assigned-target mart-pink-hat hall-a)
+    ; (artifact-at asteroid-AD29TV-rock-sample hall-b) (is-type asteroid-AD29TV-rock-sample hall-a)
+  
+  )
+
+  ;; ========================
+  ;; GOAL STATE
+  ;; ========================
+  ;; Hybrid approach: Ensures the planner formally verifies these STRIPS conditions 
+  ;; are met upon completion of the HTN tasks.
+  
+  (:goal (and
+    (artifact-at mart-nord-core-drill stasis-lab) 
+    (artifact-at mart-sud-core-drill stasis-lab)
+    ; (artifact-at mart-east-core-drill stasis-lab) 
+    ; (artifact-at mart-west-core-drill stasis-lab)
+
+    (artifact-at mart-north-pole-ice-sample cryo-chamber) 
+    (artifact-at mart-mysterious-egg cryo-chamber)    
+    ; (artifact-at asteroid-MG04TN-ice-sample cryo-chamber)
+
+    (artifact-at rover-wheel stasis-lab) (artifact-at space-suit stasis-lab)
+    (artifact-at quantum-chip stasis-lab) 
+    ; (artifact-at rusty-lightsaber stasis-lab)
+
+    (artifact-at mart-sand-sample hall-a) (artifact-at mart-laser-gun hall-a)
+    ; (artifact-at mart-pink-hat hall-a) (artifact-at asteroid-AD29TV-rock-sample hall-a)  
+  ))
+)
