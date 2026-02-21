@@ -1,9 +1,9 @@
-# 🧑‍🔧 Part 2.2: Multi-Robot and Drone Logistics
+# Part 2.2: Multi-Robot and Drone Logistics
 
-## 📝 Overview
+## Overview
 This folder builds upon the base scenario to introduce an architecture with multi-agent capabilities and varying carrying capacities for **Problem 2**.
 
-### 🔑 Key Additions:
+### Key Additions:
 1.  **Specialized Roles**: 
     - **Admin**: Has high-level privileges for critical artifact access.
     - **Technician**: Built for heavy lifting; can carry **two items at once** using a double slot (with the constraint that the second item must be non-fragile).

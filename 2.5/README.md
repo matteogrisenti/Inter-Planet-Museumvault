@@ -1,6 +1,6 @@
-# 🦾 Part 2.5: PlanSys2 Integration
+# Part 2.5: PlanSys2 Integration
 
-## 📝 Overview
+## Overview
 This directory contains the implementation for **Problem 5**. The goal here is to transport the temporal durative planning model into a concrete robotics execution framework using **ROS2 PlanSys2**.
 
 We map our PDDL actions into PlanSys2 action nodes (often utilizing "fake" nodes during simulation) to observe how the high-level planner orchestrates tasks in real-time, respecting action durations.

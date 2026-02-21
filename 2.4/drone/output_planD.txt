@@ -1,7 +1,0 @@
-Number of literals: 136
-Constructing lookup tables: [10%] [20%] [30%] [40%] [50%] [60%] [70%] [80%] [90%] [100%]
-Post filtering unreachable actions:  [10%] [20%] [30%] [40%] [50%] [60%] [70%] [80%] [90%] [100%]
-[01;34mNo analytic limits found, not considering limit effects of goal-only operators[00m
-98% of the ground temporal actions in this problem are compression-safe
-Initial heuristic = 27.000
-b (26.000 | 2.000)b (23.000 | 2.000)b (22.000 | 12.001)b (19.000 | 22.002)b (18.000 | 23.003)b (17.000 | 24.003)b (16.000 | 34.004)b (15.000 | 35.004)b (14.000 | 35.004)b (13.000 | 35.004)b (12.000 | 35.004)b (11.000 | 46.005)b (10.000 | 47.005)b (9.000 | 50.005)b (8.000 | 64.005)b (7.000 | 88.005)b (6.000 | 90.006)b (5.000 | 112.009)

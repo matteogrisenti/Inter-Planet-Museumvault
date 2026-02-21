@@ -1,6 +1,6 @@
-# 🤖 Part 2.1: Base Problem
+# Part 2.1: Base Problem
 
-## 📝 Overview
+## Overview
 This folder contains the formulation for **Problem 1** of the Interplanetary Museum Vault scenario. 
 
 In this base case:
