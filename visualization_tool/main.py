@@ -28,15 +28,15 @@ def run_visualization(input_dir: Path, output_dir: Path, mode: str, max_steps_li
             run_policy_viz(input_dir, output_dir)
             return
         
-        # --- MODE 7: OPTIC TEMPORAL VISUALIZATION (STATIC) ---
+        # --- MODE 7:  TEMPORAL VISUALIZATION (STATIC) ---
         elif mode == '7':
-            output_file = input_dir / "output.txt"
-            if not output_file.exists():
-                print(f"❌ Error: output.txt not found in {input_dir}")
-                print("   Mode 7 requires an OPTIC output file named 'output.txt'")
+            output_file = _find_plan_output(input_dir)
+            if not output_file:
+                print(f"❌ Error: no output file found in {input_dir}")
+                print("   Mode 7 requires 'output.txt' or an 'output_planX.txt' file")
                 return
             
-            print(f"--- Parsing OPTIC Output from {input_dir.name} ---")
+            print(f"--- Parsing Output from {input_dir.name} ({output_file.name}) ---")
             parser = OpticParser(output_file)
             timeline_data = parser.parse()
             
@@ -50,19 +50,19 @@ def run_visualization(input_dir: Path, output_dir: Path, mode: str, max_steps_li
             diagram_path = output_dir / "temporal_diagram.png"
             diagram.render(diagram_path)
             
-            print(f"\n✅ OPTIC Temporal Visualization Complete!")
+            print(f"\n✅ Temporal Visualization Complete!")
             print(f"   📊 Diagram: {diagram_path}")
             return
         
-        # --- MODE 8: OPTIC COMBINED ANIMATION (MAP + TIMELINE) ---
+        # --- MODE 8:  COMBINED ANIMATION (MAP + TIMELINE) ---
         elif mode == '8':
-            output_file = input_dir / "output.txt"
-            if not output_file.exists():
-                print(f"❌ Error: output.txt not found in {input_dir}")
-                print("   Mode 8 requires an OPTIC output file named 'output.txt'")
+            output_file = _find_plan_output(input_dir)
+            if not output_file:
+                print(f"❌ Error: no output file found in {input_dir}")
+                print("   Mode 8 requires 'output.txt' or an 'output_planX.txt' file")
                 return
             
-            print(f"--- Parsing OPTIC Output from {input_dir.name} ---")
+            print(f"--- Parsing Output from {input_dir.name} ({output_file.name}) ---")
             parser = OpticParser(output_file)
             timeline_data = parser.parse()
             
@@ -94,7 +94,7 @@ def run_visualization(input_dir: Path, output_dir: Path, mode: str, max_steps_li
             gif_path = output_dir / "combined_animation.gif"
             viz.render_combined_gif(gif_path, fps=2, max_frames=100, trace_file=trace_file)
             
-            print(f"\n✅ OPTIC Combined Animation Complete!")
+            print(f"\n✅ Temporal Combined Animation Complete!")
             print(f"   🎬 Animation: {gif_path}")
             print(f"   🎥 Video: {gif_path.with_suffix('.mp4')}")
             return
@@ -147,6 +147,39 @@ def run_visualization(input_dir: Path, output_dir: Path, mode: str, max_steps_li
         import traceback
         traceback.print_exc()
 
+def _find_plan_output(input_dir: Path):
+    """Find the best output plan file in the directory.
+    Prefers output.txt if it contains a solution, else falls back to
+    the first output_planX.txt found (sorted by number)."""
+    import re as _re
+    
+    def _has_solution(path: Path) -> bool:
+        try:
+            return ';;;; Solution Found' in path.read_text(errors='ignore')
+        except Exception:
+            return False
+
+    # 1. Check output.txt first
+    plain = input_dir / 'output.txt'
+    if plain.exists() and _has_solution(plain):
+        return plain
+
+    # 2. Try numbered output_planX.txt files
+    candidates = sorted(
+        input_dir.glob('output_plan*.txt'),
+        key=lambda p: int(_re.search(r'\d+', p.stem).group()) if _re.search(r'\d+', p.stem) else 999
+    )
+    for c in candidates:
+        if _has_solution(c):
+            return c
+
+    # 3. Return plain output.txt anyway so the caller can show the error
+    if plain.exists():
+        return plain
+
+    return None
+
+
 def main():
     parser = argparse.ArgumentParser(description="PDDL Planning Visualizer")
     parser.add_argument("directory", type=str, help="Directory containing PDDL files")
@@ -179,8 +212,8 @@ def main():
         print("  4. Generate Comic Book (Plots & Text)")
         print("  5. View Comic Book (Interactive)")
         print("  6. Policy Graph Visualization (Cyclic)")
-        print("  7. OPTIC Temporal Visualization (Static Timeline)")
-        print("  8. OPTIC Combined Animation (Map + Timeline GIF)")
+        print("  7.  Temporal Visualization (Static Timeline)")
+        print("  8.  Combined Animation (Map + Timeline GIF)")
         choice = input("\nChoice (1-8): ").strip()
     
     if choice not in ['1', '2', '3', '4', '5', '6', '7', '8']:

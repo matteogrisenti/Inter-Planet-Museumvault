@@ -86,7 +86,7 @@ class OpticParser:
             Robot name or None
         """
         # Known robot types
-        known_robots = {'curator', 'technician', 'scientist'}
+        known_robots = {'curator', 'technician', 'scientist', 'drone'}
         
         # Check if any parameter is a known robot
         for param in params:

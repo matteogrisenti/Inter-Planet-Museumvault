@@ -184,150 +184,161 @@ class CombinedOpticVisualization:
         """
         Apply effects of a temporal action to the state atoms.
         Mapping logic derived from domain analysis (2.2 vs 2.4).
+        Handles both hyphenated (2.2) and underscore (2.4) predicate naming conventions.
         """
         act_name = action['action']
         params = action['params']
-        robot = action['robot']
-        
-        # Helper to remove an atom matching pattern
-        def remove_atom(predicate, *args):
-            # Construct regex for the atom (ignoring whitespace)
-            # e.g. \(robot-at\s+curator\s+entrance\)
-            pattern = f"\\({predicate}"
-            for arg in args:
-                pattern += f"\\s+{arg}"
-            pattern += "\\)"
-            
-            regex = re.compile(pattern, re.IGNORECASE)
-            # Filter in place
-            current_atoms[:] = [a for a in current_atoms if not regex.search(a)]
 
-        # Helper to add an atom
+        # Detect naming convention from current state
+        # Use underscore style if that's what's in the initial atoms
+        use_underscore = any('robot_at' in a for a in current_atoms)
+        sep = '_' if use_underscore else '-'
+
+        def pred(name):
+            """Return predicate with correct naming convention separator."""
+            # name given in hyphenated form, convert if needed
+            return name.replace('-', sep)
+
+        # Helper to remove an atom matching pattern (handles both sep styles)
+        def remove_atom(predicate, *args):
+            # Build patterns for BOTH hyphen and underscore variants
+            for p_name in {predicate, predicate.replace('-', '_'), predicate.replace('_', '-')}:
+                pattern = f"\\({re.escape(p_name)}"
+                for arg in args:
+                    pattern += f"\\s+{re.escape(arg)}"
+                pattern += "\\)"
+                regex = re.compile(pattern, re.IGNORECASE)
+                current_atoms[:] = [a for a in current_atoms if not regex.search(a)]
+
+        # Helper to add an atom (use same style as existing state)
         def add_atom(predicate, *args):
-            atom = f"({predicate} {' '.join(args)})"
+            atom = f"({pred(predicate)} {' '.join(args)})"
             if atom not in current_atoms:
                 current_atoms.append(atom)
-        
+
         # --- ACTION MAPPING LOGIC ---
-        
+        # Normalize action name for matching (convert underscores to hyphens for keywords)
+        act_norm = act_name.replace('_', '-')
+
         # 1. MOVEMENT
-        if 'move-to' in act_name:
+        if 'move-to' in act_norm or 'fly-into' in act_norm:
             # params: robot, from, to
             if len(params) >= 3:
                 r, loc_from, loc_to = params[0], params[1], params[2]
+
+                # fly_into_seismic_room: ?r ?to ?from  (reversed!)
+                if 'fly-into-seismic-room' in act_norm:
+                    loc_to, loc_from = params[1], params[2]
+
                 remove_atom('robot-at', r, loc_from)
                 add_atom('robot-at', r, loc_to)
-                
-                # Side effect: Move turns off sealing if entering pressurized
-                if 'unpressurized' in act_name:
-                    # Enters tunnel -> requires sealing (handled by activate-seal usually)
-                    pass
-                else:
-                    # Enters pressurized -> sealing off
-                    remove_atom('sealing-mode', r)
-                    remove_atom('sealing-mode-on', r) # 2.4 variant
-        
-        # 2. PICK UP
-        elif 'pick-up-empty-pod' in act_name:
+
+                # Moving to pressurized -> sealing off
+                if 'unpressurized' not in act_norm:
+                    remove_atom('sealing-mode-on', r)
+                    add_atom('sealing-mode-off', r)
+
+        # 2. PICK UP (slot-based, 2.4 style)
+        elif 'pick-up-empty-pod-slot' in act_norm or 'pick-up-empty-pod' in act_norm:
             # params: robot, loc, pod
             if len(params) >= 3:
                 r, l, p = params[0], params[1], params[2]
-                remove_atom('contains-empty-pod', l, p)
-                remove_atom('hands-empty', r)
-                add_atom('carrying-empty-pod', r, p)
-                
-        elif 'pick-up-full-pod' in act_name:
-            # params: robot, loc, pod, artifact, type
-            if len(params) >= 4:
-                r, l, p, a = params[0], params[1], params[2], params[3]
-                remove_atom('contains-full-pod', l, p)
-                remove_atom('hands-empty', r)
-                add_atom('carrying-full-pod', r, p)
-                # Implicit: pod still contains artifact (pod-contains p a)
-                # We make sure it's in the state just in case
-                add_atom('pod-contains', p, a)
+                remove_atom('pod-at', p, l)
+                remove_atom('hands-empty-slot-1', r)
+                add_atom('carrying-pod-slot-1', r, p)
 
-        elif 'pick-up' in act_name: # standard artifact pickup
-            # params: artifact, type, loc, robot (order varies? check 2.4)
-            # 2.4: ?a - artifact ?at - artifact-type ?l - location ?r - robot
+        elif 'pick-up-full-pod-slot' in act_norm or 'pick-up-full-pod' in act_norm:
+            # params: robot, loc, pod, artifact, type
+            if len(params) >= 3:
+                r, l, p = params[0], params[1], params[2]
+                remove_atom('pod-at', p, l)
+                remove_atom('hands-empty-slot-1', r)
+                add_atom('carrying-pod-slot-1', r, p)
+
+        elif 'pick-up-slot-1' in act_norm:
+            # 2.4: ?a ?at ?l ?r
             if len(params) >= 4:
                 a, at, l, r = params[0], params[1], params[2], params[3]
                 remove_atom('artifact-at', a, l)
-                remove_atom('hands-empty', r)
-                add_atom('carrying', r, a)
+                remove_atom('hands-empty-slot-1', r)
+                add_atom('carrying-slot-1', r, a)
 
-        # 3. DROP / RELEASE
-        elif 'drop-empty-pod' in act_name:
-             # params: robot, pod, loc
-             if len(params) >= 3:
-                 r, p, l = params[0], params[1], params[2]
-                 remove_atom('carrying-empty-pod', r, p)
-                 add_atom('hands-empty', r)
-                 add_atom('contains-empty-pod', l, p)
-        
-        elif 'drop-full-pod' in act_name:
-             # params: robot, pod, loc
-             if len(params) >= 3:
-                 r, p, l = params[0], params[1], params[2]
-                 remove_atom('carrying-full-pod', r, p)
-                 add_atom('hands-empty', r)
-                 add_atom('contains-full-pod', l, p)
+        elif 'pick-up-slot-2' in act_norm:
+            # 2.4: ?r ?a ?at ?l
+            if len(params) >= 4:
+                r, a, at, l = params[0], params[1], params[2], params[3]
+                remove_atom('artifact-at', a, l)
+                remove_atom('hands-empty-slot-2', r)
+                add_atom('carrying-slot-2', r, a)
 
-        elif 'release-artifact-from-pod' in act_name:
-            # params: ?r - robot ?a - artifact ?l - location ?p - pod
+        elif 'pick-up' in act_norm:
+            # Legacy: params artifact, type, loc, robot
+            if len(params) >= 4:
+                a, at, l, r = params[0], params[1], params[2], params[3]
+                remove_atom('artifact-at', a, l)
+                add_atom('carrying-slot-1', r, a)
+
+        # 3. DROP POD
+        elif 'drop-pod-slot' in act_norm or 'drop-empty-pod' in act_norm or 'drop-full-pod' in act_norm:
+            # params: robot, pod, loc
+            if len(params) >= 3:
+                r, p, l = params[0], params[1], params[2]
+                remove_atom('carrying-pod-slot-1', r, p)
+                add_atom('hands-empty-slot-1', r)
+                add_atom('pod-at', p, l)
+
+        # 4. RELEASE ARTIFACT FROM POD
+        elif 'release-artifact-from-pod-slot' in act_norm or 'release-artifact-from-pod' in act_norm:
+            # params: robot, artifact, loc, pod
             if len(params) >= 4:
                 r, a, l, p = params[0], params[1], params[2], params[3]
-                remove_atom('carrying-full-pod', r, p)
                 remove_atom('pod-contains', p, a)
+                remove_atom('pod-empty', p)
                 add_atom('artifact-at', a, l)
                 add_atom('pod-empty', p)
-                add_atom('carrying-empty-pod', r, p)
 
-        elif 'release-artifact' in act_name: # standard release
-            # params: robot, artifact, loc
+        # 5. RELEASE ARTIFACT (from hand)
+        elif 'release-artifact-slot-1' in act_norm:
             if len(params) >= 3:
                 r, a, l = params[0], params[1], params[2]
-                remove_atom('carrying', r, a)
-                add_atom('hands-empty', r)
+                remove_atom('carrying-slot-1', r, a)
+                add_atom('hands-empty-slot-1', r)
                 add_atom('artifact-at', a, l)
 
-        # 4. LOAD INTO POD
-        elif 'put-in-pod' in act_name:
-            # params: ?a - artifact ?at - artifact-type ?l - location ?r - robot ?p - pod
+        elif 'release-artifact-slot-2' in act_norm:
+            if len(params) >= 3:
+                r, a, l = params[0], params[1], params[2]
+                remove_atom('carrying-slot-2', r, a)
+                add_atom('hands-empty-slot-2', r)
+                add_atom('artifact-at', a, l)
+
+        elif 'release-artifact' in act_norm:
+            if len(params) >= 3:
+                r, a, l = params[0], params[1], params[2]
+                remove_atom('carrying-slot-1', r, a)
+                add_atom('artifact-at', a, l)
+
+        # 6. PUT IN POD
+        elif 'put-in-pod-slot' in act_norm or 'put-in-pod' in act_norm:
+            # params: artifact, type, loc, robot, pod
             if len(params) >= 5:
                 a, at, l, r, p = params[0], params[1], params[2], params[3], params[4]
                 remove_atom('artifact-at', a, l)
-                remove_atom('carrying-empty-pod', r, p)
                 remove_atom('pod-empty', p)
-                add_atom('carrying-full-pod', r, p)
                 add_atom('pod-contains', p, a)
 
-        # 5. COOLING
-        elif 'cool-artifact' in act_name:
-            # params: robot, artifact, loc...
-            # effect: not warm, cold
-            if len(params) >= 2:
-                # Find artifact in params
-                # Usually 2nd param based on actions
-                 pass # Renderer handles color via 'cold' predicate if present
-                 # We need to find which param is artifact.
-                 # Heuristic: find param starting with 'rock' or 'alien' or known artifact
-                 # simpler: if it has 'warm' atom, replace with 'cold'
-                 pass 
-                 # We'll rely on the fact that we don't strictly simulate temp for map, 
-                 # but for color it might matters.
-                 # Let's try to update state
-                 for p_val in params:
-                     # Check if p_val is an artifact
-                     if any(f"(warm {p_val})" in atom for atom in current_atoms):
-                         remove_atom('warm', p_val)
-                         add_atom('cold', p_val)
-
-        # 6. SEALING
-        elif 'activate-seal' in act_name:
+        # 7. SEALING
+        elif 'activate-seal' in act_norm:
             r = params[0]
-            add_atom('sealing-mode', r) # 2.2 name
-            add_atom('sealing-mode-on', r) # 2.4 name
+            remove_atom('sealing-mode-off', r)
+            add_atom('sealing-mode-on', r)
+
+        # 8. COOLING (no visual effect on map needed)
+        elif 'cool-artifact' in act_norm:
+            for p_val in params:
+                if any(f'warm {p_val}' in atom or f'warm_{p_val}' in atom for atom in current_atoms):
+                    remove_atom('warm', p_val)
+                    add_atom('cold', p_val)
 
     def render_combined_gif(self, output_path: Path, fps=2, max_frames=None, trace_file: Path = None):
         """
@@ -353,9 +364,9 @@ class CombinedOpticVisualization:
             # Fallback for when we can't parse PDDL
             print("⚠️ Using fallback initial state")
             initial_atoms = [
-                '(robot-at curator entrance)', '(robot-at technician entrance)', '(robot-at scientist entrance)',
-                '(hands-empty curator)', '(hands-empty technician)', '(hands-empty scientist)',
-                '(can-access curator entrance)', '(can-access technician entrance)', '(can-access scientist entrance)'
+                '(robot-at curator entrance)', '(robot-at technician entrance)', '(robot-at scientist entrance)', '(robot-at drone entrance)',
+                '(hands-empty curator)', '(hands-empty technician)', '(hands-empty scientist)', '(hands-empty drone)',
+                '(can-access curator entrance)', '(can-access technician entrance)', '(can-access scientist entrance)', '(can-access drone entrance)'
             ]
 
         # Initialize Renderer with dummy trace containing initial state
@@ -426,6 +437,9 @@ class CombinedOpticVisualization:
                     self._apply_action_effects(temp_atoms, action)
                     temp_processed.add(i)
             
+            # Print state debug
+            # if frame_idx % 10 == 0:
+            #    print(f"Frame {frame_idx} (Time {t}): {temp_atoms}")
             frame_states.append(list(temp_atoms))
 
         def update(frame_idx):
@@ -498,7 +512,8 @@ class CombinedOpticVisualization:
             robot_colors = {
                 'curator': '#2E86C1',
                 'technician': '#E67E22',
-                'scientist': '#8E44AD'
+                'scientist': '#8E44AD',
+                'drone': '#27AE60'
             }
             
             y_pos = 0.65  # Start lower to create padding below title

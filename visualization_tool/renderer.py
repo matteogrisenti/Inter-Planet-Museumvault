@@ -53,11 +53,13 @@ class StateParser:
             args = atom[1:]
 
             # --- ROBOTS ---
-            if pred == 'robot-at':
+            if pred in ('robot-at', 'robot_at'):
                 get_robot(args[0])['loc'] = args[1]
                 state['locations'].add(args[1])
-            elif pred == 'sealing-mode':
+            elif pred in ('sealing-mode', 'sealing_mode_on'):
                 get_robot(args[0])['sealed'] = True
+            elif pred == 'sealing_mode_off':
+                get_robot(args[0])['sealed'] = False
             
             # OLD DOMAIN predicates
             elif pred == 'carrying':
@@ -76,23 +78,26 @@ class StateParser:
                 r['slot_2_type'] = 'artifact'
             
             # NEW DOMAIN predicates - Slot-based
-            elif pred == 'carrying-slot-1':
+            elif pred in ('carrying-slot-1', 'carrying_slot_1'):
                 r = get_robot(args[0])
                 r['slot_1'] = args[1]
                 r['slot_1_type'] = 'artifact'
-            elif pred == 'carrying-slot-2':
+            elif pred in ('carrying-slot-2', 'carrying_slot_2'):
                 r = get_robot(args[0])
                 r['slot_2'] = args[1]
                 r['slot_2_type'] = 'artifact'
-            elif pred == 'carrying-pod-slot-1':
+            elif pred in ('carrying-pod-slot-1', 'carrying_pod_slot_1'):
                 r = get_robot(args[0])
                 r['slot_1'] = args[1]
                 r['slot_1_type'] = 'pod'
+            elif pred in ('hands-empty-slot-1', 'hands-empty-slot-2', 'hands_empty_slot_1', 'hands_empty_slot_2', 'hands-empty', 'hands_empty'):
+                # Explicitly ignoring hands empty since it just means slots are unoccupied
+                pass
             
             # --- DRONES ---
-            elif pred == 'drone-at':
+            elif pred in ('drone-at', 'drone_at'):
                 get_drone(args[0])['loc'] = args[1]
-            elif pred == 'drone-carrying':
+            elif pred in ('drone-carrying', 'drone_carrying'):
                 get_drone(args[0])['holding'] = args[1]
 
             # --- ARTIFACTS ---
@@ -125,16 +130,16 @@ class StateParser:
                         state['artifacts'][args[0]]['color'] = artifact_metadata[args[0]].get('display_color')
             
             # --- PODS (In Rooms) ---
-            elif pred == 'contains-empty-pod':
+            elif pred in ('contains-empty-pod', 'contains_empty_pod'):
                 state['pods'][args[1]] = {'loc': args[0], 'content': None}
-            elif pred == 'contains-full-pod':
+            elif pred in ('contains-full-pod', 'contains_full_pod'):
                 state['pods'][args[1]] = {'loc': args[0], 'content': 'unknown'}
-            elif pred == 'pod-at':
+            elif pred in ('pod-at', 'pod_at'):
                 if args[0] not in state['pods']:
                     state['pods'][args[0]] = {'loc': args[1], 'content': None}
                 else:
                     state['pods'][args[0]]['loc'] = args[1]
-            elif pred == 'pod-contains':
+            elif pred in ('pod-contains', 'pod_contains'):
                 pod_id = args[0]
                 item_id = args[1]
                 
@@ -151,9 +156,9 @@ class StateParser:
                         r['pod_content'] = item_id
 
             # --- ENVIRONMENT ---
-            elif pred == 'is-seismic':
+            elif pred in ('is-seismic', 'is_seismic'):
                 state['seismic'].append(args[0])
-            elif pred == 'can-access':
+            elif pred in ('can-access', 'can_access'):
                 r, l = args
                 if r not in state['permissions']:
                     state['permissions'][r] = []
@@ -169,34 +174,35 @@ class Renderer:
             self.history = json.load(f)
         
         # --- CONFIGURATION ---
+        # Keys stored in BOTH hyphenated (2.2) and underscore (2.4) styles
         self.location_sizes = {
             'entrance': (2, 3.0),
-            'maintenance-tunnel': (9.0, 1.2),
-            'hall-a': (3.5, 3.0),
-            'hall-b': (3.5, 3.0),
-            'cryo-chamber': (3.0, 4.6),
-            'anti-vibration-pods-room': (1.5, 3.0),
-            'stasis-lab': (6.0, 3.0)
+            'maintenance-tunnel': (9.0, 1.2),  'maintenance_tunnel': (9.0, 1.2),
+            'hall-a': (3.5, 3.0),              'hall_a': (3.5, 3.0),
+            'hall-b': (3.5, 3.0),              'hall_b': (3.5, 3.0),
+            'cryo-chamber': (3.0, 4.6),        'cryo_chamber': (3.0, 4.6),
+            'anti-vibration-pods-room': (1.5, 3.0), 'anti_vibration_pods_room': (1.5, 3.0),
+            'stasis-lab': (6.0, 3.0),          'stasis_lab': (6.0, 3.0)
         }
         
         self.location_positions = {
-            'cryo-chamber': (-4.0, -1.7),
-            'maintenance-tunnel': (2.5, 0),
+            'cryo-chamber': (-4.0, -1.7),      'cryo_chamber': (-4.0, -1.7),
+            'maintenance-tunnel': (2.5, 0),    'maintenance_tunnel': (2.5, 0),
             'entrance': (-0.75, -2.5),
-            'anti-vibration-pods-room': (-1.0, 2.5),
-            'hall-a': (1.75, 2.5),
-            'hall-b': (5.25, 2.5),
-            'stasis-lab': (4.0, -2.5)
+            'anti-vibration-pods-room': (-1.0, 2.5), 'anti_vibration_pods_room': (-1.0, 2.5),
+            'hall-a': (1.75, 2.5),             'hall_a': (1.75, 2.5),
+            'hall-b': (5.25, 2.5),             'hall_b': (5.25, 2.5),
+            'stasis-lab': (4.0, -2.5),         'stasis_lab': (4.0, -2.5)
         }
         
         self.location_colors = {
             'entrance': '#D3D3D3',
-            'maintenance-tunnel': '#F5DEB3',
-            'hall-a': '#FAF0E6',
-            'hall-b': '#FAF0E6',
-            'cryo-chamber': '#D1F2EB',
-            'anti-vibration-pods-room': '#E8DAEF',
-            'stasis-lab': '#FAF0E6'
+            'maintenance-tunnel': '#F5DEB3',   'maintenance_tunnel': '#F5DEB3',
+            'hall-a': '#FAF0E6',               'hall_a': '#FAF0E6',
+            'hall-b': '#FAF0E6',               'hall_b': '#FAF0E6',
+            'cryo-chamber': '#D1F2EB',         'cryo_chamber': '#D1F2EB',
+            'anti-vibration-pods-room': '#E8DAEF', 'anti_vibration_pods_room': '#E8DAEF',
+            'stasis-lab': '#FAF0E6',           'stasis_lab': '#FAF0E6'
         }
 
         # Analyze roles based on the initial state
@@ -217,6 +223,7 @@ class Renderer:
         COLOR_ADMIN = '#2E86C1'      # Blue
         COLOR_TECH = '#E67E22'       # Orange
         COLOR_SCI = '#8E44AD'        # Purple
+        COLOR_DRN = '#27AE60'        # Green
         COLOR_DEFAULT = '#7F8C8D'    # Grey
         
         for r_name in state['robots']:
@@ -233,6 +240,10 @@ class Renderer:
                 role = 'scientist'
                 color = COLOR_SCI
                 short = "SCI"
+            elif 'drone' in name_lower:
+                role = 'drone'
+                color = COLOR_DRN
+                short = "DRN"
             else:
                 role = 'unknown'
                 color = COLOR_DEFAULT
