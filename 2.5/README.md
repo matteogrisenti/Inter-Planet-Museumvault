@@ -62,3 +62,10 @@ Execute the planning sequence:
 cd src/museum
 bash commands.sh  # Or select another script or enter commands manually
 ```
+
+## Output 
+You can find a demostrative ouput file `output.txt` can obtained modifying the last command:
+```bash
+cd src/museum
+bash commands.sh | tee output.txt
+```
